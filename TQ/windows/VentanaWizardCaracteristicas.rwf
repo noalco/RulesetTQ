@@ -997,75 +997,6 @@ end</LUACode>
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
-    <ControlName>Etnia</ControlName>
-    <ZIndex>8</ZIndex>
-    <ControlClass>FGWindowList</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AcceptDrop","Value":{"@xsi:type":"ArrayOfPropertyAcceptDrop","PropertyAcceptDrop":{"ClassName":"VentanaEtniaSidebar"}}},
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
-      {"Name":"AllowCreate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"AllowDelete","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"CanGrowVert"},
-      {"Name":"Columns","Value":{"@xsi:type":"PropertyColumns","ColumnWidth":{"@xsi:nil":"true"},"FillDown":{"@xsi:nil":"true"},"FillWidth":{"@xsi:nil":"true"}}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Etnia"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DataSource","Value":{"@xsi:type":"xsd:string","#text":"Wizard.Etnia"}},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"220"}},
-      {"Name":"Disabled"},
-      {"Name":"EmptyListFontName"},
-      {"Name":"EmptyListText","Value":{"@xsi:type":"xsd:string","#text":"« Arrastra aquí tu Origen étnico »"}},
-      {"Name":"Fields"},
-      {"Name":"FrameName"},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"HoverCursor"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"NextTabTarget"},
-      {"Name":"NoScroll"},
-      {"Name":"OwnedOnly"},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly"},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"StackVertWith"},
-      {"Name":"Tooltip"},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"WindowListChildDefinition","Value":{"@xsi:type":"ArrayOfChildDefinition"}},
-      {"Name":"WindowListClassName","Value":{"@xsi:type":"xsd:string","#text":"EtniaWizardBase"}},
-      {"Name":"WindowListFilterBy","Value":{"@xsi:type":"FilterByDefinition","FilterSourceType":"Control","FilterOnSourceType":"Control"}},
-      {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"451"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"121"}}
-]}}</Definition>
-    <LUACode>function onDrop(x, y, dragdata)
-	if getWindowCount()==1 then	DB.deleteChildren(getDatabaseNode()); end;
-end
-
-function onListChanged()
-	if getWindowCount()==1 then	Debug.chat(getWindows()) end;
-end
-</LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Fuerza</ControlName>
     <ZIndex>47</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
@@ -2576,6 +2507,15 @@ function onDrop(x, y, dragdata)
 		window.NombreEtnia.Actualizar(sRecord);
 		--ParseoHabilidades.AniadirHabilidades(sRecord, "etnia");
 		ParseoHabilidades.ModificarHabilidades(sRecord, "etnia", true);
+		local sPathNombre="";
+		
+		if string.find(sRecord, "@") then
+			sPathName, _=string.gsub(sRecord, "@", ".IdiomaNativo@");
+		else
+			sPathName=sRecord..".IdiomaNativo";
+		end
+		ParseoHabilidades.IdiomaNativo = ParsearHabilidades(DB.getValue(sPathName, ""));
+		Debug.chat(ParseoHabilidades.IdiomaNativo)
 	end;
 end
 </LUACode>

@@ -10,7 +10,7 @@
     <Website />
     <Version>1</Version>
     <Release>8</Release>
-    <RulesetWizardVersion>0.8.3</RulesetWizardVersion>
+    <RulesetWizardVersion>0.8.2</RulesetWizardVersion>
     <RulesetList>CoreRPG</RulesetList>
     <LoadOrder />
     <Comments />
@@ -8899,58 +8899,6 @@ end</LUACode>
       {"Name":"WindowTitle"},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
-]}}</Definition>
-    <LUACode />
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>charsheet_main</WindowName>
-    <ControlName>Label1</ControlName>
-    <ZIndex>9</ZIndex>
-    <ControlClass>FGLabel</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"CanGrowVert"},
-      {"Name":"Center"},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Label1"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
-      {"Name":"Disabled"},
-      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"FrameName"},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"HoverCursor"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Prueba GIT"}},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"MultilineSpacing"},
-      {"Name":"NextTabTarget"},
-      {"Name":"PrevTabTarget"},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"StackVertWith"},
-      {"Name":"TextUnderlined"},
-      {"Name":"Tooltip"},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"240"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"13"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -61185,75 +61133,6 @@ end</LUACode>
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
-    <ControlName>Etnia</ControlName>
-    <ZIndex>8</ZIndex>
-    <ControlClass>FGWindowList</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AcceptDrop","Value":{"@xsi:type":"ArrayOfPropertyAcceptDrop","PropertyAcceptDrop":{"ClassName":"VentanaEtniaSidebar"}}},
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
-      {"Name":"AllowCreate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"AllowDelete","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"CanGrowVert"},
-      {"Name":"Columns","Value":{"@xsi:type":"PropertyColumns","ColumnWidth":{"@xsi:nil":"true"},"FillDown":{"@xsi:nil":"true"},"FillWidth":{"@xsi:nil":"true"}}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Etnia"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DataSource","Value":{"@xsi:type":"xsd:string","#text":"Wizard.Etnia"}},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"220"}},
-      {"Name":"Disabled"},
-      {"Name":"EmptyListFontName"},
-      {"Name":"EmptyListText","Value":{"@xsi:type":"xsd:string","#text":"« Arrastra aquí tu Origen étnico »"}},
-      {"Name":"Fields"},
-      {"Name":"FrameName"},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"HoverCursor"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"NextTabTarget"},
-      {"Name":"NoScroll"},
-      {"Name":"OwnedOnly"},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly"},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"StackVertWith"},
-      {"Name":"Tooltip"},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"WindowListChildDefinition","Value":{"@xsi:type":"ArrayOfChildDefinition"}},
-      {"Name":"WindowListClassName","Value":{"@xsi:type":"xsd:string","#text":"EtniaWizardBase"}},
-      {"Name":"WindowListFilterBy","Value":{"@xsi:type":"FilterByDefinition","FilterSourceType":"Control","FilterOnSourceType":"Control"}},
-      {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"451"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"121"}}
-]}}</Definition>
-    <LUACode>function onDrop(x, y, dragdata)
-	if getWindowCount()==1 then	DB.deleteChildren(getDatabaseNode()); end;
-end
-
-function onListChanged()
-	if getWindowCount()==1 then	Debug.chat(getWindows()) end;
-end
-</LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Fuerza</ControlName>
     <ZIndex>47</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
@@ -62764,6 +62643,15 @@ function onDrop(x, y, dragdata)
 		window.NombreEtnia.Actualizar(sRecord);
 		--ParseoHabilidades.AniadirHabilidades(sRecord, "etnia");
 		ParseoHabilidades.ModificarHabilidades(sRecord, "etnia", true);
+		local sPathNombre="";
+		
+		if string.find(sRecord, "@") then
+			sPathName, _=string.gsub(sRecord, "@", ".IdiomaNativo@");
+		else
+			sPathName=sRecord..".IdiomaNativo";
+		end
+		ParseoHabilidades.IdiomaNativo = ParsearHabilidades(DB.getValue(sPathName, ""));
+		Debug.chat(ParseoHabilidades.IdiomaNativo)
 	end;
 end
 </LUACode>
@@ -73477,16 +73365,21 @@ function AniadirPersonalidad(nodeChar, windowWizard)
 end
 
 function AniadirHabilidades(nodeChar, window)
+	local sClave="";
 	for _,w in ipairs(window.abilities.subwindow.ListaHabilidades.getWindows()) do
-		DB.setValue(w.getDatabaseNode(), "DeProfesion", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].prof);
-		if ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].PG ~=0 then
-			DB.setValue(w.getDatabaseNode(), "PtosGratis", "number", DB.getValue(w.getDatabaseNode(), "PtosGratis", 0)+ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].PG);
+		sClave=DB.getValue(w.getDatabaseNode(), "Clave", "");
+		if sClave~="" and ParseoHabilidades.DatosHabilidades[sClave] then
+			DB.setValue(w.getDatabaseNode(), "DeProfesion", "number", ParseoHabilidades.DatosHabilidades[sClave].prof);
+			if ParseoHabilidades.DatosHabilidades[sClave].PG ~=0 then
+				DB.setValue(w.getDatabaseNode(), "PtosGratis", "number", DB.getValue(w.getDatabaseNode(), "PtosGratis", 0)+ParseoHabilidades.DatosHabilidades[sClave].PG);
+			end
+			DB.setValue(w.getDatabaseNode(), "BonoEtnia", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(sClave].etnia);
+			DB.setValue(w.getDatabaseNode(), "BonoEspecialidad", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(sClave].esp);
+			DB.setValue(w.getDatabaseNode(), "BonoCulto", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(sClave].culto);
+			DB.setValue(w.getDatabaseNode(), "BonoVentDesvent", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(sClave].VentDes);
+			DB.setValue(w.getDatabaseNode(), "BonoMisc", "number", ParseoHabilidades.DatosHabilidades[sClave].varios);
+			if sClave=="Idioma Nativo" then DB.setValue(w.getDatabaseNode(), "Idioma", "number", ParseoHabilidades.IdiomaNativo); end;
 		end
-		DB.setValue(w.getDatabaseNode(), "BonoEtnia", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].etnia);
-		DB.setValue(w.getDatabaseNode(), "BonoEspecialidad", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].esp);
-		DB.setValue(w.getDatabaseNode(), "BonoCulto", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].culto);
-		DB.setValue(w.getDatabaseNode(), "BonoVentDesvent", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].VentDes);
-		DB.setValue(w.getDatabaseNode(), "BonoMisc", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].varios);
 	end
 end
 
@@ -73819,7 +73712,7 @@ end</Script>
     <FolderID>11</FolderID>
     <Script>DatosHabilidades = {
 	["Arma CC"]={nombre="Arma CC", tooltip="AGI", repetible=true, secundario=true, gratuito=0, base="AGI", estorbo=false, multEstorbo=0},
-	["Arma Ar"]={nombre="Arma Ar", tooltip="AGI", repetible=true, secundario=true, gratuito=0, base="AGI", estorbo=false, multEstorbo=0},
+--	["Arma Ar"]={nombre="Arma Ar", tooltip="AGI", repetible=true, secundario=true, gratuito=0, base="AGI", estorbo=false, multEstorbo=0},
 	["Arma Pr"]={nombre="Arma Pr", tooltip="TEC", repetible=true, secundario=true, gratuito=0, base="TEC", estorbo=false, multEstorbo=0},
 	["Artesania"]={nombre="Artesanía", tooltip="TEC", repetible=true, secundario=true, gratuito=0, base="TEC", estorbo=false, multEstorbo=0},
 	["Autoridad"]={nombre="Autoridad", tooltip="COM", repetible=false, secundario=false, gratuito=0, base="COM", estorbo=false, multEstorbo=0},
@@ -75827,6 +75720,7 @@ DatosHabilidadesSecundarias = {
 
 HabilidadesProf=0;
 HabilidadesNoProf=0;
+IdiomaNativo="";
 
 function ResetDatos()
 	local sClave; local rHabilidad; local sCampo; local rSecundaria; local sSecundaria;
