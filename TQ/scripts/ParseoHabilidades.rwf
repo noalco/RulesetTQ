@@ -1,0 +1,329 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>ParseoHabilidades</ScriptName>
+    <FolderID>21</FolderID>
+    <Script>Habilidad2Clave = {
+	["arma cc"]="Arma CC",
+	["arma pr"]="Arma Pr",
+	["artesanía"]="Artesania",
+	["autoridad"]="Autoridad",
+	["bellas artes"]="Bellas Artes",
+	["buscar"]="Buscar",
+	["callejeo"]="Callejeo",
+	["conocimiento mágico"]="Conocimiento Magico",
+	["correr"]="Correr",
+	["documentación"]="Documentacion",
+	["encanto"]="Encanto",
+	["engañar"]="Enganiar",
+	["equilibrio"]="Equilibrio",
+	["esquivar"]="Esquivar",
+	["estrategia"]="Estrategia",
+	["forzar cerraduras"]="Forzar Cerraduras",
+	["hurtar"]="Hurtar",
+	["idioma"]="Idioma Nativo",
+	["idioma"]="Idioma",
+	["instruir"]="Instruir",
+	["interpretar sueños"]="Interpretar Suenios",
+	["intimidar"]="Intimidar",
+	["inventar"]="Inventar",
+	["juego"]="Juego",
+	["lanzar"]="Lanzar",
+	["leyendas"]="Leyendas",
+	["manejar botes"]="Manejar Botes",
+	["manejar carros"]="Manejar Carros",
+	["medicina"]="Medicina",
+	["memorizar"]="Memorizar",
+	["montar"]="Montar",
+	["multiverso"]="Multiverso",
+	["música"]="Musica",
+	["nadar"]="Nadar",
+	["naturaleza"]="Naturaleza",
+	["navegación"]="Navegacion",
+	["ocultar"]="Ocultar",
+	["oratoria"]="Oratoria",
+	["orientación"]="Orientacion",
+	["pelea"]="Pelea",
+	["percatarse"]="Percatarse",
+	["perspicacia"]="Perspicacia",
+	["persuadir"]="Persuadir",
+	["pociones"]="Pociones",
+	["primeros auxilios"]="Primeros Auxilios",
+	["rastrear"]="Rastrear",
+	["saltar"]="Saltar",
+	["seguir"]="Seguir",
+	["sigilo"]="Sigilo",
+	["tierras quebradas"]="Tierras Quebradas",
+	["torturar"]="Torturar",
+	["tratar animales"]="Tratar Animales",
+	["trepar"]="Trepar",
+}
+
+DatosHabilidades = {
+	["Autoridad"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Bellas Artes"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Buscar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Callejeo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Conocimiento Magico"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Correr"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Documentacion"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Encanto"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Enganiar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Equilibrio"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Esquivar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Estrategia"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Forzar Cerraduras"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Hurtar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Idioma Nativo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Instruir"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Interpretar Suenios"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Intimidar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Inventar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Juego"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Lanzar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Leyendas"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Manejar Botes"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Manejar Carros"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Medicina"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Memorizar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Montar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Multiverso"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Musica"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Nadar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Naturaleza"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Navegacion"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Ocultar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Oratoria"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Orientacion"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Pelea"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Percatarse"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Perspicacia"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Persuadir"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Pociones"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Primeros Auxilios"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Rastrear"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Saltar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Seguir"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Sigilo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Tierras Quebradas"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Torturar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Tratar Animales"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Trepar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+}
+
+DatosHabilidadesSecundarias = {
+	["Arma CC"]={
+		["Arma de asta"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Escudo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Espada"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Hacha"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Látigo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Maza"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Mayal"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Puñal"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Red"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0}
+	},
+	["Arma Pr"]={
+		["Arco"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Ballesta"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Canon de mano"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Honda"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0}
+	},
+	["Artesania"]={
+		["Albañilería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Alfarería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Armería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Carnicería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Carpintería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Cartogrfía"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Cervecería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Cestería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Cocina"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Cristalería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Destilería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Embarcaciones"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Escultura/Talla"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Herrería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Ilustración"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Joyería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Peletería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Perfumería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Pintura/Dibujo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Panadería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Sastrería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Tatuajes"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Tejeduría"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Velería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Vinicultura"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Zapatería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0}
+	},
+	["Idioma"]={
+		["Antiguo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Bosquimano"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Estepario"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Fornk"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Imanguke"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Merení"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Mezuri o Austero"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Ocrense"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Oriental o Kunya"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Shorano"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Tilés"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Vash"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0}
+	},
+}
+
+HabilidadesProf=0;
+HabilidadesNoProf=0;
+
+function ResetDatos()
+	local sClave; local rHabilidad; local sCampo; local rSecundaria; local sSecundaria;
+	for sClave, rHabilidad in pairs(DatosHabilidades) do
+		for sCampo,_ in pairs(rHabilidad) do
+			DatosHabilidades[sClave][sCampo]=0;
+		end
+	end
+	for sClave, rHabilidad in pairs(DatosHabilidadesSecundarias) do
+		for sSecundaria, rSecundaria in pairs(rHabilidad) do
+			for sCampo,_ in pairs(rSecundaria) do
+				DatosHabilidadesSecundarias[sClave][sSecundaria][sCampo]=0;
+			end
+		end
+	end
+
+end
+
+function ParsearHabilidades(sHabilidades)
+	local aHabilidades = {};
+	
+	local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
+	
+	for i = 1, #aClauses do
+		local sHabilidad, sValor = string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)([%+%-–]?%d*)");
+		if string.sub(sHabilidad, sHabilidad:len(), sHabilidad:len())==" " then sHabilidad=string.match(sHabilidad, "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+
+		if sHabilidad and sValor then
+			table.insert(aHabilidades, {sHabilidad=sHabilidad, nValor=tonumber(sValor)});
+		end
+	end
+	return aHabilidades;
+end
+
+function esSecundaria(sHabilidad)
+	sHabilidad=string.lower(sHabilidad);
+	if string.match(sHabilidad, "arma cc")==nil and string.match(sHabilidad,"arma pr")==nil and string.match(sHabilidad,"artesanía")==nil and string.match(sHabilidad,"idioma")==nil then
+		return false;
+	else
+		return true;
+	end
+end
+
+function SecundariaVacia(sHabilidad, sSecundaria)
+	local nValor=0;
+	for _,nValor in pairs(DatosHabilidadesSecundarias[sHabilidad][sSecundaria]) do
+		if nValor~=0 then return false; end
+	end
+	return true;
+end
+
+--function AniadirHabilidadSecundaria(sHabilidad, nValor, sTipo)
+--	local aClauses,_ = StringManager.split(sHabilidad, ":", true);
+--	if aClauses and #aClauses==2 then
+--		local sClave=Habilidad2Clave[string.lower(aClauses[1])];
+--		local sSecundaria=aClauses[2];
+--		if DatosHabilidadesSecundarias[sClave]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]==nil then return end
+--		if sClave=="Idioma" and (sSecundaria=="Mezuri" or sSecundaria=="Austero") then sSecundaria="Mezuri o Austero" end
+--		if sClave=="Idioma" and (sSecundaria=="Oriental" or sSecundaria=="Kunya") then sSecundaria="Oriental o Kunya" end
+--		Debug.chat(aClauses, DatosHabilidadesSecundarias,"\r\n")
+--		DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]=DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]+nValor;
+--		Debug.chat(DatosHabilidadesSecundarias,"\r\n\r\n")
+--	end
+--end
+--
+--
+--function QuitarHabilidadSecundaria(sHabilidad, nValor, sTipo)
+--
+--end
+
+function ModificarHabilidadSecundaria(sHabilidad, nValor, sTipo, bAniadir)
+	local aClauses,_ = StringManager.split(sHabilidad, ":", true);
+	if aClauses and #aClauses==2 then
+		local nAniadir=1;
+		if not bAniadir then nAniadir=-1; end
+		local sClave=Habilidad2Clave[string.lower(aClauses[1])];
+		local sSecundaria=aClauses[2];
+		if DatosHabilidadesSecundarias[sClave]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]==nil then return end
+		if sClave=="Idioma" and (sSecundaria=="Mezuri" or sSecundaria=="Austero") then sSecundaria="Mezuri o Austero" end
+		if sClave=="Idioma" and (sSecundaria=="Oriental" or sSecundaria=="Kunya") then sSecundaria="Oriental o Kunya" end
+		--Debug.chat(aClauses, DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo],"\r\n")
+		DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]=DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]+nValor*nAniadir;
+		--Debug.chat(DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo],"\r\n\r\n")
+	end
+end
+
+
+function ModificarHabilidades(sRecord, sTipo, bAniadir)
+	if sRecord and sRecord~="" then
+		local nAniadir=1;
+		if not bAniadir then nAniadir=-1; end
+		local sPathNombre="";
+		
+		if string.find(sRecord, "@") then
+			sPathName, _=string.gsub(sRecord, "@", ".Habilidades@");
+		else
+			sPathName=sRecord..".Habilidades";
+		end
+		local aHabilidades = ParsearHabilidades(DB.getValue(sPathName, ""));
+		for i = 1, #aHabilidades do
+			local sAux=string.lower(aHabilidades[i].sHabilidad);
+			if esSecundaria(aHabilidades[i].sHabilidad) then
+				ModificarHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo, bAniadir);
+			else
+				DatosHabilidades[Habilidad2Clave[sAux]][sTipo]=DatosHabilidades[Habilidad2Clave[sAux]][sTipo]+aHabilidades[i].nValor*nAniadir;
+			end
+		end
+	end
+end
+
+--function AniadirHabilidades(sRecord, sTipo)
+--	if sRecord and sRecord~="" then
+--		local sPathNombre="";
+--		if string.find(sRecord, "@") then
+--			sPathName, _=string.gsub(sRecord, "@", ".Habilidades@");
+--		else
+--			sPathName=sRecord..".Habilidades";
+--		end
+--		local aHabilidades = ParsearHabilidades(DB.getValue(sPathName, ""));
+--		for i = 1, #aHabilidades do
+--			local sAux=string.lower(aHabilidades[i].sHabilidad);
+--			if esSecundaria(aHabilidades[i].sHabilidad) then
+--				AniadirHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo);
+--			else
+--				DatosHabilidades[Habilidad2Clave[sAux]][sTipo]=DatosHabilidades[Habilidad2Clave[sAux]][sTipo]+aHabilidades[i].nValor;
+--			end
+--		end
+--	end
+--end
+--
+--function QuitarHabilidades(sRecord, sTipo)
+--	if sRecord and sRecord~="" then
+--		local sPathNombre="";
+--		if string.find(sRecord, "@") then
+--			sPathName, _=string.gsub(sRecord, "@", ".Habilidades@");
+--		else
+--			sPathName=sRecord..".Habilidades";
+--		end
+--		local aHabilidades = ParsearHabilidades(DB.getValue(sPathName, ""));
+--		for i = 1, #aHabilidades do
+--			local sAux=string.lower(aHabilidades[i].sHabilidad);
+--			if esSecundaria(aHabilidades[i].sHabilidad) then
+--				QuitarHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo);
+--			else
+--				DatosHabilidades[Habilidad2Clave[sAux]][sTipo]=DatosHabilidades[Habilidad2Clave[sAux]][sTipo]-aHabilidades[i].nValor;
+--			end
+--		end
+--	end
+--end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>

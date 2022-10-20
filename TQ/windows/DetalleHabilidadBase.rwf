@@ -624,7 +624,6 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	Debug.chat(getDatabaseNode());
 	Habilidades.CalcularPuntosTotalesHabilidades(window);
 end
 </LUACode>

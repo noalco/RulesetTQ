@@ -29,7 +29,7 @@
     <Announcement3Icon />
     <ExcludeRSWScripts>false</ExcludeRSWScripts>
     <CompileToFolder>false</CompileToFolder>
-    <DefaultEncoding>iso-8859-1</DefaultEncoding>
+    <DefaultEncoding>UTF-8</DefaultEncoding>
   </RulesetProperties>
 </Ruleset>
 
@@ -14573,7 +14573,6 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	Debug.chat(getDatabaseNode());
 	Habilidades.CalcularPuntosTotalesHabilidades(window);
 end
 </LUACode>
@@ -26171,7 +26170,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"TooltipField"},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"WindowMargins"},
+      {"Name":"WindowMargins","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"WindowTitle"},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
@@ -35869,7 +35868,7 @@ end
       {"Name":"WindowListChildDefinition","Value":{"@xsi:type":"ArrayOfChildDefinition"}},
       {"Name":"WindowListClassName","Value":{"@xsi:type":"xsd:string","#text":"DetalleHabilidadBase"}},
       {"Name":"WindowListFilterBy","Value":{"@xsi:type":"FilterByDefinition","FilterSourceType":"Control","FilterOnSourceType":"Control"}},
-      {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition","SortByDefinition":[{"Descending":"false","SourceType":"Control","SourceName":"ClaveHabilidad"},{"Descending":"false","SourceType":"Control","SourceName":"NombreSecundario"}]}},
+      {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition","SortByDefinition":[{"Descending":"true","SourceType":"Control","SourceName":"DeProfesion"},{"Descending":"false","SourceType":"Control","SourceName":"ClaveHabilidad"},{"Descending":"false","SourceType":"Control","SourceName":"NombreSecundario"}]}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"18"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"99"}}
 ]}}</Definition>
@@ -61187,8 +61186,8 @@ end</LUACode>
       {"Name":"WindowListClassName","Value":{"@xsi:type":"xsd:string","#text":"EtniaWizardBase"}},
       {"Name":"WindowListFilterBy","Value":{"@xsi:type":"FilterByDefinition","FilterSourceType":"Control","FilterOnSourceType":"Control"}},
       {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"482"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"70"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"451"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"121"}}
 ]}}</Definition>
     <LUACode>function onDrop(x, y, dragdata)
 	if getWindowCount()==1 then	DB.deleteChildren(getDatabaseNode()); end;
@@ -61416,7 +61415,9 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"243"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"251"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onHover(state)
+	Informacion.MostrarInfo(window.parentcontrol.window, "Atractivo", "Atractivo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -4 | Máx. +"..window.MaxAtractivo.getValue());
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -61678,7 +61679,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"63"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"251"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onHover(state)
+	Informacion.MostrarInfo(window.parentcontrol.window, "Cuerpo", "Cuerpo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. "..window.MaxCuerpo.getValue());
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -61942,7 +61945,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"183"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"251"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onHover(state)
+	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9");
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -62048,7 +62053,10 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"313"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"251"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onHover(state)
+	Informacion.MostrarInfo(window.parentcontrol.window, "Fuerza", "Fuerza", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3");
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -62152,7 +62160,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"123"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"251"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onHover(state)
+	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9");
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -62466,7 +62476,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"373"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"251"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onHover(state)
+	Informacion.MostrarInfo(window.parentcontrol.window, "Tamanio", "Tamaño", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -3 | Máx. +"..window.MaxTamanio.getValue());
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -62677,7 +62689,7 @@ end
       {"Name":"ReadOnly"},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
+      {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
@@ -62687,14 +62699,19 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"76"}}
 ]}}</Definition>
     <LUACode>function onInit()
-	setValue(nil, nil)
+	setValue(nil, nil);
 end
 
 function onDrop(x, y, dragdata)
 	local sClass,sRecord = dragdata.getShortcutData();
 	if sClass=="VentanaEtniaSidebar" then
+		local _, sRecordAct=getValue();
+		--ParseoHabilidades.QuitarHabilidades(sRecordAct, "etnia");
+		ParseoHabilidades.ModificarHabilidades(sRecordAct, "etnia", false);
 		setValue(dragdata.getShortcutData());
 		window.NombreEtnia.Actualizar(sRecord);
+		--ParseoHabilidades.AniadirHabilidades(sRecord, "etnia");
+		ParseoHabilidades.ModificarHabilidades(sRecord, "etnia", true);
 	end;
 end
 </LUACode>
@@ -68689,57 +68706,6 @@ end;</LUACode>
   </WindowControls>
   <WindowControls>
     <WindowName>WindowBaseHabilidades</WindowName>
-    <ControlName>EsHechicero</ControlName>
-    <ZIndex>27</ZIndex>
-    <ControlClass>FGCheckbox</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"EsHechicero"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DefaultChecked"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"Disabled"},
-      {"Name":"FrameName"},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"HoverCursor"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"NextTabTarget"},
-      {"Name":"OffStateIcon","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"OnStateIcon","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly"},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"Source","Value":{"@xsi:type":"xsd:string","#text":".BaseHabilidades.EsHechicero"}},
-      {"Name":"StackVertWith"},
-      {"Name":"Tooltip"},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"76"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"135"}}
-]}}</Definition>
-    <LUACode />
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>WindowBaseHabilidades</WindowName>
     <ControlName>Hechiceria</ControlName>
     <ZIndex>24</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
@@ -73433,37 +73399,49 @@ end
   <Scripts>
     <ScriptName>CharWizard</ScriptName>
     <FolderID>21</FolderID>
-    <Script>function AniadirCaracteristicas(nodeChar, window)
-	DB.setValue(nodeChar, "Caracteristicas.BaseCuerpo", "number", window.SubventanaCaracteristicas.subwindow.BaseCuerpo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.BaseMente", "number", window.SubventanaCaracteristicas.subwindow.BaseMente.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.BaseEspiritu", "number", window.SubventanaCaracteristicas.subwindow.BaseEspiritu.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.BaseAtractivo", "number", window.SubventanaCaracteristicas.subwindow.BaseAtractivo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.BaseTamanio", "number", window.SubventanaCaracteristicas.subwindow.BaseTamanio.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.ModEdadCuerpo", "number", window.SubventanaCaracteristicas.subwindow.ModEdadCuerpo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.ModEdadMente", "number", window.SubventanaCaracteristicas.subwindow.ModEdadMente.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.ModEspecieMente", "number", window.SubventanaCaracteristicas.subwindow.ModEspecieMente.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.ModEspecieEspiritu", "number", window.SubventanaCaracteristicas.subwindow.ModEspecieEspiritu.getValue());
+    <Script>function AniadirCaracteristicas(nodeChar, windowWizard)
+	DB.setValue(nodeChar, "Caracteristicas.BaseCuerpo", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseCuerpo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseMente", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseMente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseEspiritu", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseEspiritu.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseAtractivo", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseAtractivo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseTamanio", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseTamanio.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEdadCuerpo", "number", windowWizard.SubventanaCaracteristicas.subwindow.ModEdadCuerpo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEdadMente", "number", windowWizard.SubventanaCaracteristicas.subwindow.ModEdadMente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEspecieMente", "number", windowWizard.SubventanaCaracteristicas.subwindow.ModEspecieMente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEspecieEspiritu", "number", windowWizard.SubventanaCaracteristicas.subwindow.ModEspecieEspiritu.getValue());
 	
-	DB.setValue(nodeChar, "Caracteristicas.Cuerpo", "number", window.SubventanaCaracteristicas.subwindow.Cuerpo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Mente", "number", window.SubventanaCaracteristicas.subwindow.Mente.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Espiritu", "number", window.SubventanaCaracteristicas.subwindow.Espiritu.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Atractivo", "number", window.SubventanaCaracteristicas.subwindow.Atractivo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Tamanio", "number", window.SubventanaCaracteristicas.subwindow.Tamanio.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Cuerpo", "number", windowWizard.SubventanaCaracteristicas.subwindow.Cuerpo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Mente", "number", windowWizard.SubventanaCaracteristicas.subwindow.Mente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Espiritu", "number", windowWizard.SubventanaCaracteristicas.subwindow.Espiritu.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Atractivo", "number", windowWizard.SubventanaCaracteristicas.subwindow.Atractivo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Fuerza", "number", windowWizard.SubventanaCaracteristicas.subwindow.Fuerza.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Tamanio", "number", windowWizard.SubventanaCaracteristicas.subwindow.Tamanio.getValue());
 end
 
-function AniadirPersonalidad(nodeChar, window)
-	DB.setValue(nodeChar, "Notas.Edad", "string", window.SubventanaCaracteristicas.subwindow.Edad.getValue());
-	if window.SubventanaCaracteristicas.subwindow.SeleccionEspecie.getValue()=="0" then DB.setValue(nodeChar, "Notas.Especie", "string", "Humano");
-	elseif window.SubventanaCaracteristicas.subwindow.SeleccionEspecie.getValue()=="1" then DB.setValue(nodeChar, "Notas.Especie", "string", "Mestizo");
-	elseif window.SubventanaCaracteristicas.subwindow.SeleccionEspecie.getValue()=="2" then DB.setValue(nodeChar, "Notas.Especie", "string", "Mereni");
-	else DB.setValue(nodeChar, "Notas.Especie", "string", "");
+function AniadirPersonalidad(nodeChar, windowWizard)
+	DB.setValue(nodeChar, "Notas.Edad", "string", windowWizard.SubventanaCaracteristicas.subwindow.Edad.getValue());
+	DB.setValue(nodeChar, "Notas.Especie", "string", windowWizard.SubventanaCaracteristicas.subwindow.SeleccionEspecie.getStringValue());
+	DB.setValue(nodeChar, "Notas.Origen", "string", windowWizard.SubventanaCaracteristicas.subwindow.NombreEtnia.getValue());
+end
+
+function AniadirHabilidades(nodeChar, window)
+	for _,w in ipairs(window.abilities.subwindow.ListaHabilidades.getWindows()) do
+		DB.setValue(w.getDatabaseNode(), "DeProfesion", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].prof);
+		if ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].PG ~=0 then
+			DB.setValue(w.getDatabaseNode(), "PtosGratis", "number", DB.getValue(w.getDatabaseNode(), "PtosGratis", 0)+ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].PG);
+		end
+		DB.setValue(w.getDatabaseNode(), "BonoEtnia", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].etnia);
+		DB.setValue(w.getDatabaseNode(), "BonoEspecialidad", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].esp);
+		DB.setValue(w.getDatabaseNode(), "BonoCulto", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].culto);
+		DB.setValue(w.getDatabaseNode(), "BonoVentDesvent", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].VentDes);
+		DB.setValue(w.getDatabaseNode(), "BonoMisc", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].varios);
 	end
 end
 
 local Ventana;
 
 function onCommitButtonPressed(window)
-	Ventana=window
+	Ventana=window;
 	if Session.IsHost then
 		commitCharacter();
 	else
@@ -73473,7 +73451,7 @@ end
 
 function requestCommit()
 	if not bRequested then
-		User.requestIdentity(nil, "charsheet", "name", nil, requestResponse);
+		User.requestIdentity(nil, "wizard", "name", nil, requestResponse);
 		bRequested = true;
 	end
 end
@@ -73495,12 +73473,24 @@ function commitCharacter(identity)
 		nodeChar = DB.findNode("charsheet." .. identity);
 	end
 
+	local w=Interface.openWindow("charsheet", nodeChar);
+
 	DB.setValue(nodeChar, "name", "string", Ventana.NombrePJ.getValue());
 	AniadirCaracteristicas(nodeChar, Ventana);
-	AniadirPersonalidad(nodeChar, Ventana)
-	Interface.openWindow("charsheet", nodeChar);
+	AniadirPersonalidad(nodeChar, Ventana);
+	AniadirHabilidades(nodeChar, w);
+
+	w.abilities.subwindow.BotonDetallesHabilidades.onClickRelease();
 	close();
-end</Script>
+--	ParseoHabilidades.ResetDatos();
+end
+
+
+function onClose()
+	ParseoHabilidades.ResetDatos();
+	Debug.chat(111);
+end
+</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding>UTF-8</Encoding>
   </Scripts>
@@ -75611,65 +75601,329 @@ end
     <Encoding />
   </Scripts>
   <Scripts>
-    <ScriptName>Parseo</ScriptName>
+    <ScriptName>ParseoHabilidades</ScriptName>
     <FolderID>21</FolderID>
-    <Script>DatosHabilidades = {
-	["Arma CC"]={nombre="Arma CC", tooltip="AGI", repetible=true, secundario=true, gratuito=0, base="AGI", estorbo=false, multEstorbo=0},
-	["Arma Ar"]={nombre="Arma Ar", tooltip="AGI", repetible=true, secundario=true, gratuito=0, base="AGI", estorbo=false, multEstorbo=0},
-	["Arma Pr"]={nombre="Arma Pr", tooltip="TEC", repetible=true, secundario=true, gratuito=0, base="TEC", estorbo=false, multEstorbo=0},
-	["Artesania"]={nombre="Artesanía", tooltip="TEC", repetible=true, secundario=true, gratuito=0, base="TEC", estorbo=false, multEstorbo=0},
-	["Autoridad"]={nombre="Autoridad", tooltip="COM", repetible=false, secundario=false, gratuito=0, base="COM", estorbo=false, multEstorbo=0},
-	["Bellas Artes"]={nombre="Bellas Artes", tooltip="CUL", repetible=false, secundario=false, gratuito=0, base="CUL", estorbo=false, multEstorbo=0},
-	["Buscar"]={nombre="Buscar", tooltip="1+PER", repetible=false, secundario=false, gratuito=1, base="PER", estorbo=false, multEstorbo=0},
-	["Callejeo"]={nombre="Callejeo", tooltip="COM", repetible=false, secundario=false, gratuito=0, base="COM", estorbo=false, multEstorbo=0},
-	["Conocimiento Magico"]={nombre="Conocimiento Mágico", tooltip="CUL", repetible=false, secundario=false, gratuito=0, base="CUL", estorbo=false, multEstorbo=0},
-	["Correr"]={nombre="Correr", tooltip="2+AGI-Est.", repetible=false, secundario=false, gratuito=2, base="AGI", estorbo=true, multEstorbo=1},
-	["Documentacion"]={nombre="Documentación", tooltip="PER", repetible=false, secundario=false, gratuito=0, base="PER", estorbo=false, multEstorbo=0},
-	["Encanto"]={nombre="Encanto", tooltip="2+COM", repetible=false, secundario=false, gratuito=2, base="COM", estorbo=false, multEstorbo=0},
-	["Enganiar"]={nombre="Engañar", tooltip="2+COM", repetible=false, secundario=false, gratuito=2, base="COM", estorbo=false, multEstorbo=0},
-	["Equilibrio"]={nombre="Equilibrio", tooltip="1+AGI-Est.", repetible=false, secundario=false, gratuito=1, base="AGI", estorbo=true, multEstorbo=1},
-	["Esquivar"]={nombre="Esquivar", tooltip="1+AGI-Est.", repetible=false, secundario=false, gratuito=1, base="AGI", estorbo=true, multEstorbo=1},
-	["Estrategia"]={nombre="Estrategia", tooltip="CUL", repetible=false, secundario=false, gratuito=0, base="CUL", estorbo=false, multEstorbo=0},
-	["Forzar Cerraduras"]={nombre="Forzar Cerraduras", tooltip="TEC", repetible=false, secundario=false, gratuito=0, base="TEC", estorbo=false, multEstorbo=0},
-	["Hurtar"]={nombre="Hurtar", tooltip="DIS-Est.", repetible=false, secundario=false, gratuito=0, base="DIS", estorbo=true, multEstorbo=1},
-	["Idioma Nativo"]={nombre="Idioma", tooltip="4+CUL", repetible=false, secundario=true, gratuito=4, base="CUL", estorbo=false, multEstorbo=0},
-	["Idioma"]={nombre="Idioma", tooltip="CUL", repetible=true, secundario=true, gratuito=0, base="CUL", estorbo=false, multEstorbo=0},
-	["Instruir"]={nombre="Instruir", tooltip="COM", repetible=false, secundario=false, gratuito=0, base="COM", estorbo=false, multEstorbo=0},
-	["Interpretar Suenios"]={nombre="Interpretar Sueños", tooltip="CUL", repetible=false, secundario=false, gratuito=0, base="CUL", estorbo=false, multEstorbo=0},
-	["Intimidar"]={nombre="Intimidar", tooltip="1+COM", repetible=false, secundario=false, gratuito=1, base="COM", estorbo=false, multEstorbo=0},
-	["Inventar"]={nombre="Inventar", tooltip="TEC", repetible=false, secundario=false, gratuito=0, base="TEC", estorbo=false, multEstorbo=0},
-	["Juego"]={nombre="Juego", tooltip="PER", repetible=false, secundario=false, gratuito=0, base="PER", estorbo=false, multEstorbo=0},
-	["Lanzar"]={nombre="Lanzar", tooltip="2+AGI", repetible=false, secundario=false, gratuito=2, base="AGI", estorbo=false, multEstorbo=0},
-	["Leyendas"]={nombre="Leyendas", tooltip="2+CUL", repetible=false, secundario=false, gratuito=2, base="CUL", estorbo=false, multEstorbo=0},
-	["Manejar Botes"]={nombre="Manejar Botes", tooltip="AGI-Est.", repetible=false, secundario=false, gratuito=0, base="AGI", estorbo=true, multEstorbo=1},
-	["Manejar Carros"]={nombre="Manejar Carros", tooltip="TEC", repetible=false, secundario=false, gratuito=0, base="TEC", estorbo=false, multEstorbo=0},
-	["Medicina"]={nombre="Medicina", tooltip="CUL", repetible=false, secundario=false, gratuito=0, base="CUL", estorbo=false, multEstorbo=0},
-	["Memorizar"]={nombre="Memorizar", tooltip="1+CUL", repetible=false, secundario=false, gratuito=1, base="CUL", estorbo=false, multEstorbo=0},
-	["Montar"]={nombre="Montar", tooltip="AGI", repetible=false, secundario=false, gratuito=0, base="AGI", estorbo=false, multEstorbo=0},
-	["Multiverso"]={nombre="Multiverso", tooltip="CUL", repetible=false, secundario=false, gratuito=0, base="CUL", estorbo=false, multEstorbo=0},
-	["Musica"]={nombre="Música", tooltip="COM", repetible=false, secundario=false, gratuito=0, base="COM", estorbo=false, multEstorbo=0},
-	["Nadar"]={nombre="Nadar", tooltip="AGI-Est.x3", repetible=false, secundario=false, gratuito=0, base="AGI", estorbo=true, multEstorbo=3},
-	["Naturaleza"]={nombre="Naturaleza", tooltip="1+CUL", repetible=false, secundario=false, gratuito=1, base="CUL", estorbo=false, multEstorbo=0},
-	["Navegacion"]={nombre="Navegación", tooltip="CUL", repetible=false, secundario=false, gratuito=0, base="CUL", estorbo=false, multEstorbo=0},
-	["Ocultar"]={nombre="Ocultar", tooltip="1+TEC", repetible=false, secundario=false, gratuito=1, base="TEC", estorbo=false, multEstorbo=0},
-	["Oratoria"]={nombre="Oratoria", tooltip="COM", repetible=false, secundario=false, gratuito=0, base="COM", estorbo=false, multEstorbo=0},
-	["Orientacion"]={nombre="Orientación", tooltip="1+PER", repetible=false, secundario=false, gratuito=1, base="PER", estorbo=false, multEstorbo=0},
-	["Pelea"]={nombre="Pelea", tooltip="2+AGI", repetible=false, secundario=false, gratuito=2, base="AGI", estorbo=false, multEstorbo=0},
-	["Percatarse"]={nombre="Percatarse", tooltip="2+PER", repetible=false, secundario=false, gratuito=2, base="PER", estorbo=false, multEstorbo=0},
-	["Perspicacia"]={nombre="Perspicacia", tooltip="2+PER", repetible=false, secundario=false, gratuito=2, base="PER", estorbo=false, multEstorbo=0},
-	["Persuadir"]={nombre="Persuadir", tooltip="2+COM", repetible=false, secundario=false, gratuito=2, base="COM", estorbo=false, multEstorbo=0},
-	["Pociones"]={nombre="Pociones", tooltip="CUL", repetible=false, secundario=false, gratuito=0, base="CUL", estorbo=false, multEstorbo=0},
-	["Primeros Auxilios"]={nombre="Primeros Auxilios", tooltip="TEC", repetible=false, secundario=false, gratuito=0, base="TEC", estorbo=false, multEstorbo=0},
-	["Rastrear"]={nombre="Rastrear", tooltip="PER", repetible=false, secundario=false, gratuito=0, base="PER", estorbo=false, multEstorbo=0},
-	["Saltar"]={nombre="Saltar", tooltip="1+AGI-Est.x2", repetible=false, secundario=false, gratuito=1, base="AGI", estorbo=true, multEstorbo=2},
-	["Seguir"]={nombre="Seguir", tooltip="DIS", repetible=false, secundario=false, gratuito=0, base="DIS", estorbo=false, multEstorbo=0},
-	["Sigilo"]={nombre="Sigilo", tooltip="1+DIS-Est.x2", repetible=false, secundario=false, gratuito=1, base="DIS", estorbo=true, multEstorbo=2},
-	["Tierras Quebradas"]={nombre="Tierras Quebradas", tooltip="1+CUL", repetible=false, secundario=false, gratuito=1, base="CUL", estorbo=false, multEstorbo=0},
-	["Torturar"]={nombre="Torturar", tooltip="TEC", repetible=false, secundario=false, gratuito=0, base="TEC", estorbo=false, multEstorbo=0},
-	["Tratar Animales"]={nombre="Tratar Animales", tooltip="COM", repetible=false, secundario=false, gratuito=0, base="COM", estorbo=false, multEstorbo=0},
-	["Trepar"]={nombre="Trepar", tooltip="2+AGI-Est.", repetible=false, secundario=false, gratuito=2, base="AGI", estorbo=true, multEstorbo=1},
+    <Script>Habilidad2Clave = {
+	["arma cc"]="Arma CC",
+	["arma pr"]="Arma Pr",
+	["artesanía"]="Artesania",
+	["autoridad"]="Autoridad",
+	["bellas artes"]="Bellas Artes",
+	["buscar"]="Buscar",
+	["callejeo"]="Callejeo",
+	["conocimiento mágico"]="Conocimiento Magico",
+	["correr"]="Correr",
+	["documentación"]="Documentacion",
+	["encanto"]="Encanto",
+	["engañar"]="Enganiar",
+	["equilibrio"]="Equilibrio",
+	["esquivar"]="Esquivar",
+	["estrategia"]="Estrategia",
+	["forzar cerraduras"]="Forzar Cerraduras",
+	["hurtar"]="Hurtar",
+	["idioma"]="Idioma Nativo",
+	["idioma"]="Idioma",
+	["instruir"]="Instruir",
+	["interpretar sueños"]="Interpretar Suenios",
+	["intimidar"]="Intimidar",
+	["inventar"]="Inventar",
+	["juego"]="Juego",
+	["lanzar"]="Lanzar",
+	["leyendas"]="Leyendas",
+	["manejar botes"]="Manejar Botes",
+	["manejar carros"]="Manejar Carros",
+	["medicina"]="Medicina",
+	["memorizar"]="Memorizar",
+	["montar"]="Montar",
+	["multiverso"]="Multiverso",
+	["música"]="Musica",
+	["nadar"]="Nadar",
+	["naturaleza"]="Naturaleza",
+	["navegación"]="Navegacion",
+	["ocultar"]="Ocultar",
+	["oratoria"]="Oratoria",
+	["orientación"]="Orientacion",
+	["pelea"]="Pelea",
+	["percatarse"]="Percatarse",
+	["perspicacia"]="Perspicacia",
+	["persuadir"]="Persuadir",
+	["pociones"]="Pociones",
+	["primeros auxilios"]="Primeros Auxilios",
+	["rastrear"]="Rastrear",
+	["saltar"]="Saltar",
+	["seguir"]="Seguir",
+	["sigilo"]="Sigilo",
+	["tierras quebradas"]="Tierras Quebradas",
+	["torturar"]="Torturar",
+	["tratar animales"]="Tratar Animales",
+	["trepar"]="Trepar",
 }
-</Script>
+
+DatosHabilidades = {
+	["Autoridad"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Bellas Artes"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Buscar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Callejeo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Conocimiento Magico"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Correr"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Documentacion"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Encanto"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Enganiar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Equilibrio"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Esquivar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Estrategia"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Forzar Cerraduras"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Hurtar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Idioma Nativo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Instruir"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Interpretar Suenios"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Intimidar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Inventar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Juego"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Lanzar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Leyendas"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Manejar Botes"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Manejar Carros"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Medicina"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Memorizar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Montar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Multiverso"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Musica"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Nadar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Naturaleza"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Navegacion"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Ocultar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Oratoria"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Orientacion"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Pelea"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Percatarse"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Perspicacia"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Persuadir"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Pociones"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Primeros Auxilios"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Rastrear"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Saltar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Seguir"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Sigilo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Tierras Quebradas"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Torturar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Tratar Animales"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+	["Trepar"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+}
+
+DatosHabilidadesSecundarias = {
+	["Arma CC"]={
+		["Arma de asta"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Escudo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Espada"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Hacha"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Látigo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Maza"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Mayal"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Puñal"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Red"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0}
+	},
+	["Arma Pr"]={
+		["Arco"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Ballesta"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Canon de mano"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Honda"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0}
+	},
+	["Artesania"]={
+		["Albañilería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Alfarería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Armería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Carnicería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Carpintería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Cartogrfía"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Cervecería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Cestería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Cocina"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Cristalería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Destilería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Embarcaciones"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Escultura/Talla"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Herrería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Ilustración"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Joyería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Peletería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Perfumería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Pintura/Dibujo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Panadería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Sastrería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Tatuajes"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Tejeduría"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Velería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Vinicultura"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Zapatería"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0}
+	},
+	["Idioma"]={
+		["Antiguo"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Bosquimano"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Estepario"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Fornk"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Imanguke"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Merení"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Mezuri o Austero"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Ocrense"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Oriental o Kunya"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Shorano"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Tilés"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Vash"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0}
+	},
+}
+
+HabilidadesProf=0;
+HabilidadesNoProf=0;
+
+function ResetDatos()
+	local sClave; local rHabilidad; local sCampo; local rSecundaria; local sSecundaria;
+	for sClave, rHabilidad in pairs(DatosHabilidades) do
+		for sCampo,_ in pairs(rHabilidad) do
+			DatosHabilidades[sClave][sCampo]=0;
+		end
+	end
+	for sClave, rHabilidad in pairs(DatosHabilidadesSecundarias) do
+		for sSecundaria, rSecundaria in pairs(rHabilidad) do
+			for sCampo,_ in pairs(rSecundaria) do
+				DatosHabilidadesSecundarias[sClave][sSecundaria][sCampo]=0;
+			end
+		end
+	end
+
+end
+
+function ParsearHabilidades(sHabilidades)
+	local aHabilidades = {};
+	
+	local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
+	
+	for i = 1, #aClauses do
+		local sHabilidad, sValor = string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)([%+%-–]?%d*)");
+		if string.sub(sHabilidad, sHabilidad:len(), sHabilidad:len())==" " then sHabilidad=string.match(sHabilidad, "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+
+		if sHabilidad and sValor then
+			table.insert(aHabilidades, {sHabilidad=sHabilidad, nValor=tonumber(sValor)});
+		end
+	end
+	return aHabilidades;
+end
+
+function esSecundaria(sHabilidad)
+	sHabilidad=string.lower(sHabilidad);
+	if string.match(sHabilidad, "arma cc")==nil and string.match(sHabilidad,"arma pr")==nil and string.match(sHabilidad,"artesanía")==nil and string.match(sHabilidad,"idioma")==nil then
+		return false;
+	else
+		return true;
+	end
+end
+
+function SecundariaVacia(sHabilidad, sSecundaria)
+	local nValor=0;
+	for _,nValor in pairs(DatosHabilidadesSecundarias[sHabilidad][sSecundaria]) do
+		if nValor~=0 then return false; end
+	end
+	return true;
+end
+
+--function AniadirHabilidadSecundaria(sHabilidad, nValor, sTipo)
+--	local aClauses,_ = StringManager.split(sHabilidad, ":", true);
+--	if aClauses and #aClauses==2 then
+--		local sClave=Habilidad2Clave[string.lower(aClauses[1])];
+--		local sSecundaria=aClauses[2];
+--		if DatosHabilidadesSecundarias[sClave]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]==nil then return end
+--		if sClave=="Idioma" and (sSecundaria=="Mezuri" or sSecundaria=="Austero") then sSecundaria="Mezuri o Austero" end
+--		if sClave=="Idioma" and (sSecundaria=="Oriental" or sSecundaria=="Kunya") then sSecundaria="Oriental o Kunya" end
+--		Debug.chat(aClauses, DatosHabilidadesSecundarias,"\r\n")
+--		DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]=DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]+nValor;
+--		Debug.chat(DatosHabilidadesSecundarias,"\r\n\r\n")
+--	end
+--end
+--
+--
+--function QuitarHabilidadSecundaria(sHabilidad, nValor, sTipo)
+--
+--end
+
+function ModificarHabilidadSecundaria(sHabilidad, nValor, sTipo, bAniadir)
+	local aClauses,_ = StringManager.split(sHabilidad, ":", true);
+	if aClauses and #aClauses==2 then
+		local nAniadir=1;
+		if not bAniadir then nAniadir=-1; end
+		local sClave=Habilidad2Clave[string.lower(aClauses[1])];
+		local sSecundaria=aClauses[2];
+		if DatosHabilidadesSecundarias[sClave]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]==nil then return end
+		if sClave=="Idioma" and (sSecundaria=="Mezuri" or sSecundaria=="Austero") then sSecundaria="Mezuri o Austero" end
+		if sClave=="Idioma" and (sSecundaria=="Oriental" or sSecundaria=="Kunya") then sSecundaria="Oriental o Kunya" end
+		--Debug.chat(aClauses, DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo],"\r\n")
+		DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]=DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]+nValor*nAniadir;
+		--Debug.chat(DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo],"\r\n\r\n")
+	end
+end
+
+
+function ModificarHabilidades(sRecord, sTipo, bAniadir)
+	if sRecord and sRecord~="" then
+		local nAniadir=1;
+		if not bAniadir then nAniadir=-1; end
+		local sPathNombre="";
+		
+		if string.find(sRecord, "@") then
+			sPathName, _=string.gsub(sRecord, "@", ".Habilidades@");
+		else
+			sPathName=sRecord..".Habilidades";
+		end
+		local aHabilidades = ParsearHabilidades(DB.getValue(sPathName, ""));
+		for i = 1, #aHabilidades do
+			local sAux=string.lower(aHabilidades[i].sHabilidad);
+			if esSecundaria(aHabilidades[i].sHabilidad) then
+				ModificarHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo, bAniadir);
+			else
+				DatosHabilidades[Habilidad2Clave[sAux]][sTipo]=DatosHabilidades[Habilidad2Clave[sAux]][sTipo]+aHabilidades[i].nValor*nAniadir;
+			end
+		end
+	end
+end
+
+--function AniadirHabilidades(sRecord, sTipo)
+--	if sRecord and sRecord~="" then
+--		local sPathNombre="";
+--		if string.find(sRecord, "@") then
+--			sPathName, _=string.gsub(sRecord, "@", ".Habilidades@");
+--		else
+--			sPathName=sRecord..".Habilidades";
+--		end
+--		local aHabilidades = ParsearHabilidades(DB.getValue(sPathName, ""));
+--		for i = 1, #aHabilidades do
+--			local sAux=string.lower(aHabilidades[i].sHabilidad);
+--			if esSecundaria(aHabilidades[i].sHabilidad) then
+--				AniadirHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo);
+--			else
+--				DatosHabilidades[Habilidad2Clave[sAux]][sTipo]=DatosHabilidades[Habilidad2Clave[sAux]][sTipo]+aHabilidades[i].nValor;
+--			end
+--		end
+--	end
+--end
+--
+--function QuitarHabilidades(sRecord, sTipo)
+--	if sRecord and sRecord~="" then
+--		local sPathNombre="";
+--		if string.find(sRecord, "@") then
+--			sPathName, _=string.gsub(sRecord, "@", ".Habilidades@");
+--		else
+--			sPathName=sRecord..".Habilidades";
+--		end
+--		local aHabilidades = ParsearHabilidades(DB.getValue(sPathName, ""));
+--		for i = 1, #aHabilidades do
+--			local sAux=string.lower(aHabilidades[i].sHabilidad);
+--			if esSecundaria(aHabilidades[i].sHabilidad) then
+--				QuitarHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo);
+--			else
+--				DatosHabilidades[Habilidad2Clave[sAux]][sTipo]=DatosHabilidades[Habilidad2Clave[sAux]][sTipo]-aHabilidades[i].nValor;
+--			end
+--		end
+--	end
+--end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />
   </Scripts>

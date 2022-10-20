@@ -2,37 +2,49 @@
   <Scripts>
     <ScriptName>CharWizard</ScriptName>
     <FolderID>21</FolderID>
-    <Script>function AniadirCaracteristicas(nodeChar, window)
-	DB.setValue(nodeChar, "Caracteristicas.BaseCuerpo", "number", window.SubventanaCaracteristicas.subwindow.BaseCuerpo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.BaseMente", "number", window.SubventanaCaracteristicas.subwindow.BaseMente.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.BaseEspiritu", "number", window.SubventanaCaracteristicas.subwindow.BaseEspiritu.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.BaseAtractivo", "number", window.SubventanaCaracteristicas.subwindow.BaseAtractivo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.BaseTamanio", "number", window.SubventanaCaracteristicas.subwindow.BaseTamanio.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.ModEdadCuerpo", "number", window.SubventanaCaracteristicas.subwindow.ModEdadCuerpo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.ModEdadMente", "number", window.SubventanaCaracteristicas.subwindow.ModEdadMente.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.ModEspecieMente", "number", window.SubventanaCaracteristicas.subwindow.ModEspecieMente.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.ModEspecieEspiritu", "number", window.SubventanaCaracteristicas.subwindow.ModEspecieEspiritu.getValue());
+    <Script>function AniadirCaracteristicas(nodeChar, windowWizard)
+	DB.setValue(nodeChar, "Caracteristicas.BaseCuerpo", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseCuerpo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseMente", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseMente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseEspiritu", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseEspiritu.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseAtractivo", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseAtractivo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseTamanio", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseTamanio.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEdadCuerpo", "number", windowWizard.SubventanaCaracteristicas.subwindow.ModEdadCuerpo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEdadMente", "number", windowWizard.SubventanaCaracteristicas.subwindow.ModEdadMente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEspecieMente", "number", windowWizard.SubventanaCaracteristicas.subwindow.ModEspecieMente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEspecieEspiritu", "number", windowWizard.SubventanaCaracteristicas.subwindow.ModEspecieEspiritu.getValue());
 	
-	DB.setValue(nodeChar, "Caracteristicas.Cuerpo", "number", window.SubventanaCaracteristicas.subwindow.Cuerpo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Mente", "number", window.SubventanaCaracteristicas.subwindow.Mente.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Espiritu", "number", window.SubventanaCaracteristicas.subwindow.Espiritu.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Atractivo", "number", window.SubventanaCaracteristicas.subwindow.Atractivo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Tamanio", "number", window.SubventanaCaracteristicas.subwindow.Tamanio.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Cuerpo", "number", windowWizard.SubventanaCaracteristicas.subwindow.Cuerpo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Mente", "number", windowWizard.SubventanaCaracteristicas.subwindow.Mente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Espiritu", "number", windowWizard.SubventanaCaracteristicas.subwindow.Espiritu.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Atractivo", "number", windowWizard.SubventanaCaracteristicas.subwindow.Atractivo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Fuerza", "number", windowWizard.SubventanaCaracteristicas.subwindow.Fuerza.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Tamanio", "number", windowWizard.SubventanaCaracteristicas.subwindow.Tamanio.getValue());
 end
 
-function AniadirPersonalidad(nodeChar, window)
-	DB.setValue(nodeChar, "Notas.Edad", "string", window.SubventanaCaracteristicas.subwindow.Edad.getValue());
-	if window.SubventanaCaracteristicas.subwindow.SeleccionEspecie.getValue()=="0" then DB.setValue(nodeChar, "Notas.Especie", "string", "Humano");
-	elseif window.SubventanaCaracteristicas.subwindow.SeleccionEspecie.getValue()=="1" then DB.setValue(nodeChar, "Notas.Especie", "string", "Mestizo");
-	elseif window.SubventanaCaracteristicas.subwindow.SeleccionEspecie.getValue()=="2" then DB.setValue(nodeChar, "Notas.Especie", "string", "Mereni");
-	else DB.setValue(nodeChar, "Notas.Especie", "string", "");
+function AniadirPersonalidad(nodeChar, windowWizard)
+	DB.setValue(nodeChar, "Notas.Edad", "string", windowWizard.SubventanaCaracteristicas.subwindow.Edad.getValue());
+	DB.setValue(nodeChar, "Notas.Especie", "string", windowWizard.SubventanaCaracteristicas.subwindow.SeleccionEspecie.getStringValue());
+	DB.setValue(nodeChar, "Notas.Origen", "string", windowWizard.SubventanaCaracteristicas.subwindow.NombreEtnia.getValue());
+end
+
+function AniadirHabilidades(nodeChar, window)
+	for _,w in ipairs(window.abilities.subwindow.ListaHabilidades.getWindows()) do
+		DB.setValue(w.getDatabaseNode(), "DeProfesion", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].prof);
+		if ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].PG ~=0 then
+			DB.setValue(w.getDatabaseNode(), "PtosGratis", "number", DB.getValue(w.getDatabaseNode(), "PtosGratis", 0)+ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].PG);
+		end
+		DB.setValue(w.getDatabaseNode(), "BonoEtnia", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].etnia);
+		DB.setValue(w.getDatabaseNode(), "BonoEspecialidad", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].esp);
+		DB.setValue(w.getDatabaseNode(), "BonoCulto", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].culto);
+		DB.setValue(w.getDatabaseNode(), "BonoVentDesvent", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].VentDes);
+		DB.setValue(w.getDatabaseNode(), "BonoMisc", "number", ParseoHabilidades.DatosHabilidades[DB.getValue(w.getDatabaseNode(), "Clave", "")].varios);
 	end
 end
 
 local Ventana;
 
 function onCommitButtonPressed(window)
-	Ventana=window
+	Ventana=window;
 	if Session.IsHost then
 		commitCharacter();
 	else
@@ -42,7 +54,7 @@ end
 
 function requestCommit()
 	if not bRequested then
-		User.requestIdentity(nil, "charsheet", "name", nil, requestResponse);
+		User.requestIdentity(nil, "wizard", "name", nil, requestResponse);
 		bRequested = true;
 	end
 end
@@ -64,12 +76,24 @@ function commitCharacter(identity)
 		nodeChar = DB.findNode("charsheet." .. identity);
 	end
 
+	local w=Interface.openWindow("charsheet", nodeChar);
+
 	DB.setValue(nodeChar, "name", "string", Ventana.NombrePJ.getValue());
 	AniadirCaracteristicas(nodeChar, Ventana);
-	AniadirPersonalidad(nodeChar, Ventana)
-	Interface.openWindow("charsheet", nodeChar);
+	AniadirPersonalidad(nodeChar, Ventana);
+	AniadirHabilidades(nodeChar, w);
+
+	w.abilities.subwindow.BotonDetallesHabilidades.onClickRelease();
 	close();
-end</Script>
+--	ParseoHabilidades.ResetDatos();
+end
+
+
+function onClose()
+	ParseoHabilidades.ResetDatos();
+	Debug.chat(111);
+end
+</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding>UTF-8</Encoding>
   </Scripts>
