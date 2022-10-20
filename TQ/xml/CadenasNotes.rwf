@@ -1,0 +1,10 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>CadenasNotes</XmlName>
+    <FolderID>14</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+	&lt;!-- &lt;string name="library_recordtype_empty_item"&gt;&amp;#171; Nuevo Pacto &amp;#187;&lt;/string&gt; --&gt;
+&lt;/root&gt;</XML>
+  </XMLFiles>
+</DocumentElement>

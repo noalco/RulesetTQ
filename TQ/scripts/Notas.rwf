@@ -1,0 +1,50 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>Notas</ScriptName>
+    <FolderID>15</FolderID>
+    <Script>--function ModificarNumMentiras1(window, nSelf)
+--	local nNumMentiras=window.NumMentiras.getValue();
+--	Debug.chat(nSelf);
+--	for i=0,nNumMentiras do
+--		Debug.chat("x", i);
+--		DB.setValue(window.getDatabaseNode(), "Mentira"..nNumMentiras, "number", 1);
+--	end;
+--	for i=nNumMentiras+1,4 do
+--		Debug.chat(" ", i);
+--		DB.setValue(window.getDatabaseNode(), "Mentira"..nNumMentiras, "number", 0);
+--	end;
+--	if nSelf==1 then nNumMentiras=nNumMentiras-1;
+--	else nNumMentiras=nNumMentiras+1;
+--	end;
+--	window.NumMentiras.setValue(nNumMentiras);
+--end;
+--
+--VectorMentiras={Mentira0=false, Mentira1=false, Mentira2=false, Mentira3=false, Mentira4=false}
+--
+--function ModificarNumMentiras(window, nSelf, sNombre)
+--	local nNumMentiras=window.NumMentiras.getValue();
+--	if nSelf==1 then nNumMentiras=nNumMentiras-1;
+--	else nNumMentiras=nNumMentiras+1;
+--	end;
+--	window.NumMentiras.setValue(nNumMentiras);
+--	for i=0,4 do
+--		VectorMentiras["Mentira"..i]=sNombre=="Mentira"..i;
+--		if i&lt;nNumMentiras then
+--			DB.setValue(window.getDatabaseNode(), "Mentira"..i, "number", 1);
+--		else
+--			DB.setValue(window.getDatabaseNode(), "Mentira"..i, "number", 0);
+--		end
+--	end;
+--end;
+
+function CalcularCosteTotalVentDesvent(nodoRaiz)
+	local nCosteTotalVentDesvent=0;
+	for _,nodeVentDesvent in pairs(nodoRaiz.getChild("Notas").getChild("VentajasDesventajas").getChild("ListaVentDesvent").getChildren()) do
+		nCosteTotalVentDesvent=nCosteTotalVentDesvent+DB.getValue(nodeVentDesvent, "Valor", 0);
+	end
+	DB.setValue(nodoRaiz.getChild("Notas").getChild("VentajasDesventajas"), "CosteTotal", "number", nCosteTotalVentDesvent);
+end;</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding>UTF-8</Encoding>
+  </Scripts>
+</DocumentElement>

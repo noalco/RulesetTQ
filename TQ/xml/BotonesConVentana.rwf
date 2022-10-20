@@ -1,0 +1,31 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>BotonesConVentana</XmlName>
+    <FolderID>32</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+	&lt;template name="boton_nueva_ventana"&gt;
+		&lt;windowreferencecontrol&gt;
+			&lt;icon normal="ArmaCC" pressed="ArmaCC_down" /&gt;
+			&lt;class&gt;NombreSecundarioHabilidad&lt;/class&gt;
+			&lt;description field="name" /&gt;
+		&lt;/windowreferencecontrol&gt;
+	&lt;/template&gt;
+	
+	&lt;template name="boton_ventana_detalles_caracteristicas"&gt;
+		&lt;windowreferencecontrol&gt;
+			&lt;icon normal="details" pressed="details_down" /&gt;
+			&lt;class&gt;VentanaDetallesCaracteristicas&lt;/class&gt;
+			&lt;description field="name" /&gt;
+		&lt;/windowreferencecontrol&gt;
+	&lt;/template&gt;
+
+	&lt;template name="boton_ventana_detalles_habilidades"&gt;
+		&lt;windowreferencecontrol&gt;
+			&lt;icon normal="details" pressed="details_down" /&gt;
+			&lt;class&gt;VentanaDetalleHabilidades&lt;/class&gt;
+		&lt;/windowreferencecontrol&gt;
+	&lt;/template&gt;
+&lt;/root&gt;</XML>
+  </XMLFiles>
+</DocumentElement>

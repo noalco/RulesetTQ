@@ -1,0 +1,78 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>Principal</ScriptName>
+    <FolderID>9</FolderID>
+    <Script>function CalcularBaseHabilidades(nodoOrigen)
+	local nEspiritu=DB.getValue(nodoOrigen, ".Caracteristicas.Espiritu", 0);
+	local nMente=DB.getValue(nodoOrigen, ".Caracteristicas.Mente", 0);
+	local nAtractivo=DB.getValue(nodoOrigen, ".Caracteristicas.Atractivo", 0);
+	local nCuerpo=DB.getValue(nodoOrigen, ".Caracteristicas.Cuerpo", 0);
+	local nTamanio=DB.getValue(nodoOrigen, ".Caracteristicas.Tamanio", 0);
+
+	local nValue=math.floor((nMente+nEspiritu)/2)+nAtractivo+DB.getValue(nodoOrigen, "Comunicacionmodifier", 0)+DB.getValue(nodoOrigen, ".BaseHabilidades.BonoComunicacion", 0);
+	DB.setValue(nodoOrigen, ".BaseHabilidades.Comunicacion", "number", nValue);
+
+	nValue=math.floor((nMente+nCuerpo)/2)-nTamanio+DB.getValue(nodoOrigen, "Discrecionmodifier", 0)+DB.getValue(nodoOrigen, ".BaseHabilidades.BonoDiscrecion", 0);
+	DB.setValue(nodoOrigen, ".BaseHabilidades.Discrecion", "number", nValue);
+		
+	nValue=math.floor((nMente+nEspiritu)/3)+DB.getValue(nodoOrigen, "Hechiceriamodifier", 0)+DB.getValue(nodoOrigen, ".BaseHabilidades.BonoHechiceria", 0);
+	DB.setValue(nodoOrigen, ".BaseHabilidades.Hechiceria", "number", nValue);
+		
+	nValue=math.floor((nMente+nEspiritu)/2)+DB.getValue(nodoOrigen, "Percepcionmodifier", 0)+DB.getValue(nodoOrigen, ".BaseHabilidades.BonoPercepcion", 0);
+	DB.setValue(nodoOrigen, ".BaseHabilidades.Percepcion", "number", nValue);
+		
+	nValue=math.floor((nMente+nCuerpo)/2)+DB.getValue(nodoOrigen, "Tecnicanmodifier", 0)+DB.getValue(nodoOrigen, ".BaseHabilidades.BonoTecnica", 0);
+	DB.setValue(nodoOrigen, ".BaseHabilidades.Tecnica", "number", nValue);
+end;
+
+function ObtenerRangos(nVidaMaxima)
+	local nGraveIni="-"; local nGraveFin="-"; local nLeveIni="-"; local nLeveFin="-"; local nRasgunioIni="-"; local nRasgunioFin="-";	
+	if nVidaMaxima&gt;1 then
+		nGraveIni=math.floor(nVidaMaxima/2);
+		nGraveFin=nVidaMaxima-1;
+		if nGraveIni&gt;1 then
+			nLeveIni=math.floor(nGraveIni/2);
+			nLeveFin=nGraveIni-1;
+			if nLeveIni&gt;1 then
+				nRasgunioIni=1;
+				nRasgunioFin=nLeveIni-1;
+			end
+		end
+	end
+	return nGraveIni, nGraveFin, nLeveIni, nLeveFin, nRasgunioIni, nRasgunioFin;
+end
+
+function ActualizarRangosHeridas(window)
+	local nGraveIni="-"; local nGraveFin="-"; local nLeveIni="-"; local nLeveFin="-"; local nRasgunioIni="-"; local nRasgunioFin="-";
+	nGraveIni, nGraveFin, nLeveIni, nLeveFin, nRasgunioIni, nRasgunioFin=ObtenerRangos(window.VidaMaxima.getValue());
+--	if window.VidaMaxima.getValue()&gt;1 then
+--		nGraveIni=math.floor(window.VidaMaxima.getValue()/2);
+--		nGraveFin=window.VidaMaxima.getValue()-1;
+--		if nGraveIni&gt;1 then
+--			nLeveIni=math.floor(nGraveIni/2);
+--			nLeveFin=nGraveIni-1;
+--			if nLeveIni&gt;1 then
+--				nRasgunioIni=1;
+--				nRasgunioFin=nLeveIni-1;
+--			end
+--		end
+--	end
+	local sValue="\t\t\t\t&lt;table&gt;\n\t\t\t\t\t&lt;tr&gt;\n\t\t\t\t\t\t&lt;td colspan=\"2\"&gt;Rasgu&amp;#241;o&lt;/td&gt;\n\t\t\t\t\t\t&lt;td&gt;"..nRasgunioIni.."&lt;/td&gt;\n\t\t\t\t\t\t&lt;td&gt;"..nRasgunioFin.."&lt;/td&gt;\n\t\t\t\t\t&lt;/tr&gt;\n\t\t\t\t\t&lt;tr&gt;\n\t\t\t\t\t\t&lt;td colspan=\"2\"&gt;Leve&lt;/td&gt;\n\t\t\t\t\t\t&lt;td&gt;"..nLeveIni.."&lt;/td&gt;\n\t\t\t\t\t\t&lt;td&gt;"..nLeveFin.."&lt;/td&gt;\n\t\t\t\t\t&lt;/tr&gt;\n\t\t\t\t\t&lt;tr&gt;\n\t\t\t\t\t\t&lt;td colspan=\"2\"&gt;Grave&lt;/td&gt;\n\t\t\t\t\t\t&lt;td&gt;"..nGraveIni.."&lt;/td&gt;\n\t\t\t\t\t\t&lt;td&gt;"..nGraveFin.."&lt;/td&gt;\n\t\t\t\t\t&lt;/tr&gt;\n\t\t\t\t&lt;/table&gt;"
+	DB.setValue(window.getDatabaseNode(), ".PuntosDeVida.RangosHeridas", "formattedtext", sValue);
+end;
+
+function ActualizarBonosDanio(nodoOrigen)
+	local nValue=DB.getValue(nodoOrigen, ".Caracteristicas.Fuerza", 0)/3;
+	--nValue= nValue % 1 &gt;= 0.5 and math.ceil(nValue) or math.floor(nValue);
+	nValue=Herramientas.Redondeo(nValue);
+	nValue=nValue-2;
+	DB.setValue(nodoOrigen, ".FortunaModDanio.ModDanio1M", "number", nValue);
+	if nValue&lt;=5 then DB.setValue(nodoOrigen, ".FortunaModDanio.ModDanio2M", "number", nValue+1);
+	elseif nValue&lt;=10 then DB.setValue(nodoOrigen, ".FortunaModDanio.ModDanio2M", "number", nValue+2);
+	else DB.setValue(nodoOrigen, ".FortunaModDanio.ModDanio2M", "number", nValue+3);
+	end	
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding>UTF-8</Encoding>
+  </Scripts>
+</DocumentElement>

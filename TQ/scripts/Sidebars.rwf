@@ -1,0 +1,114 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>Sidebars</ScriptName>
+    <FolderID>29</FolderID>
+    <Script>function onInit()
+	aRecordOverrides = {
+		["hechizos"] = {
+			bExport=true,
+			aDataMap = {"referencia.hechizos"},
+			sListDisplayClass = "HechizoSidebarBase",
+			sRecordDisplayClass ="VentanaHechizoSidebar",
+			aCustomFilters = {
+				["Verbo"] = { sField = "Verbo", fGetValue =  getCombinacionVervoYVerbo },
+				["Esfera"] = { sField = "Esfera", fGetValue =  getCombinacionEsferaYEnEsfera },
+--				["En Esfera"] = { sField = "EnEsfera" },
+						},
+			sEditMode = "play",
+			sSidebarCategory = "personaje",
+		},
+		["item"] = {
+			aDataMap = {"referencia.objetos"},
+			sRecordDisplayClass="itemSidebar",
+			sListDisplayClass = "ItemSidebarBase",
+			aCustomFilters = {
+				["Tipo de Objeto"] = { sField = "NombreTipoObjeto" },
+			},
+			sEditMode = "play",
+			sSidebarCategory = "personaje",
+		},
+		["npc"] = {
+			aDataMap = {"referencia.pnjs"},
+		},
+		["etnias"] = {
+			bExport=true,
+			aDataMap = {"referencia.etnias"},
+			sListDisplayClass = "EtniaSidebarBase",
+			sRecordDisplayClass="VentanaEtniaSidebar",
+			aCustomFilters = {
+				["Puntos de Personaje"] = { sField = "PP" },
+			},
+			sEditMode = "play",
+			sSidebarCategory = "personaje",
+		},
+		["profesiones"] = {
+			bExport=true,
+			aDataMap = {"referencia.profesiones"},
+			sListDisplayClass = "ProfesionSidebarBase",
+			sRecordDisplayClass="VentanaProfesionSidebar",
+			aCustomFilters = {
+				["Puntos de Personaje"] = { sField = "PP" },
+			},
+			sEditMode = "play",
+			sSidebarCategory = "personaje",
+		},
+		["encantamientos"] = {
+			bExport=true,
+			aDataMap = {"referencia.encantamientos"},
+			sListDisplayClass = "EncantamientoSidebarBase",
+			sRecordDisplayClass="VentanaEncantamientoSidebar",
+			aCustomFilters = {
+				["PMP"] = { sField = "PMP" },
+			},
+			sEditMode = "play",
+			sSidebarCategory = "personaje",
+		},
+
+		["ventdesvent"] = {
+			bExport=true,
+			aDataMap = {"referencia.ventdesvent"},
+			sListDisplayClass = "VentDesventSidebarBase",
+			sRecordDisplayClass="VentanaVentDesventSidebar",
+			aCustomFilters = {
+				["Tipo"] = { sField = "TipoVentDesvent" },
+			},
+			sEditMode = "play",
+			sSidebarCategory = "personaje",
+		},
+
+--Desactivar librerías sin uso
+		["vehicle"] = {bHidden = true, bExport=false},
+		["quest"] = {bHidden = true, bExport=false},
+
+	}
+	
+--	Debug.console (LibraryData.aRecords["vehicle"]);
+--	if LibraryData.aRecords["vehicle"].aGMListButtonsV4 then Debug.console (LibraryData.aRecords["vehicle"].aGMListButtonsV4);
+--	elseif LibraryData.aRecords["vehicle"].aGMListButtons then Debug.console (LibraryData.aRecords["vehicle"].aGMListButtons);
+--	end
+--	
+--	LibraryData.removeIndexButton("vehicle", "button_vehicle_type");
+			
+	LibraryData.overrideRecordTypes(aRecordOverrides);
+	
+end
+
+function getCombinacionEsferaYEnEsfera(vNode)
+	if DB.getValue(vNode, "EnEsfera", "")=="" then
+		return DB.getValue(vNode, "Esfera", "");
+	else
+		return {DB.getValue(vNode, "Esfera", ""), DB.getValue(vNode, "EnEsfera", "")};
+	end
+end
+
+function getCombinacionVervoYVerbo(vNode)
+	if DB.getValue(vNode, "YVerbo", "")=="" then
+		return DB.getValue(vNode, "Verbo", "");
+	else
+		return {DB.getValue(vNode, "Verbo", ""), DB.getValue(vNode, "YVerbo", "")};
+	end
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>

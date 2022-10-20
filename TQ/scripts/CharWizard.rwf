@@ -1,0 +1,76 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>CharWizard</ScriptName>
+    <FolderID>21</FolderID>
+    <Script>function AniadirCaracteristicas(nodeChar, window)
+	DB.setValue(nodeChar, "Caracteristicas.BaseCuerpo", "number", window.SubventanaCaracteristicas.subwindow.BaseCuerpo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseMente", "number", window.SubventanaCaracteristicas.subwindow.BaseMente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseEspiritu", "number", window.SubventanaCaracteristicas.subwindow.BaseEspiritu.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseAtractivo", "number", window.SubventanaCaracteristicas.subwindow.BaseAtractivo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseTamanio", "number", window.SubventanaCaracteristicas.subwindow.BaseTamanio.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEdadCuerpo", "number", window.SubventanaCaracteristicas.subwindow.ModEdadCuerpo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEdadMente", "number", window.SubventanaCaracteristicas.subwindow.ModEdadMente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEspecieMente", "number", window.SubventanaCaracteristicas.subwindow.ModEspecieMente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEspecieEspiritu", "number", window.SubventanaCaracteristicas.subwindow.ModEspecieEspiritu.getValue());
+	
+	DB.setValue(nodeChar, "Caracteristicas.Cuerpo", "number", window.SubventanaCaracteristicas.subwindow.Cuerpo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Mente", "number", window.SubventanaCaracteristicas.subwindow.Mente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Espiritu", "number", window.SubventanaCaracteristicas.subwindow.Espiritu.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Atractivo", "number", window.SubventanaCaracteristicas.subwindow.Atractivo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Tamanio", "number", window.SubventanaCaracteristicas.subwindow.Tamanio.getValue());
+end
+
+function AniadirPersonalidad(nodeChar, window)
+	DB.setValue(nodeChar, "Notas.Edad", "string", window.SubventanaCaracteristicas.subwindow.Edad.getValue());
+	if window.SubventanaCaracteristicas.subwindow.SeleccionEspecie.getValue()=="0" then DB.setValue(nodeChar, "Notas.Especie", "string", "Humano");
+	elseif window.SubventanaCaracteristicas.subwindow.SeleccionEspecie.getValue()=="1" then DB.setValue(nodeChar, "Notas.Especie", "string", "Mestizo");
+	elseif window.SubventanaCaracteristicas.subwindow.SeleccionEspecie.getValue()=="2" then DB.setValue(nodeChar, "Notas.Especie", "string", "Mereni");
+	else DB.setValue(nodeChar, "Notas.Especie", "string", "");
+	end
+end
+
+local Ventana;
+
+function onCommitButtonPressed(window)
+	Ventana=window
+	if Session.IsHost then
+		commitCharacter();
+	else
+		requestCommit();
+	end
+end
+
+function requestCommit()
+	if not bRequested then
+		User.requestIdentity(nil, "charsheet", "name", nil, requestResponse);
+		bRequested = true;
+	end
+end
+
+function requestResponse(bResult, sIdentity)
+	if bResult then
+		commitCharacter(sIdentity);
+	else
+		ChatManager.SystemMessage("Error: Fallo al crear el nuevo personaje.")
+	end
+	bRequested = false;
+end
+
+function commitCharacter(identity)
+	local nodeChar;
+	if Session.IsHost then
+		nodeChar = DB.createChild("charsheet");
+	else
+		nodeChar = DB.findNode("charsheet." .. identity);
+	end
+
+	DB.setValue(nodeChar, "name", "string", Ventana.NombrePJ.getValue());
+	AniadirCaracteristicas(nodeChar, Ventana);
+	AniadirPersonalidad(nodeChar, Ventana)
+	Interface.openWindow("charsheet", nodeChar);
+	close();
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding>UTF-8</Encoding>
+  </Scripts>
+</DocumentElement>

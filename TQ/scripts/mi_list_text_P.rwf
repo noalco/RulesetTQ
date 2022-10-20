@@ -1,0 +1,65 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>mi_list_text_P</ScriptName>
+    <FolderID>9</FolderID>
+    <Script>-- 
+-- Please see the license.html file included with this distribution for 
+-- attribution and copyright information.
+--
+
+local sFocus = "name";
+
+function onInit()
+	if newfocus then
+		sFocus = newfocus[1];
+	end
+end
+
+function onListChanged()
+	update();
+	local nPD=0;
+	for _,nodoHeridas in pairs(window.getDatabaseNode().getChild("PuntosDeVida.ListaHeridas").getChildren()) do
+		nPD=nPD+DB.getValue(nodoHeridas, "PD", 0);
+	end
+	DB.setValue(window.getDatabaseNode(), "PuntosDeVida.PD", "number", nPD);
+end
+
+function update()
+	local sEdit = getName() .. "_iedit";
+	if window[sEdit] then
+		local bEdit = (window[sEdit].getValue() == 1);
+		for _,w in ipairs(getWindows()) do
+			w.idelete.setVisibility(bEdit);
+		end
+	end
+end
+
+function onClickDown(button, x, y)
+	if not isReadOnly() and getDatabaseNode().isOwner() then
+		return true;
+	end
+end
+
+function onClickRelease(button, x, y)
+	if not isReadOnly() and getDatabaseNode().isOwner() then
+		if getWindowCount() == 0 then
+			addEntry(true);
+		end
+		return true;
+	end
+end
+
+function addEntry(bFocus)
+	local w = createWindow();
+	if bFocus and w[sFocus] then
+		w[sFocus].setFocus();
+	end
+	if self.onEntryAdded then
+		self.onEntryAdded(w);
+	end
+	return w;
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding>UTF-8</Encoding>
+  </Scripts>
+</DocumentElement>

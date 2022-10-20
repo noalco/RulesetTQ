@@ -1,0 +1,71 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>CadenasGenerales</XmlName>
+    <FolderID>0</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+&lt;!-- ñ &amp;#241; á &amp;#225; é &amp;#233; í &amp;#237; ó &amp;#243; ú &amp;#250; --&gt;
+	&lt;string name="button_add"&gt;Insertar Elemento&lt;/string&gt;
+	&lt;string name="button_editon"&gt;Editar Lista&lt;/string&gt;
+	&lt;string name="button_editoff"&gt;Fin Editar Lista&lt;/string&gt;
+	&lt;string name="button_delete"&gt;Borrar Elemento&lt;/string&gt;
+	&lt;string name="button_deleteconfirm"&gt;Confirmar Borrado de Elemento&lt;/string&gt;
+	
+
+	&lt;string name="windowminimize"&gt;Minimizar&lt;/string&gt;
+	&lt;string name="windowclose"&gt;Cerrar Ventana&lt;/string&gt;
+	&lt;string name="windowexport"&gt;Exportar Registro&lt;/string&gt;			
+	&lt;string name="windowunlock"&gt;Desbloquear Posición&lt;/string&gt;
+	&lt;string name="windowlock"&gt;Bloquear Posición&lt;/string&gt;
+	&lt;string name="windowsizereset"&gt;Resetear Posición&lt;/string&gt;
+
+		
+	&lt;string name="chatclipboard"&gt;Copiar Texto Al Portapapeles&lt;/string&gt;
+	&lt;string name="chatclear"&gt;Limpiar&lt;/string&gt;
+	&lt;string name="chattotalhalf"&gt;Dividir el valor a la mitad&lt;/string&gt;
+	&lt;string name="chattotaldouble"&gt;Doblar el valor&lt;/string&gt;
+	&lt;string name="chattotalnegate"&gt;Negar el valor&lt;/string&gt;
+	&lt;string name="chattotalnone"&gt;Resetear&lt;/string&gt;
+		
+	
+	&lt;string name="textclipboard"&gt;Portapapeles&lt;/string&gt;
+	&lt;string name="textclipboardcut"&gt;Cortar&lt;/string&gt;
+	&lt;string name="textclipboardcopy"&gt;Copiar&lt;/string&gt;
+	&lt;string name="textclipboardpaste"&gt;Pegar&lt;/string&gt;
+	
+	
+	&lt;string name="masterindex_label_category"&gt;Grupo&lt;/string&gt;
+	&lt;string name="masterindex_label_category_all"&gt;(Todos)&lt;/string&gt;
+	&lt;string name="masterindex_label_category_empty"&gt;(Sin categorizar)&lt;/string&gt;
+	&lt;string name="masterindex_label_filter_sharedonly_all"&gt;Todos&lt;/string&gt;
+	&lt;string name="masterindex_label_filter_sharedonly_shared"&gt;Compartido&lt;/string&gt;
+	&lt;string name="masterindex_tooltip_filter_sharedonly"&gt;Filtrar por modo de compartir&lt;/string&gt;
+	&lt;string name="masterindex_button_category_editon"&gt;Editar Grupos&lt;/string&gt;
+	&lt;string name="masterindex_button_category_editoff"&gt;Parar Edición de Grupos&lt;/string&gt;
+	&lt;string name="masterindex_button_category_add"&gt;Añadir Categoría&lt;/string&gt;
+	&lt;string name="masterindex_button_category_delete"&gt;Borrar Categoría&lt;/string&gt;
+	&lt;string name="masterindex_suffix_duplicate"&gt;(Copiar)&lt;/string&gt;
+
+
+	&lt;string name="charselect_window_title"&gt;Selecci&amp;#243;n de Personaje&lt;/string&gt;
+	&lt;string name="charselect_tooltip_import"&gt;Importar Personaje&lt;/string&gt;
+	&lt;string name="charselect_tooltip_export"&gt;Exportar Personaje&lt;/string&gt;
+	&lt;string name="charselect_tooltip_back"&gt;Volver a la Selecci&amp;#243;n de Personaje&lt;/string&gt;
+	&lt;string name="charselect_tooltip_importadd"&gt;A&amp;#241;adir Personaje&lt;/string&gt;
+	&lt;string name="charselect_tooltip_importfile"&gt;Importar Fichero de Personaje&lt;/string&gt;
+	&lt;string name="charselect_label_ownedby"&gt;Propiedad de:&lt;/string&gt;
+	&lt;string name="charselect_label_owned"&gt;Propiedad&lt;/string&gt;
+	&lt;string name="charselect_import_window_title"&gt;Importar Personaje&lt;/string&gt;
+
+	&lt;string name="char_menu_ownerclear"&gt;Limpiar propietario&lt;/string&gt;
+	&lt;string name="char_menu_ownergm"&gt;Tomar propiedad (como %s)&lt;/string&gt;
+	&lt;string name="char_label_name"&gt;NOMBRE&lt;/string&gt;
+	&lt;string name="char_tooltip_portrait"&gt;Retrato&lt;/string&gt;
+	&lt;string name="char_tooltip_speak"&gt;Hablar como PJ&lt;/string&gt;
+		
+
+	&lt;string name="library_recordtype_empty_hechizos"&gt;&amp;#171; Nombre &amp;#187;&lt;/string&gt;
+
+&lt;/root&gt;</XML>
+  </XMLFiles>
+</DocumentElement>

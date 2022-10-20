@@ -1,0 +1,21 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>Wizard</XmlName>
+    <FolderID>32</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+	&lt;template name="button_charwizard"&gt;
+		&lt;button_text_sm&gt;
+			&lt;anchored width="150" height="20" /&gt;
+			&lt;state textres="charselect_button_wizard" /&gt;
+			&lt;script&gt;
+				function onButtonPress()
+					window.close();
+					Interface.openWindow("charwizard", "");
+				end	
+			&lt;/script&gt;
+		&lt;/button_text_sm&gt;
+	&lt;/template&gt;
+&lt;/root&gt;</XML>
+  </XMLFiles>
+</DocumentElement>

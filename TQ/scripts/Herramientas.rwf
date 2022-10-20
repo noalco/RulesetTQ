@@ -1,0 +1,39 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>Herramientas</ScriptName>
+    <FolderID>31</FolderID>
+    <Script>function Redondeo(nValor)
+	return nValor % 1 &gt; 0.5 and math.ceil(nValor) or math.floor(nValor);
+end
+
+function Mensaje(sMensaje, sFuente, sIcono, bSoloDM, sUser)
+	if not sFuente then sFuente="msgfont"; end;
+	local msg = {font = sFuente, icon = sIcono, secret = bSoloDM};
+	msg.text = sMensaje;
+	if sUser then
+		if sUser == "" then
+			Comm.deliverChatMessage(msg);
+		else
+			Comm.deliverChatMessage(msg, sUser);
+		end
+	elseif bSoloDM then
+		msg.secret = true;
+		if Session.IsHost then
+			Comm.deliverChatMessage(msg);
+		else
+			--Debug.chat("not sUser bSoloDM not Session.IsHost");
+			Comm.deliverChatMessage(msg, User.getUsername());
+		end
+	else
+		Comm.deliverChatMessage(msg);
+	end
+	--Comm.deliverChatMessage(msg);
+end
+
+function ObtenerVentana(sVentana, sNodoDatos)
+	return Interface.findWindow(sVentana, sNodoDatos);
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding>UTF-8</Encoding>
+  </Scripts>
+</DocumentElement>

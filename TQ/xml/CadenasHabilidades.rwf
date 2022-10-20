@@ -1,0 +1,62 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>CadenasHabilidades</XmlName>
+    <FolderID>10</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+	&lt;string name="label_ArmaPr"&gt;Arma Pr&lt;/string&gt;
+	&lt;string name="label_ArmaCC"&gt;Arma CC&lt;/string&gt;
+	&lt;string name="label_Artesania"&gt;Artesanía&lt;/string&gt;
+	&lt;string name="label_Autoridad"&gt;Autoridad&lt;/string&gt;
+	&lt;string name="label_BellasArtes"&gt;Bellas artes&lt;/string&gt;
+	&lt;string name="label_Buscar"&gt;Buscar&lt;/string&gt;
+	&lt;string name="label_Callejeo"&gt;Callejeo&lt;/string&gt;
+	&lt;string name="label_ConocimientoMagico"&gt;Conocimiento mágico&lt;/string&gt;
+	&lt;string name="label_Correr"&gt;Correr&lt;/string&gt;
+	&lt;string name="label_Documentacion"&gt;Documentación&lt;/string&gt;
+	&lt;string name="label_Encanto"&gt;Encanto&lt;/string&gt;
+	&lt;string name="label_Enganiar"&gt;Engañar&lt;/string&gt;
+	&lt;string name="label_Equilibrio"&gt;Equilibrio&lt;/string&gt;
+	&lt;string name="label_Esquivar"&gt;Esquivar&lt;/string&gt;
+	&lt;string name="label_Estrategia"&gt;Estrategia&lt;/string&gt;
+	&lt;string name="label_Forzar cerraduras"&gt;Forzar cerraduras&lt;/string&gt;
+	&lt;string name="label_Hurtar"&gt;Hurtar&lt;/string&gt;
+	&lt;string name="label_Idioma"&gt;Idioma&lt;/string&gt;
+	&lt;string name="label_Idioma2"&gt;Idioma&lt;/string&gt;
+	&lt;string name="label_Instruir"&gt;Instruir&lt;/string&gt;
+	&lt;string name="label_InterpretarSuenios"&gt;Interpretar sueños&lt;/string&gt;
+	&lt;string name="label_Intimidar"&gt;Intimidar&lt;/string&gt;
+	&lt;string name="label_Inventar"&gt;Inventar&lt;/string&gt;
+	&lt;string name="label_Juego"&gt;Juego&lt;/string&gt;
+	&lt;string name="label_Lanzar"&gt;Lanzar&lt;/string&gt;
+	&lt;string name="label_Leyendas"&gt;Leyendas&lt;/string&gt;
+	&lt;string name="label_ManejarBotes"&gt;Manejar botes&lt;/string&gt;
+	&lt;string name="label_ManejarCarros"&gt;Manejar carros&lt;/string&gt;
+	&lt;string name="label_Medicina"&gt;Medicina&lt;/string&gt;
+	&lt;string name="label_Memorizar"&gt;Memorizar&lt;/string&gt;
+	&lt;string name="label_Montar"&gt;Montar&lt;/string&gt;
+	&lt;string name="label_Multiverso"&gt;Multiverso&lt;/string&gt;
+	&lt;string name="label_Musica"&gt;Música&lt;/string&gt;
+	&lt;string name="label_Nadar"&gt;Nadar&lt;/string&gt;
+	&lt;string name="label_Naturaleza"&gt;Naturaleza&lt;/string&gt;
+	&lt;string name="label_Navegacion"&gt;Navegación&lt;/string&gt;
+	&lt;string name="label_Ocultar"&gt;Ocultar&lt;/string&gt;
+	&lt;string name="label_Oratoria"&gt;Oratoria&lt;/string&gt;
+	&lt;string name="label_Orientacion"&gt;Orientación&lt;/string&gt;
+	&lt;string name="label_Pelea"&gt;Pelea&lt;/string&gt;
+	&lt;string name="label_Percatarse"&gt;Percatarse&lt;/string&gt;
+	&lt;string name="label_Perspicacia"&gt;Perspicacia&lt;/string&gt;
+	&lt;string name="label_Persuadir"&gt;Persuadir&lt;/string&gt;
+	&lt;string name="label_Pociones"&gt;Pociones&lt;/string&gt;
+	&lt;string name="label_PrimerosAuxilios"&gt;Primeros auxilios&lt;/string&gt;
+	&lt;string name="label_Rastrear"&gt;Rastrear&lt;/string&gt;
+	&lt;string name="label_Saltar"&gt;Saltar&lt;/string&gt;
+	&lt;string name="label_Seguir"&gt;Seguir&lt;/string&gt;
+	&lt;string name="label_Sigilo"&gt;Sigilo&lt;/string&gt;
+	&lt;string name="label_TierrasQuebradas"&gt;Tierras Quebradas&lt;/string&gt;
+	&lt;string name="label_Torturar"&gt;Torturar&lt;/string&gt;
+	&lt;string name="label_TratarAnimales"&gt;Tratar animales&lt;/string&gt;
+	&lt;string name="label_Trepar"&gt;Trepar&lt;/string&gt;
+&lt;/root&gt;</XML>
+  </XMLFiles>
+</DocumentElement>

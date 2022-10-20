@@ -1,0 +1,127 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>CadenasInventario</XmlName>
+    <FolderID>12</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+	&lt;!--ñ &amp;#241; á &amp;#225; é &amp;#233; í &amp;#237; ó &amp;#243; ú &amp;#250;--&gt;
+	&lt;string name="char_label_itemweight"&gt;Ps&lt;/string&gt;
+	&lt;string name="char_label_itemlocation"&gt;Localizaci&amp;#243;n&lt;/string&gt;
+	&lt;string name="char_label_itemname"&gt;Nombre&lt;/string&gt;
+	&lt;string name="char_label_totalweight"&gt;Peso total cargado&lt;/string&gt;
+	&lt;string name="char_label_money"&gt;Monedas&lt;/string&gt;
+	
+	&lt;string name="char_tooltip_itemweight"&gt;Carga&lt;/string&gt;
+	&lt;string name="char_tooltip_itemcarried"&gt;Cargado / Equipado&lt;/string&gt;
+	&lt;string name="char_tooltip_inv_none"&gt;No Cargado&lt;/string&gt;
+	&lt;string name="char_tooltip_inv_carried"&gt;Cargado&lt;/string&gt;
+	&lt;string name="char_tooltip_inv_equipped"&gt;Equipado&lt;/string&gt;
+		
+	&lt;string name="item_label_unidentified"&gt;Nombre no ID&lt;/string&gt;
+	&lt;string name="item_label_unidentifiednotes"&gt;Notas&lt;/string&gt;
+	&lt;string name="item_label_cost"&gt;Coste&lt;/string&gt;
+	&lt;string name="item_label_weight"&gt;Carga&lt;/string&gt;
+	
+	&lt;string name="tooltip_id"&gt;Objeto Identificado&lt;/string&gt;
+	&lt;string name="tooltip_nonid"&gt;Objeto No Identificado&lt;/string&gt;
+	&lt;string name="tooltip_lock"&gt;Bloqueado&lt;/string&gt;
+	&lt;string name="tooltip_unlock"&gt;No Bloqueado&lt;/string&gt;
+		
+	&lt;string name="library_recordtype_empty_item"&gt;&amp;#171; Nuevo Objeto &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_nonid_item"&gt;Objeto Sin Identificar&lt;/string&gt;
+	
+	&lt;string name="list_menu_createitem"&gt;Crear Objeto&lt;/string&gt;
+	&lt;string name="list_menu_createitem_generico"&gt;Crear Objeto Genérico&lt;/string&gt;
+	&lt;string name="list_menu_createitem_arma"&gt;Crear Arma&lt;/string&gt;
+	&lt;string name="list_menu_createitem_armadura"&gt;Crear Armadura&lt;/string&gt;
+	&lt;string name="list_menu_createitem_yelmo"&gt;Crear Yelmo/Casco&lt;/string&gt;
+	&lt;string name="list_menu_createitem_escudo"&gt;Crear Escudo&lt;/string&gt;
+	&lt;string name="list_menu_createitem_libro"&gt;Crear Libro&lt;/string&gt;
+	&lt;string name="list_menu_createitem_pocion"&gt;Crear Poción/Veneno&lt;/string&gt;
+	&lt;string name="list_menu_createarmor"&gt;Crear Arma&lt;/string&gt;
+	&lt;string name="list_menu_createweapon"&gt;Crear Armadura&lt;/string&gt;
+	&lt;string name="list_menu_deleteitem"&gt;Borrar Objeto&lt;/string&gt;
+	&lt;string name="list_menu_deleteconfirm"&gt;Confirmar Borrado&lt;/string&gt;
+
+	&lt;string name="windowminimize"&gt;Minimizar&lt;/string&gt;
+	&lt;string name="windowclose"&gt;Cerrar Ventana&lt;/string&gt;
+	&lt;string name="windowexport"&gt;Exportar Registro&lt;/string&gt;			
+	
+	&lt;string name="chatclipboard"&gt;Copiar Texto Al Portapapeles&lt;/string&gt;
+	&lt;string name="chatclear"&gt;Limpiar&lt;/string&gt;
+	&lt;string name="chattotalhalf"&gt;Dividir el valor a la mitad&lt;/string&gt;
+	&lt;string name="chattotaldouble"&gt;Doblar el valor&lt;/string&gt;
+	&lt;string name="chattotalnegate"&gt;Negar el valor&lt;/string&gt;
+
+	&lt;string name="item_label_tipo_objeto"&gt;Tipo de Objeto&lt;/string&gt;
+	&lt;string name="item_label_armadura"&gt;Armadura&lt;/string&gt;
+	&lt;string name="item_label_tipo_armadura"&gt;Tipo&lt;/string&gt;
+	&lt;string name="item_label_bono_defensa"&gt;Bono defensa&lt;/string&gt;			
+	&lt;string name="item_label_yelmo"&gt;Casco/Yelmo&lt;/string&gt;
+	&lt;string name="item_label_escudo"&gt;Escudo&lt;/string&gt;
+	&lt;string name="item_label_arma"&gt;Arma&lt;/string&gt;
+	&lt;string name="item_label_habilidad_arma"&gt;Habilidad&lt;/string&gt;
+	&lt;string name="item_label_danio_arma"&gt;Da&amp;#241;o&lt;/string&gt;
+	&lt;string name="item_label_ataque_arma"&gt;Bono ataque&lt;/string&gt;
+	&lt;string name="item_label_tipo_arma"&gt;Tipo&lt;/string&gt;
+	&lt;string name="item_label_long_alc_arma"&gt;Long./Alcance&lt;/string&gt;
+	&lt;string name="item_label_uso_arma"&gt;Uso&lt;/string&gt;
+	&lt;string name="item_label_danio_mas_bono"&gt;+&lt;/string&gt;
+	&lt;string name="item_label_danio_armadura"&gt;Da&amp;#241;o recibido&lt;/string&gt;
+	&lt;string name="item_label_tamanio"&gt;Tama&amp;#241;o&lt;/string&gt;
+	&lt;string name="item_label_penalizacion_percepcion"&gt;Pen. Percepci&amp;#243;n&lt;/string&gt;
+	&lt;string name="item_label_tiene_visera"&gt;Tiene Visera&lt;/string&gt;
+	&lt;string name="item_label_visera_levantada"&gt;Levantar Visera&lt;/string&gt;
+	&lt;string name="item_label_fuerza_minima"&gt;Fuerza&lt;/string&gt;
+	
+	&lt;string name="item_label_longitud_corta"&gt;Corta&lt;/string&gt;
+	&lt;string name="item_label_longitud_media"&gt;Media&lt;/string&gt;
+	&lt;string name="item_label_longitud_media_larga"&gt;Media/Larga&lt;/string&gt;
+	&lt;string name="item_label_longitud_larga"&gt;Larga&lt;/string&gt;
+	
+	&lt;string name="item_label_alcance_corto"&gt;Corto&lt;/string&gt;
+	&lt;string name="item_label_alcance_medio"&gt;Medio&lt;/string&gt;
+	&lt;string name="item_label_alcance_largo"&gt;Largo&lt;/string&gt;
+	&lt;string name="item_label_alcance_muy_largo"&gt;Muy largo&lt;/string&gt;
+	
+	&lt;string name="item_label_tipo_cortante"&gt;Cortante&lt;/string&gt;
+	&lt;string name="item_label_tipo_penetrante"&gt;Penetrante&lt;/string&gt;
+	&lt;string name="item_label_tipo_contundente"&gt;Contundente&lt;/string&gt;
+	&lt;string name="item_label_tipo_desgarradora"&gt;Desgarradora&lt;/string&gt;
+	&lt;string name="item_label_tipo_cortante_penetrante"&gt;Cortante/Penetrante&lt;/string&gt;
+	&lt;string name="item_label_tipo_desgarradora_penetrante"&gt;Desgarradora/Penetrante&lt;/string&gt;
+	&lt;string name="item_label_tipo_contundente_penetrante"&gt;Contundente/Penetrante&lt;/string&gt;
+	&lt;string name="item_label_tipo_contundente_desgarradora"&gt;Contundente/Desgarradora&lt;/string&gt;
+
+	&lt;string name="item_label_recarga"&gt;Recarga&lt;/string&gt;
+	&lt;string name="item_label_recarga_retraso"&gt;Retraso&lt;/string&gt;
+	&lt;string name="item_label_recarga_1_turno"&gt;1 turno&lt;/string&gt;
+	&lt;string name="item_label_recarga_2_turnos"&gt;2 turnos&lt;/string&gt;
+	&lt;string name="item_label_recarga_12_turnos"&gt;12 turnos&lt;/string&gt;
+	&lt;string name="item_label_recarga_24_turnos"&gt;24 turnos&lt;/string&gt;
+
+	&lt;string name="TipoDefensa_Label_Blanda"&gt;Blanda&lt;/string&gt;
+	&lt;string name="TipoDefensa_Label_Dura"&gt;Dura&lt;/string&gt;
+	
+	&lt;string name="tamanio_armadura_1"&gt;-3/-2&lt;/string&gt;
+	&lt;string name="tamanio_armadura_2"&gt;-1/+1&lt;/string&gt;
+	&lt;string name="tamanio_armadura_3"&gt;+2/+3&lt;/string&gt;
+	&lt;string name="tamanio_armadura_4"&gt;+4&lt;/string&gt;
+	
+	&lt;string name="HabilidadCC_Label_Arma_de_asta"&gt;Arma de asta&lt;/string&gt;
+	&lt;string name="HabilidadCC_Label_Espada"&gt;Espada&lt;/string&gt;
+	&lt;string name="HabilidadCC_Label_Pu_al"&gt;Pu&amp;#241;al&lt;/string&gt;
+	&lt;string name="HabilidadCC_Label_Maza"&gt;Maza&lt;/string&gt;
+	&lt;string name="HabilidadCC_Label_Hacha"&gt;Hacha&lt;/string&gt;
+	&lt;string name="HabilidadCC_Label_Mayal"&gt;Mayal&lt;/string&gt;
+	&lt;string name="HabilidadCC_Label_Red"&gt;Red&lt;/string&gt;
+	&lt;string name="HabilidadCC_Label_L_tigo"&gt;L&amp;#225;tigo&lt;/string&gt;
+	&lt;string name="HabilidadCC_Label_Pelea"&gt;Pelea&lt;/string&gt;
+	&lt;string name="HabilidadAr_Label_Lanzar"&gt;Lanzar&lt;/string&gt;
+	&lt;string name="HabilidadPr_Arco"&gt;Arco&lt;/string&gt;
+	&lt;string name="HabilidadPr_Ballesta"&gt;Ballesta&lt;/string&gt;
+	&lt;string name="HabilidadPr_Canon_de_Mano"&gt; Ca&amp;#241;&amp;#243;n de Mano&lt;/string&gt;
+	&lt;string name="Honda"&gt;Honda&lt;/string&gt;
+&lt;/root&gt;</XML>
+  </XMLFiles>
+</DocumentElement>

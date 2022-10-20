@@ -1,0 +1,327 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>Inventario</ScriptName>
+    <FolderID>13</FolderID>
+    <Script>CteObjeto = 1;
+CteLibro = 2;
+CtePocionVeneno = 3;
+CteArma = 4;
+CteEscudo = 5;
+CteArmadura = 6;
+CteYelmo = 7;
+
+CadenasTipoObjeto = {
+	[CteObjeto] = "General",
+	[CteLibro] = "Libro",
+	[CtePocionVeneno] = "Poción / Veneno",
+	[CteArma] = "Arma",
+	[CteArmadura] = "Armadura",
+	[CteEscudo] = "Escudo",
+	[CteYelmo] = "Casco / Yelmo",
+}
+
+CteEquipado=2;
+CteCargado=1;
+CteDesequipado=0;
+
+CteUnaMano="1";
+CteDosManos="2";
+CteUnaDosManos="5";
+CteRangoUnaMano="6";
+CteRango="3";
+CteArrojadiza="4";
+CteArrojadizaDosManos="7";
+
+function CalcularPesoTotal(window)
+	nPesoTotal=0; local nCount; local nCarried; local nWeight; local nMult;
+	for _,nodoItem in pairs(DB.getChildren(window.getDatabaseNode().getParent())) do
+		nCount=DB.getValue(nodoItem, "count", 0);
+		nCarried=DB.getValue(nodoItem, "carried", 0);
+		nWeight=DB.getValue(nodoItem, "weight", 0);
+		-- Las armaduras pesan el doble si no van equipadas
+		if DB.getValue(nodoItem, "TipoObjeto", "") == CteArmadura and nCarried==1 then nMult=2;
+		else nMult=1;
+		end
+		if nCarried&gt;0 and nWeight&gt;=0.3 then
+			nPesoTotal=nPesoTotal+nCount*nWeight*nMult;
+		end
+	end;
+	DB.setValue(window.getDatabaseNode(), "...encumbranceload", "number", nPesoTotal);
+end;
+
+function AniadirArmadura(window)
+	if DB.getValue(window.getDatabaseNode(), "TipoObjeto", "")==CteArmadura then
+		local sTamanioArmadura=DB.getValue(window.getDatabaseNode(), "TamanioArmadura", "");
+		local nMin; local nMax;
+		if sTamanioArmadura=="+4" then nMax=4; nMin=4;
+		elseif sTamanioArmadura=="" then nMax=-100; nMin=100;
+		else
+			nMin,nMax=string.match(sTamanioArmadura, "(.-)/(.-)"); -- Los tamaños están en formato min/max
+			nMin=tonumber(string.sub(sTamanioArmadura, 1, 2));
+			nMax=tonumber(string.sub(sTamanioArmadura, 4, 5));
+		end
+		local nTamanio=DB.getValue(window.getDatabaseNode(), "...Caracteristicas.Tamanio", 0);
+		if nTamanio&gt;=nMin and nTamanio&lt;=nMax then
+			-- Si la armadura ha sufrido daño, reduce la protección: max(0, Defensa-Daño)
+			DB.setValue(window.getDatabaseNode(), "...Protecciones.BonoArmadura", "number", math.max(DB.getValue(window.getDatabaseNode(), "Defensa", 0)-DB.getValue(window.getDatabaseNode(), "DanioDefensa", 0), 0));	
+			DB.setValue(window.getDatabaseNode(), "...Protecciones.TipoArmadura", "string", DB.getValue(window.getDatabaseNode(), "TipoDefensa", 0));
+			DB.setValue(window.getDatabaseNode(), "...Protecciones.Armadura", "string", DB.getValue(window.getDatabaseNode(), "name", ""));
+		else
+			Herramientas.Mensaje("La armadura no se puede equipar por no ser del tamaño adecuado", nil, "action_armadura", false);--, DB.getValue(window.getDatabaseNode(), "...name", ""));
+			QuitarArmadura(window);
+			DB.setValue(window.getDatabaseNode(), "carried", "number", CteCargado);
+		end;
+	end
+end
+
+function QuitarArmadura(window)
+	if DB.getValue(window.getDatabaseNode(), "TipoObjeto", "")==CteArmadura then
+		DB.setValue(window.getDatabaseNode(), "...Protecciones.BonoArmadura", "number", 0);
+		DB.setValue(window.getDatabaseNode(), "...Protecciones.TipoArmadura", "string", "");
+		DB.setValue(window.getDatabaseNode(), "...Protecciones.Armadura", "string", "");
+	end
+end
+
+function AniadirEscudo(window)
+	if DB.getValue(window.getDatabaseNode(), "TipoObjeto", "")==CteEscudo then
+		DB.setValue(window.getDatabaseNode(), "...Protecciones.BonoEscudo", "number", math.max(DB.getValue(window.getDatabaseNode(), "DefensaEscudo", 0)-DB.getValue(window.getDatabaseNode(), "DanioDefensaEscudo", 0), 0));
+	end
+end
+
+function QuitarEscudo(window)
+	if DB.getValue(window.getDatabaseNode(), "TipoObjeto", "")==CteEscudo then
+		DB.setValue(window.getDatabaseNode(), "...Protecciones.BonoEscudo", "number", 0);
+	end
+end
+
+function AniadirYelmo(window)
+	if DB.getValue(window.getDatabaseNode(), "TipoObjeto", "")==CteYelmo then
+		local sTamanioYelmo=DB.getValue(window.getDatabaseNode(), "TamanioYelmo", "");
+		local nMin; local nMax;
+		if sTamanioYelmo=="+4" then nMax=4; nMin=4;
+		elseif sTamanioYelmo=="" then nMax=-100; nMin=100;
+		else
+			nMin,nMax=string.match(sTamanioYelmo, "(.-)/(.-)"); -- Los tamaños están en formato min/max
+			nMin=tonumber(string.sub(sTamanioYelmo, 1, 2));
+			nMax=tonumber(string.sub(sTamanioYelmo, 4, 5));
+		end
+		local nTamanio=DB.getValue(window.getDatabaseNode(), "...Caracteristicas.Tamanio", 0);
+		if nTamanio&gt;=nMin and nTamanio&lt;=nMax then
+			DB.setValue(window.getDatabaseNode(), "...Protecciones.BonoYelmo", "number", DB.getValue(window.getDatabaseNode(), "DefensaYelmo", 0));
+			DB.setValue(window.getDatabaseNode(), "...Protecciones.PenalizacionPercepcion", "number", DB.getValue(window.getDatabaseNode(), "PenalizacionPercepcion", 0));
+			DB.setValue(window.getDatabaseNode(), "...Protecciones.TieneVisera", "number", DB.getValue(window.getDatabaseNode(), "TieneVisera", 0));
+			if DB.getValue(window.getDatabaseNode(), "TieneVisera", 0)==1 then
+				DB.setValue(window.getDatabaseNode(), "...Protecciones.LevantarVisera", "number", DB.getValue(window.getDatabaseNode(), "ViseraLevantada", 0));
+			else
+			end
+		else
+			Herramientas.Mensaje("El yelmo/casco no se puede equipar por no ser del tamaño adecuado", nil, "action_yelmo", false);
+			QuitarYelmo(window);
+			DB.setValue(window.getDatabaseNode(), "carried", "number", CteCargado);
+		end
+	end
+end
+
+function QuitarYelmo(window)
+	if DB.getValue(window.getDatabaseNode(), "TipoObjeto", "")==CteYelmo then
+		DB.setValue(window.getDatabaseNode(), "...Protecciones.LevantarVisera", "number", 0);
+		DB.setValue(window.getDatabaseNode(), "...Protecciones.BonoYelmo", "number", 0);
+		DB.setValue(window.getDatabaseNode(), "...Protecciones.PenalizacionPercepcion", "number", 0);
+		DB.setValue(window.getDatabaseNode(), "...BaseHabilidades.PenalizacionPercepcionYelmo", "number", 0);
+		DB.setValue(window.getDatabaseNode(), "...BaseHabilidades.TieneVisera", "number", 0);
+	end
+end
+
+function GestionarInventario(window)
+	local nAnterior=window.TipoObjetoAnt.getValue();
+	local nActual=window.TipoObjeto.getValue();
+	local nEstado=DB.getValue(window.getDatabaseNode(), "carried", 0);
+	if window.getDatabaseNode().getParent().getName() and window.getDatabaseNode().getParent().getName() == "inventorylist" and nActual ~= nAnterior then
+		window.TipoObjetoAnt.setValue(nActual);
+		if nAnterior==CteArma then EliminarArma(window.SubVentanaArma.subwindow);
+		elseif nAnterior==CteArmadura and nEstado==CteEquipado then QuitarArmadura(window.SubVentanaArmadura.subwindow);
+		elseif nAnterior==CteYelmo and nEstado==CteEquipado then QuitarYelmo(window.SubVentanaYelmo.subwindow);
+		elseif nAnterior==CteEscudo then
+			if nEstado==CteEquipado then QuitarEscudo(window.SubVentanaEscudo.subwindow); end
+			EliminarArma(window);
+		end;
+		
+		if nActual==CteArma then CrearArma(window.SubVentanaArma.subwindow);
+		else
+			if nEstado==CteEquipado then
+				if nActual==CteArmadura then EquiparObjetoDefensivo(window.SubVentanaArma.subwindow);
+				elseif nActual==CteEscudo then EquiparObjetoDefensivo(window.SubVentanaEscudo.subwindow);
+				elseif nActual==CteYelmo then EquiparObjetoDefensivo(window.SubVentanaYelmo.subwindow);
+				end
+			end
+			if nActual==CteEscudo then CrearArma(window.SubVentanaEscudo.subwindow); end
+		end;
+	end;
+end
+
+function DesequiparObjetoDefensivoEquipado(window, nTipoObjeto)
+	local ObjetoAEquipar=window.getDatabaseNode();
+	for _,nodoObjeto in pairs(ObjetoAEquipar.getParent().getChildren()) do
+		if nodoObjeto~=ObjetoAEquipar and DB.getValue(nodoObjeto, "carried", 0)==CteEquipado and DB.getValue(nodoObjeto, "TipoObjeto", 0)==nTipoObjeto then
+			DB.setValue(nodoObjeto, "carried", "number", CteCargado);
+			return;
+		end
+	end
+end
+
+function EquiparObjetoDefensivo(window)
+	local nEstado=DB.getValue(window.getDatabaseNode(), "carried", 0);
+	local nTipoObjeto=DB.getValue(window.getDatabaseNode(), "TipoObjeto", -1);
+	if nTipoObjeto~=CteObjeto and nTipoObjeto~=CteArma then
+		--Debug.chat(nEstado, nTipoObjeto);
+		if nEstado==CteDesequipado then -- pasa de equipado a desequipado: simplemente desequipar
+			if nTipoObjeto==CteArmadura then QuitarArmadura(window);
+			elseif nTipoObjeto==CteYelmo then QuitarYelmo(window);
+			elseif nTipoObjeto==CteEscudo then QuitarEscudo(window);
+			end
+		elseif nEstado==CteEquipado and nTipoObjeto~=CteArma then -- equipar y desequipar el objeto del mismo tippo que estuviera equipado
+			DesequiparObjetoDefensivoEquipado(window, nTipoObjeto);
+			if nTipoObjeto==CteArmadura and nEstado==CteEquipado then AniadirArmadura(window);
+			elseif nTipoObjeto==CteYelmo and nEstado==CteEquipado then AniadirYelmo(window);
+			elseif nTipoObjeto==CteEscudo and nEstado==CteEquipado then AniadirEscudo(window);
+			end
+		end
+	end
+end
+
+function BonoHabilidadAtaque(nodoArmas, sHabilidad, sUsoArma)
+	if sHabilidad=="Pelea" then return DB.getValue(nodoArmas.getParent().getParent().getChild("Habilidades"), "TotalPelea", 0), 1; end;
+	if sHabilidad=="Lanzar" then return DB.getValue(nodoArmas.getParent().getParent().getChild("Habilidades"), "TotalLanzar", 0), 1; end;
+
+	sHabilidad=string.lower(sHabilidad);
+	local sNombre; local nAgilidad=0; local nTecnica=0;
+	if sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos or sUsoArma==CteArrojadiza  or sUsoArma==CteArrojadizaDosManos or sUsoArma==CteUnaDosManos then sClave="Arma CC";
+	elseif sUsoArma==CteRango or sUsoArma==CteRangoUnaMano then sClave="Arma Pr";
+	end
+	
+	for _,nodoHabilidad in pairs (nodoArmas.getParent().getParent().getChild("Habilidades").getChild("ListaHabilidades").getChildren()) do
+		if DB.getValue(nodoHabilidad, "Clave", "")==sClave and (string.lower(DB.getValue(nodoHabilidad, "Secundario", ""))==sHabilidad) then
+			if sUsoArma~=CteArrojadiza or sUsoArma==CteArrojadizaDosManos then return DB.getValue(nodoHabilidad, "Total", 0), 1;
+			else return math.min(DB.getValue(nodoHabilidad, "Total", 0), DB.getValue(nodoArmas, "...Habilidades.TotalLanzar", 0)), 1;
+			end
+		end
+	end
+	-- Si el nombre secundario del arma no se encuentra, se devuelve la base de habilidad correspondiente
+	if sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos or sUsoArma==CteArrojadiza or sUsoArma==CteArrojadizaDosManos then return DB.getValue(nodoArmas.getParent().getParent().getChild("BaseHabilidades"), "Agilidad", 0), 0;
+	elseif sUsoArma==CteRango or sUsoArma==CteRangoUnaMano then return DB.getValue(nodoArmas.getParent().getParent().getChild("BaseHabilidades"), "Tecnica", 0), 0;
+	end
+end
+
+function CrearArma(window)
+			--Debug.chat(window.getDatabaseNode(), DB.getValue(window.getDatabaseNode(), "IDListaArmas", ""))
+	if DB.getValue(window.getDatabaseNode(), "IDListaArmas", "")=="" then
+		
+		local nodoArmas=window.getDatabaseNode().getParent().getParent().getChild("Inventario").getChild("Armas");
+		local nodoNuevaArma = DB.createChild(nodoArmas);
+		DB.setValue(window.getDatabaseNode(), "IDListaArmas", "string", nodoNuevaArma.getPath());
+		DB.setValue(nodoNuevaArma, "carried", "number", CteCargado);
+		DB.setValue(nodoNuevaArma, "IDinventorylist", "string", window.getDatabaseNode().getPath());
+		
+		DB.setValue(nodoNuevaArma, "Link", "windowreference", "item", window.getDatabaseNode().getPath());
+
+		DB.setValue(nodoNuevaArma, "name", "string", DB.getValue(window.getDatabaseNode(), "name", ""));
+		local sHabilidad=DB.getValue(window.getDatabaseNode(), "Habilidad", "");
+		DB.setValue(nodoNuevaArma, "Habilidad", "string", sHabilidad);
+		DB.setValue(nodoNuevaArma, "Secundario", "string", sHabilidad);
+		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
+		
+		if sUsoArma==CteUnaDosManos then
+			DB.setValue(nodoNuevaArma, "UsoArma", "string", CteUnaMano);
+			DB.setValue(nodoNuevaArma, "UnaDosManos", "number", 1);
+		else
+			DB.setValue(nodoNuevaArma, "UsoArma", "string", sUsoArma);
+			DB.setValue(nodoNuevaArma, "UnaDosManos", "number", 0);
+		end
+
+		local nBonoHabilidad=0; local nTieneHabilidad;
+		nBonoHabilidad, nTieneHabilidad=BonoHabilidadAtaque(nodoArmas, sHabilidad, sUsoArma);
+		DB.setValue(nodoNuevaArma, "BonoHabilidadAtaque", "number", nBonoHabilidad);
+		DB.setValue(nodoNuevaArma, "TieneHabilidad", "number", nTieneHabilidad);
+
+		DB.setValue(nodoNuevaArma, "BonoDanio", "number", DB.getValue(window.getDatabaseNode(), "BonoDanio", 0));
+		DB.setValue(nodoNuevaArma, "BonoAtaqueArma", "number", DB.getValue(window.getDatabaseNode(), "BonoAtaqueArma", 0));
+		DB.setValue(nodoNuevaArma, "FuerzaMinima", "number", DB.getValue(window.getDatabaseNode(), "FuerzaMinima", 0));
+		DB.setValue(nodoNuevaArma, "TipoArma2", "string", DB.getValue(window.getDatabaseNode(), "TipoArma", ""));
+		DB.setValue(nodoNuevaArma, "TipoArma2", "string", DB.getValue(window.getDatabaseNode(), "TipoArma", ""));
+		
+		if sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos then
+			DB.setValue(nodoNuevaArma, "LongAlc", "string", DB.getValue(window.getDatabaseNode(), "Longitud", ""));
+		else
+			DB.setValue(nodoNuevaArma, "LongAlc", "string", DB.getValue(window.getDatabaseNode(), "Alcance", ""));
+		end		
+	end;
+end
+
+function ModificarArma(window)
+	if DB.getValue(window.getDatabaseNode(), "IDListaArmas", "")~="" then
+		local nodoArmas=window.getDatabaseNode().getParent().getParent().getChild("Inventario").getChild("Armas");
+		local nodoArmaAModificar = DB.getChild(DB.getValue(window.getDatabaseNode(), "IDListaArmas", ""));
+		
+		DB.setValue(nodoArmaAModificar, "name", "string", DB.getValue(window.getDatabaseNode(), "name", ""));
+		local sHabilidad=DB.getValue(window.getDatabaseNode(), "Habilidad", "");
+		DB.setValue(nodoArmaAModificar, "Habilidad", "string", sHabilidad);
+		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
+		DB.setValue(nodoArmaAModificar, "UsoArma", "string", sUsoArma);
+
+		local nBonoHabilidad=0; local nTieneHabilidad;
+		nBonoHabilidad, nTieneHabilidad=BonoHabilidadAtaque(nodoArmas, sHabilidad, sUsoArma);
+		DB.setValue(nodoArmaAModificar, "BonoHabilidadAtaque", "number", nBonoHabilidad);
+		DB.setValue(nodoArmaAModificar, "TieneHabilidad", "number", nTieneHabilidad);
+
+		if sUsoArma==CteUnaDosManos then
+			DB.setValue(nodoArmaAModificar, "UsoArma", "string", CteUnaMano);
+			DB.setValue(nodoArmaAModificar, "UnaDosManos", "number", 1);
+		else
+			DB.setValue(nodoArmaAModificar, "UsoArma", "string", sUsoArma);
+			DB.setValue(nodoArmaAModificar, "UnaDosManos", "number", 0);
+		end
+
+		DB.setValue(nodoArmaAModificar, "BonoDanio", "number", DB.getValue(window.getDatabaseNode(), "BonoDanio", 0));
+		DB.setValue(nodoArmaAModificar, "FuerzaMinima", "number", DB.getValue(window.getDatabaseNode(), "FuerzaMinima", 0));
+		DB.setValue(nodoArmaAModificar, "BonoAtaqueArma", "number", DB.getValue(window.getDatabaseNode(), "BonoAtaqueArma", 0));
+		DB.setValue(nodoArmaAModificar, "TipoArma2", "string", DB.getValue(window.getDatabaseNode(), "TipoArma", ""));
+		
+		if sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos then
+			DB.setValue(nodoArmaAModificar, "LongAlc", "string", DB.getValue(window.getDatabaseNode(), "Longitud", ""));
+		else
+			DB.setValue(nodoArmaAModificar, "LongAlc", "string", DB.getValue(window.getDatabaseNode(), "Alcance", ""));
+		end
+	end
+end
+
+function EliminarArma(window)
+	if DB.getValue(window.getDatabaseNode(), "IDListaArmas", "")~="" then DB.deleteNode(DB.getValue(window.getDatabaseNode(), "IDListaArmas", "")) end
+	DB.setValue(window.getDatabaseNode(), "IDListaArmas", "string", "");
+end
+
+function ActualizarBonoArmas(nodoArmas)
+	
+	local nBonoHabilidad=0; local nTieneHabilidad; local sHabilidad; local sUsoArma;
+	for _,nodoArma in pairs(nodoArmas.getChildren()) do
+		sHabilidad=DB.getValue(nodoArma, "Habilidad", "");
+		sUsoArma = DB.getValue(nodoArma, "UsoArma", "");
+		nBonoHabilidad, nTieneHabilidad=BonoHabilidadAtaque(nodoArmas, sHabilidad, sUsoArma);
+		DB.setValue(nodoArma, "BonoHabilidadAtaque", "number", nBonoHabilidad);
+		DB.setValue(nodoArma, "TieneHabilidad", "number", nTieneHabilidad);
+	end
+end
+
+--function ModificarModificadorDanio(nodoOrigen)
+--	for _,nodoArma in pairs(DB.getChildren(nodoOrigen.getChild("Inventario").getChild("Armas"))) do
+--		if DB.getValue(nodoArma, "UsoArma", "")==CteUnaMano or DB.getValue(nodoArma, "UsoArma", "")==CteArrojadiza then
+--			DB.setValue(nodoArma, "ModDanio", "number", DB.getValue(nodoOrigen, "FortunaModDanio.ModDanio1M", 0));
+--		elseif (DB.getValue(nodoArma, "UsoArma", "")==CteDosManos) or DB.getValue(nodoArma, "UsoArma", "")==CteArrojadizaDosManos then
+--			DB.setValue(nodoArma, "Danio", "number", DB.getValue(nodoOrigen, "FortunaModDanio.ModDanio2M", 0));
+--		end
+--	end
+--end
+</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding>UTF-8</Encoding>
+  </Scripts>
+</DocumentElement>

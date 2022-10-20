@@ -1,0 +1,136 @@
+Sugerencias Psico y Eldarc:
+	- Buscar ruleset de la forja del rey demonio para el CT
+	- Iconos de objetos
+	- Dividir pestaña combate
+	- Mejorar el loaded
+	- Fuente para el Ctrl+2
+	- Cambiar la duración de los conjuros a desplegable o ciclo y, si se mostrara otra duración, q muestre el campo numérico
+	
+- Bugs:
+			- Algo pasa con la equipación de las armas (creo que está solucionado)
+			- El DM no ve los nombres secundarios de las habilidades que crean los jugadores (creo que está solucionado)
+
+
+- Estética
+			- Frames claros (no de momento)
+				- Cuadrar bien las barras de desplazamiento a los nuevos marcos
+				- Revisar los bordes de los frames
+	
+General:
+			- Los mensajes de subida se muestran con Debug.chat
+			- Fuente de las tags
+	- Tooltips
+	- Traducciones
+
+Principal:
+	
+Habilidades:
+			- Poner un check box de marca en las armas enlazado con la habilidad correspondiente (DE MOMENTO, NO)
+			- Añadir nueva habilidad totalmente configurable (PASO DE MOMENTO)
+	
+Inventario
+	- Botón identificar en los objetos
+	- El botón lock de los items no bloquea los encantamientos. Además, hace cosas raras al bloquear-cerrar-abrir con los campos estándar
+
+Personalidad:
+	- las ventajas Pasión Extra y Rasgo Extra dan una pasión y un rasgo de cada respectivamente. Las desventajas Pasión de Menos y Personalidad Simple hacen exactamente lo contrario.
+
+Combate:
+
+Hechizos:
+	
+Liberías:
+			- Limitar la lista de Hechizos en los Encantamientos a 1
+			- Filtros Min/Max en las ventajas y desventajas
+	
+Wizard
+	- Control de valores mínimos y máximos en las características
+	- Mensajes informativos
+	- Etnia
+	- Profesión
+		- Habilidades de profesión
+		- Habilidades extra de Sacerdote y Lealtad +10 a una religión
+		- Hechiceros y Chamanes añaden la ventaja Hechicería
+	- Ventajas y Desventajas
+	- PP
+	- Lealtad
+	- Habilidades no de profesión
+	- Equipo inicial
+	- Hechizos
+	
+		
+	
+	
+	
+Orígenes étnicos:
+	Idioma nativo: Un idioma. (Asignar al crear el idioma nativo)
+						Austero no aparece, siempre aparece Mezuri; Kunya no aparece, siempre aparece Oriental
+				   Ninguno de la Tierra. (Borrar el Idioma nativo de las Habilidades)
+	Religión: Una o varias. (Sin mecánica)
+	Habilidades: Habilidad +1, Arma Pr: Arma +1 (hay una errata y en un caso termina en '.'), Artesanía: Artesanía +1, Arma CC: Arma +1, Idioma: Idioma +1, Habilidad +1
+					Idioma Austero no aparece, siempre aparece Mezuri; idioma Kunya no aparece, siempre aparece Oriental
+				 No suma puntos a ninguna habilidad.
+				 Idiomas: Merení +1, Oriental +1, Fornk +1
+	Profesiones: Varias profesiones separadas por ','. (Error si se coge una clase no permitida ¿control al hacer el drop?)
+				 Todas menos chamán, noble cortesano y nómada. (Error si se coge una clase no permitida ¿control al hacer el drop?)
+				 Todas.
+				 Puede ser hechicero o hechicero guerrero si escoge la ventaja Clandestinidad. (Error en el Wizard si no coge la ventaja ¿asignar la ventaja directamente?)
+	Tamaño máximo: +2. (solo he visto esta opción)
+	Ventajas y Desventajas: Tienen de partida un estatus material un grado superior al de su profesión.
+								Indigente: Mendigo, nómada: 5 mb.
+								Pobre: Campesino, cazador, marinero, minero: 20 mb.
+								Frugal: Artesano, bandido, criado, chamán, soldado, pirata: 50 mb.
+								Acomodado: Asesino, artista, espía, ladrón: 100 mb.
+								Próspero: Hechicero, hechicero guerrero, noble guerrero, sabio, sacerdote, sacerdote-guerrero: 500 mb.
+								Rico: Mercader, noble cortesano: 1000 mb.
+							Cólera.
+	Otras cosas en el texto que pueden tener influencia en la ficha:
+				comienzan sin puntos gratuitos en la habilidad Tierras Quebradas. (mecánica en la ficha: quitar puntos gratuitos de Tierras Quebradas)
+				Solo los aventureros de raza merení y mestiza pueden tener este origen. (Aviso en el Wizard si la coge un humano ¿control al hacer el drop?)
+				Solo los aventureros de raza merení pueden tener este origen. (Error en el Wizard si la coge un no merení ¿control al hacer el drop?)
+				Solo los aventureros de raza mestizo pueden tener este origen. (Error en el Wizard si la coge un no mestizo ¿control al hacer el drop?)
+
+
+
+
+Profesiones
+	Puntos de habilidad a repartir (no más de 8 ptos./habilidad):
+		40 niños
+		50 joven
+		60 adulto
+		70 mayor
+		80 viejo
+		90 anciano
+	Habilidades: habilidades separadas por coma (mismo formato que en los orígenes étnicos). Pueden aparecer cosas del tipo:
+		"una Artesanía", "dos Artesanías"
+		"una habilidad de Armas", "dos habilidades de Armas", "Armas CC: Escudo, Espada"
+		"cuatro habilidades mágicas: dos Verbos y dos Esferas", "seis habilidades mágicas: tres Verbos y tres Esferas", "tres habilidades mágicas"
+		"Idioma propio", "otro Idioma", "Idioma (tres a elegir)", "Otros dos idiomas"
+	Ventajas y Desventajas: Hechicería.
+	Especialidades (Sabio): (a elegir de entre varias (habilidades extras en el mismo formato que el resto)"
+	Lealtad: Religión elegida +10.
+	PP -2/-3
+
+
+
+
+Ventajas y Desventajas
+	PP variables
+		Hechicería y Teurgia en función de la profesión
+		Hechizos en función del número de hechizos o encantamientos elegidos (-1 x Hechizo/Encantamiento)
+		Objeto Mágico en función de la dificultad del hechizo del objeto (-3 para hasta dificultad 15 y -4 para dificultad 20)
+		Maldición depende del valor que se negocie entre jugador y narrador.
+	Modificaciones de bases
+		-X en todas las habilidades de Técnica
+		tendrás un malus de -3 para lanzar hechizos
+		se puede establecer que cuentan con un malus de -3 en cualquier habilidad de Comunicación
+		lo que te provoca un malus de -2 a todas tus habilidades de Comunicación y de Hechicería
+	Modificaciones a las habilidades
+		Comienzas el juego con dos lenguas propias. Recibes además un +2 en la habilidad Tierras Quebradas.
+		Tienes un bonus de +2 a las habilidades de Naturaleza, Orientarse y Tratar animales
+		tiene además un modificador de +3 en Tratar animales.
+		los siguientes puntos de habilidad: Leyendas +2, Multiverso +1. Suma 5 puntos de Lealtad.
+		Modificaciones a las armas
+			Resta -2 ... así como al uso de armas arrojadizas y de proyectiles
+			sufres un modificador negativo de -1 al uso de armas arrojadizas y de proyectiles
+		

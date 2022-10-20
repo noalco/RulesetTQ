@@ -1,0 +1,127 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>mi_char_invlist</ScriptName>
+    <FolderID>13</FolderID>
+    <Script>-- 
+-- Please see the license.html file included with this distribution for 
+-- attribution and copyright information.
+--
+
+local sortLocked = false;
+
+function setSortLock(isLocked)
+	sortLocked = isLocked;
+end
+
+function onInit()
+	registerMenuItem(Interface.getString("list_menu_createitem"), "insert", 5);
+	registerMenuItem(Interface.getString("list_menu_createitem_generico"), "RadialMisc", 5, Inventario.CteObjeto+1);
+	registerMenuItem(Interface.getString("list_menu_createitem_arma"), "RadialArma", 5, Inventario.CteArma+1);
+	registerMenuItem(Interface.getString("list_menu_createitem_armadura"), "RadialArmadura", 5, Inventario.CteArmadura+1);
+	registerMenuItem(Interface.getString("list_menu_createitem_yelmo"), "RadialYelmo", 5, Inventario.CteYelmo+1);
+	registerMenuItem(Interface.getString("list_menu_createitem_escudo"), "RadialEscudo", 5, Inventario.CteEscudo+1);
+	registerMenuItem(Interface.getString("list_menu_createitem_libro"), "RadialLibro", 5, Inventario.CteLibro+1);
+	registerMenuItem(Interface.getString("list_menu_createitem_pocion"), "RadialPocionVeneno", 5, Inventario.CtePocionVeneno+1);
+
+	local node = getDatabaseNode();
+	DB.addHandler(DB.getPath(node, "*.carried"), "onUpdate", onCarriedChanged);
+end
+
+function onClose()
+	local node = getDatabaseNode();
+	DB.removeHandler(DB.getPath(node, "*.carried"), "onUpdate", onCarriedChanged);
+end
+
+function onMenuSelection(selection, subselection)
+	if selection == 5 then
+		addEntry(true, subselection-1);
+	end
+end
+
+function onCarriedChanged(nodeCarried)
+	local nodeChar = DB.getChild(nodeCarried, "....");
+	if nodeChar then
+		local nodeCarriedItem = DB.getChild(nodeCarried, "..");
+
+		local nCarried = nodeCarried.getValue();
+		local sCarriedItem = StringManager.trim(ItemManager.getDisplayName(nodeCarriedItem)):lower();
+		if sCarriedItem ~= "" then
+			for _,vItem in pairs(DB.getChildren(nodeChar, "inventorylist")) do
+				if vItem ~= nodeCarriedItem then
+					local sLoc = StringManager.trim(DB.getValue(vItem, "location", "")):lower();
+					if sLoc == sCarriedItem then
+						DB.setValue(vItem, "carried", "number", nCarried);
+					end
+				end
+			end
+		end
+	end
+end
+
+function onListChanged()
+	update();
+	updateContainers();
+end
+
+function update()
+	local bEditMode = (window.inventorylist_iedit.getValue() == 1);
+	window.idelete_header.setVisible(bEditMode);
+	for _,w in ipairs(getWindows()) do
+		w.idelete.setVisibility(bEditMode);
+	end
+end
+
+function addEntry(bFocus, nTipoObjeto)
+	local w = createWindow();
+	local nuevoItem=w.getDatabaseNode();
+	DB.setValue(nuevoItem, "TipoObjeto", "number", nTipoObjeto);
+	DB.setValue(nuevoItem, "NombreTipoObjeto", "string", Inventario.CadenasTipoObjeto[nTipoObjeto]);
+	DB.setValue(nuevoItem, "count", "number", 1);
+	w=Interface.openWindow("item", nuevoItem.getPath());
+	if nTipoObjeto==Inventario.CteArma then
+		w.setSize(350, 610);
+		DB.setValue(nuevoItem, "UsoArma", "string", Inventario.CteUnaMano)
+		Inventario.CrearArma(w);
+	elseif nTipoObjeto==Inventario.CteArmadura then w.setSize(350, 490);
+	elseif nTipoObjeto==Inventario.CteEscudo then
+		w.setSize(350, 640);
+		DB.setValue(nuevoItem, "UsoArma", "string", Inventario.CteUnaMano);
+		DB.setValue(nuevoItem, "Habilidad", "string", "Escudo");
+		Inventario.CrearArma(w);
+	elseif nTipoObjeto==Inventario.CteYelmo then w.setSize(350, 490);
+	elseif nTipoObjeto==Inventario.CteLibro then w.setSize(350, 460);
+	elseif nTipoObjeto==Inventario.CtePocionVeneno then w.setSize(350, 660);
+	end
+	return w;
+end
+
+function onSortCompare(w1, w2)
+	if sortLocked then
+		return false;
+	end
+	return ItemManager.onInventorySortCompare(w1, w2);
+end
+
+function updateContainers()
+	ItemManager.onInventorySortUpdate(self);
+end
+
+function onDrop(x, y, draginfo)
+	_,pathItem=draginfo.getShortcutData();
+	if DB.getValue(pathItem..".IDListaArmas", "")~="" then DB.setValue(pathItem..".IDListaArmas", "string", ""); end;
+	rVentanasAntes=self.getWindows();
+	local x=ItemManager.handleAnyDrop(window.getDatabaseNode(), draginfo);
+	rVentanasDespues=self.getWindows();
+	for i=1,self.getWindowCount() do
+		if not rVentanasAntes[i] and DB.getValue(rVentanasDespues[i].getDatabaseNode(), "TipoObjeto", CteObjeto)==Inventario.CteArma then
+			Inventario.CrearArma(rVentanasDespues[i]);
+			return x;
+		end
+	end
+	return x;
+end
+</Script>
+    <RegisterScript>false</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>

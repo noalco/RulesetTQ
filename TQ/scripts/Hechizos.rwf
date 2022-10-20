@@ -1,0 +1,169 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>Hechizos</ScriptName>
+    <FolderID>19</FolderID>
+    <Script>function InizializarPM(window)
+	local nMin=DB.getValue(window.getDatabaseNode(), "MinPuntosMagia", 0);
+	local nMax=DB.getValue(window.getDatabaseNode(), "MaxPuntosMagia", 0);
+
+	if nMin~=nMax then DB.setValue(window.getDatabaseNode(), "LabelPM", "string", nMin.."-"..nMax);
+	else DB.setValue(window.getDatabaseNode(), "LabelPM", "string", nMin);
+	end
+		
+
+	if DB.getValue(window.getDatabaseNode(), "CostePM", 0)&lt;DB.getValue(window.getDatabaseNode(), "MinPuntosMagia", 0) then
+		DB.setValue(window.getDatabaseNode(), "CostePM", "number", DB.getValue(window.getDatabaseNode(), "MinPuntosMagia", 0));
+	elseif DB.getValue(window.getDatabaseNode(), "CostePM", 0)&gt;DB.getValue(window.getDatabaseNode(), "MaxPuntosMagia", 0) then
+		DB.setValue(window.getDatabaseNode(), "CostePM", "number", DB.getValue(window.getDatabaseNode(), "MaxPuntosMagia", 0));
+	end
+end
+
+function ObtenerValorVerboEsfera(nodoLista, sNombre)
+	for _,nodeSintaxis in pairs(nodoLista.getChildren()) do
+		if DB.getValue(nodeSintaxis, "Nombre", "")==sNombre then return DB.getValue(nodeSintaxis, "Total", 0); end
+	end
+	return 0;
+end
+
+function CalcularBonoHechizoYSintaxis(window)
+	local TotalesVerbosEsferas=ObtenerTotalesVerbosEsferas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Hechiceria"));
+	local nMin=10000;
+	local sTexto=""
+	local nValor=0;
+	local sSintaxis="";
+	if DB.getValue(window.getDatabaseNode(), "Verbo", "")~="" then
+		nValor=TotalesVerbosEsferas[string.sub(DB.getValue(window.getDatabaseNode(), "Verbo", ""), 1, 3)];
+		if nValor&lt;nMin then
+			nMin=nValor;
+			sTexto=DB.getValue(window.getDatabaseNode(), "Verbo", "");
+		end
+		sSintaxis=DB.getValue(window.getDatabaseNode(), "Verbo", "");
+	end
+	if DB.getValue(window.getDatabaseNode(), "YVerbo", "")~="" then
+		nValor=TotalesVerbosEsferas[string.sub(DB.getValue(window.getDatabaseNode(), "YVerbo", ""), 1, 3)];
+		if nValor&lt;nMin then
+			nMin=nValor;
+			sTexto=DB.getValue(window.getDatabaseNode(), "YVerbo", "");
+		end
+		if string.lower(string.sub(DB.getValue(window.getDatabaseNode(), "YVerbo", ""), 1, 1))=="i" then
+			sSintaxis=sSintaxis.." e "..DB.getValue(window.getDatabaseNode(), "YVerbo", "");
+		else
+			sSintaxis=sSintaxis.." y "..DB.getValue(window.getDatabaseNode(), "YVerbo", "");
+		end
+	end
+	if DB.getValue(window.getDatabaseNode(), "Esfera", "")~="" then
+		nValor=TotalesVerbosEsferas[string.sub(DB.getValue(window.getDatabaseNode(), "Esfera", ""), 1, 3)]
+		if nValor&lt;nMin then
+			nMin=nValor;
+			sTexto=DB.getValue(window.getDatabaseNode(), "Esfera", "");
+		end
+		sSintaxis=sSintaxis.." "..DB.getValue(window.getDatabaseNode(), "Esfera", "");
+	end
+	if DB.getValue(window.getDatabaseNode(), "EnEsfera", "")~="" then
+		nValor=TotalesVerbosEsferas[string.sub(DB.getValue(window.getDatabaseNode(), "EnEsfera", ""), 1, 3)]
+		if nValor&lt;nMin then
+			nMin=nValor;
+			sTexto=DB.getValue(window.getDatabaseNode(), "EnEsfera", "");
+		end
+		sSintaxis=sSintaxis.." en "..DB.getValue(window.getDatabaseNode(), "EnEsfera", "");
+	end
+
+	if nMin==10000 then nMin=0; end
+	window.Bono.setValue(nMin);
+	window.HabilidadLanzamiento.setValue(sTexto);
+	DB.setValue(window.getDatabaseNode(), "TestoSintaxis", "string", sSintaxis);
+end
+
+function ObtenerTotalesVerbosEsferas(nodoHechiceria)
+	local TotalesVerbosEsferas = {
+		--Verbos
+		["Aum"] = 0,
+		["Con"] = 0,
+		["Dis"] = 0,
+		["Dir"] = 0,
+		["Inh"] = 0,
+		["Inv"] = 0,
+		["Mod"] = 0,
+		["Tra"] = 0,
+		--Esferas
+		["Agu"] = 0,
+		["Air"] = 0,
+		["Fue"] = 0,
+		["Tie"] = 0,
+		["Cue"] = 0,
+		["Esp"] = 0,
+		["Men"] = 0,
+		["Pla"] = 0,
+		["Cao"] = 0,
+		["Ley"] = 0
+	};
+	for _,nodoVerboEsfera in pairs(DB.getChildren(nodoHechiceria.getChild("ListaVerbos"))) do
+		--Debug.chat(DB.getValue(nodoVerboEsfera, "Nombre", ""), string.sub(DB.getValue(nodoVerboEsfera, "Nombre", ""), 4, -5), DB.getValue(nodoVerboEsfera, "Total", -1));
+		TotalesVerbosEsferas[string.sub(DB.getValue(nodoVerboEsfera, "Nombre", ""), 1, 3)]=DB.getValue(nodoVerboEsfera, "Total", -1);
+	end
+	for _,nodoVerboEsfera in pairs(DB.getChildren(nodoHechiceria.getChild("ListaEsferas"))) do
+		--Debug.chat(DB.getValue(nodoVerboEsfera, "Nombre", ""), string.sub(DB.getValue(nodoVerboEsfera, "Nombre", ""), 4, -5), DB.getValue(nodoVerboEsfera, "Total", -1));
+		TotalesVerbosEsferas[string.sub(DB.getValue(nodoVerboEsfera, "Nombre", ""), 1, 3)]=DB.getValue(nodoVerboEsfera, "Total", -1);
+	end
+	return TotalesVerbosEsferas;
+end
+
+function ActualizarBonosHechizos(window)
+	local TotalesVerbosEsferas=ObtenerTotalesVerbosEsferas(window.getDatabaseNode().getParent().getParent())
+--	Debug.chat("------------");
+--	for clave,valor in pairs (TotalesVerbosEsferas) do
+--		Debug.chat(clave, valor);
+--	end
+	
+	local nMin=10000;
+	local sTexto=""
+	local sSintaxis="";
+	local sVerboEsfera=string.sub(window.Nombre.getValue(), 1, 3);
+	--if sVerboEsfera=="Esp&amp;#237;ritu" then sVerboEsfera="Espíritu"; end
+	for _,nodoHechizo in pairs(DB.getChildren(window.getDatabaseNode().getParent().getParent().getParent().getChild("Hechizos").getChild("ListaHechizos"))) do
+		--Debug.chat(sVerboEsfera, string.sub(DB.getValue(nodoHechizo, "Verbo", ""), 1, 3), string.sub(DB.getValue(nodoHechizo, "Esfera", ""), 1, 3), string.sub(DB.getValue(nodoHechizo, "EnEsfera", ""), 1, 3))
+		--if DB.getValue(nodoHechizo, "TipoDificultad", "")=="Fija" and (
+		if  sVerboEsfera==string.sub(DB.getValue(nodoHechizo, "Verbo", ""), 1, 3) or 
+		  sVerboEsfera==string.sub(DB.getValue(nodoHechizo, "Esfera", ""), 1, 3) or 
+		  sVerboEsfera==string.sub(DB.getValue(nodoHechizo, "EnEsfera", ""), 1, 3)
+		--)
+		then
+			if DB.getValue(nodoHechizo, "Verbo", "")~="" then
+				if TotalesVerbosEsferas[string.sub(DB.getValue(nodoHechizo, "Verbo", ""), 1, 3)]&lt;nMin then
+					nMin=TotalesVerbosEsferas[string.sub(DB.getValue(nodoHechizo, "Verbo", ""), 1, 3)];
+					sTexto=DB.getValue(nodoHechizo, "Verbo", "");
+				end
+			end
+			if DB.getValue(nodoHechizo, "Esfera", "")~="" then
+				if TotalesVerbosEsferas[string.sub(DB.getValue(nodoHechizo, "Esfera", ""), 1, 3)]&lt;nMin then
+					nMin=TotalesVerbosEsferas[string.sub(DB.getValue(nodoHechizo, "Esfera", ""), 1, 3)];
+					sTexto=DB.getValue(nodoHechizo, "Esfera", "");
+				end
+			end
+			if DB.getValue(nodoHechizo, "EnEsfera", "")~="" then
+				if TotalesVerbosEsferas[string.sub(DB.getValue(nodoHechizo, "EnEsfera", ""), 1, 3)]&lt;nMin then
+					nMin=TotalesVerbosEsferas[string.sub(DB.getValue(nodoHechizo, "EnEsfera", ""), 1, 3)];
+					sTexto=DB.getValue(nodoHechizo, "EnEsfera", "");
+				end
+			end
+			--Debug.chat(DB.getValue(nodoHechizo, "Nombre", ""), nMin, sTexto);
+			if nMin==10000 then nMin=0; end
+			DB.setValue(nodoHechizo, "Bono", "number", nMin);
+			DB.setValue(nodoHechizo, "HabilidadLanzamiento", "string", sTexto);
+		end
+	end
+end
+
+function ActualizarSuma(nodoLista, sLista)
+	local nTotal=0;
+	for _,nodoHabilidad in pairs(nodoLista.getChildren()) do
+		nTotal=nTotal+DB.getValue(nodoHabilidad, "Bono", 0);
+	end
+	if sLista=="ListaVerbos" then DB.setValue(nodoLista.getParent(), "TotalVerbos", "number", nTotal);
+	else DB.setValue(nodoLista.getParent(), "TotalEsferas", "number", nTotal);
+	end
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding>UTF-8</Encoding>
+  </Scripts>
+</DocumentElement>

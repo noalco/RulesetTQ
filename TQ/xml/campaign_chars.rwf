@@ -1,0 +1,25 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>campaign_chars</XmlName>
+    <FolderID>0</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+
+&lt;root&gt;
+	&lt;windowclass name="charselect_host" merge="join"&gt;
+		&lt;sheetdata&gt;
+			&lt;button_charwizard name="button_characterwizard" insertbefore="filter"&gt;
+				&lt;anchored to="contentanchor" position="aboveleft" offset="5,0" /&gt;
+			&lt;/button_charwizard&gt;
+		&lt;/sheetdata&gt;
+	&lt;/windowclass&gt;
+
+	&lt;windowclass name="charselect_client" merge="join"&gt;
+		&lt;sheetdata&gt;
+			&lt;button_charwizard name="button_characterwizard" insertbefore="filter"&gt;
+				&lt;anchored to="contentanchor" position="aboveleft" offset="5,0" /&gt;
+			&lt;/button_charwizard&gt;
+		&lt;/sheetdata&gt;
+	&lt;/windowclass&gt;
+&lt;/root&gt;</XML>
+  </XMLFiles>
+</DocumentElement>

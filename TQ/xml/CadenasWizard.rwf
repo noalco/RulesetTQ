@@ -1,0 +1,11 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>CadenasWizard</XmlName>
+    <FolderID>20</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+	&lt;string name="charselect_button_wizard"&gt;Asistente de Personaje&lt;/string&gt;
+	&lt;string name="wizard_label_etnia"&gt;Origen étnico&lt;/string&gt;
+&lt;/root&gt;</XML>
+  </XMLFiles>
+</DocumentElement>

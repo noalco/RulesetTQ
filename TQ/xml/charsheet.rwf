@@ -1,0 +1,97 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>charsheet</XmlName>
+    <FolderID>0</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+ 	&lt;windowclass name="charsheet"&gt;
+		&lt;frame&gt;charsheet&lt;/frame&gt;
+		&lt;placement&gt;
+			&lt;size width="525" height="690" /&gt;
+		&lt;/placement&gt;
+		&lt;sizelimits&gt;
+			&lt;minimum width="525" height="690" /&gt;
+			&lt;dynamic /&gt;
+		&lt;/sizelimits&gt;
+		&lt;minimize&gt;minimized_npc&lt;/minimize&gt;
+		&lt;tooltip field="name" /&gt;
+		&lt;softclose /&gt;
+		&lt;export&gt;character&lt;/export&gt;
+		&lt;sheetdata&gt;
+			&lt;sub_charsheet_overview name="overview" /&gt;
+
+			&lt;sub_charsheet name="main"&gt;
+				&lt;class&gt;charsheet_main&lt;/class&gt;
+				&lt;fastinit /&gt;
+			&lt;/sub_charsheet&gt;
+			&lt;sub_charsheet name="abilities"&gt;
+				&lt;class&gt;charsheet_abilities&lt;/class&gt;
+				&lt;fastinit /&gt;
+			&lt;/sub_charsheet&gt;
+			&lt;sub_charsheet name="notes"&gt;
+				&lt;class&gt;charsheet_notes&lt;/class&gt;
+				&lt;fastinit /&gt;
+			&lt;/sub_charsheet&gt;
+			&lt;sub_charsheet name="inventory"&gt;
+				&lt;class&gt;charsheet_inventory&lt;/class&gt;
+				&lt;fastinit /&gt;
+			&lt;/sub_charsheet&gt;
+			&lt;sub_charsheet name="VentanaCombate"&gt;
+				&lt;class&gt;charsheet_combate&lt;/class&gt;
+				&lt;fastinit /&gt;
+			&lt;/sub_charsheet&gt;
+			&lt;sub_charsheet name="VentanaHechizos"&gt;
+				&lt;class&gt;charsheet_hechizos&lt;/class&gt;
+				&lt;fastinit /&gt;
+			&lt;/sub_charsheet&gt;
+
+			&lt;tabs_charsheet name="tabs"&gt;
+				&lt;tab&gt;
+					&lt;icon&gt;tab_main&lt;/icon&gt;
+					&lt;subwindow&gt;main&lt;/subwindow&gt;
+				&lt;/tab&gt;
+				&lt;tab&gt;
+					&lt;icon&gt;tab_abilities&lt;/icon&gt;
+					&lt;subwindow&gt;abilities&lt;/subwindow&gt;
+				&lt;/tab&gt;
+				&lt;tab&gt;
+					&lt;icon&gt;tab_notes&lt;/icon&gt;
+					&lt;subwindow&gt;notes&lt;/subwindow&gt;
+				&lt;/tab&gt;
+				&lt;tab&gt;
+					&lt;icon&gt;tab_inventory&lt;/icon&gt;
+					&lt;subwindow&gt;inventory&lt;/subwindow&gt;
+				&lt;/tab&gt;
+				&lt;tab&gt;
+					&lt;icon&gt;tab_combate&lt;/icon&gt;
+					&lt;subwindow&gt;VentanaCombate&lt;/subwindow&gt;
+				&lt;/tab&gt;
+				&lt;tab&gt;
+					&lt;icon&gt;tab_hechizos&lt;/icon&gt;
+					&lt;subwindow&gt;VentanaHechizos&lt;/subwindow&gt;
+				&lt;/tab&gt;
+				&lt;!--
+				&lt;script&gt;
+					function onClickRelease(button, x, y)						
+						local PestaniaAnterior=super.getIndex();
+						super.onClickRelease(button, x, y);
+						local PestaniaNueva=super.getIndex();
+						if PestaniaNueva==6 and DB.getValue(window.getDatabaseNode(), "BaseHabilidades.EsHechicero", 0)==0 then
+							super.activateTab(PestaniaAnterior);
+						end
+						return true;
+					end
+					
+					function onDoubleClick(x, y)
+					end
+				&lt;/script&gt;
+				--&gt;
+			&lt;/tabs_charsheet&gt;
+		
+			&lt;close_charsheet /&gt;
+			&lt;resize_charsheet /&gt;
+		&lt;/sheetdata&gt;
+	&lt;/windowclass&gt;       
+&lt;/root&gt;</XML>
+  </XMLFiles>
+</DocumentElement>

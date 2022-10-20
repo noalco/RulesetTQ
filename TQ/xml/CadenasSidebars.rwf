@@ -1,0 +1,95 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>CadenasSidebars</XmlName>
+    <FolderID>22</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;root&gt;
+	&lt;string name="library_recordtype_label_hechizos"&gt;Hechizos&lt;/string&gt;
+	&lt;string name="library_recordtype_label_encantamientos"&gt;Encantamientos&lt;/string&gt;
+	&lt;string name="library_recordtype_label_ventdesvent"&gt;Vent./Desvent.&lt;/string&gt;
+	&lt;string name="library_recordtype_label_item"&gt;Objetos&lt;/string&gt;
+	&lt;string name="library_recordtype_label_story"&gt;Historia&lt;/string&gt;
+	&lt;string name="library_recordtype_label_storytemplate"&gt;Plantilla de Historia&lt;/string&gt;
+	&lt;string name="library_recordtype_label_quest"&gt;Misiones&lt;/string&gt;
+	&lt;string name="library_recordtype_label_image"&gt;Imágenes&lt;/string&gt;
+	&lt;string name="library_recordtype_label_npc"&gt;PNJs&lt;/string&gt;
+	&lt;string name="library_recordtype_label_etnias"&gt;O. Étnicos&lt;/string&gt;
+	&lt;string name="library_recordtype_label_profesiones"&gt;Profesiones&lt;/string&gt;
+	&lt;string name="library_recordtype_label_battle"&gt;Encuentros&lt;/string&gt;
+	&lt;string name="library_recordtype_label_battlerandom"&gt;Encuentros (Aleatorio)&lt;/string&gt;
+	&lt;string name="library_recordtype_label_treasureparcel"&gt;Tesoros&lt;/string&gt;
+	&lt;string name="library_recordtype_label_note"&gt;Notas&lt;/string&gt;
+	&lt;string name="library_recordtype_label_table"&gt;Tablas&lt;/string&gt;
+	&lt;string name="library_recordtype_label_vehicle"&gt;Vehículos&lt;/string&gt;
+	&lt;string name="library_recordtype_label_effect"&gt;Effects&lt;/string&gt;
+	&lt;string name="library_recordtype_label_modifier"&gt;Modifiers&lt;/string&gt;
+	&lt;string name="library_recordtype_label_referencemanualpage"&gt;Reference Manual&lt;/string&gt;
+	&lt;string name="library_recordtype_label_charsheet"&gt;Personajes&lt;/string&gt;
+	&lt;string name="library_recordtype_label_story"&gt;Historia&lt;/string&gt;
+	&lt;string name="library_recordtype_label_storytemplate"&gt;Plantilla de Historia&lt;/string&gt;
+	&lt;string name="library_recordtype_label_quest"&gt;Misiones&lt;/string&gt;
+	&lt;string name="library_recordtype_label_image"&gt;Imágenes&lt;/string&gt;
+	&lt;string name="library_recordtype_label_npc"&gt;PNJs&lt;/string&gt;
+	&lt;string name="library_recordtype_label_battle"&gt;Encuentros&lt;/string&gt;
+	&lt;string name="library_recordtype_label_battlerandom"&gt;Encuentros (Aleatorio)&lt;/string&gt;
+	&lt;string name="library_recordtype_label_item"&gt;Objetos&lt;/string&gt;
+	&lt;string name="library_recordtype_label_treasureparcel"&gt;Tesoros&lt;/string&gt;
+	&lt;string name="library_recordtype_label_note"&gt;Notas&lt;/string&gt;
+	&lt;string name="library_recordtype_label_table"&gt;Tablas&lt;/string&gt;
+	&lt;string name="library_recordtype_label_vehicle"&gt;Vehículos&lt;/string&gt;
+
+	&lt;string name="library_category_label_personaje"&gt;Personaje&lt;/string&gt;	
+	
+	&lt;string name="library_recordtype_single_effect"&gt;Effecto&lt;/string&gt;
+	&lt;string name="library_recordtype_single_modifier"&gt;Modificador&lt;/string&gt;
+	&lt;string name="library_recordtype_single_charsheet"&gt;Personaje&lt;/string&gt;
+	&lt;string name="library_recordtype_single_note"&gt;Nota&lt;/string&gt;
+	&lt;string name="library_recordtype_single_story"&gt;Hisotia&lt;/string&gt;
+	&lt;string name="library_recordtype_single_storytemplate"&gt;Plantilla de Historia&lt;/string&gt;
+	&lt;string name="library_recordtype_single_quest"&gt;Misión&lt;/string&gt;
+	&lt;string name="library_recordtype_single_image"&gt;Image&lt;/string&gt;
+	&lt;string name="library_recordtype_single_npc"&gt;PNJ&lt;/string&gt;
+	&lt;string name="library_recordtype_single_battle"&gt;Encuentro&lt;/string&gt;
+	&lt;string name="library_recordtype_single_battlerandom"&gt;Encuentro (Aleatorio)&lt;/string&gt;
+	&lt;string name="library_recordtype_single_item"&gt;objeto&lt;/string&gt;
+	&lt;string name="library_recordtype_single_treasureparcel"&gt;Parcel&lt;/string&gt;
+	&lt;string name="library_recordtype_single_table"&gt;Tabla&lt;/string&gt;
+	&lt;string name="library_recordtype_single_vehicle"&gt;Vehículo&lt;/string&gt;
+	
+	&lt;string name="library_recordtype_empty_charsheet"&gt;&amp;#171; nombre&amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_story"&gt;&amp;#171; Nueva Historia &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_storytemplate"&gt;&amp;#171; Nueva Plantilla de Historia &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_quest"&gt;&amp;#171; Nueva Misión &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_image"&gt;&amp;#171; Nueva Imagen &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_npc"&gt;&amp;#171; Nueva Personalidad &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_battle"&gt;&amp;#171; Nuevo Encuentro &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_battlerandom"&gt;&amp;#171; Nuevo Encuentro (Aleatorio) &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_item"&gt;&amp;#171; Nuevo Objeto &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_treasureparcel"&gt;&amp;#171; Nuevo Tesoro &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_note"&gt;&amp;#171; Nueva Nota &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_table"&gt;&amp;#171; Nueva Tabla &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_vehicle"&gt;&amp;#171; Nuevo Vehículo &amp;#187;&lt;/string&gt;
+	
+	&lt;string name="library_recordtype_empty_nonid_image"&gt;Imagen / Mapa sin Identificar&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_nonid_item"&gt;Objeto sin Identificar&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_nonid_npc"&gt;Criatura sin Identificar&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_nonid_vehicle"&gt;Vehículo sin Identificar&lt;/string&gt;
+	
+	&lt;string name="library_recordtype_export_charsheet"&gt;Personajes Pregenerados&lt;/string&gt;
+
+	&lt;string name="library_recordview_label_vehicle_bytype"&gt;Por Tipo&lt;/string&gt;
+
+	&lt;string name="option_val_random"&gt;Aleatorio&lt;/string&gt;
+
+	&lt;string name="battle_button_random"&gt;Aleatorio&lt;/string&gt;
+	&lt;string name="battle_button_generate"&gt;Generar&lt;/string&gt;
+	&lt;string name="battle_emptylist"&gt;Soltar enlaces PNJ aquí para añadir al encuentro.&lt;/string&gt;
+	&lt;string name="battle_label_token"&gt;Token&lt;/string&gt;
+	&lt;string name="battle_label_name"&gt;Nombre&lt;/string&gt;
+	&lt;string name="battle_label_placement"&gt;Colocación:&lt;/string&gt;
+	&lt;string name="battle_tooltip_addct"&gt;Añadir encuentro al combat tracker&lt;/string&gt;
+	&lt;string name="battle_message_wrong_source"&gt;Solo los registros de la lista de registros de la campaña pueden ser añadidos al encuentro.&lt;/string&gt;
+
+&lt;/root&gt;</XML>
+  </XMLFiles>
+</DocumentElement>
