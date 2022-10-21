@@ -94,6 +94,7 @@ function CrearNombreSecundario(nodoLista, Lista)
 end
 
 function AniadirHabilidad(window, sLabel, bRepetible)
+	--Debug.chat(window)
 	local rSkill = DatosHabilidades[sLabel];
 	if rSkill and (rSkill.repetible==bRepetible) then 
 		local w;

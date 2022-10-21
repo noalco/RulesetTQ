@@ -63,19 +63,7 @@ Wizard
 	
 	
 Orígenes étnicos:
-	Idioma nativo: Un idioma. (Asignar al crear el idioma nativo)
-						Austero no aparece, siempre aparece Mezuri; Kunya no aparece, siempre aparece Oriental
-				   Ninguno de la Tierra. (Borrar el Idioma nativo de las Habilidades)
-	Religión: Una o varias. (Sin mecánica)
-	Habilidades: Habilidad +1, Arma Pr: Arma +1 (hay una errata y en un caso termina en '.'), Artesanía: Artesanía +1, Arma CC: Arma +1, Idioma: Idioma +1, Habilidad +1
-					Idioma Austero no aparece, siempre aparece Mezuri; idioma Kunya no aparece, siempre aparece Oriental
-				 No suma puntos a ninguna habilidad.
-				 Idiomas: Merení +1, Oriental +1, Fornk +1
-	Profesiones: Varias profesiones separadas por ','. (Error si se coge una clase no permitida ¿control al hacer el drop?)
-				 Todas menos chamán, noble cortesano y nómada. (Error si se coge una clase no permitida ¿control al hacer el drop?)
-				 Todas.
-				 Puede ser hechicero o hechicero guerrero si escoge la ventaja Clandestinidad. (Error en el Wizard si no coge la ventaja ¿asignar la ventaja directamente?)
-	Tamaño máximo: +2. (solo he visto esta opción)
+	Profesiones: Puede ser hechicero o hechicero guerrero si escoge la ventaja Clandestinidad. (Error en el Wizard si no coge la ventaja ¿asignar la ventaja directamente?)
 	Ventajas y Desventajas: Tienen de partida un estatus material un grado superior al de su profesión.
 								Indigente: Mendigo, nómada: 5 mb.
 								Pobre: Campesino, cazador, marinero, minero: 20 mb.

@@ -1,0 +1,65 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>ParseoProfesiones</ScriptName>
+    <FolderID>21</FolderID>
+    <Script>
+Profesiones={
+	["artesano"] = true,
+	["artista"] = true,
+	["asesino"] = true,
+	["bandido"] = true,
+	["campesino"] = true,
+	["cazador"] = true,
+	["criado"] = true,
+	["chamán"] = true,
+	["espía"] = true,
+	["hechicero"] = true,
+	["hechicero guerrero"] = true,
+	["ladrón"] = true,
+	["mensajero"] = true,
+	["marinero"] = true,
+	["mendigo"] = true,
+	["mercader"] = true,
+	["minero"] = true,
+	["noble cortesano"] = true,
+	["noble guerrero"] = true,
+	["nómada"] = true,
+	["pirata"] = true,
+	["sabio"] = true,
+	["sacerdote"] = true,
+	["sacerdote guerrero"] = true,
+	["soldado"] = true,
+	}
+
+function ObtenerListaProfesiones(sProfesiones, bPermitir)
+	local aClauses={};
+	if sProfesiones then aClauses,_ = StringManager.split(sProfesiones:lower(), ",y", true); end;
+	for sProf,_ in pairs(Profesiones) do
+		Profesiones[sProf]=not bPermitir;
+	end
+	for i=1,#aClauses do
+		if aClauses[i]:match(".*%s*%(.*%)") then aClauses[i]=aClauses[i]:match("(.*)%s*%(.*%)"); end
+		if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+		Profesiones[aClauses[i]]=bPermitir;
+	end
+	--Debug.chat(sProfesiones, "\r\n", Profesiones);
+end
+
+function ObtenerProfesionesPermitidas(sProfesiones)
+	local aClauses;
+	aClauses,_=StringManager.split(sProfesiones, "%.", true);
+	if aClauses and #aClauses&gt;0 then sProfesiones=aClauses[1]; end
+	--Debug.chat(aClauses, sProfesiones);
+		
+	if sProfesiones:match("Todas menos") then
+		ObtenerListaProfesiones(sProfesiones:match("Todas menos (.*)"), false)
+	elseif sProfesiones=="" or sProfesiones:match("Todas") then
+		ObtenerListaProfesiones("", false);
+	else
+		ObtenerListaProfesiones(sProfesiones:match("(.*)"), true);
+	end
+end;</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>

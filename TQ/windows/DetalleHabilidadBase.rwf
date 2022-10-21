@@ -55,9 +55,9 @@
 	super.onInit();
 end
 
---function onValueChanged()
---	window.Secundario.setValue(getStringValue());
---end</LUACode>
+function onValueChanged()
+	window.Secundario.setValue(getStringValue());
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -118,7 +118,10 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"184"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	window.BonoBaseHabilidad.onInit();
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -807,10 +810,10 @@ end
 	super.onInit();
 end
 
---function onValueChanged()
---	window.Secundario.setValue(getStringValue());
---	Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
---end</LUACode>
+function onValueChanged()
+	window.Secundario.setValue(getStringValue());
+	Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -870,10 +873,10 @@ end
 	super.onInit();
 end
 
---function onValueChanged()
---	window.Secundario.setValue(getStringValue());
---	Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
---end</LUACode>
+function onValueChanged()
+	window.Secundario.setValue(getStringValue());
+	Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1076,9 +1079,9 @@ end
 	super.onInit();
 end
 
---function onValueChanged()
---	window.Secundario.setValue(getStringValue());
---end</LUACode>
+function onValueChanged()
+	window.Secundario.setValue(getStringValue());
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1329,7 +1332,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"47"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"44"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"63"}}
 ]}}</Definition>
     <LUACode />

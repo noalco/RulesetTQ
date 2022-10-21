@@ -2,7 +2,7 @@
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>AjusteCuerpo</ControlName>
-    <ZIndex>65</ZIndex>
+    <ZIndex>64</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -73,7 +73,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Atractivo</ControlName>
-    <ZIndex>42</ZIndex>
+    <ZIndex>41</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -151,7 +151,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>BaseAtractivo</ControlName>
-    <ZIndex>43</ZIndex>
+    <ZIndex>42</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -219,7 +219,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>BaseCuerpo</ControlName>
-    <ZIndex>29</ZIndex>
+    <ZIndex>28</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -288,7 +288,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>BaseEspiritu</ControlName>
-    <ZIndex>39</ZIndex>
+    <ZIndex>38</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -356,7 +356,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>BaseMente</ControlName>
-    <ZIndex>34</ZIndex>
+    <ZIndex>33</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -424,7 +424,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>BaseTamanio</ControlName>
-    <ZIndex>51</ZIndex>
+    <ZIndex>50</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -492,7 +492,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Cuerpo</ControlName>
-    <ZIndex>28</ZIndex>
+    <ZIndex>27</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -569,7 +569,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>DeCuerpoAMente</ControlName>
-    <ZIndex>61</ZIndex>
+    <ZIndex>60</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -631,7 +631,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>DeEspirituAMente</ControlName>
-    <ZIndex>63</ZIndex>
+    <ZIndex>62</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -693,7 +693,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>DeMenteACuerpo</ControlName>
-    <ZIndex>64</ZIndex>
+    <ZIndex>63</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -755,7 +755,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>DeMenteAEspiritu</ControlName>
-    <ZIndex>62</ZIndex>
+    <ZIndex>61</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -817,7 +817,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Edad</ControlName>
-    <ZIndex>11</ZIndex>
+    <ZIndex>10</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -918,7 +918,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Espiritu</ControlName>
-    <ZIndex>38</ZIndex>
+    <ZIndex>37</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -998,7 +998,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Fuerza</ControlName>
-    <ZIndex>47</ZIndex>
+    <ZIndex>46</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1116,7 +1116,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>IconoMetodoCaracteristicas</ControlName>
-    <ZIndex>15</ZIndex>
+    <ZIndex>14</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1165,7 +1165,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelAtractivo</ControlName>
-    <ZIndex>41</ZIndex>
+    <ZIndex>40</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1219,7 +1219,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelBase</ControlName>
-    <ZIndex>53</ZIndex>
+    <ZIndex>52</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1271,7 +1271,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelBonoEdad</ControlName>
-    <ZIndex>55</ZIndex>
+    <ZIndex>54</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1323,7 +1323,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelBonoEspecie</ControlName>
-    <ZIndex>56</ZIndex>
+    <ZIndex>55</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1375,7 +1375,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelCaracteristicas</ControlName>
-    <ZIndex>57</ZIndex>
+    <ZIndex>56</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1429,7 +1429,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelCuerpo</ControlName>
-    <ZIndex>27</ZIndex>
+    <ZIndex>26</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1483,7 +1483,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelDisponibles</ControlName>
-    <ZIndex>20</ZIndex>
+    <ZIndex>19</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1535,7 +1535,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelEdad</ControlName>
-    <ZIndex>10</ZIndex>
+    <ZIndex>9</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1695,7 +1695,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelEspiritu</ControlName>
-    <ZIndex>37</ZIndex>
+    <ZIndex>36</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1803,7 +1803,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelFuerza</ControlName>
-    <ZIndex>46</ZIndex>
+    <ZIndex>45</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1858,7 +1858,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelGastados</ControlName>
-    <ZIndex>22</ZIndex>
+    <ZIndex>21</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1910,7 +1910,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelMente</ControlName>
-    <ZIndex>32</ZIndex>
+    <ZIndex>31</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1964,7 +1964,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelMetodoCaracteristicas</ControlName>
-    <ZIndex>14</ZIndex>
+    <ZIndex>13</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2070,7 +2070,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelPPAtractivo</ControlName>
-    <ZIndex>54</ZIndex>
+    <ZIndex>53</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2122,7 +2122,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelPuntos</ControlName>
-    <ZIndex>19</ZIndex>
+    <ZIndex>18</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2174,7 +2174,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelRestantes</ControlName>
-    <ZIndex>24</ZIndex>
+    <ZIndex>23</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2226,7 +2226,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelTamanio</ControlName>
-    <ZIndex>48</ZIndex>
+    <ZIndex>47</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2280,7 +2280,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LabelTipoEdad</ControlName>
-    <ZIndex>12</ZIndex>
+    <ZIndex>11</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2334,7 +2334,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LanzarDadosPtos</ControlName>
-    <ZIndex>18</ZIndex>
+    <ZIndex>17</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2417,7 +2417,7 @@ function onRoll(rSource, rTarget, rRoll)
 			window.BaseCuerpo.setValue(nMax);
 			window.BaseEspiritu.setValue(nMin);
 			
-			if Aux[1]&gt;Aux[2] then window.BaseEspiritu.setValue(Aux[1]);
+			if Aux[1]&gt;Aux[2] then window.BaseMente.setValue(Aux[1]);
 			else window.BaseMente.setValue(Aux[2]);
 			end
 		end
@@ -2446,7 +2446,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>LinkEtnia</ControlName>
-    <ZIndex>60</ZIndex>
+    <ZIndex>59</ZIndex>
     <ControlClass>FGLinkField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2514,8 +2514,28 @@ function onDrop(x, y, dragdata)
 		else
 			sPathName=sRecord..".IdiomaNativo";
 		end
-		ParseoHabilidades.IdiomaNativo = ParsearHabilidades(DB.getValue(sPathName, ""));
-		Debug.chat(ParseoHabilidades.IdiomaNativo)
+		ParseoHabilidades.IdiomaNativo = DB.getValue(sPathName, "");
+		
+		if string.find(sRecord, "@") then
+			sPathName, _=string.gsub(sRecord, "@", ".TamanioMaximo@");
+		else
+			sPathName=sRecord..".TamanioMaximo";
+		end
+		window.MaxTamanioEtnia.setValue(DB.getValue(sPathName, ""));
+
+		if string.find(sRecord, "@") then
+			sPathName, _=string.gsub(sRecord, "@", ".PP@");
+		else
+			sPathName=sRecord..".PP";
+		end
+		window.PPEtnia.setValue(DB.getValue(sPathName, ""));
+		
+		if string.find(sRecord, "@") then
+			sPathName, _=string.gsub(sRecord, "@", ".Profesiones@");
+		else
+			sPathName=sRecord..".Profesiones";
+		end		
+		ParseoProfesiones.ObtenerProfesionesPermitidas(DB.getValue(sPathName, ""));
 	end;
 end
 </LUACode>
@@ -2525,7 +2545,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>MarcoCaracteristicas</ControlName>
-    <ZIndex>26</ZIndex>
+    <ZIndex>25</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2574,7 +2594,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>MarcoMetodos</ControlName>
-    <ZIndex>16</ZIndex>
+    <ZIndex>15</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2623,7 +2643,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>MaxAtractivo</ControlName>
-    <ZIndex>45</ZIndex>
+    <ZIndex>44</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2686,7 +2706,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>MaxCuerpo</ControlName>
-    <ZIndex>31</ZIndex>
+    <ZIndex>30</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2751,7 +2771,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>MaxTamanio</ControlName>
-    <ZIndex>50</ZIndex>
+    <ZIndex>49</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2764,7 +2784,7 @@ end
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -2803,11 +2823,12 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"376"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"437"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"371"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"436"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
-	setValue(math.min(4, window.MaxTamanioEdad.getValue()))
+	setValue(math.min(4, window.MaxTamanioEdad.getValue(), window.MaxTamanioEtnia.getValue()))
+	window.BaseCuerpo.setMaxValue(getValue())
 end;</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -2815,7 +2836,7 @@ end;</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>MaxTamanioEdad</ControlName>
-    <ZIndex>58</ZIndex>
+    <ZIndex>57</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2828,7 +2849,7 @@ end;</LUACode>
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -2867,8 +2888,8 @@ end;</LUACode>
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"355"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"465"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"350"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"464"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.MaxTamanio.Actualizar();
@@ -2884,7 +2905,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>MaxTamanioEtnia</ControlName>
-    <ZIndex>59</ZIndex>
+    <ZIndex>58</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2936,8 +2957,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"417"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"464"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"413"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"461"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.MaxTamanio.Actualizar();
@@ -2953,7 +2974,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Mente</ControlName>
-    <ZIndex>33</ZIndex>
+    <ZIndex>32</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3034,7 +3055,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>ModEdadCuerpo</ControlName>
-    <ZIndex>30</ZIndex>
+    <ZIndex>29</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3099,7 +3120,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>ModEdadMente</ControlName>
-    <ZIndex>35</ZIndex>
+    <ZIndex>34</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3163,7 +3184,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>ModEspecieEspiritu</ControlName>
-    <ZIndex>40</ZIndex>
+    <ZIndex>39</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3229,7 +3250,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>ModEspecieMente</ControlName>
-    <ZIndex>36</ZIndex>
+    <ZIndex>35</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3295,7 +3316,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>NombreEtnia</ControlName>
-    <ZIndex>66</ZIndex>
+    <ZIndex>65</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3373,7 +3394,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>PPAtractivo</ControlName>
-    <ZIndex>44</ZIndex>
+    <ZIndex>43</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3443,7 +3464,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>PPEdad</ControlName>
-    <ZIndex>13</ZIndex>
+    <ZIndex>12</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3573,7 +3594,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>PPEtnia</ControlName>
-    <ZIndex>9</ZIndex>
+    <ZIndex>8</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3638,7 +3659,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>PtosDisponibles</ControlName>
-    <ZIndex>52</ZIndex>
+    <ZIndex>51</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3703,7 +3724,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>PtosDisponiblesConEspecieYEdad</ControlName>
-    <ZIndex>21</ZIndex>
+    <ZIndex>20</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3854,7 +3875,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>PtosGastados</ControlName>
-    <ZIndex>23</ZIndex>
+    <ZIndex>22</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3927,7 +3948,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>PtosRestantes</ControlName>
-    <ZIndex>25</ZIndex>
+    <ZIndex>24</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -4065,7 +4086,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>SeleccionMetodo</ControlName>
-    <ZIndex>17</ZIndex>
+    <ZIndex>16</ZIndex>
     <ControlClass>FGRadioList</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -4155,7 +4176,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Tamanio</ControlName>
-    <ZIndex>49</ZIndex>
+    <ZIndex>48</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
