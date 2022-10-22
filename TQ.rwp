@@ -77787,6 +77787,57 @@ end</Script>
 
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Frames>
+    <FrameName>buttondown</FrameName>
+    <FolderID>36</FolderID>
+    <ImageFile>skin\frames\buttondown.png</ImageFile>
+    <Definition>12,12,12,12</Definition>
+    <TopLeft />
+    <Top />
+    <TopRight />
+    <Left />
+    <Middle />
+    <Right />
+    <BottomLeft />
+    <Bottom />
+    <BottomRight />
+    <Decal />
+    <InsideOffset />
+  </Frames>
+  <Frames>
+    <FrameName>buttonup</FrameName>
+    <FolderID>36</FolderID>
+    <ImageFile>skin\frames\buttonup.png</ImageFile>
+    <Definition>12,12,12,12</Definition>
+    <TopLeft />
+    <Top />
+    <TopRight />
+    <Left />
+    <Middle />
+    <Right />
+    <BottomLeft />
+    <Bottom />
+    <BottomRight />
+    <Decal />
+    <InsideOffset />
+  </Frames>
+  <Frames>
+    <FrameName>charselect</FrameName>
+    <FolderID>36</FolderID>
+    <ImageFile>skin\frames\Frame4.png</ImageFile>
+    <Definition>100,100,100,100</Definition>
+    <TopLeft />
+    <Top />
+    <TopRight />
+    <Left />
+    <Middle />
+    <Right />
+    <BottomLeft />
+    <Bottom />
+    <BottomRight />
+    <Decal />
+    <InsideOffset />
+  </Frames>
+  <Frames>
     <FrameName>charsheet</FrameName>
     <FolderID>36</FolderID>
     <ImageFile>skin\frames\FrameHojaPJ.png</ImageFile>
@@ -78229,6 +78280,40 @@ end</Script>
     <InsideOffset />
   </Frames>
   <Frames>
+    <FrameName>utilitybox</FrameName>
+    <FolderID>36</FolderID>
+    <ImageFile>skin\frames\Frame4.png</ImageFile>
+    <Definition>100,150,100,150</Definition>
+    <TopLeft />
+    <Top />
+    <TopRight />
+    <Left />
+    <Middle />
+    <Right />
+    <BottomLeft />
+    <Bottom />
+    <BottomRight />
+    <Decal />
+    <InsideOffset />
+  </Frames>
+  <Frames>
+    <FrameName>utilitybox3</FrameName>
+    <FolderID>36</FolderID>
+    <ImageFile>skin\frames\Frame3.png</ImageFile>
+    <Definition>100,150,100,150</Definition>
+    <TopLeft />
+    <Top />
+    <TopRight />
+    <Left />
+    <Middle />
+    <Right />
+    <BottomLeft />
+    <Bottom />
+    <BottomRight />
+    <Decal />
+    <InsideOffset />
+  </Frames>
+  <Frames>
     <FrameName>windowtitle</FrameName>
     <FolderID>36</FolderID>
     <ImageFile>skin\frames\windowtitle.png</ImageFile>
@@ -78307,6 +78392,21 @@ end</Script>
     <IconName>button_close_hover</IconName>
     <FolderID>33</FolderID>
     <IconFile>skin\botones\button_close_hover.png</IconFile>
+  </Icons>
+  <Icons>
+    <IconName>button_help</IconName>
+    <FolderID>33</FolderID>
+    <IconFile>skin\botones\button_help.png</IconFile>
+  </Icons>
+  <Icons>
+    <IconName>button_help_down</IconName>
+    <FolderID>33</FolderID>
+    <IconFile>skin\botones\button_help_down.png</IconFile>
+  </Icons>
+  <Icons>
+    <IconName>button_help_hover</IconName>
+    <FolderID>33</FolderID>
+    <IconFile>skin\botones\button_help_hover.png</IconFile>
   </Icons>
   <Icons>
     <IconName>char_race</IconName>
