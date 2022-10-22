@@ -77804,6 +77804,23 @@ end</Script>
     <InsideOffset />
   </Frames>
   <Frames>
+    <FrameName>chatbox</FrameName>
+    <FolderID>36</FolderID>
+    <ImageFile>skin\frames\chat.png</ImageFile>
+    <Definition>40,140,40,50</Definition>
+    <TopLeft />
+    <Top />
+    <TopRight />
+    <Left />
+    <Middle />
+    <Right />
+    <BottomLeft />
+    <Bottom />
+    <BottomRight />
+    <Decal />
+    <InsideOffset />
+  </Frames>
+  <Frames>
     <FrameName>desktop</FrameName>
     <FolderID>35</FolderID>
     <ImageFile>skin\escritorio\FondoHoja.jpg</ImageFile>
