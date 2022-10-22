@@ -78161,6 +78161,40 @@ end</Script>
     <InsideOffset />
   </Frames>
   <Frames>
+    <FrameName>scrollbar_base</FrameName>
+    <FolderID>36</FolderID>
+    <ImageFile>skin\frames\scrollbar.png</ImageFile>
+    <Definition>0,0,0,0</Definition>
+    <TopLeft />
+    <Top>0,0,20,14</Top>
+    <TopRight />
+    <Left />
+    <Middle>22,0,20,62</Middle>
+    <Right />
+    <BottomLeft />
+    <Bottom>0,48,20,14</Bottom>
+    <BottomRight />
+    <Decal />
+    <InsideOffset />
+  </Frames>
+  <Frames>
+    <FrameName>scrollbutton_normal</FrameName>
+    <FolderID>36</FolderID>
+    <ImageFile>skin\frames\scrollbutton_normal.png</ImageFile>
+    <Definition>0,0,0,0</Definition>
+    <TopLeft />
+    <Top>0,0,20,16</Top>
+    <TopRight />
+    <Left />
+    <Middle>0,16,20,8</Middle>
+    <Right />
+    <BottomLeft />
+    <Bottom>0,24,20,16</Bottom>
+    <BottomRight />
+    <Decal />
+    <InsideOffset />
+  </Frames>
+  <Frames>
     <FrameName>tabs</FrameName>
     <FolderID>34</FolderID>
     <ImageFile>skin\controles\tabs.png</ImageFile>
