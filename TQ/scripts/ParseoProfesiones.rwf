@@ -2,54 +2,83 @@
   <Scripts>
     <ScriptName>ParseoProfesiones</ScriptName>
     <FolderID>21</FolderID>
-    <Script>
+    <Script>--Profesiones={
+--	["artesano"] = true,
+--	["artista"] = true,
+--	["asesino"] = true,
+--	["bandido"] = true,
+--	["campesino"] = true,
+--	["cazador"] = true,
+--	["criado"] = true,
+--	["chamán"] = true,
+--	["espía"] = true,
+--	["hechicero"] = true,
+--	["hechicero guerrero"] = true,
+--	["ladrón"] = true,
+--	["mensajero"] = true,
+--	["marinero"] = true,
+--	["mendigo"] = true,
+--	["mercader"] = true,
+--	["minero"] = true,
+--	["noble cortesano"] = true,
+--	["noble guerrero"] = true,
+--	["nómada"] = true,
+--	["pirata"] = true,
+--	["sabio"] = true,
+--	["sacerdote"] = true,
+--	["sacerdote guerrero"] = true,
+--	["soldado"] = true,
+--}
+
 Profesiones={
-	["artesano"] = true,
-	["artista"] = true,
-	["asesino"] = true,
-	["bandido"] = true,
-	["campesino"] = true,
-	["cazador"] = true,
-	["criado"] = true,
-	["chamán"] = true,
-	["espía"] = true,
-	["hechicero"] = true,
-	["hechicero guerrero"] = true,
-	["ladrón"] = true,
-	["mensajero"] = true,
-	["marinero"] = true,
-	["mendigo"] = true,
-	["mercader"] = true,
-	["minero"] = true,
-	["noble cortesano"] = true,
-	["noble guerrero"] = true,
-	["nómada"] = true,
-	["pirata"] = true,
-	["sabio"] = true,
-	["sacerdote"] = true,
-	["sacerdote guerrero"] = true,
-	["soldado"] = true,
-	}
+	["artesano"] = {permitida=true, restriccion=""},
+	["artista"] = {permitida=true, restriccion=""},
+	["asesino"] = {permitida=true, restriccion=""},
+	["bandido"] = {permitida=true, restriccion=""},
+	["campesino"] = {permitida=true, restriccion=""},
+	["cazador"] = {permitida=true, restriccion=""},
+	["criado"] = {permitida=true, restriccion=""},
+	["chamán"] = {permitida=true, restriccion=""},
+	["espía"] = {permitida=true, restriccion=""},
+	["hechicero"] = {permitida=true, restriccion=""},
+	["hechicero guerrero"] = {permitida=true, restriccion=""},
+	["ladrón"] = {permitida=true, restriccion=""},
+	["mensajero"] = {permitida=true, restriccion=""},
+	["marinero"] = {permitida=true, restriccion=""},
+	["mendigo"] = {permitida=true, restriccion=""},
+	["mercader"] = {permitida=true, restriccion=""},
+	["minero"] = {permitida=true, restriccion=""},
+	["noble cortesano"] = {permitida=true, restriccion=""},
+	["noble guerrero"] = {permitida=true, restriccion=""},
+	["nómada"] = {permitida=true, restriccion=""},
+	["pirata"] = {permitida=true, restriccion=""},
+	["sabio"] = {permitida=true, restriccion=""},
+	["sacerdote"] = {permitida=true, restriccion=""},
+	["sacerdote guerrero"] = {permitida=true, restriccion=""},
+	["soldado"] = {permitida=true, restriccion=""},
+}
 
 function ObtenerListaProfesiones(sProfesiones, bPermitir)
 	local aClauses={};
 	if sProfesiones then aClauses,_ = StringManager.split(sProfesiones:lower(), ",y", true); end;
 	for sProf,_ in pairs(Profesiones) do
-		Profesiones[sProf]=not bPermitir;
+		Profesiones[sProf].permitida=not bPermitir;
+		Profesiones[sProf].restriccion="";
 	end
 	for i=1,#aClauses do
-		if aClauses[i]:match(".*%s*%(.*%)") then aClauses[i]=aClauses[i]:match("(.*)%s*%(.*%)"); end
+		if aClauses[i]:match(".*%s*%(.*%)") then aClauses[i]=aClauses[i]:match("(.*)%s*%(.*%)"); end -- Para quitar los comentarios entre paréntesis
 		if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
-		Profesiones[aClauses[i]]=bPermitir;
+		Profesiones[aClauses[i]].permitida=bPermitir;
 	end
-	--Debug.chat(sProfesiones, "\r\n", Profesiones);
 end
 
 function ObtenerProfesionesPermitidas(sProfesiones)
 	local aClauses;
-	aClauses,_=StringManager.split(sProfesiones, "%.", true);
+	sProfesiones=sProfesiones:gsub("\n", " ");
+	sProfesiones=sProfesiones:gsub("  ", " ");
+	
+	aClauses,_=StringManager.split(sProfesiones, "%.", true); -- Obtenemos la lista de profesiones (aClauses[1]) y las excepciones (aClauses[2])
 	if aClauses and #aClauses&gt;0 then sProfesiones=aClauses[1]; end
-	--Debug.chat(aClauses, sProfesiones);
 		
 	if sProfesiones:match("Todas menos") then
 		ObtenerListaProfesiones(sProfesiones:match("Todas menos (.*)"), false)
@@ -58,7 +87,19 @@ function ObtenerProfesionesPermitidas(sProfesiones)
 	else
 		ObtenerListaProfesiones(sProfesiones:match("(.*)"), true);
 	end
-end;</Script>
+	
+	if aClauses[2] then
+		local sProfesionesConExcepciones, sExcepciones=aClauses[2]:match("Puede ser (.*) si escoge la (.*)");
+		sProfesionesConExcepciones=sProfesionesConExcepciones:gsub(" o ", ", ");
+		aClauses,_=StringManager.split(sProfesionesConExcepciones, ",", true);
+		Debug.chat(aClauses)
+		for i=1,#aClauses do
+			if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+			if Profesiones[aClauses[i]] then Profesiones[aClauses[i]].restriccion=sExcepciones; end
+		end
+	end
+end;
+</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />
   </Scripts>

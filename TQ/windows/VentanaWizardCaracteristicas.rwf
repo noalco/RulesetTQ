@@ -1,77 +1,6 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
-    <ControlName>AjusteCuerpo</ControlName>
-    <ZIndex>64</ZIndex>
-    <ControlClass>FGNumberField</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"AjusteCuerpo"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DefaultValue","Value":{"@xsi:type":"xsd:decimal","#text":"0"}},
-      {"Name":"DelayKeyUpdate"},
-      {"Name":"DescriptionText"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
-      {"Name":"Disabled"},
-      {"Name":"DisplaySign"},
-      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HideOnValue"},
-      {"Name":"HideRollWidget"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"HoverCursor"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
-      {"Name":"NextTabTarget"},
-      {"Name":"NoDrag"},
-      {"Name":"NoDrop"},
-      {"Name":"NoKeyEdit"},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"StackVertWith"},
-      {"Name":"Tooltip"},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"62"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"469"}}
-]}}</Definition>
-    <LUACode>function onValueChanged()
-	window.Cuerpo.Actualizar();
-end
-
-function Actualizar()
-	if window.Cuerpo.getValue()&lt;3 and window.SeleccionMetodo.getValue()=="Al azar" then setValue(3-window.Cuerpo.getValue());
-	else setValue(0);
-	end
-end
-</LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Atractivo</ControlName>
     <ZIndex>41</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
@@ -106,11 +35,11 @@ end
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"-3"}},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"-4"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop"},
@@ -126,7 +55,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"263"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>--local nMax=3;
 --local nMin=-4;
@@ -184,11 +113,11 @@ end</LUACode>
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"-4"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag"},
       {"Name":"NoDrop"},
@@ -276,7 +205,7 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Cuerpo.Actualizar();
-	window.AjusteCuerpo.Actualizar();
+	window.PtosGastados.Actualizar();
 end
 
 function onClickRelease(button, x, y)
@@ -345,6 +274,7 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Espiritu.Actualizar();
+	window.PtosGastados.Actualizar();
 end
 
 function onClickRelease(button, x, y)
@@ -413,6 +343,7 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Mente.Actualizar();
+	window.PtosGastados.Actualizar();
 end
 
 function onClickRelease(button, x, y)
@@ -457,11 +388,11 @@ end</LUACode>
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"4"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"-3"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag"},
       {"Name":"NoDrop"},
@@ -525,11 +456,11 @@ end</LUACode>
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"9"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop"},
@@ -545,7 +476,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"78"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>function onInit()
 	Actualizar();
@@ -557,7 +488,7 @@ function onValueChanged()
 end
 
 function Actualizar()
-	setValue(window.BaseCuerpo.getValue()+window.ModEdadCuerpo.getValue()+window.AjusteCuerpo.getValue());
+	setValue(window.BaseCuerpo.getValue()+window.ModEdadCuerpo.getValue());
 end
 
 function onHover(state)
@@ -951,11 +882,11 @@ end
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"9"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop"},
@@ -971,7 +902,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"198"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>--local nMax=9;
 --local nMin=3;
@@ -1031,7 +962,7 @@ end</LUACode>
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"18"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
@@ -1051,7 +982,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"328"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
 	setValue(window.Tamanio.getValue()+window.Cuerpo.getValue());
@@ -1400,7 +1331,7 @@ end</LUACode>
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"SELECCIONA TUS CARACTERÍSTICAS"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"DETERMINA TUS CARACTERÍSTICAS"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -1668,7 +1599,7 @@ end</LUACode>
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"SELECCIONA UNA ESPECIE Y TU EDAD"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"SELECCIONA TU ESPECIE, TU ORIGEN ÉTNICO Y TU EDAD"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -2468,7 +2399,7 @@ end
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"LinkFieldAllowDrop","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"LinkFieldAllowDrop","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"LinkFieldClass","Value":{"@xsi:type":"xsd:string","#text":"VentanaEtniaSidebar"}},
       {"Name":"LinkFieldDescriptionField","Value":{"@xsi:type":"xsd:string","#text":"name"}},
       {"Name":"LinkFieldRecordName"},
@@ -2500,43 +2431,89 @@ end
 function onDrop(x, y, dragdata)
 	local sClass,sRecord = dragdata.getShortcutData();
 	if sClass=="VentanaEtniaSidebar" then
-		local _, sRecordAct=getValue();
-		--ParseoHabilidades.QuitarHabilidades(sRecordAct, "etnia");
-		ParseoHabilidades.ModificarHabilidades(sRecordAct, "etnia", false);
-		setValue(dragdata.getShortcutData());
-		window.NombreEtnia.Actualizar(sRecord);
-		--ParseoHabilidades.AniadirHabilidades(sRecord, "etnia");
-		ParseoHabilidades.ModificarHabilidades(sRecord, "etnia", true);
-		local sPathNombre="";
-		
-		if string.find(sRecord, "@") then
-			sPathName, _=string.gsub(sRecord, "@", ".IdiomaNativo@");
-		else
-			sPathName=sRecord..".IdiomaNativo";
-		end
-		ParseoHabilidades.IdiomaNativo = DB.getValue(sPathName, "");
-		
-		if string.find(sRecord, "@") then
-			sPathName, _=string.gsub(sRecord, "@", ".TamanioMaximo@");
-		else
-			sPathName=sRecord..".TamanioMaximo";
-		end
-		window.MaxTamanioEtnia.setValue(DB.getValue(sPathName, ""));
+		if EtniaPermitida(sRecord) then
+			window.parentcontrol.window.Mensajes.setValue("");
+			local _, sRecordAct=getValue();
+			ParseoHabilidades.ModificarHabilidades(sRecordAct, "etnia", false);
+			setValue(dragdata.getShortcutData());
+			window.NombreEtnia.Actualizar(sRecord);
+			
+--			if string.find(sRecord, "@") then
+--				sPathName, _=string.gsub(sRecord, "@", ".IdiomaNativo@");
+--			else
+--				sPathName=sRecord..".IdiomaNativo";
+--			end
+--			ParseoHabilidades.IdiomaNativo = DB.getValue(sPathName, "");
+			ParseoHabilidades.IdiomaNativo=Utilidades.LeerValorRegistro(sRecord, "IdiomaNativo");
+			
+			ParseoHabilidades.ModificarHabilidades(sRecord, "etnia", true);
+			local sPathNombre="";
+			
+--			if string.find(sRecord, "@") then
+--				sPathName, _=string.gsub(sRecord, "@", ".TamanioMaximo@");
+--			else
+--				sPathName=sRecord..".TamanioMaximo";
+--			end
+--			window.MaxTamanioEtnia.setValue(DB.getValue(sPathName, ""));
+			window.MaxTamanioEtnia.setValue(Utilidades.LeerValorRegistro(sRecord, "TamanioMaximo"));
 
-		if string.find(sRecord, "@") then
-			sPathName, _=string.gsub(sRecord, "@", ".PP@");
+--			if string.find(sRecord, "@") then
+--				sPathName, _=string.gsub(sRecord, "@", ".PP@");
+--			else
+--				sPathName=sRecord..".PP";
+--			end
+--			window.PPEtnia.setValue(DB.getValue(sPathName, ""));
+			window.PPEtnia.setValue(Utilidades.LeerValorRegistro(sRecord, "PP"));
+			
+--			if string.find(sRecord, "@") then
+--				sPathName, _=string.gsub(sRecord, "@", ".Profesiones@");
+--			else
+--				sPathName=sRecord..".Profesiones";
+--			end
+--			ParseoProfesiones.ObtenerProfesionesPermitidas(DB.getValue(sPathName, ""));
+			ParseoProfesiones.ObtenerProfesionesPermitidas(Utilidades.LeerValorRegistro(sRecord, "Profesiones"));
+						
+--			if string.find(sRecord, "@") then
+--				sPathName, _=string.gsub(sRecord, "@", ".HabilidadesSinGratuitos@");
+--			else
+--				sPathName=sRecord..".HabilidadesSinGratuitos";
+--			end
+--			ParseoHabilidades.QuitarGratuitos(DB.getValue(sPathName, ""));
+			ParseoHabilidades.QuitarGratuitos(Utilidades.LeerValorRegistro(sRecord, "HabilidadesSinGratuitos"));
 		else
-			sPathName=sRecord..".PP";
+			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+			window.parentcontrol.window.Mensajes.setValue("El origen étnico seleccionado no está permitido para la especie elegida.");
 		end
-		window.PPEtnia.setValue(DB.getValue(sPathName, ""));
-		
-		if string.find(sRecord, "@") then
-			sPathName, _=string.gsub(sRecord, "@", ".Profesiones@");
-		else
-			sPathName=sRecord..".Profesiones";
-		end		
-		ParseoProfesiones.ObtenerProfesionesPermitidas(DB.getValue(sPathName, ""));
+	else
+		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es un origen étnico.");
 	end;
+end
+
+function EtniaPermitida(sRecord)
+	local sEspecie=window.SeleccionEspecie.getValue();
+--	if string.find(sRecord, "@") then
+--		sPathName, _=string.gsub(sRecord, "@", ".RestringidoAMereni@");
+--	else
+--		sPathName=sRecord..".RestringidoAMereni";
+--	end
+--	local PermitidoAMereni=DB.getValue(sPathName, "");
+	local PermitidoAMereni=Utilidades.LeerValorRegistro(sRecord, "RestringidoAMereni");
+	
+--	if string.find(sRecord, "@") then
+--		sPathName, _=string.gsub(sRecord, "@", ".RestringidoAMestizo@");
+--	else
+--		sPathName=sRecord..".RestringidoAMestizo";
+--	end	
+--	local RestringidoAMestizo=DB.getValue(sPathName, "");
+	local RestringidoAMestizo=Utilidades.LeerValorRegistro(sRecord, "RestringidoAMestizo");
+	
+	if PermitidoAMereni==0 and RestringidoAMestizo==0 then return true;
+	elseif PermitidoAMereni==1 and RestringidoAMestizo==1 and (sEspecie=="Mereni" or sEspecie=="Mestizo") then return true;
+	elseif PermitidoAMereni==1 and sEspecie=="Mereni" then return true;
+	elseif RestringidoAMestizo==1 and sEspecie=="Mestizo" then return true;
+	else return false;
+	end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -2828,7 +2805,7 @@ end
 ]}}</Definition>
     <LUACode>function Actualizar()
 	setValue(math.min(4, window.MaxTamanioEdad.getValue(), window.MaxTamanioEtnia.getValue()))
-	window.BaseCuerpo.setMaxValue(getValue())
+	window.BaseTamanio.setMaxValue(getValue())
 end;</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -3011,7 +2988,7 @@ end
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop"},
@@ -3027,7 +3004,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"138"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>--local nMax=9;
 --local nMin=3;
@@ -3112,7 +3089,6 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Cuerpo.Actualizar();
-	window.AjusteCuerpo.Actualizar();
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -3316,7 +3292,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>NombreEtnia</ControlName>
-    <ZIndex>65</ZIndex>
+    <ZIndex>64</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3331,7 +3307,7 @@ end</LUACode>
       {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"150"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"200"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"EmptyText"},
@@ -3371,21 +3347,22 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"76"}}
 ]}}</Definition>
     <LUACode>function Actualizar(sRecord)
-	local sPathNombre="";
-	if string.find(sRecord, "@") then
-		sPathName, _=string.gsub(sRecord, "@", ".name@");
-	else
-		sPathName=sRecord..".name";
-	end
-	setValue(DB.getValue(sPathName, ""));
+--	local sPathNombre="";
+--	if string.find(sRecord, "@") then
+--		sPathName, _=string.gsub(sRecord, "@", ".name@");
+--	else
+--		sPathName=sRecord..".name";
+--	end
+--	setValue(DB.getValue(sPathName, ""));
+	setValue(Utilidades.LeerValorRegistro(sRecord, "name"));
 end
 
 function onDrop(x, y, dragdata)
-	local sClass,sRecord = dragdata.getShortcutData();
-	if sClass=="VentanaEtniaSidebar" then
+--	local sClass,sRecord = dragdata.getShortcutData();
+--	if sClass=="VentanaEtniaSidebar" then
 		window.LinkEtnia.onDrop(x, y, dragdata);
-		Actualizar(sRecord);
-	end;
+--		Actualizar(sRecord);
+--	end;
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -4075,6 +4052,15 @@ end
 	else window.PPEspecie.setValue(-8);
 	end
 	Informacion.MostrarInfo(window.parentcontrol.window, getValue(), "Especie "..getStringValue());
+	
+	local _, sRecord=window.LinkEtnia.getValue();
+	if sRecord and sRecord~="" and not window.LinkEtnia.EtniaPermitida(sRecord) then
+		ParseoHabilidades.ModificarHabilidades(sRecord, "etnia", false);
+		window.LinkEtnia.setVisible(nil, nil);
+		window.NombreEtnia.setValue("");
+		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+		window.parentcontrol.window.Mensajes.setValue("La especie seleccionada no es compatible con tu origen étnico. Debes elegir un nuevo origen étnico compatible con tu especie.");
+	end
 end
 
 --function onHover(state)
@@ -4139,6 +4125,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	local bAlAzar=getValue()=="Al azar";
+	window.PtosDisponiblesConEspecieYEdad.Actualizar();
 	window.DeCuerpoAMente.setVisible(bAlAzar);
 	window.DeMenteACuerpo.setVisible(bAlAzar);
 	window.DeMenteAEspiritu.setVisible(bAlAzar);
@@ -4159,7 +4146,6 @@ end
 		window.LanzarDadosPtos.onButtonPress();
 	else
 		window.PtosDisponibles.setValue(19);
-		window.PtosDisponiblesConEspecieYEdad.Actualizar();
 		window.BaseCuerpo.setValue(3);
 		window.BaseMente.setValue(3);
 		window.BaseEspiritu.setValue(3);
@@ -4209,7 +4195,7 @@ end
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"4"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
@@ -4229,7 +4215,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"388"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>--local nMax=4;
 --local nMin=-3;

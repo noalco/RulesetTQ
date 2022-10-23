@@ -346,18 +346,18 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	local bEsSacerdote=string.match(string.lower(getValue()), "sacerdote") and string.match(string.lower(getValue()), "sacerdote")~="";
-	local bEsSabio=string.match(string.lower(getValue()), "sabio") and string.match(string.lower(getValue()), "sabio")~="";
-	if bEsSacerdote and bEsSabio then
-		bEsSacerdote=false;
-		bEsSabio=false;
-	end
+--	local bEsSabio=string.match(string.lower(getValue()), "sabio") and string.match(string.lower(getValue()), "sabio")~="";
+--	if bEsSacerdote and bEsSabio then
+--		bEsSacerdote=false;
+--		bEsSabio=false;
+--	end
 	
 	window.SubVentanaProfesion_main.subwindow.Lealtad.setVisible(bEsSacerdote);
 	window.SubVentanaProfesion_main.subwindow.LabelLealtad.setVisible(bEsSacerdote);
 	window.SubVentanaProfesion_main.subwindow.LabelReligionElegida.setVisible(bEsSacerdote);
 	
-	window.SubVentanaProfesion_main.subwindow.Especialidad.setVisible(bEsSabio);
-	window.SubVentanaProfesion_main.subwindow.LabelEspecialidad.setVisible(bEsSabio);	
+--	window.SubVentanaProfesion_main.subwindow.Especialidad.setVisible(bEsSabio);
+--	window.SubVentanaProfesion_main.subwindow.LabelEspecialidad.setVisible(bEsSabio);	
 end
 
 function onInit()

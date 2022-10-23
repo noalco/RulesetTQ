@@ -20,7 +20,6 @@
 	["estrategia"]="Estrategia",
 	["forzar cerraduras"]="Forzar Cerraduras",
 	["hurtar"]="Hurtar",
---	["idioma"]="Idioma Nativo",
 	["idioma"]="Idioma",
 	["instruir"]="Instruir",
 	["interpretar sueños"]="Interpretar Suenios",
@@ -193,9 +192,45 @@ function ResetDatos()
 
 end
 
+function esMultiple(sHabilidad)
+	sHabilidad=string.lower(sHabilidad);
+	local sSingular=""; local sPlural="";
+	if string.match(sHabilidad, "armas cc")==nil and string.match(sHabilidad,"armas pr")==nil and string.match(sHabilidad,"artesanías")==nil and string.match(sHabilidad,"idiomas")==nil then
+		return false, "", "";
+	else
+		if string.match(sHabilidad, "armas cc") then sSingular="Arma CC"; sPlural="Armas CC";
+		elseif string.match(sHabilidad,"armas pr") then sSingular="Arma Pr"; sPlural="Armas PR";
+		elseif string.match(sHabilidad,"artesanías") then sSingular="Artesanía"; sPlural="Artesanías";
+		elseif string.match(sHabilidad,"idiomas") then sSingular="Idioma"; sPlural="Idiomas";
+		end		
+		return true, sSingular, sPlural;
+	end
+end
+
+function ParsearMultiSecundarias(aHabilidades)
+	local bEsMultiple=false; local sSingular=""; local sPlural="";
+	local i=1;
+	while i&lt;=#aHabilidades do
+		bEsMultiple, sSingular, sPlural=esMultiple(aHabilidades[i].sHabilidad);
+		if bEsMultiple then
+			aHabilidades[i].sHabilidad=aHabilidades[i].sHabilidad:gsub(sPlural, sSingular);
+			i=i+1;
+			if sSingular=="Idioma" and (aHabilidades[i].sHabilidad=="Mezuri" or aHabilidades[i].sHabilidad=="Austero") then aHabilidades[i].sHabilidad="Mezuri o Austero" end
+			if sSingular=="Idioma" and (aHabilidades[i].sHabilidad=="Oriental" or aHabilidades[i].sHabilidad=="Kunya") then aHabilidades[i].sHabilidad="Oriental o Kunya" end
+			while i&lt;=#aHabilidades and DatosHabilidadesSecundarias[Habilidad2Clave[sSingular:lower()]][aHabilidades[i].sHabilidad] do
+				aHabilidades[i].sHabilidad=sSingular..": "..aHabilidades[i].sHabilidad;
+				i=i+1;
+			end
+		else
+			i=i+1;
+		end
+	end
+end
+
 function ParsearHabilidades(sHabilidades)
 	local aHabilidades = {};
-	
+	sHabilidades=sHabilidades:gsub("\n", " ");
+	sHabilidades=sHabilidades:gsub("  ", " ");
 	local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
 	
 	for i = 1, #aClauses do
@@ -206,6 +241,7 @@ function ParsearHabilidades(sHabilidades)
 			table.insert(aHabilidades, {sHabilidad=sHabilidad, nValor=tonumber(sValor)});
 		end
 	end
+	ParsearMultiSecundarias(aHabilidades);
 	return aHabilidades;
 end
 
@@ -227,19 +263,24 @@ function SecundariaVacia(sHabilidad, sSecundaria)
 end
 
 function ModificarHabilidadSecundaria(sHabilidad, nValor, sTipo, bAniadir)
-	local aClauses,_ = StringManager.split(sHabilidad, ":", true);
-	if aClauses and #aClauses==2 then
-		local nAniadir=1;
-		if not bAniadir then nAniadir=-1; end
-		local sClave=Habilidad2Clave[string.lower(aClauses[1])];
-		local sSecundaria=aClauses[2];
-		if DatosHabilidadesSecundarias[sClave]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]==nil then return end
-		if sClave=="Idioma" and (sSecundaria=="Mezuri" or sSecundaria=="Austero") then sSecundaria="Mezuri o Austero" end
-		if sClave=="Idioma" and (sSecundaria=="Oriental" or sSecundaria=="Kunya") then sSecundaria="Oriental o Kunya" end
-		DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]=DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]+nValor*nAniadir;
+	if sHabilidad and nValor and sTipo and sHabilidad~="" and type(nValor)=="number" and sTipo~="" then
+		local aClauses,_ = StringManager.split(sHabilidad, ":", true);
+		if aClauses and #aClauses==2 then
+			local nAniadir=1;
+			if not bAniadir then nAniadir=-1; end
+			local sClave=Habilidad2Clave[string.lower(aClauses[1])];
+			local sSecundaria=aClauses[2];
+			if DatosHabilidadesSecundarias[sClave]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]==nil then return end
+			if sClave=="Idioma" and (sSecundaria=="Mezuri" or sSecundaria=="Austero") then sSecundaria="Mezuri o Austero" end
+			if sClave=="Idioma" and (sSecundaria=="Oriental" or sSecundaria=="Kunya") then sSecundaria="Oriental o Kunya" end
+			if sClave=="Idioma" and sSecundaria==IdiomaNativo then
+				DatosHabilidades["Idioma Nativo"][sTipo]=DatosHabilidades["Idioma Nativo"][sTipo]+nValor*nAniadir;
+			else
+				DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]=DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]+nValor*nAniadir;
+			end;
+		end
 	end
 end
-
 
 function ModificarHabilidades(sRecord, sTipo, bAniadir)
 	if sRecord and sRecord~="" then
@@ -258,12 +299,25 @@ function ModificarHabilidades(sRecord, sTipo, bAniadir)
 			if esSecundaria(aHabilidades[i].sHabilidad) then
 				ModificarHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo, bAniadir);
 			elseif Habilidad2Clave[sAux] and DatosHabilidades[Habilidad2Clave[sAux]] and DatosHabilidades[Habilidad2Clave[sAux]][sTipo] then
-					DatosHabilidades[Habilidad2Clave[sAux]][sTipo]=DatosHabilidades[Habilidad2Clave[sAux]][sTipo]+aHabilidades[i].nValor*nAniadir;
+				DatosHabilidades[Habilidad2Clave[sAux]][sTipo]=DatosHabilidades[Habilidad2Clave[sAux]][sTipo]+aHabilidades[i].nValor*nAniadir;
 			end
 		end
 	end
 end
-</Script>
+
+function QuitarGratuitos(sHabilidades)
+	if sHabilidades and sHabilidades~="" then
+		sHabilidades=string.lower(sHabilidades);
+		if sHabilidades and sHabilidades~="" then
+			local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
+			for i = 1, #aClauses do
+				if Habilidad2Clave[aClauses[i]] and DatosHabilidades[Habilidad2Clave[aClauses[i]]] then
+					DatosHabilidades[Habilidad2Clave[aClauses[i]]].PG=0-Habilidades.DatosHabilidades[Habilidad2Clave[aClauses[i]]].gratuito;
+				end
+			end
+		end
+	end
+end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />
   </Scripts>

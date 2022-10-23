@@ -10,7 +10,7 @@
     <Website />
     <Version>1</Version>
     <Release>8</Release>
-    <RulesetWizardVersion>0.8.3</RulesetWizardVersion>
+    <RulesetWizardVersion>0.8.2</RulesetWizardVersion>
     <RulesetList>CoreRPG</RulesetList>
     <LoadOrder />
     <Comments />
@@ -474,6 +474,10 @@
   </Windows>
   <Windows>
     <Name>VentanaWizardCaracteristicas</Name>
+    <FolderID>20</FolderID>
+  </Windows>
+  <Windows>
+    <Name>VentanaWizardProfesion</Name>
     <FolderID>20</FolderID>
   </Windows>
   <Windows>
@@ -3261,7 +3265,7 @@ end
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"455"}},
       {"Name":"Disabled"},
-      {"Name":"FastInit"},
+      {"Name":"FastInit","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"FrameName"},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"GMEditOnly"},
@@ -3436,7 +3440,7 @@ end</LUACode>
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"455"}},
       {"Name":"Disabled"},
-      {"Name":"FastInit"},
+      {"Name":"FastInit","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"GMEditOnly"},
@@ -3489,7 +3493,7 @@ end</LUACode>
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"455"}},
       {"Name":"Disabled"},
-      {"Name":"FastInit"},
+      {"Name":"FastInit","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"GMEditOnly"},
@@ -3542,7 +3546,7 @@ end</LUACode>
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"455"}},
       {"Name":"Disabled"},
-      {"Name":"FastInit"},
+      {"Name":"FastInit","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"FrameName"},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"GMEditOnly"},
@@ -3647,7 +3651,7 @@ end</LUACode>
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"455"}},
       {"Name":"Disabled"},
-      {"Name":"FastInit"},
+      {"Name":"FastInit","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"FrameName"},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"GMEditOnly"},
@@ -3761,7 +3765,7 @@ end</LUACode>
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"455"}},
       {"Name":"Disabled"},
-      {"Name":"FastInit"},
+      {"Name":"FastInit","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"GMEditOnly"},
@@ -4175,7 +4179,7 @@ end</LUACode>
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"GMEditOnly"},
       {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
@@ -5463,7 +5467,7 @@ end
       {"Name":"WindowListChildDefinition","Value":{"@xsi:type":"ArrayOfChildDefinition"}},
       {"Name":"WindowListClassName","Value":{"@xsi:type":"xsd:string","#text":"HabilidadBase"}},
       {"Name":"WindowListFilterBy","Value":{"@xsi:type":"FilterByDefinition","FilterSourceType":"Control","FilterOnSourceType":"Control"}},
-      {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition","SortByDefinition":[{"Descending":"false","SourceType":"Control","SourceName":"ClaveHabilidad"},{"Descending":"false","SourceType":"Control","SourceName":"NombreSecundario"}]}},
+      {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition","SortByDefinition":{"Descending":"false","SourceType":"Control","SourceName":"ClaveHabilidad"}}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"19"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"87"}}
 ]}}</Definition>
@@ -14340,8 +14344,75 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>charwizard</WindowName>
+    <ControlName>BotonEstadisticas</ControlName>
+    <ZIndex>5</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string","#text":"Paso 1"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonEstadisticas"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"47"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"80"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"buttonup"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"PressedIconName"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"395"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"15"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	--window.Ventanas.activateTab(1);
+	window.SubventanaWizardProfesion.setVisible(false);
+	window.SubventanaWizardCaracteristicas.setVisible(true);
+end
+
+function onInit()
+	--window.Ventanas.activateTab(1);
+	window.SubventanaWizardProfesion.setVisible(false);
+	window.SubventanaWizardCaracteristicas.setVisible(true);
+end</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>charwizard</WindowName>
     <ControlName>BotonGenerar</ControlName>
-    <ZIndex>1</ZIndex>
+    <ZIndex>7</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -14355,7 +14426,7 @@ end
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultValue"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"47"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"70"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -14400,18 +14471,80 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>charwizard</WindowName>
+    <ControlName>BotonProfesion</ControlName>
+    <ZIndex>6</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string","#text":"Paso 2"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonProfesion"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"47"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"80"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"buttonup"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"PressedIconName"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"485"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"15"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+--	window.Ventanas.activateTab(2)
+	window.SubventanaWizardProfesion.setVisible(true);
+	window.SubventanaWizardCaracteristicas.setVisible(false);
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>charwizard</WindowName>
     <ControlName>charwizard</ControlName>
     <ZIndex>0</ZIndex>
     <ControlClass>FGWindow</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AllowResize","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;255;255;255"}},
       {"Name":"BottomMargin","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"Comments"},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"charwizard"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DataSource"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"556"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"689"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"890"}},
       {"Name":"Disabled"},
       {"Name":"Dynamic"},
@@ -14457,7 +14590,7 @@ end
   <WindowControls>
     <WindowName>charwizard</WindowName>
     <ControlName>Informacion</ControlName>
-    <ZIndex>8</ZIndex>
+    <ZIndex>11</ZIndex>
     <ControlClass>FGFormattedText</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -14505,8 +14638,8 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>charwizard</WindowName>
-    <ControlName>LabelEspecieEdad</ControlName>
-    <ZIndex>7</ZIndex>
+    <ControlName>LabelInformacion</ControlName>
+    <ZIndex>10</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -14514,7 +14647,7 @@ end
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;107;92;81"}},
       {"Name":"CanGrowVert"},
       {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelEspecieEdad"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelInformacion"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
@@ -14558,7 +14691,7 @@ end
   <WindowControls>
     <WindowName>charwizard</WindowName>
     <ControlName>LabelNombrePJ</ControlName>
-    <ZIndex>2</ZIndex>
+    <ZIndex>1</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -14610,7 +14743,7 @@ end
   <WindowControls>
     <WindowName>charwizard</WindowName>
     <ControlName>LabelPP</ControlName>
-    <ZIndex>4</ZIndex>
+    <ZIndex>3</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -14661,8 +14794,60 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>charwizard</WindowName>
+    <ControlName>Mensajes</ControlName>
+    <ZIndex>13</ZIndex>
+    <ControlClass>FGLabel</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"Center"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Mensajes"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"156"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"858"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"8,8,8,8"}},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"TextUnderlined"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"15"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"518"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>charwizard</WindowName>
     <ControlName>NombrePJ</ControlName>
-    <ZIndex>3</ZIndex>
+    <ZIndex>2</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -14723,7 +14908,7 @@ end
   <WindowControls>
     <WindowName>charwizard</WindowName>
     <ControlName>PP</ControlName>
-    <ZIndex>5</ZIndex>
+    <ZIndex>4</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -14779,7 +14964,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"34"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
-	setValue(20+window.SubventanaCaracteristicas.subwindow.PPEdad.getValue()+window.SubventanaCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaCaracteristicas.subwindow.PPAtractivo.getValue()+window.SubventanaCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaCaracteristicas.subwindow.PPEtnia.getValue());
+	setValue(20+window.SubventanaWizardCaracteristicas.subwindow.PPEdad.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPAtractivo.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEtnia.getValue());
 end
 
 function onInit()
@@ -14791,7 +14976,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>charwizard</WindowName>
     <ControlName>ScrollBarInformacion</ControlName>
-    <ZIndex>9</ZIndex>
+    <ZIndex>12</ZIndex>
     <ControlClass>FGScrollBar</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -14841,16 +15026,16 @@ end</LUACode>
   </WindowControls>
   <WindowControls>
     <WindowName>charwizard</WindowName>
-    <ControlName>SubventanaCaracteristicas</ControlName>
-    <ZIndex>6</ZIndex>
+    <ControlName>SubventanaWizardCaracteristicas</ControlName>
+    <ZIndex>8</ZIndex>
     <ControlClass>FGSubWindow</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"Activate","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Activate"},
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"CanGrowVert"},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"SubventanaCaracteristicas"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"SubventanaWizardCaracteristicas"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"440"}},
@@ -14882,6 +15067,59 @@ end</LUACode>
       {"Name":"Source"},
       {"Name":"StackVertWith"},
       {"Name":"SubWindowClassName","Value":{"@xsi:type":"xsd:string","#text":"VentanaWizardCaracteristicas"}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"15"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"71"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>charwizard</WindowName>
+    <ControlName>SubventanaWizardProfesion</ControlName>
+    <ZIndex>9</ZIndex>
+    <ControlClass>FGSubWindow</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"Activate"},
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"SubventanaWizardProfesion"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"440"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"451"}},
+      {"Name":"Disabled"},
+      {"Name":"FastInit","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoScroll"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"SubWindowClassName","Value":{"@xsi:type":"xsd:string","#text":"VentanaWizardProfesion"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -36644,7 +36882,7 @@ end
       {"Name":"WindowListChildDefinition","Value":{"@xsi:type":"ArrayOfChildDefinition"}},
       {"Name":"WindowListClassName","Value":{"@xsi:type":"xsd:string","#text":"DetalleHabilidadBase"}},
       {"Name":"WindowListFilterBy","Value":{"@xsi:type":"FilterByDefinition","FilterSourceType":"Control","FilterOnSourceType":"Control"}},
-      {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition","SortByDefinition":[{"Descending":"true","SourceType":"Control","SourceName":"DeProfesion"},{"Descending":"false","SourceType":"Control","SourceName":"ClaveHabilidad"},{"Descending":"false","SourceType":"Control","SourceName":"NombreSecundario"}]}},
+      {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition","SortByDefinition":[{"Descending":"true","SourceType":"Control","SourceName":"DeProfesion"},{"Descending":"false","SourceType":"Control","SourceName":"ClaveHabilidad"}]}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"18"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"99"}}
 ]}}</Definition>
@@ -55809,18 +56047,18 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	local bEsSacerdote=string.match(string.lower(getValue()), "sacerdote") and string.match(string.lower(getValue()), "sacerdote")~="";
-	local bEsSabio=string.match(string.lower(getValue()), "sabio") and string.match(string.lower(getValue()), "sabio")~="";
-	if bEsSacerdote and bEsSabio then
-		bEsSacerdote=false;
-		bEsSabio=false;
-	end
+--	local bEsSabio=string.match(string.lower(getValue()), "sabio") and string.match(string.lower(getValue()), "sabio")~="";
+--	if bEsSacerdote and bEsSabio then
+--		bEsSacerdote=false;
+--		bEsSabio=false;
+--	end
 	
 	window.SubVentanaProfesion_main.subwindow.Lealtad.setVisible(bEsSacerdote);
 	window.SubVentanaProfesion_main.subwindow.LabelLealtad.setVisible(bEsSacerdote);
 	window.SubVentanaProfesion_main.subwindow.LabelReligionElegida.setVisible(bEsSacerdote);
 	
-	window.SubVentanaProfesion_main.subwindow.Especialidad.setVisible(bEsSabio);
-	window.SubVentanaProfesion_main.subwindow.LabelEspecialidad.setVisible(bEsSabio);	
+--	window.SubVentanaProfesion_main.subwindow.Especialidad.setVisible(bEsSabio);
+--	window.SubVentanaProfesion_main.subwindow.LabelEspecialidad.setVisible(bEsSabio);	
 end
 
 function onInit()
@@ -60913,77 +61151,6 @@ end</LUACode>
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
-    <ControlName>AjusteCuerpo</ControlName>
-    <ZIndex>64</ZIndex>
-    <ControlClass>FGNumberField</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"AjusteCuerpo"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DefaultValue","Value":{"@xsi:type":"xsd:decimal","#text":"0"}},
-      {"Name":"DelayKeyUpdate"},
-      {"Name":"DescriptionText"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
-      {"Name":"Disabled"},
-      {"Name":"DisplaySign"},
-      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HideOnValue"},
-      {"Name":"HideRollWidget"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"HoverCursor"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
-      {"Name":"NextTabTarget"},
-      {"Name":"NoDrag"},
-      {"Name":"NoDrop"},
-      {"Name":"NoKeyEdit"},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"StackVertWith"},
-      {"Name":"Tooltip"},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"62"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"469"}}
-]}}</Definition>
-    <LUACode>function onValueChanged()
-	window.Cuerpo.Actualizar();
-end
-
-function Actualizar()
-	if window.Cuerpo.getValue()&lt;3 and window.SeleccionMetodo.getValue()=="Al azar" then setValue(3-window.Cuerpo.getValue());
-	else setValue(0);
-	end
-end
-</LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Atractivo</ControlName>
     <ZIndex>41</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
@@ -61018,11 +61185,11 @@ end
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"-3"}},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"-4"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop"},
@@ -61038,7 +61205,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"263"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>--local nMax=3;
 --local nMin=-4;
@@ -61096,11 +61263,11 @@ end</LUACode>
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"-4"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag"},
       {"Name":"NoDrop"},
@@ -61188,7 +61355,7 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Cuerpo.Actualizar();
-	window.AjusteCuerpo.Actualizar();
+	window.PtosGastados.Actualizar();
 end
 
 function onClickRelease(button, x, y)
@@ -61257,6 +61424,7 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Espiritu.Actualizar();
+	window.PtosGastados.Actualizar();
 end
 
 function onClickRelease(button, x, y)
@@ -61325,6 +61493,7 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Mente.Actualizar();
+	window.PtosGastados.Actualizar();
 end
 
 function onClickRelease(button, x, y)
@@ -61369,11 +61538,11 @@ end</LUACode>
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"4"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"-3"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag"},
       {"Name":"NoDrop"},
@@ -61437,11 +61606,11 @@ end</LUACode>
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"9"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop"},
@@ -61457,7 +61626,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"78"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>function onInit()
 	Actualizar();
@@ -61469,7 +61638,7 @@ function onValueChanged()
 end
 
 function Actualizar()
-	setValue(window.BaseCuerpo.getValue()+window.ModEdadCuerpo.getValue()+window.AjusteCuerpo.getValue());
+	setValue(window.BaseCuerpo.getValue()+window.ModEdadCuerpo.getValue());
 end
 
 function onHover(state)
@@ -61863,11 +62032,11 @@ end
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"9"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop"},
@@ -61883,7 +62052,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"198"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>--local nMax=9;
 --local nMin=3;
@@ -61943,7 +62112,7 @@ end</LUACode>
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"18"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
@@ -61963,7 +62132,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"328"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
 	setValue(window.Tamanio.getValue()+window.Cuerpo.getValue());
@@ -62312,7 +62481,7 @@ end</LUACode>
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"SELECCIONA TUS CARACTERÍSTICAS"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"DETERMINA TUS CARACTERÍSTICAS"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -62580,7 +62749,7 @@ end</LUACode>
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"SELECCIONA UNA ESPECIE Y TU EDAD"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"SELECCIONA TU ESPECIE, TU ORIGEN ÉTNICO Y TU EDAD"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -63380,7 +63549,7 @@ end
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"LinkFieldAllowDrop","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"LinkFieldAllowDrop","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"LinkFieldClass","Value":{"@xsi:type":"xsd:string","#text":"VentanaEtniaSidebar"}},
       {"Name":"LinkFieldDescriptionField","Value":{"@xsi:type":"xsd:string","#text":"name"}},
       {"Name":"LinkFieldRecordName"},
@@ -63412,43 +63581,89 @@ end
 function onDrop(x, y, dragdata)
 	local sClass,sRecord = dragdata.getShortcutData();
 	if sClass=="VentanaEtniaSidebar" then
-		local _, sRecordAct=getValue();
-		--ParseoHabilidades.QuitarHabilidades(sRecordAct, "etnia");
-		ParseoHabilidades.ModificarHabilidades(sRecordAct, "etnia", false);
-		setValue(dragdata.getShortcutData());
-		window.NombreEtnia.Actualizar(sRecord);
-		--ParseoHabilidades.AniadirHabilidades(sRecord, "etnia");
-		ParseoHabilidades.ModificarHabilidades(sRecord, "etnia", true);
-		local sPathNombre="";
-		
-		if string.find(sRecord, "@") then
-			sPathName, _=string.gsub(sRecord, "@", ".IdiomaNativo@");
-		else
-			sPathName=sRecord..".IdiomaNativo";
-		end
-		ParseoHabilidades.IdiomaNativo = DB.getValue(sPathName, "");
-		
-		if string.find(sRecord, "@") then
-			sPathName, _=string.gsub(sRecord, "@", ".TamanioMaximo@");
-		else
-			sPathName=sRecord..".TamanioMaximo";
-		end
-		window.MaxTamanioEtnia.setValue(DB.getValue(sPathName, ""));
+		if EtniaPermitida(sRecord) then
+			window.parentcontrol.window.Mensajes.setValue("");
+			local _, sRecordAct=getValue();
+			ParseoHabilidades.ModificarHabilidades(sRecordAct, "etnia", false);
+			setValue(dragdata.getShortcutData());
+			window.NombreEtnia.Actualizar(sRecord);
+			
+--			if string.find(sRecord, "@") then
+--				sPathName, _=string.gsub(sRecord, "@", ".IdiomaNativo@");
+--			else
+--				sPathName=sRecord..".IdiomaNativo";
+--			end
+--			ParseoHabilidades.IdiomaNativo = DB.getValue(sPathName, "");
+			ParseoHabilidades.IdiomaNativo=Utilidades.LeerValorRegistro(sRecord, "IdiomaNativo");
+			
+			ParseoHabilidades.ModificarHabilidades(sRecord, "etnia", true);
+			local sPathNombre="";
+			
+--			if string.find(sRecord, "@") then
+--				sPathName, _=string.gsub(sRecord, "@", ".TamanioMaximo@");
+--			else
+--				sPathName=sRecord..".TamanioMaximo";
+--			end
+--			window.MaxTamanioEtnia.setValue(DB.getValue(sPathName, ""));
+			window.MaxTamanioEtnia.setValue(Utilidades.LeerValorRegistro(sRecord, "TamanioMaximo"));
 
-		if string.find(sRecord, "@") then
-			sPathName, _=string.gsub(sRecord, "@", ".PP@");
+--			if string.find(sRecord, "@") then
+--				sPathName, _=string.gsub(sRecord, "@", ".PP@");
+--			else
+--				sPathName=sRecord..".PP";
+--			end
+--			window.PPEtnia.setValue(DB.getValue(sPathName, ""));
+			window.PPEtnia.setValue(Utilidades.LeerValorRegistro(sRecord, "PP"));
+			
+--			if string.find(sRecord, "@") then
+--				sPathName, _=string.gsub(sRecord, "@", ".Profesiones@");
+--			else
+--				sPathName=sRecord..".Profesiones";
+--			end
+--			ParseoProfesiones.ObtenerProfesionesPermitidas(DB.getValue(sPathName, ""));
+			ParseoProfesiones.ObtenerProfesionesPermitidas(Utilidades.LeerValorRegistro(sRecord, "Profesiones"));
+						
+--			if string.find(sRecord, "@") then
+--				sPathName, _=string.gsub(sRecord, "@", ".HabilidadesSinGratuitos@");
+--			else
+--				sPathName=sRecord..".HabilidadesSinGratuitos";
+--			end
+--			ParseoHabilidades.QuitarGratuitos(DB.getValue(sPathName, ""));
+			ParseoHabilidades.QuitarGratuitos(Utilidades.LeerValorRegistro(sRecord, "HabilidadesSinGratuitos"));
 		else
-			sPathName=sRecord..".PP";
+			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+			window.parentcontrol.window.Mensajes.setValue("El origen étnico seleccionado no está permitido para la especie elegida.");
 		end
-		window.PPEtnia.setValue(DB.getValue(sPathName, ""));
-		
-		if string.find(sRecord, "@") then
-			sPathName, _=string.gsub(sRecord, "@", ".Profesiones@");
-		else
-			sPathName=sRecord..".Profesiones";
-		end		
-		ParseoProfesiones.ObtenerProfesionesPermitidas(DB.getValue(sPathName, ""));
+	else
+		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es un origen étnico.");
 	end;
+end
+
+function EtniaPermitida(sRecord)
+	local sEspecie=window.SeleccionEspecie.getValue();
+--	if string.find(sRecord, "@") then
+--		sPathName, _=string.gsub(sRecord, "@", ".RestringidoAMereni@");
+--	else
+--		sPathName=sRecord..".RestringidoAMereni";
+--	end
+--	local PermitidoAMereni=DB.getValue(sPathName, "");
+	local PermitidoAMereni=Utilidades.LeerValorRegistro(sRecord, "RestringidoAMereni");
+	
+--	if string.find(sRecord, "@") then
+--		sPathName, _=string.gsub(sRecord, "@", ".RestringidoAMestizo@");
+--	else
+--		sPathName=sRecord..".RestringidoAMestizo";
+--	end	
+--	local RestringidoAMestizo=DB.getValue(sPathName, "");
+	local RestringidoAMestizo=Utilidades.LeerValorRegistro(sRecord, "RestringidoAMestizo");
+	
+	if PermitidoAMereni==0 and RestringidoAMestizo==0 then return true;
+	elseif PermitidoAMereni==1 and RestringidoAMestizo==1 and (sEspecie=="Mereni" or sEspecie=="Mestizo") then return true;
+	elseif PermitidoAMereni==1 and sEspecie=="Mereni" then return true;
+	elseif RestringidoAMestizo==1 and sEspecie=="Mestizo" then return true;
+	else return false;
+	end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -63740,7 +63955,7 @@ end
 ]}}</Definition>
     <LUACode>function Actualizar()
 	setValue(math.min(4, window.MaxTamanioEdad.getValue(), window.MaxTamanioEtnia.getValue()))
-	window.BaseCuerpo.setMaxValue(getValue())
+	window.BaseTamanio.setMaxValue(getValue())
 end;</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -63923,7 +64138,7 @@ end
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop"},
@@ -63939,7 +64154,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"138"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>--local nMax=9;
 --local nMin=3;
@@ -64024,7 +64239,6 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Cuerpo.Actualizar();
-	window.AjusteCuerpo.Actualizar();
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -64228,7 +64442,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>NombreEtnia</ControlName>
-    <ZIndex>65</ZIndex>
+    <ZIndex>64</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -64243,7 +64457,7 @@ end</LUACode>
       {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"150"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"200"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"EmptyText"},
@@ -64283,21 +64497,22 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"76"}}
 ]}}</Definition>
     <LUACode>function Actualizar(sRecord)
-	local sPathNombre="";
-	if string.find(sRecord, "@") then
-		sPathName, _=string.gsub(sRecord, "@", ".name@");
-	else
-		sPathName=sRecord..".name";
-	end
-	setValue(DB.getValue(sPathName, ""));
+--	local sPathNombre="";
+--	if string.find(sRecord, "@") then
+--		sPathName, _=string.gsub(sRecord, "@", ".name@");
+--	else
+--		sPathName=sRecord..".name";
+--	end
+--	setValue(DB.getValue(sPathName, ""));
+	setValue(Utilidades.LeerValorRegistro(sRecord, "name"));
 end
 
 function onDrop(x, y, dragdata)
-	local sClass,sRecord = dragdata.getShortcutData();
-	if sClass=="VentanaEtniaSidebar" then
+--	local sClass,sRecord = dragdata.getShortcutData();
+--	if sClass=="VentanaEtniaSidebar" then
 		window.LinkEtnia.onDrop(x, y, dragdata);
-		Actualizar(sRecord);
-	end;
+--		Actualizar(sRecord);
+--	end;
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -64987,6 +65202,15 @@ end
 	else window.PPEspecie.setValue(-8);
 	end
 	Informacion.MostrarInfo(window.parentcontrol.window, getValue(), "Especie "..getStringValue());
+	
+	local _, sRecord=window.LinkEtnia.getValue();
+	if sRecord and sRecord~="" and not window.LinkEtnia.EtniaPermitida(sRecord) then
+		ParseoHabilidades.ModificarHabilidades(sRecord, "etnia", false);
+		window.LinkEtnia.setVisible(nil, nil);
+		window.NombreEtnia.setValue("");
+		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+		window.parentcontrol.window.Mensajes.setValue("La especie seleccionada no es compatible con tu origen étnico. Debes elegir un nuevo origen étnico compatible con tu especie.");
+	end
 end
 
 --function onHover(state)
@@ -65051,6 +65275,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	local bAlAzar=getValue()=="Al azar";
+	window.PtosDisponiblesConEspecieYEdad.Actualizar();
 	window.DeCuerpoAMente.setVisible(bAlAzar);
 	window.DeMenteACuerpo.setVisible(bAlAzar);
 	window.DeMenteAEspiritu.setVisible(bAlAzar);
@@ -65071,7 +65296,6 @@ end
 		window.LanzarDadosPtos.onButtonPress();
 	else
 		window.PtosDisponibles.setValue(19);
-		window.PtosDisponiblesConEspecieYEdad.Actualizar();
 		window.BaseCuerpo.setValue(3);
 		window.BaseMente.setValue(3);
 		window.BaseEspiritu.setValue(3);
@@ -65121,7 +65345,7 @@ end
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"4"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
@@ -65141,7 +65365,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"388"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>--local nMax=4;
 --local nMin=-3;
@@ -65181,6 +65405,486 @@ end</LUACode>
       {"Name":"Disabled"},
       {"Name":"Dynamic"},
       {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HostControl"},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"Invisible"},
+      {"Name":"Locked"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"MergeWindow"},
+      {"Name":"MinimizedIcon"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NoClose"},
+      {"Name":"NoDelete"},
+      {"Name":"NoMove"},
+      {"Name":"Panel"},
+      {"Name":"PanelModeClient"},
+      {"Name":"PanelModeHost"},
+      {"Name":"PanelModeLocal"},
+      {"Name":"PlayerControl"},
+      {"Name":"Resize","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"RightMargin","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"ScriptFile"},
+      {"Name":"Sharable"},
+      {"Name":"ShareAs"},
+      {"Name":"SoftClose"},
+      {"Name":"Tooltip"},
+      {"Name":"TooltipField"},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"WindowMargins","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"WindowTitle"},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>IconoEdadEspecie</ControlName>
+    <ZIndex>3</ZIndex>
+    <ControlClass>FGIconControl</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"IconoEdadEspecie"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"40"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"IconName","Value":{"@xsi:type":"xsd:string","#text":"char_class"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>LabelEspecieEdad</ControlName>
+    <ZIndex>2</ZIndex>
+    <ControlClass>FGLabel</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;107;92;81"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelEspecieEdad"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"403"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"255;255;255;255"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"border"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"SELECCIONA TU PROFESIÓN"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"TextUnderlined"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"9"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>LabelPP</ControlName>
+    <ZIndex>8</ZIndex>
+    <ControlClass>FGLabel</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string","#text":"label"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelPP"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"PP"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"TextUnderlined"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"364"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"29"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>LabelProfesion</ControlName>
+    <ZIndex>4</ZIndex>
+    <ControlClass>FGLabel</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string","#text":"label"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"Center"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelProfesion"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"114"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"PROFESIÓN"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"TextUnderlined"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"51"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>LinkProfesion</ControlName>
+    <ZIndex>6</ZIndex>
+    <ControlClass>FGLinkField</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LinkProfesion"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"Disabled"},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"LinkFieldAllowDrop","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"LinkFieldClass","Value":{"@xsi:type":"xsd:string","#text":"VentanaEtniaSidebar"}},
+      {"Name":"LinkFieldDescriptionField","Value":{"@xsi:type":"xsd:string","#text":"name"}},
+      {"Name":"LinkFieldRecordName"},
+      {"Name":"LinkFieldSelfOnEmpty","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoDrag"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"134"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"51"}}
+]}}</Definition>
+    <LUACode>function onInit()
+	setValue(nil, nil);
+end
+
+function onDrop(x, y, dragdata)
+	local sClass,sRecord = dragdata.getShortcutData();
+	if sClass=="VentanaProfesionSidebar" then
+		if ProfesionPermitida(sRecord) then
+			setValue(dragdata.getShortcutData());
+			window.PPProfesion.setValue(Utilidades.LeerValorRegistro(sRecord, "PP"));
+			window.NombreProfesion.Actualizar(sRecord);
+			window.parentcontrol.window.Mensajes.setValue("Profesión válida.");
+		else
+			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+			window.parentcontrol.window.Mensajes.setValue("No cumples los requisitos para seleccionar la profesión elegida.");
+		end
+	else
+		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una profesión.");
+	end;
+end
+
+function ProfesionPermitida(sRecord)
+	local sProfesion=Utilidades.LeerValorRegistro(sRecord, "name");
+	return sProfesion and ParseoProfesiones.Profesiones[sProfesion:lower()] and ParseoProfesiones.Profesiones[sProfesion:lower()].permitida
+end</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>NombreProfesion</ControlName>
+    <ZIndex>7</ZIndex>
+    <ControlClass>FGStringField</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"Center"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"NombreProfesion"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultText","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"200"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"EmptyText"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"LineOffset","Value":{"@xsi:type":"xsd:int","#text":"2"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"NoDragselect","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"NoDrop","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"162"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"51"}}
+]}}</Definition>
+    <LUACode>function Actualizar(sRecord)
+--	local sPathNombre="";
+--	if string.find(sRecord, "@") then
+--		sPathName, _=string.gsub(sRecord, "@", ".name@");
+--	else
+--		sPathName=sRecord..".name";
+--	end
+--	setValue(DB.getValue(sPathName, ""));
+	setValue(Utilidades.LeerValorRegistro(sRecord, "name"));
+end
+
+function onDrop(x, y, dragdata)
+	window.LinkProfesion.onDrop(x, y, dragdata);
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>PPProfesion</ControlName>
+    <ZIndex>5</ZIndex>
+    <ControlClass>FGNumberField</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"PPProfesion"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue","Value":{"@xsi:type":"xsd:decimal","#text":"0"}},
+      {"Name":"DelayKeyUpdate"},
+      {"Name":"DescriptionText"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"DisplaySign"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark_fondogris"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HideOnValue"},
+      {"Name":"HideRollWidget"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"MaxValue"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MinValue"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoDrag"},
+      {"Name":"NoDrop"},
+      {"Name":"NoKeyEdit"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"364"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"46"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>VentanaWizardProfesion</ControlName>
+    <ZIndex>0</ZIndex>
+    <ControlClass>FGWindow</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AllowResize"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"BottomMargin","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"Comments"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"VentanaWizardProfesion"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DataSource"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"440"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"440"}},
+      {"Name":"Disabled"},
+      {"Name":"Dynamic"},
+      {"Name":"FrameName"},
       {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"HostControl"},
       {"Name":"HoverCursor"},
@@ -74137,28 +74841,28 @@ end
     <ScriptName>CharWizard</ScriptName>
     <FolderID>21</FolderID>
     <Script>function AniadirCaracteristicas(nodeChar, windowWizard)
-	DB.setValue(nodeChar, "Caracteristicas.BaseCuerpo", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseCuerpo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.BaseMente", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseMente.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.BaseEspiritu", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseEspiritu.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.BaseAtractivo", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseAtractivo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.BaseTamanio", "number", windowWizard.SubventanaCaracteristicas.subwindow.BaseTamanio.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.ModEdadCuerpo", "number", windowWizard.SubventanaCaracteristicas.subwindow.ModEdadCuerpo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.ModEdadMente", "number", windowWizard.SubventanaCaracteristicas.subwindow.ModEdadMente.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.ModEspecieMente", "number", windowWizard.SubventanaCaracteristicas.subwindow.ModEspecieMente.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.ModEspecieEspiritu", "number", windowWizard.SubventanaCaracteristicas.subwindow.ModEspecieEspiritu.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseCuerpo", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseCuerpo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseMente", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseMente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseEspiritu", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseEspiritu.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseAtractivo", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseAtractivo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.BaseTamanio", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseTamanio.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEdadCuerpo", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.ModEdadCuerpo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEdadMente", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.ModEdadMente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEspecieMente", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.ModEspecieMente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.ModEspecieEspiritu", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.ModEspecieEspiritu.getValue());
 	
-	DB.setValue(nodeChar, "Caracteristicas.Cuerpo", "number", windowWizard.SubventanaCaracteristicas.subwindow.Cuerpo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Mente", "number", windowWizard.SubventanaCaracteristicas.subwindow.Mente.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Espiritu", "number", windowWizard.SubventanaCaracteristicas.subwindow.Espiritu.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Atractivo", "number", windowWizard.SubventanaCaracteristicas.subwindow.Atractivo.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Fuerza", "number", windowWizard.SubventanaCaracteristicas.subwindow.Fuerza.getValue());
-	DB.setValue(nodeChar, "Caracteristicas.Tamanio", "number", windowWizard.SubventanaCaracteristicas.subwindow.Tamanio.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Cuerpo", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.Cuerpo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Mente", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.Mente.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Espiritu", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.Espiritu.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Atractivo", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.Atractivo.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Fuerza", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.Fuerza.getValue());
+	DB.setValue(nodeChar, "Caracteristicas.Tamanio", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.Tamanio.getValue());
 end
 
 function AniadirPersonalidad(nodeChar, windowWizard)
-	DB.setValue(nodeChar, "Notas.Edad", "string", windowWizard.SubventanaCaracteristicas.subwindow.Edad.getValue());
-	DB.setValue(nodeChar, "Notas.Especie", "string", windowWizard.SubventanaCaracteristicas.subwindow.SeleccionEspecie.getStringValue());
-	DB.setValue(nodeChar, "Notas.Origen", "string", windowWizard.SubventanaCaracteristicas.subwindow.NombreEtnia.getValue());
+	DB.setValue(nodeChar, "Notas.Edad", "string", windowWizard.SubventanaWizardCaracteristicas.subwindow.Edad.getValue());
+	DB.setValue(nodeChar, "Notas.Especie", "string", windowWizard.SubventanaWizardCaracteristicas.subwindow.SeleccionEspecie.getStringValue());
+	DB.setValue(nodeChar, "Notas.Origen", "string", windowWizard.SubventanaWizardCaracteristicas.subwindow.NombreEtnia.getValue());
 end
 
 function AniadirHabilidades(nodeChar, window)
@@ -74209,21 +74913,6 @@ function AniadirHabilidades(nodeChar, window)
 					DB.setValue(w.getDatabaseNode(), "BonoCulto", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].culto);
 					DB.setValue(w.getDatabaseNode(), "BonoVentDesvent", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].VentDes);
 					DB.setValue(w.getDatabaseNode(), "BonoMisc", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].varios);
-
---					w.NombreHabilidad.setValue(sClave);
---					w.ClaveHabilidad.setValue(sClave);
---					if sClave=="Arma CC" then w.HabilidadCC.setValue(sSecundaria);
---					elseif sClave=="Arma Pr" then w.HabilidadPr.setValue(sSecundaria);
---					elseif sClave=="Artesania" then w.Artesania.setValue(sSecundaria);
---					elseif sClave=="Idioma" then w.Idioma.setValue(sSecundaria);
---					end
---					w.DeProfesion.setValue(ParseoHabilidades.DatosHabilidades[sClave].prof);
---					w.PtosGratis.setValue(ParseoHabilidades.DatosHabilidades[sClave].PG);
---					w.BonoEtnia.setValue(ParseoHabilidades.DatosHabilidades[sClave].etnia);
---					w.BonoEspecialidad.setValue(ParseoHabilidades.DatosHabilidades[sClave].esp);
---					w.BonoCulto.setValue(ParseoHabilidades.DatosHabilidades[sClave].culto);
---					w.BonoVentDesvent.setValue(ParseoHabilidades.DatosHabilidades[sClave].VentDes);
---					w.BonoMisc.setValue(ParseoHabilidades.DatosHabilidades[sClave].varios);
 				end
 			end
 		end
@@ -74274,13 +74963,11 @@ function commitCharacter(identity)
 
 	w.abilities.subwindow.BotonDetallesHabilidades.onClickRelease();
 	close();
---	ParseoHabilidades.ResetDatos();
 end
 
 
 function onClose()
 	ParseoHabilidades.ResetDatos();
-	Debug.chat(111);
 end
 </Script>
     <RegisterScript>true</RegisterScript>
@@ -76414,7 +77101,6 @@ end
 	["estrategia"]="Estrategia",
 	["forzar cerraduras"]="Forzar Cerraduras",
 	["hurtar"]="Hurtar",
---	["idioma"]="Idioma Nativo",
 	["idioma"]="Idioma",
 	["instruir"]="Instruir",
 	["interpretar sueños"]="Interpretar Suenios",
@@ -76587,9 +77273,45 @@ function ResetDatos()
 
 end
 
+function esMultiple(sHabilidad)
+	sHabilidad=string.lower(sHabilidad);
+	local sSingular=""; local sPlural="";
+	if string.match(sHabilidad, "armas cc")==nil and string.match(sHabilidad,"armas pr")==nil and string.match(sHabilidad,"artesanías")==nil and string.match(sHabilidad,"idiomas")==nil then
+		return false, "", "";
+	else
+		if string.match(sHabilidad, "armas cc") then sSingular="Arma CC"; sPlural="Armas CC";
+		elseif string.match(sHabilidad,"armas pr") then sSingular="Arma Pr"; sPlural="Armas PR";
+		elseif string.match(sHabilidad,"artesanías") then sSingular="Artesanía"; sPlural="Artesanías";
+		elseif string.match(sHabilidad,"idiomas") then sSingular="Idioma"; sPlural="Idiomas";
+		end		
+		return true, sSingular, sPlural;
+	end
+end
+
+function ParsearMultiSecundarias(aHabilidades)
+	local bEsMultiple=false; local sSingular=""; local sPlural="";
+	local i=1;
+	while i&lt;=#aHabilidades do
+		bEsMultiple, sSingular, sPlural=esMultiple(aHabilidades[i].sHabilidad);
+		if bEsMultiple then
+			aHabilidades[i].sHabilidad=aHabilidades[i].sHabilidad:gsub(sPlural, sSingular);
+			i=i+1;
+			if sSingular=="Idioma" and (aHabilidades[i].sHabilidad=="Mezuri" or aHabilidades[i].sHabilidad=="Austero") then aHabilidades[i].sHabilidad="Mezuri o Austero" end
+			if sSingular=="Idioma" and (aHabilidades[i].sHabilidad=="Oriental" or aHabilidades[i].sHabilidad=="Kunya") then aHabilidades[i].sHabilidad="Oriental o Kunya" end
+			while i&lt;=#aHabilidades and DatosHabilidadesSecundarias[Habilidad2Clave[sSingular:lower()]][aHabilidades[i].sHabilidad] do
+				aHabilidades[i].sHabilidad=sSingular..": "..aHabilidades[i].sHabilidad;
+				i=i+1;
+			end
+		else
+			i=i+1;
+		end
+	end
+end
+
 function ParsearHabilidades(sHabilidades)
 	local aHabilidades = {};
-	
+	sHabilidades=sHabilidades:gsub("\n", " ");
+	sHabilidades=sHabilidades:gsub("  ", " ");
 	local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
 	
 	for i = 1, #aClauses do
@@ -76600,6 +77322,7 @@ function ParsearHabilidades(sHabilidades)
 			table.insert(aHabilidades, {sHabilidad=sHabilidad, nValor=tonumber(sValor)});
 		end
 	end
+	ParsearMultiSecundarias(aHabilidades);
 	return aHabilidades;
 end
 
@@ -76621,19 +77344,24 @@ function SecundariaVacia(sHabilidad, sSecundaria)
 end
 
 function ModificarHabilidadSecundaria(sHabilidad, nValor, sTipo, bAniadir)
-	local aClauses,_ = StringManager.split(sHabilidad, ":", true);
-	if aClauses and #aClauses==2 then
-		local nAniadir=1;
-		if not bAniadir then nAniadir=-1; end
-		local sClave=Habilidad2Clave[string.lower(aClauses[1])];
-		local sSecundaria=aClauses[2];
-		if DatosHabilidadesSecundarias[sClave]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]==nil then return end
-		if sClave=="Idioma" and (sSecundaria=="Mezuri" or sSecundaria=="Austero") then sSecundaria="Mezuri o Austero" end
-		if sClave=="Idioma" and (sSecundaria=="Oriental" or sSecundaria=="Kunya") then sSecundaria="Oriental o Kunya" end
-		DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]=DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]+nValor*nAniadir;
+	if sHabilidad and nValor and sTipo and sHabilidad~="" and type(nValor)=="number" and sTipo~="" then
+		local aClauses,_ = StringManager.split(sHabilidad, ":", true);
+		if aClauses and #aClauses==2 then
+			local nAniadir=1;
+			if not bAniadir then nAniadir=-1; end
+			local sClave=Habilidad2Clave[string.lower(aClauses[1])];
+			local sSecundaria=aClauses[2];
+			if DatosHabilidadesSecundarias[sClave]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria]==nil or DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]==nil then return end
+			if sClave=="Idioma" and (sSecundaria=="Mezuri" or sSecundaria=="Austero") then sSecundaria="Mezuri o Austero" end
+			if sClave=="Idioma" and (sSecundaria=="Oriental" or sSecundaria=="Kunya") then sSecundaria="Oriental o Kunya" end
+			if sClave=="Idioma" and sSecundaria==IdiomaNativo then
+				DatosHabilidades["Idioma Nativo"][sTipo]=DatosHabilidades["Idioma Nativo"][sTipo]+nValor*nAniadir;
+			else
+				DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]=DatosHabilidadesSecundarias[sClave][sSecundaria][sTipo]+nValor*nAniadir;
+			end;
+		end
 	end
 end
-
 
 function ModificarHabilidades(sRecord, sTipo, bAniadir)
 	if sRecord and sRecord~="" then
@@ -76652,66 +77380,108 @@ function ModificarHabilidades(sRecord, sTipo, bAniadir)
 			if esSecundaria(aHabilidades[i].sHabilidad) then
 				ModificarHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo, bAniadir);
 			elseif Habilidad2Clave[sAux] and DatosHabilidades[Habilidad2Clave[sAux]] and DatosHabilidades[Habilidad2Clave[sAux]][sTipo] then
-					DatosHabilidades[Habilidad2Clave[sAux]][sTipo]=DatosHabilidades[Habilidad2Clave[sAux]][sTipo]+aHabilidades[i].nValor*nAniadir;
+				DatosHabilidades[Habilidad2Clave[sAux]][sTipo]=DatosHabilidades[Habilidad2Clave[sAux]][sTipo]+aHabilidades[i].nValor*nAniadir;
 			end
 		end
 	end
 end
-</Script>
+
+function QuitarGratuitos(sHabilidades)
+	if sHabilidades and sHabilidades~="" then
+		sHabilidades=string.lower(sHabilidades);
+		if sHabilidades and sHabilidades~="" then
+			local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
+			for i = 1, #aClauses do
+				if Habilidad2Clave[aClauses[i]] and DatosHabilidades[Habilidad2Clave[aClauses[i]]] then
+					DatosHabilidades[Habilidad2Clave[aClauses[i]]].PG=0-Habilidades.DatosHabilidades[Habilidad2Clave[aClauses[i]]].gratuito;
+				end
+			end
+		end
+	end
+end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />
   </Scripts>
   <Scripts>
     <ScriptName>ParseoProfesiones</ScriptName>
     <FolderID>21</FolderID>
-    <Script>
+    <Script>--Profesiones={
+--	["artesano"] = true,
+--	["artista"] = true,
+--	["asesino"] = true,
+--	["bandido"] = true,
+--	["campesino"] = true,
+--	["cazador"] = true,
+--	["criado"] = true,
+--	["chamán"] = true,
+--	["espía"] = true,
+--	["hechicero"] = true,
+--	["hechicero guerrero"] = true,
+--	["ladrón"] = true,
+--	["mensajero"] = true,
+--	["marinero"] = true,
+--	["mendigo"] = true,
+--	["mercader"] = true,
+--	["minero"] = true,
+--	["noble cortesano"] = true,
+--	["noble guerrero"] = true,
+--	["nómada"] = true,
+--	["pirata"] = true,
+--	["sabio"] = true,
+--	["sacerdote"] = true,
+--	["sacerdote guerrero"] = true,
+--	["soldado"] = true,
+--}
+
 Profesiones={
-	["artesano"] = true,
-	["artista"] = true,
-	["asesino"] = true,
-	["bandido"] = true,
-	["campesino"] = true,
-	["cazador"] = true,
-	["criado"] = true,
-	["chamán"] = true,
-	["espía"] = true,
-	["hechicero"] = true,
-	["hechicero guerrero"] = true,
-	["ladrón"] = true,
-	["mensajero"] = true,
-	["marinero"] = true,
-	["mendigo"] = true,
-	["mercader"] = true,
-	["minero"] = true,
-	["noble cortesano"] = true,
-	["noble guerrero"] = true,
-	["nómada"] = true,
-	["pirata"] = true,
-	["sabio"] = true,
-	["sacerdote"] = true,
-	["sacerdote guerrero"] = true,
-	["soldado"] = true,
-	}
+	["artesano"] = {permitida=true, restriccion=""},
+	["artista"] = {permitida=true, restriccion=""},
+	["asesino"] = {permitida=true, restriccion=""},
+	["bandido"] = {permitida=true, restriccion=""},
+	["campesino"] = {permitida=true, restriccion=""},
+	["cazador"] = {permitida=true, restriccion=""},
+	["criado"] = {permitida=true, restriccion=""},
+	["chamán"] = {permitida=true, restriccion=""},
+	["espía"] = {permitida=true, restriccion=""},
+	["hechicero"] = {permitida=true, restriccion=""},
+	["hechicero guerrero"] = {permitida=true, restriccion=""},
+	["ladrón"] = {permitida=true, restriccion=""},
+	["mensajero"] = {permitida=true, restriccion=""},
+	["marinero"] = {permitida=true, restriccion=""},
+	["mendigo"] = {permitida=true, restriccion=""},
+	["mercader"] = {permitida=true, restriccion=""},
+	["minero"] = {permitida=true, restriccion=""},
+	["noble cortesano"] = {permitida=true, restriccion=""},
+	["noble guerrero"] = {permitida=true, restriccion=""},
+	["nómada"] = {permitida=true, restriccion=""},
+	["pirata"] = {permitida=true, restriccion=""},
+	["sabio"] = {permitida=true, restriccion=""},
+	["sacerdote"] = {permitida=true, restriccion=""},
+	["sacerdote guerrero"] = {permitida=true, restriccion=""},
+	["soldado"] = {permitida=true, restriccion=""},
+}
 
 function ObtenerListaProfesiones(sProfesiones, bPermitir)
 	local aClauses={};
 	if sProfesiones then aClauses,_ = StringManager.split(sProfesiones:lower(), ",y", true); end;
 	for sProf,_ in pairs(Profesiones) do
-		Profesiones[sProf]=not bPermitir;
+		Profesiones[sProf].permitida=not bPermitir;
+		Profesiones[sProf].restriccion="";
 	end
 	for i=1,#aClauses do
-		if aClauses[i]:match(".*%s*%(.*%)") then aClauses[i]=aClauses[i]:match("(.*)%s*%(.*%)"); end
+		if aClauses[i]:match(".*%s*%(.*%)") then aClauses[i]=aClauses[i]:match("(.*)%s*%(.*%)"); end -- Para quitar los comentarios entre paréntesis
 		if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
-		Profesiones[aClauses[i]]=bPermitir;
+		Profesiones[aClauses[i]].permitida=bPermitir;
 	end
-	--Debug.chat(sProfesiones, "\r\n", Profesiones);
 end
 
 function ObtenerProfesionesPermitidas(sProfesiones)
 	local aClauses;
-	aClauses,_=StringManager.split(sProfesiones, "%.", true);
+	sProfesiones=sProfesiones:gsub("\n", " ");
+	sProfesiones=sProfesiones:gsub("  ", " ");
+	
+	aClauses,_=StringManager.split(sProfesiones, "%.", true); -- Obtenemos la lista de profesiones (aClauses[1]) y las excepciones (aClauses[2])
 	if aClauses and #aClauses&gt;0 then sProfesiones=aClauses[1]; end
-	--Debug.chat(aClauses, sProfesiones);
 		
 	if sProfesiones:match("Todas menos") then
 		ObtenerListaProfesiones(sProfesiones:match("Todas menos (.*)"), false)
@@ -76720,7 +77490,19 @@ function ObtenerProfesionesPermitidas(sProfesiones)
 	else
 		ObtenerListaProfesiones(sProfesiones:match("(.*)"), true);
 	end
-end;</Script>
+	
+	if aClauses[2] then
+		local sProfesionesConExcepciones, sExcepciones=aClauses[2]:match("Puede ser (.*) si escoge la (.*)");
+		sProfesionesConExcepciones=sProfesionesConExcepciones:gsub(" o ", ", ");
+		aClauses,_=StringManager.split(sProfesionesConExcepciones, ",", true);
+		Debug.chat(aClauses)
+		for i=1,#aClauses do
+			if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+			if Profesiones[aClauses[i]] then Profesiones[aClauses[i]].restriccion=sExcepciones; end
+		end
+	end
+end;
+</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />
   </Scripts>
@@ -76986,6 +77768,24 @@ function sortConAcentos(aFilterValues)
 	table.sort(aFilterValues, function(a,b) return QuitarAcentos(a) &lt; QuitarAcentos(b); end);
 	return aFilterValues;
 end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+  <Scripts>
+    <ScriptName>Utilidades</ScriptName>
+    <FolderID>21</FolderID>
+    <Script>function LeerValorRegistro(sRecord, sCampo)
+	local sPathName="";
+	if string.find(sRecord, "@") then
+		sPathName, _=string.gsub(sRecord, "@", "."..sCampo.."@");
+	else
+		sPathName=sRecord.."."..sCampo;
+	end
+	if sPathName and sPathName~="" then	return DB.getValue(sPathName);
+	else return "";
+	end
+end
+</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />
   </Scripts>
@@ -77929,6 +78729,11 @@ end</Script>
     <IconFile>skin\botones\button_close_hover.png</IconFile>
   </Icons>
   <Icons>
+    <IconName>char_class</IconName>
+    <FolderID>3</FolderID>
+    <IconFile>char_class.png</IconFile>
+  </Icons>
+  <Icons>
     <IconName>char_race</IconName>
     <FolderID>3</FolderID>
     <IconFile>char_race.png</IconFile>
@@ -78175,6 +78980,17 @@ end</Script>
   </Icons>
 </DocumentElement>
 
-<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd" />
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Fonts>
+    <FontName>FuenteMensajesError</FontName>
+    <FolderID>20</FolderID>
+    <FontFile />
+    <FontFamilyName />
+    <FontSize>30</FontSize>
+    <FontColor>255;255;0;0</FontColor>
+    <ShadowOffset />
+    <ShadowColor>0;0;0;0</ShadowColor>
+  </Fonts>
+</DocumentElement>
 
 </Ruleset>

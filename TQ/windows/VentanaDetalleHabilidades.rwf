@@ -1803,7 +1803,7 @@ end
       {"Name":"WindowListChildDefinition","Value":{"@xsi:type":"ArrayOfChildDefinition"}},
       {"Name":"WindowListClassName","Value":{"@xsi:type":"xsd:string","#text":"DetalleHabilidadBase"}},
       {"Name":"WindowListFilterBy","Value":{"@xsi:type":"FilterByDefinition","FilterSourceType":"Control","FilterOnSourceType":"Control"}},
-      {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition","SortByDefinition":[{"Descending":"true","SourceType":"Control","SourceName":"DeProfesion"},{"Descending":"false","SourceType":"Control","SourceName":"ClaveHabilidad"},{"Descending":"false","SourceType":"Control","SourceName":"NombreSecundario"}]}},
+      {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition","SortByDefinition":[{"Descending":"true","SourceType":"Control","SourceName":"DeProfesion"},{"Descending":"false","SourceType":"Control","SourceName":"ClaveHabilidad"}]}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"18"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"99"}}
 ]}}</Definition>
