@@ -10,7 +10,7 @@
     <Website />
     <Version>1</Version>
     <Release>8</Release>
-    <RulesetWizardVersion>0.8.3</RulesetWizardVersion>
+    <RulesetWizardVersion>0.8.2</RulesetWizardVersion>
     <RulesetList>CoreRPG</RulesetList>
     <LoadOrder />
     <Comments />
@@ -3543,7 +3543,7 @@ end</LUACode>
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"446"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"455"}},
       {"Name":"Disabled"},
       {"Name":"FastInit","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
@@ -61151,77 +61151,6 @@ end</LUACode>
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
-    <ControlName>AjusteCuerpo</ControlName>
-    <ZIndex>64</ZIndex>
-    <ControlClass>FGNumberField</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"AjusteCuerpo"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DefaultValue","Value":{"@xsi:type":"xsd:decimal","#text":"0"}},
-      {"Name":"DelayKeyUpdate"},
-      {"Name":"DescriptionText"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
-      {"Name":"Disabled"},
-      {"Name":"DisplaySign"},
-      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HideOnValue"},
-      {"Name":"HideRollWidget"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"HoverCursor"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"MaxValue"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"MinValue"},
-      {"Name":"NextTabTarget"},
-      {"Name":"NoDrag"},
-      {"Name":"NoDrop"},
-      {"Name":"NoKeyEdit"},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"StackVertWith"},
-      {"Name":"Tooltip"},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"62"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"469"}}
-]}}</Definition>
-    <LUACode>function onValueChanged()
-	window.Cuerpo.Actualizar();
-end
-
-function Actualizar()
-	if window.Cuerpo.getValue()&lt;3 and window.SeleccionMetodo.getValue()=="Al azar" then setValue(3-window.Cuerpo.getValue());
-	else setValue(0);
-	end
-end
-</LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Atractivo</ControlName>
     <ZIndex>41</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
@@ -62203,7 +62132,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"328"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"275"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
 	setValue(window.Tamanio.getValue()+window.Cuerpo.getValue());
@@ -64310,7 +64239,6 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Cuerpo.Actualizar();
-	window.AjusteCuerpo.Actualizar();
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -65368,7 +65296,6 @@ end
 		window.LanzarDadosPtos.onButtonPress();
 	else
 		window.PtosDisponibles.setValue(19);
-		window.PtosDisponiblesConEspecieYEdad.Actualizar();
 		window.BaseCuerpo.setValue(3);
 		window.BaseMente.setValue(3);
 		window.BaseEspiritu.setValue(3);
@@ -65519,7 +65446,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>IconoEdadEspecie</ControlName>
-    <ZIndex>3</ZIndex>
+    <ZIndex>2</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -65568,7 +65495,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>LabelEspecieEdad</ControlName>
-    <ZIndex>2</ZIndex>
+    <ZIndex>1</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -65620,7 +65547,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>LabelPP</ControlName>
-    <ZIndex>8</ZIndex>
+    <ZIndex>7</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -65672,7 +65599,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>LabelProfesion</ControlName>
-    <ZIndex>4</ZIndex>
+    <ZIndex>3</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -65724,7 +65651,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>LinkProfesion</ControlName>
-    <ZIndex>6</ZIndex>
+    <ZIndex>5</ZIndex>
     <ControlClass>FGLinkField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -65803,7 +65730,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>NombreProfesion</ControlName>
-    <ZIndex>7</ZIndex>
+    <ZIndex>6</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -65878,7 +65805,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>PPProfesion</ControlName>
-    <ZIndex>5</ZIndex>
+    <ZIndex>4</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -75247,21 +75174,6 @@ function AniadirHabilidades(nodeChar, window)
 					DB.setValue(w.getDatabaseNode(), "BonoCulto", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].culto);
 					DB.setValue(w.getDatabaseNode(), "BonoVentDesvent", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].VentDes);
 					DB.setValue(w.getDatabaseNode(), "BonoMisc", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].varios);
-
---					w.NombreHabilidad.setValue(sClave);
---					w.ClaveHabilidad.setValue(sClave);
---					if sClave=="Arma CC" then w.HabilidadCC.setValue(sSecundaria);
---					elseif sClave=="Arma Pr" then w.HabilidadPr.setValue(sSecundaria);
---					elseif sClave=="Artesania" then w.Artesania.setValue(sSecundaria);
---					elseif sClave=="Idioma" then w.Idioma.setValue(sSecundaria);
---					end
---					w.DeProfesion.setValue(ParseoHabilidades.DatosHabilidades[sClave].prof);
---					w.PtosGratis.setValue(ParseoHabilidades.DatosHabilidades[sClave].PG);
---					w.BonoEtnia.setValue(ParseoHabilidades.DatosHabilidades[sClave].etnia);
---					w.BonoEspecialidad.setValue(ParseoHabilidades.DatosHabilidades[sClave].esp);
---					w.BonoCulto.setValue(ParseoHabilidades.DatosHabilidades[sClave].culto);
---					w.BonoVentDesvent.setValue(ParseoHabilidades.DatosHabilidades[sClave].VentDes);
---					w.BonoMisc.setValue(ParseoHabilidades.DatosHabilidades[sClave].varios);
 				end
 			end
 		end
@@ -75312,13 +75224,11 @@ function commitCharacter(identity)
 
 	w.abilities.subwindow.BotonDetallesHabilidades.onClickRelease();
 	close();
---	ParseoHabilidades.ResetDatos();
 end
 
 
 function onClose()
 	ParseoHabilidades.ResetDatos();
-	Debug.chat(111);
 end
 </Script>
     <RegisterScript>true</RegisterScript>
@@ -77452,7 +77362,6 @@ end
 	["estrategia"]="Estrategia",
 	["forzar cerraduras"]="Forzar Cerraduras",
 	["hurtar"]="Hurtar",
---	["idioma"]="Idioma Nativo",
 	["idioma"]="Idioma",
 	["instruir"]="Instruir",
 	["interpretar sueños"]="Interpretar Suenios",
@@ -77715,7 +77624,6 @@ function ModificarHabilidadSecundaria(sHabilidad, nValor, sTipo, bAniadir)
 	end
 end
 
-
 function ModificarHabilidades(sRecord, sTipo, bAniadir)
 	if sRecord and sRecord~="" then
 		local nAniadir=1;
@@ -77826,7 +77734,6 @@ function ObtenerListaProfesiones(sProfesiones, bPermitir)
 		if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
 		Profesiones[aClauses[i]].permitida=bPermitir;
 	end
-	--Debug.chat(sProfesiones, "\r\n", Profesiones);
 end
 
 function ObtenerProfesionesPermitidas(sProfesiones)
@@ -77836,7 +77743,6 @@ function ObtenerProfesionesPermitidas(sProfesiones)
 	
 	aClauses,_=StringManager.split(sProfesiones, "%.", true); -- Obtenemos la lista de profesiones (aClauses[1]) y las excepciones (aClauses[2])
 	if aClauses and #aClauses&gt;0 then sProfesiones=aClauses[1]; end
-	--Debug.chat(aClauses, sProfesiones);
 		
 	if sProfesiones:match("Todas menos") then
 		ObtenerListaProfesiones(sProfesiones:match("Todas menos (.*)"), false)
@@ -79303,6 +79209,11 @@ end
     <IconFile>skin\botones\button_help_hover.png</IconFile>
   </Icons>
   <Icons>
+    <IconName>char_class</IconName>
+    <FolderID>3</FolderID>
+    <IconFile>char_class.png</IconFile>
+  </Icons>
+  <Icons>
     <IconName>char_race</IconName>
     <FolderID>3</FolderID>
     <IconFile>char_race.png</IconFile>
@@ -79550,6 +79461,16 @@ end
 </DocumentElement>
 
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Fonts>
+    <FontName>FuenteMensajesError</FontName>
+    <FolderID>20</FolderID>
+    <FontFile />
+    <FontFamilyName />
+    <FontSize>30</FontSize>
+    <FontColor>255;255;0;0</FontColor>
+    <ShadowOffset />
+    <ShadowColor>0;0;0;0</ShadowColor>
+  </Fonts>
   <Fonts>
     <FontName>TituloCuadro</FontName>
     <FolderID>37</FolderID>
