@@ -8,7 +8,7 @@
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string","#text":"Paso 1"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string","#text":"Estadísticas"}},
       {"Name":"ButtonField"},
       {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonEstadisticas"}},
@@ -53,15 +53,13 @@
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"15"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	--window.Ventanas.activateTab(1);
 	window.SubventanaWizardProfesion.setVisible(false);
 	window.SubventanaWizardCaracteristicas.setVisible(true);
 end
 
 function onInit()
-	--window.Ventanas.activateTab(1);
-	window.SubventanaWizardProfesion.setVisible(false);
-	window.SubventanaWizardCaracteristicas.setVisible(true);
+	window.SubventanaWizardProfesion.setVisible(true);
+	window.SubventanaWizardCaracteristicas.setVisible(false);
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -135,7 +133,7 @@ end
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string","#text":"Paso 2"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string","#text":"Profesión"}},
       {"Name":"ButtonField"},
       {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonProfesion"}},
@@ -301,7 +299,7 @@ end
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;107;92;81"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;4;105;128"}},
       {"Name":"CanGrowVert"},
       {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelInformacion"}},
@@ -353,7 +351,7 @@ end
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;107;92;81"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;4;105;128"}},
       {"Name":"CanGrowVert"},
       {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelNombrePJ"}},
@@ -405,7 +403,7 @@ end
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;107;92;81"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;4;105;128"}},
       {"Name":"CanGrowVert"},
       {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelPP"}},
@@ -621,7 +619,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"34"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
-	setValue(20+window.SubventanaWizardCaracteristicas.subwindow.PPEdad.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPAtractivo.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEtnia.getValue());
+	setValue(20+window.SubventanaWizardCaracteristicas.subwindow.PPEdad.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPAtractivo.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEtnia.getValue()+window.SubventanaWizardProfesion.subwindow.PPProfesion.getValue());
 end
 
 function onInit()

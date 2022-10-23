@@ -14351,7 +14351,7 @@ end
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string","#text":"Paso 1"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string","#text":"Estadísticas"}},
       {"Name":"ButtonField"},
       {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonEstadisticas"}},
@@ -14396,15 +14396,13 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"15"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	--window.Ventanas.activateTab(1);
 	window.SubventanaWizardProfesion.setVisible(false);
 	window.SubventanaWizardCaracteristicas.setVisible(true);
 end
 
 function onInit()
-	--window.Ventanas.activateTab(1);
-	window.SubventanaWizardProfesion.setVisible(false);
-	window.SubventanaWizardCaracteristicas.setVisible(true);
+	window.SubventanaWizardProfesion.setVisible(true);
+	window.SubventanaWizardCaracteristicas.setVisible(false);
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -14478,7 +14476,7 @@ end
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string","#text":"Paso 2"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string","#text":"Profesión"}},
       {"Name":"ButtonField"},
       {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonProfesion"}},
@@ -14644,7 +14642,7 @@ end
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;107;92;81"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;4;105;128"}},
       {"Name":"CanGrowVert"},
       {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelInformacion"}},
@@ -14696,7 +14694,7 @@ end
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;107;92;81"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;4;105;128"}},
       {"Name":"CanGrowVert"},
       {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelNombrePJ"}},
@@ -14748,7 +14746,7 @@ end
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;107;92;81"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;4;105;128"}},
       {"Name":"CanGrowVert"},
       {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelPP"}},
@@ -14964,7 +14962,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"34"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
-	setValue(20+window.SubventanaWizardCaracteristicas.subwindow.PPEdad.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPAtractivo.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEtnia.getValue());
+	setValue(20+window.SubventanaWizardCaracteristicas.subwindow.PPEdad.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPAtractivo.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEtnia.getValue()+window.SubventanaWizardProfesion.subwindow.PPProfesion.getValue());
 end
 
 function onInit()
@@ -57866,7 +57864,7 @@ end
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,12,0,12"}},
       {"Name":"GMEditOnly"},
       {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
@@ -57888,7 +57886,7 @@ end
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"2"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"391"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
@@ -57920,7 +57918,7 @@ end
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,12,0,12"}},
       {"Name":"GMEditOnly"},
       {"Name":"GMVisibleOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
@@ -57942,7 +57940,7 @@ end
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"2"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"391"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
@@ -59484,7 +59482,7 @@ end
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,12,0,12"}},
       {"Name":"GMEditOnly"},
       {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
@@ -59506,7 +59504,7 @@ end
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"2"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"391"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
@@ -59538,7 +59536,7 @@ end
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,12,0,12"}},
       {"Name":"GMEditOnly"},
       {"Name":"GMVisibleOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
@@ -59560,7 +59558,7 @@ end
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"2"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"391"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
@@ -62187,7 +62185,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"2"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
     <LUACode />
@@ -62236,8 +62234,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"125"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"2"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"132"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -62461,7 +62459,7 @@ end</LUACode>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;107;92;81"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;4;105;128"}},
       {"Name":"CanGrowVert"},
       {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelCaracteristicas"}},
@@ -62729,7 +62727,7 @@ end</LUACode>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;107;92;81"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;4;105;128"}},
       {"Name":"CanGrowVert"},
       {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelEspecieEdad"}},
@@ -63050,7 +63048,7 @@ end</LUACode>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;107;92;81"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;4;105;128"}},
       {"Name":"CanGrowVert"},
       {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelMetodoCaracteristicas"}},
@@ -63588,47 +63586,27 @@ function onDrop(x, y, dragdata)
 			setValue(dragdata.getShortcutData());
 			window.NombreEtnia.Actualizar(sRecord);
 			
---			if string.find(sRecord, "@") then
---				sPathName, _=string.gsub(sRecord, "@", ".IdiomaNativo@");
---			else
---				sPathName=sRecord..".IdiomaNativo";
---			end
---			ParseoHabilidades.IdiomaNativo = DB.getValue(sPathName, "");
 			ParseoHabilidades.IdiomaNativo=Utilidades.LeerValorRegistro(sRecord, "IdiomaNativo");
 			
 			ParseoHabilidades.ModificarHabilidades(sRecord, "etnia", true);
 			local sPathNombre="";
 			
---			if string.find(sRecord, "@") then
---				sPathName, _=string.gsub(sRecord, "@", ".TamanioMaximo@");
---			else
---				sPathName=sRecord..".TamanioMaximo";
---			end
---			window.MaxTamanioEtnia.setValue(DB.getValue(sPathName, ""));
 			window.MaxTamanioEtnia.setValue(Utilidades.LeerValorRegistro(sRecord, "TamanioMaximo"));
 
---			if string.find(sRecord, "@") then
---				sPathName, _=string.gsub(sRecord, "@", ".PP@");
---			else
---				sPathName=sRecord..".PP";
---			end
---			window.PPEtnia.setValue(DB.getValue(sPathName, ""));
 			window.PPEtnia.setValue(Utilidades.LeerValorRegistro(sRecord, "PP"));
 			
---			if string.find(sRecord, "@") then
---				sPathName, _=string.gsub(sRecord, "@", ".Profesiones@");
---			else
---				sPathName=sRecord..".Profesiones";
---			end
---			ParseoProfesiones.ObtenerProfesionesPermitidas(DB.getValue(sPathName, ""));
 			ParseoProfesiones.ObtenerProfesionesPermitidas(Utilidades.LeerValorRegistro(sRecord, "Profesiones"));
-						
---			if string.find(sRecord, "@") then
---				sPathName, _=string.gsub(sRecord, "@", ".HabilidadesSinGratuitos@");
---			else
---				sPathName=sRecord..".HabilidadesSinGratuitos";
---			end
---			ParseoHabilidades.QuitarGratuitos(DB.getValue(sPathName, ""));
+			local sProfesion=window.parentcontrol.window.SubventanaWizardProfesion.subwindow.NombreProfesion.getValue();
+			if sProfesion~="" then
+				if not ParseoProfesiones.ProfesionPermitida(sProfesion) then
+					window.parentcontrol.window.SubventanaWizardProfesion.subwindow.NombreProfesion.setValue("");
+					window.parentcontrol.window.SubventanaWizardProfesion.subwindow.LinkProfesion.setValue("");
+					window.parentcontrol.window.SubventanaWizardProfesion.subwindow.PPProfesion.setValue(0);
+					window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+					window.parentcontrol.window.Mensajes.setValue("La profesión que tenías elegida ya no es compatible con el nuevo origen étnico seleccionado. Debes elegir una nueva profesión.");
+				end
+			end
+			
 			ParseoHabilidades.QuitarGratuitos(Utilidades.LeerValorRegistro(sRecord, "HabilidadesSinGratuitos"));
 		else
 			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
@@ -63642,20 +63620,8 @@ end
 
 function EtniaPermitida(sRecord)
 	local sEspecie=window.SeleccionEspecie.getValue();
---	if string.find(sRecord, "@") then
---		sPathName, _=string.gsub(sRecord, "@", ".RestringidoAMereni@");
---	else
---		sPathName=sRecord..".RestringidoAMereni";
---	end
---	local PermitidoAMereni=DB.getValue(sPathName, "");
 	local PermitidoAMereni=Utilidades.LeerValorRegistro(sRecord, "RestringidoAMereni");
 	
---	if string.find(sRecord, "@") then
---		sPathName, _=string.gsub(sRecord, "@", ".RestringidoAMestizo@");
---	else
---		sPathName=sRecord..".RestringidoAMestizo";
---	end	
---	local RestringidoAMestizo=DB.getValue(sPathName, "");
 	local RestringidoAMestizo=Utilidades.LeerValorRegistro(sRecord, "RestringidoAMestizo");
 	
 	if PermitidoAMereni==0 and RestringidoAMestizo==0 then return true;
@@ -65485,7 +65451,7 @@ end</LUACode>
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"2"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
     <LUACode />
@@ -65500,7 +65466,7 @@ end</LUACode>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;107;92;81"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;4;105;128"}},
       {"Name":"CanGrowVert"},
       {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelEspecieEdad"}},
@@ -65705,25 +65671,25 @@ end
 function onDrop(x, y, dragdata)
 	local sClass,sRecord = dragdata.getShortcutData();
 	if sClass=="VentanaProfesionSidebar" then
-		if ProfesionPermitida(sRecord) then
+		local sProfesion=Utilidades.LeerValorRegistro(sRecord, "name");
+		-- NO BORRAR, COMENTADO PARA PROBAR LAS PROFESIONES
+--		if ParseoProfesiones.ProfesionPermitida(sProfesion) then
 			setValue(dragdata.getShortcutData());
 			window.PPProfesion.setValue(Utilidades.LeerValorRegistro(sRecord, "PP"));
 			window.NombreProfesion.Actualizar(sRecord);
-			window.parentcontrol.window.Mensajes.setValue("Profesión válida.");
-		else
-			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
-			window.parentcontrol.window.Mensajes.setValue("No cumples los requisitos para seleccionar la profesión elegida.");
-		end
+			
+			ParseoProfesiones.ObtenerHabilidadesDeProfesion(Utilidades.LeerValorRegistro(sRecord, "Habilidades"));
+		-- NO BORRAR, COMENTADO PARA PROBAR LAS PROFESIONES
+--		else
+--			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+--			window.parentcontrol.window.Mensajes.setValue("No cumples los requisitos para seleccionar la profesión elegida.");
+--		end
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una profesión.");
 	end;
 end
-
-function ProfesionPermitida(sRecord)
-	local sProfesion=Utilidades.LeerValorRegistro(sRecord, "name");
-	return sProfesion and ParseoProfesiones.Profesiones[sProfesion:lower()] and ParseoProfesiones.Profesiones[sProfesion:lower()].permitida
-end</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -65785,13 +65751,6 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"51"}}
 ]}}</Definition>
     <LUACode>function Actualizar(sRecord)
---	local sPathNombre="";
---	if string.find(sRecord, "@") then
---		sPathName, _=string.gsub(sRecord, "@", ".name@");
---	else
---		sPathName=sRecord..".name";
---	end
---	setValue(DB.getValue(sPathName, ""));
 	setValue(Utilidades.LeerValorRegistro(sRecord, "name"));
 end
 
@@ -77666,33 +77625,19 @@ end</Script>
   <Scripts>
     <ScriptName>ParseoProfesiones</ScriptName>
     <FolderID>21</FolderID>
-    <Script>--Profesiones={
---	["artesano"] = true,
---	["artista"] = true,
---	["asesino"] = true,
---	["bandido"] = true,
---	["campesino"] = true,
---	["cazador"] = true,
---	["criado"] = true,
---	["chamán"] = true,
---	["espía"] = true,
---	["hechicero"] = true,
---	["hechicero guerrero"] = true,
---	["ladrón"] = true,
---	["mensajero"] = true,
---	["marinero"] = true,
---	["mendigo"] = true,
---	["mercader"] = true,
---	["minero"] = true,
---	["noble cortesano"] = true,
---	["noble guerrero"] = true,
---	["nómada"] = true,
---	["pirata"] = true,
---	["sabio"] = true,
---	["sacerdote"] = true,
---	["sacerdote guerrero"] = true,
---	["soldado"] = true,
---}
+    <Script>StringToNum={
+	["un"]=1,
+	["uno"]=1,
+	["dos"]=2,
+	["tres"]=3,
+	["cuatro"]=4,
+	["cinco"]=5,
+	["seis"]=6,
+	["siete"]=7,
+	["ocho"]=8,
+	["nueve"]=9,
+	["diez"]=10,
+}
 
 Profesiones={
 	["artesano"] = {permitida=true, restriccion=""},
@@ -77756,14 +77701,86 @@ function ObtenerProfesionesPermitidas(sProfesiones)
 		local sProfesionesConExcepciones, sExcepciones=aClauses[2]:match("Puede ser (.*) si escoge la (.*)");
 		sProfesionesConExcepciones=sProfesionesConExcepciones:gsub(" o ", ", ");
 		aClauses,_=StringManager.split(sProfesionesConExcepciones, ",", true);
-		Debug.chat(aClauses)
+		--Debug.chat(aClauses)
 		for i=1,#aClauses do
 			if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
 			if Profesiones[aClauses[i]] then Profesiones[aClauses[i]].restriccion=sExcepciones; end
 		end
 	end
 end;
-</Script>
+
+function ProfesionPermitida(sProfesion)
+	return sProfesion and ParseoProfesiones.Profesiones[sProfesion:lower()] and ParseoProfesiones.Profesiones[sProfesion:lower()].permitida
+end
+
+
+
+function esMultiple(sHabilidad)
+	sHabilidad=string.lower(sHabilidad);
+	local sSingular=""; local sPlural="";
+	if string.match(sHabilidad, "armas cc")==nil and string.match(sHabilidad,"armas pr")==nil and string.match(sHabilidad,"artesanías")==nil and string.match(sHabilidad,"idiomas")==nil then
+		return false, "", "";
+	else
+		if string.match(sHabilidad, "armas cc") then sSingular="Arma CC"; sPlural="Armas CC";
+		elseif string.match(sHabilidad,"armas pr") then sSingular="Arma Pr"; sPlural="Armas PR";
+		elseif string.match(sHabilidad,"artesanías") then sSingular="Artesanía"; sPlural="Artesanías";
+		elseif string.match(sHabilidad,"idiomas") then sSingular="Idioma"; sPlural="Idiomas";
+		end		
+		return true, sSingular, sPlural;
+	end
+end
+
+function ParsearMultiSecundarias(aHabilidades)
+	local bEsMultiple=false; local sSingular=""; local sPlural="";
+	local i=1;
+	while i&lt;=#aHabilidades do
+		bEsMultiple, sSingular, sPlural=esMultiple(aHabilidades[i].sHabilidad);
+		if bEsMultiple then
+			aHabilidades[i].sHabilidad=aHabilidades[i].sHabilidad:gsub(sPlural, sSingular);
+			i=i+1;
+			if sSingular=="Idioma" and (aHabilidades[i].sHabilidad=="Mezuri" or aHabilidades[i].sHabilidad=="Austero") then aHabilidades[i].sHabilidad="Mezuri o Austero" end
+			if sSingular=="Idioma" and (aHabilidades[i].sHabilidad=="Oriental" or aHabilidades[i].sHabilidad=="Kunya") then aHabilidades[i].sHabilidad="Oriental o Kunya" end
+			while i&lt;=#aHabilidades and DatosHabilidadesSecundarias[Habilidad2Clave[sSingular:lower()]][aHabilidades[i].sHabilidad] do
+				aHabilidades[i].sHabilidad=sSingular..": "..aHabilidades[i].sHabilidad;
+				i=i+1;
+			end
+		else
+			i=i+1;
+		end
+	end
+end
+
+function ParsearHabilidades(sHabilidades)
+	local aHabilidades = {};
+	sHabilidades=sHabilidades:gsub("\n", " ");
+	sHabilidades=sHabilidades:gsub("  ", " ");
+	local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
+	
+--	for i = 1, #aClauses do
+--		local sHabilidad, sValor = string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)([%+%-–]?%d*)");
+--		if string.sub(sHabilidad, sHabilidad:len(), sHabilidad:len())==" " then sHabilidad=string.match(sHabilidad, "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+--
+--		if sHabilidad and sValor then
+--			table.insert(aHabilidades, {sHabilidad=sHabilidad, nValor=tonumber(sValor)});
+--		end
+--	end
+--	ParsearMultiSecundarias(aHabilidades);
+--	return aHabilidades;
+	return aClauses;
+end
+
+function esSecundaria(sHabilidad)
+	sHabilidad=string.lower(sHabilidad);
+	if string.match(sHabilidad, "arma cc")==nil and string.match(sHabilidad,"arma pr")==nil and string.match(sHabilidad,"artesanía")==nil and string.match(sHabilidad,"idioma")==nil then
+		return false;
+	else
+		return true;
+	end
+end
+
+function ObtenerHabilidadesDeProfesion(sHabilidades)
+	Debug.chat(ParsearHabilidades(sHabilidades));
+end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />
   </Scripts>
