@@ -5,6 +5,7 @@
     <Script>StringToNum={
 	["un"]=1,
 	["uno"]=1,
+	["una"]=1,
 	["dos"]=2,
 	["tres"]=3,
 	["cuatro"]=4,
@@ -43,6 +44,10 @@ Profesiones={
 	["sacerdote guerrero"] = {permitida=true, restriccion=""},
 	["soldado"] = {permitida=true, restriccion=""},
 }
+
+numIdiomasProfesion=0;
+numArmasProfesion=0;
+numArtesaniasProfesion=0;
 
 function ObtenerListaProfesiones(sProfesiones, bPermitir)
 	local aClauses={};
@@ -90,62 +95,6 @@ function ProfesionPermitida(sProfesion)
 	return sProfesion and ParseoProfesiones.Profesiones[sProfesion:lower()] and ParseoProfesiones.Profesiones[sProfesion:lower()].permitida
 end
 
-
-
-function esMultiple(sHabilidad)
-	sHabilidad=string.lower(sHabilidad);
-	local sSingular=""; local sPlural="";
-	if string.match(sHabilidad, "armas cc")==nil and string.match(sHabilidad,"armas pr")==nil and string.match(sHabilidad,"artesanías")==nil and string.match(sHabilidad,"idiomas")==nil then
-		return false, "", "";
-	else
-		if string.match(sHabilidad, "armas cc") then sSingular="Arma CC"; sPlural="Armas CC";
-		elseif string.match(sHabilidad,"armas pr") then sSingular="Arma Pr"; sPlural="Armas PR";
-		elseif string.match(sHabilidad,"artesanías") then sSingular="Artesanía"; sPlural="Artesanías";
-		elseif string.match(sHabilidad,"idiomas") then sSingular="Idioma"; sPlural="Idiomas";
-		end		
-		return true, sSingular, sPlural;
-	end
-end
-
-function ParsearMultiSecundarias(aHabilidades)
-	local bEsMultiple=false; local sSingular=""; local sPlural="";
-	local i=1;
-	while i&lt;=#aHabilidades do
-		bEsMultiple, sSingular, sPlural=esMultiple(aHabilidades[i].sHabilidad);
-		if bEsMultiple then
-			aHabilidades[i].sHabilidad=aHabilidades[i].sHabilidad:gsub(sPlural, sSingular);
-			i=i+1;
-			if sSingular=="Idioma" and (aHabilidades[i].sHabilidad=="Mezuri" or aHabilidades[i].sHabilidad=="Austero") then aHabilidades[i].sHabilidad="Mezuri o Austero" end
-			if sSingular=="Idioma" and (aHabilidades[i].sHabilidad=="Oriental" or aHabilidades[i].sHabilidad=="Kunya") then aHabilidades[i].sHabilidad="Oriental o Kunya" end
-			while i&lt;=#aHabilidades and DatosHabilidadesSecundarias[Habilidad2Clave[sSingular:lower()]][aHabilidades[i].sHabilidad] do
-				aHabilidades[i].sHabilidad=sSingular..": "..aHabilidades[i].sHabilidad;
-				i=i+1;
-			end
-		else
-			i=i+1;
-		end
-	end
-end
-
-function ParsearHabilidades(sHabilidades)
-	local aHabilidades = {};
-	sHabilidades=sHabilidades:gsub("\n", " ");
-	sHabilidades=sHabilidades:gsub("  ", " ");
-	local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
-	
---	for i = 1, #aClauses do
---		local sHabilidad, sValor = string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)([%+%-–]?%d*)");
---		if string.sub(sHabilidad, sHabilidad:len(), sHabilidad:len())==" " then sHabilidad=string.match(sHabilidad, "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
---
---		if sHabilidad and sValor then
---			table.insert(aHabilidades, {sHabilidad=sHabilidad, nValor=tonumber(sValor)});
---		end
---	end
---	ParsearMultiSecundarias(aHabilidades);
---	return aHabilidades;
-	return aClauses;
-end
-
 function esSecundaria(sHabilidad)
 	sHabilidad=string.lower(sHabilidad);
 	if string.match(sHabilidad, "arma cc")==nil and string.match(sHabilidad,"arma pr")==nil and string.match(sHabilidad,"artesanía")==nil and string.match(sHabilidad,"idioma")==nil then
@@ -155,8 +104,92 @@ function esSecundaria(sHabilidad)
 	end
 end
 
+function ResetearHabilidadesProfesion()
+	numIdiomasProfesion=0;
+	numArmasProfesion=0;
+	numArtesaniasProfesion=0;
+	local rHabilidad; local rSecundaria;
+	for _,rHabilidad in pairs(ParseoHabilidades.DatosHabilidades) do
+		rHabilidad.prof=0;
+	end
+	for _,rHabilidad in pairs(ParseoHabilidades.DatosHabilidadesSecundarias) do
+		for _,rSecundaria in pairs(rHabilidad) do
+			rSecundaria.prof=0;
+		end
+	end
+end
+
 function ObtenerHabilidadesDeProfesion(sHabilidades)
-	Debug.chat(ParsearHabilidades(sHabilidades));
+	--Debug.chat(ParsearHabilidades(sHabilidades));
+	ResetearHabilidadesProfesion();
+	local aHabilidades = {}; local sClave;
+	local bEsMultiple=false; local sSingular=""; local sPlural="";
+	sHabilidades=sHabilidades:gsub("\n", " ");
+	sHabilidades=sHabilidades:gsub("  ", " ");
+	local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
+	
+	for i = 1, #aClauses do
+		if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+		if aClauses[i] and aClauses[i]~="" then
+			sClave=ParseoHabilidades.Habilidad2Clave[aClauses[i]:lower()];
+			bEsMultiple, sSingular, sPlural=ParseoHabilidades.esMultiple(aClauses[i])
+			if sClave and sClave~="" and ParseoHabilidades.DatosHabilidades[sClave] then
+--				Debug.chat("Habilidad simple", sClave);
+				ParseoHabilidades.DatosHabilidades[sClave].prof=1;
+			else
+				local sPrimaria, sSecundaria=aClauses[i]:match("(.*):[%s*](.*)");
+				if sPrimaria then sClave=ParseoHabilidades.Habilidad2Clave[sPrimaria:lower()]; else sClave=""; end
+				if sClave=="Idioma" and (sSecundaria=="Mezuri" or sSecundaria=="Austero") then sSecundaria="Mezuri o Austero" end
+				if sClave=="Idioma" and (sSecundaria=="Oriental" or sSecundaria=="Kunya") then sSecundaria="Oriental o Kunya" end
+				if sClave=="Artesania" and (sSecundaria=="Escultura" or sSecundaria=="Talla") then sSecundaria="Escultura/Talla" end
+				if sClave=="Artesania" and (sSecundaria=="Pintura" or sSecundaria=="Dibujo") then sSecundaria="Pintura/Dibujo" end
+
+				if sClave and sSecundaria and ParseoHabilidades.DatosHabilidadesSecundarias[sClave] and ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria] then
+--					Debug.chat("Habilidad secundaria", sClave, sSecundaria);
+					ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].prof=1;
+				elseif sPrimaria and sSecundaria and bEsMultiple then 
+--					Debug.chat("Habilidad múltiple", sPrimaria, sSecundaria);
+					sPrimaria=sPrimaria:gsub(sPlural, sSingular);
+					sClave=ParseoHabilidades.Habilidad2Clave[sSingular:lower()];
+					ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].prof=1;
+					local j=i+1;
+					while j&lt;=#aClauses and ParseoHabilidades.DatosHabilidadesSecundarias[sClave][aClauses[j]] do
+						aClauses[j]=sSingular..": "..aClauses[j];
+--						Debug.chat("\t\tHabilidad múltiple sin primaria", aClauses[j]);
+						j=j+1;
+					end
+				else
+					if aClauses[i]:lower()=="idioma propio" then
+						ParseoHabilidades.DatosHabilidades["Idioma Nativo"].prof=1;
+--						Debug.chat("Idioma propio", aClauses[i]);
+					elseif aClauses[i]:lower():match("de armas") then
+						local sNumArmas=aClauses[i]:lower():match("(.-) habilidad");
+						numArmasProfesion=StringToNum[sNumArmas];
+--						Debug.chat("armas de profesión", aClauses[i], sNumArmas);
+					elseif aClauses[i]:lower()=="otro idioma" then
+						numIdiomasProfesion=1;
+						numIdiomasProfesion=StringToNum[snumIdiomas];
+--						Debug.chat("otro idioma", aClauses[i], numIdiomasProfesion);
+					elseif aClauses[i]:lower():match("otros .- idiomas") then
+						local snumIdiomas=aClauses[i]:lower():match("otros (.-) idiomas");
+						numIdiomasProfesion=StringToNum[snumIdiomas];
+--						Debug.chat("otros X idiomas", aClauses[i], snumIdiomas);
+					elseif aClauses[i]:lower():match("idioma %(.- a elegir%)") then
+						local snumIdiomas=aClauses[i]:lower():match("idioma %((.-) a elegir%)");
+						numIdiomasProfesion=StringToNum[snumIdiomas];
+--						Debug.chat("otros X idiomas", aClauses[i], snumIdiomas);
+					elseif aClauses[i]:lower():match("(.-) artesanía") then
+						local snumArtesanias=aClauses[i]:lower():match("(.-) artesanía");
+						numArtesaniasProfesion=StringToNum[snumArtesanias];
+--						Debug.chat("Artesanías", aClauses[i], numArtesaniasProfesion);
+					else
+						Debug.chat("Otro tipo de habilidad", aClauses[i]);
+					end
+				end
+			end
+			--table.insert(aHabilidades, {sHabilidad=sHabilidad, nValor=tonumber(sValor)});
+		end
+	end
 end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />

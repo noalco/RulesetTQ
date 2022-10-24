@@ -2,7 +2,9 @@
   <Scripts>
     <ScriptName>CharWizard</ScriptName>
     <FolderID>21</FolderID>
-    <Script>function AniadirCaracteristicas(nodeChar, windowWizard)
+    <Script>local Ventana;
+
+function AniadirCaracteristicas(nodeChar, windowWizard)
 	DB.setValue(nodeChar, "Caracteristicas.BaseCuerpo", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseCuerpo.getValue());
 	DB.setValue(nodeChar, "Caracteristicas.BaseMente", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseMente.getValue());
 	DB.setValue(nodeChar, "Caracteristicas.BaseEspiritu", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseEspiritu.getValue());
@@ -80,8 +82,6 @@ function AniadirHabilidades(nodeChar, window)
 		end
 	end
 end
-
-local Ventana;
 
 function onCommitButtonPressed(window)
 	Ventana=window;
