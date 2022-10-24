@@ -10,7 +10,7 @@
     <Website />
     <Version>1</Version>
     <Release>8</Release>
-    <RulesetWizardVersion>0.8.2</RulesetWizardVersion>
+    <RulesetWizardVersion>0.8.3</RulesetWizardVersion>
     <RulesetList>CoreRPG</RulesetList>
     <LoadOrder />
     <Comments />
@@ -79207,6 +79207,21 @@ end
     <IconName>button_help_hover</IconName>
     <FolderID>33</FolderID>
     <IconFile>skin\botones\button_help_hover.png</IconFile>
+  </Icons>
+  <Icons>
+    <IconName>button_link</IconName>
+    <FolderID>33</FolderID>
+    <IconFile>skin\botones\button_link.png</IconFile>
+  </Icons>
+  <Icons>
+    <IconName>button_link_down</IconName>
+    <FolderID>33</FolderID>
+    <IconFile>skin\botones\button_link_down.png</IconFile>
+  </Icons>
+  <Icons>
+    <IconName>button_link_empty</IconName>
+    <FolderID>33</FolderID>
+    <IconFile>skin\botones\button_link_empty.png</IconFile>
   </Icons>
   <Icons>
     <IconName>char_class</IconName>
