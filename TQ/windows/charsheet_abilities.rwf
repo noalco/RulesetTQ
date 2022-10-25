@@ -104,8 +104,8 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Transforma puntos de experiencia en puntos de habilidad."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"152"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"20"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"154"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"19"}}
 ]}}</Definition>
     <LUACode>function onInit()
 	setVisible(window.HabilidadesPorSubir.getValue()==1);
@@ -133,7 +133,7 @@ end
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
+      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string","#text":"Resetear Marcas"}},
       {"Name":"ButtonField"},
@@ -176,14 +176,13 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"29"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"17"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"32"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"16"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
 	for _,nodeHabilidad in pairs(window.ListaHabilidades.getDatabaseNode().getChildren()) do
 		DB.setValue(nodeHabilidad, "Marca", "number", 0);
 	end
-	
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

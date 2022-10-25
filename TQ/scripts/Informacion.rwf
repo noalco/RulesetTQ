@@ -51,11 +51,14 @@
 --	["Tamanio"] = "&lt;h&gt;Tamaño&lt;/h&gt;&lt;p&gt;La talla de un personaje queda representada por este modificador, que en los seres humanos normales oscila entre -2 y +2, siendo las puntuaciones excepcionales de -3 y +4 las correspondientes a un enano o un niño, por un lado, o a un individuo enorme, por otro. Las especies no humanas pueden tener valores de Tamaño mayores o menores, como indica la tabla «Equivalencias de tamaño», en la siguiente página.&lt;/p&gt;&lt;p&gt;El Tamaño tiene diversos usos en el juego: sirve para calcular los Puntos de Vida de un personaje y su Fuerza.&lt;/p&gt;&lt;p&gt;Cotejando el Tamaño y el Cuerpo podemos hacernos una idea de la complexión de alguien. Una persona de Tamaño +3, con Cuerpo 9 será una gigantesca masa de músculos, mientras que con Cuerpo 4 será gordo y blando.&lt;/p&gt;",
 
 	["Etnia"] = "&lt;p&gt;La etnia de origen es el entorno cultural en el que ha crecido el aventurero. De ella dependen en buena medida sus valores y creencias, su lengua, su religión e incluso su aspecto físico. Es cierto que en las Tierras Quebradas empieza a despuntar el concepto de nación o el de cultura en sentido amplio, pero la etnia sigue siendo la idea que mejor sirve para definir a sus distintos pueblos y comunidades.&lt;/p&gt;&lt;p&gt;El origen étnico tiene un evidente valor narrativo, pero también posee algunos efectos mecánicos. Dependiendo de su origen, los aventureros pueden disponer de rasgos característicos o presentar más puntos en algunas habilidades. Al describir cada origen se indica también el idioma nativo y la religión o religiones asociadas. Por último, se señalan las limitaciones en la elección de profesiones. Si un jugador desea para esta raza u origen una profesión distinta, debería justificarlo a través de su historia personal.&lt;/p&gt;&lt;p&gt;Algunos orígenes están disponibles únicamente para aventureros mereníes o mestizos. El resto, aunque son característicos de los humanos, podrían ser también elegidos para un personaje de estas especies si ha sido criado en el seno de una familia humana.&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
+
+	-- ******************** Cultos ********************
+	["CAOS"] = "&lt;p&gt;&lt;b&gt;Ainiria&lt;/b&gt; Encanto&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ayrok&lt;/b&gt; Perspicacia, Persuadir&lt;/p&gt;&lt;p&gt;&lt;b&gt;Íkor&lt;/b&gt; Engañar, Perspicacia&lt;/p&gt;&lt;p&gt;&lt;b&gt;Mashak&lt;/b&gt; Autoridad, Oratoria&lt;/p&gt;&lt;p&gt;&lt;b&gt;Meibel&lt;/b&gt; Arma CC: Espada, Estrategia&lt;/p&gt;&lt;p&gt;&lt;b&gt;Melk&lt;/b&gt; Otro Idioma, Percatarse&lt;/p&gt;&lt;p&gt;&lt;b&gt;Nariaj&lt;/b&gt; Intimidar, Persuadir&lt;/p&gt;&lt;p&gt;&lt;b&gt;Shador&lt;/b&gt; Medicina&lt;/p&gt;&lt;p&gt;&lt;b&gt;Shonbark&lt;/b&gt; Autoridad, Torturar&lt;/p&gt;&lt;p&gt;&lt;b&gt;Slodar&lt;/b&gt; Encanto, Engañar&lt;/p&gt;&lt;p&gt;&lt;b&gt;Tesh-Chan&lt;/b&gt; Una artesanía, Bellas artes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vesh-Anh&lt;/b&gt; Interpretar sueños, Juego&lt;/p&gt;&lt;p&gt;&lt;b&gt;Yaroi&lt;/b&gt;: Manejar botes, Navegar&lt;/p&gt;",
+	["LEY"] = "&lt;p&gt;&lt;b&gt;El Artista&lt;/b&gt; Una Artesanía, Bellas artes&lt;/p&gt;&lt;p&gt;&lt;b&gt;Baaler&lt;/b&gt; Engañar, Hurtar&lt;/p&gt;&lt;p&gt;&lt;b&gt;El Comerciante&lt;/b&gt; Otro Idioma, Persuadir&lt;/p&gt;&lt;p&gt;&lt;b&gt;La Destructora&lt;/b&gt; Un Arma CC, Pelea&lt;/p&gt;&lt;p&gt;&lt;b&gt;El Escriba&lt;/b&gt; Otro Idioma, Instruir&lt;/p&gt;&lt;p&gt;&lt;b&gt;El Guerrero&lt;/b&gt; Dos habilidades de Armas&lt;/p&gt;&lt;p&gt;&lt;b&gt;El Juez&lt;/b&gt; Autoridad, Oratoria&lt;/p&gt;&lt;p&gt;&lt;b&gt;El Labrador&lt;/b&gt; Naturaleza&lt;/p&gt;&lt;p&gt;&lt;b&gt;La Madre&lt;/b&gt; Artesanía: Amortajar, Perspicacia&lt;/p&gt;&lt;p&gt;&lt;b&gt;El Navegante&lt;/b&gt; Artesanía: Embarcaciones, Navegar&lt;/p&gt;&lt;p&gt;&lt;b&gt;El Sabio&lt;/b&gt; Instruir, Inventar&lt;/p&gt;&lt;p&gt;&lt;b&gt;El Sanador&lt;/b&gt; Medicina, Primeros auxilios&lt;/p&gt;",
+	["ELEMENTALES"] = "&lt;p&gt;&lt;b&gt;Kamin&lt;/b&gt; Naturaleza&lt;/p&gt;&lt;p&gt;&lt;b&gt;Tepel&lt;/b&gt; Artesanía: Herrería&lt;/p&gt;&lt;p&gt;&lt;b&gt;Visdu&lt;/b&gt; Música&lt;/p&gt;&lt;p&gt;&lt;b&gt;Vodar&lt;/b&gt; Manejar botes, Nadar&lt;/p&gt;",
+	["OTROS"] = "&lt;p&gt;&lt;b&gt;Balanza&lt;/b&gt; Oratoria, Persuadir&lt;/p&gt;",
+
+	["Especialidades"] = "&lt;p&gt;&lt;b&gt;Escriba:&lt;/b&gt; otro Idioma.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Médico:&lt;/b&gt; Medicina, Primeros auxilios.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alquimista:&lt;/b&gt; Pociones.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ingeniero:&lt;/b&gt; Inventar.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Recaudador:&lt;/b&gt; Perspicacia.&lt;/p&gt;",
 --	[""] = "&lt;p&gt;&lt;/p&gt;",
 --	[""] = "&lt;p&gt;&lt;/p&gt;",
 --	[""] = "&lt;p&gt;&lt;/p&gt;",
@@ -109,7 +112,49 @@ function MostrarInfo(wVentanaRaiz, sClaveInfo, sCabecera, sInfoComplementariaAnt
 	if sInfoComplementariaDespues and sInfoComplementariaDespues~="" then sTexto=sTexto.."&lt;p&gt;"..sInfoComplementariaDespues.."&lt;/p&gt;"; end
 	wVentanaRaiz.Informacion.setValue(sTexto);
 end
-</Script>
+
+function MostrarHabilidades(wVentanaRaiz)
+	local valor; local record; local valor2; local record2; local clave;
+	local sTexto="&lt;h&gt;Habilidades básicas&lt;/h&gt;";
+	for valor,record in pairs(ParseoHabilidades.DatosHabilidades) do
+		--["Autoridad"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		sTexto=sTexto.."&lt;p&gt;&lt;b&gt;"..valor..":&lt;/b&gt; ";
+		for clave,valor in pairs(record) do
+			sTexto=sTexto..clave.."="..valor.."; ";
+		end
+		sTexto=sTexto.."&lt;/p&gt;"
+	end
+
+	sTexto=sTexto.."&lt;h&gt;Habilidades secundarias&lt;/h&gt;";
+	for valor,record in pairs(ParseoHabilidades.DatosHabilidadesSecundarias) do
+		--["Autoridad"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		for valor2,record2 in pairs(record) do
+			sTexto=sTexto.."&lt;p&gt;&lt;b&gt;"..valor..": "..valor2..":&lt;/b&gt; ";
+			for clave,valor in pairs(record2) do
+				sTexto=sTexto..clave.."="..valor.."; ";
+			end
+			sTexto=sTexto.."&lt;/p&gt;"
+		end
+	end
+	
+	sTexto=sTexto.."&lt;h&gt;Armas extra profesion&lt;/h&gt;";
+	for valor,record in pairs(ParseoProfesiones.ArmasExtraProfesion) do
+		--[1]={tipo="", arma=""}
+		sTexto=sTexto.."&lt;p&gt;&lt;b&gt;Arma "..valor..":&lt;/b&gt; tipo="..record.tipo.."; arma="..record.arma.."&lt;/p&gt;"
+	end
+	
+	sTexto=sTexto.."&lt;h&gt;Idiomas extra profesion&lt;/h&gt;";
+	for clave,valor in pairs(ParseoProfesiones.IdiomasExtraProfesion) do
+		sTexto=sTexto.."&lt;p&gt;&lt;b&gt;Idioma "..clave..":&lt;/b&gt; "..valor.."&lt;/p&gt;"
+	end
+	
+	sTexto=sTexto.."&lt;h&gt;Artesanías extra profesion&lt;/h&gt;";
+	for clave,valor in pairs(ParseoProfesiones.ArtesaniasExtraProfesion) do
+		sTexto=sTexto.."&lt;p&gt;&lt;b&gt;Artesanía "..clave..":&lt;/b&gt; "..valor.."&lt;/p&gt;"
+	end
+	--Debug.chat(sTexto)
+	wVentanaRaiz.Informacion.setValue(sTexto);
+end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />
   </Scripts>

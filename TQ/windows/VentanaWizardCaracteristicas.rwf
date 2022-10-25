@@ -835,14 +835,15 @@ end
 		window.MaxTamanioEdad.setValue(2);
 		window.MaxAtractivo.setValue(2);
 	end
+	if ParseoProfesiones.HabilidadesDeProfesion[window.LabelTipoEdad.getValue()] then
+		ParseoProfesiones.numHabilidadesProfesion=ParseoProfesiones.HabilidadesDeProfesion[window.LabelTipoEdad.getValue()];
+	else
+		ParseoProfesiones.numHabilidadesProfesion=60;
+	end
 	window.PtosDisponiblesConEspecieYEdad.Actualizar();
 	Informacion.MostrarInfo(window.parentcontrol.window, window.LabelTipoEdad.getValue(), "Edad: "..window.LabelTipoEdad.getValue());
 end
-
---function onHover(state)
---	Informacion.MostrarInfo(window.parentcontrol.window, window.LabelTipoEdad.getValue());
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -2451,9 +2452,7 @@ function onDrop(x, y, dragdata)
 			local sProfesion=window.parentcontrol.window.SubventanaWizardProfesion.subwindow.NombreProfesion.getValue();
 			if sProfesion~="" then
 				if not ParseoProfesiones.ProfesionPermitida(sProfesion) then
-					window.parentcontrol.window.SubventanaWizardProfesion.subwindow.NombreProfesion.setValue("");
-					window.parentcontrol.window.SubventanaWizardProfesion.subwindow.LinkProfesion.setValue("");
-					window.parentcontrol.window.SubventanaWizardProfesion.subwindow.PPProfesion.setValue(0);
+					ParseoProfesiones.ResetearHabilidadesProfesion();
 					window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 					window.parentcontrol.window.Mensajes.setValue("La profesión que tenías elegida ya no es compatible con el nuevo origen étnico seleccionado. Debes elegir una nueva profesión.");
 				end

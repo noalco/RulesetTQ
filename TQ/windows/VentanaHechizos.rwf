@@ -1788,7 +1788,7 @@ end</LUACode>
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"VentanaHechizos"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DataSource"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"500"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"585"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"480"}},
       {"Name":"Disabled"},
       {"Name":"Dynamic"},
