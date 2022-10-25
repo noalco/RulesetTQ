@@ -2,33 +2,20 @@
   <Scripts>
     <ScriptName>ParseoProfesiones</ScriptName>
     <FolderID>21</FolderID>
-    <Script>--Profesiones={
---	["artesano"] = true,
---	["artista"] = true,
---	["asesino"] = true,
---	["bandido"] = true,
---	["campesino"] = true,
---	["cazador"] = true,
---	["criado"] = true,
---	["chamán"] = true,
---	["espía"] = true,
---	["hechicero"] = true,
---	["hechicero guerrero"] = true,
---	["ladrón"] = true,
---	["mensajero"] = true,
---	["marinero"] = true,
---	["mendigo"] = true,
---	["mercader"] = true,
---	["minero"] = true,
---	["noble cortesano"] = true,
---	["noble guerrero"] = true,
---	["nómada"] = true,
---	["pirata"] = true,
---	["sabio"] = true,
---	["sacerdote"] = true,
---	["sacerdote guerrero"] = true,
---	["soldado"] = true,
---}
+    <Script>StringToNum={
+	["un"]=1,
+	["uno"]=1,
+	["una"]=1,
+	["dos"]=2,
+	["tres"]=3,
+	["cuatro"]=4,
+	["cinco"]=5,
+	["seis"]=6,
+	["siete"]=7,
+	["ocho"]=8,
+	["nueve"]=9,
+	["diez"]=10,
+}
 
 Profesiones={
 	["artesano"] = {permitida=true, restriccion=""},
@@ -57,6 +44,31 @@ Profesiones={
 	["sacerdote guerrero"] = {permitida=true, restriccion=""},
 	["soldado"] = {permitida=true, restriccion=""},
 }
+
+HabilidadesDeProfesion={
+	["Niño"]=40,
+	["Joven"]=50,
+	["Adulto"]=60,
+	["Mayor"]=70,
+	["Viejo"]=80,
+	["Anciano"]=90,
+}
+
+ArmasExtraProfesion={[1]={tipo="", arma=""},[2]={tipo="", arma=""},[3]={tipo="", arma=""},[4]={tipo="", arma=""}}
+IdiomasExtraProfesion={[1]="",[2]="",[3]="",[4]=""}
+ArtesaniasExtraProfesion={[1]="",[2]="",[3]="",[4]=""}
+
+sEspecialidadSabio="";
+sIdiomaEspecialidadSabio="";
+
+numIdiomasProfesion=0;
+numArmasProfesion=0;
+numArtesaniasProfesion=0;
+numVerbosProfesion=0;
+numEsferasProfesion=0;
+numHabilidadesMagicasProfesion=0;
+numHabilidadesProfesion=60;
+numHabilidadesNoProfesion=0;
 
 function ObtenerListaProfesiones(sProfesiones, bPermitir)
 	local aClauses={};
@@ -92,13 +104,249 @@ function ObtenerProfesionesPermitidas(sProfesiones)
 		local sProfesionesConExcepciones, sExcepciones=aClauses[2]:match("Puede ser (.*) si escoge la (.*)");
 		sProfesionesConExcepciones=sProfesionesConExcepciones:gsub(" o ", ", ");
 		aClauses,_=StringManager.split(sProfesionesConExcepciones, ",", true);
-		Debug.chat(aClauses)
+		--Debug.chat(aClauses)
 		for i=1,#aClauses do
 			if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
 			if Profesiones[aClauses[i]] then Profesiones[aClauses[i]].restriccion=sExcepciones; end
 		end
 	end
 end;
+
+function ProfesionPermitida(sProfesion)
+	return sProfesion and ParseoProfesiones.Profesiones[sProfesion:lower()] and ParseoProfesiones.Profesiones[sProfesion:lower()].permitida
+end
+
+function esSecundaria(sHabilidad)
+	sHabilidad=string.lower(sHabilidad);
+	if string.match(sHabilidad, "arma cc")==nil and string.match(sHabilidad,"arma pr")==nil and string.match(sHabilidad,"artesanía")==nil and string.match(sHabilidad,"idioma")==nil then
+		return false;
+	else
+		return true;
+	end
+end
+
+function ResetearHabilidadesProfesion()
+	ArmasExtraProfesion={[1]={tipo="", arma=""},[2]={tipo="", arma=""},[3]={tipo="", arma=""},[4]={tipo="", arma=""}}
+	IdiomasExtraProfesion={[1]="",[2]="",[3]="",[4]=""}
+	ArtesaniasExtraProfesion={[1]="",[2]="",[3]="",[4]=""}
+	
+	numIdiomasProfesion=0;
+	numArmasProfesion=0;
+	numArtesaniasProfesion=0;
+	numVerbosProfesion=0;
+	numEsferasProfesion=0;
+	numVerbosProfesion=0;
+	numEsferasProfesion=0;
+	numHabilidadesMagicasProfesion=0;
+	numHabilidadesProfesion=60;
+	
+	local rHabilidad; local rSecundaria;
+	for _,rHabilidad in pairs(ParseoHabilidades.DatosHabilidades) do
+		rHabilidad.prof=0;
+	end
+	for _,rHabilidad in pairs(ParseoHabilidades.DatosHabilidadesSecundarias) do
+		for _,rSecundaria in pairs(rHabilidad) do
+			rSecundaria.prof=0;
+		end
+	end
+	
+	local vVentanaWizard=Herramientas.ObtenerVentana("charwizard", "");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.NombreProfesion.setValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.LinkProfesion.setValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.PPProfesion.setValue(0);
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.TipoArma1.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.TipoArma2.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.TipoArma3.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.TipoArma4.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadCC1.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadCC2.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadCC3.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadCC4.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadPr1.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadPr2.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadPr3.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadPr4.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionIdioma1.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionIdioma2.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionIdioma3.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionIdioma4.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania1.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania2.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania3.setStringValue("");
+	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania4.setStringValue("");
+end
+
+function ModificarHabilidadesProfCulto(aClauses, sCampo, nValor)
+	local aHabilidades = {}; local sClave; local bEsMultiple=false; local sSingular=""; local sPlural="";
+	
+	for i = 1, #aClauses do
+		if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+		if aClauses[i] and aClauses[i]~="" then
+			sClave=ParseoHabilidades.Habilidad2Clave[aClauses[i]:lower()];
+			bEsMultiple, sSingular, sPlural=ParseoHabilidades.esMultiple(aClauses[i])
+			if sClave and sClave~="" and ParseoHabilidades.DatosHabilidades[sClave] then
+--				Debug.chat("Habilidad simple", sClave);
+				ParseoHabilidades.DatosHabilidades[sClave][sCampo]=nValor;
+			else
+				local sPrimaria, sSecundaria=aClauses[i]:match("(.*):[%s*](.*)");
+				if sPrimaria then sClave=ParseoHabilidades.Habilidad2Clave[sPrimaria:lower()]; else sClave=""; end
+				if sClave=="Idioma" and (sSecundaria=="Mezuri" or sSecundaria=="Austero") then sSecundaria="Mezuri o Austero" end
+				if sClave=="Idioma" and (sSecundaria=="Oriental" or sSecundaria=="Kunya") then sSecundaria="Oriental o Kunya" end
+				if sClave=="Artesania" and (sSecundaria=="Escultura" or sSecundaria=="Talla") then sSecundaria="Escultura/Talla" end
+				if sClave=="Artesania" and (sSecundaria=="Pintura" or sSecundaria=="Dibujo") then sSecundaria="Pintura/Dibujo" end
+
+				if sClave and sSecundaria and ParseoHabilidades.DatosHabilidadesSecundarias[sClave] and ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria] then
+--					Debug.chat("Habilidad secundaria", sClave, sSecundaria);
+					ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria][sCampo]=nValor;
+				elseif sPrimaria and sSecundaria and bEsMultiple then 
+--					Debug.chat("Habilidad múltiple", sPrimaria, sSecundaria);
+					sPrimaria=sPrimaria:gsub(sPlural, sSingular);
+					sClave=ParseoHabilidades.Habilidad2Clave[sSingular:lower()];
+					ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria][sCampo]=nValor;
+					local j=i+1;
+					while j&lt;=#aClauses and ParseoHabilidades.DatosHabilidadesSecundarias[sClave][aClauses[j]] do
+						aClauses[j]=sSingular..": "..aClauses[j];
+--						Debug.chat("\t\tHabilidad múltiple sin primaria", aClauses[j]);
+						j=j+1;
+					end
+				else
+					if aClauses[i]:lower()=="idioma propio" then
+						ParseoHabilidades.DatosHabilidades["Idioma Nativo"][sCampo]=nValor;
+--						Debug.chat("Idioma propio", aClauses[i]);
+					elseif aClauses[i]:lower():match("de armas") then
+						local sNumArmas=aClauses[i]:lower():match("(.-) habilidad");
+						numArmasProfesion=StringToNum[sNumArmas];
+--						Debug.chat("armas de profesión", aClauses[i], sNumArmas);
+					elseif aClauses[i]:lower()=="otro idioma" then
+						numIdiomasProfesion=1;
+						numIdiomasProfesion=StringToNum[snumIdiomas];
+--						Debug.chat("otro idioma", aClauses[i], numIdiomasProfesion);
+					elseif aClauses[i]:lower():match("otros .- idiomas") then
+						local snumIdiomas=aClauses[i]:lower():match("otros (.-) idiomas");
+						numIdiomasProfesion=StringToNum[snumIdiomas];
+--						Debug.chat("otros X idiomas", aClauses[i], snumIdiomas);
+					elseif aClauses[i]:lower():match("idioma %(.- a elegir%)") then
+						local snumIdiomas=aClauses[i]:lower():match("idioma %((.-) a elegir%)");
+						numIdiomasProfesion=StringToNum[snumIdiomas];
+--						Debug.chat("otros X idiomas", aClauses[i], snumIdiomas);
+					elseif aClauses[i]:lower():match("(.-) artesanía") then
+						local snumArtesanias=aClauses[i]:lower():match("(.-) artesanía");
+						numArtesaniasProfesion=StringToNum[snumArtesanias];
+--						Debug.chat("Artesanías", aClauses[i], numArtesaniasProfesion);
+					elseif aClauses[i]:lower():match("habilidades mágicas: .- verbos y .- esferas") then
+						local sNumVerbos, sNumEsferas=aClauses[i]:lower():match("habilidades mágicas: (.-) verbos y (.-) esferas");
+						numVerbosProfesion=StringToNum[sNumVerbos];
+						numEsferasProfesion=StringToNum[sNumEsferas];
+--						Debug.chat("Habilidades mágicas separadas", aClauses[i], sNumVerbos, sNumEsferas, numVerbosProfesion, numEsferasProfesion);
+					elseif aClauses[i]:lower():match("habilidades mágicas") then
+						local sHabilidadesMagicas=aClauses[i]:lower():match("(.-) habilidades mágicas");
+						numHabilidadesMagicasProfesion=StringToNum[sHabilidadesMagicas];
+--						Debug.chat("Habilidades mágicas", numHabilidadesMagicasProfesion);
+					else
+						Debug.chat("Otro tipo de habilidad", aClauses[i]);
+					end
+				end
+			end
+		end
+	end
+end
+
+function ObtenerHabilidadesDeProfesion(sHabilidades)
+	--Debug.chat(ParsearHabilidades(sHabilidades));
+	ResetearHabilidadesProfesion();
+--	local aHabilidades = {}; local sClave;
+--	local bEsMultiple=false; local sSingular=""; local sPlural="";
+	sHabilidades=sHabilidades:gsub("\n", " ");
+	sHabilidades=sHabilidades:gsub("  ", " ");
+	local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
+	
+--	for i = 1, #aClauses do
+--		if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+--		if aClauses[i] and aClauses[i]~="" then
+--			sClave=ParseoHabilidades.Habilidad2Clave[aClauses[i]:lower()];
+--			bEsMultiple, sSingular, sPlural=ParseoHabilidades.esMultiple(aClauses[i])
+--			if sClave and sClave~="" and ParseoHabilidades.DatosHabilidades[sClave] then
+----				Debug.chat("Habilidad simple", sClave);
+--				ParseoHabilidades.DatosHabilidades[sClave].prof=1;
+--			else
+--				local sPrimaria, sSecundaria=aClauses[i]:match("(.*):[%s*](.*)");
+--				if sPrimaria then sClave=ParseoHabilidades.Habilidad2Clave[sPrimaria:lower()]; else sClave=""; end
+--				if sClave=="Idioma" and (sSecundaria=="Mezuri" or sSecundaria=="Austero") then sSecundaria="Mezuri o Austero" end
+--				if sClave=="Idioma" and (sSecundaria=="Oriental" or sSecundaria=="Kunya") then sSecundaria="Oriental o Kunya" end
+--				if sClave=="Artesania" and (sSecundaria=="Escultura" or sSecundaria=="Talla") then sSecundaria="Escultura/Talla" end
+--				if sClave=="Artesania" and (sSecundaria=="Pintura" or sSecundaria=="Dibujo") then sSecundaria="Pintura/Dibujo" end
+--
+--				if sClave and sSecundaria and ParseoHabilidades.DatosHabilidadesSecundarias[sClave] and ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria] then
+----					Debug.chat("Habilidad secundaria", sClave, sSecundaria);
+--					ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].prof=1;
+--				elseif sPrimaria and sSecundaria and bEsMultiple then 
+----					Debug.chat("Habilidad múltiple", sPrimaria, sSecundaria);
+--					sPrimaria=sPrimaria:gsub(sPlural, sSingular);
+--					sClave=ParseoHabilidades.Habilidad2Clave[sSingular:lower()];
+--					ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].prof=1;
+--					local j=i+1;
+--					while j&lt;=#aClauses and ParseoHabilidades.DatosHabilidadesSecundarias[sClave][aClauses[j]] do
+--						aClauses[j]=sSingular..": "..aClauses[j];
+----						Debug.chat("\t\tHabilidad múltiple sin primaria", aClauses[j]);
+--						j=j+1;
+--					end
+--				else
+--					if aClauses[i]:lower()=="idioma propio" then
+--						ParseoHabilidades.DatosHabilidades["Idioma Nativo"].prof=1;
+----						Debug.chat("Idioma propio", aClauses[i]);
+--					elseif aClauses[i]:lower():match("de armas") then
+--						local sNumArmas=aClauses[i]:lower():match("(.-) habilidad");
+--						numArmasProfesion=StringToNum[sNumArmas];
+----						Debug.chat("armas de profesión", aClauses[i], sNumArmas);
+--					elseif aClauses[i]:lower()=="otro idioma" then
+--						numIdiomasProfesion=1;
+--						numIdiomasProfesion=StringToNum[snumIdiomas];
+----						Debug.chat("otro idioma", aClauses[i], numIdiomasProfesion);
+--					elseif aClauses[i]:lower():match("otros .- idiomas") then
+--						local snumIdiomas=aClauses[i]:lower():match("otros (.-) idiomas");
+--						numIdiomasProfesion=StringToNum[snumIdiomas];
+----						Debug.chat("otros X idiomas", aClauses[i], snumIdiomas);
+--					elseif aClauses[i]:lower():match("idioma %(.- a elegir%)") then
+--						local snumIdiomas=aClauses[i]:lower():match("idioma %((.-) a elegir%)");
+--						numIdiomasProfesion=StringToNum[snumIdiomas];
+----						Debug.chat("otros X idiomas", aClauses[i], snumIdiomas);
+--					elseif aClauses[i]:lower():match("(.-) artesanía") then
+--						local snumArtesanias=aClauses[i]:lower():match("(.-) artesanía");
+--						numArtesaniasProfesion=StringToNum[snumArtesanias];
+----						Debug.chat("Artesanías", aClauses[i], numArtesaniasProfesion);
+--					elseif aClauses[i]:lower():match("habilidades mágicas: .- verbos y .- esferas") then
+--						local sNumVerbos, sNumEsferas=aClauses[i]:lower():match("habilidades mágicas: (.-) verbos y (.-) esferas");
+--						numVerbosProfesion=StringToNum[sNumVerbos];
+--						numEsferasProfesion=StringToNum[sNumEsferas];
+----						Debug.chat("Habilidades mágicas separadas", aClauses[i], sNumVerbos, sNumEsferas, numVerbosProfesion, numEsferasProfesion);
+--					elseif aClauses[i]:lower():match("habilidades mágicas") then
+--						local sHabilidadesMagicas=aClauses[i]:lower():match("(.-) habilidades mágicas");
+--						numHabilidadesMagicasProfesion=StringToNum[sHabilidadesMagicas];
+----						Debug.chat("Habilidades mágicas", numHabilidadesMagicasProfesion);
+--					else
+--						Debug.chat("Otro tipo de habilidad", aClauses[i]);
+--					end
+--				end
+--			end
+--		end
+--	end
+	ModificarHabilidadesProfCulto(aClauses, "prof", 1);
+end
+
+function ModificarHabilidadesCulto(sHabilidades, bAniadir)
+	local nValor;
+	local aClauses,_ = StringManager.split(sHabilidades, ",", true);
+	
+	if bAniadir then
+		if #aClauses==1 then nValor=2;
+		else nValor=1;
+		end
+	else
+		nValor=0;
+	end
+
+	ModificarHabilidadesProfCulto(aClauses, "culto", nValor);
+end
 </Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />

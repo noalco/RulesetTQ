@@ -44,8 +44,8 @@ Liberías:
 			- Filtros Min/Max en las ventajas y desventajas
 	
 Wizard
+- Habilidades secundarias de profesiones no se crean bien
 	- Profesión
-		- Habilidades de profesión
 		- Habilidades extra de Sacerdote y Lealtad +10 a una religión
 		- Hechiceros y Chamanes añaden la ventaja Hechicería
 	- Ventajas y Desventajas
@@ -73,18 +73,6 @@ Orígenes étnicos:
 
 
 Profesiones
-	Puntos de habilidad a repartir (no más de 8 ptos./habilidad):
-		40 niños
-		50 joven
-		60 adulto
-		70 mayor
-		80 viejo
-		90 anciano
-	Habilidades: habilidades separadas por coma (mismo formato que en los orígenes étnicos). Pueden aparecer cosas del tipo:
-		"una Artesanía", "dos Artesanías"
-		"una habilidad de Armas", "dos habilidades de Armas", "Armas CC: Escudo, Espada"
-		"cuatro habilidades mágicas: dos Verbos y dos Esferas", "seis habilidades mágicas: tres Verbos y tres Esferas", "tres habilidades mágicas"
-		"Idioma propio", "otro Idioma", "Idioma (tres a elegir)", "Otros dos idiomas"
 	Ventajas y Desventajas: Hechicería.
 	Especialidades (Sabio): (a elegir de entre varias (habilidades extras en el mismo formato que el resto)"
 	Lealtad: Religión elegida +10.

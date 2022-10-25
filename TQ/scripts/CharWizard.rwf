@@ -2,7 +2,9 @@
   <Scripts>
     <ScriptName>CharWizard</ScriptName>
     <FolderID>21</FolderID>
-    <Script>function AniadirCaracteristicas(nodeChar, windowWizard)
+    <Script>local Ventana;
+
+function AniadirCaracteristicas(nodeChar, windowWizard)
 	DB.setValue(nodeChar, "Caracteristicas.BaseCuerpo", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseCuerpo.getValue());
 	DB.setValue(nodeChar, "Caracteristicas.BaseMente", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseMente.getValue());
 	DB.setValue(nodeChar, "Caracteristicas.BaseEspiritu", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseEspiritu.getValue());
@@ -25,6 +27,16 @@ function AniadirPersonalidad(nodeChar, windowWizard)
 	DB.setValue(nodeChar, "Notas.Edad", "string", windowWizard.SubventanaWizardCaracteristicas.subwindow.Edad.getValue());
 	DB.setValue(nodeChar, "Notas.Especie", "string", windowWizard.SubventanaWizardCaracteristicas.subwindow.SeleccionEspecie.getStringValue());
 	DB.setValue(nodeChar, "Notas.Origen", "string", windowWizard.SubventanaWizardCaracteristicas.subwindow.NombreEtnia.getValue());
+	local sProfesion=windowWizard.SubventanaWizardProfesion.subwindow.NombreProfesion.getValue();
+	if sProfesion:lower():match("sabio") and ParseoProfesiones.sEspecialidadSabio~="" then
+		sProfesion=sProfesion.." ("..ParseoProfesiones.sEspecialidadSabio..")";
+	end;
+	DB.setValue(nodeChar, "Notas.Profesion", "string", sProfesion);
+	local sReligion=windowWizard.SubventanaWizardProfesion.subwindow.Culto.getValue()
+	if windowWizard.SubventanaWizardProfesion.subwindow.Culto.getValue()~="" then
+		sReligion=sReligion.." ("..windowWizard.SubventanaWizardProfesion.subwindow.Deidad.getValue()..")";
+	end;
+	DB.setValue(nodeChar, "Notas.Religion", "string", sReligion);
 end
 
 function AniadirHabilidades(nodeChar, window)
@@ -48,6 +60,23 @@ function AniadirHabilidades(nodeChar, window)
 			end;
 		end
 	end
+	
+	for i=1,ParseoProfesiones.numArmasProfesion do
+		local tipo=ParseoProfesiones.ArmasExtraProfesion[i].tipo; local arma=ParseoProfesiones.ArmasExtraProfesion[i].arma;
+		Debug.chat(tipo, arma);
+		if tipo~="" and arma~="" then ParseoHabilidades.DatosHabilidadesSecundarias[tipo][arma].prof=1; end
+	end
+
+	for i=1,ParseoProfesiones.numIdiomasProfesion do
+		local idioma=ParseoProfesiones.IdiomasExtraProfesion[i];
+		if idioma~="" then ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][idioma].prof=1; end
+	end
+
+	for i=1,ParseoProfesiones.numArtesaniasProfesion do
+		local artesania=ParseoProfesiones.ArtesaniasExtraProfesion[i];
+		if artesania~="" then ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][artesania].prof=1; end
+	end
+
 	for sClave, rHabilidad in pairs(ParseoHabilidades.DatosHabilidadesSecundarias) do
 		for sSecundaria, rSecundaria in pairs(rHabilidad) do
 			if not ParseoHabilidades.SecundariaVacia(sClave, sSecundaria) then
@@ -79,9 +108,12 @@ function AniadirHabilidades(nodeChar, window)
 			end
 		end
 	end
+	DB.setValue(nodeChar, "Hechiceria.NumVerbosDisponibles", "number", ParseoProfesiones.numVerbosProfesion);
+	DB.setValue(nodeChar, "Hechiceria.NumEsferasDisponibles", "number", ParseoProfesiones.numEsferasProfesion);
+	DB.setValue(nodeChar, "Hechiceria.NumLibresDisponibles", "number", ParseoProfesiones.numHabilidadesMagicasProfesion);
+	DB.setValue(nodeChar, "Habilidades.NumHabilidadesProfDisponibles", "number", ParseoProfesiones.numHabilidadesProfesion);
+	DB.setValue(nodeChar, "Habilidades.NumHabilidadesNoProfDisponibles", "number", ParseoProfesiones.numHabilidadesNoProfesion);	
 end
-
-local Ventana;
 
 function onCommitButtonPressed(window)
 	Ventana=window;

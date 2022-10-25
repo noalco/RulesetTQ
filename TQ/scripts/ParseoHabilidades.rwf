@@ -124,7 +124,7 @@ DatosHabilidadesSecundarias = {
 	["Arma Pr"]={
 		["Arco"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
 		["Ballesta"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
-		["Canon de mano"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
+		["Cañón de mano"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0},
 		["Honda"]={prof=0, PG=0, etnia=0, culto=0, esp=0, VentDes=0, varios=0, multEst=0}
 	},
 	["Artesania"]={

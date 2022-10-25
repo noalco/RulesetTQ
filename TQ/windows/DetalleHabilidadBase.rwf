@@ -197,7 +197,7 @@ end
   <WindowControls>
     <WindowName>DetalleHabilidadBase</WindowName>
     <ControlName>BonoCulto</ControlName>
-    <ZIndex>18</ZIndex>
+    <ZIndex>17</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -235,21 +235,21 @@ end
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
       {"Name":"MinValue"},
-      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"MultEstorbo"}},
+      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoEspecialidad"}},
       {"Name":"NoDrag"},
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
-      {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoEspecialidad"}},
+      {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoEtnia"}},
       {"Name":"ReadOnly"},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
-      {"Name":"Source","Value":{"@xsi:type":"xsd:string","#text":"BonoCulto"}},
+      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"342"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"300"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
     <LUACode />
@@ -259,7 +259,7 @@ end
   <WindowControls>
     <WindowName>DetalleHabilidadBase</WindowName>
     <ControlName>BonoEspecialidad</ControlName>
-    <ZIndex>17</ZIndex>
+    <ZIndex>18</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -297,21 +297,21 @@ end
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
       {"Name":"MinValue"},
-      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoCulto"}},
+      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoVentDesvent"}},
       {"Name":"NoDrag"},
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
-      {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoEtnia"}},
+      {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoCulto"}},
       {"Name":"ReadOnly"},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
-      {"Name":"Source","Value":{"@xsi:type":"xsd:string","#text":"BonoEspecialidad"}},
+      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"300"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"342"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
     <LUACode />
@@ -359,7 +359,7 @@ end
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
       {"Name":"MinValue"},
-      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoEspecialidad"}},
+      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoCulto"}},
       {"Name":"NoDrag"},
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
@@ -425,7 +425,7 @@ end
       {"Name":"NoDrag"},
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
-      {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoCulto"}},
+      {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoVentDesvent"}},
       {"Name":"ReadOnly"},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
@@ -482,15 +482,15 @@ end
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"MaxValue"},
-      {"Name":"Merge"},
+      {"Name":"Merge","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
       {"Name":"MinValue"},
-      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"MultEstorbo"}},
+      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoMisc"}},
       {"Name":"NoDrag"},
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
-      {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoCulto"}},
+      {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoEspecialidad"}},
       {"Name":"ReadOnly"},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
@@ -730,7 +730,7 @@ end
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
       {"Name":"MinValue"},
-      {"Name":"NextTabTarget"},
+      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"PtosGratis"}},
       {"Name":"NoDrag"},
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
@@ -1126,11 +1126,11 @@ end</LUACode>
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
       {"Name":"MinValue"},
-      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"MultEstorbo"}},
+      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"HabilidadBono1"}},
       {"Name":"NoDrag"},
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
-      {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoCulto"}},
+      {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"BonoMisc"}},
       {"Name":"ReadOnly"},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
