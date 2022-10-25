@@ -79374,6 +79374,11 @@ end
     <IconFile>PixelNegro.png</IconFile>
   </Icons>
   <Icons>
+    <IconName>portrait_gm_token</IconName>
+    <FolderID>35</FolderID>
+    <IconFile>skin\escritorio\portrait_gm_token.png</IconFile>
+  </Icons>
+  <Icons>
     <IconName>RadialArma</IconName>
     <FolderID>6</FolderID>
     <IconFile>RadialArma.png</IconFile>
