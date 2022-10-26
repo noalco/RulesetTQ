@@ -20,6 +20,7 @@
 	["estrategia"]="Estrategia",
 	["forzar cerraduras"]="Forzar Cerraduras",
 	["hurtar"]="Hurtar",
+	["idioma propio"]="Idioma Nativo",	
 	["idioma"]="Idioma",
 	["instruir"]="Instruir",
 	["interpretar sueños"]="Interpretar Suenios",
@@ -171,9 +172,13 @@ DatosHabilidadesSecundarias = {
 	},
 }
 
-HabilidadesProf=60;
-HabilidadesNoProf=40;
 IdiomaNativo="";
+nValorHabilidadGenericaEtnia=0;
+bHabilidadDeCultura=false;
+sHabilidadDeCultura="";
+sIdiomaHabilidadDeCultura="";
+bArtesania=false;
+sArtesania="";
 
 function ResetDatos()
 	local sClave; local rHabilidad; local sCampo; local rSecundaria; local sSecundaria;
@@ -190,6 +195,13 @@ function ResetDatos()
 		end
 	end
 
+	IdiomaNativo="";
+	nValorHabilidadGenericaEtnia=0;
+	bHabilidadDeCultura=false;
+	sHabilidadDeCultura="";
+	sIdiomaHabilidadDeCultura="";
+	bArtesania=false;
+	sArtesania="";
 end
 
 function esMultiple(sHabilidad)
@@ -296,10 +308,18 @@ function ModificarHabilidades(sRecord, sTipo, bAniadir)
 		local aHabilidades = ParsearHabilidades(DB.getValue(sPathName, ""));
 		for i = 1, #aHabilidades do
 			local sAux=string.lower(aHabilidades[i].sHabilidad);
-			if esSecundaria(aHabilidades[i].sHabilidad) then
-				ModificarHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo, bAniadir);
+			if aHabilidades[i].sHabilidad:lower():match("una artesanía") then
+				bArtesania=true;
+				nValorHabilidadGenericaEtnia=aHabilidades[i].nValor;
 			elseif Habilidad2Clave[sAux] and DatosHabilidades[Habilidad2Clave[sAux]] and DatosHabilidades[Habilidad2Clave[sAux]][sTipo] then
 				DatosHabilidades[Habilidad2Clave[sAux]][sTipo]=DatosHabilidades[Habilidad2Clave[sAux]][sTipo]+aHabilidades[i].nValor*nAniadir;
+			elseif esSecundaria(aHabilidades[i].sHabilidad) then
+				ModificarHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo, bAniadir);
+			elseif aHabilidades[i].sHabilidad:lower():match("habilidad de cultura") then
+				bHabilidadDeCultura=true;
+				nValorHabilidadGenericaEtnia=aHabilidades[i].nValor;
+			else
+				Debug.chat(aHabilidades[i])
 			end
 		end
 	end

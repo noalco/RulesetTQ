@@ -1,6 +1,65 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <WindowControls>
     <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>ArtesaniaEtnia</ControlName>
+    <ZIndex>67</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"ArtesaniaEtnia"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string","#text":"Artesanía"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"120"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Albañilería","Value":"Albañilería"},{"Label":"Alfarería","Value":"Alfarería"},{"Label":"Armería","Value":"Armería"},{"Label":"Carnicería","Value":"Carnicería"},{"Label":"Carpintería","Value":"Carpintería"},{"Label":"Cartogrfía","Value":"Cartogrfía"},{"Label":"Cervecería","Value":"Cervecería"},{"Label":"Cestería","Value":"Cestería"},{"Label":"Cocina","Value":"Cocina"},{"Label":"Cristalería","Value":"Cristalería"},{"Label":"Destilería","Value":"Destilería"},{"Label":"Embarcaciones","Value":"Embarcaciones"},{"Label":"Escultura/Talla","Value":"Escultura/Talla"},{"Label":"Herrería","Value":"Herrería"},{"Label":"Ilustración","Value":"Ilustración"},{"Label":"Joyería","Value":"Joyería"},{"Label":"Peletería","Value":"Peletería"},{"Label":"Perfumería","Value":"Perfumería"},{"Label":"Pintura/Dibujo","Value":"Pintura/Dibujo"},{"Label":"Panadería","Value":"Panadería"},{"Label":"Sastrería","Value":"Sastrería"},{"Label":"Tatuajes","Value":"Tatuajes"},{"Label":"Tejeduría","Value":"Tejeduría"},{"Label":"Velería","Value":"Velería"},{"Label":"Vinicultura","Value":"Vinicultura"},{"Label":"Zapatería","Value":"Zapatería"}]}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"97"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	if getValue()~="" then ParseoHabilidades.sArtesania=getValue();
+	else ParseoHabilidades.sArtesania="";
+	end
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
     <ControlName>Atractivo</ControlName>
     <ZIndex>41</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
@@ -55,7 +114,7 @@
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"263"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
 ]}}</Definition>
     <LUACode>--local nMax=3;
 --local nMin=-4;
@@ -133,7 +192,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"248"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"309"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"329"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Atractivo.Actualizar();
@@ -201,7 +260,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"63"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"309"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"329"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Cuerpo.Actualizar();
@@ -270,7 +329,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"183"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"309"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"329"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Espiritu.Actualizar();
@@ -278,7 +337,7 @@ end</LUACode>
 end
 
 function onClickRelease(button, x, y)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9");
+	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -339,7 +398,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"123"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"309"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"329"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Mente.Actualizar();
@@ -347,7 +406,7 @@ end</LUACode>
 end
 
 function onClickRelease(button, x, y)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9");
+	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -408,7 +467,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"373"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"309"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"329"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Tamanio.Actualizar();
@@ -476,7 +535,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"78"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
 ]}}</Definition>
     <LUACode>function onInit()
 	Actualizar();
@@ -548,7 +607,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"106"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"337"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"357"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
 	local aux=window.BaseCuerpo.getValue();
@@ -610,7 +669,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"188"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"337"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"357"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
 	local aux=window.BaseEspiritu.getValue();
@@ -672,7 +731,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"128"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"337"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"357"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
 	local aux=window.BaseCuerpo.getValue();
@@ -734,7 +793,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"166"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"337"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"357"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
 	local aux=window.BaseEspiritu.getValue();
@@ -801,7 +860,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"63"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"96"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"123"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if getValue()&lt;=15 then		-- Niño: MaxTamanioEdad 2
@@ -883,7 +942,7 @@ end
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"9"}},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"10"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
@@ -903,7 +962,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"198"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
 ]}}</Definition>
     <LUACode>--local nMax=9;
 --local nMin=3;
@@ -922,7 +981,7 @@ function Actualizar()
 end
 
 function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9");
+	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -963,7 +1022,7 @@ end</LUACode>
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"18"}},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"20"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
@@ -983,7 +1042,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"328"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
 	setValue(window.Tamanio.getValue()+window.Cuerpo.getValue());
@@ -991,6 +1050,69 @@ end
 
 function onHover(state)
 	Informacion.MostrarInfo(window.parentcontrol.window, "Fuerza", "Fuerza", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3");
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>HabilidadDeCultura</ControlName>
+    <ZIndex>65</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"HabilidadDeCultura"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string","#text":"Habilidad de CUL"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"174"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Bellas Artes","Value":"Bellas Artes"},{"Label":"Conocimiento Mágico","Value":"Conocimiento Mágico"},{"Label":"Estrategia","Value":"Estrategia"},{"Label":"Idioma","Value":"Idioma"},{"Label":"Idioma Propio","Value":"Idioma Propio"},{"Label":"Leyendas","Value":"Leyendas"},{"Label":"Medicina","Value":"Medicina"},{"Label":"Memorizar","Value":"Memorizar"},{"Label":"Multiverso","Value":"Multiverso"},{"Label":"Naturaleza","Value":"Naturaleza"},{"Label":"Navegación","Value":"Navegación"},{"Label":"Pociones","Value":"Pociones"},{"Label":"Tierras Quebradas","Value":"Tierras Quebradas"}]}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"137"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"97"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	window.IdiomaCultura.setVisible(getValue()=="Idioma")
+	window.IdiomaCultura.setStringValue("");
+	if getValue()~="" then
+		ParseoHabilidades.sHabilidadDeCultura=ParseoHabilidades.Habilidad2Clave[getValue():lower()];
+	else
+		ParseoHabilidades.sHabilidadDeCultura="";
+	end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1088,9 +1210,68 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"2"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"132"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"152"}}
 ]}}</Definition>
     <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>IdiomaCultura</ControlName>
+    <ZIndex>66</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"IdiomaCultura"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"120"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Antiguo","Value":"Antiguo"},{"Label":"Bosquimano","Value":"Bosquimano"},{"Label":"Estepario","Value":"Estepario"},{"Label":"Fornk","Value":"Fornk"},{"Label":"Imanguke","Value":"Imanguke"},{"Label":"Merení","Value":"Merení"},{"Label":"Mezuri o Austero","Value":"Mezuri o Austero"},{"Label":"Ocrense","Value":"Ocrense"},{"Label":"Oriental o Kunya","Value":"Oriental o Kunya"},{"Label":"Shorano","Value":"Shorano"},{"Label":"Tilés","Value":"Tilés"},{"Label":"Vash","Value":"Vash"}]}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"307"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"97"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	if getValue()~="" then ParseoHabilidades.sIdiomaHabilidadDeCultura=getValue();
+	else ParseoHabilidades.sIdiomaHabilidadDeCultura="";
+	end
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1140,7 +1321,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"243"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"251"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"271"}}
 ]}}</Definition>
     <LUACode>function onHover(state)
 	Informacion.MostrarInfo(window.parentcontrol.window, "Atractivo", "Atractivo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -4 | Máx. +"..window.MaxAtractivo.getValue());
@@ -1194,7 +1375,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"10"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"314"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"334"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1246,7 +1427,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"10"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"374"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"394"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1298,7 +1479,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"10"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"404"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"424"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1350,7 +1531,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"226"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"246"}}
 ]}}</Definition>
     <LUACode>function onHover(state)
 	Informacion.MostrarInfo(window.parentcontrol.window, "Caracteristicas");
@@ -1404,7 +1585,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"63"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"251"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"271"}}
 ]}}</Definition>
     <LUACode>function onHover(state)
 	Informacion.MostrarInfo(window.parentcontrol.window, "Cuerpo", "Cuerpo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. "..window.MaxCuerpo.getValue());
@@ -1458,7 +1639,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"223"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"169"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"189"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1510,7 +1691,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"10"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"101"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"128"}}
 ]}}</Definition>
     <LUACode>function onHover(state)
 	Informacion.MostrarInfo(window.parentcontrol.window, "Edades");
@@ -1670,7 +1851,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"183"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"251"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"271"}}
 ]}}</Definition>
     <LUACode>function onHover(state)
 	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9");
@@ -1778,7 +1959,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"313"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"251"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"271"}}
 ]}}</Definition>
     <LUACode>function onHover(state)
 	Informacion.MostrarInfo(window.parentcontrol.window, "Fuerza", "Fuerza", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3");
@@ -1833,7 +2014,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"291"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"169"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"189"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1885,7 +2066,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"123"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"251"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"271"}}
 ]}}</Definition>
     <LUACode>function onHover(state)
 	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9");
@@ -1939,7 +2120,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"141"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"161"}}
 ]}}</Definition>
     <LUACode>function onHover(state)
 	Informacion.MostrarInfo(window.parentcontrol.window, "Generacion Caracteristicas");
@@ -2045,7 +2226,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"10"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"344"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"364"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2097,7 +2278,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"183"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"192"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"212"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2149,7 +2330,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"354"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"169"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"189"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2201,7 +2382,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"373"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"251"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"271"}}
 ]}}</Definition>
     <LUACode>function onHover(state)
 	Informacion.MostrarInfo(window.parentcontrol.window, "Tamanio", "Tamaño", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -3 | Máx. +"..window.MaxTamanio.getValue());
@@ -2255,7 +2436,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"134"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"101"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"128"}}
 ]}}</Definition>
     <LUACode>--function onHover(state)
 --	Informacion.MostrarInfo(window.parentcontrol.window, window.LabelTipoEdad.getValue());
@@ -2314,7 +2495,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"141"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"192"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"212"}}
 ]}}</Definition>
     <LUACode>local nContDados=1;
 ResultadosDados ={}
@@ -2435,7 +2616,8 @@ function onDrop(x, y, dragdata)
 		if EtniaPermitida(sRecord) then
 			window.parentcontrol.window.Mensajes.setValue("");
 			local _, sRecordAct=getValue();
-			ParseoHabilidades.ModificarHabilidades(sRecordAct, "etnia", false);
+			--ParseoHabilidades.ModificarHabilidades(sRecordAct, "etnia", false);
+			ParseoHabilidades.ResetDatos();
 			setValue(dragdata.getShortcutData());
 			window.NombreEtnia.Actualizar(sRecord);
 			
@@ -2459,6 +2641,10 @@ function onDrop(x, y, dragdata)
 			end
 			
 			ParseoHabilidades.QuitarGratuitos(Utilidades.LeerValorRegistro(sRecord, "HabilidadesSinGratuitos"));
+			
+			window.HabilidadDeCultura.setVisible(ParseoHabilidades.bHabilidadDeCultura);
+			window.ArtesaniaEtnia.setVisible(ParseoHabilidades.bArtesania);
+			
 		else
 			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 			window.parentcontrol.window.Mensajes.setValue("El origen étnico seleccionado no está permitido para la especie elegida.");
@@ -2529,7 +2715,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"304"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"324"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2578,7 +2764,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"21"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"159"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"179"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2640,9 +2826,11 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"239"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"437"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"457"}}
 ]}}</Definition>
-    <LUACode xml:space="preserve">
+    <LUACode>function onValueChanged()
+	window.BaseAtractivo.setMaxValue(getValue())
+end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -2703,7 +2891,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"49"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"438"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"458"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.BaseCuerpo.setMaxValue(getValue())
@@ -2728,7 +2916,7 @@ end
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -2768,7 +2956,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"371"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"436"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"456"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
 	setValue(math.min(4, window.MaxTamanioEdad.getValue(), window.MaxTamanioEtnia.getValue()))
@@ -2793,7 +2981,7 @@ end;</LUACode>
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -2833,7 +3021,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"350"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"464"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"484"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.MaxTamanio.Actualizar();
@@ -2862,7 +3050,7 @@ end
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -2902,7 +3090,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"413"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"461"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"481"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.MaxTamanio.Actualizar();
@@ -2951,7 +3139,7 @@ end
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"9"}},
+      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"10"}},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
@@ -2971,7 +3159,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"138"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
 ]}}</Definition>
     <LUACode>--local nMax=9;
 --local nMin=3;
@@ -2991,7 +3179,7 @@ function Actualizar()
 end
 
 function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9");
+	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -3052,7 +3240,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"63"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"369"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"389"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Cuerpo.Actualizar();
@@ -3116,7 +3304,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"123"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"369"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"389"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Mente.Actualizar();
@@ -3180,7 +3368,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"183"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"399"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"419"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Espiritu.Actualizar();
@@ -3246,7 +3434,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"123"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"399"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"419"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Mente.Actualizar();
@@ -3274,7 +3462,7 @@ end</LUACode>
       {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"200"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"194"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"EmptyText"},
@@ -3310,7 +3498,7 @@ end</LUACode>
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"162"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"159"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"76"}}
 ]}}</Definition>
     <LUACode>function Actualizar(sRecord)
@@ -3391,7 +3579,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"248"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"339"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"359"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
 	setValue(-2*window.Atractivo.getValue())
@@ -3461,7 +3649,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"364"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"96"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"123"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
@@ -3551,7 +3739,7 @@ end
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -3656,7 +3844,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"451"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"170"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"160"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.PtosDisponiblesConEspecieYEdad.Actualizar();
@@ -3721,7 +3909,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"228"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"186"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"206"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.PtosRestantes.Actualizar();
@@ -3872,7 +4060,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"291"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"186"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"206"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
 	setValue(window.BaseCuerpo.getValue()+window.BaseMente.getValue()+window.BaseEspiritu.getValue());
@@ -3945,7 +4133,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"354"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"186"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"206"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
 	setValue(window.PtosDisponiblesConEspecieYEdad.getValue()-window.PtosGastados.getValue());
@@ -4088,7 +4276,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"166"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"186"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	local bAlAzar=getValue()=="Al azar";
@@ -4182,7 +4370,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"388"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"273"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
 ]}}</Definition>
     <LUACode>--local nMax=4;
 --local nMin=-3;
@@ -4217,7 +4405,7 @@ end</LUACode>
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"VentanaWizardCaracteristicas"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DataSource"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"440"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"455"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"440"}},
       {"Name":"Disabled"},
       {"Name":"Dynamic"},

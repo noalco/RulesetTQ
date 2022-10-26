@@ -31,6 +31,7 @@ Habilidades:
 Inventario
 	- Botón identificar en los objetos
 	- El botón lock de los items no bloquea los encantamientos. Además, hace cosas raras al bloquear-cerrar-abrir con los campos estándar
+	- Pestaña de descripción de los objetos
 
 Personalidad:
 	- las ventajas Pasión Extra y Rasgo Extra dan una pasión y un rasgo de cada respectivamente. Las desventajas Pasión de Menos y Personalidad Simple hacen exactamente lo contrario.
@@ -41,7 +42,6 @@ Hechizos:
 	
 Liberías:
 			- Limitar la lista de Hechizos en los Encantamientos a 1
-			- Filtros Min/Max en las ventajas y desventajas
 	
 Wizard
 - Habilidades secundarias de profesiones no se crean bien
@@ -70,11 +70,8 @@ Orígenes étnicos:
 							Cólera.
 
 
-
-
 Profesiones
 	Ventajas y Desventajas: Hechicería.
-	Especialidades (Sabio): (a elegir de entre varias (habilidades extras en el mismo formato que el resto)"
 	Lealtad: Religión elegida +10.
 	PP -2/-3
 

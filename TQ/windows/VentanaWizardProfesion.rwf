@@ -843,7 +843,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>IdiomaEspecialidad</ControlName>
-    <ZIndex>58</ZIndex>
+    <ZIndex>56</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelEspecialidad"}}},
@@ -893,15 +893,7 @@ end
     <LUACode>function onValueChanged()
 	ParseoProfesiones.sIdiomaEspecialidadSabio=getValue();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1844,7 +1836,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>LabelIdiomaEspecialidad</ControlName>
-    <ZIndex>57</ZIndex>
+    <ZIndex>55</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelEspecialidad"}}},
@@ -2025,7 +2017,7 @@ end
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Habilidades de armas por profesión"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Elige las Habilidades de armas que se añadirán a la lista de Profesión"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -2077,7 +2069,7 @@ end
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Artesanías por profesión"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Elige las Artesanías que se añadirán a la lista de Profesión"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -2129,7 +2121,7 @@ end
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Idiomas por profesión"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Elige los Idiomas que se añadirán a la lista de Profesión"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},

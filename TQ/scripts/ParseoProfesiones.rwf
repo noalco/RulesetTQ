@@ -58,6 +58,12 @@ ArmasExtraProfesion={[1]={tipo="", arma=""},[2]={tipo="", arma=""},[3]={tipo="",
 IdiomasExtraProfesion={[1]="",[2]="",[3]="",[4]=""}
 ArtesaniasExtraProfesion={[1]="",[2]="",[3]="",[4]=""}
 
+EspecialidadesSabio={
+	["Médico"]={[1]="Medicina", [2]="Primeros Auxilios"},
+	["Alquimista"]={[1]="Pociones"},
+	["Ingeniero"]={[1]="Inventar"},
+	["Recaudador"]={[1]="Perspicacia"},
+}
 sEspecialidadSabio="";
 sIdiomaEspecialidadSabio="";
 
@@ -139,6 +145,9 @@ function ResetearHabilidadesProfesion()
 	numEsferasProfesion=0;
 	numHabilidadesMagicasProfesion=0;
 	numHabilidadesProfesion=60;
+	
+	sEspecialidadSabio="";
+	sIdiomaEspecialidadSabio="";
 	
 	local rHabilidad; local rSecundaria;
 	for _,rHabilidad in pairs(ParseoHabilidades.DatosHabilidades) do

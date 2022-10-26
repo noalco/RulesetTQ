@@ -41,6 +41,37 @@ end
 
 function AniadirHabilidades(nodeChar, window)
 	local sClave=""; local rHabilidad; local sCampo; local rSecundaria; local sSecundaria;local w;
+
+	if ParseoHabilidades.bHabilidadDeCultura and ParseoHabilidades.sHabilidadDeCultura~="" then
+		if ParseoHabilidades.sHabilidadDeCultura=="Idioma" then
+			if ParseoHabilidades.sIdiomaHabilidadDeCultura~=ParseoHabilidades.IdiomaNativo then
+				ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][ParseoHabilidades.sIdiomaHabilidadDeCultura].etnia=ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][ParseoHabilidades.sIdiomaHabilidadDeCultura].etnia+ParseoHabilidades.nValorHabilidadGenericaEtnia;
+			else
+				ParseoHabilidades.DatosHabilidades["Idioma Nativo"].etnia=ParseoHabilidades.DatosHabilidades["Idioma Nativo"].etnia+ParseoHabilidades.nValorHabilidadGenericaEtnia;
+			end
+		else
+			ParseoHabilidades.DatosHabilidades[ParseoHabilidades.sHabilidadDeCultura].etnia=ParseoHabilidades.DatosHabilidades[ParseoHabilidades.sHabilidadDeCultura].etnia+ParseoHabilidades.nValorHabilidadGenericaEtnia;
+		end
+	end
+
+	if ParseoHabilidades.bArtesania and ParseoHabilidades.sArtesania~="" then
+		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][ParseoHabilidades.sArtesania].etnia=ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][ParseoHabilidades.sArtesania].etnia+ParseoHabilidades.nValorHabilidadGenericaEtnia;
+	end
+	
+	local sEspecialidadSabio=ParseoProfesiones.sEspecialidadSabio;
+	if sEspecialidadSabio~="" then
+		if sEspecialidadSabio=="Escriba" then
+			if ParseoProfesiones.sIdiomaEspecialidadSabio~="" then
+				ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][ParseoProfesiones.sIdiomaEspecialidadSabio].prof=1;
+			end
+		else
+			local lista=ParseoProfesiones.EspecialidadesSabio[sEspecialidadSabio];
+			for i=1,#lista do
+				ParseoHabilidades.DatosHabilidades[lista[i]].prof=1;
+			end
+		end
+	end
+
 	for _,w in ipairs(window.abilities.subwindow.ListaHabilidades.getWindows()) do
 		sClave=DB.getValue(w.getDatabaseNode(), "Clave", "");
 		if sClave~="" and ParseoHabilidades.DatosHabilidades[sClave] then
@@ -76,6 +107,7 @@ function AniadirHabilidades(nodeChar, window)
 		local artesania=ParseoProfesiones.ArtesaniasExtraProfesion[i];
 		if artesania~="" then ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][artesania].prof=1; end
 	end
+
 
 	for sClave, rHabilidad in pairs(ParseoHabilidades.DatosHabilidadesSecundarias) do
 		for sSecundaria, rSecundaria in pairs(rHabilidad) do
