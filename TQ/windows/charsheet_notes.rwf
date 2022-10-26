@@ -9,7 +9,7 @@
       {"Name":"AdvancedTemplate"},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"ButtonOffset"},
-      {"Name":"ComboItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Servicial","Value":"Servicial"},{"Label":"Atemorizado","Value":"Atemorizado"},{"Label":"Pragmático","Value":"Pragmático"},{"Label":"Revelde","Value":"Revelde"},{"Label":"Indiferente","Value":"Indiferente"}]}},
+      {"Name":"ComboItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Servicial","Value":"Servicial"},{"Label":"Atemorizado","Value":"Atemorizado"},{"Label":"Pragmático","Value":"Pragmático"},{"Label":"Rebelde","Value":"Rebelde"},{"Label":"Indiferente","Value":"Indiferente"}]}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"ActitudAnteDivino"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},

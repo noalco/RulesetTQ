@@ -72,13 +72,15 @@ function AniadirHabilidades(nodeChar, window)
 		end
 	end
 
+	ParseoHabilidades.DatosHabilidades["Autoridad"].varios=ParseoHabilidades.DatosHabilidades["Autoridad"].varios+ParseoHabilidades.nBonoAutoridadEdad;
+
 	for _,w in ipairs(window.abilities.subwindow.ListaHabilidades.getWindows()) do
 		sClave=DB.getValue(w.getDatabaseNode(), "Clave", "");
 		if sClave~="" and ParseoHabilidades.DatosHabilidades[sClave] then
 			DB.setValue(w.getDatabaseNode(), "DeProfesion", "number", ParseoHabilidades.DatosHabilidades[sClave].prof);
 			DB.setValue(w.getDatabaseNode(), "PtosGratis", "number", DB.getValue(w.getDatabaseNode(), "PtosGratis", 0)+ParseoHabilidades.DatosHabilidades[sClave].PG);
 			DB.setValue(w.getDatabaseNode(), "BonoEtnia", "number", ParseoHabilidades.DatosHabilidades[sClave].etnia);
-			DB.setValue(w.getDatabaseNode(), "BonoEspecialidad", "number", ParseoHabilidades.DatosHabilidades[sClave].esp);
+			--DB.setValue(w.getDatabaseNode(), "BonoEspecialidad", "number", ParseoHabilidades.DatosHabilidades[sClave].esp);
 			DB.setValue(w.getDatabaseNode(), "BonoCulto", "number", ParseoHabilidades.DatosHabilidades[sClave].culto);
 			DB.setValue(w.getDatabaseNode(), "BonoVentDesvent", "number", ParseoHabilidades.DatosHabilidades[sClave].VentDes);
 			DB.setValue(w.getDatabaseNode(), "BonoMisc", "number", ParseoHabilidades.DatosHabilidades[sClave].varios);
@@ -92,22 +94,24 @@ function AniadirHabilidades(nodeChar, window)
 		end
 	end
 	
-	for i=1,ParseoProfesiones.numArmasProfesion do
-		local tipo=ParseoProfesiones.ArmasExtraProfesion[i].tipo; local arma=ParseoProfesiones.ArmasExtraProfesion[i].arma;
-		Debug.chat(tipo, arma);
-		if tipo~="" and arma~="" then ParseoHabilidades.DatosHabilidadesSecundarias[tipo][arma].prof=1; end
+	if ParseoProfesiones.numArmasProfesion then
+		for i=1,ParseoProfesiones.numArmasProfesion do
+			local tipo=ParseoProfesiones.ArmasExtraProfesion[i].tipo; local arma=ParseoProfesiones.ArmasExtraProfesion[i].arma;
+			if tipo~="" and arma~="" then ParseoHabilidades.DatosHabilidadesSecundarias[tipo][arma].prof=1; end
+		end
 	end
-
-	for i=1,ParseoProfesiones.numIdiomasProfesion do
-		local idioma=ParseoProfesiones.IdiomasExtraProfesion[i];
-		if idioma~="" then ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][idioma].prof=1; end
+	if ParseoProfesiones.numIdiomasProfesion then
+		for i=1,ParseoProfesiones.numIdiomasProfesion do
+			local idioma=ParseoProfesiones.IdiomasExtraProfesion[i];
+			if idioma~="" then ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][idioma].prof=1; end
+		end
 	end
-
-	for i=1,ParseoProfesiones.numArtesaniasProfesion do
-		local artesania=ParseoProfesiones.ArtesaniasExtraProfesion[i];
-		if artesania~="" then ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][artesania].prof=1; end
+	if ParseoProfesiones.numArtesaniasProfesion then
+		for i=1,ParseoProfesiones.numArtesaniasProfesion do
+			local artesania=ParseoProfesiones.ArtesaniasExtraProfesion[i];
+			if artesania~="" then ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][artesania].prof=1; end
+		end
 	end
-
 
 	for sClave, rHabilidad in pairs(ParseoHabilidades.DatosHabilidadesSecundarias) do
 		for sSecundaria, rSecundaria in pairs(rHabilidad) do
@@ -132,7 +136,7 @@ function AniadirHabilidades(nodeChar, window)
 					DB.setValue(w.getDatabaseNode(), "DeProfesion", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].prof);
 					DB.setValue(w.getDatabaseNode(), "PtosGratis", "number", DB.getValue(w.getDatabaseNode(), "PtosGratis", 0)+ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].PG);
 					DB.setValue(w.getDatabaseNode(), "BonoEtnia", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].etnia);
-					DB.setValue(w.getDatabaseNode(), "BonoEspecialidad", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].esp);
+					--DB.setValue(w.getDatabaseNode(), "BonoEspecialidad", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].esp);
 					DB.setValue(w.getDatabaseNode(), "BonoCulto", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].culto);
 					DB.setValue(w.getDatabaseNode(), "BonoVentDesvent", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].VentDes);
 					DB.setValue(w.getDatabaseNode(), "BonoMisc", "number", ParseoHabilidades.DatosHabilidadesSecundarias[sClave][sSecundaria].varios);

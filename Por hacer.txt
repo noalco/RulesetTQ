@@ -9,7 +9,7 @@ Sugerencias Psico y Eldarc:
 - Bugs:
 			- Algo pasa con la equipación de las armas (creo que está solucionado)
 			- El DM no ve los nombres secundarios de las habilidades que crean los jugadores (creo que está solucionado)
-
+	- Algunos candados de las sidebar dan error al abrir la ventana siendo cliente (¿aquellos en los que no pueden editarlos los clientes?)
 
 - Estética
 			- Frames claros (no de momento)
@@ -44,13 +44,15 @@ Liberías:
 			- Limitar la lista de Hechizos en los Encantamientos a 1
 	
 Wizard
-- Habilidades secundarias de profesiones no se crean bien
 	- Profesión
-		- Habilidades extra de Sacerdote y Lealtad +10 a una religión
-		- Hechiceros y Chamanes añaden la ventaja Hechicería
+		- Añadir opción de profesión en la ventana de verbos y esferas
+		- Añadir elección de verbos y esferas de profesión
 	- Ventajas y Desventajas
+		- Por profesión
+		- Por etnia
 	- PP
 	- Lealtad
+		- Lealtad +10 a una religión por Sacerdote
 	- Habilidades no de profesión
 	- Equipo inicial
 	- Hechizos

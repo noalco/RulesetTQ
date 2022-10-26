@@ -863,36 +863,42 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"123"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	if getValue()&lt;=15 then		-- Niño: MaxTamanioEdad 2
+	if getValue()&lt;=15 then		-- Niño: MaxTamanioEdad 2, Autoridad -2
 		window.PPEdad.setValue(12);
 		window.LabelTipoEdad.setValue("Niño");
 		window.MaxTamanioEdad.setValue(2);
 		window.MaxAtractivo.setValue(3);
-	elseif getValue()&lt;=20 then	-- Joven
+		ParseoHabilidades.nBonoAutoridadEdad=-2;
+	elseif getValue()&lt;=20 then	-- Joven: Autoridad -1
 		window.PPEdad.setValue(6);
 		window.LabelTipoEdad.setValue("Joven");
 		window.MaxTamanioEdad.setValue(4);
 		window.MaxAtractivo.setValue(3);
+		ParseoHabilidades.nBonoAutoridadEdad=-1;
 	elseif getValue()&lt;=35 then	-- Adulto
 		window.PPEdad.setValue(0);
 		window.LabelTipoEdad.setValue("Adulto");
 		window.MaxTamanioEdad.setValue(4);
 		window.MaxAtractivo.setValue(3);
+		ParseoHabilidades.nBonoAutoridadEdad=0;
 	elseif getValue()&lt;=49 then	-- Mayor
 		window.PPEdad.setValue(-2);
 		window.LabelTipoEdad.setValue("Mayor");
 		window.MaxTamanioEdad.setValue(4);
 		window.MaxAtractivo.setValue(3);
-	elseif getValue()&lt;=64 then	-- Viejo: MaxAtractivo 2
+		ParseoHabilidades.nBonoAutoridadEdad=0;
+	elseif getValue()&lt;=64 then	-- Viejo: MaxAtractivo 2, Autoridad +1
 		window.PPEdad.setValue(-3);
 		window.LabelTipoEdad.setValue("Viejo");
 		window.MaxTamanioEdad.setValue(4);
 		window.MaxAtractivo.setValue(2);
-	else						-- Anciano: MaxAtractivo 2, MaxTamanioEdad 2
+		ParseoHabilidades.nBonoAutoridadEdad=1;
+	else						-- Anciano: MaxAtractivo 2, MaxTamanioEdad 2, Autoridad +2
 		window.PPEdad.setValue(-5);
 		window.LabelTipoEdad.setValue("Anciano");
 		window.MaxTamanioEdad.setValue(2);
 		window.MaxAtractivo.setValue(2);
+		ParseoHabilidades.nBonoAutoridadEdad=2;
 	end
 	if ParseoProfesiones.HabilidadesDeProfesion[window.LabelTipoEdad.getValue()] then
 		ParseoProfesiones.numHabilidadesProfesion=ParseoProfesiones.HabilidadesDeProfesion[window.LabelTipoEdad.getValue()];
@@ -2616,8 +2622,7 @@ function onDrop(x, y, dragdata)
 		if EtniaPermitida(sRecord) then
 			window.parentcontrol.window.Mensajes.setValue("");
 			local _, sRecordAct=getValue();
-			--ParseoHabilidades.ModificarHabilidades(sRecordAct, "etnia", false);
-			ParseoHabilidades.ResetDatos();
+			ParseoHabilidades.ResetDatosEtnia();
 			setValue(dragdata.getShortcutData());
 			window.NombreEtnia.Actualizar(sRecord);
 			
@@ -2644,6 +2649,8 @@ function onDrop(x, y, dragdata)
 			
 			window.HabilidadDeCultura.setVisible(ParseoHabilidades.bHabilidadDeCultura);
 			window.ArtesaniaEtnia.setVisible(ParseoHabilidades.bArtesania);
+			
+			window.parentcontrol.window.BotonProfesion.setVisible(true);
 			
 		else
 			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
@@ -3502,22 +3509,11 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"76"}}
 ]}}</Definition>
     <LUACode>function Actualizar(sRecord)
---	local sPathNombre="";
---	if string.find(sRecord, "@") then
---		sPathName, _=string.gsub(sRecord, "@", ".name@");
---	else
---		sPathName=sRecord..".name";
---	end
---	setValue(DB.getValue(sPathName, ""));
 	setValue(Utilidades.LeerValorRegistro(sRecord, "name"));
 end
 
 function onDrop(x, y, dragdata)
---	local sClass,sRecord = dragdata.getShortcutData();
---	if sClass=="VentanaEtniaSidebar" then
-		window.LinkEtnia.onDrop(x, y, dragdata);
---		Actualizar(sRecord);
---	end;
+	window.LinkEtnia.onDrop(x, y, dragdata);
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -4210,8 +4206,9 @@ end
 	
 	local _, sRecord=window.LinkEtnia.getValue();
 	if sRecord and sRecord~="" and not window.LinkEtnia.EtniaPermitida(sRecord) then
-		ParseoHabilidades.ModificarHabilidades(sRecord, "etnia", false);
-		window.LinkEtnia.setVisible(nil, nil);
+		--ParseoHabilidades.ModificarHabilidades(sRecord, "etnia", false);
+		ParseoHabilidades.ResetDatosEtnia();
+		window.LinkEtnia.setValue(nil, nil);
 		window.NombreEtnia.setValue("");
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("La especie seleccionada no es compatible con tu origen étnico. Debes elegir un nuevo origen étnico compatible con tu especie.");
