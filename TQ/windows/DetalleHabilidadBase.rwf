@@ -627,7 +627,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	Habilidades.CalcularPuntosTotalesHabilidades(window);
+	Habilidades.CalcularPuntosTotalesHabilidades(window.getDatabaseNode().getParent().getParent().getParent());
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -941,7 +941,7 @@ end</LUACode>
     <LUACode>function onInit()
 	addSourceWithOp("PtosGratis", "+");
 	addSourceWithOp("BonoEtnia", "+");
-	addSourceWithOp("BonoEspecialidad", "+");
+--	addSourceWithOp("BonoEspecialidad", "+");
 	addSourceWithOp("BonoCulto", "+");
 	addSourceWithOp("BonoBaseHabilidad", "+");
 	addSourceWithOp("BonoVentDesvent", "+");

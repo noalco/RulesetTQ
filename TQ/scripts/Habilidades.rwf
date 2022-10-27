@@ -4,7 +4,6 @@
     <FolderID>11</FolderID>
     <Script>DatosHabilidades = {
 	["Arma CC"]={nombre="Arma CC", tooltip="AGI", repetible=true, secundario=true, gratuito=0, base="AGI", estorbo=false, multEstorbo=0},
---	["Arma Ar"]={nombre="Arma Ar", tooltip="AGI", repetible=true, secundario=true, gratuito=0, base="AGI", estorbo=false, multEstorbo=0},
 	["Arma Pr"]={nombre="Arma Pr", tooltip="TEC", repetible=true, secundario=true, gratuito=0, base="TEC", estorbo=false, multEstorbo=0},
 	["Artesania"]={nombre="Artesanía", tooltip="TEC", repetible=true, secundario=true, gratuito=0, base="TEC", estorbo=false, multEstorbo=0},
 	["Autoridad"]={nombre="Autoridad", tooltip="COM", repetible=false, secundario=false, gratuito=0, base="COM", estorbo=false, multEstorbo=0},
@@ -94,7 +93,6 @@ function CrearNombreSecundario(nodoLista, Lista)
 end
 
 function AniadirHabilidad(window, sLabel, bRepetible)
-	--Debug.chat(window)
 	local rSkill = DatosHabilidades[sLabel];
 	if rSkill and (rSkill.repetible==bRepetible) then 
 		local w;
@@ -114,7 +112,6 @@ function AniadirHabilidad(window, sLabel, bRepetible)
 		w.idelete.setVisible(rSkill.repetible);
 		
 		DB.setValue(w.getDatabaseNode(), "PtosGratis", "number", rSkill.gratuito);
-		--w.PathBaseHabilidad.setValue("...."..PathHabilidades[rSkill.base]);
 		w.BaseHabilidad.setValue(rSkill.base);
 		w.MultEstorbo.setValue(rSkill.multEstorbo);
 		
@@ -124,16 +121,35 @@ function AniadirHabilidad(window, sLabel, bRepetible)
 	end
 end
 
-function CalcularPuntosTotalesHabilidades(window)
+--function CalcularPuntosTotalesHabilidades(window)
+function CalcularPuntosTotalesHabilidades(nodoRaiz)
 	local nTotalPuntosHabilidad=0;
 	local nTotalPuntosHabilidadNoProfesion=0;
-	for _,nodoHabilidad in pairs(window.getDatabaseNode().getParent().getChildren("ListaHabilidades")) do
+--	for _,nodoHabilidad in pairs(window.getDatabaseNode().getParent().getChildren("ListaHabilidades")) do
+--		if DB.getValue(nodoHabilidad, "DeProfesion", 0)==1 then	nTotalPuntosHabilidad=nTotalPuntosHabilidad+DB.getValue(nodoHabilidad, "Bono", 0);
+--		else nTotalPuntosHabilidadNoProfesion=nTotalPuntosHabilidadNoProfesion+DB.getValue(nodoHabilidad, "Bono", 0);
+--		end
+--	end;
+--	DB.setValue(window.getDatabaseNode(), "...PuntosHabilidad", "number", nTotalPuntosHabilidad);
+--	DB.setValue(window.getDatabaseNode(), "...PuntosHabilidadNoProfesion", "number", nTotalPuntosHabilidadNoProfesion);
+
+	for _,nodoHabilidad in pairs(nodoRaiz.getChild("Habilidades").getChild("ListaHabilidades").getChildren()) do
 		if DB.getValue(nodoHabilidad, "DeProfesion", 0)==1 then	nTotalPuntosHabilidad=nTotalPuntosHabilidad+DB.getValue(nodoHabilidad, "Bono", 0);
 		else nTotalPuntosHabilidadNoProfesion=nTotalPuntosHabilidadNoProfesion+DB.getValue(nodoHabilidad, "Bono", 0);
 		end
 	end;
-	DB.setValue(window.getDatabaseNode(), "...PuntosHabilidad", "number", nTotalPuntosHabilidad);
-	DB.setValue(window.getDatabaseNode(), "...PuntosHabilidadNoProfesion", "number", nTotalPuntosHabilidadNoProfesion);
+	for _,nodoHabilidad in pairs(nodoRaiz.getChild("Hechiceria").getChild("ListaVerbos").getChildren()) do
+		if DB.getValue(nodoHabilidad, "DeProfesion", 0)==1 then	nTotalPuntosHabilidad=nTotalPuntosHabilidad+DB.getValue(nodoHabilidad, "Bono", 0);
+		else nTotalPuntosHabilidadNoProfesion=nTotalPuntosHabilidadNoProfesion+DB.getValue(nodoHabilidad, "Bono", 0);
+		end
+	end;
+	for _,nodoHabilidad in pairs(nodoRaiz.getChild("Hechiceria").getChild("ListaEsferas").getChildren()) do
+		if DB.getValue(nodoHabilidad, "DeProfesion", 0)==1 then	nTotalPuntosHabilidad=nTotalPuntosHabilidad+DB.getValue(nodoHabilidad, "Bono", 0);
+		else nTotalPuntosHabilidadNoProfesion=nTotalPuntosHabilidadNoProfesion+DB.getValue(nodoHabilidad, "Bono", 0);
+		end
+	end;
+	DB.setValue(nodoRaiz, ".Habilidades.PuntosHabilidad", "number", nTotalPuntosHabilidad);
+	DB.setValue(nodoRaiz, ".Habilidades.PuntosHabilidadNoProfesion", "number", nTotalPuntosHabilidadNoProfesion);
 end;
 </Script>
     <RegisterScript>true</RegisterScript>

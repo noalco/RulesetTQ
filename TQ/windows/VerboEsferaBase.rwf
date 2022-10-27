@@ -58,7 +58,8 @@
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	Hechizos.ActualizarSuma(window.getDatabaseNode().getParent(), window.getDatabaseNode().getParent().getName());
+	--Hechizos.ActualizarSuma(window.getDatabaseNode().getParent(), window.getDatabaseNode().getParent().getName());
+	Habilidades.CalcularPuntosTotalesHabilidades(window.getDatabaseNode().getParent().getParent().getParent());
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -181,10 +182,10 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"2"}}
 ]}}</Definition>
-    <LUACode>--function onValueChanged()
---	Habilidades.CalcularPuntosTotalesHabilidades(window);
---end
---</LUACode>
+    <LUACode>function onValueChanged()
+	Habilidades.CalcularPuntosTotalesHabilidades(window.getDatabaseNode().getParent().getParent().getParent());
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

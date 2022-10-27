@@ -206,9 +206,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"532"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
---	if window.NumIdiomas.getValue()&gt;=2 then ParseoProfesiones.IdiomasExtraProfesion[2]=getValue();
---	else ParseoProfesiones.IdiomasExtraProfesion[2]="";
---	end
+	ParseoProfesiones.EsferasProf[1]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -265,9 +263,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"558"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
---	if window.NumIdiomas.getValue()&gt;=2 then ParseoProfesiones.IdiomasExtraProfesion[2]=getValue();
---	else ParseoProfesiones.IdiomasExtraProfesion[2]="";
---	end
+	ParseoProfesiones.EsferasProf[2]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -324,9 +320,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"585"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
---	if window.NumIdiomas.getValue()&gt;=2 then ParseoProfesiones.IdiomasExtraProfesion[2]=getValue();
---	else ParseoProfesiones.IdiomasExtraProfesion[2]="";
---	end
+	ParseoProfesiones.EsferasProf[3]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -731,9 +725,14 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"614"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
---	if window.NumIdiomas.getValue()&gt;=2 then ParseoProfesiones.IdiomasExtraProfesion[2]=getValue();
---	else ParseoProfesiones.IdiomasExtraProfesion[2]="";
---	end
+	if window.TipoHabilidadMagica1.getValue()=="Verbo" then
+		ParseoProfesiones.VerbosProf[1]=getValue();
+	elseif window.TipoHabilidadMagica1.getValue()=="Esfera" then
+		ParseoProfesiones.EsferasProf[1]=getValue();
+	else
+		ParseoProfesiones.VerbosProf[1]="";
+		ParseoProfesiones.EsferasProf[1]="";
+	end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -790,9 +789,14 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"641"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
---	if window.NumIdiomas.getValue()&gt;=2 then ParseoProfesiones.IdiomasExtraProfesion[2]=getValue();
---	else ParseoProfesiones.IdiomasExtraProfesion[2]="";
---	end
+	if window.TipoHabilidadMagica1.getValue()=="Verbo" then
+		ParseoProfesiones.VerbosProf[2]=getValue();
+	elseif window.TipoHabilidadMagica1.getValue()=="Esfera" then
+		ParseoProfesiones.EsferasProf[2]=getValue();
+	else
+		ParseoProfesiones.VerbosProf[2]="";
+		ParseoProfesiones.EsferasProf[2]="";
+	end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -849,9 +853,14 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"668"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
---	if window.NumIdiomas.getValue()&gt;=2 then ParseoProfesiones.IdiomasExtraProfesion[2]=getValue();
---	else ParseoProfesiones.IdiomasExtraProfesion[2]="";
---	end
+	if window.TipoHabilidadMagica1.getValue()=="Verbo" then
+		ParseoProfesiones.VerbosProf[3]=getValue();
+	elseif window.TipoHabilidadMagica1.getValue()=="Esfera" then
+		ParseoProfesiones.EsferasProf[3]=getValue();
+	else
+		ParseoProfesiones.VerbosProf[3]="";
+		ParseoProfesiones.EsferasProf[3]="";
+	end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -4759,9 +4768,11 @@ end
 	if getValue()=="Verbo" then 
 		sLabels="Aumentar|Conocer|Disminuir|Dirigir|Inhibir|Invocar|Modificar|Transformar";
 		sValues="Aumentar|Conocer|Disminuir|Dirigir|Inhibir|Invocar|Modificar|Transformar";
+		ParseoProfesiones.VerbosProf[1]="";
 	elseif getValue()=="Esfera" then
 		sLabels="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley;"
 		sValues="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley";
+		ParseoProfesiones.EsferasProf[1]="";
 	else
 		sLabels="";
 		sValues="";
@@ -4830,9 +4841,11 @@ end
 	if getValue()=="Verbo" then 
 		sLabels="Aumentar|Conocer|Disminuir|Dirigir|Inhibir|Invocar|Modificar|Transformar";
 		sValues="Aumentar|Conocer|Disminuir|Dirigir|Inhibir|Invocar|Modificar|Transformar";
+		ParseoProfesiones.VerbosProf[2]="";
 	elseif getValue()=="Esfera" then
 		sLabels="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley;"
 		sValues="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley";
+		ParseoProfesiones.EsferasProf[2]="";
 	else
 		sLabels="";
 		sValues="";
@@ -4901,9 +4914,11 @@ end
 	if getValue()=="Verbo" then 
 		sLabels="Aumentar|Conocer|Disminuir|Dirigir|Inhibir|Invocar|Modificar|Transformar";
 		sValues="Aumentar|Conocer|Disminuir|Dirigir|Inhibir|Invocar|Modificar|Transformar";
+		ParseoProfesiones.VerbosProf[3]="";
 	elseif getValue()=="Esfera" then
 		sLabels="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley;"
 		sValues="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley";
+		ParseoProfesiones.EsferasProf[3]="";
 	else
 		sLabels="";
 		sValues="";
@@ -5022,9 +5037,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"532"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
---	if window.NumIdiomas.getValue()&gt;=1 then ParseoProfesiones.IdiomasExtraProfesion[1]=getValue();
---	else ParseoProfesiones.IdiomasExtraProfesion[1]="";
---	end
+	ParseoProfesiones.VerbosProf[1]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -5081,9 +5094,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"558"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
---	if window.NumIdiomas.getValue()&gt;=1 then ParseoProfesiones.IdiomasExtraProfesion[1]=getValue();
---	else ParseoProfesiones.IdiomasExtraProfesion[1]="";
---	end
+	ParseoProfesiones.VerbosProf[2]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -5140,9 +5151,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"585"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
---	if window.NumIdiomas.getValue()&gt;=1 then ParseoProfesiones.IdiomasExtraProfesion[1]=getValue();
---	else ParseoProfesiones.IdiomasExtraProfesion[1]="";
---	end
+	ParseoProfesiones.VerbosProf[3]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

@@ -54,29 +54,8 @@ HabilidadesDeProfesion={
 	["Anciano"]=90,
 }
 
-VerbosProf={
-	["Aumentar"]=0,
-	["Conocer"]=0,
-	["Disminuir"]=0,
-	["Dirigir"]=0,
-	["Inhibir"]=0,
-	["Invocar"]=0,
-	["Modificar"]=0,
-	["Transformar"]=0
-}
-
-EsferasProf={
-	["Agua"]=0,
-	["Espíritu"]=0,
-	["Aire"]=0,
-	["Mente"]=0,
-	["Fuego"]=0,
-	["Planta"]=0,
-	["Tierra"]=0,
-	["Caos"]=0,
-	["Cuerpo"]=0,
-	["Ley"]=0
-}
+VerbosProf={[1]="", [2]="", [3]=""}
+EsferasProf={[1]="", [2]="", [3]=""}
 
 ArmasExtraProfesion={[1]={tipo="", arma=""},[2]={tipo="", arma=""},[3]={tipo="", arma=""},[4]={tipo="", arma=""}}
 IdiomasExtraProfesion={[1]="",[2]="",[3]="",[4]=""}
@@ -159,9 +138,9 @@ function ResetearHabilidadesProfesion()
 	ArmasExtraProfesion={[1]={tipo="", arma=""},[2]={tipo="", arma=""},[3]={tipo="", arma=""},[4]={tipo="", arma=""}}
 	IdiomasExtraProfesion={[1]="",[2]="",[3]="",[4]=""}
 	ArtesaniasExtraProfesion={[1]="",[2]="",[3]="",[4]=""}
-	VerbosProf={["Aumentar"]=0, ["Conocer"]=0, ["Disminuir"]=0, ["Dirigir"]=0, ["Inhibir"]=0, ["Invocar"]=0, ["Modificar"]=0, ["Transformar"]=0}
-	EsferasProf={["Agua"]=0, ["Espíritu"]=0, ["Aire"]=0, ["Mente"]=0, ["Fuego"]=0, ["Planta"]=0, ["Tierra"]=0, ["Caos"]=0, ["Cuerpo"]=0, ["Ley"]=0}
-	
+	VerbosProf={[1]="", [2]="", [3]=""}
+	EsferasProf={[1]="", [2]="", [3]=""}
+
 	numIdiomasProfesion=0;
 	numArmasProfesion=0;
 	numArtesaniasProfesion=0;
