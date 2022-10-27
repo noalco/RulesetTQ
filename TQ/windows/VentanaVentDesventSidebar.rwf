@@ -187,7 +187,7 @@ end
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
       {"Name":"LinkFieldAllowDrop"},
-      {"Name":"LinkFieldClass","Value":{"@xsi:type":"xsd:string","#text":"VentanaBendiciones"}},
+      {"Name":"LinkFieldClass","Value":{"@xsi:type":"xsd:string","#text":"VentanaVentDesvent"}},
       {"Name":"LinkFieldDescriptionField"},
       {"Name":"LinkFieldRecordName"},
       {"Name":"LinkFieldSelfOnEmpty"},

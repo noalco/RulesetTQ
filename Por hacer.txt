@@ -31,7 +31,8 @@ Habilidades:
 Inventario
 	- Botón identificar en los objetos
 	- El botón lock de los items no bloquea los encantamientos. Además, hace cosas raras al bloquear-cerrar-abrir con los campos estándar
-	- Pestaña de descripción de los objetos
+	- Pestaña de descripción de los objetos!!!
+	- Daños por dados!!!
 
 Personalidad:
 	- las ventajas Pasión Extra y Rasgo Extra dan una pasión y un rasgo de cada respectivamente. Las desventajas Pasión de Menos y Personalidad Simple hacen exactamente lo contrario.
@@ -44,9 +45,6 @@ Liberías:
 			- Limitar la lista de Hechizos en los Encantamientos a 1
 	
 Wizard
-	- Profesión
-		- Añadir opción de profesión en la ventana de verbos y esferas
-		- Añadir elección de verbos y esferas de profesión
 	- Ventajas y Desventajas
 		- Por profesión
 		- Por etnia

@@ -53,16 +53,18 @@
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"20"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	window.SubventanaWizardProfesion.setVisible(false);
 	window.SubventanaWizardCaracteristicas.setVisible(true);
+	window.SubventanaWizardProfesion.setVisible(false);
+	window.SubventanaWizardVentDesv.setVisible(false);
 	setFrame("buttondown");
 	window.BotonProfesion.setFrame("buttonup");
 	window.BotonVentDesv.setFrame("buttonup");
 end
 
 function onInit()
-	window.SubventanaWizardProfesion.setVisible(false);
 	window.SubventanaWizardCaracteristicas.setVisible(true);
+	window.SubventanaWizardProfesion.setVisible(false);
+	window.SubventanaWizardVentDesv.setVisible(false);
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -181,9 +183,9 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"20"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
---	window.Ventanas.activateTab(2)
-	window.SubventanaWizardProfesion.setVisible(true);
 	window.SubventanaWizardCaracteristicas.setVisible(false);
+	window.SubventanaWizardProfesion.setVisible(true);
+	window.SubventanaWizardVentDesv.setVisible(false);
 	setFrame("buttondown");
 	window.BotonEstadisticas.setFrame("buttonup");
 	window.BotonVentDesv.setFrame("buttonup");
@@ -224,7 +226,7 @@ end
       {"Name":"HoverIconName"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -247,8 +249,9 @@ end
 ]}}</Definition>
     <LUACode>function onButtonPress()
 --	window.Ventanas.activateTab(2)
-	window.SubventanaWizardProfesion.setVisible(false);
 	window.SubventanaWizardCaracteristicas.setVisible(false);
+	window.SubventanaWizardProfesion.setVisible(false);
+	window.SubventanaWizardVentDesv.setVisible(true);
 	setFrame("buttondown");
 	window.BotonEstadisticas.setFrame("buttonup");
 	window.BotonProfesion.setFrame("buttonup");

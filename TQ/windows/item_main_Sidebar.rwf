@@ -1331,13 +1331,8 @@ function onValueChanged()
 	window.BotonArmadura.setReadOnly(bReadOnly);
 	window.BotonEscudo.setReadOnly(bReadOnly);
 	window.BotonYelmo.setReadOnly(bReadOnly);
-	
 end
-
-
-function onSizeChanged(source)
-Debug.chat(222);
-end</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

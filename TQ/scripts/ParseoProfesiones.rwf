@@ -233,7 +233,7 @@ function ModificarHabilidadesProfCulto(aClauses, sCampo, nValor)
 --						Debug.chat("armas de profesión", aClauses[i], sNumArmas);
 					elseif aClauses[i]:lower()=="otro idioma" then
 						numIdiomasProfesion=1;
-						Debug.chat("otro idioma", aClauses[i], numIdiomasProfesion);
+--						Debug.chat("otro idioma", aClauses[i], numIdiomasProfesion);
 					elseif aClauses[i]:lower():match("otros .- idiomas") then
 						local snumIdiomas=aClauses[i]:lower():match("otros (.-) idiomas");
 						numIdiomasProfesion=StringToNum[snumIdiomas];

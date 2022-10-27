@@ -348,7 +348,7 @@
 		</Hechizos>
 	</id-00001>
 </charsheet>
-<referencias>
+<referencia>
 	<hechizos>
 		<DanioDados/>
 		<DanioFijo/>
@@ -461,4 +461,20 @@
 		<PMP/>
 		<Procedimiento/>
 	</encantamientos>
-</referencias>
+	<ventdesvent>
+		<DescripcionVentDesvent/>
+		<HabilidadesExtra/>
+		<link>
+			<class/>
+			<recordname/>
+		</link>
+		<locked/>
+		<ModificadoresBasesHabilidades/>
+		<ModificadoresHabilidades/>
+		<name/>
+		<OtrasAutomatizaciones/>
+		<TipoVentDesvent/>
+		<TipoVentDesventvalue/>
+		<Valor/>
+	</ventdesvent>
+</referencia>

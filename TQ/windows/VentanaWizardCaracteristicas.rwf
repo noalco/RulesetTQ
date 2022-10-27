@@ -2650,6 +2650,8 @@ function onDrop(x, y, dragdata)
 			window.HabilidadDeCultura.setVisible(ParseoHabilidades.bHabilidadDeCultura);
 			window.ArtesaniaEtnia.setVisible(ParseoHabilidades.bArtesania);
 			
+			ParseoVentDesv.AsignarVentDesvPorEtnia(window.parentcontrol.window, Utilidades.LeerValorRegistro(sRecord, "VentajasDesventajas"));
+			
 			window.parentcontrol.window.BotonProfesion.setVisible(true);
 			
 		else

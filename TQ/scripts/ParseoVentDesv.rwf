@@ -1,0 +1,53 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>ParseoVentDesv</ScriptName>
+    <FolderID>21</FolderID>
+    <Script>sPorEtnia="";
+sLinkPorEtnia="";
+sPorProfesion="";
+sLinkPorProfesion="";
+PorEleccion={
+	[1]={sNombre="", sLink=""},
+	[2]={sNombre="", sLink=""},
+	[3]={sNombre="", sLink=""},
+	[4]={sNombre="", sLink=""},
+}
+
+function BuscarLink(sVentDesv)
+	-- Búsqueda en local
+	if sVentDesv and sVentDesv~="" then
+		sVentDesv=sVentDesv:gsub("%.", "");
+		for _,nodoVentDesv in pairs(DB.getChild(".referencia.ventdesvent").getChildren()) do
+			--Debug.chat(DB.getValue(nodoVentDesv, "name", ""):lower(), sVentDesv:lower())
+			if DB.getValue(nodoVentDesv, "name", ""):lower()==sVentDesv:lower() then return DB.getPath(nodoVentDesv); end
+		end
+
+		-- Búsqueda en módulos
+		for sModulo,rModulo in pairs(ModuleManager.getAllModuleInfo()) do
+			if rModulo.loaded then
+				for _,nodoVentDesv in pairs(DB.getChild(".referencia.ventdesvent@"..sModulo).getChildren()) do
+					if DB.getValue(nodoVentDesv, "name", ""):lower()==sVentDesv:lower() then return DB.getPath(nodoVentDesv); end
+				end
+			end;
+		end
+	end
+	return "";
+end
+
+function AsignarVentDesvPorEtnia(wPrincipal, sVentDesv)
+	wPrincipal.SubventanaWizardVentDesv.subwindow.NombreVentajaEtnia.setValue("");
+	sPorEtnia=sVentDesv;
+	sLinkPorEtnia=BuscarLink(sVentDesv);
+	wPrincipal.SubventanaWizardVentDesv.subwindow.NombreVentajaEtnia.setValue(sPorEtnia);
+end
+
+function AsignarVentDesvPorProfesion(wPrincipal, sVentDesv)
+	wPrincipal.SubventanaWizardVentDesv.subwindow.NombreVentajaProfesion.setValue("");
+	sPorProfesion=sVentDesv;
+	sLinkPorProfesion=BuscarLink(sVentDesv);
+	wPrincipal.SubventanaWizardVentDesv.subwindow.NombreVentajaProfesion.setValue(sPorProfesion);
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>
