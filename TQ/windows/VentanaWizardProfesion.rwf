@@ -3097,7 +3097,7 @@ function onDrop(x, y, dragdata)
 			window.NumArtesanias.setValue(ParseoProfesiones.numArtesaniasProfesion);
 			window.NumIdiomas.setValue(ParseoProfesiones.numIdiomasProfesion);
 			
-			window.parentcontrol.window.BotonVentDesv.setVisible(true);
+			window.parentcontrol.window.BotonPP.setVisible(true);
 			
 			window.NumVerbos.setValue(ParseoProfesiones.numVerbosProfesion);
 			window.NumEsferas.setValue(ParseoProfesiones.numEsferasProfesion);

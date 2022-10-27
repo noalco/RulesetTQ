@@ -35,17 +35,17 @@ function BuscarLink(sVentDesv)
 end
 
 function AsignarVentDesvPorEtnia(wPrincipal, sVentDesv)
-	wPrincipal.SubventanaWizardVentDesv.subwindow.NombreVentajaEtnia.setValue("");
+	wPrincipal.SubventanaWizardPP.subwindow.NombreVentajaEtnia.setValue("");
 	sPorEtnia=sVentDesv;
 	sLinkPorEtnia=BuscarLink(sVentDesv);
-	wPrincipal.SubventanaWizardVentDesv.subwindow.NombreVentajaEtnia.setValue(sPorEtnia);
+	wPrincipal.SubventanaWizardPP.subwindow.NombreVentajaEtnia.setValue(sPorEtnia);
 end
 
 function AsignarVentDesvPorProfesion(wPrincipal, sVentDesv)
-	wPrincipal.SubventanaWizardVentDesv.subwindow.NombreVentajaProfesion.setValue("");
+	wPrincipal.SubventanaWizardPP.subwindow.NombreVentajaProfesion.setValue("");
 	sPorProfesion=sVentDesv;
 	sLinkPorProfesion=BuscarLink(sVentDesv);
-	wPrincipal.SubventanaWizardVentDesv.subwindow.NombreVentajaProfesion.setValue(sPorProfesion);
+	wPrincipal.SubventanaWizardPP.subwindow.NombreVentajaProfesion.setValue(sPorProfesion);
 end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />

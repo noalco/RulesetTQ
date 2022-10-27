@@ -552,6 +552,7 @@ end
 		
 	--window.SubVentanaEscudo.subwindow.UsoArma.setValue(Inventario.CteEscudo);
 	DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteUnaMano);
+	DB.setValue(window.getDatabaseNode(), "Habilidad", "string", "Escudo");
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -2194,7 +2195,7 @@ end
 	nAncho, nAlto= window.parentcontrol.window.getSize();
 	if nAncho&lt;350 then nAncho=350 end
 
-	if getValue()==Inventario.CteArma and nAlto &lt;610 then nAlto=610;
+	if getValue()==Inventario.CteArma and nAlto&lt;640 then nAlto=640;
 	elseif getValue()==Inventario.CteArmadura and nAlto&lt;490 then nAlto=490;
 	elseif getValue()==Inventario.CteEscudo and nAlto&lt;640 then nAlto=640;
 	elseif getValue()==Inventario.CteYelmo and nAlto&lt;490 then nAlto=490;

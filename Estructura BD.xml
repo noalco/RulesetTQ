@@ -369,6 +369,7 @@
 		<Alcance/>
 		<BonoAtaqueArma/>
 		<BonoDanio/>
+		<DanioDados/>
 		<cost/>
 		<DanioDefensa/>
 		<DanioDefensaEscudo/>
@@ -409,6 +410,7 @@
 		<TipoObjeto/>
 		<UsoArma/>
 		<weight/>
+		<Descripcion/>
 	</objetos>
 	<pnjs>
 		<AlImpacto/>

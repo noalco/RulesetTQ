@@ -32,7 +32,6 @@ Inventario
 	- Botón identificar en los objetos
 	- El botón lock de los items no bloquea los encantamientos. Además, hace cosas raras al bloquear-cerrar-abrir con los campos estándar
 	- Pestaña de descripción de los objetos!!!
-	- Daños por dados!!!
 
 Personalidad:
 	- las ventajas Pasión Extra y Rasgo Extra dan una pasión y un rasgo de cada respectivamente. Las desventajas Pasión de Menos y Personalidad Simple hacen exactamente lo contrario.
