@@ -78,6 +78,7 @@ numEsferasProfesion=0;
 numHabilidadesMagicasProfesion=0;
 numHabilidadesProfesion=60;
 numHabilidadesNoProfesion=0;
+nLealtadProf=0;
 
 function ObtenerListaProfesiones(sProfesiones, bPermitir)
 	local aClauses={};
@@ -150,6 +151,7 @@ function ResetearHabilidadesProfesion()
 	numEsferasProfesion=0;
 	numHabilidadesMagicasProfesion=0;
 	numHabilidadesProfesion=60;
+	nLealtadProf=0;
 	
 	sEspecialidadSabio="";
 	sIdiomaEspecialidadSabio="";

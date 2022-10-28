@@ -3088,7 +3088,8 @@ function onDrop(x, y, dragdata)
 		local sProfesion=Utilidades.LeerValorRegistro(sRecord, "name");
 		if ParseoProfesiones.ProfesionPermitida(sProfesion) then
 			ParseoProfesiones.ObtenerHabilidadesDeProfesion(Utilidades.LeerValorRegistro(sRecord, "Habilidades"));
-
+			ParseoProfesiones.nLealtadProf=Utilidades.LeerValorRegistro(sRecord, "Lealtad");
+			
 			setValue(dragdata.getShortcutData());
 			window.PPProfesion.setValue(Utilidades.LeerValorRegistro(sRecord, "PP"));
 			window.NombreProfesion.Actualizar(sRecord);
@@ -3196,6 +3197,7 @@ function onValueChanged()
 		window.Culto.setVisible(false);
 		window.LabelDeidad.setVisible(false);
 		window.Deidad.setVisible(false);
+		ParseoProfesiones.nLealtadProf=0;
 	end
 
 	if getValue():lower():match("sabio") then
