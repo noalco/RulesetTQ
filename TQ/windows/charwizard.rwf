@@ -753,7 +753,16 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"34"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
-	setValue(20+window.SubventanaWizardCaracteristicas.subwindow.PPEdad.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEspecie.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPAtractivo.getValue()+window.SubventanaWizardCaracteristicas.subwindow.PPEtnia.getValue()+window.SubventanaWizardProfesion.subwindow.PPProfesion.getValue());
+	local nTotalPP=20;
+	nTotalPP=nTotalPP+window.SubventanaWizardCaracteristicas.subwindow.PPEspecie.getValue();
+	nTotalPP=nTotalPP+window.SubventanaWizardCaracteristicas.subwindow.PPEtnia.getValue();
+	nTotalPP=nTotalPP+window.SubventanaWizardCaracteristicas.subwindow.PPEdad.getValue();
+	nTotalPP=nTotalPP+window.SubventanaWizardCaracteristicas.subwindow.PPAtractivo.getValue();
+	nTotalPP=nTotalPP+window.SubventanaWizardProfesion.subwindow.PPProfesion.getValue();	
+	for i=1,4 do
+		nTotalPP=nTotalPP+window.SubventanaWizardPP.subwindow["ValorVentDesv"..i].getValue()*window.SubventanaWizardPP.subwindow["CantidadVentDesv"..i].getValue();
+	end
+	setValue(nTotalPP);
 	if getValue()&lt;10 or getValue()&gt;30 then
 		window.Mensajes.setFont("FuenteMensajesWarning");
 		window.Mensajes.setValue("Los Puntos de Personaje deben estar entre 10 y 30. Recuerda ajustarlos mediante Ventajas y Desventajas o cambia alguna de las elecciones tomadas (orien étnico, edad, especie, ...) para estar en este rango.");

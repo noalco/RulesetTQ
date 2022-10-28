@@ -1,6 +1,266 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
+    <ControlName>CantidadVentDesv1</ControlName>
+    <ZIndex>19</ZIndex>
+    <ControlClass>FGNumberField</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"CantidadVentDesv1"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"LabelVentDesv1","Offset":"-5","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"left","Parent":"LabelCantidadVentDesv","Offset":{"@xsi:nil":"true"},"Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"30","Width":"45"}]}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue","Value":{"@xsi:type":"xsd:decimal","#text":"1"}},
+      {"Name":"DelayKeyUpdate"},
+      {"Name":"DescriptionText"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"45"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"DisplaySign"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HideOnValue"},
+      {"Name":"HideRollWidget"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"MaxValue"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"1"}},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoDrag"},
+      {"Name":"NoDrop"},
+      {"Name":"NoKeyEdit"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"391"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"164"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardPP</WindowName>
+    <ControlName>CantidadVentDesv2</ControlName>
+    <ZIndex>24</ZIndex>
+    <ControlClass>FGNumberField</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"CantidadVentDesv2"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"LabelVentDesv2","Offset":"-5","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"left","Parent":"LabelCantidadVentDesv","AnchorTo":null,"Offset":{"@xsi:nil":"true"},"Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"30","Width":"45"}]}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue","Value":{"@xsi:type":"xsd:decimal","#text":"1"}},
+      {"Name":"DelayKeyUpdate"},
+      {"Name":"DescriptionText"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"45"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"DisplaySign"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HideOnValue"},
+      {"Name":"HideRollWidget"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"MaxValue"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"1"}},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoDrag"},
+      {"Name":"NoDrop"},
+      {"Name":"NoKeyEdit"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"391"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"193"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardPP</WindowName>
+    <ControlName>CantidadVentDesv3</ControlName>
+    <ZIndex>29</ZIndex>
+    <ControlClass>FGNumberField</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"CantidadVentDesv3"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"LabelVentDesv3","Offset":"-5","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"left","Parent":"LabelCantidadVentDesv","AnchorTo":"left","Offset":{"@xsi:nil":"true"},"Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"30","Width":"45"}]}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue","Value":{"@xsi:type":"xsd:decimal","#text":"1"}},
+      {"Name":"DelayKeyUpdate"},
+      {"Name":"DescriptionText"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"45"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"DisplaySign"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HideOnValue"},
+      {"Name":"HideRollWidget"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"MaxValue"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"1"}},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoDrag"},
+      {"Name":"NoDrop"},
+      {"Name":"NoKeyEdit"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"391"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"222"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardPP</WindowName>
+    <ControlName>CantidadVentDesv4</ControlName>
+    <ZIndex>34</ZIndex>
+    <ControlClass>FGNumberField</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"CantidadVentDesv4"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"LabelVentDesv4","Offset":"-5","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"left","Parent":"LabelCantidadVentDesv","AnchorTo":null,"Offset":{"@xsi:nil":"true"},"Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":null},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"30","Width":"45"}]}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue","Value":{"@xsi:type":"xsd:decimal","#text":"1"}},
+      {"Name":"DelayKeyUpdate"},
+      {"Name":"DescriptionText"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"45"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"DisplaySign"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HideOnValue"},
+      {"Name":"HideRollWidget"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"MaxValue"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"1"}},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoDrag"},
+      {"Name":"NoDrop"},
+      {"Name":"NoKeyEdit"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"391"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"258"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardPP</WindowName>
     <ControlName>IconoVentDesv</ControlName>
     <ZIndex>1</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
@@ -50,8 +310,67 @@
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
+    <ControlName>LabelCantidadVentDesv</ControlName>
+    <ZIndex>14</ZIndex>
+    <ControlClass>FGLabel</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string","#text":"label"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelCantidadVentDesv"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"LabelPP","AnchorTo":null,"Offset":{"@xsi:nil":"true"},"Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":null},{"EdgeAnchor":"right","Parent":"LabelElegirVentDesv","AnchorTo":"right","Offset":{"@xsi:nil":"true"},"Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":null},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"45"}]}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"45"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Cant."}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"TextUnderlined"},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"El coste de la Ventaja Hechizos depende del número de nuevos hechizos o encantamientos otorgados por la Ventaja. Indica aquí cuántos hechizos o encantamientos te otorga dicha Ventaja."}},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"391"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"145"}}
+]}}</Definition>
+    <LUACode>function onVisibilityChanged()
+	local x,y=window.PuntoRelativoHorizontal.getPosition(); local desp=0;
+	if isVisible() then desp=-45;
+	else desp=45;
+	end;
+	window.PuntoRelativoHorizontal.setStaticBounds(x+desp, y, 40, 40);
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LabelElegirVentDesv</ControlName>
-    <ZIndex>20</ZIndex>
+    <ZIndex>12</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -103,7 +422,7 @@
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LabelPorEtnia</ControlName>
-    <ZIndex>8</ZIndex>
+    <ZIndex>6</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -155,7 +474,7 @@
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LabelPorEtniaYProfesion</ControlName>
-    <ZIndex>7</ZIndex>
+    <ZIndex>5</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -207,7 +526,7 @@
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LabelPorProfesion</ControlName>
-    <ZIndex>11</ZIndex>
+    <ZIndex>9</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -259,7 +578,7 @@
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LabelPP</ControlName>
-    <ZIndex>21</ZIndex>
+    <ZIndex>13</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -268,7 +587,7 @@
       {"Name":"CanGrowVert"},
       {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelPP"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":{"@xsi:nil":"true"},"Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"right","Parent":"LabelElegirVentDesv","AnchorTo":"right","Offset":{"@xsi:nil":"true"},"Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"45"}]}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":{"@xsi:nil":"true"},"Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"right","Parent":"PuntoRelativoHorizontal","AnchorTo":"right","Offset":{"@xsi:nil":"true"},"Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"45"}]}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
@@ -301,7 +620,7 @@
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"377"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"346"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"145"}}
 ]}}</Definition>
     <LUACode />
@@ -363,7 +682,7 @@
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LabelVentDesv1</ControlName>
-    <ZIndex>22</ZIndex>
+    <ZIndex>15</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -415,7 +734,7 @@
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LabelVentDesv2</ControlName>
-    <ZIndex>26</ZIndex>
+    <ZIndex>20</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -467,7 +786,7 @@
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LabelVentDesv3</ControlName>
-    <ZIndex>30</ZIndex>
+    <ZIndex>25</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -519,7 +838,7 @@
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LabelVentDesv4</ControlName>
-    <ZIndex>34</ZIndex>
+    <ZIndex>30</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -571,7 +890,7 @@
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LinkVentajaEtnia</ControlName>
-    <ZIndex>9</ZIndex>
+    <ZIndex>7</ZIndex>
     <ControlClass>FGLinkField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelPorEtnia"}}},
@@ -615,7 +934,7 @@
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"134"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"166"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"69"}}
 ]}}</Definition>
     <LUACode>function onInit()
@@ -628,7 +947,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LinkVentajaProfesion</ControlName>
-    <ZIndex>12</ZIndex>
+    <ZIndex>10</ZIndex>
     <ControlClass>FGLinkField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelPorProfesion"}}},
@@ -672,7 +991,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"134"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"166"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"98"}}
 ]}}</Definition>
     <LUACode>function onInit()
@@ -685,7 +1004,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LinkVentDesv1</ControlName>
-    <ZIndex>23</ZIndex>
+    <ZIndex>16</ZIndex>
     <ControlClass>FGLinkField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelVentDesv1"}}},
@@ -711,7 +1030,7 @@ end
       {"Name":"LinkFieldClass","Value":{"@xsi:type":"xsd:string","#text":"VentanaVentDesvent"}},
       {"Name":"LinkFieldDescriptionField","Value":{"@xsi:type":"xsd:string","#text":"name"}},
       {"Name":"LinkFieldRecordName"},
-      {"Name":"LinkFieldSelfOnEmpty","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"LinkFieldSelfOnEmpty","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -735,6 +1054,19 @@ end
     <LUACode>function onInit()
 	setValue(nil, nil);
 end
+
+function onDrop(x, y, dragdata)
+	local sClass,sRecord = dragdata.getShortcutData();
+	if sClass=="VentanaVentDesventSidebar" then
+		window.parentcontrol.window.Mensajes.setValue("");
+		setValue(dragdata.getShortcutData());
+		window.NombreVentDesv1.Actualizar(sRecord);
+		window.ValorVentDesv1.Actualizar(sRecord);
+	else
+		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
+	end;
+end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -742,7 +1074,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LinkVentDesv2</ControlName>
-    <ZIndex>27</ZIndex>
+    <ZIndex>21</ZIndex>
     <ControlClass>FGLinkField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelVentDesv2"}}},
@@ -768,7 +1100,7 @@ end
       {"Name":"LinkFieldClass","Value":{"@xsi:type":"xsd:string","#text":"VentanaVentDesvent"}},
       {"Name":"LinkFieldDescriptionField","Value":{"@xsi:type":"xsd:string","#text":"name"}},
       {"Name":"LinkFieldRecordName"},
-      {"Name":"LinkFieldSelfOnEmpty","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"LinkFieldSelfOnEmpty","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -792,6 +1124,19 @@ end
     <LUACode>function onInit()
 	setValue(nil, nil);
 end
+
+function onDrop(x, y, dragdata)
+	local sClass,sRecord = dragdata.getShortcutData();
+	if sClass=="VentanaVentDesventSidebar" then
+		window.parentcontrol.window.Mensajes.setValue("");
+		setValue(dragdata.getShortcutData());
+		window.NombreVentDesv2.Actualizar(sRecord);
+		window.ValorVentDesv2.Actualizar(sRecord);
+	else
+		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
+	end;
+end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -799,7 +1144,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LinkVentDesv3</ControlName>
-    <ZIndex>31</ZIndex>
+    <ZIndex>26</ZIndex>
     <ControlClass>FGLinkField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelVentDesv3"}}},
@@ -825,7 +1170,7 @@ end
       {"Name":"LinkFieldClass","Value":{"@xsi:type":"xsd:string","#text":"VentanaVentDesvent"}},
       {"Name":"LinkFieldDescriptionField","Value":{"@xsi:type":"xsd:string","#text":"name"}},
       {"Name":"LinkFieldRecordName"},
-      {"Name":"LinkFieldSelfOnEmpty","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"LinkFieldSelfOnEmpty","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -849,6 +1194,19 @@ end
     <LUACode>function onInit()
 	setValue(nil, nil);
 end
+
+function onDrop(x, y, dragdata)
+	local sClass,sRecord = dragdata.getShortcutData();
+	if sClass=="VentanaVentDesventSidebar" then
+		window.parentcontrol.window.Mensajes.setValue("");
+		setValue(dragdata.getShortcutData());
+		window.NombreVentDesv3.Actualizar(sRecord);
+		window.ValorVentDesv3.Actualizar(sRecord);
+	else
+		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
+	end;
+end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -856,7 +1214,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LinkVentDesv4</ControlName>
-    <ZIndex>35</ZIndex>
+    <ZIndex>31</ZIndex>
     <ControlClass>FGLinkField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelVentDesv4"}}},
@@ -882,7 +1240,7 @@ end
       {"Name":"LinkFieldClass","Value":{"@xsi:type":"xsd:string","#text":"VentanaVentDesvent"}},
       {"Name":"LinkFieldDescriptionField","Value":{"@xsi:type":"xsd:string","#text":"name"}},
       {"Name":"LinkFieldRecordName"},
-      {"Name":"LinkFieldSelfOnEmpty","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"LinkFieldSelfOnEmpty","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -906,6 +1264,19 @@ end
     <LUACode>function onInit()
 	setValue(nil, nil);
 end
+
+function onDrop(x, y, dragdata)
+	local sClass,sRecord = dragdata.getShortcutData();
+	if sClass=="VentanaVentDesventSidebar" then
+		window.parentcontrol.window.Mensajes.setValue("");
+		setValue(dragdata.getShortcutData());
+		window.NombreVentDesv4.Actualizar(sRecord);
+		window.ValorVentDesv4.Actualizar(sRecord);
+	else
+		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
+		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
+	end;
+end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -913,7 +1284,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>NombreVentajaEtnia</ControlName>
-    <ZIndex>10</ZIndex>
+    <ZIndex>8</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelPorEtnia"}}},
@@ -964,7 +1335,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"159"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"191"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"69"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
@@ -989,7 +1360,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>NombreVentajaProfesion</ControlName>
-    <ZIndex>13</ZIndex>
+    <ZIndex>11</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelPorProfesion"}}},
@@ -1040,7 +1411,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"159"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"191"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"98"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
@@ -1065,7 +1436,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>NombreVentDesv1</ControlName>
-    <ZIndex>25</ZIndex>
+    <ZIndex>18</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":[{"EdgeAnchor":"top","Parent":"LabelVentDesv1"},{"EdgeAnchor":"right","AnchorTo":"left","Parent":"ValorVentDesv1"},{"EdgeAnchor":"left","AnchorTo":"right","Parent":"LinkVentDesv1"}]}},
@@ -1080,7 +1451,7 @@ end
       {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"180"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"149"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"EmptyText"},
@@ -1119,14 +1490,42 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"191"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"166"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function Actualizar(sRecord)
+	setValue(Utilidades.LeerValorRegistro(sRecord, "name"));
+end
+
+function onDrop(x, y, dragdata)
+	window.LinkVentDesv1.onDrop(x, y, dragdata);
+end
+
+function onInit()
+	registerMenuItem("Eliminar", "delete", 6);
+	registerMenuItem("Confirmar Eliminación", "delete", 6, 7);
+end
+
+function onMenuSelection(selection, subselection)
+	if subselection == 7 then
+		window.LinkVentDesv1.setValue(nil,nil);
+		setValue("");
+		window.ValorVentDesv1.setValue(0);
+		window.CantidadVentDesv1.setValue(1);
+	end
+end
+
+function onValueChanged()
+	window.LabelCantidadVentDesv.setVisible(window.NombreVentDesv1.getValue():lower()=="hechizos" or window.NombreVentDesv2.getValue():lower()=="hechizos" or window.NombreVentDesv3.getValue():lower()=="hechizos" or window.NombreVentDesv4.getValue():lower()=="hechizos");
+	if getValue():lower()=="hechizos" then window.CantidadVentDesv1.setVisible(true);
+	else window.CantidadVentDesv1.setVisible(false);
+	end
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>NombreVentDesv2</ControlName>
-    <ZIndex>29</ZIndex>
+    <ZIndex>23</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":[{"EdgeAnchor":"top","Parent":"LabelVentDesv2"},{"EdgeAnchor":"right","AnchorTo":"left","Parent":"ValorVentDesv2"},{"EdgeAnchor":"left","AnchorTo":"right","Parent":"LinkVentDesv2"}]}},
@@ -1141,7 +1540,7 @@ end
       {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"180"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"149"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"EmptyText"},
@@ -1180,14 +1579,42 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"191"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"197"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function Actualizar(sRecord)
+	setValue(Utilidades.LeerValorRegistro(sRecord, "name"));
+end
+
+function onDrop(x, y, dragdata)
+	window.LinkVentDesv2.onDrop(x, y, dragdata);
+end
+
+function onInit()
+	registerMenuItem("Eliminar", "delete", 6);
+	registerMenuItem("Confirmar Eliminación", "delete", 6, 7);
+end
+
+function onMenuSelection(selection, subselection)
+	if subselection == 7 then
+		window.LinkVentDesv2.setValue(nil,nil);
+		setValue("");
+		window.ValorVentDesv2.setValue(0);
+		window.CantidadVentDesv2.setValue(1);
+	end
+end
+
+function onValueChanged()
+	window.LabelCantidadVentDesv.setVisible(window.NombreVentDesv1.getValue():lower()=="hechizos" or window.NombreVentDesv2.getValue():lower()=="hechizos" or window.NombreVentDesv3.getValue():lower()=="hechizos" or window.NombreVentDesv4.getValue():lower()=="hechizos");
+	if getValue():lower()=="hechizos" then window.CantidadVentDesv2.setVisible(true);
+	else window.CantidadVentDesv2.setVisible(false);
+	end
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>NombreVentDesv3</ControlName>
-    <ZIndex>33</ZIndex>
+    <ZIndex>28</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":[{"EdgeAnchor":"top","Parent":"LabelVentDesv3"},{"EdgeAnchor":"right","AnchorTo":"left","Parent":"ValorVentDesv3"},{"EdgeAnchor":"left","AnchorTo":"right","Parent":"LinkVentDesv3"}]}},
@@ -1202,7 +1629,7 @@ end
       {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"180"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"149"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"EmptyText"},
@@ -1241,14 +1668,42 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"191"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"229"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function Actualizar(sRecord)
+	setValue(Utilidades.LeerValorRegistro(sRecord, "name"));
+end
+
+function onDrop(x, y, dragdata)
+	window.LinkVentDesv3.onDrop(x, y, dragdata);
+end
+
+function onInit()
+	registerMenuItem("Eliminar", "delete", 6);
+	registerMenuItem("Confirmar Eliminación", "delete", 6, 7);
+end
+
+function onMenuSelection(selection, subselection)
+	if subselection == 7 then
+		window.LinkVentDesv3.setValue(nil,nil);
+		setValue("");
+		window.ValorVentDesv3.setValue(0);
+		window.CantidadVentDesv3.setValue(1);
+	end
+end
+
+function onValueChanged()
+	window.LabelCantidadVentDesv.setVisible(window.NombreVentDesv1.getValue():lower()=="hechizos" or window.NombreVentDesv2.getValue():lower()=="hechizos" or window.NombreVentDesv3.getValue():lower()=="hechizos" or window.NombreVentDesv4.getValue():lower()=="hechizos");
+	if getValue():lower()=="hechizos" then window.CantidadVentDesv3.setVisible(true);
+	else window.CantidadVentDesv3.setVisible(false);
+	end
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>NombreVentDesv4</ControlName>
-    <ZIndex>37</ZIndex>
+    <ZIndex>33</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":[{"EdgeAnchor":"top","Parent":"LabelVentDesv4"},{"EdgeAnchor":"right","AnchorTo":"left","Parent":"ValorVentDesv4"},{"EdgeAnchor":"left","AnchorTo":"right","Parent":"LinkVentDesv4"}]}},
@@ -1263,7 +1718,7 @@ end
       {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"180"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"149"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"EmptyText"},
@@ -1302,7 +1757,35 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"191"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"261"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function Actualizar(sRecord)
+	setValue(Utilidades.LeerValorRegistro(sRecord, "name"));
+end
+
+function onDrop(x, y, dragdata)
+	window.LinkVentDesv4.onDrop(x, y, dragdata);
+end
+
+function onInit()
+	registerMenuItem("Eliminar", "delete", 6);
+	registerMenuItem("Confirmar Eliminación", "delete", 6, 7);
+end
+
+function onMenuSelection(selection, subselection)
+	if subselection == 7 then
+		window.LinkVentDesv4.setValue(nil,nil);
+		setValue("");
+		window.ValorVentDesv4.setValue(0);
+		window.CantidadVentDesv4.setValue(1);
+	end
+end
+
+function onValueChanged()
+	window.LabelCantidadVentDesv.setVisible(window.NombreVentDesv1.getValue():lower()=="hechizos" or window.NombreVentDesv2.getValue():lower()=="hechizos" or window.NombreVentDesv3.getValue():lower()=="hechizos" or window.NombreVentDesv4.getValue():lower()=="hechizos");
+	if getValue():lower()=="hechizos" then window.CantidadVentDesv4.setVisible(true);
+	else window.CantidadVentDesv4.setVisible(false);
+	end
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1359,8 +1842,112 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
+    <ControlName>PuntoRelativoHorizontal</ControlName>
+    <ZIndex>4</ZIndex>
+    <ControlClass>FGCustomControl</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"PuntoRelativoHorizontal"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomClassName","Value":{"@xsi:type":"xsd:string","#text":"genericcontrol"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"40"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
+      {"Name":"Disabled","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"396"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"40"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardPP</WindowName>
+    <ControlName>SubVentanaWizardLealtadYNoPrf</ControlName>
+    <ZIndex>35</ZIndex>
+    <ControlClass>FGSubWindow</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"Activate","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"SubVentanaWizardLealtadYNoPrf"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":"10","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"left","Offset":{"@xsi:nil":"true"},"Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}}]}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"157"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"436"}},
+      {"Name":"Disabled"},
+      {"Name":"FastInit","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoScroll"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"SubWindowClassName","Value":{"@xsi:type":"xsd:string","#text":"VentanaWizardLealtadYNoPrf"}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"292"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardPP</WindowName>
     <ControlName>ValorVentDesv1</ControlName>
-    <ZIndex>24</ZIndex>
+    <ZIndex>17</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1403,7 +1990,7 @@ end
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
       {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
@@ -1412,17 +1999,23 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"377"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"346"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"164"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+end
+
+function Actualizar(sRecord)
+	setValue(Utilidades.LeerValorRegistro(sRecord, "Valor"));
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>ValorVentDesv2</ControlName>
-    <ZIndex>28</ZIndex>
+    <ZIndex>22</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1465,7 +2058,7 @@ end
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
       {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
@@ -1474,17 +2067,23 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"377"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"346"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"193"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+end
+
+function Actualizar(sRecord)
+	setValue(Utilidades.LeerValorRegistro(sRecord, "Valor"));
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>ValorVentDesv3</ControlName>
-    <ZIndex>32</ZIndex>
+    <ZIndex>27</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1527,7 +2126,7 @@ end
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
       {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
@@ -1536,17 +2135,23 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"377"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"346"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"222"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+end
+
+function Actualizar(sRecord)
+	setValue(Utilidades.LeerValorRegistro(sRecord, "Valor"));
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>ValorVentDesv4</ControlName>
-    <ZIndex>36</ZIndex>
+    <ZIndex>32</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1589,7 +2194,7 @@ end
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
       {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
@@ -1598,10 +2203,16 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"377"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"346"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"258"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+end
+
+function Actualizar(sRecord)
+	setValue(Utilidades.LeerValorRegistro(sRecord, "Valor"));
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
