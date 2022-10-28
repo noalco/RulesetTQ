@@ -4050,7 +4050,7 @@ end
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Lealtad"}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Ley"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"281"}},

@@ -767,6 +767,8 @@ end
 		window.Mensajes.setFont("FuenteMensajesWarning");
 		window.Mensajes.setValue("Los Puntos de Personaje deben estar entre 10 y 30. Recuerda ajustarlos mediante Ventajas y Desventajas o cambia alguna de las elecciones tomadas (orien étnico, edad, especie, ...) para estar en este rango.");
 	end
+	
+	window.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.PPRestantes.Actualizar();
 end
 
 function onInit()

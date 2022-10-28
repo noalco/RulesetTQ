@@ -262,7 +262,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>IconoVentDesv</ControlName>
-    <ZIndex>1</ZIndex>
+    <ZIndex>2</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -630,7 +630,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
     <ControlName>LabelVentDesv</ControlName>
-    <ZIndex>2</ZIndex>
+    <ZIndex>1</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1893,7 +1893,7 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardPP</WindowName>
-    <ControlName>SubVentanaWizardLealtadYNoPrf</ControlName>
+    <ControlName>SubVentanaWizardLealtadYNoProf</ControlName>
     <ZIndex>35</ZIndex>
     <ControlClass>FGSubWindow</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
@@ -1902,7 +1902,7 @@ end
       {"Name":"AdvancedTemplate"},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"CanGrowVert"},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"SubVentanaWizardLealtadYNoPrf"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"SubVentanaWizardLealtadYNoProf"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":"10","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"left","Offset":{"@xsi:nil":"true"},"Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}}]}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"157"}},
@@ -1933,7 +1933,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
-      {"Name":"SubWindowClassName","Value":{"@xsi:type":"xsd:string","#text":"VentanaWizardLealtadYNoPrf"}},
+      {"Name":"SubWindowClassName","Value":{"@xsi:type":"xsd:string","#text":"VentanaWizardLealtadYNoProf"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
