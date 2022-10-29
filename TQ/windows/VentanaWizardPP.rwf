@@ -59,6 +59,7 @@
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+	ParseoVentDesv.PorEleccion[1].Cant=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -124,6 +125,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+	ParseoVentDesv.PorEleccion[2].Cant=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -189,6 +191,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+	ParseoVentDesv.PorEleccion[3].Cant=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -254,6 +257,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	Herramientas.ObtenerVentana("charwizard", "").PP.Actualizar();
+	ParseoVentDesv.PorEleccion[4].Cant=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1065,6 +1069,7 @@ function onDrop(x, y, dragdata)
 		ParseoVentDesv.PorEleccion[1].sNombre=Utilidades.LeerValorRegistro(sRecord, "name");
 		ParseoVentDesv.PorEleccion[1].sLink=sRecord;
 		ParseoVentDesv.PorEleccion[1].PP=Utilidades.LeerValorRegistro(sRecord, "Valor");
+		ParseoVentDesv.PorEleccion[1].Cant=1;
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
@@ -1138,6 +1143,7 @@ function onDrop(x, y, dragdata)
 		ParseoVentDesv.PorEleccion[2].sNombre=Utilidades.LeerValorRegistro(sRecord, "name");
 		ParseoVentDesv.PorEleccion[2].sLink=sRecord;
 		ParseoVentDesv.PorEleccion[2].PP=Utilidades.LeerValorRegistro(sRecord, "Valor");
+		ParseoVentDesv.PorEleccion[2].Cant=1;
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
@@ -1211,6 +1217,7 @@ function onDrop(x, y, dragdata)
 		ParseoVentDesv.PorEleccion[3].sNombre=Utilidades.LeerValorRegistro(sRecord, "name");
 		ParseoVentDesv.PorEleccion[3].sLink=sRecord;
 		ParseoVentDesv.PorEleccion[3].PP=Utilidades.LeerValorRegistro(sRecord, "Valor");
+		ParseoVentDesv.PorEleccion[3].Cant=1;
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
@@ -1284,6 +1291,7 @@ function onDrop(x, y, dragdata)
 		ParseoVentDesv.PorEleccion[4].sNombre=Utilidades.LeerValorRegistro(sRecord, "name");
 		ParseoVentDesv.PorEleccion[4].sLink=sRecord;
 		ParseoVentDesv.PorEleccion[4].PP=Utilidades.LeerValorRegistro(sRecord, "Valor");
+		ParseoVentDesv.PorEleccion[4].Cant=1;
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
@@ -1357,9 +1365,8 @@ end
 	window.LabelPorEtniaYProfesion.setVisible(window.NombreVentajaEtnia.getValue()~="" or window.NombreVentajaProfesion.getValue()~="");
 	if getValue()~="" and ParseoVentDesv.sLinkPorEtnia~="" then
 		window.LinkVentajaEtnia.setValue("VentanaVentDesvent", ParseoVentDesv.sLinkPorEtnia);
-		Debug.chat(ParseoVentDesv.sLinkPorEtnia)
 	else
-		window.LinkVentajaEtnia.setValue(nil, nil)
+		window.LinkVentajaEtnia.setValue(nil, nil);
 	end
 end
 
@@ -1434,9 +1441,8 @@ end
 	window.LabelPorEtniaYProfesion.setVisible(window.NombreVentajaEtnia.getValue()~="" or window.NombreVentajaProfesion.getValue()~="");
 	if getValue()~="" and ParseoVentDesv.sLinkPorProfesion~="" then
 		window.LinkVentajaProfesion.setValue("VentanaVentDesvent", ParseoVentDesv.sLinkPorProfesion);
-		Debug.chat(ParseoVentDesv.sLinkPorProfesion)
 	else
-		window.LinkVentajaProfesion.setValue(nil, nil)
+		window.LinkVentajaProfesion.setValue(nil, nil);
 	end
 end
 
@@ -1526,6 +1532,7 @@ function onMenuSelection(selection, subselection)
 		ParseoVentDesv.PorEleccion[1].sNombre="";
 		ParseoVentDesv.PorEleccion[1].sLink="";
 		ParseoVentDesv.PorEleccion[1].PP=0;
+		ParseoVentDesv.PorEleccion[1].Cant=1;
 	end
 end
 
@@ -1534,7 +1541,6 @@ function onValueChanged()
 	if getValue():lower()=="hechizos" then window.CantidadVentDesv1.setVisible(true);
 	else window.CantidadVentDesv1.setVisible(false);
 	end
-	Debug.chat(ParseoVentDesv.PorEleccion)
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1627,7 +1633,6 @@ function onValueChanged()
 	if getValue():lower()=="hechizos" then window.CantidadVentDesv2.setVisible(true);
 	else window.CantidadVentDesv2.setVisible(false);
 	end
-	Debug.chat(ParseoVentDesv.PorEleccion)
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1720,7 +1725,6 @@ function onValueChanged()
 	if getValue():lower()=="hechizos" then window.CantidadVentDesv3.setVisible(true);
 	else window.CantidadVentDesv3.setVisible(false);
 	end
-	Debug.chat(ParseoVentDesv.PorEleccion)
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1813,7 +1817,6 @@ function onValueChanged()
 	if getValue():lower()=="hechizos" then window.CantidadVentDesv4.setVisible(true);
 	else window.CantidadVentDesv4.setVisible(false);
 	end
-	Debug.chat(ParseoVentDesv.PorEleccion)
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

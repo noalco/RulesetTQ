@@ -3210,7 +3210,16 @@ function onValueChanged()
 		window.Especialidad.setVisible(false);
 	end
 	
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	if getValue()~="" and ParseoProfesiones.TablaDineroPorProfesion[getValue():lower()] then
+		ParseoProfesiones.nDineroInicial=ParseoProfesiones.TablaDineroPorProfesion[getValue():lower()];
+	else
+		ParseoProfesiones.nDineroInicial=1;
+	end;
+
+	ParseoVentDesv.sPorProfesion="";
+	ParseoVentDesv.sLinkPorProfesion="";
+	window.parentcontrol.window.SubventanaWizardPP.subwindow.NombreVentajaProfesion.setValue("");
+	window.parentcontrol.window.SubventanaWizardPP.subwindow.LinkVentajaProfesion.setValue(nil, nil);
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

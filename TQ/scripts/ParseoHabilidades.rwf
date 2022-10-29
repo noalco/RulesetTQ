@@ -30,6 +30,7 @@
 	["lanzar"]="Lanzar",
 	["leyendas"]="Leyendas",
 	["manejar botes"]="Manejar Botes",
+	["manejar carro"]="Manejar Carros",
 	["manejar carros"]="Manejar Carros",
 	["medicina"]="Medicina",
 	["memorizar"]="Memorizar",
@@ -223,6 +224,7 @@ function ResetDatosEtnia()
 	sIdiomaHabilidadDeCultura="";
 	bArtesania=false;
 	sArtesania="";
+	ParseoProfesiones.nIncremento=0;
 end
 
 function esMultiple(sHabilidad)
