@@ -105,6 +105,11 @@
 			<HabilidadesPorSubir/>
 			<NumHabilidadesProfDisponibles/>
 			<NumHabilidadesNoProfDisponibles/>
+			<ModArmasCC/>
+			<ModArmasPr/>
+			<ModArmasAr/>
+			<ModIdiomas/>
+			<ModArtesanias/>
 			<ListaHabilidades>
 				<Marca/>
 				<Experiencia/>

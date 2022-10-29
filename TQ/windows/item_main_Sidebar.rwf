@@ -418,6 +418,7 @@ end
 ]}}</Definition>
     <LUACode>function onButtonPress()
 	window.TipoObjeto.setValue(Inventario.CteArma);
+	DB.setValue(window.getDatabaseNode(), "Habilidad", "string", "Escudo");
 	
 --	local sUsoArma=DB.getValue(window.getDatabaseNode(), "UsoArma", "");
 --	if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteUnaDosManos then

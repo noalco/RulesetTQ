@@ -81,6 +81,53 @@ function AsignarVentDesvPorProfesion(wPrincipal, sVentDesv)
 	sPorProfesion=sVentDesv;
 	sLinkPorProfesion=BuscarLink(sVentDesv);
 	wPrincipal.SubventanaWizardPP.subwindow.NombreVentajaProfesion.setValue(sPorProfesion);
+end
+
+function esGrupo(sHabilidad)
+	sHabilidad=string.lower(sHabilidad);
+	if string.match(sHabilidad, "armas cc")==nil and string.match(sHabilidad,"armas pr")==nil and string.match(sHabilidad,"armas ar")==nil and string.match(sHabilidad,"artesanías")==nil and string.match(sHabilidad,"idiomas")==nil then
+		return false;
+	else
+		return true;
+	end
+end
+
+function ParsearHabilidades(sHabilidades)
+	local aHabilidades = {};
+	sHabilidades=sHabilidades:gsub("\n", " ");
+	sHabilidades=sHabilidades:gsub("  ", " ");
+	local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
+	
+	for i = 1, #aClauses do
+		local sHabilidad, sValor = string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)([%+%-–]?%d*)");
+		if string.sub(sHabilidad, sHabilidad:len(), sHabilidad:len())==" " then sHabilidad=string.match(sHabilidad, "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+
+		if sHabilidad and sValor then
+			table.insert(aHabilidades, {sHabilidad=sHabilidad, nValor=tonumber(sValor)});
+		end
+	end
+	return aHabilidades;
+end
+
+function ModificarHabilidades(sRecord, sTipo, bAniadir)
+	if sRecord and sRecord~="" then
+		local nAniadir=1;
+		if not bAniadir then nAniadir=-1; end
+		
+		local aHabilidades = ParsearHabilidades(Utilidades.LeerValorRegistro(sRecord, "ModificadoresHabilidades"));
+		for i = 1, #aHabilidades do
+			local sAux=string.lower(aHabilidades[i].sHabilidad);
+			if ParseoHabilidades.Habilidad2Clave[sAux] and ParseoHabilidades.DatosHabilidades[ParseoHabilidades.Habilidad2Clave[sAux]] and ParseoHabilidades.DatosHabilidades[ParseoHabilidades.Habilidad2Clave[sAux]][sTipo] then
+				ParseoHabilidades.DatosHabilidades[ParseoHabilidades.Habilidad2Clave[sAux]][sTipo]=ParseoHabilidades.DatosHabilidades[ParseoHabilidades.Habilidad2Clave[sAux]][sTipo]+aHabilidades[i].nValor*nAniadir;
+			elseif esGrupo(aHabilidades[i].sHabilidad) then
+				ParseoHabilidades.GruposHabilidades[aHabilidades[i].sHabilidad:lower()]=ParseoHabilidades.GruposHabilidades[aHabilidades[i].sHabilidad:lower()]+aHabilidades[i].nValor*nAniadir;
+			elseif ParseoHabilidades.esSecundaria(aHabilidades[i].sHabilidad) then
+				ParseoHabilidades.ModificarHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo, bAniadir);
+			else
+				Debug.chat(aHabilidades[i]);
+			end
+		end
+	end
 end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />

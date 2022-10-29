@@ -268,7 +268,7 @@ end
   <WindowControls>
     <WindowName>HabilidadBase</WindowName>
     <ControlName>ClaveHabilidad</ControlName>
-    <ZIndex>5</ZIndex>
+    <ZIndex>4</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -282,7 +282,7 @@ end
       {"Name":"DefaultText","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -328,6 +328,7 @@ end
 	window.Artesania.setVisible(getValue()=="Artesania");
 	window.Idioma.setVisible(getValue()=="Idioma");
 	window.NombreHabilidad.ActualizarToolTip();
+	window.HabilidadTotal.onInit();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -784,7 +785,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>HabilidadBase</WindowName>
     <ControlName>HabilidadTotal</ControlName>
-    <ZIndex>4</ZIndex>
+    <ZIndex>5</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -847,7 +848,16 @@ end</LUACode>
 	addSourceWithOp("BonoBaseHabilidad", "+");
 	addSourceWithOp("EstorboTotal", "-");
 	addSourceWithOp("Bono", "+");
+	if window.ClaveHabilidad.getValue()=="Artesania" then
+		addSourceWithOp("...ModArtesanias", "+");
+	elseif window.ClaveHabilidad.getValue()=="Idioma" or window.ClaveHabilidad.getValue()=="Idioma Nativo" then
+		addSourceWithOp("...ModIdiomas", "+");
+	end
 	super.onInit();
+end
+
+function AniadirModificador()
+
 end
 
 function onValueChanged()

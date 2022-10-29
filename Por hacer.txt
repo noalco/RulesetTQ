@@ -9,6 +9,7 @@ Sugerencias Psico y Eldarc:
 			- Algo pasa con la equipación de las armas (creo que está solucionado)
 			- El DM no ve los nombres secundarios de las habilidades que crean los jugadores (creo que está solucionado)
 	- Algunos candados de las sidebar dan error al abrir la ventana siendo cliente (¿aquellos en los que no pueden editarlos los clientes?)
+	- Al pasar de escudo a arma, no cambia la habilidad
 
 - Estética
 			- Frames claros (no de momento)
@@ -73,12 +74,11 @@ Automatización Ventajas y Desventajas
 		se puede establecer que cuentan con un malus de -3 en cualquier habilidad de Comunicación
 		lo que te provoca un malus de -2 a todas tus habilidades de Comunicación y de Hechicería
 	Modificaciones a las habilidades
-		Comienzas el juego con dos lenguas propias. Recibes además un +2 en la habilidad Tierras Quebradas.
-		Tienes un bonus de +2 a las habilidades de Naturaleza, Orientarse y Tratar animales
-		tiene además un modificador de +3 en Tratar animales.
-		los siguientes puntos de habilidad: Leyendas +2, Multiverso +1. Suma 5 puntos de Lealtad.
+		Comienzas el juego con dos lenguas propias.
+		Suma 5 puntos de Lealtad.
 		Hechicería: 10 puntos a repartir libremente en habilidades mágicas
 		Teurgia: 10 puntos a repartir entre verbos y la esfera Ley
-		Modificaciones a las armas
-			Resta -2 ... así como al uso de armas arrojadizas y de proyectiles
-			sufres un modificador negativo de -1 al uso de armas arrojadizas y de proyectiles
+
+				Modificaciones a las armas (hecho, falta procesarlo al usar un arma)
+					Resta -2 ... así como al uso de armas arrojadizas y de proyectiles
+					sufres un modificador negativo de -1 al uso de armas arrojadizas y de proyectiles

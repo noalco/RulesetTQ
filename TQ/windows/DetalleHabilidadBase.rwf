@@ -321,7 +321,7 @@ end
   <WindowControls>
     <WindowName>DetalleHabilidadBase</WindowName>
     <ControlName>BonoMisc</ControlName>
-    <ZIndex>19</ZIndex>
+    <ZIndex>18</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -512,6 +512,7 @@ end
 	window.Idioma.setVisible(getValue()=="Idioma");
 	window.NombreHabilidad.ActualizarToolTip();
 	window.BonoBaseHabilidad.onInit();
+	window.HabilidadTotal.onInit();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -886,17 +887,13 @@ end</LUACode>
 	addSourceWithOp("BonoMisc", "+");
 	addSourceWithOp("EstorboTotal", "-");
 	addSourceWithOp("Bono", "+");
+	if window.ClaveHabilidad.getValue()=="Artesania" then
+		addSourceWithOp("...ModArtesanias", "+");
+	elseif window.ClaveHabilidad.getValue()=="Idioma" or window.ClaveHabilidad.getValue()=="Idioma Nativo" then
+		addSourceWithOp("...ModIdiomas", "+");
+	end
 	super.onInit();
 end
-
---function onValueChanged()
---	if window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario") and window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas") then
---		if window.ClaveHabilidad.getValue()=="Arma CC" or window.ClaveHabilidad.getValue()=="Arma Pr" then
---			Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
---		end
---	end
---	--window.HabilidadExperiencia.onValueChanged();
---end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -1026,7 +1023,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>DetalleHabilidadBase</WindowName>
     <ControlName>MultEstorbo</ControlName>
-    <ZIndex>20</ZIndex>
+    <ZIndex>19</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},

@@ -59,7 +59,8 @@
 	["OTROS"] = "&lt;p&gt;&lt;b&gt;Balanza&lt;/b&gt; Oratoria, Persuadir&lt;/p&gt;",
 
 	["Especialidades"] = "&lt;p&gt;&lt;b&gt;Escriba:&lt;/b&gt; otro Idioma.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Médico:&lt;/b&gt; Medicina, Primeros auxilios.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alquimista:&lt;/b&gt; Pociones.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ingeniero:&lt;/b&gt; Inventar.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Recaudador:&lt;/b&gt; Perspicacia.&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
+
+	["PP"] = "&lt;p&gt;En esta fase el personaje debería contar con &lt;b&gt;entre 10 y 30 PP&lt;/b&gt; (puedes ver el número de PP de los que dispones en la parte superior de esta ventana, junto al nombre del personaje). Si no es así, el jugador debería replantearse algunas de sus decisiones, o quizás elegir alguna ventaja o desventaja más.&lt;/p&gt;&lt;p&gt;Estos puntos se gastan principalmente para aumentar otras habilidades distintas de las de profesión. El personaje ha tenido experiencia con otro tipo de actividades diferentes de las típicas para su oficio, lo que lo distingue de otros marineros, ladrones, nobles, campesinos o nómadas. Puede ser una buena idea concretar de qué forma la historia personal del personaje ha dado lugar a estos conocimientos.&lt;/p&gt;&lt;p&gt;Cada &lt;b&gt;PP otorga dos puntos&lt;/b&gt; en cualquier habilidad que no esté entre las propias de la profesión del personaje. El número máximo de puntos que se puede asignar a una habilidad es de 8. Asimismo, cada PP puede proporcionar &lt;b&gt;3 puntos de Lealtad&lt;/b&gt; en cualquier religión.&lt;/p&gt;",
 --	[""] = "&lt;p&gt;&lt;/p&gt;",
 --	[""] = "&lt;p&gt;&lt;/p&gt;",
 --	[""] = "&lt;p&gt;&lt;/p&gt;",

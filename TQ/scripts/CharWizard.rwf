@@ -206,6 +206,12 @@ function AniadirHabilidades(nodeChar, window)
 			if ParseoProfesiones.EsferasProf[i]==sClave then w.DeProfesion.setValue(1); end
 		end
 	end
+	
+	DB.setValue(nodeChar, "Habilidades.ModArmasCC", "number", ParseoHabilidades.GruposHabilidades["armas cc"]);
+	DB.setValue(nodeChar, "Habilidades.ModArmasPr", "number", ParseoHabilidades.GruposHabilidades["armas pr"]);
+	DB.setValue(nodeChar, "Habilidades.ModArmasAr", "number", ParseoHabilidades.GruposHabilidades["armas ar"]);
+	DB.setValue(nodeChar, "Habilidades.ModIdiomas", "number", ParseoHabilidades.GruposHabilidades["idiomas"]);
+	DB.setValue(nodeChar, "Habilidades.ModArtesanias", "number", ParseoHabilidades.GruposHabilidades["artesanías"]);
 end
 
 function onCommitButtonPressed(window)

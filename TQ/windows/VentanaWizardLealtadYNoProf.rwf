@@ -61,7 +61,10 @@
 	window.PPRestantes.Actualizar();
 	window.PuntosDeLealtad.Actualizar();
 end
-</LUACode>
+
+function onClickRelease(button, x, y)
+	Informacion.MostrarInfo(window.parentcontrol.window.parentcontrol.window, "PP", "Reparto de Puntos de Personaje (PP)", "", "&lt;p&gt;Los Puntos de Lealtad aquí utilizados no incluyen los que pueda proporcionar la profesión del personaje&lt;/p&gt;");
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -127,7 +130,10 @@ end
 	window.PPRestantes.Actualizar()
 	ParseoProfesiones.numHabilidadesNoProfesion=getValue()*2;
 end
-</LUACode>
+
+function onClickRelease(button, x, y)
+	Informacion.MostrarInfo(window.parentcontrol.window.parentcontrol.window, "PP", "Reparto de Puntos de Personaje (PP)", "", "&lt;p&gt;Los Puntos de Lealtad aquí utilizados no incluyen los que pueda proporcionar la profesión del personaje&lt;/p&gt;");
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -222,7 +228,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
       {"Name":"TextUnderlined"},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Cada PP gastado aquí otorga 3 puntos de Lealtad "}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"253"}},
@@ -326,7 +332,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
       {"Name":"TextUnderlined"},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Cada PP gastado aquí otorga 2 puntos en Habilidades de no Profesión"}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Cada PP gastado aquí otorga 2 puntos en Habilidades de No Profesión"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"33"}},
@@ -488,7 +494,10 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"33"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"9"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onHover(state)
+	Informacion.MostrarInfo(window.parentcontrol.window.parentcontrol.window, "PP", "Reparto de Puntos de Personaje (PP)", "", "&lt;p&gt;Los Puntos de Lealtad aquí utilizados no incluyen los que pueda proporcionar la profesión del personaje&lt;/p&gt;");
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
