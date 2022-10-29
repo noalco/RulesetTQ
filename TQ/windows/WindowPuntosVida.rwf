@@ -1224,7 +1224,7 @@ end
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"350"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"249"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"255"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"MarcoPuntosVida"}},
@@ -1241,7 +1241,7 @@ end
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
       {"Name":"MinimumHeight","Value":{"@xsi:type":"xsd:int","#text":"350"}},
-      {"Name":"MinimumWidth","Value":{"@xsi:type":"xsd:int","#text":"250"}},
+      {"Name":"MinimumWidth"},
       {"Name":"NextTabTarget"},
       {"Name":"PrevTabTarget"},
       {"Name":"ReadOnly"},
@@ -1356,7 +1356,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"227"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"229"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"194"}}
 ]}}</Definition>
     <LUACode />
@@ -1527,7 +1527,7 @@ end
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DataSource"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"350"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"250"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"256"}},
       {"Name":"Disabled"},
       {"Name":"Dynamic"},
       {"Name":"FrameName"},
