@@ -5,6 +5,7 @@
     <Script>local Ventana;
 
 function AniadirCaracteristicas(nodeChar, windowWizard)
+--	nodeChar -&gt; Nodo de la base de datos de la hoja del PJ; windowWizard -&gt; Ventana del wizard
 	DB.setValue(nodeChar, "Caracteristicas.BaseCuerpo", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseCuerpo.getValue());
 	DB.setValue(nodeChar, "Caracteristicas.BaseMente", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseMente.getValue());
 	DB.setValue(nodeChar, "Caracteristicas.BaseEspiritu", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseEspiritu.getValue());
@@ -23,9 +24,38 @@ function AniadirCaracteristicas(nodeChar, windowWizard)
 	DB.setValue(nodeChar, "Caracteristicas.Tamanio", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.Tamanio.getValue());
 end
 
+function AniadirVentDesv(nodeChar, sNombreVentDesv, sLinkVentDesv, bGratis)
+	if sNombreVentDesv~="" then
+		local nodoVentDesv=DB.createChild(nodeChar.getChild("Notas").getChild("VentajasDesventajas").getChild("ListaVentDesvent"));
+		local nCostePP=0;
+		if not bGratis and sLinkVentDesv~="" then
+			nCostePP=Utilidades.LeerValorRegistro(sLinkVentDesv, "Valor");
+		end
+		if sLinkVentDesv~="" then
+			--Debug.chat(DB.findNode(sLinkVentDesv));
+			if DB.findNode(sLinkVentDesv) then
+				DB.copyNode(DB.findNode(sLinkVentDesv), nodoVentDesv);
+				DB.setValue(nodoVentDesv, "link", "windowreference", "VentanaVentDesvent", "");
+				
+			else
+				DB.setValue(nodoVentDesv, "name", "string", sNombreVentDesv);
+			end
+			DB.setValue(nodoVentDesv, "Valor", "number", nCostePP);
+		else
+			DB.setValue(nodoVentDesv, "name", "string", sNombreVentDesv);
+			DB.setValue(nodoVentDesv, "Valor", "number", nCostePP);
+		end
+	end
+end
+
 function AniadirPersonalidad(nodeChar, windowWizard)
+--	nodeChar -&gt; Nodo de la base de datos de la hoja del PJ; windowWizard -&gt; Ventana del wizard
 	DB.setValue(nodeChar, "Notas.Edad", "string", windowWizard.SubventanaWizardCaracteristicas.subwindow.Edad.getValue());
-	DB.setValue(nodeChar, "Notas.Especie", "string", windowWizard.SubventanaWizardCaracteristicas.subwindow.SeleccionEspecie.getStringValue());
+	if windowWizard.SubventanaWizardCaracteristicas.subwindow.SeleccionEspecie.getStringValue()=="Mereni" then
+		DB.setValue(nodeChar, "Notas.Especie", "string", "Merení");
+	else
+		DB.setValue(nodeChar, "Notas.Especie", "string", windowWizard.SubventanaWizardCaracteristicas.subwindow.SeleccionEspecie.getStringValue());
+	end
 	DB.setValue(nodeChar, "Notas.Origen", "string", windowWizard.SubventanaWizardCaracteristicas.subwindow.NombreEtnia.getValue());
 	local sProfesion=windowWizard.SubventanaWizardProfesion.subwindow.NombreProfesion.getValue();
 	if sProfesion:lower():match("sabio") and ParseoProfesiones.sEspecialidadSabio~="" then
@@ -33,13 +63,40 @@ function AniadirPersonalidad(nodeChar, windowWizard)
 	end;
 	DB.setValue(nodeChar, "Notas.Profesion", "string", sProfesion);
 	local sReligion=windowWizard.SubventanaWizardProfesion.subwindow.Culto.getValue()
-	if windowWizard.SubventanaWizardProfesion.subwindow.Culto.getValue()~="" then
+	if windowWizard.SubventanaWizardProfesion.subwindow.Culto.getValue()~="" and windowWizard.SubventanaWizardProfesion.subwindow.Deidad.getValue()~="" then
 		sReligion=sReligion.." ("..windowWizard.SubventanaWizardProfesion.subwindow.Deidad.getValue()..")";
 	end;
 	DB.setValue(nodeChar, "Notas.Religion", "string", sReligion);
+
+	local sCulto=windowWizard.SubventanaWizardProfesion.subwindow.Culto.getValue();
+	if sCulto~="" and ParseoVentDesv.PorEleccion[sCulto] then
+		ParseoVentDesv.PorEleccion[sCulto]=ParseoVentDesv.PorEleccion[sCulto]+ParseoProfesiones.nLealtadProf;
+	end
+	DB.setValue(nodeChar, "Notas.Lealtad.LealtadLey", "number", ParseoVentDesv.PorEleccion["LEY"]);
+	DB.setValue(nodeChar, "Notas.Lealtad.LealtadCaos", "number", ParseoVentDesv.PorEleccion["CAOS"]);
+	DB.setValue(nodeChar, "Notas.Lealtad.LealtadElementos", "number", ParseoVentDesv.PorEleccion["ELEMENTOS"]);
+	DB.setValue(nodeChar, "Notas.Lealtad.LealtadAntepasados", "number", ParseoVentDesv.PorEleccion["ANTEPASADOS"]);
+	
+--	sPorEtnia="";
+--	sLinkPorEtnia="";
+--	sPorProfesion="";
+--	sLinkPorProfesion="";
+--	PorEleccion={
+--		[1]={sNombre="", sLink="", PP=0},
+--		[2]={sNombre="", sLink="", PP=0},
+--		[3]={sNombre="", sLink="", PP=0},
+--		[4]={sNombre="", sLink="", PP=0},
+--	}
+	AniadirVentDesv(nodeChar, ParseoVentDesv.sPorEtnia, ParseoVentDesv.sLinkPorEtnia, true);
+	AniadirVentDesv(nodeChar, ParseoVentDesv.sPorProfesion, ParseoVentDesv.sLinkPorProfesion, true);
+	for i=1,4 do
+		AniadirVentDesv(nodeChar, ParseoVentDesv.PorEleccion[i].sNombre, ParseoVentDesv.PorEleccion[i].sLink, false);
+	end
+	
 end
 
 function AniadirHabilidades(nodeChar, window)
+--	nodeChar -&gt; Nodo de la base de datos de la hoja del PJ; window -&gt; Ventana de la hoja del PJ
 	local sClave=""; local rHabilidad; local sCampo; local rSecundaria; local sSecundaria;local w;
 
 	if ParseoHabilidades.bHabilidadDeCultura and ParseoHabilidades.sHabilidadDeCultura~="" then
@@ -145,7 +202,7 @@ function AniadirHabilidades(nodeChar, window)
 		end
 	end
 	DB.setValue(nodeChar, "Habilidades.NumHabilidadesProfDisponibles", "number", ParseoProfesiones.numHabilidadesProfesion);
-	DB.setValue(nodeChar, "Habilidades.NumHabilidadesNoProfDisponibles", "number", ParseoProfesiones.numHabilidadesNoProfesion);	
+	DB.setValue(nodeChar, "Habilidades.NumHabilidadesNoProfDisponibles", "number", ParseoProfesiones.numHabilidadesNoProfesion);
 	
 	for _,w in ipairs(window.hechizos.subwindow.SubventanaVerbosYEsferas.subwindow.ListaVerbos.getWindows()) do
 		sClave=w.Nombre.getValue();
@@ -159,7 +216,6 @@ function AniadirHabilidades(nodeChar, window)
 			if ParseoProfesiones.EsferasProf[i]==sClave then w.DeProfesion.setValue(1); end
 		end
 	end
-
 end
 
 function onCommitButtonPressed(window)
@@ -188,6 +244,9 @@ function requestResponse(bResult, sIdentity)
 end
 
 function commitCharacter(identity)
+--	ventana es el wizard
+--	nodeChar es el nodo del PJ de la BD
+--	w es la ventana del PJ
 	local nodeChar;
 	if Session.IsHost then
 		nodeChar = DB.createChild("charsheet");
@@ -199,8 +258,8 @@ function commitCharacter(identity)
 
 	DB.setValue(nodeChar, "name", "string", Ventana.NombrePJ.getValue());
 	AniadirCaracteristicas(nodeChar, Ventana);
-	AniadirPersonalidad(nodeChar, Ventana);
 	AniadirHabilidades(nodeChar, w);
+	AniadirPersonalidad(nodeChar, Ventana);
 
 	w.abilities.subwindow.BotonDetallesHabilidades.onClickRelease();
 	close();
@@ -209,6 +268,8 @@ end
 
 function onClose()
 	ParseoHabilidades.ResetDatos();
+	ParseoProfesiones.ResetearHabilidadesProfesion();
+	ParseoVentDesv.ResetarVentDesv();
 end
 </Script>
     <RegisterScript>true</RegisterScript>

@@ -725,27 +725,7 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
-    <LUACode>--function onInit()
---	if Session.IsHost then
---		--self.SubVentanaEtnia_main.subwindow.setSize(410, 420);
---		--self.setSize(460, 545);
---		local nAncho, nAlto=self.SubVentanaVentDesvent_main.subwindow.DescripcionVentDesvent.getSize();
---		if nAlto&lt;250 then
---			self.SubVentanaVentDesvent_main.subwindow.DescripcionVentDesvent.setSize(nAncho, 250);
---			self.SubVentanaVentDesvent_main.subwindow.ScrollBarDescripcionVentDesvent.setSize(nAncho, 250);
---		end
---		
---	else
---		--self.SubVentanaEtnia_main.subwindow.setSize(410, 350);
---		--self.setSize(460, 475)
---		local nAncho, nAlto=self.SubVentanaVentDesvent_main.subwindow.DescripcionVentDesvent.getSize();
---		if nAlto&lt;410 then
---			self.SubVentanaVentDesvent_main.subwindow.DescripcionVentDesvent.setSize(nAncho, 410);
---			self.SubVentanaVentDesvent_main.subwindow.ScrollBarDescripcionVentDesvent.setSize(nAncho, 410);
---		end
---	end
---end
---</LUACode>
+    <LUACode />
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

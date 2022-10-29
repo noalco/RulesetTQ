@@ -7,26 +7,48 @@ sLinkPorEtnia="";
 sPorProfesion="";
 sLinkPorProfesion="";
 PorEleccion={
-	[1]={sNombre="", sLink=""},
-	[2]={sNombre="", sLink=""},
-	[3]={sNombre="", sLink=""},
-	[4]={sNombre="", sLink=""},
+	[1]={sNombre="", sLink="", PP=0},
+	[2]={sNombre="", sLink="", PP=0},
+	[3]={sNombre="", sLink="", PP=0},
+	[4]={sNombre="", sLink="", PP=0},
 }
 
+Lealtades={["LEY"]=0, ["CAOS"]=0, ["ELEMENTOS"]=0, ["ANTEPASADOS"]=0}
+
+function ResetarVentDesv()
+	sPorEtnia="";
+	sLinkPorEtnia="";
+	sPorProfesion="";
+	sLinkPorProfesion="";
+	PorEleccion={
+		[1]={sNombre="", sLink="", PP=0},
+		[2]={sNombre="", sLink="", PP=0},
+		[3]={sNombre="", sLink="", PP=0},
+		[4]={sNombre="", sLink="", PP=0},
+	}
+	Lealtades={["LEY"]=0, ["CAOS"]=0, ["ELEMENTOS"]=0, ["ANTEPASADOS"]=0}
+end
+
 function BuscarLink(sVentDesv)
+	local sVentDesvNodo;
 	-- Búsqueda en local
 	if sVentDesv and sVentDesv~="" then
+		sVentDesv=sVentDesv:lower();
 		sVentDesv=sVentDesv:gsub("%.", "");
 		for _,nodoVentDesv in pairs(DB.getChild(".referencia.ventdesvent").getChildren()) do
 			--Debug.chat(DB.getValue(nodoVentDesv, "name", ""):lower(), sVentDesv:lower())
-			if DB.getValue(nodoVentDesv, "name", ""):lower()==sVentDesv:lower() then return DB.getPath(nodoVentDesv); end
+			sVentDesvNodo=DB.getValue(nodoVentDesv, "name", ""):lower();
+			sVentDesvNodo=sVentDesvNodo:gsub(" %(.*%)", "");
+			if sVentDesvNodo==sVentDesv then return DB.getPath(nodoVentDesv); end
 		end
 
 		-- Búsqueda en módulos
 		for sModulo,rModulo in pairs(ModuleManager.getAllModuleInfo()) do
 			if rModulo.loaded then
 				for _,nodoVentDesv in pairs(DB.getChild(".referencia.ventdesvent@"..sModulo).getChildren()) do
-					if DB.getValue(nodoVentDesv, "name", ""):lower()==sVentDesv:lower() then return DB.getPath(nodoVentDesv); end
+					sVentDesvNodo=DB.getValue(nodoVentDesv, "name", ""):lower();
+					sVentDesvNodo=sVentDesvNodo:gsub(" %(.*%)", "");
+					if sVentDesvNodo==sVentDesv then return DB.getPath(nodoVentDesv); end
 				end
 			end;
 		end

@@ -252,8 +252,19 @@
 			</GuiasInterpretativas>
 			<VentajasDesventajas>
 				<ListaVentDesvent>
-					<Link/>
-					<Nombre/>
+					<DescripcionVentDesvent/>
+					<HabilidadesExtra/>
+					<link>
+						<class/>
+						<recordname/>
+					</link>
+					<locked/>
+					<ModificadoresBasesHabilidades/>
+					<ModificadoresHabilidades/>
+					<name/>
+					<OtrasAutomatizaciones/>
+					<TipoVentDesvent/>
+					<TipoVentDesventvalue/>
 					<Valor/>
 				</ListaVentDesvent>
 				<CosteTotal/>

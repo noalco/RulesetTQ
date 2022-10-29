@@ -1062,6 +1062,9 @@ function onDrop(x, y, dragdata)
 		setValue(dragdata.getShortcutData());
 		window.NombreVentDesv1.Actualizar(sRecord);
 		window.ValorVentDesv1.Actualizar(sRecord);
+		ParseoVentDesv.PorEleccion[1].sNombre=Utilidades.LeerValorRegistro(sRecord, "name");
+		ParseoVentDesv.PorEleccion[1].sLink=sRecord;
+		ParseoVentDesv.PorEleccion[1].PP=Utilidades.LeerValorRegistro(sRecord, "Valor");
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
@@ -1132,6 +1135,9 @@ function onDrop(x, y, dragdata)
 		setValue(dragdata.getShortcutData());
 		window.NombreVentDesv2.Actualizar(sRecord);
 		window.ValorVentDesv2.Actualizar(sRecord);
+		ParseoVentDesv.PorEleccion[2].sNombre=Utilidades.LeerValorRegistro(sRecord, "name");
+		ParseoVentDesv.PorEleccion[2].sLink=sRecord;
+		ParseoVentDesv.PorEleccion[2].PP=Utilidades.LeerValorRegistro(sRecord, "Valor");
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
@@ -1202,6 +1208,9 @@ function onDrop(x, y, dragdata)
 		setValue(dragdata.getShortcutData());
 		window.NombreVentDesv3.Actualizar(sRecord);
 		window.ValorVentDesv3.Actualizar(sRecord);
+		ParseoVentDesv.PorEleccion[3].sNombre=Utilidades.LeerValorRegistro(sRecord, "name");
+		ParseoVentDesv.PorEleccion[3].sLink=sRecord;
+		ParseoVentDesv.PorEleccion[3].PP=Utilidades.LeerValorRegistro(sRecord, "Valor");
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
@@ -1272,6 +1281,9 @@ function onDrop(x, y, dragdata)
 		setValue(dragdata.getShortcutData());
 		window.NombreVentDesv4.Actualizar(sRecord);
 		window.ValorVentDesv4.Actualizar(sRecord);
+		ParseoVentDesv.PorEleccion[4].sNombre=Utilidades.LeerValorRegistro(sRecord, "name");
+		ParseoVentDesv.PorEleccion[4].sLink=sRecord;
+		ParseoVentDesv.PorEleccion[4].PP=Utilidades.LeerValorRegistro(sRecord, "Valor");
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
@@ -1345,6 +1357,7 @@ end
 	window.LabelPorEtniaYProfesion.setVisible(window.NombreVentajaEtnia.getValue()~="" or window.NombreVentajaProfesion.getValue()~="");
 	if getValue()~="" and ParseoVentDesv.sLinkPorEtnia~="" then
 		window.LinkVentajaEtnia.setValue("VentanaVentDesvent", ParseoVentDesv.sLinkPorEtnia);
+		Debug.chat(ParseoVentDesv.sLinkPorEtnia)
 	else
 		window.LinkVentajaEtnia.setValue(nil, nil)
 	end
@@ -1421,6 +1434,7 @@ end
 	window.LabelPorEtniaYProfesion.setVisible(window.NombreVentajaEtnia.getValue()~="" or window.NombreVentajaProfesion.getValue()~="");
 	if getValue()~="" and ParseoVentDesv.sLinkPorProfesion~="" then
 		window.LinkVentajaProfesion.setValue("VentanaVentDesvent", ParseoVentDesv.sLinkPorProfesion);
+		Debug.chat(ParseoVentDesv.sLinkPorProfesion)
 	else
 		window.LinkVentajaProfesion.setValue(nil, nil)
 	end
@@ -1509,6 +1523,9 @@ function onMenuSelection(selection, subselection)
 		setValue("");
 		window.ValorVentDesv1.setValue(0);
 		window.CantidadVentDesv1.setValue(1);
+		ParseoVentDesv.PorEleccion[1].sNombre="";
+		ParseoVentDesv.PorEleccion[1].sLink="";
+		ParseoVentDesv.PorEleccion[1].PP=0;
 	end
 end
 
@@ -1517,6 +1534,7 @@ function onValueChanged()
 	if getValue():lower()=="hechizos" then window.CantidadVentDesv1.setVisible(true);
 	else window.CantidadVentDesv1.setVisible(false);
 	end
+	Debug.chat(ParseoVentDesv.PorEleccion)
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1598,6 +1616,9 @@ function onMenuSelection(selection, subselection)
 		setValue("");
 		window.ValorVentDesv2.setValue(0);
 		window.CantidadVentDesv2.setValue(1);
+		ParseoVentDesv.PorEleccion[2].sNombre="";
+		ParseoVentDesv.PorEleccion[2].sLink="";
+		ParseoVentDesv.PorEleccion[2].PP=0;
 	end
 end
 
@@ -1606,6 +1627,7 @@ function onValueChanged()
 	if getValue():lower()=="hechizos" then window.CantidadVentDesv2.setVisible(true);
 	else window.CantidadVentDesv2.setVisible(false);
 	end
+	Debug.chat(ParseoVentDesv.PorEleccion)
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1687,6 +1709,9 @@ function onMenuSelection(selection, subselection)
 		setValue("");
 		window.ValorVentDesv3.setValue(0);
 		window.CantidadVentDesv3.setValue(1);
+		ParseoVentDesv.PorEleccion[3].sNombre="";
+		ParseoVentDesv.PorEleccion[3].sLink="";
+		ParseoVentDesv.PorEleccion[3].PP=0;
 	end
 end
 
@@ -1695,6 +1720,7 @@ function onValueChanged()
 	if getValue():lower()=="hechizos" then window.CantidadVentDesv3.setVisible(true);
 	else window.CantidadVentDesv3.setVisible(false);
 	end
+	Debug.chat(ParseoVentDesv.PorEleccion)
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1776,6 +1802,9 @@ function onMenuSelection(selection, subselection)
 		setValue("");
 		window.ValorVentDesv4.setValue(0);
 		window.CantidadVentDesv4.setValue(1);
+		ParseoVentDesv.PorEleccion[4].sNombre="";
+		ParseoVentDesv.PorEleccion[4].sLink="";
+		ParseoVentDesv.PorEleccion[4].PP=0;
 	end
 end
 
@@ -1784,6 +1813,7 @@ function onValueChanged()
 	if getValue():lower()=="hechizos" then window.CantidadVentDesv4.setVisible(true);
 	else window.CantidadVentDesv4.setVisible(false);
 	end
+	Debug.chat(ParseoVentDesv.PorEleccion)
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1990,7 +2020,7 @@ end
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
       {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
@@ -2058,7 +2088,7 @@ end</LUACode>
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
       {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
@@ -2126,7 +2156,7 @@ end</LUACode>
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
       {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
@@ -2194,7 +2224,7 @@ end</LUACode>
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
       {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},

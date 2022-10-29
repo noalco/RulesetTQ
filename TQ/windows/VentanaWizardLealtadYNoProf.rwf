@@ -2,7 +2,7 @@
   <WindowControls>
     <WindowName>VentanaWizardLealtadYNoProf</WindowName>
     <ControlName>ALealtades</ControlName>
-    <ZIndex>16</ZIndex>
+    <ZIndex>15</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -68,7 +68,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardLealtadYNoProf</WindowName>
     <ControlName>ANoProfesion</ControlName>
-    <ZIndex>17</ZIndex>
+    <ZIndex>16</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -125,6 +125,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.PPRestantes.Actualizar()
+	ParseoProfesiones.numHabilidadesNoProfesion=getValue()*2;
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -182,7 +183,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardLealtadYNoProf</WindowName>
     <ControlName>Label2</ControlName>
-    <ZIndex>19</ZIndex>
+    <ZIndex>18</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -234,7 +235,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardLealtadYNoProf</WindowName>
     <ControlName>LabelALealtades</ControlName>
-    <ZIndex>13</ZIndex>
+    <ZIndex>12</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -286,7 +287,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardLealtadYNoProf</WindowName>
     <ControlName>LabelANoProfesion</ControlName>
-    <ZIndex>14</ZIndex>
+    <ZIndex>13</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -390,7 +391,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardLealtadYNoProf</WindowName>
     <ControlName>LabelPPRestantes</ControlName>
-    <ZIndex>15</ZIndex>
+    <ZIndex>14</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -550,7 +551,8 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"148"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.PuntosDeLealtad.Actualizar()
+	window.PuntosDeLealtad.Actualizar();
+	ParseoVentDesv.PorEleccion["ANTEPASADOS"]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -615,7 +617,8 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"148"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.PuntosDeLealtad.Actualizar()
+	window.PuntosDeLealtad.Actualizar();
+	ParseoVentDesv.PorEleccion["CAOS"]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -680,7 +683,8 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"148"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.PuntosDeLealtad.Actualizar()
+	window.PuntosDeLealtad.Actualizar();
+	ParseoVentDesv.PorEleccion["ELEMENTOS"]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -746,6 +750,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.PuntosDeLealtad.Actualizar()
+	 ParseoVentDesv.PorEleccion["LEY"]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -754,7 +759,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardLealtadYNoProf</WindowName>
     <ControlName>PPRestantes</ControlName>
-    <ZIndex>18</ZIndex>
+    <ZIndex>17</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -823,7 +828,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardLealtadYNoProf</WindowName>
     <ControlName>PuntosDeLealtad</ControlName>
-    <ZIndex>20</ZIndex>
+    <ZIndex>19</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},

@@ -65,6 +65,8 @@
 		
 
 	&lt;string name="library_recordtype_empty_hechizos"&gt;&amp;#171; Nombre &amp;#187;&lt;/string&gt;
+	
+	&lt;string name="gmid_default"&gt;DJ&lt;/string&gt;
 
 &lt;/root&gt;</XML>
   </XMLFiles>

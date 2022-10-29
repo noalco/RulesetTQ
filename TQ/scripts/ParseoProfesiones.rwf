@@ -151,6 +151,7 @@ function ResetearHabilidadesProfesion()
 	numEsferasProfesion=0;
 	numHabilidadesMagicasProfesion=0;
 	numHabilidadesProfesion=60;
+	numHabilidadesNoProfesion=0;
 	nLealtadProf=0;
 	
 	sEspecialidadSabio="";
@@ -167,29 +168,31 @@ function ResetearHabilidadesProfesion()
 	end
 	
 	local vVentanaWizard=Herramientas.ObtenerVentana("charwizard", "");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.NombreProfesion.setValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.LinkProfesion.setValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.PPProfesion.setValue(0);
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.TipoArma1.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.TipoArma2.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.TipoArma3.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.TipoArma4.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadCC1.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadCC2.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadCC3.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadCC4.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadPr1.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadPr2.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadPr3.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadPr4.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionIdioma1.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionIdioma2.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionIdioma3.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionIdioma4.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania1.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania2.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania3.setStringValue("");
-	vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania4.setStringValue("");
+	if vVentanaWizard then
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.NombreProfesion.setValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.LinkProfesion.setValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.PPProfesion.setValue(0);
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.TipoArma1.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.TipoArma2.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.TipoArma3.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.TipoArma4.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadCC1.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadCC2.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadCC3.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadCC4.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadPr1.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadPr2.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadPr3.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.HabilidadPr4.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionIdioma1.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionIdioma2.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionIdioma3.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionIdioma4.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania1.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania2.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania3.setStringValue("");
+		vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania4.setStringValue("");
+	end
 end
 
 function ModificarHabilidadesProfCulto(aClauses, sCampo, nValor)
