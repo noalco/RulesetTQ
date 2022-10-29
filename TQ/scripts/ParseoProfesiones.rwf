@@ -2,20 +2,7 @@
   <Scripts>
     <ScriptName>ParseoProfesiones</ScriptName>
     <FolderID>21</FolderID>
-    <Script>StringToNum={
-	["un"]=1,
-	["uno"]=1,
-	["una"]=1,
-	["dos"]=2,
-	["tres"]=3,
-	["cuatro"]=4,
-	["cinco"]=5,
-	["seis"]=6,
-	["siete"]=7,
-	["ocho"]=8,
-	["nueve"]=9,
-	["diez"]=10,
-}
+    <Script>StringToNum={["un"]=1, ["uno"]=1, ["una"]=1, ["dos"]=2, ["tres"]=3, ["cuatro"]=4, ["cinco"]=5, ["seis"]=6, ["siete"]=7, ["ocho"]=8, ["nueve"]=9, ["diez"]=10,}
 
 Profesiones={
 	["artesano"] = {permitida=true, restriccion=""},
@@ -45,14 +32,7 @@ Profesiones={
 	["soldado"] = {permitida=true, restriccion=""},
 }
 
-HabilidadesDeProfesion={
-	["Niño"]=40,
-	["Joven"]=50,
-	["Adulto"]=60,
-	["Mayor"]=70,
-	["Viejo"]=80,
-	["Anciano"]=90,
-}
+HabilidadesDeProfesion={["Niño"]=40, ["Joven"]=50, ["Adulto"]=60, ["Mayor"]=70, ["Viejo"]=80, ["Anciano"]=90,}
 
 VerbosProf={[1]="", [2]="", [3]=""}
 EsferasProf={[1]="", [2]="", [3]=""}
@@ -79,6 +59,44 @@ numHabilidadesMagicasProfesion=0;
 numHabilidadesProfesion=60;
 numHabilidadesNoProfesion=0;
 nLealtadProf=0;
+
+DineroInicial={
+	[1]={mp=0, mb=5}, --Indigente: Mendigo, nómada: 5 mb.
+	[2]={mp=0, mb=20}, --Pobre: Campesino, cazador, marinero, minero: 20 mb.
+	[3]={mp=0, mb=50}, --Frugal: Artesano, bandido, criado, chamán, soldado, pirata: 50 mb.
+	[4]={mp=0, mb=100}, --Acomodado: Asesino, artista, espía, ladrón: 100 mb.
+	[5]={mp=50, mb=0}, --Próspero: Hechicero, hechicero guerrero, noble guerrero, sabio, sacerdote, sacerdote guerrero: 500 mb.
+	[6]={mp=100, mb=0}, --Rico: Mercader, noble cortesano: 1000 mb.
+	[7]={mp=100, mb=0}, --Rico. Para controlar la ventaja que da un rango de dinero superior
+}
+TablaDineroPorProfesion={
+	["mendigo"]=1,
+	["nómada"]=1,
+	["campesino"]=2,
+	["cazador"]=2,
+	["marinero"]=2,
+	["minero"]=2,
+	["artesano"]=3,
+	["bandido"]=3,
+	["criado"]=3,
+	["chamán"]=3,
+	["soldado"]=3,
+	["pirata"]=3,
+	["asesino"]=4,
+	["artista"]=4,
+	["espía"]=4,
+	["ladrón"]=4,
+	["hechicero"]=5,
+	["hechicero guerrero"]=5,
+	["noble guerrero"]=5,
+	["sabio"]=5,
+	["sacerdote"]=5,
+	["sacerdote guerrero"]=5,
+	["mercader"]=6,
+	["noble cortesano"]=6
+}
+nDineroInicial=1;
+nIncremento=0;
 
 function ObtenerListaProfesiones(sProfesiones, bPermitir)
 	local aClauses={};
@@ -156,6 +174,8 @@ function ResetearHabilidadesProfesion()
 	
 	sEspecialidadSabio="";
 	sIdiomaEspecialidadSabio="";
+	
+	nDineroInicial=1;
 	
 	local rHabilidad; local rSecundaria;
 	for _,rHabilidad in pairs(ParseoHabilidades.DatosHabilidades) do

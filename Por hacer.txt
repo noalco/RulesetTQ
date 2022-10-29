@@ -50,40 +50,23 @@ NPCs
 		- Fila 2: Mod. Daño - Al Impacto
 		- Fila 3: Estorbo - Debilitado
 	
-Liberías:
+Sidebars:
 			- Limitar la lista de Hechizos en los Encantamientos a 1
+	- Filtro PNJs pot tipo
+	- Iconos
+		- Ventajas y desventajas --> sidebar_icon_class.png (o el feat)
+		- Encantamientos -->sidebar_icon_fire.png
+		- Profesiones --> sidebar_icon_skill.png
+		- Orígenes étnicos --> sidebar_icon_system_2.png
 	
 Wizard
-	- Ventajas y Desventajas
-		- Por profesión
-		- Por etnia
-	- Lealtad
-		- Lealtad +10 a una religión por Sacerdote
-	- Habilidades no de profesión
-	- Equipo inicial
-	- Hechizos
-	
+	- Cambiar tooltips por mensajes
+	- Chequeo PJ -> Activar botón Generar
 		
 	
 	
 	
-Orígenes étnicos:
-	Ventajas y Desventajas: Tienen de partida un estatus material un grado superior al de su profesión.
-								Indigente: Mendigo, nómada: 5 mb.
-								Pobre: Campesino, cazador, marinero, minero: 20 mb.
-								Frugal: Artesano, bandido, criado, chamán, soldado, pirata: 50 mb.
-								Acomodado: Asesino, artista, espía, ladrón: 100 mb.
-								Próspero: Hechicero, hechicero guerrero, noble guerrero, sabio, sacerdote, sacerdote-guerrero: 500 mb.
-								Rico: Mercader, noble cortesano: 1000 mb.
-
-
-
-Ventajas y Desventajas
-	PP variables
-		Hechicería y Teurgia en función de la profesión
-		Hechizos en función del número de hechizos o encantamientos elegidos (-1 x Hechizo/Encantamiento)
-		Objeto Mágico en función de la dificultad del hechizo del objeto (-3 para hasta dificultad 15 y -4 para dificultad 20)
-		Maldición depende del valor que se negocie entre jugador y narrador.
+Automatización Ventajas y Desventajas
 	Modificaciones de bases
 		-X en todas las habilidades de Técnica
 		tendrás un malus de -3 para lanzar hechizos
@@ -99,4 +82,3 @@ Ventajas y Desventajas
 		Modificaciones a las armas
 			Resta -2 ... así como al uso de armas arrojadizas y de proyectiles
 			sufres un modificador negativo de -1 al uso de armas arrojadizas y de proyectiles
-		

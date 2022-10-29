@@ -182,8 +182,10 @@
 			<TieneVisera/>
 		</inventorylist>
 		<coins>
-			<amount/>
-			<name/>
+			<slotX> <!-- X=1-6; 1=mo, 2=mp, 3=mb -->
+				<amount/>
+				<name/>
+			</slotX>
 		</coins>
 		<Inventario>
 			<Estorbo/>

@@ -24,12 +24,12 @@ function AniadirCaracteristicas(nodeChar, windowWizard)
 	DB.setValue(nodeChar, "Caracteristicas.Tamanio", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.Tamanio.getValue());
 end
 
-function AniadirVentDesv(nodeChar, sNombreVentDesv, sLinkVentDesv, bGratis)
+function AniadirVentDesv(nodeChar, sNombreVentDesv, sLinkVentDesv, bGratis, nCant)
 	if sNombreVentDesv~="" then
 		local nodoVentDesv=DB.createChild(nodeChar.getChild("Notas").getChild("VentajasDesventajas").getChild("ListaVentDesvent"));
 		local nCostePP=0;
-		if not bGratis and sLinkVentDesv~="" then
-			nCostePP=Utilidades.LeerValorRegistro(sLinkVentDesv, "Valor");
+		if not bGratis and sLinkVentDesv~="" and nCant then
+			nCostePP=Utilidades.LeerValorRegistro(sLinkVentDesv, "Valor")*nCant;
 		end
 		if sLinkVentDesv~="" then
 			--Debug.chat(DB.findNode(sLinkVentDesv));
@@ -77,20 +77,10 @@ function AniadirPersonalidad(nodeChar, windowWizard)
 	DB.setValue(nodeChar, "Notas.Lealtad.LealtadElementos", "number", ParseoVentDesv.PorEleccion["ELEMENTOS"]);
 	DB.setValue(nodeChar, "Notas.Lealtad.LealtadAntepasados", "number", ParseoVentDesv.PorEleccion["ANTEPASADOS"]);
 	
---	sPorEtnia="";
---	sLinkPorEtnia="";
---	sPorProfesion="";
---	sLinkPorProfesion="";
---	PorEleccion={
---		[1]={sNombre="", sLink="", PP=0},
---		[2]={sNombre="", sLink="", PP=0},
---		[3]={sNombre="", sLink="", PP=0},
---		[4]={sNombre="", sLink="", PP=0},
---	}
 	AniadirVentDesv(nodeChar, ParseoVentDesv.sPorEtnia, ParseoVentDesv.sLinkPorEtnia, true);
 	AniadirVentDesv(nodeChar, ParseoVentDesv.sPorProfesion, ParseoVentDesv.sLinkPorProfesion, true);
 	for i=1,4 do
-		AniadirVentDesv(nodeChar, ParseoVentDesv.PorEleccion[i].sNombre, ParseoVentDesv.PorEleccion[i].sLink, false);
+		AniadirVentDesv(nodeChar, ParseoVentDesv.PorEleccion[i].sNombre, ParseoVentDesv.PorEleccion[i].sLink, false, ParseoVentDesv.PorEleccion[i].Cant);
 	end
 	
 end
@@ -260,6 +250,10 @@ function commitCharacter(identity)
 	AniadirCaracteristicas(nodeChar, Ventana);
 	AniadirHabilidades(nodeChar, w);
 	AniadirPersonalidad(nodeChar, Ventana);
+	
+	Debug.chat(ParseoProfesiones.nDineroInicial, ParseoProfesiones.nIncremento);
+	w.inventory.subwindow.coinamount2.setValue(ParseoProfesiones.DineroInicial[ParseoProfesiones.nDineroInicial+ParseoProfesiones.nIncremento].mp);
+	w.inventory.subwindow.coinamount3.setValue(ParseoProfesiones.DineroInicial[ParseoProfesiones.nDineroInicial+ParseoProfesiones.nIncremento].mb);
 
 	w.abilities.subwindow.BotonDetallesHabilidades.onClickRelease();
 	close();

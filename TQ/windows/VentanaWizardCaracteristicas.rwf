@@ -2623,6 +2623,7 @@ function onDrop(x, y, dragdata)
 			window.parentcontrol.window.Mensajes.setValue("");
 			local _, sRecordAct=getValue();
 			ParseoHabilidades.ResetDatosEtnia();
+			
 			setValue(dragdata.getShortcutData());
 			window.NombreEtnia.Actualizar(sRecord);
 			
@@ -3516,6 +3517,13 @@ end
 
 function onDrop(x, y, dragdata)
 	window.LinkEtnia.onDrop(x, y, dragdata);
+end
+
+function onValueChanged()
+	ParseoVentDesv.sPorEtnia="";
+	ParseoVentDesv.sLinkPorEtnia="";
+	window.parentcontrol.window.SubventanaWizardPP.subwindow.NombreVentajaEtnia.setValue("");
+	window.parentcontrol.window.SubventanaWizardPP.subwindow.LinkVentajaEtnia.setValue(nil, nil);
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
