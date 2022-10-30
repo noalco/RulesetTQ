@@ -55,7 +55,7 @@
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"300"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"150"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"180"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -116,7 +116,7 @@
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"3"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"260"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"290"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -260,7 +260,7 @@
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultChecked"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"Disabled"},
       {"Name":"FrameName"},
@@ -291,7 +291,7 @@
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"310"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"185"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"220"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Habilidades.Devilitado(getValue()==1);
@@ -359,7 +359,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"3"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"416"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"446"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -697,7 +697,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"3"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"310"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"340"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -749,7 +749,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"220"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"155"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"185"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -801,7 +801,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"7"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"240"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"270"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -957,7 +957,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"7"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"393"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"423"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1030,7 +1030,7 @@ end;</LUACode>
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"86"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -1061,7 +1061,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"220"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"185"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"220"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1269,7 +1269,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"7"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"290"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"320"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1425,7 +1425,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"7"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"340"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"370"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1529,7 +1529,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"7"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"215"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"245"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1932,7 +1932,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"3"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"360"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"390"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2012,7 +2012,7 @@ end;</LUACode>
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"npc_main"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DataSource"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"450"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"565"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"340"}},
       {"Name":"Disabled"},
       {"Name":"Dynamic"},
@@ -2111,7 +2111,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"210"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"240"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2296,7 +2296,7 @@ end;</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"388"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"418"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
