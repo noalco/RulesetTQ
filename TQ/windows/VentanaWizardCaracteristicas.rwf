@@ -50,9 +50,17 @@
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"97"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	if getValue()~="" then ParseoHabilidades.sArtesania=getValue();
-	else ParseoHabilidades.sArtesania="";
+	if getValue()~="" then
+		ParseoHabilidades.sArtesania=getValue();
+		ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorArtesaniaEtnia=getValue()=="Artesanía";
+	else
+		ParseoHabilidades.sArtesania="";
+		ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorArtesaniaEtnia=true;
 	end
+end
+
+function onVisibilityChanged()
+	ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorArtesaniaEtnia=isVisible();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -130,9 +138,9 @@ function Actualizar()
 	setValue(window.BaseAtractivo.getValue());
 end
 
-function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Atractivo", "Atractivo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -4 | Máx. +"..window.MaxAtractivo.getValue());
-end</LUACode>
+--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Atractivo", "Atractivo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -4 | Máx. +"..window.MaxAtractivo.getValue());
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -198,9 +206,9 @@ end</LUACode>
 	window.Atractivo.Actualizar();
 end
 
-function onClickRelease(button, x, y)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Atractivo", "Atractivo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -4, Máx. +"..window.MaxAtractivo.getValue());
-end</LUACode>
+--function onClickRelease(button, x, y)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Atractivo", "Atractivo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -4, Máx. +"..window.MaxAtractivo.getValue());
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -267,9 +275,9 @@ end</LUACode>
 	window.PtosGastados.Actualizar();
 end
 
-function onClickRelease(button, x, y)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Cuerpo", "Cuerpo", "Cuerpo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. "..window.MaxCuerpo.getValue());
-end</LUACode>
+--function onClickRelease(button, x, y)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Cuerpo", "Cuerpo", "Cuerpo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. "..window.MaxCuerpo.getValue());
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -336,9 +344,9 @@ end</LUACode>
 	window.PtosGastados.Actualizar();
 end
 
-function onClickRelease(button, x, y)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
-end</LUACode>
+--function onClickRelease(button, x, y)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -405,9 +413,9 @@ end</LUACode>
 	window.PtosGastados.Actualizar();
 end
 
-function onClickRelease(button, x, y)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
-end</LUACode>
+--function onClickRelease(button, x, y)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -473,9 +481,609 @@ end</LUACode>
 	window.Tamanio.Actualizar();
 end
 
-function onClickRelease(button, x, y)
+--function onClickRelease(button, x, y)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Tamanio", "Tamaño", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -3 | Máx. +"..window.MaxTamanio.getValue());
+--end</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>Button1</ControlName>
+    <ZIndex>68</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Button1"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_hover"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"60"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"51"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	Informacion.MostrarInfo(window.parentcontrol.window, "Especies");
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>Button10</ControlName>
+    <ZIndex>77</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Button10"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_hover"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"418"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
 	Informacion.MostrarInfo(window.parentcontrol.window, "Tamanio", "Tamaño", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -3 | Máx. +"..window.MaxTamanio.getValue());
-end</LUACode>
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>Button2</ControlName>
+    <ZIndex>69</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Button2"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_hover"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"109"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"76"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	Informacion.MostrarInfo(window.parentcontrol.window, "Etnia", "Orígenes étnicos");
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>Button3</ControlName>
+    <ZIndex>70</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Button3"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_hover"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"47"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"128"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	Informacion.MostrarInfo(window.parentcontrol.window, "Edades");
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>Button4</ControlName>
+    <ZIndex>71</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Button4"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_hover"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"183"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"193"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	Informacion.MostrarInfo(window.parentcontrol.window, "Generacion Caracteristicas");
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>Button5</ControlName>
+    <ZIndex>72</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Button5"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_hover"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"108"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	Informacion.MostrarInfo(window.parentcontrol.window, "Cuerpo", "Cuerpo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. "..window.MaxCuerpo.getValue());
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>Button6</ControlName>
+    <ZIndex>73</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Button6"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_hover"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"168"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>Button7</ControlName>
+    <ZIndex>74</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Button7"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_hover"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"228"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>Button8</ControlName>
+    <ZIndex>75</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Button8"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_hover"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"293"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	Informacion.MostrarInfo(window.parentcontrol.window, "Atractivo", "Atractivo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -4 | Máx. +"..window.MaxAtractivo.getValue());
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardCaracteristicas</WindowName>
+    <ControlName>Button9</ControlName>
+    <ZIndex>76</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Button9"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_hover"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"358"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	Informacion.MostrarInfo(window.parentcontrol.window, "Fuerza", "Fuerza", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3");
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -550,9 +1158,9 @@ function Actualizar()
 	setValue(window.BaseCuerpo.getValue()+window.ModEdadCuerpo.getValue());
 end
 
-function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Cuerpo", "Cuerpo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. "..window.MaxCuerpo.getValue());
-end</LUACode>
+--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Cuerpo", "Cuerpo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. "..window.MaxCuerpo.getValue());
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -859,7 +1467,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"63"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"71"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"123"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
@@ -906,7 +1514,7 @@ end
 		ParseoProfesiones.numHabilidadesProfesion=60;
 	end
 	window.PtosDisponiblesConEspecieYEdad.Actualizar();
-	Informacion.MostrarInfo(window.parentcontrol.window, window.LabelTipoEdad.getValue(), "Edad: "..window.LabelTipoEdad.getValue());
+--	Informacion.MostrarInfo(window.parentcontrol.window, window.LabelTipoEdad.getValue(), "Edad: "..window.LabelTipoEdad.getValue());
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -986,9 +1594,9 @@ function Actualizar()
 	setValue(window.BaseEspiritu.getValue()+window.ModEspecieEspiritu.getValue());
 end
 
-function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
-end</LUACode>
+--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1054,9 +1662,9 @@ end</LUACode>
 	setValue(window.Tamanio.getValue()+window.Cuerpo.getValue());
 end
 
-function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Fuerza", "Fuerza", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3");
-end
+--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Fuerza", "Fuerza", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3");
+--end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -1116,9 +1724,15 @@ end
 	window.IdiomaCultura.setStringValue("");
 	if getValue()~="" then
 		ParseoHabilidades.sHabilidadDeCultura=ParseoHabilidades.Habilidad2Clave[getValue():lower()];
+		ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorHabilidadCulturaEtnia=getValue()=="Habilidad de CUL";
 	else
 		ParseoHabilidades.sHabilidadDeCultura="";
+		ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorHabilidadCulturaEtnia=true;
 	end
+end
+
+function onVisibilityChanged()
+	ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorHabilidadCulturaEtnia=isVisible();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1273,9 +1887,17 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"97"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	if getValue()~="" then ParseoHabilidades.sIdiomaHabilidadDeCultura=getValue();
-	else ParseoHabilidades.sIdiomaHabilidadDeCultura="";
+	if getValue()~="" then
+		ParseoHabilidades.sIdiomaHabilidadDeCultura=getValue();
+		ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorIdiomaEtnia=false;
+	else
+		ParseoHabilidades.sIdiomaHabilidadDeCultura="";
+		ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorIdiomaEtnia=isVisible();
 	end
+end
+
+function onVisibilityChanged()
+	ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorIdiomaEtnia=isVisible() and getValue()~="";
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1329,9 +1951,9 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"243"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"271"}}
 ]}}</Definition>
-    <LUACode>function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Atractivo", "Atractivo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -4 | Máx. +"..window.MaxAtractivo.getValue());
-end</LUACode>
+    <LUACode>--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Atractivo", "Atractivo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -4 | Máx. +"..window.MaxAtractivo.getValue());
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1539,9 +2161,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"246"}}
 ]}}</Definition>
-    <LUACode>function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Caracteristicas");
-end</LUACode>
+    <LUACode>--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Caracteristicas");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1593,9 +2215,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"63"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"271"}}
 ]}}</Definition>
-    <LUACode>function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Cuerpo", "Cuerpo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. "..window.MaxCuerpo.getValue());
-end</LUACode>
+    <LUACode>--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Cuerpo", "Cuerpo", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. "..window.MaxCuerpo.getValue());
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1699,9 +2321,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"10"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"128"}}
 ]}}</Definition>
-    <LUACode>function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Edades");
-end</LUACode>
+    <LUACode>--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Edades");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1753,9 +2375,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"10"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"51"}}
 ]}}</Definition>
-    <LUACode>function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Especies");
-end</LUACode>
+    <LUACode>--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Especies");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1859,9 +2481,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"183"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"271"}}
 ]}}</Definition>
-    <LUACode>function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9");
-end</LUACode>
+    <LUACode>--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1913,9 +2535,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"10"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"76"}}
 ]}}</Definition>
-    <LUACode>function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Etnia", "Orígenes étnicos");
-end</LUACode>
+    <LUACode>--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Etnia", "Orígenes étnicos");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1967,10 +2589,10 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"313"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"271"}}
 ]}}</Definition>
-    <LUACode>function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Fuerza", "Fuerza", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3");
-end
-</LUACode>
+    <LUACode>--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Fuerza", "Fuerza", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3");
+--end
+--</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -2074,9 +2696,9 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"123"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"271"}}
 ]}}</Definition>
-    <LUACode>function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9");
-end</LUACode>
+    <LUACode>--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -2128,9 +2750,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"161"}}
 ]}}</Definition>
-    <LUACode>function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Generacion Caracteristicas");
-end</LUACode>
+    <LUACode>--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Generacion Caracteristicas");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -2390,9 +3012,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"373"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"271"}}
 ]}}</Definition>
-    <LUACode>function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Tamanio", "Tamaño", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -3 | Máx. +"..window.MaxTamanio.getValue());
-end</LUACode>
+    <LUACode>--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Tamanio", "Tamaño", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -3 | Máx. +"..window.MaxTamanio.getValue());
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -2441,7 +3063,7 @@ end</LUACode>
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"134"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"142"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"128"}}
 ]}}</Definition>
     <LUACode>--function onHover(state)
@@ -2655,13 +3277,14 @@ function onDrop(x, y, dragdata)
 			
 			window.parentcontrol.window.BotonProfesion.setVisible(true);
 			
+			window.parentcontrol.window.Mensajes.setValue("");
 		else
 			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
-			window.parentcontrol.window.Mensajes.setValue("El origen étnico seleccionado no está permitido para la especie elegida.");
+			window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorEtniaNoPermitida"]);
 		end
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
-		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es un origen étnico.");
+		window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorNoEsEtnia"]);
 	end;
 end
 
@@ -3188,9 +3811,9 @@ function Actualizar()
 	setValue(window.BaseMente.getValue()+window.ModEdadMente.getValue()+window.ModEspecieMente.getValue());
 end
 
-function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
-end</LUACode>
+--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Mente", "Mente", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -3524,6 +4147,7 @@ function onValueChanged()
 	ParseoVentDesv.sLinkPorEtnia="";
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.NombreVentajaEtnia.setValue("");
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.LinkVentajaEtnia.setValue(nil, nil);
+	ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorEtnia=false;
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -4148,6 +4772,16 @@ end
 function onInit()
 	Actualizar();
 end
+
+function onValueChanged()
+	if window.SeleccionMetodo.getValue()~="Al azar" then
+		ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorRepartoExcesivo=getValue()&lt;0;
+		ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorRepartoIncompleto=getValue()&gt;0;
+	else
+		ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorRepartoExcesivo=false;
+		ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorRepartoIncompleto=false;
+	end;
+end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -4166,7 +4800,7 @@ end
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"286"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"281"}},
       {"Name":"Disabled"},
       {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"FrameName"},
@@ -4203,7 +4837,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"67"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"72"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"51"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
@@ -4212,7 +4846,7 @@ end
 	elseif getValue()=="Mestizo" then window.PPEspecie.setValue(-4);
 	else window.PPEspecie.setValue(-8);
 	end
-	Informacion.MostrarInfo(window.parentcontrol.window, getValue(), "Especie "..getStringValue());
+--	Informacion.MostrarInfo(window.parentcontrol.window, getValue(), "Especie "..getStringValue());
 	
 	local _, sRecord=window.LinkEtnia.getValue();
 	if sRecord and sRecord~="" and not window.LinkEtnia.EtniaPermitida(sRecord) then
@@ -4221,7 +4855,7 @@ end
 		window.LinkEtnia.setValue(nil, nil);
 		window.NombreEtnia.setValue("");
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
-		window.parentcontrol.window.Mensajes.setValue("La especie seleccionada no es compatible con tu origen étnico. Debes elegir un nuevo origen étnico compatible con tu especie.");
+		window.parentcontrol.window.Mensajes.setValue("");
 	end
 end
 
@@ -4306,13 +4940,15 @@ end
 	window.BaseEspiritu.setReadOnly(bAlAzar);
 	if bAlAzar then
 		window.LanzarDadosPtos.onButtonPress();
+		ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorRepartoExcesivo=false;
+		ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorRepartoIncompleto=false;
 	else
 		window.PtosDisponibles.setValue(19);
 		window.BaseCuerpo.setValue(3);
 		window.BaseMente.setValue(3);
 		window.BaseEspiritu.setValue(3);
 	end
-	Informacion.MostrarInfo(window.parentcontrol.window, getValue(), "Características generadas "..string.lower(getStringValue()));
+--	Informacion.MostrarInfo(window.parentcontrol.window, getValue(), "Características generadas "..string.lower(getStringValue()));
 end
 
 --function onHover(state)
@@ -4393,9 +5029,9 @@ function Actualizar()
 	setValue(window.BaseTamanio.getValue());
 end
 
-function onHover(state)
-	Informacion.MostrarInfo(window.parentcontrol.window, "Tamanio", "Tamaño", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -3 | Máx. +"..window.MaxTamanio.getValue());
-end</LUACode>
+--function onHover(state)
+--	Informacion.MostrarInfo(window.parentcontrol.window, "Tamanio", "Tamaño", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. -3 | Máx. +"..window.MaxTamanio.getValue());
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

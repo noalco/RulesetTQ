@@ -35,20 +35,15 @@ Hechizos:
 
 NPCs
 	- Hacer campos para PNJs humanos
-		- Estorbo
-		- Hhechizos
+		- Hechizos
 		- Habilidades mágicas
 	- ALgunos PJs no tienen PV sino PM
-	- Reorganizar campos
-		- Fila 1: PV - PM
-		- Fila 2: Mod. Daño - Al Impacto
-		- Fila 3: Estorbo - Debilitado
+
 	
 Sidebars:
 			- Limitar la lista de Hechizos en los Encantamientos a 1
 	
 Wizard
-	- Cambiar tooltips por mensajes
 	- Chequeo PJ -> Activar botón Generar
 
 	

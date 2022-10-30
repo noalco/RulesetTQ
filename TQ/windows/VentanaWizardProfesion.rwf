@@ -182,7 +182,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -239,7 +239,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -296,7 +296,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -917,24 +917,11 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"100"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=1 then ParseoProfesiones.ArmasExtraProfesion[1].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[1].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -3105,13 +3092,17 @@ function onDrop(x, y, dragdata)
 			window.NumHabilidadesMagicas.setValue(ParseoProfesiones.numHabilidadesMagicasProfesion);
 			
 			ParseoVentDesv.AsignarVentDesvPorProfesion(window.parentcontrol.window, Utilidades.LeerValorRegistro(sRecord, "VentajaDesventaja"));
+			
+			window.parentcontrol.window.Mensajes.setValue("");
+			
+			
 		else
 			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
-			window.parentcontrol.window.Mensajes.setValue("No cumples los requisitos para seleccionar la profesión elegida.");
+			window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorProfesionNoPermitida"]);
 		end
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
-		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una profesión.");
+		window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorNoEsProfesion"]);
 	end;
 end
 </LUACode>
@@ -3220,6 +3211,7 @@ function onValueChanged()
 	ParseoVentDesv.sLinkPorProfesion="";
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.NombreVentajaProfesion.setValue("");
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.LinkVentajaProfesion.setValue(nil, nil);
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorProfesion=false;
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -4458,7 +4450,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -4487,19 +4479,19 @@ end
 	if window.NumArmas.getValue()&gt;=1 then ParseoProfesiones.ArmasExtraProfesion[1].tipo=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[1].tipo="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
---	if getValue()=="Arma CC" or getValue()=="" then
---		if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][window.HabilidadPr1.getValue()] then
---			ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][window.HabilidadPr1.getValue()].prof=0;
---		end
---	end
---	if getValue()=="Arma Pr" or getValue()=="" then
---		if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][window.HabilidadCC1.getValue()] then
---			ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][window.HabilidadCC1.getValue()].prof=0;
---		end
---	end
+	ComprobarCorrecto();
 end
-</LUACode>
+
+function onVisibilityChanged()
+	ComprobarCorrecto();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorArmaProfesion=window.TipoArma1.isVisible() and (window.TipoArma1.getValue()=="Arma CC" and window.HabilidadCC1.getValue()~="" or window.TipoArma1.getValue()=="Arma Pr" and window.HabilidadPr1.getValue()~="");-- or
+--	window.TipoArma2.isVisible() and window.TipoArma2.getValue()~="" and window.TipoArma2.getValue()~="Tipo de Arma" or
+--	window.TipoArma3.isVisible() and window.TipoArma3.getValue()~="" and window.TipoArma3.getValue()~="Tipo de Arma" or
+--	window.TipoArma4.isVisible() and window.TipoArma4.getValue()~="" and window.TipoArma4.getValue()~="Tipo de Arma" 
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4530,7 +4522,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -4559,19 +4551,7 @@ end
 	if window.NumArmas.getValue()&gt;=2 then ParseoProfesiones.ArmasExtraProfesion[2].tipo=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[2].tipo="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
---	if getValue()=="Arma CC" or getValue()=="" then
---		if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][window.HabilidadPr2.getValue()] then
---			ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][window.HabilidadPr2.getValue()].prof=0;
---		end
---	end
---	if getValue()=="Arma Pr" or getValue()=="" then
---		if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][window.HabilidadCC2.getValue()] then
---			ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][window.HabilidadCC2.getValue()].prof=0;
---		end
---	end
 end
-
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -4603,7 +4583,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -4632,19 +4612,7 @@ end
 		if window.NumArmas.getValue()&gt;=3 then ParseoProfesiones.ArmasExtraProfesion[3].tipo=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[3].tipo="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
---	if getValue()=="Arma CC" or getValue()=="" then
---		if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][window.HabilidadPr3.getValue()] then
---			ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][window.HabilidadPr3.getValue()].prof=0;
---		end
---	end
---	if getValue()=="Arma Pr" or getValue()=="" then
---		if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][window.HabilidadCC3.getValue()] then
---			ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][window.HabilidadCC3.getValue()].prof=0;
---		end
---	end
 end
-
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -4676,7 +4644,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -4705,19 +4673,7 @@ end
 	if window.NumArmas.getValue()&gt;=4 then ParseoProfesiones.ArmasExtraProfesion[4].tipo=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[4].tipo="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
---	if getValue()=="Arma CC" or getValue()=="" then
---		if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][window.HabilidadPr4.getValue()] then
---			ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][window.HabilidadPr4.getValue()].prof=0;
---		end
---	end
---	if getValue()=="Arma Pr" or getValue()=="" then
---		if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][window.HabilidadCC4.getValue()] then
---			ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][window.HabilidadCC4.getValue()].prof=0;
---		end
---	end
 end
-
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -4749,7 +4705,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -4822,7 +4778,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -4895,7 +4851,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -5023,7 +4979,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -5080,7 +5036,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -5137,7 +5093,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},

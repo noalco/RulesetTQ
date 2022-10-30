@@ -2,7 +2,7 @@
   <Scripts>
     <ScriptName>Informacion</ScriptName>
     <FolderID>21</FolderID>
-    <Script>local CadenasInfo = {
+    <Script>CadenasInfo = {
 	-- ******************** Especies ********************
 	--["Especies"] = "&lt;h&gt;Especie: Humano&lt;/h&gt;&lt;p&gt;Sin modificaciones por especie&lt;/p&gt;&lt;h&gt;Especie: Merení&lt;/h&gt;&lt;p&gt;Los merení son una especie homínida distinta y, aunque a simple vista parecen personas especialmente esbeltas, cuando uno está cerca siente diferencias más acusadas. Son más altos y estilizados, y no existen entre ellos tipos corporales regordetes o corpulentos. Sus cabezas son más estrechas y sus ojos ligeramente almendrados, a veces de tonos exóticos, como púrpura o turquesa. Poseen pómulos pronunciados y las orejas más pequeñas, un poco puntiagudas, y pegadas al cráneo.&lt;/p&gt;&lt;p&gt; Están también dotados, en términos generales, de una inteligencia mayor que la de los humanos y de una personalidad más compleja. De hecho, cuando se da la convivencia entre estas dos especies, los merení asumen el liderazgo.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Características:&lt;/b&gt; Si has determinado las características al azar, aumenta la Mente en +1 y el Espíritu en +1. Si has repartido valores, suma +2 a la cantidad de puntos a distribuir.&lt;/p&gt;&lt;h&gt;Especie: Mestizo&lt;/h&gt;&lt;p&gt;De la unión de humano y merení nace un mestizo estéril que comparte características de ambas especies. Físicamente retienen algo de la esbeltez de los merení, y los rasgos de sus rostros recuerdan a los de esta raza. Mentalmente son más humanos, aunque de mayor fuerza espiritual. &lt;/p&gt;&lt;p&gt;&lt;b&gt;Características:&lt;/b&gt; Si has determinado las características al azar, aumenta el Espíritu en +1. Si has repartido valores, suma +1 a la cantidad de puntos a distribuir.&lt;/p&gt;",
 	["Especies"] = "",
@@ -61,14 +61,37 @@
 	["Especialidades"] = "&lt;p&gt;&lt;b&gt;Escriba:&lt;/b&gt; otro Idioma.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Médico:&lt;/b&gt; Medicina, Primeros auxilios.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Alquimista:&lt;/b&gt; Pociones.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Ingeniero:&lt;/b&gt; Inventar.&lt;/p&gt;&lt;p&gt;&lt;b&gt;Recaudador:&lt;/b&gt; Perspicacia.&lt;/p&gt;",
 
 	["PP"] = "&lt;p&gt;En esta fase el personaje debería contar con &lt;b&gt;entre 10 y 30 PP&lt;/b&gt; (puedes ver el número de PP de los que dispones en la parte superior de esta ventana, junto al nombre del personaje). Si no es así, el jugador debería replantearse algunas de sus decisiones, o quizás elegir alguna ventaja o desventaja más.&lt;/p&gt;&lt;p&gt;Estos puntos se gastan principalmente para aumentar otras habilidades distintas de las de profesión. El personaje ha tenido experiencia con otro tipo de actividades diferentes de las típicas para su oficio, lo que lo distingue de otros marineros, ladrones, nobles, campesinos o nómadas. Puede ser una buena idea concretar de qué forma la historia personal del personaje ha dado lugar a estos conocimientos.&lt;/p&gt;&lt;p&gt;Cada &lt;b&gt;PP otorga dos puntos&lt;/b&gt; en cualquier habilidad que no esté entre las propias de la profesión del personaje. El número máximo de puntos que se puede asignar a una habilidad es de 8. Asimismo, cada PP puede proporcionar &lt;b&gt;3 puntos de Lealtad&lt;/b&gt; en cualquier religión.&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
---	[""] = "&lt;p&gt;&lt;/p&gt;",
+
+	-- ******************** Errores de generación ********************
+	["CabeceraErrores"] = "&lt;p&gt;Debes solucionar los siguientes problemas para poder general el personaje:&lt;/p&gt;",
+	["CabeceraAvisos"] = "&lt;h&gt;Avisos&lt;/h&gt;&lt;p&gt;No has completado de rellenar todos los elementos que tienes dispobibles en el Asistente de Personaje. Estos elementos no son indispensables para generación del personaje, pero sí recomendables.&lt;/p&gt;",
+	["ErrorEtnia"] = "&lt;p&gt;No has seleccionado ningún Origen Étnico.&lt;/p&gt;",
+	["ErrorRepartoIncompleto"] = "&lt;p&gt;No has repartido todos los puntos que tienes disponibles para las Características.&lt;/p&gt;",
+	["ErrorRepartoExcesivo"] = "&lt;p&gt;Has asignado más puntos de los permitidos en las Características.&lt;/p&gt;",
+	["ErrorEtniaNoPermitida"] = "&lt;p&gt;El Origen Étnico seleccionado no está permitido para la Especie elegida.&lt;/p&gt;",
+	["ErrorNoEsEtnia"] = "&lt;p&gt;El elemento arrastrado no es un Origen Étnico.&lt;/p&gt;",
+	["ErrorArtesaniaEtnia"] = "&lt;p&gt;No has seleccionado la Artesanía que te otorga tu Origen Étnico.&lt;/p&gt;",
+	["ErrorHabilidadCulturaEtnia"] = "&lt;p&gt;No has seleccionado la Habilidad de Cultura que te otorga tu Origen Étnico.&lt;/p&gt;",
+	["ErrorIdiomaEtnia"] = "&lt;p&gt;No has seleccionado el Idioma que te otorga tu Origen Étnico.&lt;/p&gt;",
+	["ErrorProfesion"] = "&lt;p&gt;No has seleccionado ninguna Profesión.&lt;/p&gt;",
+	["ErrorArmaProfesion"] = "&lt;p&gt;No has seleccionado alguna de las Armas que te otorga tu Profesión.&lt;/p&gt;",
+	["ErrorArtesaniaProfesion"] = "&lt;p&gt;No has seleccionado alguna de las Artesanías que te otorga tu Profesión.&lt;/p&gt;",
+	["ErrorIdiomaProfesion"] = "&lt;p&gt;No has seleccionado alguno de los Idiomas que te otorga tu Profesión.&lt;/p&gt;",
+	["ErrorCultoProfesion"] = "&lt;p&gt;No has seleccionado el Culto que seguirás como Sacerdote.&lt;/p&gt;",
+	["ErrorDeidadProfesion"] = "&lt;p&gt;No has seleccionado la Deidad que seguirás como Sacerdote.&lt;/p&gt;",
+	["ErrorEspecialidadProfesion"] = "&lt;p&gt;No has seleccionado la Especialidad que te otorga tu Profesión de Sabio.&lt;/p&gt;",
+	["ErrorIdiomaEspecialidadProfesion"] = "&lt;p&gt;No has seleccionado el Idioma que te otorga tu Profesión de Sabio.&lt;/p&gt;",
+	["ErrorVerboProfesion"] = "&lt;p&gt;No has seleccionado alguno de los Verbos que te otorga tu Profesión.&lt;/p&gt;",
+	["ErrorEsferaProfesion"] = "&lt;p&gt;No has seleccionado alguna de las Esferas que te otorga tu Profesión.&lt;/p&gt;",
+	["ErrorHabilidadMagicaProfesion"] = "&lt;p&gt;No has seleccionado alguna de las Habilidades Mágicas que te otorga tu Profesión.&lt;/p&gt;",
+	["ErrorCantidadPP"] = "&lt;p&gt;Tu cantidad de Puntos de Personaje no está entre 10 y 30 (ambos inclusive).&lt;/p&gt;",
+	["ErrorRepartoPP"] = "&lt;p&gt;No has repartido alguno de tus Puntos de Personaje.&lt;/p&gt;",
+	["ErrorRepartoLealtad"] = "&lt;p&gt;Has asignado más puntos de Lealtad de los que tienes disponibles.&lt;/p&gt;",
+	["ErrorCambioEspecie"] = "La especie seleccionada no es compatible con tu origen étnico. Debes elegir un nuevo origen étnico compatible con tu especie.",
+	["ErrorProfesionNoPermitida"] = "La profesión que has elegido no está disponible para tu Origen Étnico. Cambia tu Origen o selecciona otra Profesión.",
+	["ErrorNoEsProfesion"] = "El elemento arrastrado no es una profesión.&lt;/p&gt;",
+	["ErrorNoEsVentDesv"] = "El elemento arrastrado no es una Ventaja o Desventaja.",
+
 --	[""] = "&lt;p&gt;&lt;/p&gt;",
 --	[""] = "&lt;p&gt;&lt;/p&gt;",
 --	[""] = "&lt;p&gt;&lt;/p&gt;",
@@ -155,7 +178,8 @@ function MostrarHabilidades(wVentanaRaiz)
 	end
 	--Debug.chat(sTexto)
 	wVentanaRaiz.Informacion.setValue(sTexto);
-end</Script>
+end
+</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />
   </Scripts>
