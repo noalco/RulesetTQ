@@ -4147,7 +4147,7 @@ function onValueChanged()
 	ParseoVentDesv.sLinkPorEtnia="";
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.NombreVentajaEtnia.setValue("");
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.LinkVentajaEtnia.setValue(nil, nil);
-	ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorEtnia=false;
+	ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorEtnia=getValue()=="";
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

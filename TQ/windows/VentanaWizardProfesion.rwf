@@ -437,24 +437,12 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"100"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=1 then ParseoProfesiones.ArmasExtraProfesion[1].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[1].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
-
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -509,24 +497,12 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"125"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=2 then ParseoProfesiones.ArmasExtraProfesion[2].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[2].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -581,24 +557,12 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"150"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=3 then ParseoProfesiones.ArmasExtraProfesion[3].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[3].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -653,24 +617,12 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"175"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=4 then ParseoProfesiones.ArmasExtraProfesion[4].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[4].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -920,6 +872,7 @@ end
 	if window.NumArmas.getValue()&gt;=1 then ParseoProfesiones.ArmasExtraProfesion[1].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[1].arma="";
 	end
+	window.TipoArma1.ComprobarCorrecto();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -976,24 +929,12 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"125"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=2 then ParseoProfesiones.ArmasExtraProfesion[2].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[2].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
-
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1048,23 +989,11 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"150"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=3 then ParseoProfesiones.ArmasExtraProfesion[3].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[3].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
-
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -1120,23 +1049,11 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"175"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=4 then ParseoProfesiones.ArmasExtraProfesion[4].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[4].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -3211,7 +3128,7 @@ function onValueChanged()
 	ParseoVentDesv.sLinkPorProfesion="";
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.NombreVentajaProfesion.setValue("");
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.LinkVentajaProfesion.setValue(nil, nil);
-	ChequeoPJ.PartesCompletadas["Profesión"].ErrorProfesion=false;
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorProfesion=getValue()=="";
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -4486,11 +4403,17 @@ function onVisibilityChanged()
 	ComprobarCorrecto();
 end
 
+function onInit()
+	window.TipoArma1.ComprobarCorrecto();
+	super.onInit();
+end
+
 function ComprobarCorrecto()
-	ChequeoPJ.PartesCompletadas["Profesión"].ErrorArmaProfesion=window.TipoArma1.isVisible() and (window.TipoArma1.getValue()=="Arma CC" and window.HabilidadCC1.getValue()~="" or window.TipoArma1.getValue()=="Arma Pr" and window.HabilidadPr1.getValue()~="");-- or
---	window.TipoArma2.isVisible() and window.TipoArma2.getValue()~="" and window.TipoArma2.getValue()~="Tipo de Arma" or
---	window.TipoArma3.isVisible() and window.TipoArma3.getValue()~="" and window.TipoArma3.getValue()~="Tipo de Arma" or
---	window.TipoArma4.isVisible() and window.TipoArma4.getValue()~="" and window.TipoArma4.getValue()~="Tipo de Arma" 
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorArmaProfesion=
+	(window.TipoArma1.isVisible() and (window.TipoArma1.getValue()=="" or window.TipoArma1.getValue()=="Tipo de Arma" or window.TipoArma1.getValue()=="Arma CC" and window.HabilidadCC1.getValue()=="" or window.TipoArma1.getValue()=="Arma Pr" and window.HabilidadPr1.getValue()=="")) or
+	(window.TipoArma2.isVisible() and (window.TipoArma2.getValue()=="" or window.TipoArma2.getValue()=="Tipo de Arma" or window.TipoArma2.getValue()=="Arma CC" and window.HabilidadCC2.getValue()=="" or window.TipoArma2.getValue()=="Arma Pr" and window.HabilidadPr2.getValue()=="")) or
+	(window.TipoArma3.isVisible() and (window.TipoArma3.getValue()=="" or window.TipoArma3.getValue()=="Tipo de Arma" or window.TipoArma3.getValue()=="Arma CC" and window.HabilidadCC3.getValue()=="" or window.TipoArma3.getValue()=="Arma Pr" and window.HabilidadPr3.getValue()=="")) or
+	(window.TipoArma4.isVisible() and (window.TipoArma4.getValue()=="" or window.TipoArma4.getValue()=="Tipo de Arma" or window.TipoArma4.getValue()=="Arma CC" and window.HabilidadCC4.getValue()=="" or window.TipoArma4.getValue()=="Arma Pr" and window.HabilidadPr4.getValue()==""));
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -4551,6 +4474,16 @@ end</LUACode>
 	if window.NumArmas.getValue()&gt;=2 then ParseoProfesiones.ArmasExtraProfesion[2].tipo=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[2].tipo="";
 	end
+	window.TipoArma1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.TipoArma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.TipoArma1.ComprobarCorrecto();
+	super.onInit();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -4609,9 +4542,19 @@ end
     <LUACode>function onValueChanged()
 	window.HabilidadCC3.setVisible(getValue()=="Arma CC" and window.NumArmas.getValue()&gt;=3);
 	window.HabilidadPr3.setVisible(getValue()=="Arma Pr" and window.NumArmas.getValue()&gt;=3);
-		if window.NumArmas.getValue()&gt;=3 then ParseoProfesiones.ArmasExtraProfesion[3].tipo=getValue();
+	if window.NumArmas.getValue()&gt;=3 then ParseoProfesiones.ArmasExtraProfesion[3].tipo=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[3].tipo="";
 	end
+	window.TipoArma1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.TipoArma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.TipoArma1.ComprobarCorrecto();
+	super.onInit();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -4673,6 +4616,16 @@ end
 	if window.NumArmas.getValue()&gt;=4 then ParseoProfesiones.ArmasExtraProfesion[4].tipo=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[4].tipo="";
 	end
+	window.TipoArma1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.TipoArma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.TipoArma1.ComprobarCorrecto();
+	super.onInit();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

@@ -38,6 +38,7 @@ NPCs
 		- Hechizos
 		- Habilidades mágicas
 	- ALgunos PJs no tienen PV sino PM
+	- Habilidades con penalización de estorbo (entre paréntesis)
 
 	
 Sidebars:
