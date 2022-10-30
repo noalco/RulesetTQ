@@ -85,7 +85,7 @@ end
 
 function esGrupo(sHabilidad)
 	sHabilidad=string.lower(sHabilidad);
-	if string.match(sHabilidad, "armas cc")==nil and string.match(sHabilidad,"armas pr")==nil and string.match(sHabilidad,"armas ar")==nil and string.match(sHabilidad,"artesanías")==nil and string.match(sHabilidad,"idiomas")==nil then
+	if string.match(sHabilidad, "armas cc")==nil and string.match(sHabilidad,"armas pr")==nil and string.match(sHabilidad,"armas ar")==nil and string.match(sHabilidad,"artesanías")==nil and string.match(sHabilidad,"idiomas")==nil and string.match(sHabilidad,"magia")==nil then
 		return false;
 	else
 		return true;
@@ -124,10 +124,26 @@ function ModificarHabilidades(sRecord, sTipo, bAniadir)
 			elseif ParseoHabilidades.esSecundaria(aHabilidades[i].sHabilidad) then
 				ParseoHabilidades.ModificarHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo, bAniadir);
 			else
-				Debug.chat(aHabilidades[i]);
+				Debug.chat("Habilidad", aHabilidades[i]);
 			end
 		end
 	end
+end
+
+function ModificarBaseDeHabilidades(sRecord, bAniadir)
+	if sRecord and sRecord~="" then
+		local nAniadir=1;
+		if not bAniadir then nAniadir=-1; end
+		local aHabilidades = ParsearHabilidades(Utilidades.LeerValorRegistro(sRecord, "ModificadoresBasesHabilidades"));
+		for i = 1, #aHabilidades do
+			local sAux=string.lower(aHabilidades[i].sHabilidad);
+			if ParseoHabilidades.BaseHabilidades[sAux] then
+				ParseoHabilidades.BaseHabilidades[sAux]=ParseoHabilidades.BaseHabilidades[sAux]+aHabilidades[i].nValor*nAniadir;
+			else
+				Debug.chat("Base Habilidad", aHabilidades[i]);
+			end
+		end
+	end	
 end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />

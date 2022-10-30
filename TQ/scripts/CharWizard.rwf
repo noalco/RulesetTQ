@@ -32,11 +32,9 @@ function AniadirVentDesv(nodeChar, sNombreVentDesv, sLinkVentDesv, bGratis, nCan
 			nCostePP=Utilidades.LeerValorRegistro(sLinkVentDesv, "Valor")*nCant;
 		end
 		if sLinkVentDesv~="" then
-			--Debug.chat(DB.findNode(sLinkVentDesv));
 			if DB.findNode(sLinkVentDesv) then
 				DB.copyNode(DB.findNode(sLinkVentDesv), nodoVentDesv);
 				DB.setValue(nodoVentDesv, "link", "windowreference", "VentanaVentDesvent", "");
-				
 			else
 				DB.setValue(nodoVentDesv, "name", "string", sNombreVentDesv);
 			end
@@ -212,6 +210,15 @@ function AniadirHabilidades(nodeChar, window)
 	DB.setValue(nodeChar, "Habilidades.ModArmasAr", "number", ParseoHabilidades.GruposHabilidades["armas ar"]);
 	DB.setValue(nodeChar, "Habilidades.ModIdiomas", "number", ParseoHabilidades.GruposHabilidades["idiomas"]);
 	DB.setValue(nodeChar, "Habilidades.ModArtesanias", "number", ParseoHabilidades.GruposHabilidades["artesanías"]);
+	DB.setValue(nodeChar, "Hechiceria.ModMagia", "number", ParseoHabilidades.GruposHabilidades["magia"]);
+	
+	DB.setValue(nodeChar, "BaseHabilidades.BonoAgilidad", "number", ParseoHabilidades.BaseHabilidades["agilidad"]);
+	DB.setValue(nodeChar, "BaseHabilidades.BonoComunicacion", "number", ParseoHabilidades.BaseHabilidades["comunicación"]);
+	DB.setValue(nodeChar, "BaseHabilidades.BonoCultura", "number", ParseoHabilidades.BaseHabilidades["cultura"]);
+	DB.setValue(nodeChar, "BaseHabilidades.BonoDiscrecion", "number", ParseoHabilidades.BaseHabilidades["discreción"]);
+	DB.setValue(nodeChar, "BaseHabilidades.BonoHechiceria", "number", ParseoHabilidades.BaseHabilidades["hechicería"]);
+	DB.setValue(nodeChar, "BaseHabilidades.BonoPercepcion", "number", ParseoHabilidades.BaseHabilidades["percepción"]);
+	DB.setValue(nodeChar, "BaseHabilidades.BonoTecnica", "number", ParseoHabilidades.BaseHabilidades["técnica"]);
 end
 
 function onCommitButtonPressed(window)
@@ -257,7 +264,6 @@ function commitCharacter(identity)
 	AniadirHabilidades(nodeChar, w);
 	AniadirPersonalidad(nodeChar, Ventana);
 	
-	Debug.chat(ParseoProfesiones.nDineroInicial, ParseoProfesiones.nIncremento);
 	w.inventory.subwindow.coinamount2.setValue(ParseoProfesiones.DineroInicial[ParseoProfesiones.nDineroInicial+ParseoProfesiones.nIncremento].mp);
 	w.inventory.subwindow.coinamount3.setValue(ParseoProfesiones.DineroInicial[ParseoProfesiones.nDineroInicial+ParseoProfesiones.nIncremento].mb);
 

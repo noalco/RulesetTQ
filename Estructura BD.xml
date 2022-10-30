@@ -48,7 +48,7 @@
 			<BonoAgilidad/>
 			<BonoComunicacion/>
 			<BonoCultura/>
-			<BonoDiscreccion/>
+			<BonoDiscrecion/>
 			<BonoHechiceria/>
 			<BonoPercepcion/>
 			<PenalizacionPercepcionYelmo/>
@@ -319,6 +319,11 @@
 			<NumVerbosDisponibles/>
 			<NumEsferasDisponibles/>
 			<NumLibresDisponibles/>
+			<PenalizadorSinGestos/>
+			<PenalizadorAcelerado/>
+			<PenalizadorSinHabla/>
+			<BonoCeremonia/>
+			<ModMagia/>
 		</Hechiceria>
 		<Hechizos>
 			<Cte2/>

@@ -68,11 +68,6 @@ Wizard
 	
 	
 Automatización Ventajas y Desventajas
-	Modificaciones de bases
-		-X en todas las habilidades de Técnica
-		tendrás un malus de -3 para lanzar hechizos
-		se puede establecer que cuentan con un malus de -3 en cualquier habilidad de Comunicación
-		lo que te provoca un malus de -2 a todas tus habilidades de Comunicación y de Hechicería
 	Modificaciones a las habilidades
 		Comienzas el juego con dos lenguas propias.
 		Suma 5 puntos de Lealtad.

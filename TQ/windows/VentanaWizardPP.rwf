@@ -1064,6 +1064,7 @@ function onDrop(x, y, dragdata)
 	if sClass=="VentanaVentDesventSidebar" then
 		local _,sRecordAnt = getValue();
 		ParseoVentDesv.ModificarHabilidades(sRecordAnt, "VentDes", false);
+		ParseoVentDesv.ModificarBaseDeHabilidades(sRecordAnt, false);
 		
 		window.parentcontrol.window.Mensajes.setValue("");
 		setValue(dragdata.getShortcutData());
@@ -1075,6 +1076,7 @@ function onDrop(x, y, dragdata)
 		ParseoVentDesv.PorEleccion[1].Cant=1;
 		
 		ParseoVentDesv.ModificarHabilidades(sRecord, "VentDes", true);
+		ParseoVentDesv.ModificarBaseDeHabilidades(sRecord, true);
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
@@ -1143,6 +1145,7 @@ function onDrop(x, y, dragdata)
 	if sClass=="VentanaVentDesventSidebar" then
 		local _,sRecordAnt = getValue();
 		ParseoVentDesv.ModificarHabilidades(sRecordAnt, "VentDes", false);
+		ParseoVentDesv.ModificarBaseDeHabilidades(sRecordAnt, false);
 		
 		window.parentcontrol.window.Mensajes.setValue("");
 		setValue(dragdata.getShortcutData());
@@ -1154,6 +1157,7 @@ function onDrop(x, y, dragdata)
 		ParseoVentDesv.PorEleccion[2].Cant=1;
 		
 		ParseoVentDesv.ModificarHabilidades(sRecord, "VentDes", true);
+		ParseoVentDesv.ModificarBaseDeHabilidades(sRecord, true);
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
@@ -1222,6 +1226,7 @@ function onDrop(x, y, dragdata)
 	if sClass=="VentanaVentDesventSidebar" then
 		local _,sRecordAnt = getValue();
 		ParseoVentDesv.ModificarHabilidades(sRecordAnt, "VentDes", false);
+		ParseoVentDesv.ModificarBaseDeHabilidades(sRecordAnt, false);
 		
 		window.parentcontrol.window.Mensajes.setValue("");
 		setValue(dragdata.getShortcutData());
@@ -1233,6 +1238,7 @@ function onDrop(x, y, dragdata)
 		ParseoVentDesv.PorEleccion[3].Cant=1;
 		
 		ParseoVentDesv.ModificarHabilidades(sRecord, "VentDes", true);
+		ParseoVentDesv.ModificarBaseDeHabilidades(sRecord, true);
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");
@@ -1301,6 +1307,7 @@ function onDrop(x, y, dragdata)
 	if sClass=="VentanaVentDesventSidebar" then
 		local _,sRecordAnt = getValue();
 		ParseoVentDesv.ModificarHabilidades(sRecordAnt, "VentDes", false);
+		ParseoVentDesv.ModificarBaseDeHabilidades(sRecordAnt, false);
 		
 		window.parentcontrol.window.Mensajes.setValue("");
 		setValue(dragdata.getShortcutData());
@@ -1312,6 +1319,7 @@ function onDrop(x, y, dragdata)
 		ParseoVentDesv.PorEleccion[4].Cant=1;
 		
 		ParseoVentDesv.ModificarHabilidades(sRecord, "VentDes", true);
+		ParseoVentDesv.ModificarBaseDeHabilidades(sRecord, true);
 	else
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue("El elemento arrastrado no es una Ventaja o Desventaja.");

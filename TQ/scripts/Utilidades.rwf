@@ -9,7 +9,7 @@
 	else
 		sPathName=sRecord.."."..sCampo;
 	end
-	if sPathName and sPathName~="" then	return DB.getValue(sPathName);
+	if sPathName and sPathName~="" then	return DB.getValue(sPathName, "");
 	else return "";
 	end
 end

@@ -173,7 +173,8 @@ DatosHabilidadesSecundarias = {
 	},
 }
 
-GruposHabilidades={["armas cc"]=0, ["armas pr"]=0, ["armas ar"]=0, ["idiomas"]=0, ["artesanías"]=0};
+BaseHabilidades={["agilidad"]=0, ["comunicación"]=0, ["cultura"]=0, ["discreción"]=0, ["hechicería"]=0, ["percepción"]=0, ["técnica"]=0};
+GruposHabilidades={["armas cc"]=0, ["armas pr"]=0, ["armas ar"]=0, ["idiomas"]=0, ["artesanías"]=0, ["magia"]=0};
 
 IdiomaNativo="";
 nValorHabilidadGenericaEtnia=0;
@@ -206,7 +207,8 @@ function ResetDatos()
 	sIdiomaHabilidadDeCultura="";
 	bArtesania=false;
 	sArtesania="";
-	GruposHabilidades={["armas cc"]=0, ["armas pr"]=0, ["armas ar"]=0, ["idomas"]=0, ["artesanías"]=0};
+	GruposHabilidades={["armas cc"]=0, ["armas pr"]=0, ["armas ar"]=0, ["idomas"]=0, ["artesanías"]=0, ["magia"]=0};
+	BaseHabilidades={["agilidad"]=0, ["comunicación"]=0, ["cultura"]=0, ["discreción"]=0, ["hechicería"]=0, ["percepción"]=0, ["técnica"]=0};
 end
 
 function ResetDatosEtnia()

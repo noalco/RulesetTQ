@@ -986,6 +986,7 @@ end
 	addSourceWithOp("...PenalizadorAcelerado", "-");
 	addSourceWithOp("...PenalizadorSinHabla", "-");
 	addSourceWithOp("...BonoCeremonia", "+");
+	addSourceWithOp("....Hechiceria.ModMagia", "+");
 	addSourceWithOp("Bono", "+");
 		
 	super.onInit();
