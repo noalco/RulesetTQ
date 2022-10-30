@@ -12,7 +12,6 @@
 			aCustomFilters = {
 				["Verbo"] = { sField = "Verbo", fGetValue =  getCombinacionVervoYVerbo },
 				["Esfera"] = { sField = "Esfera", fGetValue =  getCombinacionEsferaYEnEsfera },
---				["En Esfera"] = { sField = "EnEsfera" },
 						},
 			sEditMode = "play",
 			sSidebarCategory = "personaje",
@@ -29,6 +28,9 @@
 		},
 		["npc"] = {
 			aDataMap = {"referencia.pnjs"},
+			aCustomFilters = {
+				["Tipo de Criatura"] = { sField = "TipoCriatura" },
+			},
 		},
 		["etnias"] = {
 			bExport=true,

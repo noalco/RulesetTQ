@@ -276,6 +276,7 @@ function onClose()
 	ParseoHabilidades.ResetDatos();
 	ParseoProfesiones.ResetearHabilidadesProfesion();
 	ParseoVentDesv.ResetarVentDesv();
+	ChequeoPJ.ResetearCheck()
 end
 </Script>
     <RegisterScript>true</RegisterScript>

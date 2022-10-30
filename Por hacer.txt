@@ -11,14 +11,7 @@ Sugerencias Psico y Eldarc:
 	- Algunos candados de las sidebar dan error al abrir la ventana siendo cliente (¿aquellos en los que no pueden editarlos los clientes?)
 	- Al pasar de escudo a arma, no cambia la habilidad
 
-- Estética
-			- Frames claros (no de momento)
-				- Cuadrar bien las barras de desplazamiento a los nuevos marcos
-				- Revisar los bordes de los frames
-	
 General:
-			- Los mensajes de subida se muestran con Debug.chat
-			- Fuente de las tags
 	- Tooltips
 	- Traducciones
 
@@ -42,38 +35,28 @@ Hechizos:
 
 NPCs
 	- Hacer campos para PNJs humanos
-		- Estorbo
-		- Hhechizos
+		- Hechizos
 		- Habilidades mágicas
 	- ALgunos PJs no tienen PV sino PM
-	- Reorganizar campos
-		- Fila 1: PV - PM
-		- Fila 2: Mod. Daño - Al Impacto
-		- Fila 3: Estorbo - Debilitado
+
 	
 Sidebars:
 			- Limitar la lista de Hechizos en los Encantamientos a 1
-	- Filtro PNJs pot tipo
-	- Iconos
-		- Ventajas y desventajas --> sidebar_icon_class.png (o el feat)
-		- Encantamientos -->sidebar_icon_fire.png
-		- Profesiones --> sidebar_icon_skill.png
-		- Orígenes étnicos --> sidebar_icon_system_2.png
 	
 Wizard
-	- Cambiar tooltips por mensajes
 	- Chequeo PJ -> Activar botón Generar
-		
+
 	
 	
 	
 Automatización Ventajas y Desventajas
-	Modificaciones a las habilidades
-		Comienzas el juego con dos lenguas propias.
-		Suma 5 puntos de Lealtad.
-		Hechicería: 10 puntos a repartir libremente en habilidades mágicas
-		Teurgia: 10 puntos a repartir entre verbos y la esfera Ley
+	- las ventajas Pasión Extra y Rasgo Extra dan una pasión y un rasgo de cada respectivamente. Las desventajas Pasión de Menos y Personalidad Simple hacen exactamente lo contrario.
+	- Modificaciones a las habilidades
+		- Comienzas el juego con dos lenguas propias.
+		- Suma 5 puntos de Lealtad.
+		- Hechicería: 10 puntos a repartir libremente en habilidades mágicas
+		- Teurgia: 10 puntos a repartir entre verbos y la esfera Ley
 
-				Modificaciones a las armas (hecho, falta procesarlo al usar un arma)
-					Resta -2 ... así como al uso de armas arrojadizas y de proyectiles
-					sufres un modificador negativo de -1 al uso de armas arrojadizas y de proyectiles
+				- Modificaciones a las armas (hecho, falta procesarlo al usar un arma)
+					- Resta -2 ... así como al uso de armas arrojadizas y de proyectiles
+					- sufres un modificador negativo de -1 al uso de armas arrojadizas y de proyectiles

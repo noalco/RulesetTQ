@@ -1,0 +1,88 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>ChequeoPJ</ScriptName>
+    <FolderID>21</FolderID>
+    <Script>PartesCompletadas = {
+	["Estadísticas"] = {
+		["ErrorEtnia"] = true,
+		["ErrorRepartoIncompleto"] = true,
+		["ErrorRepartoExcesivo"] = true,
+		["ErrorArtesaniaEtnia"] = false,
+		["ErrorHabilidadCulturaEtnia"] = false,
+		["ErrorIdiomaEtnia"] = false,
+	},
+	["Profesión"] = {
+		["ErrorProfesion"] = true,
+		["ErrorArmaProfesion"] = false,
+		["ErrorArtesaniaProfesion"] = false,
+		["ErrorIdiomaProfesion"] = false,
+		["ErrorCultoProfesion"] = false,
+		["ErrorDeidadProfesion"] = false,
+		["ErrorEspecialidadProfesion"] = false,
+		["ErrorIdiomaEspecialidadProfesion"] = false,
+		["ErrorVerboProfesion"] = false,
+		["ErrorEsferaProfesion"] = false,
+		["ErrorHabilidadMagicaProfesion"] = false,
+	},
+	["Gasto de PP"] = {
+		["ErrorCantidadPP"] = true,
+		["ErrorRepartoPP"] = true,
+		["ErrorRepartoLealtad"] = true,
+	},
+}
+
+function ResetearCheck()
+	PartesCompletadas = {
+		["Estadísticas"] = {
+			["ErrorEtnia"] = true,
+			["ErrorRepartoIncompleto"] = true,
+			["ErrorRepartoExcesivo"] = true,
+			["ErrorArtesaniaEtnia"] = false,
+			["ErrorHabilidadCulturaEtnia"] = false,
+			["ErrorIdiomaEtnia"] = false,
+		},
+		["Profesión"] = {
+			["ErrorProfesion"] = true,
+			["ErrorArmaProfesion"] = false,
+			["ErrorArtesaniaProfesion"] = false,
+			["ErrorIdiomaProfesion"] = false,
+			["ErrorCultoProfesion"] = false,
+			["ErrorDeidadProfesion"] = false,
+			["ErrorEspecialidadProfesion"] = false,
+			["ErrorIdiomaEspecialidadProfesion"] = false,
+			["ErrorVerboProfesion"] = false,
+			["ErrorEsferaProfesion"] = false,
+			["ErrorHabilidadMagicaProfesion"] = false,
+		},
+		["Gasto de PP"] = {
+			["ErrorCantidadPP"] = true,
+			["ErrorRepartoPP"] = true,
+			["ErrorRepartoLealtad"] = true,
+		},
+	}
+end;
+
+function ComprobarCorrecto()
+	local tMensajes={["Estadísticas"]="", ["Profesión"]="", ["Gasto de PP"]=""};
+	local bEsCorrecto=false;
+	for sSeccion,tSeccion in pairs(PartesCompletadas) do
+		for sParte,bParte in pairs(tSeccion) do
+			if bParte then
+				if tMensajes[sSeccion]=="" then tMensajes[sSeccion]="&lt;h&gt;Zona "..sSeccion.."&lt;/h&gt;"; end
+				tMensajes[sSeccion]=tMensajes[sSeccion]..Informacion.CadenasInfo[sParte];
+				bEsCorrecto=false;
+			end
+		end
+	end
+	local sMensajes="";
+	if tMensajes["Estadísticas"]~="" then sMensajes=tMensajes["Estadísticas"]; end
+	if tMensajes["Profesión"]~="" then sMensajes=sMensajes..tMensajes["Profesión"]; end
+	if tMensajes["Gasto de PP"]~="" then sMensajes=sMensajes..tMensajes["Gasto de PP"]; end
+
+	return bEsCorrecto, sMensajes;
+end
+</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>
