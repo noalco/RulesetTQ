@@ -3815,24 +3815,28 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"331"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=1;
---	end
 	if window.NumArtesanias.getValue()&gt;=1 then ParseoProfesiones.ArtesaniasExtraProfesion[1]=getValue();
 	else ParseoProfesiones.ArtesaniasExtraProfesion[1]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionArtesania1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+	super.onInit();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorArtesaniaProfesion=
+	window.SeleccionArtesania1.isVisible() and window.SeleccionArtesania1.getValue()=="" or
+	window.SeleccionArtesania2.isVisible() and window.SeleccionArtesania2.getValue()=="" or
+	window.SeleccionArtesania3.isVisible() and window.SeleccionArtesania3.getValue()=="" or
+	window.SeleccionArtesania4.isVisible() and window.SeleccionArtesania4.getValue()=="";
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -3887,24 +3891,20 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"331"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=1;
---	end
 	if window.NumArtesanias.getValue()&gt;=2 then ParseoProfesiones.ArtesaniasExtraProfesion[2]=getValue();
 	else ParseoProfesiones.ArtesaniasExtraProfesion[2]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionArtesania1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+	super.onInit();
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -3959,24 +3959,20 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"356"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=1;
---	end
 	if window.NumArtesanias.getValue()&gt;=3 then ParseoProfesiones.ArtesaniasExtraProfesion[3]=getValue();
 	else ParseoProfesiones.ArtesaniasExtraProfesion[3]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionArtesania1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+	super.onInit();
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4031,24 +4027,20 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"356"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=1;
---	end
 	if window.NumArtesanias.getValue()&gt;=4 then ParseoProfesiones.ArtesaniasExtraProfesion[4]=getValue();
 	else ParseoProfesiones.ArtesaniasExtraProfesion[4]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionArtesania1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+	super.onInit();
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4103,24 +4095,28 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"240"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=1;
---	end
 	if window.NumIdiomas.getValue()&gt;=1 then ParseoProfesiones.IdiomasExtraProfesion[1]=getValue();
 	else ParseoProfesiones.IdiomasExtraProfesion[1]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionIdioma1.ComprobarCorrecto();
 end
 
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+function onVisibilityChanged()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+	super.onInit();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorIdiomaProfesion=
+	window.SeleccionIdioma1.isVisible() and window.SeleccionIdioma1.getValue()=="" or
+	window.SeleccionIdioma2.isVisible() and window.SeleccionIdioma2.getValue()=="" or
+	window.SeleccionIdioma3.isVisible() and window.SeleccionIdioma3.getValue()=="" or
+	window.SeleccionIdioma4.isVisible() and window.SeleccionIdioma4.getValue()=="";
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4175,24 +4171,21 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"240"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=1;
---	end
 	if window.NumIdiomas.getValue()&gt;=2 then ParseoProfesiones.IdiomasExtraProfesion[2]=getValue();
 	else ParseoProfesiones.IdiomasExtraProfesion[2]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionIdioma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+	super.onInit();
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4247,24 +4240,21 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"265"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=1;
---	end
 	if window.NumIdiomas.getValue()&gt;=3 then ParseoProfesiones.IdiomasExtraProfesion[3]=getValue();
 	else ParseoProfesiones.IdiomasExtraProfesion[3]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionIdioma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+	super.onInit();
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4319,24 +4309,21 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"265"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=1;
---	end
 	if window.NumIdiomas.getValue()&gt;=4 then ParseoProfesiones.IdiomasExtraProfesion[4]=getValue();
 	else ParseoProfesiones.IdiomasExtraProfesion[4]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionIdioma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+	super.onInit();
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
