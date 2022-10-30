@@ -12,7 +12,7 @@
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"charsheet_main"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DataSource"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"584"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"581"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"502"}},
       {"Name":"Disabled"},
       {"Name":"Dynamic"},
