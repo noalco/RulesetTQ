@@ -73,6 +73,7 @@
 			sRecordDisplayClass="VentanaVentDesventSidebar",
 			aCustomFilters = {
 				["Tipo"] = { sField = "TipoVentDesvent" },
+				["Coste de PP"] = { sField = "Valor" },
 			},
 			sEditMode = "play",
 			sSidebarCategory = "personaje",

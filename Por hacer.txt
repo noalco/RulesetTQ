@@ -46,11 +46,6 @@ NPCs
 Sidebars:
 			- Limitar la lista de Hechizos en los Encantamientos a 1
 	
-Wizard
-	- Chequeo PJ
-
-	
-	
 	
 Automatización Ventajas y Desventajas
 	- las ventajas Pasión Extra y Rasgo Extra dan una pasión y un rasgo de cada respectivamente. Las desventajas Pasión de Menos y Personalidad Simple hacen exactamente lo contrario.
