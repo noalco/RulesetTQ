@@ -28,10 +28,12 @@ Inventario
 
 Personalidad:
 	- las ventajas Pasión Extra y Rasgo Extra dan una pasión y un rasgo de cada respectivamente. Las desventajas Pasión de Menos y Personalidad Simple hacen exactamente lo contrario.
+		- ¿Crear ventana PopUp para las ventajas/desventajas o para la descripción/personalidad?
 
 Combate:
 
 Hechizos:
+	- ¿Botón para mostrar/ocultar los contadores de habilidades?
 
 NPCs
 	- Hacer campos para PNJs humanos
@@ -45,7 +47,7 @@ Sidebars:
 			- Limitar la lista de Hechizos en los Encantamientos a 1
 	
 Wizard
-	- Chequeo PJ -> Activar botón Generar
+	- Chequeo PJ
 
 	
 	

@@ -125,8 +125,8 @@ end</LUACode>
     <LUACode>function onButtonPress()
 	local bEsCorrecto, sMensaje=ChequeoPJ.ComprobarCorrecto();
 	if bEsCorrecto then
-		window.Informacion.setValue("&lt;p&gt;Tu personaje es correcto.&lt;p&gt;");
---		window.onCommitButtonPressed(window);
+		window.Informacion.setValue("&lt;p&gt;Tu personaje es correcto.&lt;/p&gt;");
+		window.onCommitButtonPressed(window);
 	else
 		window.Informacion.setValue(Informacion.CadenasInfo["CabeceraErrores"]..sMensaje);
 	end
@@ -897,8 +897,10 @@ end
 	if getValue()&lt;10 or getValue()&gt;30 then
 		window.Mensajes.setFont("FuenteMensajesWarning");
 		window.Mensajes.setValue("Los Puntos de Personaje deben estar entre 10 y 30. Recuerda ajustarlos mediante Ventajas y Desventajas o cambia alguna de las elecciones tomadas (orien étnico, edad, especie, ...) para estar en este rango.");
+		ChequeoPJ.PartesCompletadas["Gasto de PP"].ErrorCantidadPP=true;
 	else
 		window.Mensajes.setValue("");
+		ChequeoPJ.PartesCompletadas["Gasto de PP"].ErrorCantidadPP=false;
 	end
 	
 	window.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.PPRestantes.Actualizar();
@@ -913,7 +915,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>charwizard</WindowName>
     <ControlName>ScrollBar1</ControlName>
-    <ZIndex>20</ZIndex>
+    <ZIndex>19</ZIndex>
     <ControlClass>FGScrollBar</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},

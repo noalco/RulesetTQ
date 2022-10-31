@@ -26,8 +26,10 @@
 	},
 	["Gasto de PP"] = {
 		["ErrorCantidadPP"] = true,
-		["ErrorRepartoPP"] = true,
-		["ErrorRepartoLealtad"] = true,
+		["ErrorRepartoPPIncompleto"] = true,
+		["ErrorRepartoPPExcesivo"] = false,
+		["ErrorRepartoLealtadIncompleto"] = false,
+		["ErrorRepartoLealtadExcesivo"] = false,
 	},
 }
 
@@ -55,16 +57,18 @@ function ResetearCheck()
 			["ErrorHabilidadMagicaProfesion"] = false,
 		},
 		["Gasto de PP"] = {
-			["ErrorCantidadPP"] = true,
-			["ErrorRepartoPP"] = true,
-			["ErrorRepartoLealtad"] = true,
+			["ErrorCantidadPP"] = false,
+			["ErrorRepartoPPIncompleto"] = true,
+			["ErrorRepartoPPExcesivo"] = false,
+			["ErrorRepartoLealtadIncompleto"] = false,
+			["ErrorRepartoLealtadExcesivo"] = false,
 		},
 	}
 end;
 
 function ComprobarCorrecto()
 	local tMensajes={["Estadísticas"]="", ["Profesión"]="", ["Gasto de PP"]=""};
-	local bEsCorrecto=false;
+	local bEsCorrecto=true;
 	for sSeccion,tSeccion in pairs(PartesCompletadas) do
 		for sParte,bParte in pairs(tSeccion) do
 			if bParte then
