@@ -46,6 +46,30 @@ NPCs
 Sidebars:
 			- Limitar la lista de Hechizos en los Encantamientos a 1
 	
+Wizard
+	- Religión
+		- Elementales.
+		- Antepasados.
+		- Baaler. <-- Dios de la Ley
+		- Caos místico.
+		- Cualquiera.
+		- Caos rampante o Elementales.
+		- Elementales y Antepasados.
+		- Caos o Elementales.
+		- Caos escarlata.
+		- Balanza. <-- Dios Otros
+		- Sin religión.
+		- Caos místico. Puede ser Ley liberal si se escoge la ventaja Clandestinidad.
+		- Ley ortodoxa. Puede ser Caos, Elementales, Ley liberal o Balanza si se compra la ventaja Clandestinidad.
+		- Ley liberal.
+		- Ley liberal u ortodoxa.
+		- Sincretismo. <-- Ley y Caos
+		- Ley liberal o Elementos.
+		
+	- Restricciones a profesiones si Clandestinidad
+		
+		
+
 	
 Automatización Ventajas y Desventajas
 	- las ventajas Pasión Extra y Rasgo Extra dan una pasión y un rasgo de cada respectivamente. Las desventajas Pasión de Menos y Personalidad Simple hacen exactamente lo contrario.

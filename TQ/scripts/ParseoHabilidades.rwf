@@ -271,7 +271,7 @@ function ParsearHabilidades(sHabilidades)
 	local aHabilidades = {};
 	sHabilidades=sHabilidades:gsub("\n", " ");
 	sHabilidades=sHabilidades:gsub("  ", " ");
-	local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
+	local aClauses,_ = StringManager.split(sHabilidades, ",;%.\r\n", true);
 	
 	for i = 1, #aClauses do
 		local sHabilidad, sValor = string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)([%+%-–]?%d*)");
