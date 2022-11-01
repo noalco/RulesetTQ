@@ -230,6 +230,7 @@ function ResetDatosEtnia()
 	bArtesania=false;
 	sArtesania="";
 	ParseoProfesiones.nIncremento=0;
+	Religion.ResetearReligiones();
 end
 
 function esMultiple(sHabilidad)

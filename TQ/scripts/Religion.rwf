@@ -1,0 +1,202 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>Religion</ScriptName>
+    <FolderID>21</FolderID>
+    <Script>CultosYDioses={
+	["LEY"]={"El Artista", "Baaler", "El Comerciante", "La Destructora", "El Escriba", "El Guerrero", "El Juez", "El Labrador", "La Madre", "El Navegante", "El Sabio", "El Sanador"},
+	["CAOS"]={"Ainiria", "Ayrok", "Íkor", "Mashak", "Meibel", "Melk", "Nariaj", "Shador", "Shonbark", "Slodar", "Tesh-Chan", "Vesh-Anh", "Yaroi"},
+	["ELEMENTALES"]={"Kamin", "Tepel", "Visdu", "Vodar"},
+	["OTROS"]={"Balanza"}
+}
+
+DiosesACultos={
+	["El Artista"]="Ley", ["Baaler"]="Ley", ["El Comerciante"]="Ley", ["La Destructora"]="Ley", ["El Escriba"]="Ley", ["El Guerrero"]="Ley", ["El Juez"]="Ley", ["El Labrador"]="Ley", ["La Madre"]="Ley", ["El Navegante"]="Ley", ["El Sabio"]="Ley", ["El Sanador"]="Ley",
+	["Ainiria"]="Caos", ["Ayrok"]="Caos", ["Íkor"]="Caos", ["Mashak"]="Caos", ["Meibel"]="Caos", ["Melk"]="Caos", ["Nariaj"]="Caos", ["Shador"]="Caos", ["Shonbark"]="Caos", ["Slodar"]="Caos", ["Tesh-Chan"]="Caos", ["Vesh-Anh"]="Caos", ["Yaroi"]="Caos",
+	["Kamin"]="Elementales", ["Tepel"]="Elementales", ["Visdu"]="Elementales", "Vodar",
+	["Balanza"]="Otros"
+}
+
+CultosDisponibles={["LEY"]={bPermitido=false, bRestringido=false}, ["CAOS"]={bPermitido=false, bRestringido=false}, ["ELEMENTALES"]={bPermitido=false, bRestringido=false}, ["ANTEPASADOS"]={bPermitido=false, bRestringido=false}, ["OTROS"]={bPermitido=false, bRestringido=false}}
+
+CultosDisponiblesConSufijo={}
+
+DiosesDisponibles={
+-- Ley
+	["El Artista"]={bPermitido=false, bRestringido=false, sValue="Una Artesanía, Bellas artes"},
+	["Baaler"]={bPermitido=false, bRestringido=false, sValue="Engañar, Hurtar"},
+	["El Comerciante"]={bPermitido=false, bRestringido=false, sValue="Otro Idioma, Persuadir"},
+	["La Destructora"]={bPermitido=false, bRestringido=false, sValue="Un Arma CC, Pelea"},
+	["El Escriba"]={bPermitido=false, bRestringido=false, sValue="Otro Idioma, Instruir"},
+	["El Guerrero"]={bPermitido=false, bRestringido=false, sValue="Dos habilidades de Armas"},
+	["El Juez"]={bPermitido=false, bRestringido=false, sValue="Autoridad, Oratoria"},
+	["El Labrador"]={bPermitido=false, bRestringido=false, sValue="Naturaleza"},
+	["La Madre"]={bPermitido=false, bRestringido=false, sValue="Artesanía: Amortajar, Perspicacia"},
+	["El Navegante"]={bPermitido=false, bRestringido=false, sValue="Artesanía: Embarcaciones, Navegar"},
+	["El Sabio"]={bPermitido=false, bRestringido=false, sValue="Instruir, Inventar"},
+	["El Sanador"]={bPermitido=false, bRestringido=false, sValue="Medicina, Primeros auxilios"},
+	-- Caos
+	["Ainiria"]={bPermitido=false, bRestringido=false, sValue="Encanto"},
+	["Ayrok"]={bPermitido=false, bRestringido=false, sValue="Perspicacia, Persuadir"},
+	["Íkor"]={bPermitido=false, bRestringido=false, sValue="Engañar, Perspicacia"},
+	["Mashak"]={bPermitido=false, bRestringido=false, sValue="Autoridad, Oratoria"},
+	["Meibel"]={bPermitido=false, bRestringido=false, sValue="Arma CC: Espada, Estrategia"},
+	["Melk"]={bPermitido=false, bRestringido=false, sValue="Otro Idioma, Percatarse"},
+	["Nariaj"]={bPermitido=false, bRestringido=false, sValue="Intimidar, Persuadir"},
+	["Shador"]={bPermitido=false, bRestringido=false, sValue="Medicina"},
+	["Shonbark"]={bPermitido=false, bRestringido=false, sValue="Autoridad, Torturar"},
+	["Slodar"]={bPermitido=false, bRestringido=false, sValue="Encanto, Engañar"},
+	["Tesh-Chan"]={bPermitido=false, bRestringido=false, sValue="Una artesanía, Bellas artes"},
+	["Vesh-Anh"]={bPermitido=false, bRestringido=false, sValue="Interpretar sueños, Juego"},
+	["Yaroi"]={bPermitido=false, bRestringido=false, sValue="Manejar botes, Navegar"},
+	-- Elementales
+	["Kamin"]={bPermitido=false, bRestringido=false, sValue="Naturaleza"},
+	["Tepel"]={bPermitido=false, bRestringido=false, sValue="Artesanía: Herrería"},
+	["Visdu"]={bPermitido=false, bRestringido=false, sValue="Música"},
+	["Vodar"]={bPermitido=false, bRestringido=false, sValue="Manejar botes, Nadar"},
+	-- Otros
+	["Balanza"]={bPermitido=false, bRestringido=false, sValue="Oratoria, Persuadir"}
+}
+
+function ResetearReligiones()
+	CultosDisponibles={["LEY"]={bPermitido=false, bRestringido=false}, ["CAOS"]={bPermitido=false, bRestringido=false}, ["ELEMENTALES"]={bPermitido=false, bRestringido=false}, ["ANTEPASADOS"]={bPermitido=false, bRestringido=false}, ["OTROS"]={bPermitido=false, bRestringido=false}}
+
+	CultosDisponiblesConSufijo={}
+
+	DiosesDisponibles={
+		-- Ley
+		["El Artista"]={bPermitido=false, bRestringido=false, sValue="Una Artesanía, Bellas artes"},
+		["Baaler"]={bPermitido=false, bRestringido=false, sValue="Engañar, Hurtar"},
+		["El Comerciante"]={bPermitido=false, bRestringido=false, sValue="Otro Idioma, Persuadir"},
+		["La Destructora"]={bPermitido=false, bRestringido=false, sValue="Un Arma CC, Pelea"},
+		["El Escriba"]={bPermitido=false, bRestringido=false, sValue="Otro Idioma, Instruir"},
+		["El Guerrero"]={bPermitido=false, bRestringido=false, sValue="Dos habilidades de Armas"},
+		["El Juez"]={bPermitido=false, bRestringido=false, sValue="Autoridad, Oratoria"},
+		["El Labrador"]={bPermitido=false, bRestringido=false, sValue="Naturaleza"},
+		["La Madre"]={bPermitido=false, bRestringido=false, sValue="Artesanía: Amortajar, Perspicacia"},
+		["El Navegante"]={bPermitido=false, bRestringido=false, sValue="Artesanía: Embarcaciones, Navegar"},
+		["El Sabio"]={bPermitido=false, bRestringido=false, sValue="Instruir, Inventar"},
+		["El Sanador"]={bPermitido=false, bRestringido=false, sValue="Medicina, Primeros auxilios"},
+		-- Caos
+		["Ainiria"]={bPermitido=false, bRestringido=false, sValue="Encanto"},
+		["Ayrok"]={bPermitido=false, bRestringido=false, sValue="Perspicacia, Persuadir"},
+		["Íkor"]={bPermitido=false, bRestringido=false, sValue="Engañar, Perspicacia"},
+		["Mashak"]={bPermitido=false, bRestringido=false, sValue="Autoridad, Oratoria"},
+		["Meibel"]={bPermitido=false, bRestringido=false, sValue="Arma CC: Espada, Estrategia"},
+		["Melk"]={bPermitido=false, bRestringido=false, sValue="Otro Idioma, Percatarse"},
+		["Nariaj"]={bPermitido=false, bRestringido=false, sValue="Intimidar, Persuadir"},
+		["Shador"]={bPermitido=false, bRestringido=false, sValue="Medicina"},
+		["Shonbark"]={bPermitido=false, bRestringido=false, sValue="Autoridad, Torturar"},
+		["Slodar"]={bPermitido=false, bRestringido=false, sValue="Encanto, Engañar"},
+		["Tesh-Chan"]={bPermitido=false, bRestringido=false, sValue="Una artesanía, Bellas artes"},
+		["Vesh-Anh"]={bPermitido=false, bRestringido=false, sValue="Interpretar sueños, Juego"},
+		["Yaroi"]={bPermitido=false, bRestringido=false, sValue="Manejar botes, Navegar"},
+		-- Elementales
+		["Kamin"]={bPermitido=false, bRestringido=false, sValue="Naturaleza"},
+		["Tepel"]={bPermitido=false, bRestringido=false, sValue="Artesanía: Herrería"},
+		["Visdu"]={bPermitido=false, bRestringido=false, sValue="Música"},
+		["Vodar"]={bPermitido=false, bRestringido=false, sValue="Manejar botes, Nadar"},
+		-- Otros
+		["Balanza"]={bPermitido=false, bRestringido=false, sValue="Oratoria, Persuadir"}
+	}
+end
+
+function ParsearReligiones(sReligiones)
+	sReligiones=sReligiones:gsub("\r\n", " ");
+	sReligiones=sReligiones:gsub("\n", " ");
+	sReligiones=sReligiones:gsub("\r", " ");
+	sReligiones=sReligiones:gsub("  ", " ");
+	sReligiones=sReligiones:gsub(" y ", ", ");
+	sReligiones=sReligiones:gsub(" o ", ", ");
+	sReligiones=sReligiones:gsub(" u ", ", ");
+	sReligiones=sReligiones:gsub("Sincretismo", "Ley, Caos");
+	sReligiones=sReligiones:gsub("Cualquiera", "Ley, Caos, Elementales, Antepasados, Otros");
+	sReligiones=sReligiones:gsub("Elementos", "Elementales");
+
+	local aPartes,_ = StringManager.split(sReligiones, "%.", true);
+
+	-- Parte religiones
+	local aReligiones,_ = StringManager.split(aPartes[1], ",", true);
+	for i=1,#aReligiones do
+		local aSubReligiones,_ = StringManager.split(aReligiones[i], " ", true);
+		if aSubReligiones[1] and CultosDisponibles[aSubReligiones[1]:upper()] then
+			-- Es un culto
+			
+			CultosDisponibles[aSubReligiones[1]:upper()].bPermitido=true;
+			table.insert(CultosDisponiblesConSufijo, {sNombre=aReligiones[i], sCulto=aSubReligiones[1], sSufijo=aSubReligiones[2], bRestringido=false});
+			if CultosYDioses[aSubReligiones[1]:upper()] then
+				for _,sDios in pairs (CultosYDioses[aSubReligiones[1]:upper()]) do -- Si se tiene acceso a un culto, se tiene acceso a todos sus dioses
+					DiosesDisponibles[sDios].bPermitido=true;
+				end
+			end
+		elseif aSubReligiones[1] and DiosesDisponibles[aSubReligiones[1]] then
+			DiosesDisponibles[aSubReligiones[1]].bPermitido=true;
+			CultosDisponibles[DiosesACultos[aSubReligiones[1]]:upper()].bPermitido=true;
+			table.insert(CultosDisponiblesConSufijo, {sNombre=DiosesACultos[aSubReligiones[1]], sCulto=DiosesACultos[aSubReligiones[1]], sSufijo="", bRestringido=false});
+		end
+	end
+	
+	-- Parte restricciones
+	if aPartes[2] and aPartes[2]~="" then
+		aReligiones,_ = StringManager.split(aPartes[2]:match("Puede ser (.*) si se"), ",", true);
+		for i=1,#aReligiones do
+			local aSubReligiones,_ = StringManager.split(aReligiones[i], " ", true);
+			if aSubReligiones[1] 
+			  and CultosDisponibles[aSubReligiones[1]:upper()] then
+				-- Es un culto
+				CultosDisponibles[aSubReligiones[1]:upper()].bPermitido=true;
+				CultosDisponibles[aSubReligiones[1]:upper()].bRestringido=true;
+				table.insert(CultosDisponiblesConSufijo, {sNombre=aReligiones[i], sCulto=aSubReligiones[1], sSufijo=aSubReligiones[2], bRestringido=true});
+				if CultosYDioses[aSubReligiones[1]:upper()] then
+					for _,sDios in pairs (CultosYDioses[aSubReligiones[1]:upper()]) do -- Si se tiene acceso a un culto, se tiene acceso a todos sus dioses
+						DiosesDisponibles[sDios].bPermitido=true;
+						DiosesDisponibles[sDios].bRestringido=true;
+					end
+				end
+			elseif aSubReligiones[1]
+			  and DiosesDisponibles[aSubReligiones[1]] then
+				-- Es un dios
+				DiosesDisponibles[aSubReligiones[1]].bPermitido=true;
+				CultosDisponibles[DiosesACultos[aSubReligiones[1]]:upper()].bPermitido=true;
+				CultosDisponibles[DiosesACultos[aSubReligiones[1]]:upper()].bRestringido=true;
+				table.insert(CultosDisponiblesConSufijo, {sNombre=DiosesACultos[aSubReligiones[1]], sCulto=DiosesACultos[aSubReligiones[1]], sSufijo="", bRestringido=true});
+			end
+		end
+	end
+end
+
+function GenerarStrinCycles(sCulto)
+	local sValues=""; local sLabels="";
+	if CultosYDioses[sCulto:upper()] then
+		for _,sDios in pairs(CultosYDioses[sCulto:upper()]) do
+			if DiosesDisponibles[sDios].bPermitido then
+				if sValues=="" then
+					sValues=DiosesDisponibles[sDios].sValue;
+					sLabels=sDios;
+				else
+					sValues=sValues.."|"..DiosesDisponibles[sDios].sValue;
+					sLabels=sLabels.."|"..sDios;
+				end
+			end
+		end
+	end
+	return sValues, sLabels;
+end
+
+function GenerarStrinCycleCultos()
+	local sValues=""; local sLabels="";
+	for _,aCulto in pairs(CultosDisponiblesConSufijo) do
+		if sValues=="" then 
+			sValues=aCulto.sCulto:upper();
+			sLabels=aCulto.sNombre;
+		else
+			sValues=sValues.."|"..aCulto.sCulto:upper();
+			sLabels=sLabels.."|"..aCulto.sNombre;
+		end
+	end
+	return sValues, sLabels;
+end
+</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>

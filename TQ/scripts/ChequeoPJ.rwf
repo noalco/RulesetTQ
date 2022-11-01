@@ -64,7 +64,10 @@ function ResetearCheck()
 			["ErrorRepartoLealtadExcesivo"] = false,
 		},
 	}
+	bSinReligion=true;
 end;
+
+bSinReligion=true;
 
 function ComprobarCorrecto()
 	local tMensajes={["Estadísticas"]="", ["Profesión"]="", ["Gasto de PP"]=""};

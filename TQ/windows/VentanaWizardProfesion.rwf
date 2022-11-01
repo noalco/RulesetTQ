@@ -162,7 +162,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"LEY","Value":"LEY"},{"Label":"CAOS","Value":"CAOS"},{"Label":"ELEMENTALES","Value":"ELEMENTALES"},{"Label":"OTROS","Value":"OTROS"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue"}},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"El culto elegido también obtendrá el bono de lealtad de la profesión."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -173,33 +173,16 @@ end
 	window.Deidad.setVisible(getValue()~="");
 	window.LabelDeidad.setVisible(getValue()~="");
 	local sLabels=""; local sValues="";
-	if getValue()=="CAOS" then 
-		sLabels="Ainiria|Ayrok|Íkor|Mashak|Meibel|Melk|Nariaj|Shador|Shonbark|Slodar|Tesh-Chan|Vesh-Anh|Yaroi";
-		sValues="Encanto|Perspicacia, Persuadir|Engañar, Perspicacia|Autoridad, Oratoria|Arma CC: Espada, Estrategia|Otro Idioma, Percatarse|Intimidar, Persuadir|Medicina|Autoridad, Torturar|Encanto, Engañar|Una artesanía, Bellas artes|Interpretar sueños, Juego|Manejar botes, Navegar";
---		sLabels="Ainiria: Encanto|Ayrok: Perspicacia, Persuadir|Íkor: Engañar, Perspicacia|Mashak: Autoridad, Oratoria|Meibel: Arma CC: Espada, Estrategia|Melk: Otro Idioma, Percatarse|Nariaj: Intimidar, Persuadir|Shador: Medicina|Shonbark: Autoridad, Torturar|Slodar: Encanto, Engañar|Tesh-Chan: Una artesanía, Bellas artes|Vesh-Anh: Interpretar sueños, Juego|Yaroi: Manejar botes, Navegar";
-	elseif getValue()=="LEY" then 
-		sLabels="El Artista|Baaler|El Comerciante|La Destructora|El Escriba|El Guerrero|El Juez|El Labrador|La Madre|El Navegante|El Sabio|El Sanador";
-		sValues="Una Artesanía, Bellas artes|Engañar, Hurtar|Otro Idioma, Persuadir|Un Arma CC, Pelea|Otro Idioma, Instruir|Dos habilidades de Armas|Autoridad, Oratoria|Naturaleza|Artesanía: Amortajar, Perspicacia|Artesanía: Embarcaciones, Navegar|Instruir, Inventar|Medicina, Primeros auxilios";
---		sLabels="El Artista: Una Artesanía, Bellas artes|Baaler: Engañar, Hurtar|El Comerciante: Otro Idioma, Persuadir|La Destructora: Un Arma CC, Pelea|El Escriba: Otro Idioma, Instruir|El Guerrero: Dos habilidades de Armas|El Juez: Autoridad, Oratoria|El Labrador: Naturaleza|La Madre: Artesanía: Amortajar, Perspicacia|El Navegante: Artesanía: Embarcaciones, Navegar|El Sabio: Instruir, Inventar|El Sanador: Medicina, Primeros auxilios";
-	elseif getValue()=="ELEMENTALES" then 
-		sLabels="Kamin|Tepel|Visdu|Vodar";
-		sValues="Naturaleza|Artesanía: Herrería|Música|Manejar botes, Nadar";
---		sLabels="Kamin: Naturaleza|Tepel: Artesanía: Herrería|Visdu: Música|Vodar: Manejar botes, Nadar";
-	elseif getValue()=="OTROS" then 
-		sLabels="Balanza";
-		sValues="Oratoria, Persuadir";
---		sLabels="Balanza: Oratoria, Persuadir";
-	else
-		sLabels=" ";
-		sValues=" ";
+	
+	for _,aCulto in pairs(Religion.CultosDisponiblesConSufijo) do
+		if aCulto.sNombre==getValue() then	
+			sValues, sLabels=Religion.GenerarStrinCycles(aCulto.sCulto);
+			break;
+		end
 	end
+
 	window.Deidad.setStringValue("");
 	window.Deidad.initialize(sLabels, sValues, "", "");
---	if getValue()~="" then
---		Informacion.MostrarInfo(window.parentcontrol.window, getValue(), "Deidades ("..getValue()..")", "Añade +1 a dos habilidades o +2 a una.");
---	else
---		Informacion.MostrarInfo(window.parentcontrol.window);
---	end
 	ComprobarCorrecto();
 end
 
@@ -208,12 +191,23 @@ function onVisibilityChanged()
 end
 
 function ComprobarCorrecto()
-	ChequeoPJ.PartesCompletadas["Profesión"].ErrorCultoProfesion=isVisible() and (getValue()=="" or getValue()==nil);
-	ChequeoPJ.PartesCompletadas["Profesión"].ErrorDeidadProfesion=isVisible() and (window.Deidad.getValue()=="" or window.Deidad.getValue()==nil);
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorCultoProfesion=not ChequeoPJ.bSinReligion and isVisible() and (getValue()=="" or getValue()==nil);
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorDeidadProfesion=not ChequeoPJ.bSinReligion and isVisible() and (window.Deidad.getValue()=="" or window.Deidad.getValue()==nil);
 end
 
 function onInit()
 	super.onInit();
+--	ActualizarCulto();
+	ComprobarCorrecto();
+end
+
+
+function ActualizarCulto()
+	window.Culto.setStringValue("");
+	local sValues, sLabels=Religion.GenerarStrinCycleCultos();
+	ChequeoPJ.bSinReligion=sValues=="";
+	Debug.chat(sValues, sLabels);
+	window.Culto.initialize(sLabels, sValues, "", "");
 	ComprobarCorrecto();
 end
 </LUACode>
@@ -272,7 +266,6 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.ModificarHabilidadesCulto(getStringValue(), true);
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
 	window.Culto.ComprobarCorrecto();
 end
 
@@ -3316,9 +3309,9 @@ function onDrop(x, y, dragdata)
 	window.LinkProfesion.onDrop(x, y, dragdata);
 end
 
-
 function onValueChanged()
 	if getValue():lower():match("sacerdote") then
+		window.Culto.ActualizarCulto();
 		window.LabelCultoCabecera.setVisible(true);
 		window.LabelCulto.setVisible(true);
 		window.Culto.setVisible(true);
@@ -4550,6 +4543,107 @@ end
 function onInit()
 	window.SeleccionIdioma1.ComprobarCorrecto();
 	super.onInit();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>StringCycler1</ControlName>
+    <ZIndex>84</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelCulto"}}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"StringCycler1"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"120"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"LEY","Value":"LEY"},{"Label":"CAOS","Value":"CAOS"},{"Label":"ELEMENTALES","Value":"ELEMENTALES"},{"Label":"OTROS","Value":"OTROS"}]}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"El culto elegido también obtendrá el bono de lealtad de la profesión."}},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"515"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"414"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	window.Deidad.setVisible(getValue()~="");
+	window.LabelDeidad.setVisible(getValue()~="");
+	local sLabels=""; local sValues="";
+	if getValue()=="CAOS" then 
+		sLabels="Ainiria|Ayrok|Íkor|Mashak|Meibel|Melk|Nariaj|Shador|Shonbark|Slodar|Tesh-Chan|Vesh-Anh|Yaroi";
+		sValues="Encanto|Perspicacia, Persuadir|Engañar, Perspicacia|Autoridad, Oratoria|Arma CC: Espada, Estrategia|Otro Idioma, Percatarse|Intimidar, Persuadir|Medicina|Autoridad, Torturar|Encanto, Engañar|Una artesanía, Bellas artes|Interpretar sueños, Juego|Manejar botes, Navegar";
+--		sLabels="Ainiria: Encanto|Ayrok: Perspicacia, Persuadir|Íkor: Engañar, Perspicacia|Mashak: Autoridad, Oratoria|Meibel: Arma CC: Espada, Estrategia|Melk: Otro Idioma, Percatarse|Nariaj: Intimidar, Persuadir|Shador: Medicina|Shonbark: Autoridad, Torturar|Slodar: Encanto, Engañar|Tesh-Chan: Una artesanía, Bellas artes|Vesh-Anh: Interpretar sueños, Juego|Yaroi: Manejar botes, Navegar";
+	elseif getValue()=="LEY" then 
+		sLabels="El Artista|Baaler|El Comerciante|La Destructora|El Escriba|El Guerrero|El Juez|El Labrador|La Madre|El Navegante|El Sabio|El Sanador";
+		sValues="Una Artesanía, Bellas artes|Engañar, Hurtar|Otro Idioma, Persuadir|Un Arma CC, Pelea|Otro Idioma, Instruir|Dos habilidades de Armas|Autoridad, Oratoria|Naturaleza|Artesanía: Amortajar, Perspicacia|Artesanía: Embarcaciones, Navegar|Instruir, Inventar|Medicina, Primeros auxilios";
+--		sLabels="El Artista: Una Artesanía, Bellas artes|Baaler: Engañar, Hurtar|El Comerciante: Otro Idioma, Persuadir|La Destructora: Un Arma CC, Pelea|El Escriba: Otro Idioma, Instruir|El Guerrero: Dos habilidades de Armas|El Juez: Autoridad, Oratoria|El Labrador: Naturaleza|La Madre: Artesanía: Amortajar, Perspicacia|El Navegante: Artesanía: Embarcaciones, Navegar|El Sabio: Instruir, Inventar|El Sanador: Medicina, Primeros auxilios";
+	elseif getValue()=="ELEMENTALES" then 
+		sLabels="Kamin|Tepel|Visdu|Vodar";
+		sValues="Naturaleza|Artesanía: Herrería|Música|Manejar botes, Nadar";
+--		sLabels="Kamin: Naturaleza|Tepel: Artesanía: Herrería|Visdu: Música|Vodar: Manejar botes, Nadar";
+	elseif getValue()=="OTROS" then 
+		sLabels="Balanza";
+		sValues="Oratoria, Persuadir";
+--		sLabels="Balanza: Oratoria, Persuadir";
+	else
+		sLabels=" ";
+		sValues=" ";
+	end
+	window.Deidad.setStringValue("");
+	window.Deidad.initialize(sLabels, sValues, "", "");
+--	if getValue()~="" then
+--		Informacion.MostrarInfo(window.parentcontrol.window, getValue(), "Deidades ("..getValue()..")", "Añade +1 a dos habilidades o +2 a una.");
+--	else
+--		Informacion.MostrarInfo(window.parentcontrol.window);
+--	end
+	ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	ComprobarCorrecto();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorCultoProfesion=isVisible() and (getValue()=="" or getValue()==nil);
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorDeidadProfesion=isVisible() and (window.Deidad.getValue()=="" or window.Deidad.getValue()==nil);
+end
+
+function onInit()
+	super.onInit();
+	ComprobarCorrecto();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
