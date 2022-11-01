@@ -1,6 +1,126 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>BotonAyudaCulto</ControlName>
+    <ZIndex>82</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelCulto"}}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonAyudaCulto"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_hover"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"69"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"420"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	Informacion.MostrarInfo(window.parentcontrol.window, "Deidades");
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>BotonAyudaEspecialidad</ControlName>
+    <ZIndex>83</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelEspecialidad"}}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonAyudaEspecialidad"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_hover"}},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_help_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin","Value":{"@xsi:type":"xsd:int","#text":"10"}},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"103"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"475"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	Informacion.MostrarInfo(window.parentcontrol.window, "Especialidades", "Esoecialidades de Sabio", "Elige una especialidad de entre las siguientes y añade así una o dos habilidades más a la lista por profesión.");
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>Culto</ControlName>
     <ZIndex>49</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
@@ -42,7 +162,7 @@
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"CAOS","Value":"CAOS"},{"Label":"LEY","Value":"LEY"},{"Label":"ELEMENTALES","Value":"ELEMENTALES"},{"Label":"OTROS","Value":"OTROS"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"LEY","Value":"LEY"},{"Label":"CAOS","Value":"CAOS"},{"Label":"ELEMENTALES","Value":"ELEMENTALES"},{"Label":"OTROS","Value":"OTROS"}]}},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"El culto elegido también obtendrá el bono de lealtad de la profesión."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -75,17 +195,26 @@
 	end
 	window.Deidad.setStringValue("");
 	window.Deidad.initialize(sLabels, sValues, "", "");
-	if getValue()~="" then
-		Informacion.MostrarInfo(window.parentcontrol.window, getValue(), "Deidades ("..getValue()..")", "Añade +1 a dos habilidades o +2 a una.");
-	else
-		Informacion.MostrarInfo(window.parentcontrol.window);
-	end
+--	if getValue()~="" then
+--		Informacion.MostrarInfo(window.parentcontrol.window, getValue(), "Deidades ("..getValue()..")", "Añade +1 a dos habilidades o +2 a una.");
+--	else
+--		Informacion.MostrarInfo(window.parentcontrol.window);
+--	end
+	ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	ComprobarCorrecto();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorCultoProfesion=isVisible() and (getValue()=="" or getValue()==nil);
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorDeidadProfesion=isVisible() and (window.Deidad.getValue()=="" or window.Deidad.getValue()==nil);
 end
 
 function onInit()
 	super.onInit();
-	window.Deidad.setVisible(getValue()~="");
-	window.LabelDeidad.setVisible(getValue()~="");
+	ComprobarCorrecto();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -144,6 +273,7 @@ end
     <LUACode>function onValueChanged()
 	ParseoProfesiones.ModificarHabilidadesCulto(getStringValue(), true);
 --	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.Culto.ComprobarCorrecto();
 end
 
 function onClickRelease(button, x, y)
@@ -151,6 +281,14 @@ function onClickRelease(button, x, y)
 	super.onClickRelease(button, x, y)
 end
 
+function onInit()
+	window.Culto.ComprobarCorrecto();
+	super.onInit();
+end
+
+function onVisibilityChanged()
+	window.Culto.ComprobarCorrecto();
+end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -207,7 +345,28 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.EsferasProf[1]=getValue();
+	window.Esfera1.ComprobarCorrecto();
 end
+
+function onVisibilityChanged()
+	window.Esfera1.ComprobarCorrecto();
+end
+
+function onInit()
+	super.onInit();
+	window.Esfera1.ComprobarCorrecto();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorEsferaProfesion=false;
+	for i=1,window.NumEsferas.getValue() do
+		if window["Esfera"..i].getValue()=="" or window["Esfera"..i].getValue()==nil then
+			ChequeoPJ.PartesCompletadas["Profesión"].ErrorEsferaProfesion=true;
+			return;
+		end
+	end
+end
+
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -264,7 +423,18 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.EsferasProf[2]=getValue();
+	window.Esfera1.ComprobarCorrecto();
 end
+
+function onVisibilityChanged()
+	window.Esfera1.ComprobarCorrecto();
+end
+
+function onInit()
+	super.onInit();
+	window.Esfera1.ComprobarCorrecto();
+end
+
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -321,7 +491,18 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.EsferasProf[3]=getValue();
+	window.Esfera1.ComprobarCorrecto();
 end
+
+function onVisibilityChanged()
+	window.Esfera1.ComprobarCorrecto();
+end
+
+function onInit()
+	super.onInit();
+	window.Esfera1.ComprobarCorrecto();
+end
+
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -373,7 +554,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"115"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"474"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
@@ -381,8 +562,24 @@ end
 	window.LabelIdiomaEspecialidad.setVisible(getValue()=="Escriba");
 	window.IdiomaEspecialidad.setStringValue("");
 	ParseoProfesiones.sEspecialidadSabio=getValue();
-	Informacion.MostrarInfo(window.parentcontrol.window, "Especialidades", "Esoecialidades de Sabio", "Elige una especialidad de entre las siguientes y añade así una o dos habilidades más a la lista por profesión.");
-end</LUACode>
+	--Informacion.MostrarInfo(window.parentcontrol.window, "Especialidades", "Esoecialidades de Sabio", "Elige una especialidad de entre las siguientes y añade así una o dos habilidades más a la lista por profesión.");
+	ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	ComprobarCorrecto();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorEspecialidadProfesion=isVisible() and (getValue()=="" or getValue()==nil);
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorIdiomaEspecialidadProfesion=isVisible() and getValue()=="Escriba" and (window.IdiomaEspecialidad.getValue()=="" or window.IdiomaEspecialidad.getValue()==nil);
+end
+
+function onInit()
+	super.onInit();
+	ComprobarCorrecto();
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -437,24 +634,12 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"100"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=1 then ParseoProfesiones.ArmasExtraProfesion[1].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[1].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
-
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -509,24 +694,12 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"125"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=2 then ParseoProfesiones.ArmasExtraProfesion[2].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[2].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -581,24 +754,12 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"150"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=3 then ParseoProfesiones.ArmasExtraProfesion[3].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[3].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -653,24 +814,12 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"175"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=4 then ParseoProfesiones.ArmasExtraProfesion[4].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[4].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma CC"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -733,6 +882,16 @@ end
 		ParseoProfesiones.VerbosProf[1]="";
 		ParseoProfesiones.EsferasProf[1]="";
 	end
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
+
+function onInit()
+	super.onInit();
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -797,6 +956,16 @@ end
 		ParseoProfesiones.VerbosProf[2]="";
 		ParseoProfesiones.EsferasProf[2]="";
 	end
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
+
+function onInit()
+	super.onInit();
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -861,6 +1030,16 @@ end
 		ParseoProfesiones.VerbosProf[3]="";
 		ParseoProfesiones.EsferasProf[3]="";
 	end
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
+
+function onInit()
+	super.onInit();
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -920,6 +1099,7 @@ end
 	if window.NumArmas.getValue()&gt;=1 then ParseoProfesiones.ArmasExtraProfesion[1].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[1].arma="";
 	end
+	window.TipoArma1.ComprobarCorrecto();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -976,24 +1156,12 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"125"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=2 then ParseoProfesiones.ArmasExtraProfesion[2].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[2].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
-
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1048,23 +1216,11 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"150"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=3 then ParseoProfesiones.ArmasExtraProfesion[3].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[3].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
-
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -1120,23 +1276,11 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"175"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=1;
---	end
 	if window.NumArmas.getValue()&gt;=4 then ParseoProfesiones.ArmasExtraProfesion[4].arma=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[4].arma="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.TipoArma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Arma Pr"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -1242,6 +1386,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.sIdiomaEspecialidadSabio=getValue();
+	window.Especialidad.ComprobarCorrecto();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -3074,6 +3219,7 @@ function onDrop(x, y, dragdata)
 	if sClass=="VentanaProfesionSidebar" then
 		local sProfesion=Utilidades.LeerValorRegistro(sRecord, "name");
 		if ParseoProfesiones.ProfesionPermitida(sProfesion) then
+			window.parentcontrol.window.Mensajes.setValue("");
 			ParseoProfesiones.ObtenerHabilidadesDeProfesion(Utilidades.LeerValorRegistro(sRecord, "Habilidades"));
 			ParseoProfesiones.nLealtadProf=Utilidades.LeerValorRegistro(sRecord, "Lealtad");
 			
@@ -3092,10 +3238,6 @@ function onDrop(x, y, dragdata)
 			window.NumHabilidadesMagicas.setValue(ParseoProfesiones.numHabilidadesMagicasProfesion);
 			
 			ParseoVentDesv.AsignarVentDesvPorProfesion(window.parentcontrol.window, Utilidades.LeerValorRegistro(sRecord, "VentajaDesventaja"));
-			
-			window.parentcontrol.window.Mensajes.setValue("");
-			
-			
 		else
 			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 			window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorProfesionNoPermitida"]);
@@ -3180,12 +3322,12 @@ function onValueChanged()
 		window.LabelCultoCabecera.setVisible(true);
 		window.LabelCulto.setVisible(true);
 		window.Culto.setVisible(true);
-		window.LabelDeidad.setVisible(true);
-		window.Deidad.setVisible(true);
+		window.BotonAyudaCulto.setVisible(true);
 	else
 		window.LabelCultoCabecera.setVisible(false);
 		window.LabelCulto.setVisible(false);
 		window.Culto.setVisible(false);
+		window.BotonAyudaCulto.setVisible(false);
 		window.LabelDeidad.setVisible(false);
 		window.Deidad.setVisible(false);
 		ParseoProfesiones.nLealtadProf=0;
@@ -3195,10 +3337,12 @@ function onValueChanged()
 		window.LabelCabeceraEspecialidad.setVisible(true);
 		window.LabelEspecialidad.setVisible(true);
 		window.Especialidad.setVisible(true);
+		window.BotonAyudaEspecialidad.setVisible(true);
 	else
 		window.LabelCabeceraEspecialidad.setVisible(false);
 		window.LabelEspecialidad.setVisible(false);
 		window.Especialidad.setVisible(false);
+		window.BotonAyudaEspecialidad.setVisible(false);
 	end
 	
 	if getValue()~="" and ParseoProfesiones.TablaDineroPorProfesion[getValue():lower()] then
@@ -3211,7 +3355,7 @@ function onValueChanged()
 	ParseoVentDesv.sLinkPorProfesion="";
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.NombreVentajaProfesion.setValue("");
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.LinkVentajaProfesion.setValue(nil, nil);
-	ChequeoPJ.PartesCompletadas["Profesión"].ErrorProfesion=false;
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorProfesion=getValue()=="";
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -3461,6 +3605,7 @@ end
 end
 
 function onValueChanged()
+	window.LabelCabeceraVerbosYEsferas.setVisible(window.NumVerbos.getValue()&gt;0 or window.NumEsferas.getValue()&gt;0 or window.NumHabilidadesMagicas.getValue()&gt;0);
 	if getValue()&gt;0 then
 		for i=1,math.min(3,getValue()) do
 			window["Esfera"..i].setVisible(true);
@@ -3541,7 +3686,7 @@ end
 end
 
 function onValueChanged()
-	window.LabelCabeceraVerbosYEsferas.setVisible(getValue()&gt;0);
+	window.LabelCabeceraVerbosYEsferas.setVisible(window.NumVerbos.getValue()&gt;0 or window.NumEsferas.getValue()&gt;0 or window.NumHabilidadesMagicas.getValue()&gt;0);
 	if getValue()&gt;0 then
 		for i=1,math.min(3,getValue()) do
 			window["TipoHabilidadMagica"..i].setVisible(true);
@@ -3713,7 +3858,7 @@ end
 end
 
 function onValueChanged()
-	window.LabelCabeceraVerbosYEsferas.setVisible(getValue()&gt;0);
+	window.LabelCabeceraVerbosYEsferas.setVisible(window.NumVerbos.getValue()&gt;0 or window.NumEsferas.getValue()&gt;0 or window.NumHabilidadesMagicas.getValue()&gt;0);
 	if getValue()&gt;0 then
 		for i=1,math.min(3,getValue()) do
 			window["Verbo"..i].setVisible(true);
@@ -3898,24 +4043,28 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"331"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=1;
---	end
 	if window.NumArtesanias.getValue()&gt;=1 then ParseoProfesiones.ArtesaniasExtraProfesion[1]=getValue();
 	else ParseoProfesiones.ArtesaniasExtraProfesion[1]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionArtesania1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+	super.onInit();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorArtesaniaProfesion=
+	window.SeleccionArtesania1.isVisible() and window.SeleccionArtesania1.getValue()=="" or
+	window.SeleccionArtesania2.isVisible() and window.SeleccionArtesania2.getValue()=="" or
+	window.SeleccionArtesania3.isVisible() and window.SeleccionArtesania3.getValue()=="" or
+	window.SeleccionArtesania4.isVisible() and window.SeleccionArtesania4.getValue()=="";
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -3970,24 +4119,20 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"331"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=1;
---	end
 	if window.NumArtesanias.getValue()&gt;=2 then ParseoProfesiones.ArtesaniasExtraProfesion[2]=getValue();
 	else ParseoProfesiones.ArtesaniasExtraProfesion[2]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionArtesania1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+	super.onInit();
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4042,24 +4187,20 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"356"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=1;
---	end
 	if window.NumArtesanias.getValue()&gt;=3 then ParseoProfesiones.ArtesaniasExtraProfesion[3]=getValue();
 	else ParseoProfesiones.ArtesaniasExtraProfesion[3]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionArtesania1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+	super.onInit();
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4114,24 +4255,20 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"356"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=1;
---	end
 	if window.NumArtesanias.getValue()&gt;=4 then ParseoProfesiones.ArtesaniasExtraProfesion[4]=getValue();
 	else ParseoProfesiones.ArtesaniasExtraProfesion[4]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionArtesania1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionArtesania1.ComprobarCorrecto();
+	super.onInit();
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4186,24 +4323,28 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"240"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=1;
---	end
 	if window.NumIdiomas.getValue()&gt;=1 then ParseoProfesiones.IdiomasExtraProfesion[1]=getValue();
 	else ParseoProfesiones.IdiomasExtraProfesion[1]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionIdioma1.ComprobarCorrecto();
 end
 
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+function onVisibilityChanged()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+	super.onInit();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorIdiomaProfesion=
+	window.SeleccionIdioma1.isVisible() and window.SeleccionIdioma1.getValue()=="" or
+	window.SeleccionIdioma2.isVisible() and window.SeleccionIdioma2.getValue()=="" or
+	window.SeleccionIdioma3.isVisible() and window.SeleccionIdioma3.getValue()=="" or
+	window.SeleccionIdioma4.isVisible() and window.SeleccionIdioma4.getValue()=="";
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4258,24 +4399,21 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"240"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=1;
---	end
 	if window.NumIdiomas.getValue()&gt;=2 then ParseoProfesiones.IdiomasExtraProfesion[2]=getValue();
 	else ParseoProfesiones.IdiomasExtraProfesion[2]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionIdioma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+	super.onInit();
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4330,24 +4468,21 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"265"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=1;
---	end
 	if window.NumIdiomas.getValue()&gt;=3 then ParseoProfesiones.IdiomasExtraProfesion[3]=getValue();
 	else ParseoProfesiones.IdiomasExtraProfesion[3]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionIdioma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+	super.onInit();
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4402,24 +4537,21 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"265"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	--Debug.chat("onValueChanged", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=1;
---	end
 	if window.NumIdiomas.getValue()&gt;=4 then ParseoProfesiones.IdiomasExtraProfesion[4]=getValue();
 	else ParseoProfesiones.IdiomasExtraProfesion[4]="";
 	end
---	Informacion.MostrarHabilidades(window.parentcontrol.window);
+	window.SeleccionIdioma1.ComprobarCorrecto();
 end
---
---function onClickRelease(button, x, y)
---	--Debug.chat("onClickRelease", getValue())
---	if ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()] then
---		ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][getValue()].prof=0;
---	end
---	super.onClickRelease(button, x, y)
---end
---</LUACode>
+
+function onVisibilityChanged()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.SeleccionIdioma1.ComprobarCorrecto();
+	super.onInit();
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -4486,11 +4618,17 @@ function onVisibilityChanged()
 	ComprobarCorrecto();
 end
 
+function onInit()
+	window.TipoArma1.ComprobarCorrecto();
+	super.onInit();
+end
+
 function ComprobarCorrecto()
-	ChequeoPJ.PartesCompletadas["Profesión"].ErrorArmaProfesion=window.TipoArma1.isVisible() and (window.TipoArma1.getValue()=="Arma CC" and window.HabilidadCC1.getValue()~="" or window.TipoArma1.getValue()=="Arma Pr" and window.HabilidadPr1.getValue()~="");-- or
---	window.TipoArma2.isVisible() and window.TipoArma2.getValue()~="" and window.TipoArma2.getValue()~="Tipo de Arma" or
---	window.TipoArma3.isVisible() and window.TipoArma3.getValue()~="" and window.TipoArma3.getValue()~="Tipo de Arma" or
---	window.TipoArma4.isVisible() and window.TipoArma4.getValue()~="" and window.TipoArma4.getValue()~="Tipo de Arma" 
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorArmaProfesion=
+	(window.TipoArma1.isVisible() and (window.TipoArma1.getValue()=="" or window.TipoArma1.getValue()=="Tipo de Arma" or window.TipoArma1.getValue()=="Arma CC" and window.HabilidadCC1.getValue()=="" or window.TipoArma1.getValue()=="Arma Pr" and window.HabilidadPr1.getValue()=="")) or
+	(window.TipoArma2.isVisible() and (window.TipoArma2.getValue()=="" or window.TipoArma2.getValue()=="Tipo de Arma" or window.TipoArma2.getValue()=="Arma CC" and window.HabilidadCC2.getValue()=="" or window.TipoArma2.getValue()=="Arma Pr" and window.HabilidadPr2.getValue()=="")) or
+	(window.TipoArma3.isVisible() and (window.TipoArma3.getValue()=="" or window.TipoArma3.getValue()=="Tipo de Arma" or window.TipoArma3.getValue()=="Arma CC" and window.HabilidadCC3.getValue()=="" or window.TipoArma3.getValue()=="Arma Pr" and window.HabilidadPr3.getValue()=="")) or
+	(window.TipoArma4.isVisible() and (window.TipoArma4.getValue()=="" or window.TipoArma4.getValue()=="Tipo de Arma" or window.TipoArma4.getValue()=="Arma CC" and window.HabilidadCC4.getValue()=="" or window.TipoArma4.getValue()=="Arma Pr" and window.HabilidadPr4.getValue()==""));
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -4551,6 +4689,16 @@ end</LUACode>
 	if window.NumArmas.getValue()&gt;=2 then ParseoProfesiones.ArmasExtraProfesion[2].tipo=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[2].tipo="";
 	end
+	window.TipoArma1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.TipoArma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.TipoArma1.ComprobarCorrecto();
+	super.onInit();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -4609,9 +4757,19 @@ end
     <LUACode>function onValueChanged()
 	window.HabilidadCC3.setVisible(getValue()=="Arma CC" and window.NumArmas.getValue()&gt;=3);
 	window.HabilidadPr3.setVisible(getValue()=="Arma Pr" and window.NumArmas.getValue()&gt;=3);
-		if window.NumArmas.getValue()&gt;=3 then ParseoProfesiones.ArmasExtraProfesion[3].tipo=getValue();
+	if window.NumArmas.getValue()&gt;=3 then ParseoProfesiones.ArmasExtraProfesion[3].tipo=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[3].tipo="";
 	end
+	window.TipoArma1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.TipoArma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.TipoArma1.ComprobarCorrecto();
+	super.onInit();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -4673,6 +4831,16 @@ end
 	if window.NumArmas.getValue()&gt;=4 then ParseoProfesiones.ArmasExtraProfesion[4].tipo=getValue();
 	else ParseoProfesiones.ArmasExtraProfesion[4].tipo="";
 	end
+	window.TipoArma1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.TipoArma1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.TipoArma1.ComprobarCorrecto();
+	super.onInit();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -4736,7 +4904,7 @@ end
 		sValues="Aumentar|Conocer|Disminuir|Dirigir|Inhibir|Invocar|Modificar|Transformar";
 		ParseoProfesiones.VerbosProf[1]="";
 	elseif getValue()=="Esfera" then
-		sLabels="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley;"
+		sLabels="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley";
 		sValues="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley";
 		ParseoProfesiones.EsferasProf[1]="";
 	else
@@ -4745,6 +4913,26 @@ end
 	end
 	window.HabilidadMagica1.setStringValue("");
 	window.HabilidadMagica1.initialize(sLabels, sValues, "", "");
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
+
+function onInit()
+	super.onInit();
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorHabilidadMagicaProfesion=false;
+	for i=1,window.NumHabilidadesMagicas.getValue() do
+		if window["TipoHabilidadMagica"..i].getValue()=="Tipo" or window["HabilidadMagica"..i].getValue()==nil or window["HabilidadMagica"..i].getValue()=="" then
+			ChequeoPJ.PartesCompletadas["Profesión"].ErrorHabilidadMagicaProfesion=true;
+			return;
+		end
+	end
 end
 
 </LUACode>
@@ -4809,7 +4997,7 @@ end
 		sValues="Aumentar|Conocer|Disminuir|Dirigir|Inhibir|Invocar|Modificar|Transformar";
 		ParseoProfesiones.VerbosProf[2]="";
 	elseif getValue()=="Esfera" then
-		sLabels="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley;"
+		sLabels="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley";
 		sValues="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley";
 		ParseoProfesiones.EsferasProf[2]="";
 	else
@@ -4818,8 +5006,17 @@ end
 	end
 	window.HabilidadMagica2.setStringValue("");
 	window.HabilidadMagica2.initialize(sLabels, sValues, "", "");
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
 end
 
+function onVisibilityChanged()
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
+
+function onInit()
+	super.onInit();
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -4882,7 +5079,7 @@ end
 		sValues="Aumentar|Conocer|Disminuir|Dirigir|Inhibir|Invocar|Modificar|Transformar";
 		ParseoProfesiones.VerbosProf[3]="";
 	elseif getValue()=="Esfera" then
-		sLabels="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley;"
+		sLabels="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley";
 		sValues="Agua|Espíritu|Aire|Mente|Fuego|Planta|Tierra|Caos|Cuerpo|Ley";
 		ParseoProfesiones.EsferasProf[3]="";
 	else
@@ -4891,6 +5088,16 @@ end
 	end
 	window.HabilidadMagica3.setStringValue("");
 	window.HabilidadMagica3.initialize(sLabels, sValues, "", "");
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
+end
+
+function onInit()
+	super.onInit();
+	window.TipoHabilidadMagica1.ComprobarCorrecto();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -5004,6 +5211,26 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.VerbosProf[1]=getValue();
+	window.Verbo1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.Verbo1.ComprobarCorrecto();
+end
+
+function onInit()
+	super.onInit();
+	window.Verbo1.ComprobarCorrecto();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorVerboProfesion=false;
+	for i=1,window.NumVerbos.getValue() do
+		if window["Verbo"..i].getValue()=="" or window["Verbo"..i].getValue()==nil then
+			ChequeoPJ.PartesCompletadas["Profesión"].ErrorVerboProfesion=true;
+			return;
+		end
+	end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -5061,8 +5288,17 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.VerbosProf[2]=getValue();
+	window.Verbo1.ComprobarCorrecto();
 end
-</LUACode>
+
+function onVisibilityChanged()
+	window.Verbo1.ComprobarCorrecto();
+end
+
+function onInit()
+	super.onInit();
+	window.Verbo1.ComprobarCorrecto();
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -5118,8 +5354,17 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.VerbosProf[3]=getValue();
+	window.Verbo1.ComprobarCorrecto();
 end
-</LUACode>
+
+function onVisibilityChanged()
+	window.Verbo1.ComprobarCorrecto();
+end
+
+function onInit()
+	super.onInit();
+	window.Verbo1.ComprobarCorrecto();
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
