@@ -31,7 +31,7 @@
       {"Name":"HoverIconName"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -50,7 +50,7 @@
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"487"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"11"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"12"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
 	if window.TipoObjeto.getSelectedValue()=="" then
@@ -1622,7 +1622,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"487"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"33"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"34"}}
 ]}}</Definition>
     <LUACode>
 function onValueChanged()
@@ -1632,24 +1632,13 @@ function onValueChanged()
 	-- so their position must be adjusted manually when the delete button is shown and hidden.	
 	if getValue() == 1 then
 		window.location_label.setStaticBounds(-213, 36, 80, 20);
-		window.weight_label.setStaticBounds(-129, 36, 30, 20);
+		window.weight_label.setStaticBounds(-125, 36, 30, 20);
 		window.carried_header.setStaticBounds(-86, 36, 20, 20);
 	else
 		window.location_label.setStaticBounds(-193, 36, 80, 20);
-		window.weight_label.setStaticBounds(-104, 36, 30, 20);
+		window.weight_label.setStaticBounds(-100, 36, 30, 20);
 		window.carried_header.setStaticBounds(-61, 36, 20, 20);
 	end
-end
-
-function onClickDown(button, x, y)
-     if getValue() == 0
-          then window.AniadirObjeto.setVisible(true);
-			   window.TipoObjeto.setVisible(true);
-			   window.Label3.setVisible(true);
-          else window.AniadirObjeto.setVisible(false);
-			   window.TipoObjeto.setVisible(false);
-			   window.Label3.setVisible(false);
-      end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1786,7 +1775,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Invisible"},
       {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Nuevo Objeto"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
@@ -2185,7 +2174,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Invisible"},
       {"Name":"ListDirection","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"ListOffset"},
       {"Name":"MaximumHeight"},
@@ -2316,7 +2305,7 @@ end</LUACode>
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"C"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Ps"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -2330,10 +2319,10 @@ end</LUACode>
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
       {"Name":"TextUnderlined"},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Carga"}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Peso"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"421"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"424"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"36"}}
 ]}}</Definition>
     <LUACode />
