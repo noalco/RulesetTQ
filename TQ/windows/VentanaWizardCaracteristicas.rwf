@@ -3243,9 +3243,13 @@ function onDrop(x, y, dragdata)
 	if sClass=="VentanaEtniaSidebar" then
 		if EtniaPermitida(sRecord) then
 			window.parentcontrol.window.Mensajes.setValue("");
+			
 			local _, sRecordAct=getValue();
 			ParseoHabilidades.ResetDatosEtnia();
 			
+			Religion.ResetearReligiones();
+			Religion.ParsearReligiones(Utilidades.LeerValorRegistro(sRecord, "Religion"))
+						
 			setValue(dragdata.getShortcutData());
 			window.NombreEtnia.Actualizar(sRecord);
 			
@@ -4145,6 +4149,7 @@ end
 function onValueChanged()
 	ParseoVentDesv.sPorEtnia="";
 	ParseoVentDesv.sLinkPorEtnia="";
+	window.parentcontrol.window.SubventanaWizardProfesion.subwindow.Culto.ActualizarCulto();
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.NombreVentajaEtnia.setValue("");
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.LinkVentajaEtnia.setValue(nil, nil);
 	ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorEtnia=getValue()=="";
