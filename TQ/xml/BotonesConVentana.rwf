@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <XMLFiles>
     <XmlName>BotonesConVentana</XmlName>
-    <FolderID>40</FolderID>
+    <FolderID>41</FolderID>
     <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;root&gt;
 	&lt;template name="boton_nueva_ventana"&gt;
