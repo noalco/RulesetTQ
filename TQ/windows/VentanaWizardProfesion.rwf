@@ -184,6 +184,7 @@ end
 	window.Deidad.setStringValue("");
 	window.Deidad.initialize(sLabels, sValues, "", "");
 	ComprobarCorrecto();
+	Religion.bCultoConRestriccion=Religion.CultoRestringido(getValue());
 end
 
 function onVisibilityChanged()
@@ -206,7 +207,6 @@ function ActualizarCulto()
 	window.Culto.setStringValue("");
 	local sValues, sLabels=Religion.GenerarStrinCycleCultos();
 	ChequeoPJ.bSinReligion=sValues=="";
-	Debug.chat(sValues, sLabels);
 	window.Culto.initialize(sLabels, sValues, "", "");
 	ComprobarCorrecto();
 end
@@ -267,6 +267,7 @@ end
     <LUACode>function onValueChanged()
 	ParseoProfesiones.ModificarHabilidadesCulto(getStringValue(), true);
 	window.Culto.ComprobarCorrecto();
+	Religion.bDeidadConRestriccion=Religion.DeidadRestringida(getValue());
 end
 
 function onClickRelease(button, x, y)
@@ -3310,12 +3311,13 @@ function onDrop(x, y, dragdata)
 end
 
 function onValueChanged()
+	ParseoProfesiones.bTieneRestriccion=ParseoProfesiones.ProfesionRestringida(getValue());
 	if getValue():lower():match("sacerdote") then
 		window.Culto.ActualizarCulto();
-		window.LabelCultoCabecera.setVisible(true);
-		window.LabelCulto.setVisible(true);
-		window.Culto.setVisible(true);
-		window.BotonAyudaCulto.setVisible(true);
+		window.LabelCultoCabecera.setVisible(not ChequeoPJ.bSinReligion);
+		window.LabelCulto.setVisible(not ChequeoPJ.bSinReligion);
+		window.Culto.setVisible(not ChequeoPJ.bSinReligion);
+		window.BotonAyudaCulto.setVisible(not ChequeoPJ.bSinReligion);
 	else
 		window.LabelCultoCabecera.setVisible(false);
 		window.LabelCulto.setVisible(false);

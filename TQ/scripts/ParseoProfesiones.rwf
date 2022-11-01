@@ -5,31 +5,31 @@
     <Script>StringToNum={["un"]=1, ["uno"]=1, ["una"]=1, ["dos"]=2, ["tres"]=3, ["cuatro"]=4, ["cinco"]=5, ["seis"]=6, ["siete"]=7, ["ocho"]=8, ["nueve"]=9, ["diez"]=10,}
 
 Profesiones={
-	["artesano"] = {permitida=true, restriccion=""},
-	["artista"] = {permitida=true, restriccion=""},
-	["asesino"] = {permitida=true, restriccion=""},
-	["bandido"] = {permitida=true, restriccion=""},
-	["campesino"] = {permitida=true, restriccion=""},
-	["cazador"] = {permitida=true, restriccion=""},
-	["criado"] = {permitida=true, restriccion=""},
-	["chamán"] = {permitida=true, restriccion=""},
-	["espía"] = {permitida=true, restriccion=""},
-	["hechicero"] = {permitida=true, restriccion=""},
-	["hechicero guerrero"] = {permitida=true, restriccion=""},
-	["ladrón"] = {permitida=true, restriccion=""},
-	["mensajero"] = {permitida=true, restriccion=""},
-	["marinero"] = {permitida=true, restriccion=""},
-	["mendigo"] = {permitida=true, restriccion=""},
-	["mercader"] = {permitida=true, restriccion=""},
-	["minero"] = {permitida=true, restriccion=""},
-	["noble cortesano"] = {permitida=true, restriccion=""},
-	["noble guerrero"] = {permitida=true, restriccion=""},
-	["nómada"] = {permitida=true, restriccion=""},
-	["pirata"] = {permitida=true, restriccion=""},
-	["sabio"] = {permitida=true, restriccion=""},
-	["sacerdote"] = {permitida=true, restriccion=""},
-	["sacerdote guerrero"] = {permitida=true, restriccion=""},
-	["soldado"] = {permitida=true, restriccion=""},
+	["artesano"] = {bPermitida=true, bRestringida=false},
+	["artista"] = {bPermitida=true, bRestringida=false},
+	["asesino"] = {bPermitida=true, bRestringida=false},
+	["bandido"] = {bPermitida=true, bRestringida=false},
+	["campesino"] = {bPermitida=true, bRestringida=false},
+	["cazador"] = {bPermitida=true, bRestringida=false},
+	["criado"] = {bPermitida=true, bRestringida=false},
+	["chamán"] = {bPermitida=true, bRestringida=false},
+	["espía"] = {bPermitida=true, bRestringida=false},
+	["hechicero"] = {bPermitida=true, bRestringida=false},
+	["hechicero guerrero"] = {bPermitida=true, bRestringida=false},
+	["ladrón"] = {bPermitida=true, bRestringida=false},
+	["mensajero"] = {bPermitida=true, bRestringida=false},
+	["marinero"] = {bPermitida=true, bRestringida=false},
+	["mendigo"] = {bPermitida=true, bRestringida=false},
+	["mercader"] = {bPermitida=true, bRestringida=false},
+	["minero"] = {bPermitida=true, bRestringida=false},
+	["noble cortesano"] = {bPermitida=true, bRestringida=false},
+	["noble guerrero"] = {bPermitida=true, bRestringida=false},
+	["nómada"] = {bPermitida=true, bRestringida=false},
+	["pirata"] = {bPermitida=true, bRestringida=false},
+	["sabio"] = {bPermitida=true, bRestringida=false},
+	["sacerdote"] = {bPermitida=true, bRestringida=false},
+	["sacerdote guerrero"] = {bPermitida=true, bRestringida=false},
+	["soldado"] = {bPermitida=true, bRestringida=false},
 }
 
 HabilidadesDeProfesion={["Niño"]=40, ["Joven"]=50, ["Adulto"]=60, ["Mayor"]=70, ["Viejo"]=80, ["Anciano"]=90,}
@@ -97,18 +97,20 @@ TablaDineroPorProfesion={
 }
 nDineroInicial=1;
 nIncremento=0;
+bTieneRestriccion=false;
+bTieneVentClandestinidad=false;
 
 function ObtenerListaProfesiones(sProfesiones, bPermitir)
 	local aClauses={};
 	if sProfesiones then aClauses,_ = StringManager.split(sProfesiones:lower(), ",y", true); end;
 	for sProf,_ in pairs(Profesiones) do
-		Profesiones[sProf].permitida=not bPermitir;
-		Profesiones[sProf].restriccion="";
+		Profesiones[sProf].bPermitida=not bPermitir;
+		Profesiones[sProf].bRestringida=false;
 	end
 	for i=1,#aClauses do
 		if aClauses[i]:match(".*%s*%(.*%)") then aClauses[i]=aClauses[i]:match("(.*)%s*%(.*%)"); end -- Para quitar los comentarios entre paréntesis
 		if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
-		Profesiones[aClauses[i]].permitida=bPermitir;
+		Profesiones[aClauses[i]].bPermitida=bPermitir;
 	end
 end
 
@@ -135,13 +137,17 @@ function ObtenerProfesionesPermitidas(sProfesiones)
 		--Debug.chat(aClauses)
 		for i=1,#aClauses do
 			if string.sub(aClauses[i], aClauses[i]:len(), aClauses[i]:len())==" " then aClauses[i]=string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
-			if Profesiones[aClauses[i]] then Profesiones[aClauses[i]].restriccion=sExcepciones; end
+			if Profesiones[aClauses[i]] then Profesiones[aClauses[i]].bRestringida=true; end
 		end
 	end
 end;
 
 function ProfesionPermitida(sProfesion)
-	return sProfesion and ParseoProfesiones.Profesiones[sProfesion:lower()] and ParseoProfesiones.Profesiones[sProfesion:lower()].permitida
+	return sProfesion and ParseoProfesiones.Profesiones[sProfesion:lower()] and ParseoProfesiones.Profesiones[sProfesion:lower()].bPermitida;
+end
+
+function ProfesionRestringida(sProfesion)
+	return sProfesion and ParseoProfesiones.Profesiones[sProfesion:lower()] and ParseoProfesiones.Profesiones[sProfesion:lower()].bRestringida;
 end
 
 function esSecundaria(sHabilidad)
@@ -176,6 +182,8 @@ function ResetearHabilidadesProfesion()
 	sIdiomaEspecialidadSabio="";
 	
 	nDineroInicial=1;
+	
+	bTieneRestriccion=false;
 	
 	local rHabilidad; local rSecundaria;
 	for _,rHabilidad in pairs(ParseoHabilidades.DatosHabilidades) do
@@ -281,7 +289,7 @@ function ModificarHabilidadesProfCulto(aClauses, sCampo, nValor)
 						numHabilidadesMagicasProfesion=StringToNum[sHabilidadesMagicas];
 --						Debug.chat("Habilidades mágicas", numHabilidadesMagicasProfesion);
 					else
-						Debug.chat("Otro tipo de habilidad", aClauses[i]);
+						Debug.chat("ParseoProfesiones.ModificarHabilidadesProfCulto. Otro tipo de habilidad", aClauses[i]);
 					end
 				end
 			end

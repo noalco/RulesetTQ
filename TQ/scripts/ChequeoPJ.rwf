@@ -23,6 +23,9 @@
 		["ErrorVerboProfesion"] = false,
 		["ErrorEsferaProfesion"] = false,
 		["ErrorHabilidadMagicaProfesion"] = false,
+		["ErrorProfesionRestringida"] = false,
+		["ErrorCultoRestringido"] = false,
+		["ErrorDeidadRestringida"] = false,
 	},
 	["Gasto de PP"] = {
 		["ErrorCantidadPP"] = true,
@@ -69,9 +72,10 @@ end;
 
 bSinReligion=true;
 
-function ComprobarCorrecto()
+function ComprobarCorrecto(window)
 	local tMensajes={["Estadísticas"]="", ["Profesión"]="", ["Gasto de PP"]=""};
 	local bEsCorrecto=true;
+	ComprobarRestricciones(window);
 	for sSeccion,tSeccion in pairs(PartesCompletadas) do
 		for sParte,bParte in pairs(tSeccion) do
 			if bParte then
@@ -88,7 +92,22 @@ function ComprobarCorrecto()
 
 	return bEsCorrecto, sMensajes;
 end
-</Script>
+
+function ComprobarRestricciones(window)
+	local bClandestinidad=false;
+	local sVentDesv="";
+	for i=1,4 do
+		sVentDesv=window.SubventanaWizardPP.subwindow["NombreVentDesv"..i].getValue()
+		if sVentDesv and sVentDesv~="" and sVentDesv:lower():match("clandestinidad") then
+			bClandestinidad=true;
+			break;
+		end
+	end
+	PartesCompletadas["Profesión"].ErrorProfesionRestringida=ParseoProfesiones.bTieneRestriccion and not bClandestinidad;
+	PartesCompletadas["Profesión"].ErrorCultoRestringido=Religion.bCultoConRestriccion and not bClandestinidad;
+	PartesCompletadas["Profesión"].ErrorDeidadRestringida=Religion.bDeidadConRestriccion and not bClandestinidad;
+	
+end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />
   </Scripts>

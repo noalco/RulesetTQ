@@ -18,7 +18,12 @@ DiosesACultos={
 
 CultosDisponibles={["LEY"]={bPermitido=false, bRestringido=false}, ["CAOS"]={bPermitido=false, bRestringido=false}, ["ELEMENTALES"]={bPermitido=false, bRestringido=false}, ["ANTEPASADOS"]={bPermitido=false, bRestringido=false}, ["OTROS"]={bPermitido=false, bRestringido=false}}
 
-CultosDisponiblesConSufijo={}
+CultosDisponiblesConSufijo={};
+--Formato:
+--	sNombre: Nombre de la religión
+--	sCulto: Culto al que pertenece la religión
+--	sSufijo: sufijo del culto
+--	bRestringido: si debe tener la ventaja Clandestinidad
 
 DiosesDisponibles={
 -- Ley
@@ -98,6 +103,8 @@ function ResetearReligiones()
 		-- Otros
 		["Balanza"]={bPermitido=false, bRestringido=false, sValue="Oratoria, Persuadir"}
 	}
+	bCultoConRestriccion=false;
+	bDeidadConRestriccion=false;
 end
 
 function ParsearReligiones(sReligiones)
@@ -144,21 +151,22 @@ function ParsearReligiones(sReligiones)
 			  and CultosDisponibles[aSubReligiones[1]:upper()] then
 				-- Es un culto
 				CultosDisponibles[aSubReligiones[1]:upper()].bPermitido=true;
-				CultosDisponibles[aSubReligiones[1]:upper()].bRestringido=true;
+				--CultosDisponibles[aSubReligiones[1]:upper()].bRestringido=true;
 				table.insert(CultosDisponiblesConSufijo, {sNombre=aReligiones[i], sCulto=aSubReligiones[1], sSufijo=aSubReligiones[2], bRestringido=true});
 				if CultosYDioses[aSubReligiones[1]:upper()] then
 					for _,sDios in pairs (CultosYDioses[aSubReligiones[1]:upper()]) do -- Si se tiene acceso a un culto, se tiene acceso a todos sus dioses
 						DiosesDisponibles[sDios].bPermitido=true;
-						DiosesDisponibles[sDios].bRestringido=true;
+						--DiosesDisponibles[sDios].bRestringido=true;
 					end
 				end
 			elseif aSubReligiones[1]
 			  and DiosesDisponibles[aSubReligiones[1]] then
 				-- Es un dios
 				DiosesDisponibles[aSubReligiones[1]].bPermitido=true;
+				DiosesDisponibles[aSubReligiones[1]].bRestringido=true;
 				CultosDisponibles[DiosesACultos[aSubReligiones[1]]:upper()].bPermitido=true;
-				CultosDisponibles[DiosesACultos[aSubReligiones[1]]:upper()].bRestringido=true;
-				table.insert(CultosDisponiblesConSufijo, {sNombre=DiosesACultos[aSubReligiones[1]], sCulto=DiosesACultos[aSubReligiones[1]], sSufijo="", bRestringido=true});
+--				CultosDisponibles[DiosesACultos[aSubReligiones[1]]:upper()].bRestringido=true;
+				table.insert(CultosDisponiblesConSufijo, {sNombre=DiosesACultos[aSubReligiones[1]], sCulto=DiosesACultos[aSubReligiones[1]], sSufijo="", bRestringido=false});
 			end
 		end
 	end
@@ -195,7 +203,22 @@ function GenerarStrinCycleCultos()
 	end
 	return sValues, sLabels;
 end
-</Script>
+
+bCultoConRestriccion=false;
+bDeidadConRestriccion=false;
+
+function CultoRestringido(sCulto)
+	for i=1,#CultosDisponiblesConSufijo do
+		if CultosDisponiblesConSufijo[i].sNombre==sCulto then
+			return CultosDisponiblesConSufijo[i].bRestringido;
+		end
+	end
+	return false
+end
+
+function DeidadRestringida(sDeidad)
+	return sDeidad and DiosesDisponibles[sDeidad] and DiosesDisponibles[sDeidad].bRestringido;
+end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />
   </Scripts>

@@ -93,6 +93,9 @@
 	["ErrorProfesionNoPermitida"] = "La profesión que has elegido no está disponible para tu Origen Étnico. Cambia tu Origen o selecciona otra Profesión.",
 	["ErrorNoEsProfesion"] = "El elemento arrastrado no es una profesión.&lt;/p&gt;",
 	["ErrorNoEsVentDesv"] = "El elemento arrastrado no es una Ventaja o Desventaja.",
+	["ErrorProfesionRestringida"] = "&lt;p&gt;La Profesión que has elegido requiere la Ventaja Clandestinidad.&lt;/p&gt;",
+	["ErrorCultoRestringido"] = "&lt;p&gt;El Culto que has elegido requiere la Ventaja Clandestinidad.&lt;/p&gt;",
+	["ErrorDeidadRestringida"] = "&lt;p&gt;La Deidad que has elegido requiere la Ventaja Clandestinidad.&lt;/p&gt;",
 
 --	[""] = "&lt;p&gt;&lt;/p&gt;",
 --	[""] = "&lt;p&gt;&lt;/p&gt;",

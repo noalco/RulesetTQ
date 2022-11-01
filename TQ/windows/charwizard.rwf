@@ -123,7 +123,7 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"20"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	local bEsCorrecto, sMensaje=ChequeoPJ.ComprobarCorrecto();
+	local bEsCorrecto, sMensaje=ChequeoPJ.ComprobarCorrecto(window);
 	if bEsCorrecto then
 		window.Informacion.setValue("&lt;p&gt;Tu personaje es correcto.&lt;/p&gt;");
 		window.onCommitButtonPressed(window);

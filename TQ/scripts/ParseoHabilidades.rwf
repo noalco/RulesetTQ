@@ -348,7 +348,7 @@ function ModificarHabilidades(sRecord, sTipo, bAniadir)
 				bHabilidadDeCultura=true;
 				nValorHabilidadGenericaEtnia=aHabilidades[i].nValor;
 			else
-				Debug.chat(aHabilidades[i])
+				Debug.chat("ParseoHabilidades.ModificarHabilidad. Otro tipo de habilidad", aHabilidades[i])
 			end
 		end
 	end

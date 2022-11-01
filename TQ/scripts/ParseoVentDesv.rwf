@@ -124,7 +124,7 @@ function ModificarHabilidades(sRecord, sTipo, bAniadir)
 			elseif ParseoHabilidades.esSecundaria(aHabilidades[i].sHabilidad) then
 				ParseoHabilidades.ModificarHabilidadSecundaria(aHabilidades[i].sHabilidad, aHabilidades[i].nValor, sTipo, bAniadir);
 			else
-				Debug.chat("Habilidad", aHabilidades[i]);
+				Debug.chat("ParseoVentDesv.ModificarHabilidades. Habilidad", aHabilidades[i]);
 			end
 		end
 	end
@@ -140,7 +140,7 @@ function ModificarBaseDeHabilidades(sRecord, bAniadir)
 			if ParseoHabilidades.BaseHabilidades[sAux] then
 				ParseoHabilidades.BaseHabilidades[sAux]=ParseoHabilidades.BaseHabilidades[sAux]+aHabilidades[i].nValor*nAniadir;
 			else
-				Debug.chat("Base Habilidad", aHabilidades[i]);
+				Debug.chat("ParseoVentDesv.ModificarBaseDeHabilidades. Base Habilidad", aHabilidades[i]);
 			end
 		end
 	end	
