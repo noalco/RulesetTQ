@@ -280,7 +280,7 @@ end
 			window["HabilidadPrCulto"..i].setVisible(true);
 --			window["HabilidadPrCulto"..i].setStringValue("");
 		end
-		Debug.chat(ParseoProfesiones.sTipoArmaCulto)
+--		Debug.chat(ParseoProfesiones.sTipoArmaCulto)
 		if ParseoProfesiones.sTipoArmaCulto and ParseoProfesiones.sTipoArmaCulto~="" then
 			window.TipoArmaCulto1.setStringValue(ParseoProfesiones.sTipoArmaCulto);
 			window.TipoArmaCulto1.setReadOnly(true);
@@ -296,6 +296,11 @@ end
 			window["HabilidadPrCulto"..i].setVisible(false);
 		end
 	end
+	window.LabelArtesaniaCulto.setVisible(ParseoProfesiones.numArtesaniasCulto&gt;=1);
+	window.SeleccionArtesaniaCulto.setVisible(ParseoProfesiones.numArtesaniasCulto&gt;=1);
+	
+	window.LabelIdiomaCulto.setVisible(ParseoProfesiones.numIdiomasCulto&gt;=1);
+	window.SeleccionIdiomaCulto.setVisible(ParseoProfesiones.numIdiomasCulto&gt;=1);
 --	sTipoArmaCulto="";
 --	numIdiomasCulto=0;
 --	numArmasCulto=0;
@@ -2181,6 +2186,58 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>LabelArtesaniaCulto</ControlName>
+    <ZIndex>93</ZIndex>
+    <ControlClass>FGLabel</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelArtesaniaCulto"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":"5","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"left","Offset":"35","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"100"}]}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,5,0,0"}},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Artesanía"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"TextUnderlined"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"496"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>LabelCabeceraEspecialidad</ControlName>
     <ZIndex>52</ZIndex>
     <ControlClass>FGLabel</ControlClass>
@@ -2298,7 +2355,7 @@ end
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":"5","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"left","Offset":"35","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"100"}]}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"57"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -3065,6 +3122,58 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>LabelIdiomaCulto</ControlName>
+    <ZIndex>95</ZIndex>
+    <ControlClass>FGLabel</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelIdiomaCulto"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":"5","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"left","Offset":"35","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"100"}]}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,5,0,0"}},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Idioma"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"TextUnderlined"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"525"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>LabelIdiomaEspecialidad</ControlName>
     <ZIndex>55</ZIndex>
     <ControlClass>FGLabel</ControlClass>
@@ -3687,9 +3796,7 @@ function onDrop(x, y, dragdata)
 	window.LinkProfesion.onDrop(x, y, dragdata);
 end
 
-function onValueChanged()
-	if getValue()=="" then ParseoProfesiones.ResetearHabilidadesProfesion() end
-	ParseoProfesiones.bTieneRestriccion=ParseoProfesiones.ProfesionRestringida(getValue());
+function GestionCulto()
 	if getValue():lower():match("sacerdote") then
 		ParseoProfesiones.bEraSacerdote=true;
 		window.Culto.ActualizarCulto();
@@ -3708,6 +3815,13 @@ function onValueChanged()
 		window.Deidad.setVisible(false);
 		ParseoProfesiones.nLealtadProf=0;
 	end
+end
+
+function onValueChanged()
+	if getValue()=="" then ParseoProfesiones.ResetearHabilidadesProfesion() end
+	ParseoProfesiones.bTieneRestriccion=ParseoProfesiones.ProfesionRestringida(getValue());
+	
+	GestionCulto()
 
 	if getValue():lower():match("sabio") then
 		window.LabelCabeceraEspecialidad.setVisible(true);
@@ -3720,7 +3834,7 @@ function onValueChanged()
 		window.Especialidad.setVisible(false);
 		window.BotonAyudaEspecialidad.setVisible(false);
 	end
-	
+		
 	if getValue()~="" and ParseoProfesiones.TablaDineroPorProfesion[getValue():lower()] then
 		ParseoProfesiones.nDineroInicial=ParseoProfesiones.TablaDineroPorProfesion[getValue():lower()];
 	else
@@ -4650,6 +4764,79 @@ end</LUACode>
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>SeleccionArtesaniaCulto</ControlName>
+    <ZIndex>94</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArtesaniaCulto"}}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"SeleccionArtesaniaCulto"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"120"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Albañilería","Value":"Albañilería"},{"Label":"Alfarería","Value":"Alfarería"},{"Label":"Armería","Value":"Armería"},{"Label":"Amortajar","Value":"Amortajar"},{"Label":"Carnicería","Value":"Carnicería"},{"Label":"Carpintería","Value":"Carpintería"},{"Label":"Cartogrfía","Value":"Cartogrfía"},{"Label":"Cervecería","Value":"Cervecería"},{"Label":"Cestería","Value":"Cestería"},{"Label":"Cocina","Value":"Cocina"},{"Label":"Cristalería","Value":"Cristalería"},{"Label":"Destilería","Value":"Destilería"},{"Label":"Embarcaciones","Value":"Embarcaciones"},{"Label":"Escultura/Talla","Value":"Escultura/Talla"},{"Label":"Herrería","Value":"Herrería"},{"Label":"Ilustración","Value":"Ilustración"},{"Label":"Joyería","Value":"Joyería"},{"Label":"Peletería","Value":"Peletería"},{"Label":"Perfumería","Value":"Perfumería"},{"Label":"Pintura/Dibujo","Value":"Pintura/Dibujo"},{"Label":"Panadería","Value":"Panadería"},{"Label":"Sastrería","Value":"Sastrería"},{"Label":"Tatuajes","Value":"Tatuajes"},{"Label":"Tejeduría","Value":"Tejeduría"},{"Label":"Velería","Value":"Velería"},{"Label":"Vinicultura","Value":"Vinicultura"},{"Label":"Zapatería","Value":"Zapatería"}]}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"496"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	if ParseoProfesiones.numArtesaniasCulto&gt;=1 then ParseoProfesiones.ArtesaniasExtraCulto=getValue();
+	else ParseoProfesiones.ArtesaniasExtraCulto="";
+	end
+	Debug.chat(ParseoProfesiones.ArtesaniasExtraCulto)
+	ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	ComprobarCorrecto();
+end
+
+function onInit()
+	ComprobarCorrecto();
+	super.onInit();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorArtesaniaCulto=window.SeleccionArtesaniaCulto.isVisible() and window.SeleccionArtesaniaCulto.getValue()=="";
+end</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>SeleccionIdioma1</ControlName>
     <ZIndex>28</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
@@ -4928,6 +5115,78 @@ function onInit()
 	super.onInit();
 end
 </LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>SeleccionIdiomaCulto</ControlName>
+    <ZIndex>96</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":null,"Parent":"LabelIdiomaCulto"}}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"SeleccionIdiomaCulto"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"120"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Antiguo","Value":"Antiguo"},{"Label":"Bosquimano","Value":"Bosquimano"},{"Label":"Estepario","Value":"Estepario"},{"Label":"Fornk","Value":"Fornk"},{"Label":"Imanguke","Value":"Imanguke"},{"Label":"Merení","Value":"Merení"},{"Label":"Mezuri o Austero","Value":"Mezuri o Austero"},{"Label":"Ocrense","Value":"Ocrense"},{"Label":"Oriental o Kunya","Value":"Oriental o Kunya"},{"Label":"Shorano","Value":"Shorano"},{"Label":"Tilés","Value":"Tilés"},{"Label":"Vash","Value":"Vash"}]}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"525"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	if ParseoProfesiones.IdiomaExtraCulto&gt;=1 then ParseoProfesiones.IdiomasExtraCulto=getValue();
+	else ParseoProfesiones.IdiomasExtraCulto="";
+	end
+	ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	ComprobarCorrecto();
+end
+
+function onInit()
+	ComprobarCorrecto();
+	super.onInit();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorIdiomaCulto=window.SeleccionIdiomaCulto.isVisible() and window.SeleccionIdiomaCulto.getValue()=="";
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

@@ -4153,6 +4153,11 @@ function onValueChanged()
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.NombreVentajaEtnia.setValue("");
 	window.parentcontrol.window.SubventanaWizardPP.subwindow.LinkVentajaEtnia.setValue(nil, nil);
 	ChequeoPJ.PartesCompletadas["Estadísticas"].ErrorEtnia=getValue()=="";
+	
+	vVentana=window.parentcontrol.window.SubventanaWizardProfesion.subwindow.NombreProfesion;
+	if vVentana.getValue() and vVentana.getValue()~="" then
+		vVentana.GestionCulto()
+	end;
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

@@ -62,9 +62,9 @@
 	window.PuntosDeLealtad.Actualizar();
 end
 
-function onClickRelease(button, x, y)
-	Informacion.MostrarInfo(window.parentcontrol.window.parentcontrol.window, "PP", "Reparto de Puntos de Personaje (PP)", "", "&lt;p&gt;Los Puntos de Lealtad aquí utilizados no incluyen los que pueda proporcionar la profesión del personaje&lt;/p&gt;");
-end</LUACode>
+--function onClickRelease(button, x, y)
+--	Informacion.MostrarInfo(window.parentcontrol.window.parentcontrol.window, "PP", "Reparto de Puntos de Personaje (PP)", "", "&lt;p&gt;Los Puntos de Lealtad aquí utilizados no incluyen los que pueda proporcionar la profesión del personaje&lt;/p&gt;");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -131,9 +131,9 @@ end</LUACode>
 	ParseoProfesiones.numHabilidadesNoProfesion=getValue()*2;
 end
 
-function onClickRelease(button, x, y)
-	Informacion.MostrarInfo(window.parentcontrol.window.parentcontrol.window, "PP", "Reparto de Puntos de Personaje (PP)", "", "&lt;p&gt;Los Puntos de Lealtad aquí utilizados no incluyen los que pueda proporcionar la profesión del personaje&lt;/p&gt;");
-end</LUACode>
+--function onClickRelease(button, x, y)
+--	Informacion.MostrarInfo(window.parentcontrol.window.parentcontrol.window, "PP", "Reparto de Puntos de Personaje (PP)", "", "&lt;p&gt;Los Puntos de Lealtad aquí utilizados no incluyen los que pueda proporcionar la profesión del personaje&lt;/p&gt;");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
