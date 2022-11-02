@@ -1079,7 +1079,7 @@ end
       {"Name":"HoverIconName"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -1157,7 +1157,12 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"222"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"175"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onClickDown(button, x, y)
+     if getValue() == 0
+          then window.ListaHeridas_iadd.setVisible(true);
+          else window.ListaHeridas_iadd.setVisible(false);
+      end
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
