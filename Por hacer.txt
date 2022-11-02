@@ -2,7 +2,6 @@ Sugerencias Psico y Eldarc:
 	- Buscar ruleset de la forja del rey demonio para el CT
 	- Iconos de objetos
 	- Dividir pestaña combate
-	- Mejorar el loaded
 	- Cambiar la duración de los conjuros a desplegable o ciclo y, si se mostrara otra duración, q muestre el campo numérico
 	
 - Bugs:
@@ -24,7 +23,6 @@ Habilidades:
 Inventario
 	- Botón identificar en los objetos
 	- El botón lock de los items no bloquea los encantamientos. Además, hace cosas raras al bloquear-cerrar-abrir con los campos estándar
-	- Pestaña de descripción de los objetos!!!
 
 Personalidad:
 	- las ventajas Pasión Extra y Rasgo Extra dan una pasión y un rasgo de cada respectivamente. Las desventajas Pasión de Menos y Personalidad Simple hacen exactamente lo contrario.
@@ -39,7 +37,6 @@ NPCs
 	- Hacer campos para PNJs humanos
 		- Hechizos
 		- Habilidades mágicas
-	- ALgunos PJs no tienen PV sino PM
 	- Habilidades con penalización de estorbo (entre paréntesis)
 
 	
@@ -47,26 +44,7 @@ Sidebars:
 
 	
 Wizard
-	- Religión
-		- Elementales.
-		- Antepasados.
-		- Baaler. <-- Dios de la Ley
-		- Caos místico.
-		- Cualquiera.
-		- Caos rampante o Elementales.
-		- Elementales y Antepasados.
-		- Caos o Elementales.
-		- Caos escarlata.
-		- Balanza. <-- Dios Otros
-		- Sin religión.
-		- Caos místico. Puede ser Ley liberal si se escoge la ventaja Clandestinidad.
-		- Ley ortodoxa. Puede ser Caos, Elementales, Ley liberal o Balanza si se compra la ventaja Clandestinidad.
-		- Ley liberal.
-		- Ley liberal u ortodoxa.
-		- Sincretismo. <-- Ley y Caos
-		- Ley liberal o Elementos.
-		
-	- Restricciones a profesiones si Clandestinidad
+	- Habilidades de culto
 		
 		
 

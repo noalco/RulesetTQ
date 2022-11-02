@@ -110,7 +110,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"103"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"475"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"593"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
 	Informacion.MostrarInfo(window.parentcontrol.window, "Especialidades", "Esoecialidades de Sabio", "Elige una especialidad de entre las siguientes y añade así una o dos habilidades más a la lista por profesión.");
@@ -163,7 +163,7 @@ end
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue"}},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"El culto elegido también obtendrá el bono de lealtad de la profesión."}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
@@ -265,15 +265,48 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"415"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
+	ParseoProfesiones.ResetearHabilidadesCulto()
 	ParseoProfesiones.ModificarHabilidadesCulto(getStringValue(), true);
 	window.Culto.ComprobarCorrecto();
 	Religion.bDeidadConRestriccion=Religion.DeidadRestringida(getValue());
+--	Puede haber: un idioma, una artesanía, un arma CC, dos armas
+	if ParseoProfesiones.numArmasCulto&gt;0 then
+		for i=1,math.min(ParseoProfesiones.numArmasCulto, 2) do
+			window["LabelArmaCulto"..i].setVisible(true);
+			window["TipoArmaCulto"..i].setVisible(true);
+--			window["TipoArmaCulto"..i].setStringValue("");
+			window["HabilidadCCCulto"..i].setVisible(true);
+--			window["HabilidadCCCulto"..i].setStringValue("");
+			window["HabilidadPrCulto"..i].setVisible(true);
+--			window["HabilidadPrCulto"..i].setStringValue("");
+		end
+		Debug.chat(ParseoProfesiones.sTipoArmaCulto)
+		if ParseoProfesiones.sTipoArmaCulto and ParseoProfesiones.sTipoArmaCulto~="" then
+			window.TipoArmaCulto1.setStringValue(ParseoProfesiones.sTipoArmaCulto);
+			window.TipoArmaCulto1.setReadOnly(true);
+		else
+			window.TipoArmaCulto1.setReadOnly(false);
+		end
+	end
+	if ParseoProfesiones.numArmasCulto&lt;2 then
+		for i=ParseoProfesiones.numArmasCulto+1,2 do
+			window["LabelArmaCulto"..i].setVisible(false);
+			window["TipoArmaCulto"..i].setVisible(false);
+			window["HabilidadCCCulto"..i].setVisible(false);
+			window["HabilidadPrCulto"..i].setVisible(false);
+		end
+	end
+--	sTipoArmaCulto="";
+--	numIdiomasCulto=0;
+--	numArmasCulto=0;
+--	numArtesaniasCulto=0;
+	
 end
 
-function onClickRelease(button, x, y)
-	ParseoProfesiones.ModificarHabilidadesCulto(getStringValue(), false);
-	super.onClickRelease(button, x, y)
-end
+--function onClickRelease(button, x, y)
+--	ParseoProfesiones.ModificarHabilidadesCulto(getStringValue(), false);
+--	super.onClickRelease(button, x, y)
+--end
 
 function onInit()
 	window.Culto.ComprobarCorrecto();
@@ -301,7 +334,7 @@ end
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"120"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -335,7 +368,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"532"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"650"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.EsferasProf[1]=getValue();
@@ -379,7 +412,7 @@ end
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"120"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -413,7 +446,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"558"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"676"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.EsferasProf[2]=getValue();
@@ -481,7 +514,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"585"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"703"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.EsferasProf[3]=getValue();
@@ -549,7 +582,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"115"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"474"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"592"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.IdiomaEspecialidad.setVisible(getValue()=="Escriba");
@@ -819,6 +852,126 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>HabilidadCCCulto1</ControlName>
+    <ZIndex>87</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArmaCulto1"}}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"HabilidadCCCulto1"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"180"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Latigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Punal"},{"Label":"Red","Value":"Red"}]}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"241"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"443"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	if ParseoProfesiones.numArmasCulto&gt;=1 then ParseoProfesiones.ArmasExtraCulto[1].arma=getValue();
+	else ParseoProfesiones.ArmasExtraCulto[1].arma="";
+	end
+	window.TipoArmaCulto1.ComprobarCorrecto();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>HabilidadCCCulto2</ControlName>
+    <ZIndex>91</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArmaCulto2"}}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"HabilidadCCCulto2"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"180"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Latigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Punal"},{"Label":"Red","Value":"Red"}]}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"241"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"468"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	if ParseoProfesiones.numArmasCulto&gt;=2 then ParseoProfesiones.ArmasExtraCulto[2].arma=getValue();
+	else ParseoProfesiones.ArmasExtraCulto[2].arma="";
+	end
+	window.TipoArmaCulto1.ComprobarCorrecto();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>HabilidadMagica1</ControlName>
     <ZIndex>74</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
@@ -865,7 +1018,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"614"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"732"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if window.TipoHabilidadMagica1.getValue()=="Verbo" then
@@ -939,7 +1092,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"641"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"759"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if window.TipoHabilidadMagica1.getValue()=="Verbo" then
@@ -1013,7 +1166,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"668"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"794"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if window.TipoHabilidadMagica1.getValue()=="Verbo" then
@@ -1281,6 +1434,126 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>HabilidadPrCulto1</ControlName>
+    <ZIndex>88</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArmaCulto1"}}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"HabilidadPrCulto1"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"180"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Canon de mano"},{"Label":"Honda","Value":"Honda"}]}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"241"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"443"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	if ParseoProfesiones.numArmasCulto&gt;=1 then ParseoProfesiones.ArmasExtraCulto[1].arma=getValue();
+	else ParseoProfesiones.ArmasExtraCulto[1].arma="";
+	end
+	window.TipoArmaCulto1.ComprobarCorrecto();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>HabilidadPrCulto2</ControlName>
+    <ZIndex>92</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArmaCulto2"}}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"HabilidadPrCulto2"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"180"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Canon de mano"},{"Label":"Honda","Value":"Honda"}]}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"241"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"468"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	if ParseoProfesiones.numArmasCulto&gt;=2 then ParseoProfesiones.ArmasExtraCulto[2].arma=getValue();
+	else ParseoProfesiones.ArmasExtraCulto[2].arma="";
+	end
+	window.TipoArmaCulto1.ComprobarCorrecto();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>IconoEdadEspecie</ControlName>
     <ZIndex>2</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
@@ -1376,7 +1649,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"474"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"592"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.sIdiomaEspecialidadSabio=getValue();
@@ -1589,6 +1862,110 @@ end
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"175"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>LabelArmaCulto1</ControlName>
+    <ZIndex>85</ZIndex>
+    <ControlClass>FGLabel</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelArmaCulto1"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":"5","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"left","Offset":"35","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"100"}]}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,5,0,0"}},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Arma 1"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"TextUnderlined"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"443"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>LabelArmaCulto2</ControlName>
+    <ZIndex>89</ZIndex>
+    <ControlClass>FGLabel</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"Center","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelArmaCulto2"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":"5","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"left","Offset":"35","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"100"}]}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,5,0,0"}},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Arma 2"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"TextUnderlined"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"468"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1848,7 +2225,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"450"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"568"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1869,7 +2246,7 @@ end
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":"10","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"left","Offset":"35","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"403"}]}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"403"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"255;255;255;255"}},
@@ -1900,7 +2277,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"508"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"626"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2077,7 +2454,7 @@ end
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -2108,7 +2485,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"236"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"532"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"650"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2129,7 +2506,7 @@ end
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -2160,7 +2537,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"236"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"558"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"676"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2181,7 +2558,7 @@ end
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -2212,7 +2589,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"236"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"585"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"703"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2264,7 +2641,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"474"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"592"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2368,7 +2745,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"614"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"732"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2420,7 +2797,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"641"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"759"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2472,7 +2849,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"668"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"794"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2732,7 +3109,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"236"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"474"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"592"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -3013,7 +3390,7 @@ end
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":"5","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"left","Offset":"35","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"100"}]}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -3044,7 +3421,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"532"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"650"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -3065,7 +3442,7 @@ end
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":"5","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"left","Offset":"35","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"100"}]}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -3096,7 +3473,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"558"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"676"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -3148,7 +3525,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"585"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"703"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -3311,14 +3688,18 @@ function onDrop(x, y, dragdata)
 end
 
 function onValueChanged()
+	if getValue()=="" then ParseoProfesiones.ResetearHabilidadesProfesion() end
 	ParseoProfesiones.bTieneRestriccion=ParseoProfesiones.ProfesionRestringida(getValue());
 	if getValue():lower():match("sacerdote") then
+		ParseoProfesiones.bEraSacerdote=true;
 		window.Culto.ActualizarCulto();
 		window.LabelCultoCabecera.setVisible(not ChequeoPJ.bSinReligion);
 		window.LabelCulto.setVisible(not ChequeoPJ.bSinReligion);
 		window.Culto.setVisible(not ChequeoPJ.bSinReligion);
 		window.BotonAyudaCulto.setVisible(not ChequeoPJ.bSinReligion);
 	else
+		if ParseoProfesiones.bEraSacerdote then Religion.ResetearReligiones() end
+		ParseoProfesiones.bEraSacerdote=false;
 		window.LabelCultoCabecera.setVisible(false);
 		window.LabelCulto.setVisible(false);
 		window.Culto.setVisible(false);
@@ -3553,7 +3934,7 @@ end
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -3592,8 +3973,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"514"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"504"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"515"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"622"}}
 ]}}</Definition>
     <LUACode>function onInit()
 	onValueChanged();
@@ -3634,7 +4015,7 @@ end
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -3673,8 +4054,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"580"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"501"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"581"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"619"}}
 ]}}</Definition>
     <LUACode>function onInit()
 	onValueChanged();
@@ -3806,7 +4187,7 @@ end
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -3845,8 +4226,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"453"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"501"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"454"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"619"}}
 ]}}</Definition>
     <LUACode>function onInit()
 	onValueChanged();
@@ -4030,7 +4411,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Albañilería","Value":"Albañilería"},{"Label":"Alfarería","Value":"Alfarería"},{"Label":"Armería","Value":"Armería"},{"Label":"Carnicería","Value":"Carnicería"},{"Label":"Carpintería","Value":"Carpintería"},{"Label":"Cartogrfía","Value":"Cartogrfía"},{"Label":"Cervecería","Value":"Cervecería"},{"Label":"Cestería","Value":"Cestería"},{"Label":"Cocina","Value":"Cocina"},{"Label":"Cristalería","Value":"Cristalería"},{"Label":"Destilería","Value":"Destilería"},{"Label":"Embarcaciones","Value":"Embarcaciones"},{"Label":"Escultura/Talla","Value":"Escultura/Talla"},{"Label":"Herrería","Value":"Herrería"},{"Label":"Ilustración","Value":"Ilustración"},{"Label":"Joyería","Value":"Joyería"},{"Label":"Peletería","Value":"Peletería"},{"Label":"Perfumería","Value":"Perfumería"},{"Label":"Pintura/Dibujo","Value":"Pintura/Dibujo"},{"Label":"Panadería","Value":"Panadería"},{"Label":"Sastrería","Value":"Sastrería"},{"Label":"Tatuajes","Value":"Tatuajes"},{"Label":"Tejeduría","Value":"Tejeduría"},{"Label":"Velería","Value":"Velería"},{"Label":"Vinicultura","Value":"Vinicultura"},{"Label":"Zapatería","Value":"Zapatería"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Albañilería","Value":"Albañilería"},{"Label":"Alfarería","Value":"Alfarería"},{"Label":"Armería","Value":"Armería"},{"Label":"Amortajar","Value":"Amortajar"},{"Label":"Carnicería","Value":"Carnicería"},{"Label":"Carpintería","Value":"Carpintería"},{"Label":"Cartogrfía","Value":"Cartogrfía"},{"Label":"Cervecería","Value":"Cervecería"},{"Label":"Cestería","Value":"Cestería"},{"Label":"Cocina","Value":"Cocina"},{"Label":"Cristalería","Value":"Cristalería"},{"Label":"Destilería","Value":"Destilería"},{"Label":"Embarcaciones","Value":"Embarcaciones"},{"Label":"Escultura/Talla","Value":"Escultura/Talla"},{"Label":"Herrería","Value":"Herrería"},{"Label":"Ilustración","Value":"Ilustración"},{"Label":"Joyería","Value":"Joyería"},{"Label":"Peletería","Value":"Peletería"},{"Label":"Perfumería","Value":"Perfumería"},{"Label":"Pintura/Dibujo","Value":"Pintura/Dibujo"},{"Label":"Panadería","Value":"Panadería"},{"Label":"Sastrería","Value":"Sastrería"},{"Label":"Tatuajes","Value":"Tatuajes"},{"Label":"Tejeduría","Value":"Tejeduría"},{"Label":"Velería","Value":"Velería"},{"Label":"Vinicultura","Value":"Vinicultura"},{"Label":"Zapatería","Value":"Zapatería"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -4106,7 +4487,7 @@ end</LUACode>
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Albañilería","Value":"Albañilería"},{"Label":"Alfarería","Value":"Alfarería"},{"Label":"Armería","Value":"Armería"},{"Label":"Carnicería","Value":"Carnicería"},{"Label":"Carpintería","Value":"Carpintería"},{"Label":"Cartogrfía","Value":"Cartogrfía"},{"Label":"Cervecería","Value":"Cervecería"},{"Label":"Cestería","Value":"Cestería"},{"Label":"Cocina","Value":"Cocina"},{"Label":"Cristalería","Value":"Cristalería"},{"Label":"Destilería","Value":"Destilería"},{"Label":"Embarcaciones","Value":"Embarcaciones"},{"Label":"Escultura/Talla","Value":"Escultura/Talla"},{"Label":"Herrería","Value":"Herrería"},{"Label":"Ilustración","Value":"Ilustración"},{"Label":"Joyería","Value":"Joyería"},{"Label":"Peletería","Value":"Peletería"},{"Label":"Perfumería","Value":"Perfumería"},{"Label":"Pintura/Dibujo","Value":"Pintura/Dibujo"},{"Label":"Panadería","Value":"Panadería"},{"Label":"Sastrería","Value":"Sastrería"},{"Label":"Tatuajes","Value":"Tatuajes"},{"Label":"Tejeduría","Value":"Tejeduría"},{"Label":"Velería","Value":"Velería"},{"Label":"Vinicultura","Value":"Vinicultura"},{"Label":"Zapatería","Value":"Zapatería"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Albañilería","Value":"Albañilería"},{"Label":"Alfarería","Value":"Alfarería"},{"Label":"Armería","Value":"Armería"},{"Label":"Amortajar","Value":"Amortajar"},{"Label":"Carnicería","Value":"Carnicería"},{"Label":"Carpintería","Value":"Carpintería"},{"Label":"Cartogrfía","Value":"Cartogrfía"},{"Label":"Cervecería","Value":"Cervecería"},{"Label":"Cestería","Value":"Cestería"},{"Label":"Cocina","Value":"Cocina"},{"Label":"Cristalería","Value":"Cristalería"},{"Label":"Destilería","Value":"Destilería"},{"Label":"Embarcaciones","Value":"Embarcaciones"},{"Label":"Escultura/Talla","Value":"Escultura/Talla"},{"Label":"Herrería","Value":"Herrería"},{"Label":"Ilustración","Value":"Ilustración"},{"Label":"Joyería","Value":"Joyería"},{"Label":"Peletería","Value":"Peletería"},{"Label":"Perfumería","Value":"Perfumería"},{"Label":"Pintura/Dibujo","Value":"Pintura/Dibujo"},{"Label":"Panadería","Value":"Panadería"},{"Label":"Sastrería","Value":"Sastrería"},{"Label":"Tatuajes","Value":"Tatuajes"},{"Label":"Tejeduría","Value":"Tejeduría"},{"Label":"Velería","Value":"Velería"},{"Label":"Vinicultura","Value":"Vinicultura"},{"Label":"Zapatería","Value":"Zapatería"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -4174,7 +4555,7 @@ end</LUACode>
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Albañilería","Value":"Albañilería"},{"Label":"Alfarería","Value":"Alfarería"},{"Label":"Armería","Value":"Armería"},{"Label":"Carnicería","Value":"Carnicería"},{"Label":"Carpintería","Value":"Carpintería"},{"Label":"Cartogrfía","Value":"Cartogrfía"},{"Label":"Cervecería","Value":"Cervecería"},{"Label":"Cestería","Value":"Cestería"},{"Label":"Cocina","Value":"Cocina"},{"Label":"Cristalería","Value":"Cristalería"},{"Label":"Destilería","Value":"Destilería"},{"Label":"Embarcaciones","Value":"Embarcaciones"},{"Label":"Escultura/Talla","Value":"Escultura/Talla"},{"Label":"Herrería","Value":"Herrería"},{"Label":"Ilustración","Value":"Ilustración"},{"Label":"Joyería","Value":"Joyería"},{"Label":"Peletería","Value":"Peletería"},{"Label":"Perfumería","Value":"Perfumería"},{"Label":"Pintura/Dibujo","Value":"Pintura/Dibujo"},{"Label":"Panadería","Value":"Panadería"},{"Label":"Sastrería","Value":"Sastrería"},{"Label":"Tatuajes","Value":"Tatuajes"},{"Label":"Tejeduría","Value":"Tejeduría"},{"Label":"Velería","Value":"Velería"},{"Label":"Vinicultura","Value":"Vinicultura"},{"Label":"Zapatería","Value":"Zapatería"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Albañilería","Value":"Albañilería"},{"Label":"Alfarería","Value":"Alfarería"},{"Label":"Armería","Value":"Armería"},{"Label":"Amortajar","Value":"Amortajar"},{"Label":"Carnicería","Value":"Carnicería"},{"Label":"Carpintería","Value":"Carpintería"},{"Label":"Cartogrfía","Value":"Cartogrfía"},{"Label":"Cervecería","Value":"Cervecería"},{"Label":"Cestería","Value":"Cestería"},{"Label":"Cocina","Value":"Cocina"},{"Label":"Cristalería","Value":"Cristalería"},{"Label":"Destilería","Value":"Destilería"},{"Label":"Embarcaciones","Value":"Embarcaciones"},{"Label":"Escultura/Talla","Value":"Escultura/Talla"},{"Label":"Herrería","Value":"Herrería"},{"Label":"Ilustración","Value":"Ilustración"},{"Label":"Joyería","Value":"Joyería"},{"Label":"Peletería","Value":"Peletería"},{"Label":"Perfumería","Value":"Perfumería"},{"Label":"Pintura/Dibujo","Value":"Pintura/Dibujo"},{"Label":"Panadería","Value":"Panadería"},{"Label":"Sastrería","Value":"Sastrería"},{"Label":"Tatuajes","Value":"Tatuajes"},{"Label":"Tejeduría","Value":"Tejeduría"},{"Label":"Velería","Value":"Velería"},{"Label":"Vinicultura","Value":"Vinicultura"},{"Label":"Zapatería","Value":"Zapatería"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -4242,7 +4623,7 @@ end</LUACode>
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Albañilería","Value":"Albañilería"},{"Label":"Alfarería","Value":"Alfarería"},{"Label":"Armería","Value":"Armería"},{"Label":"Carnicería","Value":"Carnicería"},{"Label":"Carpintería","Value":"Carpintería"},{"Label":"Cartogrfía","Value":"Cartogrfía"},{"Label":"Cervecería","Value":"Cervecería"},{"Label":"Cestería","Value":"Cestería"},{"Label":"Cocina","Value":"Cocina"},{"Label":"Cristalería","Value":"Cristalería"},{"Label":"Destilería","Value":"Destilería"},{"Label":"Embarcaciones","Value":"Embarcaciones"},{"Label":"Escultura/Talla","Value":"Escultura/Talla"},{"Label":"Herrería","Value":"Herrería"},{"Label":"Ilustración","Value":"Ilustración"},{"Label":"Joyería","Value":"Joyería"},{"Label":"Peletería","Value":"Peletería"},{"Label":"Perfumería","Value":"Perfumería"},{"Label":"Pintura/Dibujo","Value":"Pintura/Dibujo"},{"Label":"Panadería","Value":"Panadería"},{"Label":"Sastrería","Value":"Sastrería"},{"Label":"Tatuajes","Value":"Tatuajes"},{"Label":"Tejeduría","Value":"Tejeduría"},{"Label":"Velería","Value":"Velería"},{"Label":"Vinicultura","Value":"Vinicultura"},{"Label":"Zapatería","Value":"Zapatería"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Albañilería","Value":"Albañilería"},{"Label":"Alfarería","Value":"Alfarería"},{"Label":"Armería","Value":"Armería"},{"Label":"Amortajar","Value":"Amortajar"},{"Label":"Carnicería","Value":"Carnicería"},{"Label":"Carpintería","Value":"Carpintería"},{"Label":"Cartogrfía","Value":"Cartogrfía"},{"Label":"Cervecería","Value":"Cervecería"},{"Label":"Cestería","Value":"Cestería"},{"Label":"Cocina","Value":"Cocina"},{"Label":"Cristalería","Value":"Cristalería"},{"Label":"Destilería","Value":"Destilería"},{"Label":"Embarcaciones","Value":"Embarcaciones"},{"Label":"Escultura/Talla","Value":"Escultura/Talla"},{"Label":"Herrería","Value":"Herrería"},{"Label":"Ilustración","Value":"Ilustración"},{"Label":"Joyería","Value":"Joyería"},{"Label":"Peletería","Value":"Peletería"},{"Label":"Perfumería","Value":"Perfumería"},{"Label":"Pintura/Dibujo","Value":"Pintura/Dibujo"},{"Label":"Panadería","Value":"Panadería"},{"Label":"Sastrería","Value":"Sastrería"},{"Label":"Tatuajes","Value":"Tatuajes"},{"Label":"Tejeduría","Value":"Tejeduría"},{"Label":"Velería","Value":"Velería"},{"Label":"Vinicultura","Value":"Vinicultura"},{"Label":"Zapatería","Value":"Zapatería"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -4944,6 +5325,153 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>TipoArmaCulto1</ControlName>
+    <ZIndex>86</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArmaCulto1"}}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"TipoArmaCulto1"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string","#text":"Tipo de Arma"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma CC","Value":"Arma CC"},{"Label":"Arma Pr","Value":"Arma Pr"}]}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"121"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"443"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	window.HabilidadCCCulto1.setVisible(getValue()=="Arma CC" and ParseoProfesiones.numArmasCulto&gt;=1);
+	window.HabilidadPrCulto1.setVisible(getValue()=="Arma Pr" and ParseoProfesiones.numArmasCulto&gt;=1);
+	if ParseoProfesiones.numArmasCulto&gt;=1 then ParseoProfesiones.ArmasExtraCulto[1].tipo=getValue();
+	else ParseoProfesiones.ArmasExtraCulto[1].tipo="";
+	end
+	ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	ComprobarCorrecto();
+end
+
+function onInit()
+	ComprobarCorrecto();
+	super.onInit();
+end
+
+function ComprobarCorrecto()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorArmaCulto=
+	(window.TipoArmaCulto1.isVisible() and (window.TipoArmaCulto1.getValue()=="" or window.TipoArmaCulto1.getValue()=="Tipo de Arma" or window.TipoArmaCulto1.getValue()=="Arma CC" and window.HabilidadCCCulto1.getValue()=="" or window.TipoArmaCulto1.getValue()=="Arma Pr" and window.HabilidadPrCulto1.getValue()=="")) or
+	(window.TipoArmaCulto2.isVisible() and (window.TipoArmaCulto2.getValue()=="" or window.TipoArmaCulto2.getValue()=="Tipo de Arma" or window.TipoArmaCulto2.getValue()=="Arma CC" and window.HabilidadCCCulto2.getValue()=="" or window.TipoArmaCulto2.getValue()=="Arma Pr" and window.HabilidadPrCulto2.getValue()==""));
+end</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>TipoArmaCulto2</ControlName>
+    <ZIndex>90</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArmaCulto2"}}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"TipoArmaCulto2"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string","#text":"Tipo de Arma"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma CC","Value":"Arma CC"},{"Label":"Arma Pr","Value":"Arma Pr"}]}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"121"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"468"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	window.HabilidadCCCulto2.setVisible(getValue()=="Arma CC" and ParseoProfesiones.numArmasCulto&gt;=2);
+	window.HabilidadPrCulto2.setVisible(getValue()=="Arma Pr" and ParseoProfesiones.numArmasCulto&gt;=2);
+	if ParseoProfesiones.numArmasCulto&gt;=2 then ParseoProfesiones.ArmasExtraCulto[2].tipo=getValue();
+	else ParseoProfesiones.ArmasExtraCulto[2].tipo="";
+	end
+	window.TipoArmaCulto1.ComprobarCorrecto();
+end
+
+function onVisibilityChanged()
+	window.TipoArmaCulto1.ComprobarCorrecto();
+end
+
+function onInit()
+	window.TipoArmaCulto1.ComprobarCorrecto();
+	super.onInit();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>TipoHabilidadMagica1</ControlName>
     <ZIndex>75</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
@@ -4990,7 +5518,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"178"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"614"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"732"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.HabilidadMagica1.setVisible(getValue()~="Tipo");
@@ -5083,7 +5611,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"178"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"641"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"759"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.HabilidadMagica2.setVisible(getValue()~="Tipo");
@@ -5165,7 +5693,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"178"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"668"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"794"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.HabilidadMagica3.setVisible(getValue()~="Tipo");
@@ -5269,7 +5797,7 @@ end
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"120"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -5303,7 +5831,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"532"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"650"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.VerbosProf[1]=getValue();
@@ -5346,7 +5874,7 @@ end
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"120"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -5380,7 +5908,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"558"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"676"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.VerbosProf[2]=getValue();
@@ -5412,7 +5940,7 @@ end</LUACode>
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"120"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -5446,7 +5974,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"99"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"585"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"703"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.VerbosProf[3]=getValue();

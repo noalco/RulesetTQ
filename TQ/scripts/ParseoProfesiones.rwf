@@ -41,6 +41,10 @@ ArmasExtraProfesion={[1]={tipo="", arma=""},[2]={tipo="", arma=""},[3]={tipo="",
 IdiomasExtraProfesion={[1]="",[2]="",[3]="",[4]=""}
 ArtesaniasExtraProfesion={[1]="",[2]="",[3]="",[4]=""}
 
+ArmasExtraCulto={[1]={tipo="", arma=""},[2]={tipo="", arma=""}}
+IdiomaExtraCulto=""
+ArtesaniaExtraCulto=""
+
 EspecialidadesSabio={
 	["Médico"]={[1]="Medicina", [2]="Primeros Auxilios"},
 	["Alquimista"]={[1]="Pociones"},
@@ -59,6 +63,13 @@ numHabilidadesMagicasProfesion=0;
 numHabilidadesProfesion=60;
 numHabilidadesNoProfesion=0;
 nLealtadProf=0;
+bEraSacerdote=false;
+numIdiomasCulto=0;
+numArmasCulto=0;
+numArtesaniasCulto=0;
+sTipoArmaProfesion="";
+sTipoArmaCulto="";
+nIncCulto=0;
 
 DineroInicial={
 	[1]={mp=0, mb=5}, --Indigente: Mendigo, nómada: 5 mb.
@@ -159,6 +170,30 @@ function esSecundaria(sHabilidad)
 	end
 end
 
+function ResetearHabilidadesCulto()
+	ArmasExtraCulto={[1]={tipo="", arma=""},[2]={tipo="", arma=""}}
+	IdiomaExtraCulto=""
+	ArtesaniaExtraCulto=""
+	sTipoArmaCulto="";
+	numIdiomasCulto=0;
+	numArmasCulto=0;
+	numArtesaniasCulto=0;
+	nIncCulto=0;
+	for _,rHabilidad in pairs(ParseoHabilidades.DatosHabilidades) do
+		rHabilidad.culto=0;
+	end
+	for _,rHabilidad in pairs(ParseoHabilidades.DatosHabilidadesSecundarias) do
+		for _,rSecundaria in pairs(rHabilidad) do
+			rSecundaria.culto=0;
+		end
+	end
+	
+	local vVentanaWizard=Herramientas.ObtenerVentana("charwizard", "");
+	if vVentanaWizard then
+		--vVentanaWizard.SubventanaWizardProfesion.subwindow.NombreProfesion.setValue("");
+	end
+end
+
 function ResetearHabilidadesProfesion()
 	ArmasExtraProfesion={[1]={tipo="", arma=""},[2]={tipo="", arma=""},[3]={tipo="", arma=""},[4]={tipo="", arma=""}}
 	IdiomasExtraProfesion={[1]="",[2]="",[3]="",[4]=""}
@@ -177,6 +212,8 @@ function ResetearHabilidadesProfesion()
 	numHabilidadesProfesion=60;
 	numHabilidadesNoProfesion=0;
 	nLealtadProf=0;
+	bEraSacerdote=false;
+	sTipoArmaProfesion="";
 	
 	sEspecialidadSabio="";
 	sIdiomaEspecialidadSabio="";
@@ -221,6 +258,7 @@ function ResetearHabilidadesProfesion()
 		vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania3.setStringValue("");
 		vVentanaWizard.SubventanaWizardProfesion.subwindow.SeleccionArtesania4.setStringValue("");
 	end
+	ResetearHabilidadesCulto();
 end
 
 function ModificarHabilidadesProfCulto(aClauses, sCampo, nValor)
@@ -262,32 +300,52 @@ function ModificarHabilidadesProfCulto(aClauses, sCampo, nValor)
 --						Debug.chat("Idioma propio", aClauses[i]);
 					elseif aClauses[i]:lower():match("de armas") then
 						local sNumArmas=aClauses[i]:lower():match("(.-) habilidad");
-						numArmasProfesion=StringToNum[sNumArmas];
+						if sCampo=="prof" then numArmasProfesion=StringToNum[sNumArmas:lower()];
+						elseif sCampo=="culto" then numArmasCulto=StringToNum[sNumArmas:lower()];
+						end
 --						Debug.chat("armas de profesión", aClauses[i], sNumArmas);
 					elseif aClauses[i]:lower()=="otro idioma" then
-						numIdiomasProfesion=1;
+						if sCampo=="prof" then numIdiomasProfesion=1;
+						elseif sCampo=="culto" then numIdiomasCulto=1;
+						end
 --						Debug.chat("otro idioma", aClauses[i], numIdiomasProfesion);
 					elseif aClauses[i]:lower():match("otros .- idiomas") then
 						local snumIdiomas=aClauses[i]:lower():match("otros (.-) idiomas");
-						numIdiomasProfesion=StringToNum[snumIdiomas];
+						if sCampo=="prof" then numIdiomasProfesion=StringToNum[snumIdiomas:lower()];
+						elseif sCampo=="culto" then numIdiomasCulto=StringToNum[snumIdiomas:lower()];
+						end
 --						Debug.chat("otros X idiomas", aClauses[i], snumIdiomas);
 					elseif aClauses[i]:lower():match("idioma %(.- a elegir%)") then
 						local snumIdiomas=aClauses[i]:lower():match("idioma %((.-) a elegir%)");
-						numIdiomasProfesion=StringToNum[snumIdiomas];
+						if sCampo=="prof" then numIdiomasProfesion=StringToNum[snumIdiomas:lower()];
+						elseif sCampo=="culto" then numIdiomasCulto=StringToNum[snumIdiomas:lower()];
+						end
 --						Debug.chat("otros X idiomas", aClauses[i], snumIdiomas);
 					elseif aClauses[i]:lower():match("(.-) artesanía") then
 						local snumArtesanias=aClauses[i]:lower():match("(.-) artesanía");
-						numArtesaniasProfesion=StringToNum[snumArtesanias];
+						if sCampo=="prof" then numArtesaniasProfesion=StringToNum[snumArtesanias:lower()];
+						elseif sCampo=="culto" then numArtesaniasCulto=StringToNum[snumArtesanias:lower()];
+						end
 --						Debug.chat("Artesanías", aClauses[i], numArtesaniasProfesion);
 					elseif aClauses[i]:lower():match("habilidades mágicas: .- verbos y .- esferas") then
 						local sNumVerbos, sNumEsferas=aClauses[i]:lower():match("habilidades mágicas: (.-) verbos y (.-) esferas");
-						numVerbosProfesion=StringToNum[sNumVerbos];
-						numEsferasProfesion=StringToNum[sNumEsferas];
+						numVerbosProfesion=StringToNum[sNumVerbos:lower()];
+						numEsferasProfesion=StringToNum[sNumEsferas:lower()];
 --						Debug.chat("Habilidades mágicas separadas", aClauses[i], sNumVerbos, sNumEsferas, numVerbosProfesion, numEsferasProfesion);
 					elseif aClauses[i]:lower():match("habilidades mágicas") then
 						local sHabilidadesMagicas=aClauses[i]:lower():match("(.-) habilidades mágicas");
-						numHabilidadesMagicasProfesion=StringToNum[sHabilidadesMagicas];
+						numHabilidadesMagicasProfesion=StringToNum[sHabilidadesMagicas:lower()];
 --						Debug.chat("Habilidades mágicas", numHabilidadesMagicasProfesion);
+					elseif aClauses[i]:lower():match("un arma ..") then
+						local sTipoHabilidadArma=aClauses[i]:match("(Arma ..)");
+--						Debug.chat("Un arma CC", aClauses[i], sNumArmas, sTipoHabilidadArma);
+						if sCampo=="prof" then
+							numArmasProfesion=1;
+							sTipoArmaProfesion=sTipoHabilidadArma;
+						elseif sCampo=="culto" then
+							numArmasCulto=1;
+							sTipoArmaCulto=sTipoHabilidadArma;
+						end
 					else
 						Debug.chat("ParseoProfesiones.ModificarHabilidadesProfCulto. Otro tipo de habilidad", aClauses[i]);
 					end
@@ -306,18 +364,16 @@ function ObtenerHabilidadesDeProfesion(sHabilidades)
 end
 
 function ModificarHabilidadesCulto(sHabilidades, bAniadir)
-	local nValor;
 	local aClauses,_ = StringManager.split(sHabilidades, ",", true);
-	
 	if bAniadir then
-		if #aClauses==1 then nValor=2;
-		else nValor=1;
+		if #aClauses==1 then nIncCulto=2;
+		else nIncCulto=1;
 		end
 	else
 		nValor=0;
 	end
 
-	ModificarHabilidadesProfCulto(aClauses, "culto", nValor);
+	ModificarHabilidadesProfCulto(aClauses, "culto", nIncCulto);
 end
 </Script>
     <RegisterScript>true</RegisterScript>

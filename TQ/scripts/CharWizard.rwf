@@ -67,8 +67,14 @@ function AniadirPersonalidad(nodeChar, windowWizard)
 	DB.setValue(nodeChar, "Notas.Religion", "string", sReligion);
 
 	local sCulto=windowWizard.SubventanaWizardProfesion.subwindow.Culto.getValue();
-	if sCulto~="" and ParseoVentDesv.PorEleccion[sCulto] then
-		ParseoVentDesv.PorEleccion[sCulto]=ParseoVentDesv.PorEleccion[sCulto]+ParseoProfesiones.nLealtadProf;
+--	if sCulto~="" and ParseoVentDesv.PorEleccion[sCulto] then
+--		ParseoVentDesv.PorEleccion[sCulto]=ParseoVentDesv.PorEleccion[sCulto]+ParseoProfesiones.nLealtadProf;
+--	end
+	for i=1,#Religion.CultosDisponiblesConSufijo do
+		if Religion.CultosDisponiblesConSufijo[i] and Religion.CultosDisponiblesConSufijo[i].sNombre==sCulto and ParseoVentDesv.PorEleccion[Religion.CultosDisponiblesConSufijo[i].sCulto] then
+			ParseoVentDesv.PorEleccion[Religion.CultosDisponiblesConSufijo[i].sCulto]=ParseoVentDesv.PorEleccion[Religion.CultosDisponiblesConSufijo[i].sCulto]+ParseoProfesiones.nLealtadProf;
+			break;
+		end
 	end
 	DB.setValue(nodeChar, "Notas.Lealtad.LealtadLey", "number", ParseoVentDesv.PorEleccion["LEY"]);
 	DB.setValue(nodeChar, "Notas.Lealtad.LealtadCaos", "number", ParseoVentDesv.PorEleccion["CAOS"]);
@@ -145,6 +151,14 @@ function AniadirHabilidades(nodeChar, window)
 			if tipo~="" and arma~="" then ParseoHabilidades.DatosHabilidadesSecundarias[tipo][arma].prof=1; end
 		end
 	end
+
+	if ParseoProfesiones.numArmasCulto then
+		for i=1,ParseoProfesiones.numArmasCulto do
+			local tipo=ParseoProfesiones.ArmasExtraCulto[i].tipo; local arma=ParseoProfesiones.ArmasExtraCulto[i].arma;
+			if tipo~="" and arma~="" then ParseoHabilidades.DatosHabilidadesSecundarias[tipo][arma].culto=ParseoProfesiones.nIncCulto; end
+		end
+	end
+		
 	if ParseoProfesiones.numIdiomasProfesion then
 		for i=1,ParseoProfesiones.numIdiomasProfesion do
 			local idioma=ParseoProfesiones.IdiomasExtraProfesion[i];
