@@ -164,26 +164,32 @@ function AniadirHabilidades(nodeChar, window)
 		end
 	end
 
+	Debug.chat("ParseoProfesiones.numArmasCulto", ParseoProfesiones.numArmasCulto)
 	if ParseoProfesiones.numArmasCulto&gt;0 then
 		for i=1,ParseoProfesiones.numArmasCulto do
 			local tipo=ParseoProfesiones.ArmasExtraCulto[i].tipo; local arma=ParseoProfesiones.ArmasExtraCulto[i].arma;
+			Debug.chat("tipo, arma", tipo, arma);
 			if tipo~="" and arma~="" then ParseoHabilidades.DatosHabilidadesSecundarias[tipo][arma].culto=ParseoProfesiones.nIncCulto; end
 		end
 	end
+	Debug.chat("ParseoProfesiones.numIdiomasCulto", ParseoProfesiones.numIdiomasCulto);
 	if ParseoProfesiones.numIdiomasCulto&gt;0 then
 		local idioma=ParseoProfesiones.IdiomasExtraCulto;
-		if idioma~="" then ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][idioma].culto=nIncCulto; end
+		Debug.chat("idioma", idioma)
+		if idioma~="" then ParseoHabilidades.DatosHabilidadesSecundarias["Idioma"][idioma].culto=ParseoProfesiones.nIncCulto; end
 	end
+	Debug.chat("ParseoProfesiones.numArtesaniasCulto", ParseoProfesiones.numArtesaniasCulto)
 	if ParseoProfesiones.numArtesaniasCulto&gt;0 then
 		local artesania=ParseoProfesiones.ArtesaniasExtraCulto;
-		if artesania~="" then ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][artesania].culto=nIncCulto; end
+		Debug.chat("artesania", artesania)
+		if artesania~="" then ParseoHabilidades.DatosHabilidadesSecundarias["Artesania"][artesania].culto=ParseoProfesiones.nIncCulto; end
 	end
 
 	for sClave, rHabilidad in pairs(ParseoHabilidades.DatosHabilidadesSecundarias) do
 		for sSecundaria, rSecundaria in pairs(rHabilidad) do
 			Debug.chat(sSecundaria, rSecundaria)
 			if not ParseoHabilidades.SecundariaVacia(sClave, sSecundaria) then
-				Debug.chat("     Llena")
+				Debug.chat("     Llena", sClave, sSecundaria)
 				w=window.abilities.subwindow.ListaHabilidades.createWindow();
 				if w then
 					DB.setValue(w.getDatabaseNode(), "Nombre", "formattedtext", sClave);

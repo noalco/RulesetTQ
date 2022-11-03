@@ -365,12 +365,15 @@ end
 
 function ModificarHabilidadesCulto(sHabilidades, bAniadir)
 	local aClauses,_ = StringManager.split(sHabilidades, ",", true);
+	Debug.chat(sHabilidades, aClauses)
 	if bAniadir then
-		if #aClauses==1 then nIncCulto=2;
+		if #aClauses==1 and not aClauses[1]:match("habilidades de Armas") then nIncCulto=2;
 		else nIncCulto=1;
 		end
 	else
-		nValor=0;
+		if #aClauses==1 then nIncCulto=-2;
+		else nIncCulto=-1;
+		end
 	end
 
 	ModificarHabilidadesProfCulto(aClauses, "culto", nIncCulto);

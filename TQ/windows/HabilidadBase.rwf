@@ -762,7 +762,7 @@ end
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Canon de mano"},{"Label":"Honda","Value":"Honda"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Cañón de mano"},{"Label":"Honda","Value":"Honda"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},

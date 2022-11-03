@@ -274,11 +274,11 @@ end
 		for i=1,math.min(ParseoProfesiones.numArmasCulto, 2) do
 			window["LabelArmaCulto"..i].setVisible(true);
 			window["TipoArmaCulto"..i].setVisible(true);
---			window["TipoArmaCulto"..i].setStringValue("");
-			window["HabilidadCCCulto"..i].setVisible(true);
---			window["HabilidadCCCulto"..i].setStringValue("");
-			window["HabilidadPrCulto"..i].setVisible(true);
---			window["HabilidadPrCulto"..i].setStringValue("");
+			window["TipoArmaCulto"..i].setStringValue("");
+			window["HabilidadCCCulto"..i].setVisible(false);
+			window["HabilidadCCCulto"..i].setStringValue("");
+			window["HabilidadPrCulto"..i].setVisible(false);
+			window["HabilidadPrCulto"..i].setStringValue("");
 		end
 --		Debug.chat(ParseoProfesiones.sTipoArmaCulto)
 		if ParseoProfesiones.sTipoArmaCulto and ParseoProfesiones.sTipoArmaCulto~="" then
@@ -292,8 +292,11 @@ end
 		for i=ParseoProfesiones.numArmasCulto+1,2 do
 			window["LabelArmaCulto"..i].setVisible(false);
 			window["TipoArmaCulto"..i].setVisible(false);
+			window["TipoArmaCulto"..i].setStringValue("");
 			window["HabilidadCCCulto"..i].setVisible(false);
+			window["HabilidadCCCulto"..i].setStringValue("");
 			window["HabilidadPrCulto"..i].setVisible(false);
+			window["HabilidadPrCulto"..i].setStringValue("");
 		end
 	end
 	window.LabelArtesaniaCulto.setVisible(ParseoProfesiones.numArtesaniasCulto&gt;=1);
@@ -658,7 +661,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Latigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Punal"},{"Label":"Red","Value":"Red"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Látigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Puñal"},{"Label":"Red","Value":"Red"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -718,7 +721,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Latigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Punal"},{"Label":"Red","Value":"Red"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Látigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Puñal"},{"Label":"Red","Value":"Red"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -778,7 +781,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Latigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Punal"},{"Label":"Red","Value":"Red"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Látigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Puñal"},{"Label":"Red","Value":"Red"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -838,7 +841,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Latigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Punal"},{"Label":"Red","Value":"Red"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Látigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Puñal"},{"Label":"Red","Value":"Red"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -898,7 +901,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Latigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Punal"},{"Label":"Red","Value":"Red"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Látigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Puñal"},{"Label":"Red","Value":"Red"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -958,7 +961,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Latigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Punal"},{"Label":"Red","Value":"Red"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Látigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Puñal"},{"Label":"Red","Value":"Red"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -1240,7 +1243,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Canon de mano"},{"Label":"Honda","Value":"Honda"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Cañón de mano"},{"Label":"Honda","Value":"Honda"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -1300,7 +1303,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Canon de mano"},{"Label":"Honda","Value":"Honda"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Cañón de mano"},{"Label":"Honda","Value":"Honda"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -1360,7 +1363,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Canon de mano"},{"Label":"Honda","Value":"Honda"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Cañón de mano"},{"Label":"Honda","Value":"Honda"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -1420,7 +1423,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Canon de mano"},{"Label":"Honda","Value":"Honda"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Cañón de mano"},{"Label":"Honda","Value":"Honda"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -1480,7 +1483,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Canon de mano"},{"Label":"Honda","Value":"Honda"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Cañón de mano"},{"Label":"Honda","Value":"Honda"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -1491,6 +1494,7 @@ end
 	if ParseoProfesiones.numArmasCulto&gt;=1 then ParseoProfesiones.ArmasExtraCulto[1].arma=getValue();
 	else ParseoProfesiones.ArmasExtraCulto[1].arma="";
 	end
+	Debug.chat(ParseoProfesiones.ArmasExtraCulto[1].arma);
 	window.TipoArmaCulto1.ComprobarCorrecto();
 end
 </LUACode>
@@ -1540,7 +1544,7 @@ end
       {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Canon de mano"},{"Label":"Honda","Value":"Honda"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Cañón de mano"},{"Label":"Honda","Value":"Honda"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -1551,6 +1555,7 @@ end
 	if ParseoProfesiones.numArmasCulto&gt;=2 then ParseoProfesiones.ArmasExtraCulto[2].arma=getValue();
 	else ParseoProfesiones.ArmasExtraCulto[2].arma="";
 	end
+	Debug.chat(ParseoProfesiones.ArmasExtraCulto[2].arma);
 	window.TipoArmaCulto1.ComprobarCorrecto();
 end
 </LUACode>
@@ -5169,7 +5174,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"525"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	if ParseoProfesiones.IdiomaExtraCulto&gt;=1 then ParseoProfesiones.IdiomasExtraCulto=getValue();
+	if ParseoProfesiones.numIdiomasCulto&gt;=1 then ParseoProfesiones.IdiomasExtraCulto=getValue();
 	else ParseoProfesiones.IdiomasExtraCulto="";
 	end
 	ComprobarCorrecto();
