@@ -110,12 +110,15 @@ function onDrop(x, y, draginfo)
 	_,pathItem=draginfo.getShortcutData();
 	if DB.getValue(pathItem..".IDListaArmas", "")~="" then DB.setValue(pathItem..".IDListaArmas", "string", ""); end;
 	rVentanasAntes=self.getWindows();
+	--Debug.chat(rVentanasAntes)
 	local x=ItemManager.handleAnyDrop(window.getDatabaseNode(), draginfo);
 	rVentanasDespues=self.getWindows();
+	--Debug.chat(rVentanasDespues)
 	for i=1,self.getWindowCount() do
-		if not rVentanasAntes[i] and DB.getValue(rVentanasDespues[i].getDatabaseNode(), "TipoObjeto", CteObjeto)==Inventario.CteArma then
+--		if not rVentanasAntes[i] and DB.getValue(rVentanasDespues[i].getDatabaseNode(), "TipoObjeto", CteObjeto)==Inventario.CteArma then
+		if DB.getValue(rVentanasDespues[i].getDatabaseNode(), "TipoObjeto", CteObjeto)==Inventario.CteArma or DB.getValue(rVentanasDespues[i].getDatabaseNode(), "TipoObjeto", CteObjeto)==Inventario.CteEscudo then
 			Inventario.CrearArma(rVentanasDespues[i]);
-			return x;
+--			return x;
 		end
 	end
 	return x;
