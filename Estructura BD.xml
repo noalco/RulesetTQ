@@ -248,14 +248,20 @@
 				<Amor/>
 				<MarcaOdio/>
 				<Odio/>
+				<MarcaPasionExtra/>
+				<PasionExtra/>
 				<RasgoPositivo1/>
 				<RasgoPositivo2/>
+				<RasgoPositivoExtra/>
 				<MarcaRasgoPositivo1/>
 				<MarcaRasgoPositivo2/>
+				<MarcaRasgoPositivoExtra/>
 				<RasgoNegativo1/>
 				<RasgoNegativo2/>
+				<RasgoNegativoExtra/>
 				<MarcaRasgoNegativo1/>
 				<MarcaRasgoNegativo2/>
+				<MarcaRasgoNegativoExtra/>
 			</GuiasInterpretativas>
 			<VentajasDesventajas>
 				<ListaVentDesvent>
@@ -274,7 +280,6 @@
 					<TipoVentDesventvalue/>
 					<Valor/>
 				</ListaVentDesvent>
-				<CosteTotal/>
 				<NumElementos/>
 			</VentajasDesventajas>
 			<Lealtad>

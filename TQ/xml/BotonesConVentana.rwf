@@ -6,8 +6,8 @@
 &lt;root&gt;
 	&lt;template name="boton_nueva_ventana"&gt;
 		&lt;windowreferencecontrol&gt;
-			&lt;icon normal="ArmaCC" pressed="ArmaCC_down" /&gt;
-			&lt;class&gt;NombreSecundarioHabilidad&lt;/class&gt;
+			&lt;icon normal="details" pressed="details_down" /&gt;
+			&lt;class&gt;&lt;/class&gt;
 			&lt;description field="name" /&gt;
 		&lt;/windowreferencecontrol&gt;
 	&lt;/template&gt;

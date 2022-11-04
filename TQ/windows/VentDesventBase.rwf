@@ -229,10 +229,10 @@
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"155"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
-	Notas.CalcularCosteTotalVentDesvent(window.getDatabaseNode().getParent().getParent().getParent().getParent());
-end
-</LUACode>
+    <LUACode>--function onValueChanged()
+--	Notas.CalcularCosteTotalVentDesvent(window.getDatabaseNode().getParent().getParent().getParent().getParent());
+--end
+--</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

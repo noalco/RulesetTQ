@@ -18,7 +18,7 @@ end
 function onListChanged()
 	update();
 	--window.ListaVentDesvent_iadd.setVisible(getWindowCount() &lt; 4);
-	Notas.CalcularCosteTotalVentDesvent(window.getDatabaseNode());
+--	Notas.CalcularCosteTotalVentDesvent(window.getDatabaseNode());
 end
 
 function update()
