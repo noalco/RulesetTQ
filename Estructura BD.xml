@@ -324,6 +324,7 @@
 			<PenalizadorSinHabla/>
 			<BonoCeremonia/>
 			<ModMagia/>
+			<MostrarContadores/>
 		</Hechiceria>
 		<Hechizos>
 			<Cte2/>
