@@ -22,6 +22,8 @@ function AniadirCaracteristicas(nodeChar, windowWizard)
 	DB.setValue(nodeChar, "Caracteristicas.Atractivo", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.Atractivo.getValue());
 	DB.setValue(nodeChar, "Caracteristicas.Fuerza", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.Fuerza.getValue());
 	DB.setValue(nodeChar, "Caracteristicas.Tamanio", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.Tamanio.getValue());
+	
+	DB.setValue(nodeChar, "FortunaModDanio.FortunaActual", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.Espiritu.getValue());
 end
 
 function AniadirVentDesv(nodeChar, sNombreVentDesv, sLinkVentDesv, bGratis, nCant)
@@ -276,7 +278,7 @@ function requestResponse(bResult, sIdentity)
 end
 
 function commitCharacter(identity)
---	ventana es el wizard
+--	Ventana es el wizard
 --	nodeChar es el nodo del PJ de la BD
 --	w es la ventana del PJ
 	local nodeChar;
@@ -295,8 +297,11 @@ function commitCharacter(identity)
 	
 	w.inventory.subwindow.coinamount2.setValue(ParseoProfesiones.DineroInicial[ParseoProfesiones.nDineroInicial+ParseoProfesiones.nIncremento].mp);
 	w.inventory.subwindow.coinamount3.setValue(ParseoProfesiones.DineroInicial[ParseoProfesiones.nDineroInicial+ParseoProfesiones.nIncremento].mb);
-
-	w.abilities.subwindow.BotonDetallesHabilidades.onClickRelease();
+	--w.abilities.subwindow.BotonDetallesHabilidades.onClickRelease();
+	DB.setValue(nodeChar, "Hechiceria.MostrarContadores", "number", 0);
+	w.hechizos.subwindow.SubventanaVerbosYEsferas.subwindow.BotonMostrarContadores.onButtonPress();
+	wPostWizard=Interface.openWindow("VentanaPostWizard", "");
+	PostWizard.GenerarMensaje(wPostWizard, Ventana);
 	close();
 end
 

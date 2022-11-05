@@ -1,0 +1,120 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>PostWizard</ScriptName>
+    <FolderID>21</FolderID>
+    <Script>function BuscarVentDesv(wWizard, sVentDesv)
+	if wWizard and sVentDesv then
+		return wWizard.SubventanaWizardPP.subwindow.NombreVentDesv1.getValue():lower():match(sVentDesv:lower())~=nil or
+			   wWizard.SubventanaWizardPP.subwindow.NombreVentDesv2.getValue():lower():match(sVentDesv:lower())~=nil or 
+			   wWizard.SubventanaWizardPP.subwindow.NombreVentDesv3.getValue():lower():match(sVentDesv:lower())~=nil or 
+			   wWizard.SubventanaWizardPP.subwindow.NombreVentDesv4.getValue():lower():match(sVentDesv:lower())~=nil;
+	end
+	return false;
+end
+
+function ComprobarSiLealtad50(wWizard)
+	if wWizard then
+		return wWizard.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.LealtadLey.getValue()&gt;=50 or
+			   wWizard.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.LealtadCaos.getValue()&gt;=50 or
+			   wWizard.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.LealtadElementos.getValue()&gt;=50 or
+			   wWizard.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.LealtadAntepasados.getValue()&gt;=50;
+	end
+	return false;
+end
+
+function ObtenerNumHechizos(wWizard)
+	local nNumHechizos=0;
+	if wWizard.SubventanaWizardPP.subwindow.NombreVentDesv1.getValue():lower():match("hechizos")~=nil then
+		nNumHechizos=nNumHechizos+wWizard.SubventanaWizardPP.subwindow.CantidadVentDesv1.getValue();
+	end
+	if wWizard.SubventanaWizardPP.subwindow.NombreVentDesv2.getValue():lower():match("hechizos")~=nil then
+		nNumHechizos=nNumHechizos+wWizard.SubventanaWizardPP.subwindow.CantidadVentDesv2.getValue();
+	end
+	if wWizard.SubventanaWizardPP.subwindow.NombreVentDesv3.getValue():lower():match("hechizos")~=nil then
+		nNumHechizos=nNumHechizos+wWizard.SubventanaWizardPP.subwindow.CantidadVentDesv3.getValue();
+	end
+	if wWizard.SubventanaWizardPP.subwindow.NombreVentDesv4.getValue():lower():match("hechizos")~=nil then
+		nNumHechizos=nNumHechizos+wWizard.SubventanaWizardPP.subwindow.CantidadVentDesv4.getValue();
+	end
+	return nNumHechizos;
+end;
+
+function GenerarMensaje(wPostWizard, wWizard)
+	local sMensaje=Informacion.CadenasInfo["Cabecera"];
+	sMensaje=sMensaje..Informacion.CadenasInfo["PuntosDestino"];
+	sMensaje=sMensaje..Informacion.CadenasInfo["PuntosHabilidad"];
+	sMensaje=sMensaje..Informacion.CadenasInfo["EquipoInicial"];
+	sMensaje=sMensaje..Informacion.CadenasInfo["GuiasInterpretativas"];
+	if BuscarVentDesv(wWizard, "Pasión extra") then
+		sMensaje=sMensaje..Informacion.CadenasInfo["TresPasiones"];
+	elseif BuscarVentDesv(wWizard, "Pasión de menos") then
+		sMensaje=sMensaje..Informacion.CadenasInfo["UnaPasion"];
+	else	
+		sMensaje=sMensaje..Informacion.CadenasInfo["DosPasiones"];
+	end
+	
+	if BuscarVentDesv(wWizard, "Rasgo de personalidad extra") then
+		sMensaje=sMensaje..Informacion.CadenasInfo["TresRasgos"];
+	elseif BuscarVentDesv(wWizard, "Personalidad simple") then
+		sMensaje=sMensaje..Informacion.CadenasInfo["UnRasgo"];
+	else	
+		sMensaje=sMensaje..Informacion.CadenasInfo["DosRasgos"];
+	end
+		
+	sMensaje=sMensaje..Informacion.CadenasInfo["FinGuiasInterpretativas"];
+	sMensaje=sMensaje..Informacion.CadenasInfo["CabeceraDivino"];
+	
+	if ComprobarSiLealtad50(wWizard) then sMensaje=sMensaje..Informacion.CadenasInfo["IncrementoEspirituPorLealtad"]; end
+
+	if BuscarVentDesv(wWizard, "Devoción") then sMensaje=sMensaje..Informacion.CadenasInfo["LealtadExtra"]; end
+	
+	sMensaje=sMensaje..Informacion.CadenasInfo["ActitudAnteLoDivino"];
+	
+	if BuscarVentDesv(wWizard, "Hechicería") or BuscarVentDesv(wWizard, "Teúrgia") or BuscarVentDesv(wWizard, "Hechizos") then
+		sMensaje=sMensaje..Informacion.CadenasInfo["Magia"];
+		
+		if BuscarVentDesv(wWizard, "Hechicería") then
+			sMensaje=sMensaje..Informacion.CadenasInfo["PuntosExtraEnHabilidadesMagicasHechiceria"];
+			local sHechizosPorHechiceria="HechizosPorHechiceria"..wWizard.SubventanaWizardCaracteristicas.subwindow.LabelTipoEdad.getValue();
+			sMensaje=sMensaje..Informacion.CadenasInfo[sHechizosPorHechiceria];
+--		sMensaje=sMensaje..Informacion.CadenasInfo["HechizosPorHechiceriaNiño"];
+--		sMensaje=sMensaje..Informacion.CadenasInfo["HechizosPorHechiceriaJoven"];
+--		sMensaje=sMensaje..Informacion.CadenasInfo["HechizosPorHechiceriaAdulto"];
+--		sMensaje=sMensaje..Informacion.CadenasInfo["HechizosPorHechiceriaMayor"];
+--		sMensaje=sMensaje..Informacion.CadenasInfo["HechizosPorHechiceriaViejo"];
+--		sMensaje=sMensaje..Informacion.CadenasInfo["HechizosPorHechiceriaAnciano"];
+		end
+		
+		if
+			BuscarVentDesv(wWizard, "Teúrgia") then sMensaje=sMensaje..Informacion.CadenasInfo["PuntosExtraEnHabilidadesMagicasTeurgia"];
+			if wWizard.SubventanaWizardCaracteristicas.subwindow.Edad.getValue()&lt;50 then
+				sMensaje=sMensaje..Informacion.CadenasInfo["HechizosPorTeurgia"];
+			else
+				local HechizosPorTeurgia="HechizosPorTeurgia"..wWizard.SubventanaWizardCaracteristicas.subwindow.LabelTipoEdad.getValue();
+				sMensaje=sMensaje..Informacion.CadenasInfo[HechizosPorTeurgia];
+			end
+		end
+--		sMensaje=sMensaje..Informacion.CadenasInfo["HechizosPorTeurgia"];
+--		sMensaje=sMensaje..Informacion.CadenasInfo["HechizosPorTeurgiaViejo"];
+--		sMensaje=sMensaje..Informacion.CadenasInfo["HechizosPorTeurgiaAnciano"];
+
+		if BuscarVentDesv(wWizard, "Hechizos") then
+			local nNumHechizos=ObtenerNumHechizos(wWizard);
+			local tNumeros={[1]="un", [2]="dos", [3]="tres", [4]="cuatro", [5]="cinco", [6]="seis", [7]="siete", [8]="ocho", [9]="nueve", [10]="diez", [11]="once", [12]="doce", [13]="trece", [14]="catorce", [15]="quince", [16]="dieciséis", [17]="diecisiete", [18]="dieciocho", [19]="diecinueve", [20]="veinte", [21]="veintiuno", [22]="veintidos", [23]="veintitres", [24]="veinticuatro", [25]="veinticinco", [26]="veintiséis", [27]="veintisiete", [28]="veintiocho", [29]="veintinueve", [30]="treinta",};
+			local sNumHechizos=""
+			if nNumHechizos==1 then sNumHechizos="un &lt;b&gt;Hechizo o Encantamiento&lt;/b&gt;";
+			elseif nNumHechizos&lt;=30 then sNumHechizos=tNumeros[nNumHechizos].." &lt;b&gt;Hechizos o Encantamientos&lt;/b&gt;";
+			else sNumHechizos=nNumHechizos.." &lt;b&gt;Hechizos o Encantamientos&lt;/b&gt;";
+			end
+			sMensaje=sMensaje..Informacion.CadenasInfo["HechizosPorHechizosIni"];
+			sMensaje=sMensaje..sNumHechizos;
+			sMensaje=sMensaje..Informacion.CadenasInfo["HechizosPorHechizosFin"];
+		end
+	end
+
+	wPostWizard.PasosCompletarPJ.setValue(sMensaje);
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>

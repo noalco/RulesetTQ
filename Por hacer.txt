@@ -42,8 +42,7 @@ Sidebars:
 
 	
 Wizard
-	- Fortuna: Se comienza con el máximo=Espíritu!!!
-	- Lealtad inicial: Espíritu x3!!!
+	- Cambiar que el máximo de ESP y MEN pueda ser 10 por especie y reparto
 	
 Automatización Ventajas y Desventajas
 	- Modificaciones a las habilidades

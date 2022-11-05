@@ -132,7 +132,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"11"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	bMostrar=DB.getValue(window.getDatabaseNode(), ".Habilidades.MostrarContadores", 0)==1;
+	bMostrar=DB.getValue(window.getDatabaseNode(), ".Hechiceria.MostrarContadores", 0)==1;
 	window.LabelDeProfesionGastados.setVisible(not bMostrar);
 	window.LabelDeNoProfesionGastados.setVisible(not bMostrar);
 	window.LabelDeProfesionDisponibles.setVisible(not bMostrar);
@@ -144,18 +144,18 @@ end
 	window.NumHabilidadesProfDisponibles.setVisible(not bMostrar);
 	window.NumHabilidadesNoProfDisponibles.setVisible(not bMostrar);
 	if bMostrar then
-		DB.setValue(window.getDatabaseNode(), ".Habilidades.MostrarContadores", "number", 0);
+		DB.setValue(window.getDatabaseNode(), ".Hechiceria.MostrarContadores", "number", 0);
 		setText("Mostrar Contadores", "");
 --		setFrame("buttonup");
 	else
-		DB.setValue(window.getDatabaseNode(), ".Habilidades.MostrarContadores", "number", 1);
+		DB.setValue(window.getDatabaseNode(), ".Hechiceria.MostrarContadores", "number", 1);
 		setText("Ocultar Contadores", "")
 --		setFrame("buttondown");
 	end
 end
 
 function onInit()
-	bMostrar=DB.getValue(window.getDatabaseNode(), ".Habilidades.MostrarContadores", 0)==1;
+	bMostrar=DB.getValue(window.getDatabaseNode(), ".Hechiceria.MostrarContadores", 0)==1;
 	window.LabelDeProfesionGastados.setVisible(bMostrar);
 	window.LabelDeNoProfesionGastados.setVisible(bMostrar);
 	window.LabelDeProfesionDisponibles.setVisible(bMostrar);

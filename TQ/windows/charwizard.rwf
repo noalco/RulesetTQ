@@ -130,6 +130,8 @@ end</LUACode>
 	else
 		window.Informacion.setValue(Informacion.CadenasInfo["CabeceraErrores"]..sMensaje);
 	end
+	wPostWizard=Interface.openWindow("VentanaPostWizard", "");
+	PostWizard.GenerarMensaje(wPostWizard, window);
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -166,7 +168,7 @@ end</LUACode>
       {"Name":"HoverIconName"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -232,7 +234,7 @@ end
       {"Name":"HoverIconName"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},

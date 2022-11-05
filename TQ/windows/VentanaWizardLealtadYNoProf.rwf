@@ -951,7 +951,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
-      {"Name":"Tooltip"},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"El número de Puntos disponibles para repartir en las diferentes Lealtades es igual a (3xESP) + (3xPP asignados a  lealtades)"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"369"}},
@@ -959,6 +959,7 @@ end
 ]}}</Definition>
     <LUACode>function Actualizar()
 	local nTotal=window.ALealtades.getValue()*3;
+	nTotal=nTotal+window.parentcontrol.window.parentcontrol.window.SubventanaWizardCaracteristicas.subwindow.Espiritu.getValue()*3;
 	nTotal=nTotal-window.LealtadLey.getValue();
 	nTotal=nTotal-window.LealtadCaos.getValue();
 	nTotal=nTotal-window.LealtadElementos.getValue();

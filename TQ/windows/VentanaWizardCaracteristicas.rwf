@@ -1578,16 +1578,16 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"198"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"293"}}
 ]}}</Definition>
-    <LUACode>--local nMax=9;
---local nMin=3;
-
-function onInit()
+    <LUACode>function onInit()
 	Actualizar();
 end
 
 function onValueChanged()
 	if getValue()&lt;3 and window.SeleccionMetodo.getValue()=="Al azar" then setValue(3); end
 	window.PtosGastados.Actualizar();
+	if window.parentcontrol.window.SubventanaWizardPP.subwindow then 
+		window.parentcontrol.window.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.PuntosDeLealtad.Actualizar();
+	end
 end
 
 function Actualizar()
@@ -1596,7 +1596,8 @@ end
 
 --function onHover(state)
 --	Informacion.MostrarInfo(window.parentcontrol.window, "Espiritu", "Espíritu", "&lt;b&gt;Rango de valores:&lt;/b&gt; Mín. 3 | Máx. 9+ESPECIE");
---end</LUACode>
+--end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
