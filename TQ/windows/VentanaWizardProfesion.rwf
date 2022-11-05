@@ -2,7 +2,7 @@
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>BotonAyudaCulto</ControlName>
-    <ZIndex>82</ZIndex>
+    <ZIndex>84</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelCulto"}}},
@@ -62,7 +62,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>BotonAyudaEspecialidad</ControlName>
-    <ZIndex>83</ZIndex>
+    <ZIndex>85</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelEspecialidad"}}},
@@ -110,7 +110,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"103"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"593"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"624"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
 	Informacion.MostrarInfo(window.parentcontrol.window, "Especialidades", "Esoecialidades de Sabio", "Elige una especialidad de entre las siguientes y añade así una o dos habilidades más a la lista por profesión.");
@@ -173,11 +173,14 @@ end
 	window.Deidad.setVisible(getValue()~="");
 	window.LabelDeidad.setVisible(getValue()~="");
 	local sLabels=""; local sValues="";
-	
-	for _,aCulto in pairs(Religion.CultosDisponiblesConSufijo) do
-		if aCulto.sNombre==getValue() then	
-			sValues, sLabels=Religion.GenerarStrinCycles(aCulto.sCulto);
-			break;
+	if CharWizard.bQuitarRestricciones then -- Sin restricciones
+		sValues, sLabels=Religion.GenerarStrinCycles(getStringValue());
+	else
+		for _,aCulto in pairs(Religion.CultosDisponiblesConSufijo) do
+			if aCulto.sNombre==getValue() then	
+				sValues, sLabels=Religion.GenerarStrinCycles(aCulto.sCulto);
+				break;
+			end
 		end
 	end
 
@@ -209,6 +212,73 @@ function ActualizarCulto()
 	ChequeoPJ.bSinReligion=sValues=="";
 	window.Culto.initialize(sLabels, sValues, "", "");
 	ComprobarCorrecto();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>CultoLealtad</ControlName>
+    <ZIndex>83</ZIndex>
+    <ControlClass>FGStringCycler</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelCultoLealtad"}}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"CultoLealtad"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultLabel","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"120"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,0"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"Sourceless","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"StackVertWith"},
+      {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Ley","Value":"LEY"},{"Label":"Caos","Value":"CAOS"},{"Label":"Elementales","Value":"ELEMENTALES"},{"Label":"Antepasados","Value":"ANTEPASADOS"}]}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"441"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	ParseoProfesiones.sLealtadProfCulto=getStringValue();
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorLealtadCultoProfesion=getValue()==nil or getValue()=="";
+end
+
+function onInit()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorLealtadCultoProfesion=getValue()==nil or getValue()=="";
+	super.onInit();
+end
+
+function onVisibilityChanged()
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorLealtadCultoProfesion=getValue()==nil or getValue()=="";
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -376,7 +446,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"650"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"681"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.EsferasProf[1]=getValue();
@@ -454,7 +524,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"676"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"707"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.EsferasProf[2]=getValue();
@@ -522,7 +592,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"703"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"734"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.EsferasProf[3]=getValue();
@@ -590,7 +660,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"115"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"592"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"623"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.IdiomaEspecialidad.setVisible(getValue()=="Escriba");
@@ -861,7 +931,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>HabilidadCCCulto1</ControlName>
-    <ZIndex>87</ZIndex>
+    <ZIndex>89</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArmaCulto1"}}},
@@ -906,7 +976,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"241"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"443"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"474"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if ParseoProfesiones.numArmasCulto&gt;=1 then ParseoProfesiones.ArmasExtraCulto[1].arma=getValue();
@@ -921,7 +991,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>HabilidadCCCulto2</ControlName>
-    <ZIndex>91</ZIndex>
+    <ZIndex>93</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArmaCulto2"}}},
@@ -966,7 +1036,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"241"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"468"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"499"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if ParseoProfesiones.numArmasCulto&gt;=2 then ParseoProfesiones.ArmasExtraCulto[2].arma=getValue();
@@ -1026,7 +1096,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"732"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"763"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if window.TipoHabilidadMagica1.getValue()=="Verbo" then
@@ -1100,7 +1170,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"759"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"790"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if window.TipoHabilidadMagica1.getValue()=="Verbo" then
@@ -1174,7 +1244,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"794"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"820"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if window.TipoHabilidadMagica1.getValue()=="Verbo" then
@@ -1443,7 +1513,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>HabilidadPrCulto1</ControlName>
-    <ZIndex>88</ZIndex>
+    <ZIndex>90</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArmaCulto1"}}},
@@ -1488,7 +1558,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"241"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"443"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"474"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if ParseoProfesiones.numArmasCulto&gt;=1 then ParseoProfesiones.ArmasExtraCulto[1].arma=getValue();
@@ -1504,7 +1574,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>HabilidadPrCulto2</ControlName>
-    <ZIndex>92</ZIndex>
+    <ZIndex>94</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArmaCulto2"}}},
@@ -1549,7 +1619,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"241"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"468"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"499"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if ParseoProfesiones.numArmasCulto&gt;=2 then ParseoProfesiones.ArmasExtraCulto[2].arma=getValue();
@@ -1659,7 +1729,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"301"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"592"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"623"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.sIdiomaEspecialidadSabio=getValue();
@@ -1880,7 +1950,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>LabelArmaCulto1</ControlName>
-    <ZIndex>85</ZIndex>
+    <ZIndex>87</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1923,7 +1993,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"443"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"474"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1932,7 +2002,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>LabelArmaCulto2</ControlName>
-    <ZIndex>89</ZIndex>
+    <ZIndex>91</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1975,7 +2045,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"468"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"499"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2192,7 +2262,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>LabelArtesaniaCulto</ControlName>
-    <ZIndex>93</ZIndex>
+    <ZIndex>95</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2235,7 +2305,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"496"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"527"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2287,7 +2357,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"568"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"599"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2339,7 +2409,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"626"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"657"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2387,7 +2457,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
       {"Name":"TextUnderlined"},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"El culto elegido obtendrá el bono de lealtad de la profesión."}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
@@ -2444,6 +2514,58 @@ end
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"391"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaWizardProfesion</WindowName>
+    <ControlName>LabelCultoLealtad</ControlName>
+    <ZIndex>82</ZIndex>
+    <ControlClass>FGLabel</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"Center"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"LabelCultoLealtad"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"top","Parent":"PuntoRelativo","AnchorTo":"bottom","Offset":"5","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"},{"EdgeAnchor":"left","Offset":"35","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"270","Relation":null}]}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"270"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"0,5,0,0"}},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Culto al que asignas la Lealtad extra."}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"TextUnderlined"},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"El culto elegido obtendrá el bono de lealtad de la profesión."}},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"441"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2547,7 +2669,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"236"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"650"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"681"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2599,7 +2721,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"236"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"676"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"707"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2651,7 +2773,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"236"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"703"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"734"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2703,7 +2825,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"592"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"623"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2807,7 +2929,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"732"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"763"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2859,7 +2981,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"759"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"790"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2911,7 +3033,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"794"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"820"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -3128,7 +3250,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>LabelIdiomaCulto</ControlName>
-    <ZIndex>95</ZIndex>
+    <ZIndex>97</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3171,7 +3293,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"525"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"556"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -3223,7 +3345,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"236"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"592"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"623"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -3535,7 +3657,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"650"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"681"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -3587,7 +3709,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"676"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"707"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -3639,7 +3761,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"703"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"734"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -3805,6 +3927,8 @@ function GestionCulto()
 	if getValue():lower():match("sacerdote") then
 		ParseoProfesiones.bEraSacerdote=true;
 		window.Culto.ActualizarCulto();
+		window.LabelCultoLealtad.setVisible(true);
+		window.CultoLealtad.setVisible(true);
 		window.LabelCultoCabecera.setVisible(not ChequeoPJ.bSinReligion);
 		window.LabelCulto.setVisible(not ChequeoPJ.bSinReligion);
 		window.Culto.setVisible(not ChequeoPJ.bSinReligion);
@@ -3819,6 +3943,8 @@ function GestionCulto()
 		window.LabelDeidad.setVisible(false);
 		window.Deidad.setVisible(false);
 		ParseoProfesiones.nLealtadProf=0;
+		window.LabelCultoLealtad.setVisible(false);
+		window.CultoLealtad.setVisible(false);
 	end
 end
 
@@ -4093,7 +4219,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"515"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"622"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"653"}}
 ]}}</Definition>
     <LUACode>function onInit()
 	onValueChanged();
@@ -4174,7 +4300,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"581"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"619"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"650"}}
 ]}}</Definition>
     <LUACode>function onInit()
 	onValueChanged();
@@ -4346,7 +4472,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"454"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"619"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"650"}}
 ]}}</Definition>
     <LUACode>function onInit()
 	onValueChanged();
@@ -4770,7 +4896,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>SeleccionArtesaniaCulto</ControlName>
-    <ZIndex>94</ZIndex>
+    <ZIndex>96</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArtesaniaCulto"}}},
@@ -4815,7 +4941,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"496"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"527"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if ParseoProfesiones.numArtesaniasCulto&gt;=1 then ParseoProfesiones.ArtesaniasExtraCulto=getValue();
@@ -5126,7 +5252,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>SeleccionIdiomaCulto</ControlName>
-    <ZIndex>96</ZIndex>
+    <ZIndex>98</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":null,"Parent":"LabelIdiomaCulto"}}},
@@ -5171,7 +5297,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"525"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"556"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if ParseoProfesiones.numIdiomasCulto&gt;=1 then ParseoProfesiones.IdiomasExtraCulto=getValue();
@@ -5198,7 +5324,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>StringCycler1</ControlName>
-    <ZIndex>84</ZIndex>
+    <ZIndex>86</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelCulto"}}},
@@ -5590,7 +5716,7 @@ end
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>TipoArmaCulto1</ControlName>
-    <ZIndex>86</ZIndex>
+    <ZIndex>88</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArmaCulto1"}}},
@@ -5635,7 +5761,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"121"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"443"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"474"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.HabilidadCCCulto1.setVisible(getValue()=="Arma CC" and ParseoProfesiones.numArmasCulto&gt;=1);
@@ -5666,7 +5792,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaWizardProfesion</WindowName>
     <ControlName>TipoArmaCulto2</ControlName>
-    <ZIndex>90</ZIndex>
+    <ZIndex>92</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","Parent":"LabelArmaCulto2"}}},
@@ -5711,7 +5837,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"121"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"468"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"499"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.HabilidadCCCulto2.setVisible(getValue()=="Arma CC" and ParseoProfesiones.numArmasCulto&gt;=2);
@@ -5782,7 +5908,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"178"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"732"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"763"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.HabilidadMagica1.setVisible(getValue()~="Tipo");
@@ -5875,7 +6001,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"178"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"759"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"790"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.HabilidadMagica2.setVisible(getValue()~="Tipo");
@@ -5957,7 +6083,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"178"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"794"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"820"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.HabilidadMagica3.setVisible(getValue()~="Tipo");
@@ -6095,7 +6221,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"650"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"681"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.VerbosProf[1]=getValue();
@@ -6172,7 +6298,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"676"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"707"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.VerbosProf[2]=getValue();
@@ -6238,7 +6364,7 @@ end</LUACode>
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"99"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"703"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"734"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	ParseoProfesiones.VerbosProf[3]=getValue();

@@ -4,6 +4,8 @@
     <FolderID>21</FolderID>
     <Script>local Ventana;
 
+bQuitarRestricciones=false;
+
 function AniadirCaracteristicas(nodeChar, windowWizard)
 --	nodeChar -&gt; Nodo de la base de datos de la hoja del PJ; windowWizard -&gt; Ventana del wizard
 	DB.setValue(nodeChar, "Caracteristicas.BaseCuerpo", "number", windowWizard.SubventanaWizardCaracteristicas.subwindow.BaseCuerpo.getValue());
@@ -72,16 +74,17 @@ function AniadirPersonalidad(nodeChar, windowWizard)
 --	if sCulto~="" and ParseoVentDesv.PorEleccion[sCulto] then
 --		ParseoVentDesv.PorEleccion[sCulto]=ParseoVentDesv.PorEleccion[sCulto]+ParseoProfesiones.nLealtadProf;
 --	end
-	for i=1,#Religion.CultosDisponiblesConSufijo do
-		if Religion.CultosDisponiblesConSufijo[i] and Religion.CultosDisponiblesConSufijo[i].sNombre==sCulto and ParseoVentDesv.PorEleccion[Religion.CultosDisponiblesConSufijo[i].sCulto] then
-			ParseoVentDesv.PorEleccion[Religion.CultosDisponiblesConSufijo[i].sCulto]=ParseoVentDesv.PorEleccion[Religion.CultosDisponiblesConSufijo[i].sCulto]+ParseoProfesiones.nLealtadProf;
-			break;
-		end
-	end
-	DB.setValue(nodeChar, "Notas.Lealtad.LealtadLey", "number", ParseoVentDesv.PorEleccion["LEY"]);
-	DB.setValue(nodeChar, "Notas.Lealtad.LealtadCaos", "number", ParseoVentDesv.PorEleccion["CAOS"]);
-	DB.setValue(nodeChar, "Notas.Lealtad.LealtadElementos", "number", ParseoVentDesv.PorEleccion["ELEMENTOS"]);
-	DB.setValue(nodeChar, "Notas.Lealtad.LealtadAntepasados", "number", ParseoVentDesv.PorEleccion["ANTEPASADOS"]);
+--	for i=1,#Religion.CultosDisponiblesConSufijo do
+--		if Religion.CultosDisponiblesConSufijo[i] and Religion.CultosDisponiblesConSufijo[i].sNombre==sCulto and ParseoVentDesv.Lealtades[Religion.CultosDisponiblesConSufijo[i].sCulto] then
+--			ParseoVentDesv.Lealtades[Religion.CultosDisponiblesConSufijo[i].sCulto]=ParseoVentDesv.Lealtades[Religion.CultosDisponiblesConSufijo[i].sCulto]+ParseoProfesiones.nLealtadProf;
+--			break;
+--		end
+--	end
+	Religion.Lealtades[ParseoProfesiones.sLealtadProfCulto]=Religion.Lealtades[ParseoProfesiones.sLealtadProfCulto]+ParseoProfesiones.nLealtadProf;
+	DB.setValue(nodeChar, "Notas.Lealtad.LealtadLey", "number", Religion.Lealtades["LEY"]);
+	DB.setValue(nodeChar, "Notas.Lealtad.LealtadCaos", "number", Religion.Lealtades["CAOS"]);
+	DB.setValue(nodeChar, "Notas.Lealtad.LealtadElementos", "number", Religion.Lealtades["ELEMENTOS"]);
+	DB.setValue(nodeChar, "Notas.Lealtad.LealtadAntepasados", "number", Religion.Lealtades["ANTEPASADOS"]);
 	
 	AniadirVentDesv(nodeChar, ParseoVentDesv.sPorEtnia, ParseoVentDesv.sLinkPorEtnia, true);
 	AniadirVentDesv(nodeChar, ParseoVentDesv.sPorProfesion, ParseoVentDesv.sLinkPorProfesion, true);
@@ -310,7 +313,11 @@ function onClose()
 	ParseoHabilidades.ResetDatos();
 	ParseoProfesiones.ResetearHabilidadesProfesion();
 	ParseoVentDesv.ResetarVentDesv();
-	ChequeoPJ.ResetearCheck()
+	ChequeoPJ.ResetearCheck();
+	if CharWizard.bQuitarRestricciones then
+		Herramientas.Mensaje(User.getUsername().." ha reactivado las restricciones del Asistende de Creación de Personajes.", "msgfont", "", false, User.getUsername());
+	end
+	CharWizard.bQuitarRestricciones=false;
 end
 </Script>
     <RegisterScript>true</RegisterScript>

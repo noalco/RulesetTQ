@@ -68,7 +68,7 @@
 	["ErrorEtnia"] = "&lt;p&gt;No has seleccionado ningún Origen Étnico.&lt;/p&gt;",
 	["ErrorRepartoIncompleto"] = "&lt;p&gt;No has repartido todos los puntos que tienes disponibles para las Características.&lt;/p&gt;",
 	["ErrorRepartoExcesivo"] = "&lt;p&gt;Has asignado más puntos de los permitidos en las Características.&lt;/p&gt;",
-	["ErrorEtniaNoPermitida"] = "&lt;p&gt;El Origen Étnico seleccionado no está permitido para la Especie elegida.&lt;/p&gt;",
+	["ErrorEtniaNoPermitida"] = "El Origen Étnico seleccionado no está permitido para la Especie elegida.",
 	["ErrorNoEsEtnia"] = "&lt;p&gt;El elemento arrastrado no es un Origen Étnico.&lt;/p&gt;",
 	["ErrorArtesaniaEtnia"] = "&lt;p&gt;No has seleccionado la Artesanía que te otorga tu Origen Étnico.&lt;/p&gt;",
 	["ErrorHabilidadCulturaEtnia"] = "&lt;p&gt;No has seleccionado la Habilidad de Cultura que te otorga tu Origen Étnico.&lt;/p&gt;",
@@ -99,6 +99,7 @@
 	["ErrorProfesionRestringida"] = "&lt;p&gt;La Profesión que has elegido requiere la Ventaja Clandestinidad.&lt;/p&gt;",
 	["ErrorCultoRestringido"] = "&lt;p&gt;El Culto que has elegido requiere la Ventaja Clandestinidad.&lt;/p&gt;",
 	["ErrorDeidadRestringida"] = "&lt;p&gt;La Deidad que has elegido requiere la Ventaja Clandestinidad.&lt;/p&gt;",
+	["ErrorLealtadCultoProfesion"] = "&lt;p&gt;No has seleccionado a qué culto se asignarán los Puntos de Lealtad extra que suministra la Profesión elegida.&lt;/p&gt;",
 
 	-- PostWizard
 	["Cabecera"] = "&lt;p&gt;Una vez generado el personaje, deberás completar la ficha de la siguiente manera (procura no cerrar esta ventana hasta que hayas terminado o no podrás volver a abrirla):&lt;/p&gt;",

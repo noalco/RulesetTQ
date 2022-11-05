@@ -63,6 +63,7 @@ numHabilidadesMagicasProfesion=0;
 numHabilidadesProfesion=60;
 numHabilidadesNoProfesion=0;
 nLealtadProf=0;
+sLealtadProfCulto="";
 bEraSacerdote=false;
 numIdiomasCulto=0;
 numArmasCulto=0;
@@ -154,7 +155,9 @@ function ObtenerProfesionesPermitidas(sProfesiones)
 end;
 
 function ProfesionPermitida(sProfesion)
-	return sProfesion and ParseoProfesiones.Profesiones[sProfesion:lower()] and ParseoProfesiones.Profesiones[sProfesion:lower()].bPermitida;
+	if CharWizard.bQuitarRestricciones then return true; -- Sin restricciones
+	else return sProfesion and ParseoProfesiones.Profesiones[sProfesion:lower()] and ParseoProfesiones.Profesiones[sProfesion:lower()].bPermitida;
+	end
 end
 
 function ProfesionRestringida(sProfesion)
@@ -212,6 +215,7 @@ function ResetearHabilidadesProfesion()
 	numHabilidadesProfesion=60;
 	numHabilidadesNoProfesion=0;
 	nLealtadProf=0;
+	sLealtadProfCulto="";
 	bEraSacerdote=false;
 	sTipoArmaProfesion="";
 	

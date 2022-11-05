@@ -3269,7 +3269,7 @@ function onDrop(x, y, dragdata)
 				if not ParseoProfesiones.ProfesionPermitida(sProfesion) then
 					ParseoProfesiones.ResetearHabilidadesProfesion();
 					window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
-					window.parentcontrol.window.Mensajes.setValue("La profesión que tenías elegida ya no es compatible con el nuevo origen étnico seleccionado. Debes elegir una nueva profesión.");
+					window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorProfesionNoPermitida"]);
 				end
 			end
 			
@@ -3294,6 +3294,8 @@ function onDrop(x, y, dragdata)
 end
 
 function EtniaPermitida(sRecord)
+	if CharWizard.bQuitarRestricciones then return true; end -- Sin restricciones
+	
 	local sEspecie=window.SeleccionEspecie.getValue();
 	local PermitidoAMereni=Utilidades.LeerValorRegistro(sRecord, "RestringidoAMereni");
 	
@@ -4866,7 +4868,7 @@ end
 		window.LinkEtnia.setValue(nil, nil);
 		window.NombreEtnia.setValue("");
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
-		window.parentcontrol.window.Mensajes.setValue("");
+		window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorCambioEspecie"]);
 	end
 end
 

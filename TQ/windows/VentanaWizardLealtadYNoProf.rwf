@@ -621,7 +621,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.PuntosDeLealtad.Actualizar();
-	ParseoVentDesv.PorEleccion["ANTEPASADOS"]=getValue();
+	Religion.Lealtades["ANTEPASADOS"]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -687,7 +687,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.PuntosDeLealtad.Actualizar();
-	ParseoVentDesv.PorEleccion["CAOS"]=getValue();
+	Religion.Lealtades["CAOS"]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -753,7 +753,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.PuntosDeLealtad.Actualizar();
-	ParseoVentDesv.PorEleccion["ELEMENTOS"]=getValue();
+	Religion.Lealtades["ELEMENTOS"]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -819,7 +819,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.PuntosDeLealtad.Actualizar()
-	 ParseoVentDesv.PorEleccion["LEY"]=getValue();
+	 Religion.Lealtades["LEY"]=getValue();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

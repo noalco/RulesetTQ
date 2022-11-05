@@ -13,8 +13,6 @@ PorEleccion={
 	[4]={sNombre="", sLink="", PP=0, Cant=1},
 }
 
-Lealtades={["LEY"]=0, ["CAOS"]=0, ["ELEMENTOS"]=0, ["ANTEPASADOS"]=0}
-
 function ResetarVentDesv()
 	sPorEtnia="";
 	sLinkPorEtnia="";
@@ -26,7 +24,6 @@ function ResetarVentDesv()
 		[3]={sNombre="", sLink="", PP=0, Cant=1},
 		[4]={sNombre="", sLink="", PP=0, Cant=1},
 	}
-	Lealtades={["LEY"]=0, ["CAOS"]=0, ["ELEMENTOS"]=0, ["ANTEPASADOS"]=0}
 end
 
 function BuscarLink(sVentDesv)

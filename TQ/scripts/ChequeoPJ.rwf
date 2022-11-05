@@ -29,6 +29,7 @@
 		["ErrorProfesionRestringida"] = false,
 		["ErrorCultoRestringido"] = false,
 		["ErrorDeidadRestringida"] = false,
+		["ErrorLealtadCultoProfesion"] = false,
 	},
 	["Gasto de PP"] = {
 		["ErrorCantidadPP"] = true,
