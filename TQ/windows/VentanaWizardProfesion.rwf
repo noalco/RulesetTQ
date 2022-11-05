@@ -1494,7 +1494,7 @@ end
 	if ParseoProfesiones.numArmasCulto&gt;=1 then ParseoProfesiones.ArmasExtraCulto[1].arma=getValue();
 	else ParseoProfesiones.ArmasExtraCulto[1].arma="";
 	end
-	Debug.chat(ParseoProfesiones.ArmasExtraCulto[1].arma);
+--	Debug.chat(ParseoProfesiones.ArmasExtraCulto[1].arma);
 	window.TipoArmaCulto1.ComprobarCorrecto();
 end
 </LUACode>
@@ -1555,7 +1555,7 @@ end
 	if ParseoProfesiones.numArmasCulto&gt;=2 then ParseoProfesiones.ArmasExtraCulto[2].arma=getValue();
 	else ParseoProfesiones.ArmasExtraCulto[2].arma="";
 	end
-	Debug.chat(ParseoProfesiones.ArmasExtraCulto[2].arma);
+--	Debug.chat(ParseoProfesiones.ArmasExtraCulto[2].arma);
 	window.TipoArmaCulto1.ComprobarCorrecto();
 end
 </LUACode>
@@ -4821,7 +4821,7 @@ end</LUACode>
 	if ParseoProfesiones.numArtesaniasCulto&gt;=1 then ParseoProfesiones.ArtesaniasExtraCulto=getValue();
 	else ParseoProfesiones.ArtesaniasExtraCulto="";
 	end
-	Debug.chat(ParseoProfesiones.ArtesaniasExtraCulto)
+--	Debug.chat(ParseoProfesiones.ArtesaniasExtraCulto)
 	ComprobarCorrecto();
 end
 

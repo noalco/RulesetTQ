@@ -45,7 +45,8 @@ function parseComponents()
 	for i = 1, #aClauses do
 		local nStarts, nEnds, sLabel, sSign, sMod = string.find(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)%s*([%+%-–]?)(%d*)");
 		if sSign=="" then nStarts, nEnds, sLabel, sMod = string.find(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)%s*(%d*)"); end
-
+		if string.sub(sLabel, sLabel:len(), sLabel:len())==" " then sLabel=string.match(sLabel, "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+		--Debug.chat(aClauses[i], nStarts, nEnds, sLabel, sSign, sMod, nEstorbo);
 		_,count = string.gsub(aClauses[i], "[ñÑáÁéÉíÍóÓúÚ]", "");
 		nCaracteresDobles=nCaracteresDobles+count/2;
 
@@ -62,62 +63,11 @@ function parseComponents()
 			end
 
 			-- Insert the possible skill into the skill list
-			table.insert(aComponents, {nStart = aClauseStats[i].startpos - nCaracteresDobles, nLabelEnd = aClauseStats[i].startpos + nEnds - nCaracteresDobles, nEnd = aClauseStats[i].endpos - nCaracteresDobles, sLabel = sLabel, nMod = nMod, nAllowRoll = nAllowRoll });
+			table.insert(aComponents, {nStart = aClauseStats[i].startpos - nCaracteresDobles, nLabelEnd = aClauseStats[i].startpos + nEnds - nCaracteresDobles, nEnd = aClauseStats[i].endpos - nCaracteresDobles, sLabel = sLabel, nMod = nMod, nAllowRoll = nAllowRoll});
 		end
 	end
 	
 	bParsed = true;
-end
-
-function onChar(nKeyCode)
---	bParsed = false;
---	
---	local nCursor = getCursorPosition();
---	local sValue = getValue();
---	local sCompletion;
---	
---	-- If alpha character, then build a potential autocomplete
---	if ((nKeyCode &gt;= 65) and (nKeyCode &lt;= 90)) or ((nKeyCode &gt;= 97) and (nKeyCode &lt;= 122)) then
---		-- Parse the value string
---		parseComponents();
---
---		-- Build auto-complete for the current string
---		for i = 1, #aComponents, 1 do
---			if nCursor == aComponents[i].nLabelEnd then
---				sCompletion = getCompletion(aComponents[i].sLabel);
---				if sCompletion ~= "" then
---					local sNewValue = sValue:sub(1, getCursorPosition()-1) .. sCompletion .. sValue:sub(getCursorPosition());
---					setValue(sNewValue);
---					setSelectionPosition(nCursor + #sCompletion);
---				end
---
---				return;
---			end
---		end
---
---	-- Or else if space character, then finish the autocomplete
---	else
---		if ((nKeyCode == 32) and (nCursor &gt;= 2)) then
---			-- Parse the value string
---			parseComponents();
---			
---			-- Find any string we may have just auto-completed
---			local nLastCursor = nCursor - 1;
---			for i = 1, #aComponents, 1 do
---				if nCursor - 1 == aComponents[i].nLabelEnd then
---					sCompletion = getCompletion(aComponents[i].sLabel);
---					if sCompletion ~= "" then
---						local sNewValue = string.sub(sValue, 1, nLastCursor - 1) .. sCompletion .. string.sub(sValue, nLastCursor);
---						setValue(sNewValue);
---						setCursorPosition(nCursor + #sCompletion);
---						setSelectionPosition(nCursor + #sCompletion);
---					end
---
---					return;
---				end
---			end
---		end
---	end
 end
 
 -- Reset selection when the cursor leaves the control
@@ -149,7 +99,11 @@ function onHoverUpdate(x, y)
 				setSelectionPosition(aComponents[i].nEnd);
 
 				sDragLabel = aComponents[i].sLabel;
+--				if not aComponents[i].nEstorbo then
 				nDragMod = aComponents[i].nMod;
+				if ParseoHabilidades.Habilidad2Clave[aComponents[i].sLabel:lower()] and Habilidades.DatosHabilidades[ParseoHabilidades.Habilidad2Clave[aComponents[i].sLabel:lower()]] then
+					nDragMod=nDragMod-window.Estorbo.getValue()*Habilidades.DatosHabilidades[ParseoHabilidades.Habilidad2Clave[aComponents[i].sLabel:lower()]].multEstorbo;
+				end
 				setHoverCursor("hand");
 				return;
 			end

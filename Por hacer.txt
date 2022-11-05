@@ -7,50 +7,45 @@ Sugerencias Psico y Eldarc:
 - Bugs:
 			- Algo pasa con la equipación de las armas (creo que está solucionado)
 			- El DM no ve los nombres secundarios de las habilidades que crean los jugadores (creo que está solucionado)
+			- Al pasar de escudo a arma, no cambia la habilidad (creo que está solucionado)
 	- Algunos candados de las sidebar dan error al abrir la ventana siendo cliente (¿aquellos en los que no pueden editarlos los clientes?)
-	- Al pasar de escudo a arma, no cambia la habilidad
 
 General:
 	- Tooltips
 	- Traducciones
 
 Principal:
+
 	
 Habilidades:
-			- Poner un check box de marca en las armas enlazado con la habilidad correspondiente (DE MOMENTO, NO)
-			- Añadir nueva habilidad totalmente configurable (PASO DE MOMENTO)
+
 	
 Inventario
 	- Botón identificar en los objetos
 	- El botón lock de los items no bloquea los encantamientos. Además, hace cosas raras al bloquear-cerrar-abrir con los campos estándar
 
 Personalidad:
-	- las ventajas Pasión Extra y Rasgo Extra dan una pasión y un rasgo de cada respectivamente. Las desventajas Pasión de Menos y Personalidad Simple hacen exactamente lo contrario.
-		- ¿Crear ventana PopUp para las ventajas/desventajas o para la descripción/personalidad?
 
 Combate:
 
+
 Hechizos:
-	- ¿Botón para mostrar/ocultar los contadores de habilidades?
+
 
 NPCs
 	- Hacer campos para PNJs humanos
 		- Hechizos
 		- Habilidades mágicas
-	- Habilidades con penalización de estorbo (entre paréntesis)
 
 	
 Sidebars:
 
 	
 Wizard
-	- Habilidades de culto
-		
-		
-
+	- Fortuna: Se comienza con el máximo=Espíritu!!!
+	- Lealtad inicial: Espíritu x3!!!
 	
 Automatización Ventajas y Desventajas
-	- las ventajas Pasión Extra y Rasgo Extra dan una pasión y un rasgo de cada respectivamente. Las desventajas Pasión de Menos y Personalidad Simple hacen exactamente lo contrario.
 	- Modificaciones a las habilidades
 		- Comienzas el juego con dos lenguas propias.
 		- Suma 5 puntos de Lealtad.
@@ -60,3 +55,20 @@ Automatización Ventajas y Desventajas
 				- Modificaciones a las armas (hecho, falta procesarlo al usar un arma)
 					- Resta -2 ... así como al uso de armas arrojadizas y de proyectiles
 					- sufres un modificador negativo de -1 al uso de armas arrojadizas y de proyectiles
+
+
+Post Wizard
+	- Se comienza con un punto de destino
+	- Repartir los puntos de Habilidad de Profesión y de No Profesión entre Habilidades mundanas y mágicas (Máximo 8 puntos por habilidad)
+		- Si Ventaja Bilingüismo -> Segundo idioma propio (poner 4 en los PG de un idioma, ya sea uno que se posea o uno nuevo)
+	- Comprar el equipo inicial (a parte del dinero obtenido por profesión, porta un arma de cada tipo que domine y ropa adecuada a su profesión y clase social)
+	- Añadir la Motivación, la Mentira, las Pasiones y los Rasgos Positivos y Negativos
+	- Lealtad:
+		- Si Ventaja Devoción -> repartir 5 puntos de Lealtad
+	- Establecer la Actitud ante lo divino
+	- Si Ventaja Hechicería -> 10 puntos a repartir libremente en habilidades mágicas
+	- Si Ventaja Teúrgia -> 10 puntos a repartir entre verbos y la esfera Ley
+	- Hechizos y encantamientos conocidos:
+		- Si Ventaja Hechicería -> Niño 3, Joven 4, Adulto 5, Mayor 6, Viejo 7 y Anciano 8
+		- Si Ventaja Teúrgia -> tres hechizos de la Esfera Ley, cuatro si estás en la franja de edad Viejo o Anciano
+		- Si Ventaja Hechizos -> Un conjuro extra por cada punto gastado en la Ventaja
