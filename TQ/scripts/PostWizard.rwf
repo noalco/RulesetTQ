@@ -7,7 +7,9 @@
 		return wWizard.SubventanaWizardPP.subwindow.NombreVentDesv1.getValue():lower():match(sVentDesv:lower())~=nil or
 			   wWizard.SubventanaWizardPP.subwindow.NombreVentDesv2.getValue():lower():match(sVentDesv:lower())~=nil or 
 			   wWizard.SubventanaWizardPP.subwindow.NombreVentDesv3.getValue():lower():match(sVentDesv:lower())~=nil or 
-			   wWizard.SubventanaWizardPP.subwindow.NombreVentDesv4.getValue():lower():match(sVentDesv:lower())~=nil;
+			   wWizard.SubventanaWizardPP.subwindow.NombreVentDesv4.getValue():lower():match(sVentDesv:lower())~=nil or
+			   wWizard.SubventanaWizardPP.subwindow.NombreVentajaProfesion.getValue():lower():match(sVentDesv:lower())~=nil or
+			   wWizard.SubventanaWizardPP.subwindow.NombreVentajaEtnia.getValue():lower():match(sVentDesv:lower())~=nil;
 	end
 	return false;
 end
@@ -43,6 +45,9 @@ function GenerarMensaje(wPostWizard, wWizard)
 	local sMensaje=Informacion.CadenasInfo["Cabecera"];
 	sMensaje=sMensaje..Informacion.CadenasInfo["PuntosDestino"];
 	sMensaje=sMensaje..Informacion.CadenasInfo["PuntosHabilidad"];
+	
+	if BuscarVentDesv(wWizard, "Bilingüismo") then sMensaje=sMensaje..Informacion.CadenasInfo["Bilinguismo"]; end
+	
 	sMensaje=sMensaje..Informacion.CadenasInfo["EquipoInicial"];
 	sMensaje=sMensaje..Informacion.CadenasInfo["GuiasInterpretativas"];
 	if BuscarVentDesv(wWizard, "Pasión extra") then

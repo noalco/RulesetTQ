@@ -45,29 +45,10 @@ Wizard
 	- Cambiar que el máximo de ESP y MEN pueda ser 10 por especie y reparto
 	
 Automatización Ventajas y Desventajas
-	- Modificaciones a las habilidades
-		- Comienzas el juego con dos lenguas propias.
-		- Suma 5 puntos de Lealtad.
-		- Hechicería: 10 puntos a repartir libremente en habilidades mágicas
-		- Teurgia: 10 puntos a repartir entre verbos y la esfera Ley
-
-				- Modificaciones a las armas (hecho, falta procesarlo al usar un arma)
-					- Resta -2 ... así como al uso de armas arrojadizas y de proyectiles
-					- sufres un modificador negativo de -1 al uso de armas arrojadizas y de proyectiles
+			- Modificaciones a las armas (hecho, falta procesarlo al usar un arma)
+				- Resta -2 ... así como al uso de armas arrojadizas y de proyectiles
+				- sufres un modificador negativo de -1 al uso de armas arrojadizas y de proyectiles
 
 
 Post Wizard
-	- Se comienza con un punto de destino
-	- Repartir los puntos de Habilidad de Profesión y de No Profesión entre Habilidades mundanas y mágicas (Máximo 8 puntos por habilidad)
-		- Si Ventaja Bilingüismo -> Segundo idioma propio (poner 4 en los PG de un idioma, ya sea uno que se posea o uno nuevo)
-	- Comprar el equipo inicial (a parte del dinero obtenido por profesión, porta un arma de cada tipo que domine y ropa adecuada a su profesión y clase social)
-	- Añadir la Motivación, la Mentira, las Pasiones y los Rasgos Positivos y Negativos
-	- Lealtad:
-		- Si Ventaja Devoción -> repartir 5 puntos de Lealtad
-	- Establecer la Actitud ante lo divino
-	- Si Ventaja Hechicería -> 10 puntos a repartir libremente en habilidades mágicas
-	- Si Ventaja Teúrgia -> 10 puntos a repartir entre verbos y la esfera Ley
-	- Hechizos y encantamientos conocidos:
-		- Si Ventaja Hechicería -> Niño 3, Joven 4, Adulto 5, Mayor 6, Viejo 7 y Anciano 8
-		- Si Ventaja Teúrgia -> tres hechizos de la Esfera Ley, cuatro si estás en la franja de edad Viejo o Anciano
-		- Si Ventaja Hechizos -> Un conjuro extra por cada punto gastado en la Ventaja
+	- Comienzas el juego con dos lenguas propias.
