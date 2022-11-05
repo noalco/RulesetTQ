@@ -130,8 +130,8 @@ end</LUACode>
 	else
 		window.Informacion.setValue(Informacion.CadenasInfo["CabeceraErrores"]..sMensaje);
 	end
-	wPostWizard=Interface.openWindow("VentanaPostWizard", "");
-	PostWizard.GenerarMensaje(wPostWizard, window);
+--	wPostWizard=Interface.openWindow("VentanaPostWizard", "");
+--	PostWizard.GenerarMensaje(wPostWizard, window);
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
