@@ -1010,7 +1010,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"LineOffset"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
@@ -1032,8 +1032,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"204"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"26"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"501"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"94"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.BotonAtaque.setTooltipText(window.Habilidad.getValue());
@@ -1266,12 +1266,15 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	local sNodoChar=window.getDatabaseNode().getParent().getParent().getParent().getPath():match("charsheet%.(.+)");
+--	local sNodoChar=window.getDatabaseNode().getParent().getParent().getParent().getPath():match("charsheet%.(.+)");
 --	Debug.chat((not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil)
-	if (not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil then
+--	if (not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil then
 		window.PenalizacionPorFuerzaInsuficiente.Actualizar();
-		Combate.BlandirArma(window, "Derecha");
-	end
+--		Combate.BlandirArma(window, "Derecha");
+--	end
+--	window.BotonAtaque.Habilitar();
+--	window.BotonDanio.Habilitar();
+--	window.BotonEfecto.Habilitar();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1325,17 +1328,27 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	local sNodoChar=window.getDatabaseNode().getParent().getParent().getParent().getPath():match("charsheet%.(.+)");
+--	local sNodoChar=window.getDatabaseNode().getParent().getParent().getParent().getPath():match("charsheet%.(.+)");
 --	Debug.chat((not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil)
-	if (not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil then
+--	if (not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil then
 		window.PenalizacionPorFuerzaInsuficiente.Actualizar();
-		Combate.BlandirArma(window, "Izquierda");
+--		Combate.BlandirArma(window, "Izquierda");
 		if window.Habilidad.getValue()=="Escudo" and getValue()==0 then 
 			DB.setValue(window.getDatabaseNode(), "....Protecciones.BonoEscudo", "number", 0);
 		end
-	end
+--	end
+--	window.BotonAtaque.Habilitar();
+--	window.BotonDanio.Habilitar();
+--	window.BotonEfecto.Habilitar();
 end
-</LUACode>
+
+function onInit()
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", BlandirArmaIzq);
+end
+
+function BlandirArmaIzq(nodo)
+	Combate.BlandirArma(window, "Izquierda");
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
