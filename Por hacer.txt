@@ -51,4 +51,3 @@ Automatización Ventajas y Desventajas
 
 
 Post Wizard
-	- Comienzas el juego con dos lenguas propias.
