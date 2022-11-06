@@ -6,9 +6,7 @@ Sugerencias Psico y Eldarc:
 	
 - Bugs:
 			- Algo pasa con la equipación de las armas (creo que está solucionado)
-			- El DM no ve los nombres secundarios de las habilidades que crean los jugadores (creo que está solucionado)
 			- Al pasar de escudo a arma, no cambia la habilidad (creo que está solucionado)
-	- Algunos candados de las sidebar dan error al abrir la ventana siendo cliente (¿aquellos en los que no pueden editarlos los clientes?)
 
 General:
 	- Tooltips
@@ -42,7 +40,7 @@ Sidebars:
 
 	
 Wizard
-	- Cambiar que el máximo de ESP y MEN pueda ser 10 por especie y reparto
+
 	
 Automatización Ventajas y Desventajas
 			- Modificaciones a las armas (hecho, falta procesarlo al usar un arma)

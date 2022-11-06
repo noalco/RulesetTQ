@@ -759,7 +759,13 @@ end
 --	--elseif getValue()==Inventario.CteEquipado and window.ActivarDerecha.getValue()==0 then
 --		window.ManoIzquierda.setValue(1)
 --	end
-	DB.setValue(window.IDinventorylist.getValue()..".carried", "number", window.carried.getValue());
+	if Session.IsHost then
+		DB.setValue(window.IDinventorylist.getValue()..".carried", "number", window.carried.getValue());
+	else
+		if DB.getValue(window.IDinventorylist.getValue()..".carried", -1)~=-1 then
+			DB.setValue(window.IDinventorylist.getValue()..".carried", "number", window.carried.getValue());
+		end
+	end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1004,7 +1010,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"LineOffset"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
@@ -1026,8 +1032,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"488"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"94"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"204"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"26"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.BotonAtaque.setTooltipText(window.Habilidad.getValue());
@@ -1260,8 +1266,12 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.PenalizacionPorFuerzaInsuficiente.Actualizar();
-	Combate.BlandirArma(window, "Derecha");
+	local sNodoChar=window.getDatabaseNode().getParent().getParent().getParent().getPath():match("charsheet%.(.+)");
+--	Debug.chat((not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil)
+	if (not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil then
+		window.PenalizacionPorFuerzaInsuficiente.Actualizar();
+		Combate.BlandirArma(window, "Derecha");
+	end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1315,10 +1325,14 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.PenalizacionPorFuerzaInsuficiente.Actualizar();
-	Combate.BlandirArma(window, "Izquierda");
-	if window.Habilidad.getValue()=="Escudo" and getValue()==0 then 
-		DB.setValue(window.getDatabaseNode(), "....Protecciones.BonoEscudo", "number", 0);
+	local sNodoChar=window.getDatabaseNode().getParent().getParent().getParent().getPath():match("charsheet%.(.+)");
+--	Debug.chat((not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil)
+	if (not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil then
+		window.PenalizacionPorFuerzaInsuficiente.Actualizar();
+		Combate.BlandirArma(window, "Izquierda");
+		if window.Habilidad.getValue()=="Escudo" and getValue()==0 then 
+			DB.setValue(window.getDatabaseNode(), "....Protecciones.BonoEscudo", "number", 0);
+		end
 	end
 end
 </LUACode>

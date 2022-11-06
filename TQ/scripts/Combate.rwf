@@ -3,37 +3,43 @@
     <ScriptName>Combate</ScriptName>
     <FolderID>17</FolderID>
     <Script>function ActivarArma(nodoArma, sArmaEnDerecha, sArmaEnIzquierda)
-	local bDerecha=nodoArma.getName()==sArmaEnDerecha or sArmaEnDerecha=="";
-	local bIzquierda=nodoArma.getName()==sArmaEnIzquierda or sArmaEnIzquierda=="";
-	local sUsoArma=DB.getValue(nodoArma, "UsoArma", "");
-	local bEsEscudo=DB.getValue(nodoArma, "Habilidad", "")=="Escudo";
-	
-	if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteRangoUnaMano then
-		-- Armas a una mano
-		-- La derecha se activa si está libre, si el arma no es un escudo y si la izquierda no está ocupada
-		if bDerecha and not bEsEscudo and DB.getValue(nodoArma, "ManoIzquierda", 0)==0 then DB.setValue(nodoArma, "ActivarDerecha", "number", 1);
-		else DB.setValue(nodoArma, "ActivarDerecha", "number", 0);
-		end
+	local sNodoChar=nodoArma.getParent().getParent().getParent().getPath():match("charsheet%.(.+)");
+--	Debug.chat((not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil)
+	Debug.chat(nodoArma, sArmaEnDerecha, sArmaEnIzquierda, User.getIdentityOwner(sNodoChar)==nil)
+	if (not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil then
+		local bDerecha=nodoArma.getName()==sArmaEnDerecha or sArmaEnDerecha=="";
+		local bIzquierda=nodoArma.getName()==sArmaEnIzquierda or sArmaEnIzquierda=="";
+		local sUsoArma=DB.getValue(nodoArma, "UsoArma", "");
+		local bEsEscudo=DB.getValue(nodoArma, "Habilidad", "")=="Escudo";
+		
+		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteRangoUnaMano then
+			-- Armas a una mano
+			-- La derecha se activa si está libre, si el arma no es un escudo y si la izquierda no está ocupada
+--				Debug.chat(sArmaEnDerecha, sArmaEnIzquierda, bDerecha, bIzquierda, sUsoArma, bEsEscudo, DB.getValue(nodoArma, "ManoIzquierda", 0))
+			if bDerecha and not bEsEscudo and DB.getValue(nodoArma, "ManoIzquierda", 0)==0 then DB.setValue(nodoArma, "ActivarDerecha", "number", 1);
+			else DB.setValue(nodoArma, "ActivarDerecha", "number", 0);
+			end
 
-		-- La izquierda se activa si está libre y si la derecha no está ocupada
-		if bIzquierda and DB.getValue(nodoArma, "ManoDerecha", 0)==0 then DB.setValue(nodoArma, "ActivarIzquierda", "number", 1);
-		else DB.setValue(nodoArma, "ActivarIzquierda", "number", 0);
-		end
-	elseif sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteRango or sUsoArma==Inventario.CteArrojadizaDosManos then
-		-- Armas a dos manos
-		if bDerecha then
-			DB.setValue(nodoArma, "ActivarDerecha", "number", 1);
+			-- La izquierda se activa si está libre y si la derecha no está ocupada
+			if bIzquierda and DB.getValue(nodoArma, "ManoDerecha", 0)==0 then DB.setValue(nodoArma, "ActivarIzquierda", "number", 1);
+			else DB.setValue(nodoArma, "ActivarIzquierda", "number", 0);
+			end
+		elseif sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteRango or sUsoArma==Inventario.CteArrojadizaDosManos then
+			-- Armas a dos manos
+			if bDerecha then
+				DB.setValue(nodoArma, "ActivarDerecha", "number", 1);
+			else
+				DB.setValue(nodoArma, "ActivarDerecha", "number", 0);
+			end
+			if bIzquierda then
+				DB.setValue(nodoArma, "ActivarIzquierda", "number", 1);
+			else
+				DB.setValue(nodoArma, "ActivarIzquierda", "number", 0);
+			end
 		else
 			DB.setValue(nodoArma, "ActivarDerecha", "number", 0);
-		end
-		if bIzquierda then
-			DB.setValue(nodoArma, "ActivarIzquierda", "number", 1);
-		else
 			DB.setValue(nodoArma, "ActivarIzquierda", "number", 0);
 		end
-	else
-		DB.setValue(nodoArma, "ActivarDerecha", "number", 0);
-		DB.setValue(nodoArma, "ActivarIzquierda", "number", 0);
 	end
 end
 
