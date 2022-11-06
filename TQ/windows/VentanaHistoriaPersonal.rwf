@@ -136,7 +136,7 @@ end
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Descripción Física"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Historia Personal"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
