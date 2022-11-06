@@ -170,8 +170,6 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"415"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.Deidad.setVisible(getValue()~="");
-	window.LabelDeidad.setVisible(getValue()~="");
 	local sLabels=""; local sValues="";
 	if CharWizard.bQuitarRestricciones then -- Sin restricciones
 		sValues, sLabels=Religion.GenerarStrinCycles(getStringValue());
@@ -183,6 +181,8 @@ end
 			end
 		end
 	end
+	window.Deidad.setVisible(getValue()~="" and sLabels~="");
+	window.LabelDeidad.setVisible(getValue()~="" and sLabels~="");
 
 	window.Deidad.setStringValue("");
 	window.Deidad.initialize(sLabels, sValues, "", "");
@@ -196,7 +196,7 @@ end
 
 function ComprobarCorrecto()
 	ChequeoPJ.PartesCompletadas["Profesión"].ErrorCultoProfesion=not ChequeoPJ.bSinReligion and isVisible() and (getValue()=="" or getValue()==nil);
-	ChequeoPJ.PartesCompletadas["Profesión"].ErrorDeidadProfesion=not ChequeoPJ.bSinReligion and isVisible() and (window.Deidad.getValue()=="" or window.Deidad.getValue()==nil);
+	ChequeoPJ.PartesCompletadas["Profesión"].ErrorDeidadProfesion=not ChequeoPJ.bSinReligion and isVisible() and window.Deidad.isVisible() and (window.Deidad.getValue()=="" or window.Deidad.getValue()==nil);
 end
 
 function onInit()
@@ -2547,7 +2547,7 @@ end
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Culto al que asignas la Lealtad extra."}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Religión a la que asignas la Lealtad extra."}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -6130,23 +6130,23 @@ end
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"VentanaWizardProfesion"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DataSource"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"674"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"455"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"440"}},
       {"Name":"Disabled"},
       {"Name":"Dynamic"},
-      {"Name":"FrameName"},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"HostControl"},
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"Invisible"},
       {"Name":"Locked"},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
+      {"Name":"MaximumHeight","Value":{"@xsi:type":"xsd:int","#text":"455"}},
+      {"Name":"MaximumWidth","Value":{"@xsi:type":"xsd:int","#text":"440"}},
       {"Name":"MergeWindow"},
       {"Name":"MinimizedIcon"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
+      {"Name":"MinimumHeight","Value":{"@xsi:type":"xsd:int","#text":"455"}},
+      {"Name":"MinimumWidth","Value":{"@xsi:type":"xsd:int","#text":"440"}},
       {"Name":"NoClose"},
       {"Name":"NoDelete"},
       {"Name":"NoMove"},

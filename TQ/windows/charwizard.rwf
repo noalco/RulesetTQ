@@ -49,7 +49,7 @@
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"395"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"378"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"20"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
@@ -119,7 +119,7 @@ end</LUACode>
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"755"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"757"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"20"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
@@ -186,7 +186,7 @@ end</LUACode>
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"575"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"558"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"20"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
@@ -252,7 +252,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"485"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"468"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"20"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
@@ -264,6 +264,254 @@ end
 	window.BotonPP.setFrame("buttonup");
 end
 </LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>charwizard</WindowName>
+    <ControlName>BotonReset</ControlName>
+    <ZIndex>22</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string","#text":"Limpiar"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonReset"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"80"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"buttonup"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"PressedIconName"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"667"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"20"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	window.onClose();
+	window.NombrePJ.setValue("");
+	window.QuitarRestricciones.setValue(0);
+	window.BotonEstadisticas.onButtonPress();
+	window.BotonProfesion.setVisible(false);
+	window.BotonPP.setVisible(false);
+	
+	window.SubventanaWizardCaracteristicas.subwindow.SeleccionEspecie.setValue("Humano");
+	window.SubventanaWizardCaracteristicas.subwindow.LinkEtnia.setValue(nil, nil);
+	window.SubventanaWizardCaracteristicas.subwindow.NombreEtnia.setValue("");
+	window.SubventanaWizardCaracteristicas.subwindow.Edad.setValue(21);
+	window.SubventanaWizardCaracteristicas.subwindow.PPEtnia.setValue(0);
+	window.SubventanaWizardCaracteristicas.subwindow.HabilidadDeCultura.setStringValue("");
+	window.SubventanaWizardCaracteristicas.subwindow.HabilidadDeCultura.setVisible(false);
+	window.SubventanaWizardCaracteristicas.subwindow.ArtesaniaEtnia.setStringValue("");
+	window.SubventanaWizardCaracteristicas.subwindow.ArtesaniaEtnia.setVisible(false);
+	window.SubventanaWizardCaracteristicas.subwindow.IdiomaCultura.setStringValue("");
+	window.SubventanaWizardCaracteristicas.subwindow.IdiomaCultura.setVisible(false);
+	window.SubventanaWizardCaracteristicas.subwindow.SeleccionMetodo.setValue("Repartiendo valores");
+	window.SubventanaWizardCaracteristicas.subwindow.PtosDisponibles.setValue(19);
+	window.SubventanaWizardCaracteristicas.subwindow.BaseCuerpo.setValue(3);
+	window.SubventanaWizardCaracteristicas.subwindow.BaseMente.setValue(3);
+	window.SubventanaWizardCaracteristicas.subwindow.BaseEspiritu.setValue(3);
+	window.SubventanaWizardCaracteristicas.subwindow.BaseAtractivo.setValue(0);
+	window.SubventanaWizardCaracteristicas.subwindow.BaseTamanio.setValue(0);
+	window.SubventanaWizardCaracteristicas.subwindow.MaxCuerpo.setValue(9);
+	window.SubventanaWizardCaracteristicas.subwindow.MaxAtractivo.setValue(3);
+	window.SubventanaWizardCaracteristicas.subwindow.MaxTamanioEdad.setValue(4);
+	window.SubventanaWizardCaracteristicas.subwindow.MaxTamanioEtnia.setValue(4);
+	
+	window.SubventanaWizardProfesion.subwindow.LinkProfesion.setValue(nil, nil);
+	window.SubventanaWizardProfesion.subwindow.NombreProfesion.setValue("");
+	window.SubventanaWizardProfesion.subwindow.PPProfesion.setValue(0);
+	window.SubventanaWizardProfesion.subwindow.NumArmas.setValue(0);
+	window.SubventanaWizardProfesion.subwindow.LabelArma1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.TipoArma1.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.TipoArma1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadPr1.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadPr1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadCC1.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadCC1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelArma2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.TipoArma2.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.TipoArma2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadPr2.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadPr2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadCC2.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadCC2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelArma3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.TipoArma3.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.TipoArma3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadPr3.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadPr3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadCC3.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadCC3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelArma4.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.TipoArma4.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.TipoArma4.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadPr4.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadPr4.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadCC4.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadCC4.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.NumIdiomas.setValue(0);
+	window.SubventanaWizardProfesion.subwindow.LabelIdioma1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.SeleccionIdioma1.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.SeleccionIdioma1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelIdioma2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.SeleccionIdioma2.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.SeleccionIdioma2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelIdioma3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.SeleccionIdioma3.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.SeleccionIdioma3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelIdioma4.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.SeleccionIdioma4.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.SeleccionIdioma4.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.NumArtesanias.setValue(0);
+	window.SubventanaWizardProfesion.subwindow.LabelArtesania1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.SeleccionArtesania1.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.SeleccionArtesania1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelArtesania2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.SeleccionArtesania2.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.SeleccionArtesania2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelArtesania3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.SeleccionArtesania3.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.SeleccionArtesania3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelArtesania4.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.SeleccionArtesania4.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.SeleccionArtesania4.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelCulto.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.BotonAyudaCulto.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.Culto.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.Culto.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelDeidad.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.Deidad.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.Deidad.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelCultoLealtad.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.CultoLealtad.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.CultoLealtad.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelArmaCulto1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.TipoArmaCulto1.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.TipoArmaCulto1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadPrCulto1.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadPrCulto1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadCCCulto1.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadCCCulto1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelArmaCulto2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.TipoArmaCulto2.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.TipoArmaCulto2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadPrCulto2.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadPrCulto2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadCCCulto2.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadCCCulto2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelArtesaniaCulto.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.SeleccionArtesaniaCulto.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.SeleccionArtesaniaCulto.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelIdiomaCulto.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.SeleccionIdiomaCulto.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.SeleccionIdiomaCulto.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelEspecialidad.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.BotonAyudaEspecialidad.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.Especialidad.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.Especialidad.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelIdiomaEspecialidad.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.IdiomaEspecialidad.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.IdiomaEspecialidad.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.NumVerbos.setValue(0);
+	window.SubventanaWizardProfesion.subwindow.NumEsferas.setValue(0);
+	window.SubventanaWizardProfesion.subwindow.LabelVerbo1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.Verbo1.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.Verbo1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelEsfera1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.Esfera1.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.Esfera1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelVerbo2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.Verbo2.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.Verbo2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelEsfera2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.Esfera2.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.Esfera2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelVerbo3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.Verbo3.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.Verbo3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelEsfera3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.Esfera3.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.Esfera3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.NumHabilidadesMagicas.setValue(0);
+	window.SubventanaWizardProfesion.subwindow.LabelHabilidadMagica1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.TipoHabilidadMagica1.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.TipoHabilidadMagica1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadMagica1.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadMagica1.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelHabilidadMagica2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.TipoHabilidadMagica2.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.TipoHabilidadMagica2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadMagica2.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadMagica2.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.LabelHabilidadMagica3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.TipoHabilidadMagica3.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.TipoHabilidadMagica3.setVisible(false);
+	window.SubventanaWizardProfesion.subwindow.HabilidadMagica3.setStringValue("");
+	window.SubventanaWizardProfesion.subwindow.HabilidadMagica3.setVisible(false);
+		
+	window.SubventanaWizardPP.subwindow.LinkVentajaEtnia.setValue(nil, nil);
+	window.SubventanaWizardPP.subwindow.NombreVentajaEtnia.setValue("");
+	window.SubventanaWizardPP.subwindow.LinkVentajaProfesion.setValue(nil, nil);
+	window.SubventanaWizardPP.subwindow.NombreVentajaProfesion.setValue("");
+	window.SubventanaWizardPP.subwindow.LinkVentDesv1.setValue(nil, nil);
+	window.SubventanaWizardPP.subwindow.NombreVentDesv1.setValue("");
+	window.SubventanaWizardPP.subwindow.ValorVentDesv1.setValue(0);
+	window.SubventanaWizardPP.subwindow.CantidadVentDesv1.setValue(1);
+	window.SubventanaWizardPP.subwindow.LinkVentDesv2.setValue(nil, nil);
+	window.SubventanaWizardPP.subwindow.NombreVentDesv2.setValue("");
+	window.SubventanaWizardPP.subwindow.ValorVentDesv2.setValue(0);
+	window.SubventanaWizardPP.subwindow.CantidadVentDesv2.setValue(1);
+	window.SubventanaWizardPP.subwindow.LinkVentDesv3.setValue(nil, nil);
+	window.SubventanaWizardPP.subwindow.NombreVentDesv3.setValue("");
+	window.SubventanaWizardPP.subwindow.ValorVentDesv3.setValue(0);
+	window.SubventanaWizardPP.subwindow.CantidadVentDesv3.setValue(1);
+	window.SubventanaWizardPP.subwindow.LinkVentDesv4.setValue(nil, nil);
+	window.SubventanaWizardPP.subwindow.NombreVentDesv4.setValue("");
+	window.SubventanaWizardPP.subwindow.ValorVentDesv4.setValue(0);
+	window.SubventanaWizardPP.subwindow.CantidadVentDesv4.setValue(1);
+	window.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.ALealtades.setValue(0);
+	window.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.ANoProfesion.setValue(0);
+	window.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.LealtadLey.setValue(0);
+	window.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.LealtadCaos.setValue(0);
+	window.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.LealtadElementos.setValue(0);
+	window.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.LealtadAntepasados.setValue(0);
+	
+	window.Mensajes.setValue("");
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -756,10 +1004,10 @@ end
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
       {"Name":"TextUnderlined"},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Activar esta opción permite saltarse las restricciones de creación del Personaje. Actívala solamente con el permiso de tu Director de Juego. Una vez activada esta opción, tendrás que cerrar el Asistente para desactivarla."}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Activar esta opción permite saltarse las restricciones de creación del Personaje. Actívala solamente con el permiso de tu Director de Juego. Una vez activada esta opción, desactivarla limpiará el Asistente."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"510"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"688"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"54"}}
 ]}}</Definition>
     <LUACode />
@@ -1010,16 +1258,17 @@ end</LUACode>
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"489"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"667"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"54"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	CharWizard.bQuitarRestricciones=getValue()==1;
 	if getValue()==1 then
 		Herramientas.Mensaje(User.getUsername().." ha desactivado las restricciones del Asistende de Creación de Personajes.", "msgfont", "", false, User.getUsername());
-		setReadOnly(true);
+--		setReadOnly(true);
 	else
 		Herramientas.Mensaje(User.getUsername().." ha activado las restricciones del Asistende de Creación de Personajes.", "msgfont", "", false, User.getUsername());
+		window.BotonReset.onButtonPress();
 	end
 end
 </LUACode>
@@ -1262,10 +1511,10 @@ end
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"MaximumHeight"},
+      {"Name":"MaximumHeight","Value":{"@xsi:type":"xsd:int","#text":"455"}},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
+      {"Name":"MinimumHeight","Value":{"@xsi:type":"xsd:int","#text":"455"}},
       {"Name":"MinimumWidth"},
       {"Name":"NextTabTarget"},
       {"Name":"NoScroll"},

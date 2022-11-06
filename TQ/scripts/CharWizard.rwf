@@ -314,9 +314,9 @@ function onClose()
 	ParseoProfesiones.ResetearHabilidadesProfesion();
 	ParseoVentDesv.ResetarVentDesv();
 	ChequeoPJ.ResetearCheck();
-	if CharWizard.bQuitarRestricciones then
-		Herramientas.Mensaje(User.getUsername().." ha reactivado las restricciones del Asistende de Creación de Personajes.", "msgfont", "", false, User.getUsername());
-	end
+--	if CharWizard.bQuitarRestricciones then
+--		Herramientas.Mensaje(User.getUsername().." ha reactivado las restricciones del Asistende de Creación de Personajes.", "msgfont", "", false, User.getUsername());
+--	end
 	CharWizard.bQuitarRestricciones=false;
 end
 </Script>

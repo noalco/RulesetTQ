@@ -3471,6 +3471,10 @@ end
     <LUACode>function onValueChanged()
 	window.BaseAtractivo.setMaxValue(getValue())
 end
+
+function onInit()
+	onValueChanged()
+end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -3535,6 +3539,10 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.BaseCuerpo.setMaxValue(getValue())
+end
+
+function onInit()
+	onValueChanged()
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -4159,7 +4167,7 @@ function onValueChanged()
 	
 	vVentana=window.parentcontrol.window.SubventanaWizardProfesion.subwindow.NombreProfesion;
 	if vVentana.getValue() and vVentana.getValue()~="" then
-		vVentana.GestionCulto()
+		vVentana.GestionCulto();
 	end;
 end
 </LUACode>
@@ -5072,12 +5080,12 @@ end
       {"Name":"InheritSizePosition"},
       {"Name":"Invisible"},
       {"Name":"Locked"},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
+      {"Name":"MaximumHeight","Value":{"@xsi:type":"xsd:int","#text":"455"}},
+      {"Name":"MaximumWidth","Value":{"@xsi:type":"xsd:int","#text":"440"}},
       {"Name":"MergeWindow"},
       {"Name":"MinimizedIcon"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
+      {"Name":"MinimumHeight","Value":{"@xsi:type":"xsd:int","#text":"455"}},
+      {"Name":"MinimumWidth","Value":{"@xsi:type":"xsd:int","#text":"440"}},
       {"Name":"NoClose"},
       {"Name":"NoDelete"},
       {"Name":"NoMove"},
