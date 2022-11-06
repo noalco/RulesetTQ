@@ -1270,11 +1270,11 @@ end
 --	Debug.chat((not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil)
 --	if (not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil then
 		window.PenalizacionPorFuerzaInsuficiente.Actualizar();
---		Combate.BlandirArma(window, "Derecha");
+		Combate.BlandirArma(window, "Derecha");
 --	end
---	window.BotonAtaque.Habilitar();
---	window.BotonDanio.Habilitar();
---	window.BotonEfecto.Habilitar();
+	window.BotonAtaque.Habilitar();
+	window.BotonDanio.Habilitar();
+	window.BotonEfecto.Habilitar();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1331,24 +1331,25 @@ end
 --	local sNodoChar=window.getDatabaseNode().getParent().getParent().getParent().getPath():match("charsheet%.(.+)");
 --	Debug.chat((not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil)
 --	if (not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil then
+--	if Session.IsHost then
 		window.PenalizacionPorFuerzaInsuficiente.Actualizar();
---		Combate.BlandirArma(window, "Izquierda");
+		Combate.BlandirArma(window, "Izquierda");
 		if window.Habilidad.getValue()=="Escudo" and getValue()==0 then 
 			DB.setValue(window.getDatabaseNode(), "....Protecciones.BonoEscudo", "number", 0);
 		end
 --	end
---	window.BotonAtaque.Habilitar();
---	window.BotonDanio.Habilitar();
---	window.BotonEfecto.Habilitar();
+	window.BotonAtaque.Habilitar();
+	window.BotonDanio.Habilitar();
+	window.BotonEfecto.Habilitar();
 end
 
-function onInit()
-	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", BlandirArmaIzq);
-end
-
-function BlandirArmaIzq(nodo)
-	Combate.BlandirArma(window, "Izquierda");
-end</LUACode>
+--function onInit()
+--	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", BlandirArmaIzq);
+--end
+--
+--function BlandirArmaIzq(nodo)
+--	Combate.BlandirArma(window, "Izquierda");
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

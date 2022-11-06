@@ -7,6 +7,7 @@
 --	Debug.chat((not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil)
 --	Debug.chat(nodoArma, sArmaEnDerecha, sArmaEnIzquierda, User.getIdentityOwner(sNodoChar)==nil)
 --	if (not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil then
+	if Session.IsHost then
 		local bDerecha=nodoArma.getName()==sArmaEnDerecha or sArmaEnDerecha=="";
 		local bIzquierda=nodoArma.getName()==sArmaEnIzquierda or sArmaEnIzquierda=="";
 		local sUsoArma=DB.getValue(nodoArma, "UsoArma", "");
@@ -15,7 +16,6 @@
 		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteRangoUnaMano then
 			-- Armas a una mano
 			-- La derecha se activa si está libre, si el arma no es un escudo y si la izquierda no está ocupada
-				Debug.chat("ActivarArma", DB.getValue(nodoArma, "ManoIzquierda", 0))
 			if bDerecha and not bEsEscudo and DB.getValue(nodoArma, "ManoIzquierda", 0)==0 then DB.setValue(nodoArma, "ActivarDerecha", "number", 1);
 			else DB.setValue(nodoArma, "ActivarDerecha", "number", 0);
 			end
@@ -40,7 +40,7 @@
 			DB.setValue(nodoArma, "ActivarDerecha", "number", 0);
 			DB.setValue(nodoArma, "ActivarIzquierda", "number", 0);
 		end
---	end
+	end
 end
 
 function ActivarArmas(window)
