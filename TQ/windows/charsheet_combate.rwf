@@ -56,11 +56,12 @@
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"691"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"69"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
+    <LUACode>function ActivarArmas(nodo)
 	Combate.ActivarArmas(window);
 end
 
 function onInit()
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", ActivarArmas);
 	Combate.ActivarArmas(window);
 end
 </LUACode>
@@ -124,8 +125,12 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"555"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"70"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
+    <LUACode>function ActivarArmas(nodo)
 	Combate.ActivarArmas(window);
+end
+
+function onInit()
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", ActivarArmas);
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -189,12 +194,13 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"692"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"27"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
+    <LUACode>function ActualizarBonoAtaqueCombinado(nodo)
 	Combate.AsignarBonoAtaqueCombinado(window);
 end
 
 function onInit()
-	Combate.AsignarBonoAtaqueCombinado(window);
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", ActualizarBonoAtaqueCombinado);
+	ActualizarBonoAtaqueCombinado();
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -257,12 +263,12 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"556"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"25"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
+    <LUACode>function ActualizarBonoAtaqueCombinado(nodo)
 	Combate.AsignarBonoAtaqueCombinado(window);
 end
 
 function onInit()
-	Combate.AsignarBonoAtaqueCombinado(window);
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", ActualizarBonoAtaqueCombinado);
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -736,8 +742,8 @@ end</LUACode>
       {"Name":"WindowListClassName","Value":{"@xsi:type":"xsd:string","#text":"ArmaBase"}},
       {"Name":"WindowListFilterBy","Value":{"@xsi:type":"FilterByDefinition","FilterSourceType":"Control","FilterOnSourceType":"Control"}},
       {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition","SortByDefinition":{"Descending":{"@xsi:nil":"true"},"SourceType":"Control","SourceName":"name"}}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"34"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"18"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"32"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>

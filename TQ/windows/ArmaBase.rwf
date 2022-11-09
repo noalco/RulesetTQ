@@ -46,13 +46,14 @@
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"410"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"37"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
+    <LUACode>function MostrarMano(nodo)
 	window.ManoDerecha.setEnabled(getValue()==1);
 	window.ManoDerecha.setVisible(getValue()==1);
 end
 
 function onInit()
-	onValueChanged();
+	MostrarMano();
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", MostrarMano);
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -105,13 +106,14 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"387"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"36"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
+    <LUACode>function MostrarMano(nodo)
 	window.ManoIzquierda.setEnabled(getValue()==1);
 	window.ManoIzquierda.setVisible(getValue()==1);
 end
 
 function onInit()
-	onValueChanged();
+	MostrarMano();
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", MostrarMano);
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -237,9 +239,10 @@ end
 	addSourceWithOp("PenalizacionPorFuerzaInsuficiente", "+");
 		
 	super.onInit();
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", ActualizarBonoAtaque);
 end
 
-function onValueChanged()
+function ActualizarBonoAtaque(nodo)
 	if window.ManoIzquierda.getValue()==1 and window.ManoDerecha.getValue()==1 then
 		Combate.BlandirArma(window, "Izquierda");
 		Combate.BlandirArma(window, "Derecha");
@@ -370,7 +373,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"524"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"523"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
     <LUACode />
@@ -747,25 +750,15 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"409"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
---	if getValue()==Inventario.CteEquipado and window.ActivarIzquierda.getValue()==0 and window.ActivarDerecha.getValue()==0 then
---		setValue(Inventario.CteDesequipado);
---	elseif getValue()==Inventario.CteDesequipado then --and window.ManoIzquierda.getValue()==1 then
---		window.ManoIzquierda.setValue(0)
---	--elseif getValue()==Inventario.CteDesequipado and window.ManoDerecha.getValue()==1 then
---		window.ManoDerecha.setValue(0)
---	elseif getValue()==Inventario.CteEquipado then --and window.ActivarDerecha.getValue()==1 then
---		window.ManoDerecha.setValue(1)
---	--elseif getValue()==Inventario.CteEquipado and window.ActivarDerecha.getValue()==0 then
---		window.ManoIzquierda.setValue(1)
---	end
-	if Session.IsHost then
-		DB.setValue(window.IDinventorylist.getValue()..".carried", "number", window.carried.getValue());
-	else
-		if DB.getValue(window.IDinventorylist.getValue()..".carried", -1)~=-1 then
-			DB.setValue(window.IDinventorylist.getValue()..".carried", "number", window.carried.getValue());
-		end
+    <LUACode>function CambiarEquipado(nodo)
+	Debug.chat(getValue())
+	if DB.getValue(window.IDinventorylist.getValue()..".carried", -1)~=-1 then
+		DB.setValue(window.IDinventorylist.getValue()..".carried", "number", getValue());
 	end
+end
+
+function onInit()
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", CambiarEquipado);
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -968,8 +961,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"463"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"226"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"461"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"225"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.PenalizacionPorFuerzaInsuficiente.Actualizar()
@@ -1265,16 +1258,16 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"390"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
---	local sNodoChar=window.getDatabaseNode().getParent().getParent().getParent().getPath():match("charsheet%.(.+)");
---	Debug.chat((not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil)
---	if (not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil then
-		window.PenalizacionPorFuerzaInsuficiente.Actualizar();
-		Combate.BlandirArma(window, "Derecha");
---	end
+    <LUACode>function BlandirArma(nodo)
+	window.PenalizacionPorFuerzaInsuficiente.Actualizar();
+	Combate.BlandirArma(window, "Derecha");
 	window.BotonAtaque.Habilitar();
 	window.BotonDanio.Habilitar();
 	window.BotonEfecto.Habilitar();
+end
+
+function onInit()
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", BlandirArma);
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1327,29 +1320,21 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"371"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
---	local sNodoChar=window.getDatabaseNode().getParent().getParent().getParent().getPath():match("charsheet%.(.+)");
---	Debug.chat((not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil)
---	if (not Session.IsHost) or Session.IsHost and User.getIdentityOwner(sNodoChar)==nil then
---	if Session.IsHost then
-		window.PenalizacionPorFuerzaInsuficiente.Actualizar();
-		Combate.BlandirArma(window, "Izquierda");
-		if window.Habilidad.getValue()=="Escudo" and getValue()==0 then 
-			DB.setValue(window.getDatabaseNode(), "....Protecciones.BonoEscudo", "number", 0);
-		end
---	end
+    <LUACode>function BlandirArma(nodo)
+	window.PenalizacionPorFuerzaInsuficiente.Actualizar();
+	Combate.BlandirArma(window, "Izquierda");
+	if window.Habilidad.getValue()=="Escudo" and getValue()==0 then 
+		DB.setValue(window.getDatabaseNode(), "....Protecciones.BonoEscudo", "number", 0);
+	end
 	window.BotonAtaque.Habilitar();
 	window.BotonDanio.Habilitar();
 	window.BotonEfecto.Habilitar();
 end
 
---function onInit()
---	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", BlandirArmaIzq);
---end
---
---function BlandirArmaIzq(nodo)
---	Combate.BlandirArma(window, "Izquierda");
---end</LUACode>
+function onInit()
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", BlandirArma);
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -2015,8 +2000,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"98"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"31"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"89"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"43"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -2080,7 +2065,7 @@ end
 	end
 end
 
-function onValueChanged()
+function CambiarUsoArma(nodo)
 	if DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteUnaMano or DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteArrojadiza then
 		window.ModDanio.setValue(window.Mod1M.getValue());
 	elseif DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteDosManos or DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteArrojadizaDosManos then
@@ -2090,13 +2075,13 @@ function onValueChanged()
 	end
 	window.ManoIzquierda.setValue(0);
 	window.ManoDerecha.setValue(0);
-	Combate.ActivarArma(window.getDatabaseNode(), DB.getValue(window.getDatabaseNode(), "...ArmaEnDerecha", ""), DB.getValue(window.getDatabaseNode(), "...ArmaEnIzquierda", ""));
+--	Combate.ActivarArma(window.getDatabaseNode(), DB.getValue(window.getDatabaseNode(), "...ArmaEnDerecha", ""), DB.getValue(window.getDatabaseNode(), "...ArmaEnIzquierda", ""));
 end
 
 function onInit()
-	--onValueChanged();
 	super.onInit();
 	Combate.ActivarArma(window.getDatabaseNode(), DB.getValue(window.getDatabaseNode(), "...ArmaEnDerecha", ""), DB.getValue(window.getDatabaseNode(), "...ArmaEnIzquierda", ""));
+	DB.addHandler(window.getDatabaseNode().getChild("UsoArma").getPath(), "onUpdate", CambiarUsoArma);
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

@@ -52,12 +52,16 @@
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"295"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
+    <LUACode>function CambiarEquipado(nodo)
 	Inventario.CalcularPesoTotal(window);
 	Inventario.EquiparObjetoDefensivo(window);
 	local sRuta=DB.getValue(window.getDatabaseNode(), "IDListaArmas", "");
-	if sRuta~="" then DB.setValue(sRuta..".carried", "number", getValue()); end
+--	if sRuta~="" then DB.setValue(sRuta..".carried", "number", getValue()); end
 	--Inventario.ProcesarArmasEquipadas(window.getDatabaseNode().getParent().getParent().getChild("Inventario"));
+end
+
+function onInit()
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", CambiarEquipado);
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

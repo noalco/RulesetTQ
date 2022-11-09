@@ -195,7 +195,7 @@ function BonoHabilidadAtaque(nodoArmas, sHabilidad, sUsoArma)
 
 	sHabilidad=string.lower(sHabilidad);
 	local sNombre; local nAgilidad=0; local nTecnica=0;
-	if sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos or sUsoArma==CteArrojadiza  or sUsoArma==CteArrojadizaDosManos or sUsoArma==CteUnaDosManos then sClave="Arma CC";
+	if sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos or sUsoArma==CteArrojadiza  or sUsoArma==CteArrojadizaDosManos then sClave="Arma CC";
 	elseif sUsoArma==CteRango or sUsoArma==CteRangoUnaMano then sClave="Arma Pr";
 	end
 	
@@ -276,8 +276,24 @@ function ModificarArma(window)
 		local nodoArmaAModificar = DB.getChild(DB.getValue(window.getDatabaseNode(), "IDListaArmas", ""));
 		
 		DB.setValue(nodoArmaAModificar, "name", "string", DB.getValue(window.getDatabaseNode(), "name", ""));
-		local sHabilidad=DB.getValue(window.getDatabaseNode(), "Habilidad", "");
+--		local sHabilidad=DB.getValue(window.getDatabaseNode(), "Habilidad", "");
+		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
+		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteUnaDosManos then
+			if DB.getValue(window.getDatabaseNode(), "TipoObjeto", "")==CteEscudo then
+				sHabilidad="Escudo";
+				DB.setValue(nodoArmaAModificar, "ActivarDerecha", "number", 0);
+			else
+				sHabilidad=DB.getValue(window.getDatabaseNode(), "HabilidadCC", "");
+			end
+		elseif sUsoArma==Inventario.CteRango or sUsoArma==Inventario.CteRangoUnaMano then
+			sHabilidad=DB.getValue(window.getDatabaseNode(), "HabilidadPr", "");
+		elseif sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
+			sHabilidad=DB.getValue(window.getDatabaseNode(), "HabilidadAr", "");
+		end
 		DB.setValue(nodoArmaAModificar, "Habilidad", "string", sHabilidad);
+		DB.setValue(nodoArmaAModificar, "Secundario", "string", sHabilidad);
+		Debug.chat(sHabilidad);
+		
 		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
 		DB.setValue(nodoArmaAModificar, "UsoArma", "string", sUsoArma);
 
