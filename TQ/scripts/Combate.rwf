@@ -218,15 +218,16 @@ function ObtenerBonoArma(sMano, sRuta, bEsAtacante)
 	end
 end
 
-function ObtenerTirada(sMano, sRuta)
+function ObtenerAtaque(sMano, sRuta)
 	if sMano and sRuta and (sMano=="Derecha" or sMano=="Izquierda") and sRuta:match("(charsheet%.id%-%d*)") then
 		sRuta=sRuta:match("(charsheet%.id%-%d*)");
-		local sCadena="";
-		if DB.getValue(sRuta..".PuntosDeVida.Debilitado", 0)==1 then
-			sCadena="1d6!";
-		else
-			sCadena="1d10!";
-		end;
+		local sCadena="1d"..DB.getValue(sRuta..".LabelDado", 10).."!";
+--		if DB.getValue(sRuta..".PuntosDeVida.Debilitado", 0)==1 then
+--			sCadena="1d6!";
+--		else
+--			sCadena="1d10!";
+--		end;
+		
 
 		local nBonoTotalAtacante=ObtenerBonoArma(sMano, sRuta, true);
 		
@@ -239,6 +240,70 @@ function ObtenerTirada(sMano, sRuta)
 		end;
 	else
 		return "1d10!";
+	end;
+end
+
+sMensajeDanio="";
+
+function ObtenerDanio(sMano, sRuta)
+	if sMano and sRuta and (sMano=="Derecha" or sMano=="Izquierda") and sRuta:match("(charsheet%.id%-%d*)") then
+		sRuta=sRuta:match("(charsheet%.id%-%d*)");
+		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
+		
+		local sDanioDados="";
+		local tDados={["d2"]=0, ["d3"]=0, ["d4"]=0, ["d6"]=0, ["d8"]=0, ["d10"]=0, ["d12"]=0, ["d20"]=0, ["d100"]=0, ["dF"]=0};
+		for _,v in pairs(DB.getValue(sRutaArma..".DanioDados", "")) do
+			tDados[v]=tDados[v]+1;
+		end
+		
+		for k,v in pairs(tDados) do
+			if v&gt;0 then
+				if sDanioDados=="" then
+					sDanioDados=v..k;
+				else
+					sDanioDados=sDanioDados.."+"..v..k;
+				end
+			end
+		end
+		Debug.chat(sDanioDados);
+				
+		local nBonoDanio=DB.getValue(sRutaArma..".BonoDanio", "");
+		if sDanioDados=="" then
+			sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..nBonoDanio.."]";
+		else
+			if nBonoDanio&gt;0 then
+				sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..sDanioDados.."+"..nBonoDanio.."]";
+			elseif nBonoDanio&lt;0 then
+				sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..sDanioDados.."-"..nBonoDanio.."]";
+			else
+				sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..nBonoDanio.."]";
+			end
+		end
+		
+		
+		local sUsoArma=DB.getValue(sRutaArma..".UsoArma", "");
+		local nModDanio=0;
+		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza then 
+			nModDanio=DB.getValue(sRuta..".FortunaModDanio.ModDanio1M", 0);
+			if nModDanio~=0 then sMensajeDanio=sMensajeDanio.." [Mod. Daño 1M: "..nModDanio.."]"; end
+		elseif sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteArrojadizaDosManos then
+			nModDanio=DB.getValue(sRuta..".FortunaModDanio.ModDanio2M", 0);
+			if nModDanio~=0 then sMensajeDanio=sMensajeDanio.." [Mod. Daño 2M: "..nModDanio.."]"; end
+		end
+
+		nBonoDanio=nBonoDanio+nModDanio;
+		
+		if nBonoDanio&gt;0 then
+			sCadena=sDanioDados.."+"..nBonoDanio;
+		elseif nBonoDanio&lt;0 then
+			sCadena=sDanioDados.."-"..nBonoDanio;
+		else
+			sCadena=sDanioDados;
+		end
+		
+		return sCadena;
+	else
+		return "0";
 	end;
 end</Script>
     <RegisterScript>true</RegisterScript>
