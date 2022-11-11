@@ -3217,7 +3217,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"Invisible"},
       {"Name":"LinkFieldAllowDrop","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"LinkFieldClass","Value":{"@xsi:type":"xsd:string","#text":"VentanaEtniaSidebar"}},
       {"Name":"LinkFieldDescriptionField","Value":{"@xsi:type":"xsd:string","#text":"name"}},

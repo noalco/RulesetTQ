@@ -32,6 +32,30 @@ end
 
 function ObtenerVentana(sVentana, sNodoDatos)
 	return Interface.findWindow(sVentana, sNodoDatos);
+end
+
+function ObtenerVentanaPpal(sRuta)
+	if sRuta then
+		Debug.chat(sRuta)
+		sRuta=sRuta:match("(charsheet%.id%-%d*)");
+		if sRuta then
+			return Interface.findWindow("charsheet", sRuta);
+		end
+		return nil;
+	end
+	return nil;
+end
+
+function ObtenerSubVentanaPpal(sRuta, sVentana)
+	if sRuta and sVentana then
+		local w=ObtenerVentanaPpal(sRuta);
+		if w then
+			return w[sVentana].subwindow;
+		else
+			return nil;
+		end
+	end
+	return nil;
 end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding>UTF-8</Encoding>

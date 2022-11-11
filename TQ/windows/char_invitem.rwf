@@ -289,6 +289,10 @@ function onValueChanged()
 		end;
 	end
 
+
+	if nTipoObjeto==Inventario.CteArma or nTipoObjeto==Inventario.CteEscudo then
+		Combate.CrearListas(getDatabaseNode().getPath(), getValue());
+	end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
