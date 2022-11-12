@@ -55,13 +55,39 @@
     <LUACode>function CambiarEquipado(nodo)
 	Inventario.CalcularPesoTotal(window);
 	Inventario.EquiparObjetoDefensivo(window);
-	local sRuta=DB.getValue(window.getDatabaseNode(), "IDListaArmas", "");
---	if sRuta~="" then DB.setValue(sRuta..".carried", "number", getValue()); end
-	--Inventario.ProcesarArmasEquipadas(window.getDatabaseNode().getParent().getParent().getChild("Inventario"));
+
+	local nTipoObjeto=DB.getValue(window.getDatabaseNode(), "TipoObjeto", Inventario.CteObjeto);
+	if nTipoObjeto==Inventario.CteArma or nTipoObjeto==Inventario.CteEscudo then
+		Combate.CrearListas(getDatabaseNode().getPath(), getValue());
+		local sRutaArmaCombate=DB.getValue(window.getDatabaseNode(), "IDListaArmas", "");
+		DB.setValue(sRutaArmaCombate..".carried", "number", getValue());
+	end
 end
 
 function onInit()
 	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", CambiarEquipado);
+end
+
+function onClickRelease(button, x, y)
+	local sTipoObjeto=DB.getValue(window.getDatabaseNode(), "TipoObjeto", Inventario.CteObjeto);
+	if sTipoObjeto==Inventario.CteArma or sTipoObjeto==Inventario.CteEscudo then
+		if getValue()==Inventario.CteEquipado then
+			local sRutaArmaCombate=DB.getValue(window.getDatabaseNode(), "IDListaArmas", "");
+			local sRuta=window.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)")
+			if DB.getValue(sRutaArmaCombate..".ManoDerecha", 0)==1 then
+				DB.setValue(sRuta..".Inventario.ListaArmaDerecha", "string", "");
+				DB.setValue(sRuta..".ListaArmaDerechavalue", "string", "");
+				DB.setValue(sRutaArmaCombate..".ManoDerecha", "number", 0);
+			end
+			if DB.getValue(sRutaArmaCombate..".ManoIzquierda", 0)==1 then
+				DB.setValue(sRuta..".Inventario.ListaArmaIzquierda", "string", "");
+				DB.setValue(sRuta..".ListaArmaIzquierdavalue", "string", "");
+				DB.setValue(sRutaArmaCombate..".ManoIzquierda", "number", 0);
+			end
+		elseif getValue()==Inventario.CteCargado then
+			setValue(Inventario.CteEquipado)
+		end
+	end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -272,13 +298,7 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"60"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"4"}}
 ]}}</Definition>
-    <LUACode>--function onValueChanged()
---	if DB.getValue(window.getDatabaseNode(), "TipoObjeto", Inventario.CteObjeto)==Inventario.CteArma then
---		Inventario.ModificarArma(window);
---	end;
---end
-
-function onValueChanged()
+    <LUACode>function onValueChanged()
 	local nTipoObjeto=DB.getValue(window.getDatabaseNode(), "TipoObjeto", Inventario.CteObjeto);
 	if nTipoObjeto==Inventario.CteArma or nTipoObjeto==Inventario.CteEscudo then
 		Inventario.ModificarArma(window);
@@ -288,7 +308,6 @@ function onValueChanged()
 			DB.setValue(window.getDatabaseNode(), "...Protecciones.Armadura", "string", getValue());
 		end;
 	end
-
 
 	if nTipoObjeto==Inventario.CteArma or nTipoObjeto==Inventario.CteEscudo then
 		Combate.CrearListas(getDatabaseNode().getPath(), getValue());

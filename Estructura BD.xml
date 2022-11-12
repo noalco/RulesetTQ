@@ -194,42 +194,22 @@
 				</slotX>
 			</coins>
 			<ListaArmaDerechavalue/>
+			<ListaArmaIzquierdavalue/>
 			<Inventario>
 				<Estorbo/>
-				<BonoDerecha/>
-				<ArmaEnDerecha/>
-				<BonoIzquierda/>
-				<ArmaEnIzquierda/>
+				<ListaArmaDerecha/>
+				<ListaArmaIzquierda/>
 				<Armas>
 					<Link/>
 					<name/>
 					<UsoArma/>
 						<UnaDosManos/>
-					<BonoAtaque/>
-						<BonoHabilidadAtaque/>
-						<Habilidad/>
-						<Secundario/>
-						<TieneHabilidad/>
-						<BonoAtaqueArma/>
-						<PenalizacionPorFuerzaInsuficiente/>
-						<FuerzaMinima/>
-					<BonoCombinando2Armas/>
-					<Danio/>
-						<BonoDanio/>
-						<ModDanio/>
 					<TipoArma/>
-						<TipoArma2/>
-					<LongAlc/>
 					<ManoDerecha/>
-						<ActivarDerecha/>
 					<ManoIzquierda/>
-						<ActivarIzquierda/>
 					<IDinventorylist/>
 					<carried/>
 				</Armas>
-
-
-				<ListaArmaDerecha/>
 			</Inventario>
 			<Notas>
 				<Edad/>

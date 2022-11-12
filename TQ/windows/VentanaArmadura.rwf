@@ -470,7 +470,7 @@ end</LUACode>
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"-3/-2","Value":"-3/-2"},{"Label":"-1/+1","Value":"-1/+1"},{"Label":"+2/+3","Value":"+2/+3"},{"Label":"4","Value":"4"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"-3/-2","Value":"-3/-2"},{"Label":"-1/+1","Value":"-1/+1"},{"Label":"+2/+3","Value":"+2/+3"},{"Label":"+4","Value":"+4"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},

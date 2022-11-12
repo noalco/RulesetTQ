@@ -172,14 +172,13 @@ end
 function EquiparObjetoDefensivo(window)
 	local nEstado=DB.getValue(window.getDatabaseNode(), "carried", 0);
 	local nTipoObjeto=DB.getValue(window.getDatabaseNode(), "TipoObjeto", -1);
-	if nTipoObjeto~=CteObjeto and nTipoObjeto~=CteArma then
-		--Debug.chat(nEstado, nTipoObjeto);
+	if nTipoObjeto==CteArmadura or nTipoObjeto==CteYelmo or nTipoObjeto==CteEscudo then
 		if nEstado==CteDesequipado then -- pasa de equipado a desequipado: simplemente desequipar
 			if nTipoObjeto==CteArmadura then QuitarArmadura(window);
 			elseif nTipoObjeto==CteYelmo then QuitarYelmo(window);
 			elseif nTipoObjeto==CteEscudo then QuitarEscudo(window);
 			end
-		elseif nEstado==CteEquipado and nTipoObjeto~=CteArma then -- equipar y desequipar el objeto del mismo tippo que estuviera equipado
+		elseif nEstado==CteEquipado then -- equipar y desequipar el objeto del mismo tippo que estuviera equipado
 			DesequiparObjetoDefensivoEquipado(window, nTipoObjeto);
 			if nTipoObjeto==CteArmadura and nEstado==CteEquipado then AniadirArmadura(window);
 			elseif nTipoObjeto==CteYelmo and nEstado==CteEquipado then AniadirYelmo(window);
@@ -231,6 +230,18 @@ function CrearArma(window)
 			DB.setValue(nodoNuevaArma, "UsoArma", "string", sUsoArma);
 			DB.setValue(nodoNuevaArma, "UnaDosManos", "number", 0);
 		end
+
+		if DB.getValue(window.getDatabaseNode(), "TipoObjeto", 0)==CteArma then
+			if sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos then
+				DB.setValue(window.getDatabaseNode(), "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadCC", ""));
+			elseif sUsoArma==CteArrojaduza or sUsoArma==CteArrojadizaDosManos then
+				DB.setValue(window.getDatabaseNode(), "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadAr", ""));
+			elseif sUsoArma==CteRango or sUsoArma==CteRangoUnaMano then
+				DB.setValue(window.getDatabaseNode(), "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadPr", ""));
+			end
+		else
+			DB.setValue(window.getDatabaseNode(), "Habilidad", "string", "Escudo");
+		end
 		
 		local sValor=DB.getValue(window.getDatabaseNode(), "TipoArma", "");
 		if string.len(sValor)==2 then
@@ -257,7 +268,6 @@ function ModificarArma(window)
 			DB.setValue(nodoArmaAModificar, "UsoArma", "string", sUsoArma);
 			DB.setValue(nodoArmaAModificar, "UnaDosManos", "number", 0);
 		end
---		DB.setValue(nodoArmaAModificar, "TipoArma", "string", DB.getValue(window.getDatabaseNode(), "TipoArma", ""));
 
 		local sValor=DB.getValue(window.getDatabaseNode(), "TipoArma", "");
 		if string.len(sValor)==2 then

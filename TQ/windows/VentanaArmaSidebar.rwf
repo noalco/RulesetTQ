@@ -173,7 +173,11 @@
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"98"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"30"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>
+function onValueChanged()
+	Debug.chat(DB.isReadOnly(getDatabaseNode()))
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -401,11 +405,7 @@
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"98"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"210"}}
 ]}}</Definition>
-    <LUACode>--function onValueChanged()
---	Inventario.ModificarArma(window);
---end
---
-function onInit()
+    <LUACode>function onInit()
 	setVisible(DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteArrojadiza or DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteArrojadizaDosManos);
 	
 	super.onInit();
@@ -619,7 +619,7 @@ end</LUACode>
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Daño/Especial"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Daño"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},

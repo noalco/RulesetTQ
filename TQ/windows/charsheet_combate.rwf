@@ -2,7 +2,7 @@
   <WindowControls>
     <WindowName>charsheet_combate</WindowName>
     <ControlName>carried_header</ControlName>
-    <ZIndex>9</ZIndex>
+    <ZIndex>7</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -312,7 +312,7 @@
   <WindowControls>
     <WindowName>charsheet_combate</WindowName>
     <ControlName>LabelArmaDerecha</ControlName>
-    <ZIndex>28</ZIndex>
+    <ZIndex>10</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -364,7 +364,7 @@
   <WindowControls>
     <WindowName>charsheet_combate</WindowName>
     <ControlName>LabelArmaIzquierda</ControlName>
-    <ZIndex>29</ZIndex>
+    <ZIndex>11</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -416,7 +416,7 @@
   <WindowControls>
     <WindowName>charsheet_combate</WindowName>
     <ControlName>ListaArmaDerecha</ControlName>
-    <ZIndex>20</ZIndex>
+    <ZIndex>8</ZIndex>
     <ControlClass>FGComboBox</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -469,11 +469,21 @@
     <LUACode>function onValueChanged()
 	local sSelectedValue=getSelectedValue();
 	for _,w in pairs (window.ListaArmas.getWindows()) do
-		if w.IDinventorylist.getValue()==sSelectedValue then w.ManoDerecha.setValue(1);
-		else w.ManoDerecha.setValue(0);
+		if w.IDinventorylist.getValue()==sSelectedValue then
+			w.ManoDerecha.setValue(1);
+			w.carried.setValue(Inventario.CteEquipado);
+			DB.setValue(w.IDinventorylist.getValue()..".carried", "number", Inventario.CteEquipado);
+		else
+			w.ManoDerecha.setValue(0);
+			if w.ManoIzquierda.getValue()==0 and w.carried.getValue()==Inventario.CteEquipado then
+				w.carried.setValue(Inventario.CteCargado);
+				DB.setValue(w.IDinventorylist.getValue()..".carried", "number", Inventario.CteCargado);
+			end
 		end;
 	end
 end
+
+
 
 function CrearLista(sText, wNodoArma)
 	Combate.CrearLista("Derecha", self, sText, wNodoArma);
@@ -491,7 +501,7 @@ end
   <WindowControls>
     <WindowName>charsheet_combate</WindowName>
     <ControlName>ListaArmaIzquierda</ControlName>
-    <ZIndex>21</ZIndex>
+    <ZIndex>9</ZIndex>
     <ControlClass>FGComboBox</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -544,8 +554,19 @@ end
     <LUACode>function onValueChanged()
 	local sSelectedValue=getSelectedValue();
 	for _,w in pairs (window.ListaArmas.getWindows()) do
-		if w.IDinventorylist.getValue()==sSelectedValue then w.ManoIzquierda.setValue(1);
-		else w.ManoIzquierda.setValue(0);
+		if w.IDinventorylist.getValue()==sSelectedValue then
+			w.ManoIzquierda.setValue(1);
+			w.carried.setValue(Inventario.CteEquipado);
+			DB.setValue(w.IDinventorylist.getValue()..".carried", "number", Inventario.CteEquipado);
+		else
+			w.ManoIzquierda.setValue(0);
+			if w.ManoDerecha.getValue()==0 and w.carried.getValue()==Inventario.CteEquipado then
+				w.carried.setValue(Inventario.CteCargado);
+				DB.setValue(w.IDinventorylist.getValue()..".carried", "number", Inventario.CteCargado);
+				if DB.getValue(w.IDinventorylist.getValue()..".TipoObjeto", Inventario.CteObjeto)==Inventario.CteEscudo then
+					DB.setValue(window.getDatabaseNode(), "Protecciones.BonoEscudo", "number", 0);
+				end
+			end
 		end;
 	end
 end

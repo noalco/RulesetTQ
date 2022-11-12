@@ -19,7 +19,8 @@ function CrearLista(sMano, ListaArma, sText, sPathArma)
 		ListaArma.clear();
 		ListaArma.add("", "");
 		for _,nodoArma in pairs(DB.getChildren(ListaArma.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)")..".inventorylist")) do
-			if DB.getValue(nodoArma, "TipoObjeto", 0)==Inventario.CteArma or DB.getValue(nodoArma, "TipoObjeto", 0)==Inventario.CteEscudo and sMano=="Izquierda" then
+			local nCargado=DB.getValue(nodoArma, "carried", Inventario.CteDesequipado);
+			if (DB.getValue(nodoArma, "TipoObjeto", 0)==Inventario.CteArma or DB.getValue(nodoArma, "TipoObjeto", 0)==Inventario.CteEscudo and sMano=="Izquierda") and (nCargado==Inventario.CteEquipado or nCargado==Inventario.CteCargado) then
 				DB.setValue(nodoArma, "Espacios", "string", "");
 				local name=DB.getValue(nodoArma, "name", "");
 				if aEspacios[name] then
