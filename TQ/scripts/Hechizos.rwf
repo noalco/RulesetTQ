@@ -110,11 +110,7 @@ end
 
 function ActualizarBonosHechizos(window)
 	local TotalesVerbosEsferas=ObtenerTotalesVerbosEsferas(window.getDatabaseNode().getParent().getParent())
---	Debug.chat("------------");
---	for clave,valor in pairs (TotalesVerbosEsferas) do
---		Debug.chat(clave, valor);
---	end
-	
+
 	local nMin=10000;
 	local sTexto=""
 	local sSintaxis="";
@@ -132,6 +128,12 @@ function ActualizarBonosHechizos(window)
 				if TotalesVerbosEsferas[string.sub(DB.getValue(nodoHechizo, "Verbo", ""), 1, 3)]&lt;nMin then
 					nMin=TotalesVerbosEsferas[string.sub(DB.getValue(nodoHechizo, "Verbo", ""), 1, 3)];
 					sTexto=DB.getValue(nodoHechizo, "Verbo", "");
+				end
+			end
+			if DB.getValue(nodoHechizo, "YVerbo", "")~="" then
+				if TotalesVerbosEsferas[string.sub(DB.getValue(nodoHechizo, "YVerbo", ""), 1, 3)]&lt;nMin then
+					nMin=TotalesVerbosEsferas[string.sub(DB.getValue(nodoHechizo, "YVerbo", ""), 1, 3)];
+					sTexto=DB.getValue(nodoHechizo, "YVerbo", "");
 				end
 			end
 			if DB.getValue(nodoHechizo, "Esfera", "")~="" then
@@ -162,7 +164,8 @@ function ActualizarSuma(nodoLista, sLista)
 	if sLista=="ListaVerbos" then DB.setValue(nodoLista.getParent(), "TotalVerbos", "number", nTotal);
 	else DB.setValue(nodoLista.getParent(), "TotalEsferas", "number", nTotal);
 	end
-end</Script>
+end
+</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding>UTF-8</Encoding>
   </Scripts>

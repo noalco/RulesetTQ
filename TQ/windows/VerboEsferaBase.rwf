@@ -432,7 +432,6 @@ end
 ]}}</Definition>
     <LUACode>function onInit()
 	addSourceWithOp("....BaseHabilidades.Hechiceria", "+");
---	addSourceWithOp("...ModMagia", "+");
 	addSourceWithOp("Bono", "+");
 	super.onInit();
 end
@@ -441,7 +440,9 @@ function onValueChanged()
 	Hechizos.ActualizarBonosHechizos(window);
 	window.Experiencia.onValueChanged();
 end
-</LUACode>
+
+-- Cambiar el cálculo de la cadena de lanzamiento para que no salga bono+bonomagia
+-- Cambiar el mensaje para añadir el bono de magia</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

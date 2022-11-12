@@ -799,7 +799,6 @@ end</LUACode>
 	DB.setValue(window.getDatabaseNode(), "...BonoCeremonia", "number", 0);
 end
 
-
 function onInit()
 	window.LanzarHechizo.setTooltipText(window.HabilidadLanzamiento.getValue());	
 end

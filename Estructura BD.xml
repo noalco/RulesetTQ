@@ -350,6 +350,7 @@
 					<Duracion/>
 					<OtraDuracion/>
 					<Verbo/>
+					<YVerbo/>
 					<Esfera/>
 					<EnEsfera/>
 					<LabelDuracion/>
