@@ -193,9 +193,9 @@ function ObtenerDanio(sMano, sRuta)
 			if nBonoDanio&gt;0 then
 				sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..sDanioDados.."+"..nBonoDanio.."]";
 			elseif nBonoDanio&lt;0 then
-				sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..sDanioDados.."-"..nBonoDanio.."]";
+				sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..sDanioDados..nBonoDanio.."]";
 			else
-				sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..nBonoDanio.."]";
+				sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..sDanioDados.."]";
 			end
 		end
 		

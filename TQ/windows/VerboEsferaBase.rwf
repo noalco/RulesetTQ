@@ -390,7 +390,7 @@ end
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"1d{....LabelDado}! + {self} + {...ModMagia}","DiceRollDescription":"[{Nombre}]","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerTirada()}","DiceRollDescription":"{@self.ObtenerMensaje}","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"DisplaySign"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -442,7 +442,38 @@ function onValueChanged()
 end
 
 -- Cambiar el cálculo de la cadena de lanzamiento para que no salga bono+bonomagia
--- Cambiar el mensaje para añadir el bono de magia</LUACode>
+-- Cambiar el mensaje para añadir el bono de magia
+
+--	1d{....LabelDado}! + {self} + {...ModMagia}
+function ObtenerTirada()
+	local nLabelDado=DB.getValue(window.getDatabaseNode(), "....LabelDado", 10);
+	local nBono=getValue();
+	local nBonoMagia=DB.getValue(window.getDatabaseNode(), "...ModMagia", 0);
+	Debug.chat(nBono, nBonoMagia);
+	if nBono+nBonoMagia&gt;0 then
+		local sCadena="1d"..nLabelDado.."!+"..nBono+nBonoMagia;
+		Debug.chat(sCadena)
+		return sCadena; 
+	elseif nBono+nBonoMagia&lt;0 then
+		local sCadena="1d"..nLabelDado.."!"..nBono+nBonoMagia;
+		Debug.chat(sCadena)
+		return sCadena;
+	else
+		local sCadena="1d"..nLabelDado.."!";
+		Debug.chat(sCadena)
+		return sCadena;
+	end
+end
+
+function ObtenerMensaje()
+--	[{Nombre}]
+	local nBonoMagia=DB.getValue(getDatabaseNode(), "...ModMagia", 0);
+	if nBonoMagia~=0 then
+		return window.Nombre.getValue().." [Mod. Magia: "..nBonoMagia.."]"
+	else
+		return window.Nombre.getValue()
+	end
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
