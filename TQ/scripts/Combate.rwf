@@ -77,7 +77,7 @@ function ObtenerBonoArma(sMano, sRuta, bEsAtacante)
 
 		local sHabilidad=DB.getValue(sRutaArma..".Habilidad", "");
 		if sHabilidad=="" then
-			if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteUnaDosManos or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
+			if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
 				sHabilidad="Agilidad";
 			else
 				sHabilidad="Tecnica";
@@ -114,13 +114,13 @@ function ObtenerBonoArma(sMano, sRuta, bEsAtacante)
 		local nBonoGeneralArmas=0;
 		if sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
 			nBonoGeneralArmas=DB.getValue(sRuta..".Habilidades.ModArmasAr", 0);
-			if bEsAtacante and nBonoGeneralArmas~=0 then sMensajeAtaque=sMensajeAtaque.." [Armas Arrojadizas: "..nBonoGeneralArmas.."]"; end
+			if bEsAtacante and nBonoGeneralArmas~=0 then sMensajeAtaque=sMensajeAtaque.." [Mod. Armas Arrojadizas: "..nBonoGeneralArmas.."]"; end
 		elseif sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteUnaDosManos or sUsoArma==Inventario.CteDosManos then
 			nBonoGeneralArmas=DB.getValue(sRuta..".Habilidades.ModArmasCC", 0);
-			if bEsAtacante and nBonoGeneralArmas~=0 then sMensajeAtaque=sMensajeAtaque.." [Armas CC: "..nBonoGeneralArmas.."]"; end
+			if bEsAtacante and nBonoGeneralArmas~=0 then sMensajeAtaque=sMensajeAtaque.." [Mod. Armas CC: "..nBonoGeneralArmas.."]"; end
 		elseif sUsoArma==Inventario.CteRangoUnaMano or sUsoArma==Inventario.CteRango then
 			nBonoGeneralArmas=DB.getValue(sRuta..".Habilidades.ModArmasPr", 0);
-			if bEsAtacante and nBonoGeneralArmas~=0 then sMensajeAtaque=sMensajeAtaque.." [Armas de Proyectiles: "..nBonoGeneralArmas.."]"; end
+			if bEsAtacante and nBonoGeneralArmas~=0 then sMensajeAtaque=sMensajeAtaque.." [Mod. Armas de Proyectiles: "..nBonoGeneralArmas.."]"; end
 		end		
 
 		return nBonoAtaqueArma+nPenFuerza+nBonoHabilidad+nBonoGeneralArmas;
@@ -214,12 +214,14 @@ function ObtenerDanio(sMano, sRuta)
 		if nBonoDanio&gt;0 then
 			sCadena=sDanioDados.."+"..nBonoDanio;
 		elseif nBonoDanio&lt;0 then
-			sCadena=sDanioDados.."-"..nBonoDanio;
+			sCadena=sDanioDados..nBonoDanio;
 		else
 			sCadena=sDanioDados;
 		end
 		
-		sMensajeDanio=sMensajeDanio.." ["..TipoDanio[tonumber(DB.getValue(sRutaArmaCombate..".TipoArma", "1"))].."]";
+		if DB.getValue(sRutaArmaCombate..".TipoArma", "1")~="" then
+			sMensajeDanio=sMensajeDanio.." ["..TipoDanio[tonumber(DB.getValue(sRutaArmaCombate..".TipoArma", "1"))].."]";
+		end
 		
 		if sCadena=="" then sCadena="0"; end
 		return sCadena;

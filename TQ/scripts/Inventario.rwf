@@ -31,6 +31,7 @@ CteRangoUnaMano="6";
 CteRango="3";
 CteArrojadiza="4";
 CteArrojadizaDosManos="7";
+CteUnaManoArrojadiza="8";
 
 function CalcularPesoTotal(window)
 	nPesoTotal=0; local nCount; local nCarried; local nWeight; local nMult;
@@ -223,18 +224,18 @@ function CrearArma(window)
 		DB.setValue(nodoNuevaArma, "carried", "number", CteCargado);
 
 		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
-		if sUsoArma==CteUnaDosManos then
+		if sUsoArma==CteUnaDosManos or sUsoArma==CteUnaManoArrojadiza then
 			DB.setValue(nodoNuevaArma, "UsoArma", "string", CteUnaMano);
-			DB.setValue(nodoNuevaArma, "UnaDosManos", "number", 1);
+--			DB.setValue(nodoNuevaArma, "UnaDosManos", "number", 1);
 		else
 			DB.setValue(nodoNuevaArma, "UsoArma", "string", sUsoArma);
-			DB.setValue(nodoNuevaArma, "UnaDosManos", "number", 0);
+--			DB.setValue(nodoNuevaArma, "UnaDosManos", "number", 0);
 		end
 
 		if DB.getValue(window.getDatabaseNode(), "TipoObjeto", 0)==CteArma then
 			if sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos then
 				DB.setValue(window.getDatabaseNode(), "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadCC", ""));
-			elseif sUsoArma==CteArrojaduza or sUsoArma==CteArrojadizaDosManos then
+			elseif sUsoArma==CteArrojaduza or sUsoArma==CteArrojadizaDosManos or sUsoArma==CteUnaManoArrojadiza then
 				DB.setValue(window.getDatabaseNode(), "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadAr", ""));
 			elseif sUsoArma==CteRango or sUsoArma==CteRangoUnaMano then
 				DB.setValue(window.getDatabaseNode(), "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadPr", ""));
@@ -261,12 +262,12 @@ function ModificarArma(window)
 		DB.setValue(nodoArmaAModificar, "carried", "number", DB.getValue(window.getDatabaseNode(), "carried", CteCargado));
 
 		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
-		if sUsoArma==CteUnaDosManos then
+		if sUsoArma==CteUnaDosManos or sUsoArma==CteUnaManoArrojadiza then
 			DB.setValue(nodoArmaAModificar, "UsoArma", "string", CteUnaMano);
-			DB.setValue(nodoArmaAModificar, "UnaDosManos", "number", 1);
+--			DB.setValue(nodoArmaAModificar, "UnaDosManos", "number", 1);
 		else
 			DB.setValue(nodoArmaAModificar, "UsoArma", "string", sUsoArma);
-			DB.setValue(nodoArmaAModificar, "UnaDosManos", "number", 0);
+--			DB.setValue(nodoArmaAModificar, "UnaDosManos", "number", 0);
 		end
 
 		local sValor=DB.getValue(window.getDatabaseNode(), "TipoArma", "");

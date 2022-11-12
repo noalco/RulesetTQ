@@ -5,8 +5,7 @@ Sugerencias Psico y Eldarc:
 	- Cambiar la duración de los conjuros a desplegable o ciclo y, si se mostrara otra duración, q muestre el campo numérico
 	
 - Bugs:
-			- Algo pasa con la equipación de las armas (creo que está solucionado)
-			- Al pasar de escudo a arma, no cambia la habilidad (creo que está solucionado)
+
 
 General:
 	- Tooltips
@@ -21,8 +20,11 @@ Habilidades:
 Inventario
 	- Botón identificar en los objetos
 	- El botón lock de los items no bloquea los encantamientos. Además, hace cosas raras al bloquear-cerrar-abrir con los campos estándar
+	- Tag descripción
+			- Armas 1M/Ar (a la espera de que Eldarc revise las peculiaridades de estas armas)
 
 Personalidad:
+
 
 Combate:
 
@@ -43,9 +45,6 @@ Wizard
 
 	
 Automatización Ventajas y Desventajas
-			- Modificaciones a las armas (hecho, falta procesarlo al usar un arma)
-				- Resta -2 ... así como al uso de armas arrojadizas y de proyectiles
-				- sufres un modificador negativo de -1 al uso de armas arrojadizas y de proyectiles
 
 
 Post Wizard

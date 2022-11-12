@@ -390,7 +390,7 @@ end
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"35"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerTirada()}","DiceRollDescription":"{@self.ObtenerMensaje}","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerTirada()}","DiceRollDescription":"{@self.ObtenerMensaje()}","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"DisplaySign"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -449,25 +449,18 @@ function ObtenerTirada()
 	local nLabelDado=DB.getValue(window.getDatabaseNode(), "....LabelDado", 10);
 	local nBono=getValue();
 	local nBonoMagia=DB.getValue(window.getDatabaseNode(), "...ModMagia", 0);
-	Debug.chat(nBono, nBonoMagia);
 	if nBono+nBonoMagia&gt;0 then
-		local sCadena="1d"..nLabelDado.."!+"..nBono+nBonoMagia;
-		Debug.chat(sCadena)
-		return sCadena; 
+		return "1d"..nLabelDado.."!+"..nBono+nBonoMagia;
 	elseif nBono+nBonoMagia&lt;0 then
-		local sCadena="1d"..nLabelDado.."!"..nBono+nBonoMagia;
-		Debug.chat(sCadena)
-		return sCadena;
+		return "1d"..nLabelDado.."!"..nBono+nBonoMagia;
 	else
-		local sCadena="1d"..nLabelDado.."!";
-		Debug.chat(sCadena)
-		return sCadena;
+		return "1d"..nLabelDado.."!";
 	end
 end
 
 function ObtenerMensaje()
 --	[{Nombre}]
-	local nBonoMagia=DB.getValue(getDatabaseNode(), "...ModMagia", 0);
+	local nBonoMagia=DB.getValue(window.getDatabaseNode(), "...ModMagia", 0);
 	if nBonoMagia~=0 then
 		return window.Nombre.getValue().." [Mod. Magia: "..nBonoMagia.."]"
 	else
