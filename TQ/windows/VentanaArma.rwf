@@ -49,9 +49,9 @@
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"98"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"180"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
-	Inventario.ModificarArma(window);
-end</LUACode>
+    <LUACode>--function onValueChanged()
+--	Inventario.ModificarArma(window);
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -113,9 +113,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"98"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"150"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
-	Inventario.ModificarArma(window);
-end</LUACode>
+    <LUACode>--function onValueChanged()
+--	Inventario.ModificarArma(window);
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -177,9 +177,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"98"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"30"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
-	Inventario.ModificarArma(window);
-end</LUACode>
+    <LUACode>--function onValueChanged()
+--	Inventario.ModificarArma(window);
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -291,9 +291,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"103"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"65"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
-	Inventario.ModificarArma(window);
-end</LUACode>
+    <LUACode>--function onValueChanged()
+--	Inventario.ModificarArma(window);
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -416,9 +416,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"98"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"120"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
-	Inventario.ModificarArma(window);
-end</LUACode>
+    <LUACode>--function onValueChanged()
+--	Inventario.ModificarArma(window);
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -534,14 +534,19 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"210"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.Habilidad.setValue(window.HabilidadAr.getValue());
-	Inventario.ModificarArma(window);
+	window.Habilidad.setValue(getValue());
+--	Inventario.ModificarArma(window);
 end
 
 function onInit()
-	setVisible(DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteArrojadiza);
+	sUsoArma=DB.getValue(window.getDatabaseNode(), "UsoArma", "");
+	setVisible(sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos);
 	
 	super.onInit();
+end
+
+function onVisibilityChanged()
+	if isVisible() then window.Habilidad.setValue(getValue()); end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -597,8 +602,8 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"210"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.Habilidad.setValue(window.HabilidadCC.getValue());
-	Inventario.ModificarArma(window);
+	window.Habilidad.setValue(getValue());
+--	Inventario.ModificarArma(window);
 end
 
 function onInit()
@@ -606,6 +611,10 @@ function onInit()
 	setVisible(sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteUnaDosManos);
 	
 	super.onInit();
+end
+
+function onVisibilityChanged()
+	if isVisible() then window.Habilidad.setValue(getValue()); end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -662,14 +671,19 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"210"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.Habilidad.setValue(window.HabilidadPr.getValue());
-	Inventario.ModificarArma(window);
+	window.Habilidad.setValue(getValue());
+--	Inventario.ModificarArma(window);
 end
 
 function onInit()
-	setVisible(DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteRango);
+	sUsoArma=DB.getValue(window.getDatabaseNode(), "UsoArma", "");
+	setVisible(sUsoArma==Inventario.CteRangoUnaMano or sUsoArma==Inventario.CteRango);
 	
 	super.onInit();
+end
+
+function onVisibilityChanged()
+	if isVisible() then window.Habilidad.setValue(getValue()); end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -1380,9 +1394,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"98"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"180"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
-	Inventario.ModificarArma(window);
-end</LUACode>
+    <LUACode>--function onValueChanged()
+--	Inventario.ModificarArma(window);
+--end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

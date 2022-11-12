@@ -645,7 +645,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
     <LUACode>function onClickRelease(button, x, y)
-	sValor=DB.getValue(window.IDinventorylist.getValue()..".TipoArma", "");
+	local sValor=DB.getValue(window.IDinventorylist.getValue()..".TipoArma", "");
 	if sValor~="" and string.len(sValor)==2 then
 		if DB.getValue(window.getDatabaseNode(), "TipoArma", "")==string.sub(sValor, 1, 1) then
 			DB.setValue(window.getDatabaseNode(), "TipoArma", "string", string.sub(sValor, 2, 2));

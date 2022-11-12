@@ -2,101 +2,7 @@
   <Scripts>
     <ScriptName>Combate</ScriptName>
     <FolderID>17</FolderID>
-    <Script>function ActivarArma(nodoArma, sArmaEnDerecha, sArmaEnIzquierda)
-	local bDerecha=nodoArma.getName()==sArmaEnDerecha or sArmaEnDerecha=="";
-	local bIzquierda=nodoArma.getName()==sArmaEnIzquierda or sArmaEnIzquierda=="";
-	local sUsoArma=DB.getValue(nodoArma, "UsoArma", "");
-	local bEsEscudo=DB.getValue(nodoArma, "TipoObjeto", "")==Inventario.CteEscudo;
-
---	Debug.chat(nodoArma, sArmaEnDerecha, sArmaEnIzquierda, bDerecha, bIzquierda, bEsEscudo, sUsoArma, DB.getValue(nodoArma, "ManoIzquierda", 0), DB.getValue(nodoArma, "ManoDerecha", 0));
-	
-	if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteRangoUnaMano or sUsoArma==Inventario.CteUnaDosManos then
-		-- Armas a una mano
-		-- La derecha se activa si está libre, si el arma no es un escudo y si la izquierda no está ocupada
-		if bDerecha and not bEsEscudo and DB.getValue(nodoArma, "ManoIzquierda", 0)==0 then DB.setValue(nodoArma, "ActivarDerecha", "number", 1);
-		else DB.setValue(nodoArma, "ActivarDerecha", "number", 0);
-		end
-
-		-- La izquierda se activa si está libre y si la derecha no está ocupada
-		if bIzquierda and DB.getValue(nodoArma, "ManoDerecha", 0)==0 then DB.setValue(nodoArma, "ActivarIzquierda", "number", 1);
-		else DB.setValue(nodoArma, "ActivarIzquierda", "number", 0);
-		end
-	elseif sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteRango or sUsoArma==Inventario.CteArrojadizaDosManos then
-		-- Armas a dos manos
-		if bDerecha then
-			DB.setValue(nodoArma, "ActivarDerecha", "number", 1);
-		else
-			DB.setValue(nodoArma, "ActivarDerecha", "number", 0);
-		end
-		if bIzquierda then
-			DB.setValue(nodoArma, "ActivarIzquierda", "number", 1);
-		else
-			DB.setValue(nodoArma, "ActivarIzquierda", "number", 0);
-		end
-	else
-		DB.setValue(nodoArma, "ActivarDerecha", "number", 0);
-		DB.setValue(nodoArma, "ActivarIzquierda", "number", 0);
-	end
-end
-
-function ActivarArmas(window)
-	for _,nodoArma in pairs (window.getDatabaseNode().getChild("Inventario").getChild("Armas").getChildren()) do
-		ActivarArma(nodoArma, window.ArmaEnDerecha.getValue(), window.ArmaEnIzquierda.getValue())
-	end
-end
-
-function AsignarBonoAtaqueCombinado(window)
-	local sIDArmaIzquierda=window.ArmaEnIzquierda.getValue();
-	local sIDArmaDerecha=window.ArmaEnDerecha.getValue();
-	--local nValor=math.min(window.BonoDerecha.getValue(), window.BonoIzquierda.getValue())+DB.getValue(window.getDatabaseNode().getChild("Inventario").getChild("Armas").getChild(sIDArmaIzquierda), "BonoAtaqueArma", 0);
-	local nValor=math.min(window.BonoDerecha.getValue(), window.BonoIzquierda.getValue());
-	if window.ArmaEnIzquierda.getValue()~="" then
-		--DB.setValue(window.getDatabaseNode().getChild("Inventario").getChild("Armas").getChild(sIDArmaIzquierda), "BonoCombinando2Armas", "number", nValor+DB.getValue(window.getDatabaseNode().getChild("Inventario").getChild("Armas").getChild(sIDArmaIzquierda), "PenalizacionPorFuerzaInsuficiente", 0));	end
-		DB.setValue(window.getDatabaseNode().getChild("Inventario").getChild("Armas").getChild(sIDArmaIzquierda), "BonoCombinando2Armas", "number", nValor);
-	end
-	if window.ArmaEnDerecha.getValue()~="" then
-		--DB.setValue(window.getDatabaseNode().getChild("Inventario").getChild("Armas").getChild(sIDArmaDerecha), "BonoCombinando2Armas", "number", nValor+DB.getValue(window.getDatabaseNode().getChild("Inventario").getChild("Armas").getChild(sIDArmaDerecha), "PenalizacionPorFuerzaInsuficiente", 0));
-		DB.setValue(window.getDatabaseNode().getChild("Inventario").getChild("Armas").getChild(sIDArmaDerecha), "BonoCombinando2Armas", "number", nValor);
-	end
-end
-
-function BlandirArma(window, sMano)
-	window.BotonAtaque.Habilitar();
-	window.BotonDanio.Habilitar();
-	window.BotonEfecto.Habilitar();
-	local sOtraMano;
-	if sMano=="Derecha" then sOtraMano="Izquierda";
-	else sOtraMano="Derecha";
-	end
-	local sArmaEn="ArmaEn"..sMano;
-	local sBono="Bono"..sMano;
-	sMano="Mano"..sMano;
-	
-	local sUsoArma=DB.getValue(window.getDatabaseNode(), "UsoArma", "");
-	if DB.getValue(window.getDatabaseNode(), sMano, 0)==1 then
-		window.carried.setValue(Inventario.CteEquipado);
-		DB.setValue(window.getDatabaseNode(), "..."..sArmaEn, "string", window.getDatabaseNode().getName());
-
-		--DB.setValue(window.getDatabaseNode(), "..."..sBono, "number", window.BonoHabilidadAtaque.getValue()); -- Sin penalizador de fuerza al bono combinado
-		DB.setValue(window.getDatabaseNode(), "..."..sBono, "number", window.BonoAtaque.getValue()); -- Con penalizador de fuerza al bono combinado
-
-		-- Si el arma es a una mano, se desactiva la otra
-		if not (sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteRango or sUsoArma==Inventario.CteArrojadizaDosManos) then
-			DB.setValue(window.getDatabaseNode(), "Activar"..sOtraMano, "number", 0);
-		end;
-
-	else
-		window.carried.setValue(Inventario.CteCargado);
-		DB.setValue(window.getDatabaseNode(), "..."..sArmaEn, "string", "");
-		DB.setValue(window.getDatabaseNode(), "..."..sBono, "number", 1000);
-	end;
-end
-
-
-
-
-
-function CrearListas(sPath, sText)
+    <Script>function CrearListas(sPath, sText)
 	local w=Herramientas.ObtenerSubVentanaPpal(sPath, "combate");
 	if w then
 		--w.ListaArmaDerecha.CrearLista();
@@ -105,11 +11,6 @@ function CrearListas(sPath, sText)
 		
 	end;
 end
-
-
-
-
-
 
 function CrearLista(sMano, ListaArma, sText, sPathArma)
 	if sMano and (sMano=="Derecha" or sMano=="Izquierda") and ListaArma then
@@ -185,7 +86,6 @@ function ObtenerBonoArma(sMano, sRuta, bEsAtacante)
 		
 		if sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
 			local nBonoLanzar=ObtenerBonoHabilidad("Lanzar", sRuta, sUsoArma);
-			Debug.chat(nBonoLanzar)
 			if nBonoLanzar&lt;nBonoHabilidad then
 				nBonoHabilidad=nBonoLanzar;
 				if bEsAtacante then sMensajeHabilidad=" ["..sHabilidad.." (bono limitado por Lanzar): "..nBonoHabilidad.."]"; end
@@ -264,6 +164,7 @@ function ObtenerDanio(sMano, sRuta)
 		sRuta=sRuta:match("(charsheet%.id%-%d*)");
 		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
 		local sRutaArmaCombate=DB.getValue(sRutaArma..".IDListaArmas", "");
+		local TipoDanio={[1]="Cortante", [2]="Perforante", [3]="Contundente", [4]="Desgarradora"}
 		
 		local sDanioDados="";
 		local tDados={["d2"]=0, ["d3"]=0, ["d4"]=0, ["d6"]=0, ["d8"]=0, ["d10"]=0, ["d12"]=0, ["d20"]=0, ["d100"]=0, ["dF"]=0};
@@ -297,7 +198,6 @@ function ObtenerDanio(sMano, sRuta)
 			end
 		end
 		
-		
 		local sUsoArma=DB.getValue(sRutaArmaCombate..".UsoArma", "");
 		local nModDanio=0;
 		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza then 
@@ -317,6 +217,8 @@ function ObtenerDanio(sMano, sRuta)
 		else
 			sCadena=sDanioDados;
 		end
+		
+		sMensajeDanio=sMensajeDanio.." ["..TipoDanio[tonumber(DB.getValue(sRutaArmaCombate..".TipoArma", "1"))].."]";
 		
 		if sCadena=="" then sCadena="0"; end
 		return sCadena;

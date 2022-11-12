@@ -36,7 +36,6 @@ end
 
 function ObtenerVentanaPpal(sRuta)
 	if sRuta then
-		Debug.chat(sRuta)
 		sRuta=sRuta:match("(charsheet%.id%-%d*)");
 		if sRuta then
 			return Interface.findWindow("charsheet", sRuta);
