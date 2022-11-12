@@ -215,57 +215,22 @@ end
 function CrearArma(window)
 			--Debug.chat(window.getDatabaseNode(), DB.getValue(window.getDatabaseNode(), "IDListaArmas", ""))
 	if DB.getValue(window.getDatabaseNode(), "IDListaArmas", "")=="" then
-		
 		local nodoArmas=window.getDatabaseNode().getParent().getParent().getChild("Inventario").getChild("Armas");
 		local nodoNuevaArma = DB.createChild(nodoArmas);
 		DB.setValue(window.getDatabaseNode(), "IDListaArmas", "string", nodoNuevaArma.getPath());
-		DB.setValue(nodoNuevaArma, "carried", "number", CteCargado);
 		DB.setValue(nodoNuevaArma, "IDinventorylist", "string", window.getDatabaseNode().getPath());
-		
+
 		DB.setValue(nodoNuevaArma, "Link", "windowreference", "item", window.getDatabaseNode().getPath());
-
 		DB.setValue(nodoNuevaArma, "name", "string", DB.getValue(window.getDatabaseNode(), "name", ""));
-		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
---		local sHabilidad=DB.getValue(window.getDatabaseNode(), "Habilidad", "");
-		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteUnaDosManos then
-			if DB.getValue(window.getDatabaseNode(), "TipoObjeto", "")==CteEscudo then
-				sHabilidad="Escudo";
-				DB.setValue(nodoNuevaArma, "ActivarDerecha", "number", 0);
-			else
-				sHabilidad=DB.getValue(window.getDatabaseNode(), "HabilidadCC", "");
-			end
-		elseif sUsoArma==Inventario.CteRango or sUsoArma==Inventario.CteRangoUnaMano then
-			sHabilidad=DB.getValue(window.getDatabaseNode(), "HabilidadPr", "");
-		elseif sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
-			sHabilidad=DB.getValue(window.getDatabaseNode(), "HabilidadAr", "");
-		end
+		DB.setValue(nodoNuevaArma, "carried", "number", CteCargado);
 
-		DB.setValue(nodoNuevaArma, "Habilidad", "string", sHabilidad);
-		DB.setValue(nodoNuevaArma, "Secundario", "string", sHabilidad);
-		
+		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
 		if sUsoArma==CteUnaDosManos then
 			DB.setValue(nodoNuevaArma, "UsoArma", "string", CteUnaMano);
 			DB.setValue(nodoNuevaArma, "UnaDosManos", "number", 1);
 		else
 			DB.setValue(nodoNuevaArma, "UsoArma", "string", sUsoArma);
 			DB.setValue(nodoNuevaArma, "UnaDosManos", "number", 0);
-		end
-
-		local nBonoHabilidad=0; local nTieneHabilidad;
-		nBonoHabilidad, nTieneHabilidad=BonoHabilidadAtaque(nodoArmas, sHabilidad, sUsoArma);
-		DB.setValue(nodoNuevaArma, "BonoHabilidadAtaque", "number", nBonoHabilidad);
-		DB.setValue(nodoNuevaArma, "TieneHabilidad", "number", nTieneHabilidad);
-
-		DB.setValue(nodoNuevaArma, "BonoDanio", "number", DB.getValue(window.getDatabaseNode(), "BonoDanio", 0));
-		DB.setValue(nodoNuevaArma, "BonoAtaqueArma", "number", DB.getValue(window.getDatabaseNode(), "BonoAtaqueArma", 0));
-		DB.setValue(nodoNuevaArma, "FuerzaMinima", "number", DB.getValue(window.getDatabaseNode(), "FuerzaMinima", 0));
-		DB.setValue(nodoNuevaArma, "TipoArma2", "string", DB.getValue(window.getDatabaseNode(), "TipoArma", ""));
-		DB.setValue(nodoNuevaArma, "TipoArma2", "string", DB.getValue(window.getDatabaseNode(), "TipoArma", ""));
-		
-		if sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos then
-			DB.setValue(nodoNuevaArma, "LongAlc", "string", DB.getValue(window.getDatabaseNode(), "Longitud", ""));
-		else
-			DB.setValue(nodoNuevaArma, "LongAlc", "string", DB.getValue(window.getDatabaseNode(), "Alcance", ""));
 		end
 	end;
 end
@@ -276,49 +241,15 @@ function ModificarArma(window)
 		local nodoArmaAModificar = DB.getChild(DB.getValue(window.getDatabaseNode(), "IDListaArmas", ""));
 		
 		DB.setValue(nodoArmaAModificar, "name", "string", DB.getValue(window.getDatabaseNode(), "name", ""));
---		local sHabilidad=DB.getValue(window.getDatabaseNode(), "Habilidad", "");
-		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
-		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteUnaDosManos then
-			if DB.getValue(window.getDatabaseNode(), "TipoObjeto", "")==CteEscudo then
-				sHabilidad="Escudo";
-				DB.setValue(nodoArmaAModificar, "ActivarDerecha", "number", 0);
-			else
-				sHabilidad=DB.getValue(window.getDatabaseNode(), "HabilidadCC", "");
-			end
-		elseif sUsoArma==Inventario.CteRango or sUsoArma==Inventario.CteRangoUnaMano then
-			sHabilidad=DB.getValue(window.getDatabaseNode(), "HabilidadPr", "");
-		elseif sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
-			sHabilidad=DB.getValue(window.getDatabaseNode(), "HabilidadAr", "");
-		end
-		DB.setValue(nodoArmaAModificar, "Habilidad", "string", sHabilidad);
-		DB.setValue(nodoArmaAModificar, "Secundario", "string", sHabilidad);
-		Debug.chat(sHabilidad);
-		
-		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
-		DB.setValue(nodoArmaAModificar, "UsoArma", "string", sUsoArma);
+		DB.setValue(nodoNuevaArma, "carried", "number", CteCargado);
 
-		local nBonoHabilidad=0; local nTieneHabilidad;
-		nBonoHabilidad, nTieneHabilidad=BonoHabilidadAtaque(nodoArmas, sHabilidad, sUsoArma);
-		DB.setValue(nodoArmaAModificar, "BonoHabilidadAtaque", "number", nBonoHabilidad);
-		DB.setValue(nodoArmaAModificar, "TieneHabilidad", "number", nTieneHabilidad);
-
+		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
 		if sUsoArma==CteUnaDosManos then
 			DB.setValue(nodoArmaAModificar, "UsoArma", "string", CteUnaMano);
 			DB.setValue(nodoArmaAModificar, "UnaDosManos", "number", 1);
 		else
 			DB.setValue(nodoArmaAModificar, "UsoArma", "string", sUsoArma);
 			DB.setValue(nodoArmaAModificar, "UnaDosManos", "number", 0);
-		end
-
-		DB.setValue(nodoArmaAModificar, "BonoDanio", "number", DB.getValue(window.getDatabaseNode(), "BonoDanio", 0));
-		DB.setValue(nodoArmaAModificar, "FuerzaMinima", "number", DB.getValue(window.getDatabaseNode(), "FuerzaMinima", 0));
-		DB.setValue(nodoArmaAModificar, "BonoAtaqueArma", "number", DB.getValue(window.getDatabaseNode(), "BonoAtaqueArma", 0));
-		DB.setValue(nodoArmaAModificar, "TipoArma2", "string", DB.getValue(window.getDatabaseNode(), "TipoArma", ""));
-		
-		if sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos then
-			DB.setValue(nodoArmaAModificar, "LongAlc", "string", DB.getValue(window.getDatabaseNode(), "Longitud", ""));
-		else
-			DB.setValue(nodoArmaAModificar, "LongAlc", "string", DB.getValue(window.getDatabaseNode(), "Alcance", ""));
 		end
 	end
 end
@@ -329,7 +260,6 @@ function EliminarArma(window)
 end
 
 function ActualizarBonoArmas(nodoArmas)
-	
 	local nBonoHabilidad=0; local nTieneHabilidad; local sHabilidad; local sUsoArma;
 	for _,nodoArma in pairs(nodoArmas.getChildren()) do
 		sHabilidad=DB.getValue(nodoArma, "Habilidad", "");
@@ -339,16 +269,6 @@ function ActualizarBonoArmas(nodoArmas)
 		DB.setValue(nodoArma, "TieneHabilidad", "number", nTieneHabilidad);
 	end
 end
-
---function ModificarModificadorDanio(nodoOrigen)
---	for _,nodoArma in pairs(DB.getChildren(nodoOrigen.getChild("Inventario").getChild("Armas"))) do
---		if DB.getValue(nodoArma, "UsoArma", "")==CteUnaMano or DB.getValue(nodoArma, "UsoArma", "")==CteArrojadiza then
---			DB.setValue(nodoArma, "ModDanio", "number", DB.getValue(nodoOrigen, "FortunaModDanio.ModDanio1M", 0));
---		elseif (DB.getValue(nodoArma, "UsoArma", "")==CteDosManos) or DB.getValue(nodoArma, "UsoArma", "")==CteArrojadizaDosManos then
---			DB.setValue(nodoArma, "Danio", "number", DB.getValue(nodoOrigen, "FortunaModDanio.ModDanio2M", 0));
---		end
---	end
---end
 </Script>
     <RegisterScript>true</RegisterScript>
     <Encoding>UTF-8</Encoding>

@@ -101,6 +101,7 @@ function CrearListas(sPath, sText)
 	if w then
 		--w.ListaArmaDerecha.CrearLista();
 		CrearLista("Derecha", w.ListaArmaDerecha, sText, sPath);
+		CrearLista("Izquierda", w.ListaArmaIzquierda, sText, sPath);
 		
 	end;
 end
@@ -113,13 +114,11 @@ end
 function CrearLista(sMano, ListaArma, sText, sPathArma)
 	if sMano and (sMano=="Derecha" or sMano=="Izquierda") and ListaArma then
 		local sSelectedValue=DB.getValue(ListaArma.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)")..".ListaArma"..sMano.."value", "");
-	--	Debug.chat(getDatabaseNode().getPath():match("(charsheet%.id%-%d*)")..".Inventario.ListaArma"..sMano, sSelectedValue);
 		local aEspacios={ };
 		ListaArma.clear();
 		ListaArma.add("", "");
 		for _,nodoArma in pairs(DB.getChildren(ListaArma.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)")..".inventorylist")) do
-	--		Debug.chat(nodoArma)
-			if DB.getValue(nodoArma, "TipoObjeto", 0)==Inventario.CteArma or DB.getValue(nodoArma, "TipoObjeto", 0)==Inventario.CteEscudo then
+			if DB.getValue(nodoArma, "TipoObjeto", 0)==Inventario.CteArma or DB.getValue(nodoArma, "TipoObjeto", 0)==Inventario.CteEscudo and sMano=="Izquierda" then
 				DB.setValue(nodoArma, "Espacios", "string", "");
 				local name=DB.getValue(nodoArma, "name", "");
 				if aEspacios[name] then
@@ -131,8 +130,8 @@ function CrearLista(sMano, ListaArma, sText, sPathArma)
 				ListaArma.add(nodoArma.getPath(), name..DB.getValue(nodoArma, "Espacios", ""));
 			end
 		end
-		if sText and sPathArma and sSelectedValue==sPathArma then ListaArma.setListValue(sText..DB.getValue(sPathArma..".Espacios", ""));
-		elseif ListaArma.hasValue(sSelectedValue) then
+		if sText and sText~="" and sPathArma and sSelectedValue==sPathArma then ListaArma.setListValue(sText..DB.getValue(sPathArma..".Espacios", ""));
+		elseif sSelectedValue~="" and ListaArma.hasValue(sSelectedValue) then
 			ListaArma.setListValue(DB.getValue(sSelectedValue..".name", "")..DB.getValue(sSelectedValue..".Espacios", ""));
 		else
 			ListaArma.setListValue("");
@@ -146,7 +145,6 @@ sMensajeHabilidad="";
 function ObtenerBonoHabilidad(sHabilidad, sRutaRaiz, sUsoArma)
 	local sNombre;
 	for _,nodoHabilidad in pairs(DB.getChildren(sRutaRaiz..".Habilidades.ListaHabilidades")) do
---		Debug.chat(sHabilidad, DB.getValue(nodoHabilidad, "Nombre", ""), DB.getValue(nodoHabilidad, "Clave"))
 		sNombre=DB.getValue(nodoHabilidad, "Nombre", "");
 		if sHabilidad==DB.getValue(nodoHabilidad, "HabilidadCC", "") or sHabilidad==DB.getValue(nodoHabilidad, "HabilidadPr", "") or sNombre~="" and sHabilidad==sNombre:sub(4, sNombre:len()-5) then
 			return DB.getValue(nodoHabilidad, "Total", 0);
@@ -165,13 +163,26 @@ end
 function ObtenerBonoArma(sMano, sRuta, bEsAtacante)
 	if sMano and sRuta and (sMano=="Derecha" or sMano=="Izquierda") and sRuta:match("(charsheet%.id%-%d*)") then
 		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
-		if bEsAtacante then sMensajeAtaque=DB.getValue(sRutaArma..".name", "").."XXXX"; end
+		if sRutaArma=="" then return 10000; end;
+		local sOtraMano=""; if sMano=="Derecha" then sOtraMano="Izquierda"; else sOtraMano="Derecha"; end;
+		local sRutaArmaOtraMano=DB.getValue(sRuta..".ListaArma"..sOtraMano.."value", "");
+	
+		local sRutaArmaCombate=DB.getValue(sRutaArma..".IDListaArmas", "");
+		if bEsAtacante then sMensajeAtaque=""; end
 		
 		local nFuerza=DB.getValue(sRuta..".Caracteristicas.Fuerza", 0);
-		local sUsoArma=DB.getValue(sRutaArma..".UsoArma", "");
+		local sUsoArma=DB.getValue(sRutaArmaCombate..".UsoArma", "");
 
 		local sHabilidad=DB.getValue(sRutaArma..".Habilidad", "");
+		if sHabilidad=="" then
+			if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteUnaDosManos or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
+				sHabilidad="Agilidad";
+			else
+				sHabilidad="Tecnica";
+			end
+		end
 		local nBonoHabilidad=ObtenerBonoHabilidad(sHabilidad, sRuta, sUsoArma);
+		
 		if sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
 			local nBonoLanzar=ObtenerBonoHabilidad("Lanzar", sRuta, sUsoArma);
 			Debug.chat(nBonoLanzar)
@@ -190,15 +201,14 @@ function ObtenerBonoArma(sMano, sRuta, bEsAtacante)
 		
 		local nFuerzaMinima=DB.getValue(sRutaArma..".FuerzaMinima", 0);
 		local nPenFuerza=0;
-		if nFuerza&lt;nFuerzaMinima then
-			nPenFuerza=nFuerza-nFuerzaMinima;
-			if sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.ArrojadizaDosManos or sUsoArma==Inventario.CteRango then
-				nPenFuerza=nFuerza-nFuerzaMinima*2;
-			else
-				nPenFuerza=nFuerza-nFuerzaMinima;
-			end
-			if bEsAtacante and nPenFuerza~=0 then sMensajeAtaque=sMensajeAtaque.." [Penalizador por Fuerza insuficiente: "..nPenFuerza.."]"; end
+		local bArmasDistintas=sRutaArmaOtraMano~=sRutaArma;
+		if bArmasDistintas and (sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.ArrojadizaDosManos or sUsoArma==Inventario.CteRango) then
+		--Falta comprobar que un arma a dos manos esté usada a dos manos
+			nPenFuerza=math.min(0, nFuerza-nFuerzaMinima*2);
+		else
+			nPenFuerza=math.min(0, nFuerza-nFuerzaMinima);
 		end
+		if bEsAtacante and nPenFuerza~=0 then sMensajeAtaque=sMensajeAtaque.." [Penalizador por Fuerza insuficiente: "..nPenFuerza.."]"; end
 
 		local nBonoGeneralArmas=0;
 		if sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
@@ -221,17 +231,21 @@ end
 function ObtenerAtaque(sMano, sRuta)
 	if sMano and sRuta and (sMano=="Derecha" or sMano=="Izquierda") and sRuta:match("(charsheet%.id%-%d*)") then
 		sRuta=sRuta:match("(charsheet%.id%-%d*)");
+		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
+		
 		local sCadena="1d"..DB.getValue(sRuta..".LabelDado", 10).."!";
---		if DB.getValue(sRuta..".PuntosDeVida.Debilitado", 0)==1 then
---			sCadena="1d6!";
---		else
---			sCadena="1d10!";
---		end;
+		local sOtraMano=""; if sMano=="Derecha" then sOtraMano="Izquierda"; else sOtraMano="Derecha"; end;
 		
-
 		local nBonoTotalAtacante=ObtenerBonoArma(sMano, sRuta, true);
+		local nBonoTotalAtacanteOtraMano=ObtenerBonoArma(sOtraMano, sRuta, false);
 		
-		sMensajeAtaque=sMensajeAtaque:gsub("XXXX", sMensajeHabilidad);
+		if nBonoTotalAtacante&gt;nBonoTotalAtacanteOtraMano then
+			nBonoTotalAtacante=nBonoTotalAtacanteOtraMano;
+			sMensajeAtaque=DB.getValue(sRutaArma..".name", "").." [Ataque limitado por usar dos armas: "..nBonoTotalAtacanteOtraMano.."]";
+		else
+			sMensajeAtaque=DB.getValue(sRutaArma..".name", "")..sMensajeHabilidad..sMensajeAtaque;
+		end
+		
 		
 		if nBonoTotalAtacante~=0 then
 			return sCadena.."+"..nBonoTotalAtacante;
@@ -249,23 +263,26 @@ function ObtenerDanio(sMano, sRuta)
 	if sMano and sRuta and (sMano=="Derecha" or sMano=="Izquierda") and sRuta:match("(charsheet%.id%-%d*)") then
 		sRuta=sRuta:match("(charsheet%.id%-%d*)");
 		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
+		local sRutaArmaCombate=DB.getValue(sRutaArma..".IDListaArmas", "");
 		
 		local sDanioDados="";
 		local tDados={["d2"]=0, ["d3"]=0, ["d4"]=0, ["d6"]=0, ["d8"]=0, ["d10"]=0, ["d12"]=0, ["d20"]=0, ["d100"]=0, ["dF"]=0};
-		for _,v in pairs(DB.getValue(sRutaArma..".DanioDados", "")) do
-			tDados[v]=tDados[v]+1;
-		end
-		
-		for k,v in pairs(tDados) do
-			if v&gt;0 then
-				if sDanioDados=="" then
-					sDanioDados=v..k;
-				else
-					sDanioDados=sDanioDados.."+"..v..k;
+		local tDanioDados=DB.getValue(sRutaArma..".DanioDados", "")
+		if tDanioDados~="" then
+			for _,v in pairs(tDanioDados) do
+				tDados[v]=tDados[v]+1;
+			end
+			
+			for k,v in pairs(tDados) do
+				if v&gt;0 then
+					if sDanioDados=="" then
+						sDanioDados=v..k;
+					else
+						sDanioDados=sDanioDados.."+"..v..k;
+					end
 				end
 			end
 		end
-		Debug.chat(sDanioDados);
 				
 		local nBonoDanio=DB.getValue(sRutaArma..".BonoDanio", "");
 		if sDanioDados=="" then
@@ -281,7 +298,7 @@ function ObtenerDanio(sMano, sRuta)
 		end
 		
 		
-		local sUsoArma=DB.getValue(sRutaArma..".UsoArma", "");
+		local sUsoArma=DB.getValue(sRutaArmaCombate..".UsoArma", "");
 		local nModDanio=0;
 		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza then 
 			nModDanio=DB.getValue(sRuta..".FortunaModDanio.ModDanio1M", 0);
@@ -301,6 +318,7 @@ function ObtenerDanio(sMano, sRuta)
 			sCadena=sDanioDados;
 		end
 		
+		if sCadena=="" then sCadena="0"; end
 		return sCadena;
 	else
 		return "0";
