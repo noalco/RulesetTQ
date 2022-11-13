@@ -115,13 +115,6 @@ function onHoverUpdate(x, y)
 	setHoverCursor("arrow");
 end
 
---function action(draginfo)
---	if sDragLabel then
---		local rActor = ActorManager.resolveActor(window.getDatabaseNode());
---		performRoll(draginfo, rActor, sDragLabel, nDragMod);
---	end
---end
-
 function action(dragInfo)
 	if sDragLabel then
 		DiceRollString = sDado.."!+"..nDragMod;
@@ -172,38 +165,7 @@ function onClickRelease(button, x, y)
 	return true;
 end
 
-function performRoll(draginfo, rActor, sSkillName, nSkillMod)
-	local rRoll = getRoll(rActor, sSkillName, nSkillMod, sSkillStat, sExtra);
-	
-	if Session.IsHost and CombatManager.isCTHidden(ActorManager.getCTNode(rActor)) then
-		rRoll.bSecret = true;
-	end
-	
-	ActionsManager.performAction(draginfo, rActor, rRoll);
-end
-
-function getRoll(rActor, sSkillName, nSkillMod)
-	local rRoll = {};
-	rRoll.sType = "habilidad";
-	rRoll.aDice = { "d10" };
-	rRoll.nMod = nSkillMod or 0;
-	rRoll.sDesc = "[Habilidad] " .. sSkillName;
-
-	return rRoll;
-end
-
-function onRoll(rSource, rTarget, rRoll)
-	local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
-	
-	local nTotal = ActionsManager.total(rRoll);
-	Comm.deliverChatMessage(rMessage);
-end
-
-function onInit()
-	ActionsManager.registerResultHandler("habilidad", onRoll);
-end
-
-function Devilitado(bDebilitado)
+function Debilitado(bDebilitado)
 	if bDebilitado then sDado="1d6";
 	else sDado="1d10";
 	end

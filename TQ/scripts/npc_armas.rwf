@@ -300,28 +300,8 @@ function performRoll(draginfo, rActor, sSkillName, nSkillMod)
 	
 	ActionsManager.performAction(draginfo, rActor, rRoll);
 end
---
---function getRoll(rActor, sSkillName, nSkillMod)
---	local rRoll = {};
---	rRoll.sType = "habilidad";
---	rRoll.aDice = { "d10" };
---	rRoll.nMod = nSkillMod or 0;
---	rRoll.sDesc = "[Habilidad] " .. sSkillName;
---
---	return rRoll;
---end
---
---function onRoll(rSource, rTarget, rRoll)
---	local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
---	
---	local nTotal = ActionsManager.total(rRoll);
---	Comm.deliverChatMessage(rMessage);
---end
---
---function onInit()
---	ActionsManager.registerResultHandler("habilidad", onRoll);
---end
-function Devilitado(bDebilitado)
+
+function Debilitado(bDebilitado)
 	if bDebilitado then sDado="1d6";
 	else sDado="1d10";
 	end

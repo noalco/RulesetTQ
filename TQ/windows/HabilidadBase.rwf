@@ -843,7 +843,6 @@ end</LUACode>
     <LUACode>function onInit()
 	addSourceWithOp("PtosGratis", "+");
 	addSourceWithOp("BonoEtnia", "+");
---	addSourceWithOp("BonoEspecialidad", "+");
 	addSourceWithOp("BonoCulto", "+");
 	addSourceWithOp("BonoBaseHabilidad", "+");
 	addSourceWithOp("EstorboTotal", "-");
@@ -859,14 +858,14 @@ end
 function AniadirModificador()
 
 end
-
-function onValueChanged()
-	if window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario") and window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas") then
-		if window.ClaveHabilidad.getValue()=="Arma CC" or window.ClaveHabilidad.getValue()=="Arma Pr" then
-			Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
-		end
-	end
-end
+--
+--function onValueChanged()
+--	if window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario") and window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas") then
+--		if window.ClaveHabilidad.getValue()=="Arma CC" or window.ClaveHabilidad.getValue()=="Arma Pr" then
+--			Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
+--		end
+--	end
+--end
 
 function GenerarMensaje()
 	if window.Secundario.getValue()=="" then

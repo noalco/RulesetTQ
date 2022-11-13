@@ -1,0 +1,56 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>HechizosNPCs</ScriptName>
+    <FolderID>29</FolderID>
+    <Script>function ObtenerListaHechizos(sHechizos, nodoNPC)
+	local aClauses, aClauseStats = StringManager.split(sHechizos, ",\r\n", true);
+	tListaHechizos={};
+	DB.deleteChildren(nodoNPC.getChild("ListaHechizos"));
+	for i = 1, #aClauses do
+--		table.insert(tListaHechizos, aClauses[i]:match("(.-)[%s]*%("));
+		local sHechizo=aClauses[i]:match("(.-)[%s]*%(");
+		local sLink=BuscarLink(sHechizo);
+		local nodoNuevoHechizo = DB.createChild(nodoNPC.getChild("ListaHechizos"));
+		if sLink and sLink~="" then
+			if DB.findNode(sLink) then
+				DB.copyNode(DB.findNode(sLink), nodoNuevoHechizo);
+				DB.setValue(nodoNuevoHechizo, "link", "windowreference", "VentanaHechizoSidebar", "");
+			else
+				DB.setValue(nodoNuevoHechizo, "name", "string", sHechizo);
+			end
+		else
+			DB.setValue(nodoNuevoHechizo, "name", "string", sHechizo);
+		end
+	end
+end
+
+function BuscarLink(sHechizo)
+	local sHechizoNodo;
+	-- Búsqueda en local
+	if sHechizo and sHechizo~="" then
+		sHechizo=sHechizo:lower();
+		sHechizo=sHechizo:gsub("%.", "");
+		for _,nodoHechizo in pairs(DB.getChild(".referencia.hechizos").getChildren()) do
+			--Debug.chat(DB.getValue(nodoHechizo, "name", ""):lower(), sHechizo:lower())
+			sHechizoNodo=DB.getValue(nodoHechizo, "name", ""):lower();
+			sHechizoNodo=sHechizoNodo:gsub(" %(.*%)", "");
+			if sHechizoNodo==sHechizo then return DB.getPath(nodoHechizo); end
+		end
+
+		-- Búsqueda en módulos
+		for sModulo,rModulo in pairs(ModuleManager.getAllModuleInfo()) do
+			if rModulo.loaded then
+				for _,nodoHechizo in pairs(DB.getChild(".referencia.hechizos@"..sModulo).getChildren()) do
+					sHechizoNodo=DB.getValue(nodoHechizo, "name", ""):lower();
+					sHechizoNodo=sHechizoNodo:gsub(" %(.*%)", "");
+					if sHechizoNodo==sHechizo then return DB.getPath(nodoHechizo); end
+				end
+			end;
+		end
+	end
+	return "";
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>

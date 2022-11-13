@@ -1,0 +1,189 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>npc_magic_skills</ScriptName>
+    <FolderID>29</FolderID>
+    <Script>-- 
+-- Please see the license.html file included with this distribution for 
+-- attribution and copyright information.
+--
+
+local bParsed = false;
+local aComponents = {};
+
+-- The nDragMod and sDragLabel fields keep track of the entry under the cursor
+local sDragLabel = nil;
+local nDragMod = nil;
+local bDragging = false;
+local sDado="1d10";
+
+function getCompletion(s)
+	-- Find a matching completion for the given string
+	for k,_ in pairs(DataCommon.skilldata) do
+		if string.lower(s) == string.lower(string.sub(k, 1, #s)) then
+			return string.sub(k, #s + 1);
+		end
+	end
+
+	return "";
+end
+
+function onValueChanged()
+	
+	-- Parse the value string
+	parseComponents();
+
+end
+
+function parseComponents()
+	aComponents = {};
+	local nCaracteresDobles=0; local count=0;
+	
+	-- Get the comma-separated strings
+	local aClauses, aClauseStats = StringManager.split(getValue(), ",;\r\n", true);
+	
+	-- Check each comma-separated string for a potential skill roll or auto-complete opportunity
+	for i = 1, #aClauses do
+		local nStarts, nEnds, sLabel, sSign, sMod = string.find(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)%s*([%+%-–]?)(%d*)");
+		if sSign=="" then nStarts, nEnds, sLabel, sMod = string.find(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)%s*(%d*)"); end
+		if string.sub(sLabel, sLabel:len(), sLabel:len())==" " then sLabel=string.match(sLabel, "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+		--Debug.chat(aClauses[i], nStarts, nEnds, sLabel, sSign, sMod, nEstorbo);
+		_,count = string.gsub(aClauses[i], "[ñÑáÁéÉíÍóÓúÚ]", "");
+		nCaracteresDobles=nCaracteresDobles+count/2;
+
+		if nStarts then
+			-- Calculate modifier based on mod value and sign value, if any
+			local nAllowRoll = 0;
+			local nMod = 0;
+			if sMod ~= "" then
+				nAllowRoll = 1;
+				nMod = tonumber(sMod) or 0;
+				if sSign == "-" or sSign == "–" then
+					nMod = 0 - nMod;
+				end
+			end
+
+			-- Insert the possible skill into the skill list
+			table.insert(aComponents, {nStart = aClauseStats[i].startpos - nCaracteresDobles, nLabelEnd = aClauseStats[i].startpos + nEnds - nCaracteresDobles, nEnd = aClauseStats[i].endpos - nCaracteresDobles, sLabel = sLabel, nMod = nMod, nAllowRoll = nAllowRoll});
+		end
+	end
+	
+	bParsed = true;
+end
+
+-- Reset selection when the cursor leaves the control
+function onHover(bOnControl)
+	if bDragging or bOnControl then
+		return;
+	end
+
+	sDragLabel = nil;
+	nDragMod = nil;
+	setSelectionPosition(0);
+end
+
+-- Hilight skill hovered on
+function onHoverUpdate(x, y)
+	if bDragging then
+		return;
+	end
+
+	if not bParsed then
+		parseComponents();
+	end
+	local nMouseIndex = getIndexAt(x, y);
+
+	for i = 1, #aComponents, 1 do
+		if aComponents[i].nAllowRoll == 1 then
+			if aComponents[i].nStart &lt;= nMouseIndex and aComponents[i].nEnd &gt; nMouseIndex then
+				setCursorPosition(aComponents[i].nStart);
+				setSelectionPosition(aComponents[i].nEnd);
+
+				sDragLabel = aComponents[i].sLabel;
+--				if not aComponents[i].nEstorbo then
+				nDragMod = aComponents[i].nMod;
+				if ParseoHabilidades.Habilidad2Clave[aComponents[i].sLabel:lower()] and Habilidades.DatosHabilidades[ParseoHabilidades.Habilidad2Clave[aComponents[i].sLabel:lower()]] then
+					nDragMod=nDragMod-window.Estorbo.getValue()*Habilidades.DatosHabilidades[ParseoHabilidades.Habilidad2Clave[aComponents[i].sLabel:lower()]].multEstorbo;
+				end
+				setHoverCursor("hand");
+				return;
+			end
+		end
+	end
+	
+	sDragLabel = nil;
+	nDragMod = nil;
+	setHoverCursor("arrow");
+end
+
+--function action(draginfo)
+--	if sDragLabel then
+--		local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+--		performRoll(draginfo, rActor, sDragLabel, nDragMod);
+--	end
+--end
+
+function action(dragInfo)
+	if sDragLabel then
+		DiceRollString = sDado.."!+"..nDragMod;
+		if sDragLabel:sub(sDragLabel:len(), sDragLabel:len())=="r" then 
+			DiceRollDescription = "[Verbo] " .. sDragLabel;
+		else
+			DiceRollDescription = "[Esfera] " .. sDragLabel;
+		end
+		--DiceRollDescription = "[Habilidad Mágica] " .. sDragLabel;
+		GameSystem.actions["HabilidadMagicaRollAction"] = { bUseModStack = "true" }
+		DiceRollAdditionalInfo = {};
+		if onBeforeDiceRoll then if onBeforeDiceRoll() == false then return; end; end;
+		local windataref = window.getDatabaseNode();
+		if windataref == nil then windataref = window; end;
+		RulesetWizardDiceRoller.Roll(dragInfo, windataref,"HabilidadMagicaRollAction", DiceRollDescription, DiceRollString, getValue(), DiceRollAdditionalInfo);
+		ModifierStack.reset();
+		if onAfterDiceRoll then onAfterDiceRoll(); end;
+		return true;
+	end
+end
+
+function onDoubleClick(x, y)
+	action();
+	return true;
+end
+
+function onDragStart(button, x, y, draginfo)
+	action(draginfo);
+
+	bDragging = true;
+	setCursorPosition(0);
+	
+	return true;
+end
+
+function onDragEnd(draginfo)
+	bDragging = false;
+end
+
+-- Suppress default processing to support dragging
+function onClickDown(button, x, y)
+	return true;
+end
+
+-- On mouse click, set focus, set cursor position and clear selection
+function onClickRelease(button, x, y)
+	setFocus();
+	
+	local n = getIndexAt(x, y);
+	setSelectionPosition(n);
+	setCursorPosition(n);
+	
+	return true;
+end
+
+function Debilitado(bDebilitado)
+	if bDebilitado then sDado="1d6";
+	else sDado="1d10";
+	end
+end
+</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>
