@@ -3,6 +3,11 @@
     <ScriptName>Sidebars</ScriptName>
     <FolderID>29</FolderID>
     <Script>function onInit()
+    DesktopManager.setSidebarDockCategoryIconColor("eeebe1");
+    DesktopManager.setSidebarDockCategoryTextColor("eeebe1");
+    DesktopManager.setSidebarDockIconColor("006179");
+    DesktopManager.setSidebarDockTextColor("006179");	
+	
 	aRecordOverrides = {
 		["hechizos"] = {
 			bExport=true,
