@@ -1106,7 +1106,7 @@ end</LUACode>
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"94"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"89"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"300"}}
 ]}}</Definition>
     <LUACode />

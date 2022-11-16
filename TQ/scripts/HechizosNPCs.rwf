@@ -2,13 +2,140 @@
   <Scripts>
     <ScriptName>HechizosNPCs</ScriptName>
     <FolderID>29</FolderID>
-    <Script>function ObtenerListaHechizos(sHechizos, nodoNPC)
-	local aClauses, aClauseStats = StringManager.split(sHechizos, ",\r\n", true);
-	tListaHechizos={};
+    <Script>function ObtenerNombre(sHechizo)
+	return QuitarAbreviatura(sHechizo:match("([%a%s:ñÑáÁéÉíÍóÓúÚ%.]+)"));
+end
+
+function ObtenerTirada(sHechizo)
+	return sHechizo:match("(%d+).*%(");
+end
+
+VerbosEsferas={"Aumentar", "Conocer", "Disminuir", "Dirigir", "Inhibir", "Invocar", "Modificar", "Transformar", "Agua", "Espíritu", "Aire", "Mente", "Fuego", "Planta", "Tierra", "Caos", "Cuerpo", "Ley"}
+
+function QuitarAbreviatura(sTexto)
+	tPalabras=StringManager.split(sTexto, "%s", true);
+	sResultado="";
+	for i=1,#tPalabras do
+		if tPalabras[i]:match("%.") then
+			tPalabras[i]=tPalabras[i]:sub(1,tPalabras[i]:len()-1);
+			for j=1,#VerbosEsferas do
+				if VerbosEsferas[j]:match(tPalabras[i]) then
+					tPalabras[i]=VerbosEsferas[j];
+					break;
+				end
+			end
+		end
+		if sResultado=="" then
+			sResultado=tPalabras[i];
+		else
+			sResultado=sResultado.." "..tPalabras[i];
+		end
+	end
+	return sResultado;
+end
+
+function ObtenerVerbosEsferas(sHechizo)
+	local sVerbosEsferas=sHechizo:match("%(([%a%s:ñÑáÁéÉíÍóÓúÚ%.]+).[dD]if");
+	local tVerbosEsferas=StringManager.split(QuitarAbreviatura(sVerbosEsferas), "%s", true)
+	local sVerbo=""; sYVerbo=""; sEsfera=""; sEnEsfera="";
+	local bYVerbo=false;
+	local bEnEsfera=false;
+	for i=1,#tVerbosEsferas do
+		if tVerbosEsferas[i] then
+			if tVerbosEsferas[i]=="y" then bYVerbo=true;
+			elseif tVerbosEsferas[i]=="en" then bEnEsfera=true;
+			elseif tVerbosEsferas[i]:sub(-1)=="r" then
+				if bYVerbo then
+					sYVerbo=tVerbosEsferas[i];
+					bYVerbo=false;
+				else
+					sVerbo=tVerbosEsferas[i];
+				end
+			else
+				if bEnEsfera then
+					sEnEsfera=tVerbosEsferas[i];
+					bEnEsfera=false;
+				else
+					sEsfera=tVerbosEsferas[i];
+				end
+			end
+		end
+	end
+	return sVerbo, sYVerbo, sEsfera, sEnEsfera;
+end
+
+function ObtenerDificultad(sHechizo)
+	return sHechizo:match("[Dd]if[%.%s]*(%d*)");
+end
+
+function ObtenerPM(sHechizo)
+	local sRangoPM=sHechizo:match("PM[%s:]+(%d[-%d]*)");
+	local sMin="1";local sMax="1";
+	if sRangoPM then
+		local sMin, sMax=sRangoPM:match("(%d*)%-(%d*)");
+		if not sMin then
+			sMin=sRangoPM; sMax=sRangoPM;
+		end
+	end
+	return tonumber(sMin), tonumber(sMax);
+end
+
+function RellenarHechizo(nodoNuevoHechizo, sNombre, sTesto)
+	local nTirada=ObtenerTirada(sTesto); if nTirada then nTirada=tonumber(nTirada); else nTirada=0; end;
+	local sVerbo, sYVerbo, sEsfera, sEnEsfera=ObtenerVerbosEsferas(sTesto);
+	local nDif=ObtenerDificultad(sTesto); if nDif then nDif=tonumber(nDif); else nDif=0; end;
+	local nPMMin, nPMMax=ObtenerPM(sTesto);
+
+	DB.setValue(nodoNuevoHechizo, "name", "string", sNombre);
+	DB.setValue(nodoNuevoHechizo, "TiradaFija", "number", nTirada);
+	DB.setValue(nodoNuevoHechizo, "EnEsfera", "string", sEnEsfera);
+	DB.setValue(nodoNuevoHechizo, "Esfera", "string", sEsfera);
+	DB.setValue(nodoNuevoHechizo, "YVerbo", "string", sYVerbo);
+	DB.setValue(nodoNuevoHechizo, "Verbo", "string", sVerbo);
+	DB.setValue(nodoNuevoHechizo, "Dificultad", "number", nDif);
+	DB.setValue(nodoNuevoHechizo, "MinPuntosMagia", "number", nPMMin);
+	DB.setValue(nodoNuevoHechizo, "MaxPuntosMagia", "number", nPMMax);
+end
+
+function ObtenerListaHechizos(sHechizos, nodoNPC)
+--	local aClauses, aClauseStats = StringManager.split(sHechizos, ",\r\n", true);
+--	tListaHechizos={};
+--	DB.deleteChildren(nodoNPC.getChild("ListaHechizos"));
+--	for i = 1, #aClauses do
+----		table.insert(tListaHechizos, aClauses[i]:match("(.-)[%s]*%("));
+--		local sHechizo=aClauses[i]:match("(.-)[%s]*%(");
+--		local sLink=BuscarLink(sHechizo);
+--		local nodoNuevoHechizo = DB.createChild(nodoNPC.getChild("ListaHechizos"));
+--		if sLink and sLink~="" then
+--			if DB.findNode(sLink) then
+--				DB.copyNode(DB.findNode(sLink), nodoNuevoHechizo);
+--				DB.setValue(nodoNuevoHechizo, "link", "windowreference", "VentanaHechizoSidebar", "");
+--			else
+--				DB.setValue(nodoNuevoHechizo, "name", "string", sHechizo);
+--			end
+--		else
+--			DB.setValue(nodoNuevoHechizo, "name", "string", sHechizo);
+--		end
+--	end
 	DB.deleteChildren(nodoNPC.getChild("ListaHechizos"));
-	for i = 1, #aClauses do
---		table.insert(tListaHechizos, aClauses[i]:match("(.-)[%s]*%("));
-		local sHechizo=aClauses[i]:match("(.-)[%s]*%(");
+	
+	sHechizos=sHechizos:gsub("%),", ")&amp;");
+	sHechizos=sHechizos:gsub("\r\n", " ");
+	sHechizos=sHechizos:gsub("\r", " ");
+	sHechizos=sHechizos:gsub("\r", " ");
+	sHechizos=sHechizos:gsub("  ", " ");
+	sHechizos=sHechizos:gsub("%),", ")&amp;")
+
+	local aClauses,_ = StringManager.split(sHechizos, "&amp;", true);
+	for i=1,#aClauses do
+--		Debug.chat("Texto del hechizo:", aClauses[i])
+--		Debug.chat("Datos obtenidos:", ObtenerNombre(aClauses[i]),
+--			  ObtenerTirada(aClauses[i]),
+--			  ObtenerVerbosEsferas(aClauses[i]),
+--			  ObtenerDificultad(aClauses[i]),
+--			  ObtenerPM(aClauses[i]));
+--		Debug.chat("");
+		local sHechizo=ObtenerNombre(aClauses[i]);
 		local sLink=BuscarLink(sHechizo);
 		local nodoNuevoHechizo = DB.createChild(nodoNPC.getChild("ListaHechizos"));
 		if sLink and sLink~="" then
@@ -16,10 +143,20 @@
 				DB.copyNode(DB.findNode(sLink), nodoNuevoHechizo);
 				DB.setValue(nodoNuevoHechizo, "link", "windowreference", "VentanaHechizoSidebar", "");
 			else
-				DB.setValue(nodoNuevoHechizo, "name", "string", sHechizo);
+--				local nTirada=ObtenerTirada(aClauses[i]); if nTirada then nTirada=tonumber(nTirada); end;
+--				local sVerbosEsferas=ObtenerVerbosEsferas(aClauses[i]);
+--				local nDif=ObtenerDificultad(aClauses[i]); if nDif then nDif=tonumber(nDif); end;
+--				local sPM=ObtenerPM(aClauses[i]);
+--				DB.setValue(nodoNuevoHechizo, "name", "string", sHechizo);
+				RellenarHechizo(nodoNuevoHechizo, sHechizo, aClauses[i]);
 			end
 		else
-			DB.setValue(nodoNuevoHechizo, "name", "string", sHechizo);
+--			local nTirada=ObtenerTirada(aClauses[i]); if nTirada then nTirada=tonumber(nTirada); end;
+--			local sVerbisEsferas=ObtenerVerbosEsferas(aClauses[i]);
+--			local nDif=ObtenerDificultad(aClauses[i]); if nDif then nDif=tonumber(nDif); end;
+--			local sPM=ObtenerPM(aClauses[i]);
+--			DB.setValue(nodoNuevoHechizo, "name", "string", sHechizo);
+			RellenarHechizo(nodoNuevoHechizo, sHechizo, aClauses[i]);
 		end
 	end
 end
