@@ -44,7 +44,7 @@
 	&lt;string name="library_recordtype_single_modifier"&gt;Modificador&lt;/string&gt;
 	&lt;string name="library_recordtype_single_charsheet"&gt;Personaje&lt;/string&gt;
 	&lt;string name="library_recordtype_single_note"&gt;Nota&lt;/string&gt;
-	&lt;string name="library_recordtype_single_story"&gt;Hisotia&lt;/string&gt;
+	&lt;string name="library_recordtype_single_story"&gt;Historia&lt;/string&gt;
 	&lt;string name="library_recordtype_single_storytemplate"&gt;Plantilla de Historia&lt;/string&gt;
 	&lt;string name="library_recordtype_single_quest"&gt;Misión&lt;/string&gt;
 	&lt;string name="library_recordtype_single_image"&gt;Image&lt;/string&gt;
