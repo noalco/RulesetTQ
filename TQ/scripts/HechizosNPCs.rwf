@@ -3,7 +3,10 @@
     <ScriptName>HechizosNPCs</ScriptName>
     <FolderID>29</FolderID>
     <Script>function ObtenerNombre(sHechizo)
-	return QuitarAbreviatura(sHechizo:match("([%a%s:ñÑáÁéÉíÍóÓúÚ%.]+)"));
+	local sNombre=QuitarAbreviatura(sHechizo:match("([%a%s:ñÑáÁéÉíÍóÓúÚ%.]+)"));
+	local sSubNombre=sHechizo:match("(%([%a%s:ñÑáÁéÉíÍóÓúÚ]+%)).*%(");
+	if sSubNombre then sNombre=sNombre.." "..sSubNombre; end
+	return sNombre;
 end
 
 function ObtenerTirada(sHechizo)
@@ -72,7 +75,7 @@ function ObtenerPM(sHechizo)
 	local sRangoPM=sHechizo:match("PM[%s:]+(%d[-%d]*)");
 	local sMin="1";local sMax="1";
 	if sRangoPM then
-		local sMin, sMax=sRangoPM:match("(%d*)%-(%d*)");
+		sMin, sMax=sRangoPM:match("(%d*)%-(%d*)");
 		if not sMin then
 			sMin=sRangoPM; sMax=sRangoPM;
 		end
@@ -80,11 +83,18 @@ function ObtenerPM(sHechizo)
 	return tonumber(sMin), tonumber(sMax);
 end
 
+function ObtenerDescripcion(sHechizo)
+	local sDescripcion=sHechizo:match("%)[%.:]+[%s]*([%a%s:ñÑáÁéÉíÍóÓúÚ]+)");
+	if sDescripcion==nil then sDescripcion=""; end;
+	return sDescripcion;
+end
+
 function RellenarHechizo(nodoNuevoHechizo, sNombre, sTesto)
 	local nTirada=ObtenerTirada(sTesto); if nTirada then nTirada=tonumber(nTirada); else nTirada=0; end;
 	local sVerbo, sYVerbo, sEsfera, sEnEsfera=ObtenerVerbosEsferas(sTesto);
 	local nDif=ObtenerDificultad(sTesto); if nDif then nDif=tonumber(nDif); else nDif=0; end;
 	local nPMMin, nPMMax=ObtenerPM(sTesto);
+	local sDescripcion=ObtenerDescripcion(sTesto);
 
 	DB.setValue(nodoNuevoHechizo, "name", "string", sNombre);
 	DB.setValue(nodoNuevoHechizo, "TiradaFija", "number", nTirada);
@@ -95,6 +105,7 @@ function RellenarHechizo(nodoNuevoHechizo, sNombre, sTesto)
 	DB.setValue(nodoNuevoHechizo, "Dificultad", "number", nDif);
 	DB.setValue(nodoNuevoHechizo, "MinPuntosMagia", "number", nPMMin);
 	DB.setValue(nodoNuevoHechizo, "MaxPuntosMagia", "number", nPMMax);
+	DB.setValue(nodoNuevoHechizo, "Descripcion", "formattedtext", sDescripcion);
 end
 
 function ObtenerListaHechizos(sHechizos, nodoNPC)
@@ -120,6 +131,9 @@ function ObtenerListaHechizos(sHechizos, nodoNPC)
 	DB.deleteChildren(nodoNPC.getChild("ListaHechizos"));
 	
 	sHechizos=sHechizos:gsub("%),", ")&amp;");
+	sHechizos=sHechizos:gsub("%.\r\n", "&amp;");
+	sHechizos=sHechizos:gsub("%.\r", "&amp;");
+	sHechizos=sHechizos:gsub("%.\n", "&amp;");
 	sHechizos=sHechizos:gsub("\r\n", " ");
 	sHechizos=sHechizos:gsub("\r", " ");
 	sHechizos=sHechizos:gsub("\r", " ");
@@ -168,9 +182,8 @@ function BuscarLink(sHechizo)
 		sHechizo=sHechizo:lower();
 		sHechizo=sHechizo:gsub("%.", "");
 		for _,nodoHechizo in pairs(DB.getChild(".referencia.hechizos").getChildren()) do
-			--Debug.chat(DB.getValue(nodoHechizo, "name", ""):lower(), sHechizo:lower())
 			sHechizoNodo=DB.getValue(nodoHechizo, "name", ""):lower();
-			sHechizoNodo=sHechizoNodo:gsub(" %(.*%)", "");
+			--sHechizoNodo=sHechizoNodo:gsub(" %(.*%)", "");
 			if sHechizoNodo==sHechizo then return DB.getPath(nodoHechizo); end
 		end
 
@@ -179,7 +192,7 @@ function BuscarLink(sHechizo)
 			if rModulo.loaded then
 				for _,nodoHechizo in pairs(DB.getChild(".referencia.hechizos@"..sModulo).getChildren()) do
 					sHechizoNodo=DB.getValue(nodoHechizo, "name", ""):lower();
-					sHechizoNodo=sHechizoNodo:gsub(" %(.*%)", "");
+					--sHechizoNodo=sHechizoNodo:gsub(" %(.*%)", "");
 					if sHechizoNodo==sHechizo then return DB.getPath(nodoHechizo); end
 				end
 			end;
