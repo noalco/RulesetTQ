@@ -110,7 +110,6 @@ function ComprobarRestricciones(window)
 	PartesCompletadas["Profesión"].ErrorProfesionRestringida=ParseoProfesiones.bTieneRestriccion and not bClandestinidad;
 	PartesCompletadas["Profesión"].ErrorCultoRestringido=Religion.bCultoConRestriccion and not bClandestinidad;
 	PartesCompletadas["Profesión"].ErrorDeidadRestringida=Religion.bDeidadConRestriccion and not bClandestinidad;
-	
 end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />

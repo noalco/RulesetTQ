@@ -3276,6 +3276,8 @@ function onDrop(x, y, dragdata)
 			if sProfesion~="" then
 				if not ParseoProfesiones.ProfesionPermitida(sProfesion) then
 					ParseoProfesiones.ResetearHabilidadesProfesion();
+					window.Mensajes.setVisible(true);
+					window.Mensajes2.setVisible(false);
 					window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 					window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorProfesionNoPermitida"]);
 				end
@@ -3292,10 +3294,14 @@ function onDrop(x, y, dragdata)
 			
 			window.parentcontrol.window.Mensajes.setValue("");
 		else
+			window.parentcontrol.window.Mensajes.setVisible(true);
+			window.parentcontrol.window.Mensajes2.setVisible(false);
 			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 			window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorEtniaNoPermitida"]);
 		end
 	else
+		window.parentcontrol.window.Mensajes.setVisible(true);
+		window.parentcontrol.window.Mensajes2.setVisible(false);
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorNoEsEtnia"]);
 	end;
@@ -5048,6 +5054,8 @@ end
 		ParseoHabilidades.ResetDatosEtnia();
 		window.LinkEtnia.setValue(nil, nil);
 		window.NombreEtnia.setValue("");
+		window.parentcontrol.window.Mensajes.setVisible(true);
+		window.parentcontrol.window.Mensajes2.setVisible(false);
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorCambioEspecie"]);
 	end

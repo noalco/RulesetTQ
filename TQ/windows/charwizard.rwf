@@ -125,10 +125,14 @@ end</LUACode>
     <LUACode>function onButtonPress()
 	local bEsCorrecto, sMensaje=ChequeoPJ.ComprobarCorrecto(window);
 	if bEsCorrecto then
-		window.Informacion.setValue("&lt;p&gt;Tu personaje es correcto.&lt;/p&gt;");
+		window.Mensajes.setVisible(false);
+		window.Mensajes2.setVisible(true);
+		window.Mensajes2.setValue("&lt;p&gt;Tu personaje es correcto.&lt;/p&gt;");
 		window.onCommitButtonPressed(window);
 	else
-		window.Informacion.setValue(Informacion.CadenasInfo["CabeceraErrores"]..sMensaje);
+		window.Mensajes.setVisible(false);
+		window.Mensajes2.setVisible(true);
+		window.Mensajes2.setValue(Informacion.CadenasInfo["CabeceraErrores"]..sMensaje);
 	end
 --	wPostWizard=Interface.openWindow("VentanaPostWizard", "");
 --	PostWizard.GenerarMensaje(wPostWizard, window);
@@ -270,7 +274,7 @@ end
   <WindowControls>
     <WindowName>charwizard</WindowName>
     <ControlName>BotonReset</ControlName>
-    <ZIndex>22</ZIndex>
+    <ZIndex>23</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -510,6 +514,8 @@ end
 	window.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.LealtadElementos.setValue(0);
 	window.SubventanaWizardPP.subwindow.SubVentanaWizardLealtadYNoProf.subwindow.LealtadAntepasados.setValue(0);
 	
+--	window.Mensajes.setVisible(true);
+--	window.Mensajes2.setVisible(false);
 	window.Mensajes.setValue("");
 end</LUACode>
     <GroupIndex>0</GroupIndex>
@@ -634,7 +640,7 @@ end
   <WindowControls>
     <WindowName>charwizard</WindowName>
     <ControlName>GenerarNombreFemenino</ControlName>
-    <ZIndex>18</ZIndex>
+    <ZIndex>19</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -699,7 +705,7 @@ end
   <WindowControls>
     <WindowName>charwizard</WindowName>
     <ControlName>GenerarNombreMasculino</ControlName>
-    <ZIndex>17</ZIndex>
+    <ZIndex>18</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -965,7 +971,7 @@ end
   <WindowControls>
     <WindowName>charwizard</WindowName>
     <ControlName>LabelQuitarRestricciones</ControlName>
-    <ZIndex>21</ZIndex>
+    <ZIndex>22</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1041,7 +1047,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
@@ -1056,6 +1062,55 @@ end
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
       {"Name":"TextUnderlined"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"19"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"530"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>charwizard</WindowName>
+    <ControlName>Mensajes2</ControlName>
+    <ZIndex>17</ZIndex>
+    <ControlClass>FGFormattedText</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Mensajes2"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"156"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"858"}},
+      {"Name":"Disabled"},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"8,8,8,8"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -1197,10 +1252,14 @@ end
 	end
 	setValue(nTotalPP);
 	if getValue()&lt;10 or getValue()&gt;30 then
+		window.Mensajes.setVisible(true);
+		window.Mensajes2.setVisible(false);
 		window.Mensajes.setFont("FuenteMensajesWarning");
 		window.Mensajes.setValue("Los Puntos de Personaje deben estar entre 10 y 30. Recuerda ajustarlos mediante Ventajas y Desventajas o cambia alguna de las elecciones tomadas (orien étnico, edad, especie, ...) para estar en este rango.");
 		ChequeoPJ.PartesCompletadas["Gasto de PP"].ErrorCantidadPP=true;
 	else
+		window.Mensajes.setVisible(true);
+		window.Mensajes2.setVisible(false);
 		window.Mensajes.setValue("");
 		ChequeoPJ.PartesCompletadas["Gasto de PP"].ErrorCantidadPP=false;
 	end
@@ -1217,7 +1276,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>charwizard</WindowName>
     <ControlName>QuitarRestricciones</ControlName>
-    <ZIndex>20</ZIndex>
+    <ZIndex>21</ZIndex>
     <ControlClass>FGCheckbox</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1278,7 +1337,7 @@ end
   <WindowControls>
     <WindowName>charwizard</WindowName>
     <ControlName>ScrollBar1</ControlName>
-    <ZIndex>19</ZIndex>
+    <ZIndex>20</ZIndex>
     <ControlClass>FGScrollBar</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1314,7 +1373,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"ScrollButtonIcon","Value":{"@xsi:type":"xsd:string","#text":"scrollbutton_normal"}},
       {"Name":"ScrollButtonMinimumHeight","Value":{"@xsi:type":"xsd:int","#text":"40"}},
-      {"Name":"ScrollTarget","Value":{"@xsi:type":"xsd:string","#text":"Mensajes"}},
+      {"Name":"ScrollTarget","Value":{"@xsi:type":"xsd:string","#text":"Mensajes2"}},
       {"Name":"StackVertWith"},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},

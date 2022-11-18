@@ -3846,10 +3846,14 @@ function onDrop(x, y, dragdata)
 			
 			ParseoVentDesv.AsignarVentDesvPorProfesion(window.parentcontrol.window, Utilidades.LeerValorRegistro(sRecord, "VentajaDesventaja"));
 		else
+			window.parentcontrol.window.Mensajes.setVisible(true);
+			window.parentcontrol.window.Mensajes2.setVisible(false);
 			window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 			window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorProfesionNoPermitida"]);
 		end
 	else
+		window.parentcontrol.window.Mensajes.setVisible(true);
+		window.parentcontrol.window.Mensajes2.setVisible(false);
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorNoEsProfesion"]);
 	end;

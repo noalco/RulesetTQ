@@ -1078,6 +1078,8 @@ function onDrop(x, y, dragdata)
 		ParseoVentDesv.ModificarHabilidades(sRecord, "VentDes", true);
 		ParseoVentDesv.ModificarBaseDeHabilidades(sRecord, true);
 	else
+		window.parentcontrol.window.Mensajes.setVisible(true);
+		window.parentcontrol.window.Mensajes2.setVisible(false);
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorNoEsVentDesv"]);
 	end;
@@ -1159,6 +1161,8 @@ function onDrop(x, y, dragdata)
 		ParseoVentDesv.ModificarHabilidades(sRecord, "VentDes", true);
 		ParseoVentDesv.ModificarBaseDeHabilidades(sRecord, true);
 	else
+		window.parentcontrol.window.Mensajes.setVisible(true);
+		window.parentcontrol.window.Mensajes2.setVisible(false);
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorNoEsVentDesv"]);
 	end;
@@ -1240,6 +1244,8 @@ function onDrop(x, y, dragdata)
 		ParseoVentDesv.ModificarHabilidades(sRecord, "VentDes", true);
 		ParseoVentDesv.ModificarBaseDeHabilidades(sRecord, true);
 	else
+		window.parentcontrol.window.Mensajes.setVisible(true);
+		window.parentcontrol.window.Mensajes2.setVisible(false);
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorNoEsVentDesv"]);
 	end;
@@ -1321,6 +1327,8 @@ function onDrop(x, y, dragdata)
 		ParseoVentDesv.ModificarHabilidades(sRecord, "VentDes", true);
 		ParseoVentDesv.ModificarBaseDeHabilidades(sRecord, true);
 	else
+		window.parentcontrol.window.Mensajes.setVisible(true);
+		window.parentcontrol.window.Mensajes2.setVisible(false);
 		window.parentcontrol.window.Mensajes.setFont("FuenteMensajesError");
 		window.parentcontrol.window.Mensajes.setValue(Informacion.CadenasInfo["ErrorNoEsVentDesv"]);
 	end;
