@@ -75,7 +75,7 @@
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerAtaque()}","DiceRollDescription":"{@Combate.sMensajeAtaque}","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
-      {"Name":"Disabled","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
       {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
@@ -87,7 +87,7 @@
       {"Name":"HoverIconName"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge","Value":{"@xsi:type":"xsd:string"}},
@@ -139,7 +139,7 @@ end
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerDanio()}","DiceRollDescription":"{@Combate.sMensajeDanio}","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
-      {"Name":"Disabled","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
       {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
@@ -151,7 +151,7 @@ end
       {"Name":"HoverIconName"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -214,7 +214,7 @@ end</LUACode>
       {"Name":"HoverIconName"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -285,6 +285,57 @@ end</LUACode>
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"409"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>ArmaBase</WindowName>
+    <ControlName>EsCombCCArrojadiza</ControlName>
+    <ZIndex>13</ZIndex>
+    <ControlClass>FGCheckbox</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"EsCombCCArrojadiza"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultChecked"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"Disabled"},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"OffStateIcon"},
+      {"Name":"OnStateIcon"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"331"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"52"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -453,9 +504,9 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"43"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.BotonAtaque.setEnabled(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
-	window.BotonDanio.setEnabled(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
-	
+	window.BotonAtaque.setVisible(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
+	window.BotonDanio.setVisible(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
+	window.BotonEfecto.setVisible(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
 end
 
 function onInit()
@@ -513,8 +564,9 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"43"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.BotonAtaque.setEnabled(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
-	window.BotonDanio.setEnabled(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
+	window.BotonAtaque.setVisible(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
+	window.BotonDanio.setVisible(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
+	window.BotonEfecto.setVisible(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
 end
 
 function onInit()
@@ -636,13 +688,17 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
     <LUACode>function onClickRelease(button, x, y)
-	local sValor=DB.getValue(window.IDinventorylist.getValue()..".TipoArma", "");
-	if sValor~="" and string.len(sValor)==2 then
-		if DB.getValue(window.getDatabaseNode(), "TipoArma", "")==string.sub(sValor, 1, 1) then
-			DB.setValue(window.getDatabaseNode(), "TipoArma", "string", string.sub(sValor, 2, 2));
-		else
-			DB.setValue(window.getDatabaseNode(), "TipoArma", "string", string.sub(sValor, 1, 1));
+	if window.EsCombCCArrojadiza.getValue()==0 then
+		local sValor=DB.getValue(window.IDinventorylist.getValue()..".TipoArma", "");
+		if sValor~="" and string.len(sValor)==2 then
+			if DB.getValue(window.getDatabaseNode(), "TipoArma", "")==string.sub(sValor, 1, 1) then
+				DB.setValue(window.getDatabaseNode(), "TipoArma", "string", string.sub(sValor, 2, 2));
+			else
+				DB.setValue(window.getDatabaseNode(), "TipoArma", "string", string.sub(sValor, 1, 1));
+			end
 		end
+	else
+		DB.setValue(window.getDatabaseNode(), "TipoArmaCombCCArrojadiza", "string", DB.getValue(window.IDinventorylist.getValue()..".TipoArmaCombCCArrojadiza", ""));
 	end
 end</LUACode>
     <GroupIndex>0</GroupIndex>

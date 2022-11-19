@@ -48,7 +48,7 @@ function ObtenerBonoHabilidad(sHabilidad, sRutaRaiz, sUsoArma)
 	local sNombre;
 	for _,nodoHabilidad in pairs(DB.getChildren(sRutaRaiz..".Habilidades.ListaHabilidades")) do
 		sNombre=DB.getValue(nodoHabilidad, "Nombre", "");
-		if sHabilidad==DB.getValue(nodoHabilidad, "HabilidadCC", "") or sHabilidad==DB.getValue(nodoHabilidad, "HabilidadPr", "") or sNombre~="" and sHabilidad==sNombre:sub(4, sNombre:len()-5) then
+		if sHabilidad==DB.getValue(nodoHabilidad, "HabilidadCC", "") or sHabilidad==DB.getValue(nodoHabilidad, "HabilidadPr", "") or sNombre~="" and sHabilidad==sNombre:sub(4, sNombre:len()-4) then
 			return DB.getValue(nodoHabilidad, "Total", 0);
 		end
 	end
@@ -62,7 +62,7 @@ function ObtenerBonoHabilidad(sHabilidad, sRutaRaiz, sUsoArma)
 	return 0;
 end
 
-function ObtenerBonoArma(sMano, sRuta, bEsAtacante)
+function ObtenerBonoArma(sMano, sRuta, bEsAtacante, bEsCombCCArrojadiza)
 	if sMano and sRuta and (sMano=="Derecha" or sMano=="Izquierda") and sRuta:match("(charsheet%.id%-%d*)") then
 		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
 		if sRutaArma=="" then return 10000; end;
@@ -73,9 +73,16 @@ function ObtenerBonoArma(sMano, sRuta, bEsAtacante)
 		if bEsAtacante then sMensajeAtaque=""; end
 		
 		local nFuerza=DB.getValue(sRuta..".Caracteristicas.Fuerza", 0);
-		local sUsoArma=DB.getValue(sRutaArmaCombate..".UsoArma", "");
+		local sUsoArma;
 
-		local sHabilidad=DB.getValue(sRutaArma..".Habilidad", "");
+		local sHabilidad="";
+		if bEsAtacante and bEsCombCCArrojadiza then
+			sHabilidad=DB.getValue(sRutaArma..".HabilidadCombCCArrojadiza", "");
+			sUsoArma=Inventario.CteArrojadiza;
+		else
+			sHabilidad=DB.getValue(sRutaArma..".Habilidad", "");
+			sUsoArma=DB.getValue(sRutaArmaCombate..".UsoArma", "");
+		end
 		if sHabilidad=="" then
 			if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
 				sHabilidad="Agilidad";
@@ -131,14 +138,15 @@ end
 
 function ObtenerAtaque(sMano, sRuta)
 	if sMano and sRuta and (sMano=="Derecha" or sMano=="Izquierda") and sRuta:match("(charsheet%.id%-%d*)") then
+		local bEsCombCCArrojadiza=DB.getValue(sRuta..".EsCombCCArrojadiza", 0)==1;
 		sRuta=sRuta:match("(charsheet%.id%-%d*)");
 		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
 		
 		local sCadena="1d"..DB.getValue(sRuta..".LabelDado", 10).."!";
 		local sOtraMano=""; if sMano=="Derecha" then sOtraMano="Izquierda"; else sOtraMano="Derecha"; end;
 		
-		local nBonoTotalAtacante=ObtenerBonoArma(sMano, sRuta, true);
-		local nBonoTotalAtacanteOtraMano=ObtenerBonoArma(sOtraMano, sRuta, false);
+		local nBonoTotalAtacante=ObtenerBonoArma(sMano, sRuta, true, bEsCombCCArrojadiza);
+		local nBonoTotalAtacanteOtraMano=ObtenerBonoArma(sOtraMano, sRuta, false, false);
 		
 		if nBonoTotalAtacante&gt;nBonoTotalAtacanteOtraMano then
 			nBonoTotalAtacante=nBonoTotalAtacanteOtraMano;
@@ -162,14 +170,24 @@ sMensajeDanio="";
 
 function ObtenerDanio(sMano, sRuta)
 	if sMano and sRuta and (sMano=="Derecha" or sMano=="Izquierda") and sRuta:match("(charsheet%.id%-%d*)") then
+		local bEsCombCCArrojadiza=DB.getValue(sRuta..".EsCombCCArrojadiza", 0)==1;
 		sRuta=sRuta:match("(charsheet%.id%-%d*)");
 		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
 		local sRutaArmaCombate=DB.getValue(sRutaArma..".IDListaArmas", "");
-		local TipoDanio={[1]="Cortante", [2]="Perforante", [3]="Contundente", [4]="Desgarradora"}
-		
+		local TipoDanio={[1]="Cortante", [2]="Penetrante", [3]="Contundente", [4]="Desgarradora"}
+		local sCombCCArrojadiza=""; local sUsoArma; local sRutaArmaCombate;
+		if bEsCombCCArrojadiza then
+			sCombCCArrojadiza="CombCCArrojadiza";
+			sUsoArma=Inventario.CteArrojadiza;
+			sRutaArmaCombate=DB.getValue(sRutaArma..".IDListaArmasCombCCArrojadiza", "");
+		else
+			sRutaArmaCombate=DB.getValue(sRutaArma..".IDListaArmas", "");
+			sUsoArma=DB.getValue(sRutaArmaCombate..".UsoArma", "");
+		end
+
 		local sDanioDados="";
 		local tDados={["d2"]=0, ["d3"]=0, ["d4"]=0, ["d6"]=0, ["d8"]=0, ["d10"]=0, ["d12"]=0, ["d20"]=0, ["d100"]=0, ["dF"]=0};
-		local tDanioDados=DB.getValue(sRutaArma..".DanioDados", "")
+		local tDanioDados=DB.getValue(sRutaArma..".DanioDados"..sCombCCArrojadiza, "")
 		if tDanioDados~="" then
 			for _,v in pairs(tDanioDados) do
 				tDados[v]=tDados[v]+1;
@@ -186,7 +204,7 @@ function ObtenerDanio(sMano, sRuta)
 			end
 		end
 				
-		local nBonoDanio=DB.getValue(sRutaArma..".BonoDanio", "");
+		local nBonoDanio=DB.getValue(sRutaArma..".BonoDanio"..sCombCCArrojadiza, "");
 		if sDanioDados=="" then
 			sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..nBonoDanio.."]";
 		else
@@ -199,7 +217,6 @@ function ObtenerDanio(sMano, sRuta)
 			end
 		end
 		
-		local sUsoArma=DB.getValue(sRutaArmaCombate..".UsoArma", "");
 		local nModDanio=0;
 		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza then 
 			nModDanio=DB.getValue(sRuta..".FortunaModDanio.ModDanio1M", 0);
