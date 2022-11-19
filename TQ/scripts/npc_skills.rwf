@@ -39,13 +39,13 @@ function parseComponents()
 	local nCaracteresDobles=0; local count=0;
 	
 	-- Get the comma-separated strings
-	local aClauses, aClauseStats = StringManager.split(getValue(), ",;\r\n", true);
+	local aClauses, aClauseStats = StringManager.split(getValue(), ",;", true);
 	
 	-- Check each comma-separated string for a potential skill roll or auto-complete opportunity
 	for i = 1, #aClauses do
 		local nStarts, nEnds, sLabel, sSign, sMod = string.find(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)%s*([%+%-–]?)(%d*)");
 		if sSign=="" then nStarts, nEnds, sLabel, sMod = string.find(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)%s*(%d*)"); end
-		if string.sub(sLabel, sLabel:len(), sLabel:len())==" " then sLabel=string.match(sLabel, "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+		if sLabel and string.sub(sLabel, -1)==" " then sLabel=string.match(sLabel, "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
 		--Debug.chat(aClauses[i], nStarts, nEnds, sLabel, sSign, sMod, nEstorbo);
 		_,count = string.gsub(aClauses[i], "[ñÑáÁéÉíÍóÓúÚ]", "");
 		nCaracteresDobles=nCaracteresDobles+count/2;

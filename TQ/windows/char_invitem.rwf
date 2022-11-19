@@ -159,8 +159,7 @@ function onDelete(node)
 --			if DB.getValue(node, "...Inventario.ArmaEnDerecha", "")==sIDListaArmas then DB.setValue(node, "...Inventario.ArmaEnDerecha", "string", ""); end
 --			if DB.getValue(node, "...Inventario.ArmaEnIzquierda", "")==sIDListaArmas then DB.setValue(node, "...Inventario.ArmaEnIzquierda", "string", ""); end
 		end
-		sIDListaArmas=DB.getValue(node, "IDListaArmasCombCCArrijadiza", "");
-		Debug.chat(sIDListaArmas);
+		sIDListaArmas=DB.getValue(node, "IDListaArmasCombCCArrojadiza", "");
 		if sIDListaArmas ~= "" then
 			DB.deleteNode(sIDListaArmas);
 		end

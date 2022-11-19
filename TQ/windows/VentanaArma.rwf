@@ -186,7 +186,7 @@
   <WindowControls>
     <WindowName>VentanaArma</WindowName>
     <ControlName>BonoDanioCombCCArrojadiza</ControlName>
-    <ZIndex>41</ZIndex>
+    <ZIndex>39</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -379,7 +379,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaArma</WindowName>
     <ControlName>DanioDadosCombCCArrojadiza</ControlName>
-    <ZIndex>42</ZIndex>
+    <ZIndex>40</ZIndex>
     <ControlClass>FGDieField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -496,7 +496,7 @@ end
   <WindowControls>
     <WindowName>VentanaArma</WindowName>
     <ControlName>EfectoDanioCombCCArrojadiza</ControlName>
-    <ZIndex>38</ZIndex>
+    <ZIndex>36</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -883,7 +883,7 @@ end
   <WindowControls>
     <WindowName>VentanaArma</WindowName>
     <ControlName>HabilidadCombCCArrojadiza</ControlName>
-    <ZIndex>39</ZIndex>
+    <ZIndex>37</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1069,8 +1069,8 @@ end</LUACode>
   </WindowControls>
   <WindowControls>
     <WindowName>VentanaArma</WindowName>
-    <ControlName>IDListaArmasCombCCArrijadiza</ControlName>
-    <ZIndex>33</ZIndex>
+    <ControlName>IDListaArmasCombCCArrojadiza</ControlName>
+    <ZIndex>32</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1078,13 +1078,13 @@ end</LUACode>
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"CanGrowVert"},
       {"Name":"Center"},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"IDListaArmasCombCCArrijadiza"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"IDListaArmasCombCCArrojadiza"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultText","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"25"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"150"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -1121,8 +1121,8 @@ end</LUACode>
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"306"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"392"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"310"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"336"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1290,7 +1290,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaArma</WindowName>
     <ControlName>LabelDanioCombCCArrojadiza</ControlName>
-    <ZIndex>40</ZIndex>
+    <ZIndex>38</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1397,7 +1397,7 @@ end
   <WindowControls>
     <WindowName>VentanaArma</WindowName>
     <ControlName>LabelEspecialCombCCArrojadiza</ControlName>
-    <ZIndex>37</ZIndex>
+    <ZIndex>35</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1824,7 +1824,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaArma</WindowName>
     <ControlName>LabelTipoArmaCombCCArrojadiza</ControlName>
-    <ZIndex>35</ZIndex>
+    <ZIndex>33</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2272,7 +2272,7 @@ end</LUACode>
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Cortante","Value":"1"},{"Label":"Penetrante","Value":"2"},{"Label":"Contundente","Value":"3"},{"Label":"Desgarradora","Value":"4"},{"Label":"Cortante/Penetrante","Value":"12"},{"Label":"Desgarradora/Penetrante","Value":"42"},{"Label":"Contundente/Penetrante","Value":"32"},{"Label":"Contundente/Desgarradora","Value":"34"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Cortante","Value":"1"},{"Label":"Penetrante","Value":"2"},{"Label":"Contundente","Value":"3"},{"Label":"Desgarradora","Value":"4"},{"Label":"Cortante/Penetrante","Value":"12"},{"Label":"Desgarradora/Penetrante","Value":"42"},{"Label":"Contundente/Penetrante","Value":"32"},{"Label":"Contundente/Desgarradora","Value":"34"},{"Label":"Atrapa","Value":"5"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -2288,7 +2288,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaArma</WindowName>
     <ControlName>TipoArmaCombCCArrojadiza</ControlName>
-    <ZIndex>36</ZIndex>
+    <ZIndex>34</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2328,7 +2328,7 @@ end</LUACode>
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Cortante","Value":"1"},{"Label":"Penetrante","Value":"2"},{"Label":"Contundente","Value":"3"},{"Label":"Desgarradora","Value":"4"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Cortante","Value":"1"},{"Label":"Penetrante","Value":"2"},{"Label":"Contundente","Value":"3"},{"Label":"Desgarradora","Value":"4"},{"Label":"Atrapa","Value":"5"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},

@@ -19,9 +19,8 @@ Habilidades:
 	
 Inventario
 	- Botón identificar en los objetos
-	- El botón lock de los items no bloquea los encantamientos. Además, hace cosas raras al bloquear-cerrar-abrir con los campos estándar
+	- Rebisar el botón lock en todos los elementos, no funciona bien
 	- Tag descripción
-			- Armas 1M/Ar (a la espera de que Eldarc revise las peculiaridades de estas armas)
 
 Personalidad:
 
@@ -33,9 +32,6 @@ Hechizos:
 
 
 NPCs
-	- Hacer campos para PNJs humanos
-		- Hechizos
-		- Habilidades mágicas
 
 	
 Sidebars:

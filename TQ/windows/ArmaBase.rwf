@@ -293,7 +293,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>ArmaBase</WindowName>
     <ControlName>EsCombCCArrojadiza</ControlName>
-    <ZIndex>13</ZIndex>
+    <ZIndex>12</ZIndex>
     <ControlClass>FGCheckbox</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -680,7 +680,7 @@ end
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Cortante","Value":"1"},{"Label":"Penetrante","Value":"2"},{"Label":"Contundente","Value":"3"},{"Label":"Desgarradora","Value":"4"}]}},
+      {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Cortante","Value":"1"},{"Label":"Penetrante","Value":"2"},{"Label":"Contundente","Value":"3"},{"Label":"Desgarradora","Value":"4"},{"Label":"Atrapa","Value":"5"}]}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},

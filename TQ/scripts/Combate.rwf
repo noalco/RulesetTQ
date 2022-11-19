@@ -174,7 +174,7 @@ function ObtenerDanio(sMano, sRuta)
 		sRuta=sRuta:match("(charsheet%.id%-%d*)");
 		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
 		local sRutaArmaCombate=DB.getValue(sRutaArma..".IDListaArmas", "");
-		local TipoDanio={[1]="Cortante", [2]="Penetrante", [3]="Contundente", [4]="Desgarradora"}
+		local TipoDanio={[1]="Cortante", [2]="Penetrante", [3]="Contundente", [4]="Desgarradora", [5]="Atrapa"}
 		local sCombCCArrojadiza=""; local sUsoArma; local sRutaArmaCombate;
 		if bEsCombCCArrojadiza then
 			sCombCCArrojadiza="CombCCArrojadiza";
@@ -206,7 +206,9 @@ function ObtenerDanio(sMano, sRuta)
 				
 		local nBonoDanio=DB.getValue(sRutaArma..".BonoDanio"..sCombCCArrojadiza, "");
 		if sDanioDados=="" then
-			sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..nBonoDanio.."]";
+			if nBonoDanio~=0 then sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..nBonoDanio.."]"; 
+			else sMensajeDanio=DB.getValue(sRutaArma..".name", "");
+			end
 		else
 			if nBonoDanio&gt;0 then
 				sMensajeDanio=DB.getValue(sRutaArma..".name", "").." [Daño arma: "..sDanioDados.."+"..nBonoDanio.."]";
@@ -218,12 +220,14 @@ function ObtenerDanio(sMano, sRuta)
 		end
 		
 		local nModDanio=0;
-		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza then 
-			nModDanio=DB.getValue(sRuta..".FortunaModDanio.ModDanio1M", 0);
-			if nModDanio~=0 then sMensajeDanio=sMensajeDanio.." [Mod. Daño 1M: "..nModDanio.."]"; end
-		elseif sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteArrojadizaDosManos then
-			nModDanio=DB.getValue(sRuta..".FortunaModDanio.ModDanio2M", 0);
-			if nModDanio~=0 then sMensajeDanio=sMensajeDanio.." [Mod. Daño 2M: "..nModDanio.."]"; end
+		if DB.getValue(sRutaArmaCombate..".TipoArma", "1")~="5" then  --Si atrapa, no se aplica el modificador al daño
+			if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza then 
+				nModDanio=DB.getValue(sRuta..".FortunaModDanio.ModDanio1M", 0);
+				if nModDanio~=0 then sMensajeDanio=sMensajeDanio.." [Mod. Daño 1M: "..nModDanio.."]"; end
+			elseif sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteArrojadizaDosManos then
+				nModDanio=DB.getValue(sRuta..".FortunaModDanio.ModDanio2M", 0);
+				if nModDanio~=0 then sMensajeDanio=sMensajeDanio.." [Mod. Daño 2M: "..nModDanio.."]"; end
+			end
 		end
 
 		nBonoDanio=nBonoDanio+nModDanio;
