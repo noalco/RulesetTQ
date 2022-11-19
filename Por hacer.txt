@@ -39,7 +39,6 @@ NPCs
 
 	
 Sidebars:
-	- En las ventanas/listados de Profesiones, Vent./Desvent., sigue sin funcionar del todo bien los mouse overs por encima de los elementos.
+
 	
 Wizard:
-	- Cambiar el cuadro donde aparecen los mensajes de error de generación

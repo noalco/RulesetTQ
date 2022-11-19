@@ -155,9 +155,14 @@ function onDelete(node)
 		local sIDListaArmas=DB.getValue(node, "IDListaArmas", "");
 		if sIDListaArmas ~= "" then
 			DB.deleteNode(sIDListaArmas);
-			sIDListaArmas=string.sub(sIDListaArmas, string.len(sIDListaArmas)-7, string.len(sIDListaArmas));
-			if DB.getValue(node, "...Inventario.ArmaEnDerecha", "")==sIDListaArmas then DB.setValue(node, "...Inventario.ArmaEnDerecha", "string", ""); end
-			if DB.getValue(node, "...Inventario.ArmaEnIzquierda", "")==sIDListaArmas then DB.setValue(node, "...Inventario.ArmaEnIzquierda", "string", ""); end
+--			sIDListaArmas=string.sub(sIDListaArmas, string.len(sIDListaArmas)-7, string.len(sIDListaArmas));
+--			if DB.getValue(node, "...Inventario.ArmaEnDerecha", "")==sIDListaArmas then DB.setValue(node, "...Inventario.ArmaEnDerecha", "string", ""); end
+--			if DB.getValue(node, "...Inventario.ArmaEnIzquierda", "")==sIDListaArmas then DB.setValue(node, "...Inventario.ArmaEnIzquierda", "string", ""); end
+		end
+		sIDListaArmas=DB.getValue(node, "IDListaArmasCombCCArrijadiza", "");
+		Debug.chat(sIDListaArmas);
+		if sIDListaArmas ~= "" then
+			DB.deleteNode(sIDListaArmas);
 		end
 		if DB.getValue(node, "TipoObjeto", 0)==Inventario.CteEscudo and DB.getValue(node, "carried", 0)==Inventario.CteEquipado then
 			DB.setValue(node, "...Protecciones.BonoEscudo", "number", 0);

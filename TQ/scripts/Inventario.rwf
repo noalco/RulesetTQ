@@ -226,16 +226,14 @@ function CrearArma(window)
 		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
 		if sUsoArma==CteUnaDosManos or sUsoArma==CteUnaManoArrojadiza then
 			DB.setValue(nodoNuevaArma, "UsoArma", "string", CteUnaMano);
---			DB.setValue(nodoNuevaArma, "UnaDosManos", "number", 1);
 		else
 			DB.setValue(nodoNuevaArma, "UsoArma", "string", sUsoArma);
---			DB.setValue(nodoNuevaArma, "UnaDosManos", "number", 0);
 		end
 
 		if DB.getValue(window.getDatabaseNode(), "TipoObjeto", 0)==CteArma then
 			if sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos then
 				DB.setValue(window.getDatabaseNode(), "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadCC", ""));
-			elseif sUsoArma==CteArrojaduza or sUsoArma==CteArrojadizaDosManos or sUsoArma==CteUnaManoArrojadiza then
+			elseif sUsoArma==CteArrojaduza or sUsoArma==CteArrojadizaDosManos then
 				DB.setValue(window.getDatabaseNode(), "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadAr", ""));
 			elseif sUsoArma==CteRango or sUsoArma==CteRangoUnaMano then
 				DB.setValue(window.getDatabaseNode(), "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadPr", ""));
@@ -250,6 +248,26 @@ function CrearArma(window)
 		else
 			DB.setValue(nodoNuevaArma, "TipoArma", "string", DB.getValue(window.getDatabaseNode(), "TipoArma", ""));
 		end
+		local bEsCC=sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos;
+		local bEsCombCCArrojadiza=DB.getValue(window.getDatabaseNode(), "CombCCArrojadiza", 0)==1;
+		if bEsCC and bEsCombCCArrojadiza then
+			-- Creamos una nueva arma en combate si es una combinación CC/Arrojadiza
+			local nodoNuevaArmaCombCCArrojadiza = DB.createChild(nodoArmas);
+			DB.setValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "string", nodoNuevaArmaCombCCArrojadiza.getPath());
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "IDinventorylist", "string", window.getDatabaseNode().getPath());
+			
+			DB.setValue(nodoNuevaArma, "UsoArma", "string", CteArrojadiza);
+			DB.setValue(nodoNuevaArma, "EsCombCCArrojadiza", "number", 1);
+
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "Link", "windowreference", "item", window.getDatabaseNode().getPath());
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "name", "string", DB.getValue(window.getDatabaseNode(), "name", ""));
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "carried", "number", CteCargado);
+
+			DB.setValue(window.getDatabaseNode(), "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadArCombCCArrojadiza", ""));
+			DB.setValue(nodoNuevaArma, "TipoArma", "string", DB.getValue(window.getDatabaseNode(), "TipoArmaCombCCArrojadiza", ""));
+		else
+			DB.setValue(nodoNuevaArma, "EsCombCCArrojadiza", "number", 0);
+		end
 	end;
 end
 
@@ -262,12 +280,10 @@ function ModificarArma(window)
 		DB.setValue(nodoArmaAModificar, "carried", "number", DB.getValue(window.getDatabaseNode(), "carried", CteCargado));
 
 		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
-		if sUsoArma==CteUnaDosManos or sUsoArma==CteUnaManoArrojadiza then
+		if sUsoArma==CteUnaDosManos then
 			DB.setValue(nodoArmaAModificar, "UsoArma", "string", CteUnaMano);
---			DB.setValue(nodoArmaAModificar, "UnaDosManos", "number", 1);
 		else
 			DB.setValue(nodoArmaAModificar, "UsoArma", "string", sUsoArma);
---			DB.setValue(nodoArmaAModificar, "UnaDosManos", "number", 0);
 		end
 
 		local sValor=DB.getValue(window.getDatabaseNode(), "TipoArma", "");
@@ -278,12 +294,73 @@ function ModificarArma(window)
 		else
 			DB.setValue(nodoArmaAModificar, "TipoArma", "string", DB.getValue(window.getDatabaseNode(), "TipoArma", ""));
 		end
+		
+		local bEsCC=sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos;
+		local bEsCombCCArrojadiza=DB.getValue(window.getDatabaseNode(), "CombCCArrojadiza", 0)==1;
+		if bEsCC and bEsCombCCArrojadiza and DB.getValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "")=="" then
+			-- Creamos una nueva arma en combate si es una combinación CC/Arrojadiza
+			local nodoNuevaArmaCombCCArrojadiza = DB.createChild(nodoArmas);
+			DB.setValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "string", nodoNuevaArmaCombCCArrojadiza.getPath());
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "IDinventorylist", "string", window.getDatabaseNode().getPath());
+			
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "UsoArma", "string", CteArrojadiza);
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "EsCombCCArrojadiza", "number", 1);
+
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "Link", "windowreference", "item", window.getDatabaseNode().getPath());
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "name", "string", DB.getValue(window.getDatabaseNode(), "name", ""));
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "carried", "number", DB.getValue(window.getDatabaseNode(), "carried", CteCargado));
+
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadArCombCCArrojadiza", ""));
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "TipoArma", "string", DB.getValue(window.getDatabaseNode(), "TipoArmaCombCCArrojadiza", ""));
+			
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "ManoDerecha", "number", DB.getValue(nodoArmaAModificar, "ManoDerecha", 0));
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "ManoIzquierda", "number", DB.getValue(nodoArmaAModificar, "ManoIzquierda", 0));
+
+--			Debug.chat("Creando", nodoNuevaArmaCombCCArrojadiza);
+--			Debug.chat("IDListaArmasCombCCArrojadiza", nodoNuevaArmaCombCCArrojadiza.getPath());
+--			Debug.chat("IDinventorylist", window.getDatabaseNode().getPath());
+--			Debug.chat("nodoNuevaArmaCombCCArrojadiza", CteArrojadiza);
+--			Debug.chat("Link", window.getDatabaseNode().getPath());
+--			Debug.chat("name", DB.getValue(window.getDatabaseNode(), "name", ""));
+--			Debug.chat("carried", CteCargado);
+--			Debug.chat("Habilidad", DB.getValue(window.getDatabaseNode(), "HabilidadArCombCCArrojadiza", ""));
+		elseif bEsCC and bEsCombCCArrojadiza and DB.getValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "")~="" then
+			-- Modificamos un arma si tiene combinación y el arma existe en combate
+			local nodoArmaAModificarCombCCArrojadiza = DB.getChild(DB.getValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", ""));
+			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "Link", "windowreference", "item", window.getDatabaseNode().getPath());
+			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "name", "string", DB.getValue(window.getDatabaseNode(), "name", ""));
+			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "carried", "number", DB.getValue(window.getDatabaseNode(), "carried", CteCargado));
+
+			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadArCombCCArrojadiza", ""));
+			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "TipoArma", "string", DB.getValue(window.getDatabaseNode(), "TipoArmaCombCCArrojadiza", ""));
+
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "ManoDerecha", "number", DB.getValue(nodoArmaAModificar, "ManoDerecha", 0));
+			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "ManoIzquierda", "number", DB.getValue(nodoArmaAModificar, "ManoIzquierda", 0));
+
+--			Debug.chat("Modificando");
+--			Debug.chat("IDListaArmasCombCCArrojadiza", nodoArmaAModificarCombCCArrojadiza.getPath());
+--			Debug.chat("nodoNuevaArmaCombCCArrojadiza", CteArrojadiza);
+--			Debug.chat("Link", window.getDatabaseNode().getPath());
+--			Debug.chat("name", DB.getValue(window.getDatabaseNode(), "name", ""));
+--			Debug.chat("carried", CteCargado);
+--			Debug.chat("Habilidad", DB.getValue(window.getDatabaseNode(), "HabilidadArCombCCArrojadiza", ""));
+
+		elseif (not bEsCC or not bEsCombCCArrojadiza) and DB.getValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "")~="" then
+			-- Eliminamos el arma de combinación en Combate si existia y ya no es viable
+			if DB.getValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "")~="" then DB.deleteNode(DB.getValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "")); end
+			DB.setValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "string", "");
+
+--			Debug.chat("Eliminando");
+--			Debug.chat("IDListaArmasCombCCArrojadiza", "");
+		end
 	end
 end
 
 function EliminarArma(window)
-	if DB.getValue(window.getDatabaseNode(), "IDListaArmas", "")~="" then DB.deleteNode(DB.getValue(window.getDatabaseNode(), "IDListaArmas", "")) end
+	if DB.getValue(window.getDatabaseNode(), "IDListaArmas", "")~="" then DB.deleteNode(DB.getValue(window.getDatabaseNode(), "IDListaArmas", "")); end
 	DB.setValue(window.getDatabaseNode(), "IDListaArmas", "string", "");
+	if DB.getValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "")~="" then DB.deleteNode(DB.getValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "")); end
+	DB.setValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "string", "");
 end
 
 function ActualizarBonoArmas(nodoArmas)

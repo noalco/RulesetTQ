@@ -80,7 +80,9 @@ function AniadirPersonalidad(nodeChar, windowWizard)
 --			break;
 --		end
 --	end
-	Religion.Lealtades[ParseoProfesiones.sLealtadProfCulto]=Religion.Lealtades[ParseoProfesiones.sLealtadProfCulto]+ParseoProfesiones.nLealtadProf;
+	if ParseoProfesiones.sLealtadProfCulto~="" and Religion.Lealtades[ParseoProfesiones.sLealtadProfCulto] then
+		Religion.Lealtades[ParseoProfesiones.sLealtadProfCulto]=Religion.Lealtades[ParseoProfesiones.sLealtadProfCulto]+ParseoProfesiones.nLealtadProf;
+	end
 	DB.setValue(nodeChar, "Notas.Lealtad.LealtadLey", "number", Religion.Lealtades["LEY"]);
 	DB.setValue(nodeChar, "Notas.Lealtad.LealtadCaos", "number", Religion.Lealtades["CAOS"]);
 	DB.setValue(nodeChar, "Notas.Lealtad.LealtadElementos", "number", Religion.Lealtades["ELEMENTOS"]);
