@@ -1,7 +1,6 @@
 Sugerencias Psico y Eldarc:
 	- Buscar ruleset de la forja del rey demonio para el CT
 	- Iconos de objetos
-	- Dividir pestaña combate
 	- Cambiar la duración de los conjuros a desplegable o ciclo y, si se mostrara otra duración, q muestre el campo numérico
 	
 - Bugs:
@@ -26,7 +25,13 @@ Personalidad:
 
 
 Combate:
-
+	- Dividir pestaña combate
+		- Modificadores al ataque
+			- Apuntar (a distancia): 1 turno -> +2; 2 turnos -> +3
+			- 
+		- Modificadores al daño
+		
+		- Críticos
 
 Hechizos:
 
@@ -35,6 +40,7 @@ NPCs
 
 	
 Sidebars:
-
+	- Añadir los campos de combo CC/Arrojadiza a la ventana de armas de la librería de objetos
+		- Gestionar el ondrop con los nuevos campos
 	
 Wizard:
