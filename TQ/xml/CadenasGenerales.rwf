@@ -4,6 +4,14 @@
     <FolderID>0</FolderID>
     <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;root&gt;
+	&lt;font name="sheetlabel_ps"&gt;
+		&lt;ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="16" /&gt;
+		&lt;color value="#000000" /&gt;
+	&lt;/font&gt;
+		&lt;font name="sheetlabel_ct"&gt;
+		&lt;ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="16" /&gt;
+		&lt;color value="#000000" /&gt;
+	&lt;/font&gt;
 &lt;!-- ñ &amp;#241; á &amp;#225; é &amp;#233; í &amp;#237; ó &amp;#243; ú &amp;#250; --&gt;
 	&lt;string name="button_add"&gt;Insertar Elemento&lt;/string&gt;
 	&lt;string name="button_editon"&gt;Editar Lista&lt;/string&gt;
