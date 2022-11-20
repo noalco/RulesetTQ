@@ -55,6 +55,24 @@ function ObtenerSubVentanaPpal(sRuta, sVentana)
 		end
 	end
 	return nil;
+end
+
+function ObtenerDados(sRuta)
+	if sRuta and sRuta:match("(charsheet%.id%-%d*)") then
+		sRuta=sRuta:match("(charsheet%.id%-%d*)");
+		local nTipoDado=DB.getValue(sRuta..".LabelDado", 10);
+		local bDobleDado=DB.getValue(sRuta..".FortunaModDanio.DosPuntosFortuna", 0)==1;
+		if bDobleDado then
+			DB.setValue(sRuta..".FortunaModDanio.FortunaActual", "number", DB.getValue(sRuta..".FortunaModDanio.FortunaActual", 2)-2);
+			DB.setValue(sRuta..".FortunaModDanio.DosPuntosFortuna", "number", 0);
+			Mensaje(DB.getValue(sRuta..".name", "") .. " usa dos puntos de Fortuna", "msgfont", "diamond");
+			return "2d"..nTipoDado.."!";
+		else
+			return "1d"..nTipoDado.."!";
+		end
+	else
+		return "1d10!";
+	end
 end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding>UTF-8</Encoding>

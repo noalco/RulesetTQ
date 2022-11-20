@@ -181,15 +181,17 @@ function BuscarLink(sHechizo)
 	if sHechizo and sHechizo~="" then
 		sHechizo=sHechizo:lower();
 		sHechizo=sHechizo:gsub("%.", "");
-		for _,nodoHechizo in pairs(DB.getChild(".referencia.hechizos").getChildren()) do
-			sHechizoNodo=DB.getValue(nodoHechizo, "name", ""):lower();
-			--sHechizoNodo=sHechizoNodo:gsub(" %(.*%)", "");
-			if sHechizoNodo==sHechizo then return DB.getPath(nodoHechizo); end
+		if DB.getChild(".referencia.hechizos") then
+			for _,nodoHechizo in pairs(DB.getChild(".referencia.hechizos").getChildren()) do
+				sHechizoNodo=DB.getValue(nodoHechizo, "name", ""):lower();
+				--sHechizoNodo=sHechizoNodo:gsub(" %(.*%)", "");
+				if sHechizoNodo==sHechizo then return DB.getPath(nodoHechizo); end
+			end
 		end
 
 		-- Búsqueda en módulos
 		for sModulo,rModulo in pairs(ModuleManager.getAllModuleInfo()) do
-			if rModulo.loaded then
+			if rModulo.loaded and DB.getChild(".referencia.hechizos@"..sModulo) then
 				for _,nodoHechizo in pairs(DB.getChild(".referencia.hechizos@"..sModulo).getChildren()) do
 					sHechizoNodo=DB.getValue(nodoHechizo, "name", ""):lower();
 					--sHechizoNodo=sHechizoNodo:gsub(" %(.*%)", "");

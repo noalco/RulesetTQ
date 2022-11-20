@@ -450,11 +450,14 @@ function ObtenerTirada()
 	local nBono=getValue();
 	local nBonoMagia=DB.getValue(window.getDatabaseNode(), "...ModMagia", 0);
 	if nBono+nBonoMagia&gt;0 then
-		return "1d"..nLabelDado.."!+"..nBono+nBonoMagia;
+		return Herramientas.ObtenerDados(window.getDatabaseNode().getPath()).."!+"..nBono+nBonoMagia;
+		--return "1d"..nLabelDado.."!+"..nBono+nBonoMagia;
 	elseif nBono+nBonoMagia&lt;0 then
-		return "1d"..nLabelDado.."!"..nBono+nBonoMagia;
+		return Herramientas.ObtenerDados(window.getDatabaseNode().getPath())..nBono+nBonoMagia;
+--		return "1d"..nLabelDado.."!"..nBono+nBonoMagia;
 	else
-		return "1d"..nLabelDado.."!";
+		return Herramientas.ObtenerDados(window.getDatabaseNode().getPath());
+--		return "1d"..nLabelDado.."!";
 	end
 end
 

@@ -17,7 +17,7 @@
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"1d{LabelDado}! + {self}","DiceRollDescription":"[Atractivo]","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@Herramientas.ObtenerDados(window.getDatabaseNode().getPath())} + {self}","DiceRollDescription":"[Atractivo]","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"DisplaySign"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -58,7 +58,7 @@
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"96"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	Principal.CalcularBaseHabilidades(window.getDatabaseNode());
+	--Principal.CalcularBaseHabilidades(window.getDatabaseNode());
 end;</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -136,7 +136,7 @@ end
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"1d{LabelDado}! + {self}","DiceRollDescription":"[Cuerpo]","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@Herramientas.ObtenerDados(window.getDatabaseNode().getPath())} + {self}","DiceRollDescription":"[Cuerpo]","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"DisplaySign"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -158,7 +158,7 @@ end
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"0"}},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop"},
@@ -178,8 +178,11 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	DB.setValue(window.getDatabaseNode(), "BaseHabilidades.ModMenteCuerpo2", "number", Herramientas.Redondeo((DB.getValue(window.getDatabaseNode(), ".Caracteristicas.Mente", 0)+DB.getValue(window.getDatabaseNode(), ".Caracteristicas.Cuerpo", 0))/2));
-	Principal.CalcularBaseHabilidades(window.getDatabaseNode());
-end;</LUACode>
+	--Principal.CalcularBaseHabilidades(window.getDatabaseNode());
+end;
+
+--1d{LabelDado}! + {self}
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -201,7 +204,7 @@ end;</LUACode>
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"1d{LabelDado}! + {self}","DiceRollDescription":"[Espíritu]","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@Herramientas.ObtenerDados(window.getDatabaseNode().getPath())} + {self}","DiceRollDescription":"[Espíritu]","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"DisplaySign"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -223,7 +226,7 @@ end;</LUACode>
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"0"}},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop"},
@@ -244,7 +247,7 @@ end;</LUACode>
     <LUACode>function onValueChanged()
 	DB.setValue(window.getDatabaseNode(), "BaseHabilidades.ModMenteEspiritu2", "number", Herramientas.Redondeo((DB.getValue(window.getDatabaseNode(), ".Caracteristicas.Mente", 0)+DB.getValue(window.getDatabaseNode(), ".Caracteristicas.Espiritu", 0))/2));
 	DB.setValue(window.getDatabaseNode(), "BaseHabilidades.ModMenteEspiritu3", "number", Herramientas.Redondeo((DB.getValue(window.getDatabaseNode(), ".Caracteristicas.Mente", 0)+DB.getValue(window.getDatabaseNode(), ".Caracteristicas.Espiritu", 0))/3));
-	Principal.CalcularBaseHabilidades(window.getDatabaseNode());
+	--Principal.CalcularBaseHabilidades(window.getDatabaseNode());
 end;</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -267,7 +270,7 @@ end;</LUACode>
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"1d{LabelDado}! + {self}","DiceRollDescription":"[Fuerza]","UseModStack":"true","ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@Herramientas.ObtenerDados(window.getDatabaseNode().getPath())} + {self}","DiceRollDescription":"[Fuerza]","UseModStack":"true","ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"DisplaySign"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -655,7 +658,7 @@ end</LUACode>
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"1d{LabelDado}! + {self}","DiceRollDescription":"[Mente]","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@Herramientas.ObtenerDados(window.getDatabaseNode().getPath())} + {self}","DiceRollDescription":"[Mente]","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"DisplaySign"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -677,7 +680,7 @@ end</LUACode>
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
-      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"0"}},
+      {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"3"}},
       {"Name":"NextTabTarget"},
       {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop"},
@@ -699,7 +702,7 @@ end</LUACode>
 	DB.setValue(window.getDatabaseNode(), "BaseHabilidades.ModMenteEspiritu2", "number", Herramientas.Redondeo((DB.getValue(window.getDatabaseNode(), ".Caracteristicas.Mente", 0)+DB.getValue(window.getDatabaseNode(), ".Caracteristicas.Espiritu", 0))/2));
 	DB.setValue(window.getDatabaseNode(), "BaseHabilidades.ModMenteEspiritu3", "number", Herramientas.Redondeo((DB.getValue(window.getDatabaseNode(), ".Caracteristicas.Mente", 0)+DB.getValue(window.getDatabaseNode(), ".Caracteristicas.Espiritu", 0))/3));
 	DB.setValue(window.getDatabaseNode(), "BaseHabilidades.ModMenteCuerpo2", "number", Herramientas.Redondeo((DB.getValue(window.getDatabaseNode(), ".Caracteristicas.Mente", 0)+DB.getValue(window.getDatabaseNode(), ".Caracteristicas.Cuerpo", 0))/2));
-	Principal.CalcularBaseHabilidades(window.getDatabaseNode());
+	--Principal.CalcularBaseHabilidades(window.getDatabaseNode());
 end;</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -722,7 +725,7 @@ end;</LUACode>
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"1d{LabelDado}! + {self}","DiceRollDescription":"[Tamaño]","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@Herramientas.ObtenerDados(window.getDatabaseNode().getPath())} + {self}","DiceRollDescription":"[Tamaño]","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"DisplaySign"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -763,7 +766,7 @@ end;</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"96"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	Principal.CalcularBaseHabilidades(window.getDatabaseNode());
+	--Principal.CalcularBaseHabilidades(window.getDatabaseNode());
 end;</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />

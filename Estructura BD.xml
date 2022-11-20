@@ -85,6 +85,7 @@
 				<ModDanio2M/>
 				<FortunaActual/>
 				<FortunaMaxima/>
+				<DosPuntosFortuna/>
 			</FortunaModDanio>
 			<Protecciones>
 				<TotalArmadura/>

@@ -142,7 +142,8 @@ function ObtenerAtaque(sMano, sRuta)
 		sRuta=sRuta:match("(charsheet%.id%-%d*)");
 		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
 		
-		local sCadena="1d"..DB.getValue(sRuta..".LabelDado", 10).."!";
+--		local sCadena="1d"..DB.getValue(sRuta..".LabelDado", 10).."!";
+		local sCadena=Herramientas.ObtenerDados(sRuta);
 		local sOtraMano=""; if sMano=="Derecha" then sOtraMano="Izquierda"; else sOtraMano="Derecha"; end;
 		
 		local nBonoTotalAtacante=ObtenerBonoArma(sMano, sRuta, true, bEsCombCCArrojadiza);
