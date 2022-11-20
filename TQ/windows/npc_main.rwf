@@ -238,7 +238,7 @@
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"7"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"3"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"496"}}
 ]}}</Definition>
     <LUACode />
