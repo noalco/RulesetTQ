@@ -4,17 +4,20 @@ Sugerencias Psico y Eldarc:
 	- Cambiar la duración de los conjuros a desplegable o ciclo y, si se mostrara otra duración, q muestre el campo numérico
 	
 - Bugs:
+	- No se calculan bien los bonos de las instancias
 
 
 General:
 	- Tooltips
 	- Traducciones
+	- Fuentes de luz en metros
 
 Principal:
 
 	
 Habilidades:
-
+	- Cordelería
+	- Habilidades custom
 	
 Inventario
 	- Botón identificar en los objetos
@@ -25,6 +28,8 @@ Personalidad:
 
 
 Combate:
+	- replicar Armas con más de 1 de cantidad
+	- Información
 	- Dividir pestaña combate
 		- Modificadores al ataque
 			- Apuntar (a distancia): 1 turno -> +2; 2 turnos -> +3
@@ -42,5 +47,6 @@ NPCs
 Sidebars:
 	- Añadir los campos de combo CC/Arrojadiza a la ventana de armas de la librería de objetos
 		- Gestionar el ondrop con los nuevos campos
+	- Añadir librería de bendiciones
 	
 Wizard:

@@ -468,6 +468,7 @@
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	local sSelectedValue=getSelectedValue();
+	Combate.GestionarDobleArma(sSelectedValue, window.ListaArmaIzquierda.getSelectedValue(), window, "Izquierda");
 	for _,w in pairs (window.ListaArmas.getWindows()) do
 		if w.IDinventorylist.getValue()==sSelectedValue then
 			w.ManoDerecha.setValue(1);
@@ -553,6 +554,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	local sSelectedValue=getSelectedValue();
+	Combate.GestionarDobleArma(sSelectedValue, window.ListaArmaDerecha.getSelectedValue(), window, "Derecha");
 	for _,w in pairs (window.ListaArmas.getWindows()) do
 		if w.IDinventorylist.getValue()==sSelectedValue then
 			w.ManoIzquierda.setValue(1);
