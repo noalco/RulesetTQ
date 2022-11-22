@@ -752,22 +752,22 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"179"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
-    <LUACode>function onClickRelease(button, x, y)
-	if DB.getValue(window.IDinventorylist.getValue()..".UsoArma", "")==Inventario.CteUnaDosManos then
-		if DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteUnaMano then
-			DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteDosManos);
-		elseif DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteDosManos then
-			DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteUnaMano);
-		end
-	elseif DB.getValue(window.IDinventorylist.getValue()..".UsoArma", "")==Inventario.CteUnaManoArrojadiza then
-		if DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteUnaMano then
-			DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteArrojadiza);
-		elseif DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteArrojadiza then
-			DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteUnaMano);
-		end
-	end
-end
-</LUACode>
+    <LUACode>--function onClickRelease(button, x, y)
+--	if DB.getValue(window.IDinventorylist.getValue()..".UsoArma", "")==Inventario.CteUnaDosManos then
+--		if DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteUnaMano then
+--			DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteDosManos);
+--		elseif DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteDosManos then
+--			DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteUnaMano);
+--		end
+--	elseif DB.getValue(window.IDinventorylist.getValue()..".UsoArma", "")==Inventario.CteUnaManoArrojadiza then
+--		if DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteUnaMano then
+--			DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteArrojadiza);
+--		elseif DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteArrojadiza then
+--			DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteUnaMano);
+--		end
+--	end
+--end
+--</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

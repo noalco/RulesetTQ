@@ -20,7 +20,7 @@ function CrearLista(sMano, ListaArma, sText, sPathArma)
 		ListaArma.add("", "");
 		for _,nodoArma in pairs(DB.getChildren(ListaArma.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)")..".inventorylist")) do
 			local nCargado=DB.getValue(nodoArma, "carried", Inventario.CteDesequipado);
-			if (DB.getValue(nodoArma, "TipoObjeto", 0)==Inventario.CteArma or DB.getValue(nodoArma, "TipoObjeto", 0)==Inventario.CteEscudo and sMano=="Izquierda") and (nCargado==Inventario.CteEquipado or nCargado==Inventario.CteCargado) then
+			if (DB.getValue(nodoArma, "TipoObjeto", 0)==Inventario.CteArma or DB.getValue(nodoArma, "TipoObjeto", 0)==Inventario.CteEscudo and sMano=="Izquierda") and (nCargado==Inventario.CteEquipado or nCargado==Inventario.CteCargado) and DB.getValue(nodoArma, "count", 0)&gt;0 then
 				DB.setValue(nodoArma, "Espacios", "string", "");
 				local name=DB.getValue(nodoArma, "name", "");
 				if aEspacios[name] then
@@ -250,6 +250,33 @@ function ObtenerDanio(sMano, sRuta)
 	else
 		return "0";
 	end;
+end
+
+function GestionarDobleArma(sSelectedValue, sSelectedValueOtraMano, window, sOtraMano)
+	if sSelectedValue and sSelectedValueOtraMano and sOtraMano and window then --and sRuta:match("(charsheet%.id%-%d*)") then
+--		sRuta=sRuta:match("(charsheet%.id%-%d*)");
+		local sUsoArma=DB.getValue(sSelectedValue..".UsoArma", "");
+		if sSelectedValue==sSelectedValueOtraMano then
+			local nCantidad=DB.getValue(sSelectedValue..".count", 1);
+			if (sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.RangoUnaMano) and nCantidad==1 then
+				window["ListaArma"..sOtraMano].setListValue("");
+				--DB.setValue(sRuta..".ListaArma"..sOtraMano.."value", "string", "");
+			elseif sUsoArma==Inventario.CteUnaDosManos then
+				local sPathArmaCombate=DB.getValue(sSelectedValue..".IDListaArmas", "");
+				DB.setValue(sPathArmaCombate..".UsoArma", "string", Inventario.CteDosManos);
+			end;
+		elseif sUsoArma==Inventario.CteUnaDosManos then
+			local sPathArmaCombate=DB.getValue(sSelectedValue..".IDListaArmas", "");
+			DB.setValue(sPathArmaCombate..".UsoArma", "string", Inventario.CteUnaMano);
+		end
+	end
+	if sSelectedValueOtraMano and sSelectedValue~=sSelectedValueOtraMano then 
+		local sUsoArmaOtraMano=DB.getValue(sSelectedValueOtraMano..".UsoArma", "");
+		if sUsoArmaOtraMano==Inventario.CteUnaDosManos then
+			local sPathArmaCombate=DB.getValue(sSelectedValueOtraMano..".IDListaArmas", "");
+			DB.setValue(sPathArmaCombate..".UsoArma", "string", Inventario.CteUnaMano);
+		end
+	end
 end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding />
