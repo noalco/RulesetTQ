@@ -55,20 +55,7 @@ function addEntry(bFocus)
 		self.onEntryAdded(w);
 	end
 	return w;
-end
-
-function onDrop(x, y, draginfo)
-	if draginfo.isType("shortcut") then
-		local _,sPath = draginfo.getShortcutData();
-		local w=createWindow();
-		local nodo=w.getDatabaseNode();
-		for sCamp,dValor in pairs (DB.getChildren(sPath)) do
-			if sCamp~="link" then DB.setValue(nodo, sCamp, dValor.getType(), dValor.getValue()); end
-		end
-		return true;
-	end
-end
-</Script>
+end</Script>
     <RegisterScript>false</RegisterScript>
     <Encoding>UTF-8</Encoding>
   </Scripts>
