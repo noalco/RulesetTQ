@@ -47,6 +47,5 @@ NPCs
 Sidebars:
 	- Añadir los campos de combo CC/Arrojadiza a la ventana de armas de la librería de objetos
 		- Gestionar el ondrop con los nuevos campos
-	- Añadir librería de bendiciones
 	
 Wizard:
