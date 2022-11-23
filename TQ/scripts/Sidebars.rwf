@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Sidebars</ScriptName>
-    <FolderID>29</FolderID>
+    <FolderID>30</FolderID>
     <Script>function onInit()
     DesktopManager.setSidebarDockCategoryIconColor("eeebe1");
     DesktopManager.setSidebarDockCategoryTextColor("eeebe1");
@@ -84,6 +84,17 @@
 			sSidebarCategory = "personaje",
 		},
 
+		["bendiciones"] = {
+			bExport=true,
+			aDataMap = {"referencia.bendiciones"},
+			sListDisplayClass = "BendicionSidebarBase",
+			sRecordDisplayClass="VentanaBendicionSidebar",
+			aCustomFilters = {
+				["Coste de ESP"] = { sField = "Valor" },
+			},
+			sEditMode = "play",
+			sSidebarCategory = "personaje",
+		},
 --Desactivar librerías sin uso
 		["vehicle"] = {bHidden = true, bExport=false},
 		["quest"] = {bHidden = true, bExport=false},

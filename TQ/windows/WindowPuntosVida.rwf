@@ -1157,11 +1157,12 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"222"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"175"}}
 ]}}</Definition>
-    <LUACode>function onClickDown(button, x, y)
-     if getValue() == 0
+    <LUACode>function onValueChanged()--onClickDown(button, x, y)
+     if getValue() == 1
           then window.ListaHeridas_iadd.setVisible(true);
           else window.ListaHeridas_iadd.setVisible(false);
       end
+	super.onValueChanged();
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />

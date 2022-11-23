@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>HechizosNPCs</ScriptName>
-    <FolderID>29</FolderID>
+    <FolderID>30</FolderID>
     <Script>function ObtenerNombre(sHechizo)
 	local sNombre=QuitarAbreviatura(sHechizo:match("([%a%s:ñÑáÁéÉíÍóÓúÚ%.]+)"));
 	local sSubNombre=sHechizo:match("(%([%a%s:ñÑáÁéÉíÍóÓúÚ]+%)).*%(");

@@ -5,6 +5,7 @@
     <XML>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;root&gt;
 	&lt;string name="library_recordtype_label_hechizos"&gt;Hechizos&lt;/string&gt;
+	&lt;string name="library_recordtype_label_bendiciones"&gt;Bendiciones&lt;/string&gt;
 	&lt;string name="library_recordtype_label_encantamientos"&gt;Encantamientos&lt;/string&gt;
 	&lt;string name="library_recordtype_label_ventdesvent"&gt;Vent./Desvent.&lt;/string&gt;
 	&lt;string name="library_recordtype_label_item"&gt;Objetos&lt;/string&gt;
