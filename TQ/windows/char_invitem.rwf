@@ -240,28 +240,37 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	Inventario.CalcularPesoTotal(window);
-	if getValue()==1 then
-		local sRuta=window.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)");
-		local sRutaMadoDerecha=DB.getValue(sRuta..".ListaArmaDerechavalue", "");
-		local sRutaMadoIzquierda=DB.getValue(sRuta..".ListaArmaIzquierdavalue", "");
-		if sRutaMadoDerecha==sRutaMadoIzquierda and sRutaMadoIzquierda==window.getDatabaseNode().getPath() then
-			DB.setValue(sRuta..".ListaArmaIzquierdavalue", "string", "");
-			DB.setValue(sRuta..".Inventario.ListaArmaIzquierda", "string", "");
+	nTipoObjeto=DB.getValue(window.getDatabaseNode(), "TipoObjeto", Inventario.CteObjeto);
+	if nTipoObjeto==Inventario.CteArma or nTipoObjeto==Inventario.CteEscudo then
+		if getValue()==1 then
+			local sRuta=window.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)");
+			local sRutaMadoDerecha=DB.getValue(sRuta..".ListaArmaDerechavalue", "");
+			local sRutaMadoIzquierda=DB.getValue(sRuta..".ListaArmaIzquierdavalue", "");
+			local sUsoArma=DB.getValue(window.getDatabaseNode(), "UsoArma", Inventario.CteUnaMano);
+			if sRutaMadoDerecha==sRutaMadoIzquierda and sRutaMadoIzquierda==window.getDatabaseNode().getPath() then
+				if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteRangoUnaMano then
+					DB.setValue(sRuta..".ListaArmaIzquierdavalue", "string", "");
+					DB.setValue(sRuta..".Inventario.ListaArmaIzquierda", "string", "");
+				elseif sUsoArma==Inventario.CteUnaDosManos then
+					local sPathArmaCombate=DB.getValue(sRutaMadoDerecha..".IDListaArmas", "");
+					DB.setValue(sPathArmaCombate..".UsoArma", "string", Inventario.CteDosManos);
+				end
+			end
+		elseif getValue()==0 then
+			local sRuta=window.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)");
+			local sRutaMadoDerecha=DB.getValue(sRuta..".ListaArmaDerechavalue", "");
+			local sRutaMadoIzquierda=DB.getValue(sRuta..".ListaArmaIzquierdavalue", "");
+			if sRutaMadoIzquierda==window.getDatabaseNode().getPath() then
+				DB.setValue(sRuta..".ListaArmaIzquierdavalue", "string", "");
+				DB.setValue(sRuta..".Inventario.ListaArmaIzquierda", "string", "");
+			end
+			if sRutaMadoDerecha==window.getDatabaseNode().getPath() then
+				DB.setValue(sRuta..".ListaArmaDerechavalue", "string", "");
+				DB.setValue(sRuta..".Inventario.ListaArmaDerecha", "string", "");
+			end
 		end
-	elseif getValue()==0 then
-		local sRuta=window.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)");
-		local sRutaMadoDerecha=DB.getValue(sRuta..".ListaArmaDerechavalue", "");
-		local sRutaMadoIzquierda=DB.getValue(sRuta..".ListaArmaIzquierdavalue", "");
-		if sRutaMadoIzquierda==window.getDatabaseNode().getPath() then
-			DB.setValue(sRuta..".ListaArmaIzquierdavalue", "string", "");
-			DB.setValue(sRuta..".Inventario.ListaArmaIzquierda", "string", "");
-		end
-		if sRutaMadoDerecha==window.getDatabaseNode().getPath() then
-			DB.setValue(sRuta..".ListaArmaDerechavalue", "string", "");
-			DB.setValue(sRuta..".Inventario.ListaArmaDerecha", "string", "");
-		end
+		Combate.CrearListas(getDatabaseNode().getPath());
 	end
-	Combate.CrearListas(getDatabaseNode().getPath());
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
