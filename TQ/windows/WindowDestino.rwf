@@ -67,7 +67,12 @@
 		window.TotalGastado.setValue(window.TotalGastado.getValue()+1);
 	end
 	return true;
-end</LUACode>
+end
+
+function onWheel(notches)
+    if getValue()&lt;0 then setValue(0); end
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -500,7 +505,12 @@ end</LUACode>
 		window.TotalGastado.setValue(window.TotalGastado.getValue()+1);
 	end
 	return true;
-end</LUACode>
+end
+
+function onWheel(notches)
+    if getValue()&lt;0 then setValue(0); end
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -572,7 +582,12 @@ end</LUACode>
 		window.TotalGastado.setValue(window.TotalGastado.getValue()+1);
 	end
 	return true;
-end</LUACode>
+end
+
+function onWheel(notches)
+    if getValue()&lt;0 then setValue(0); end
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -644,7 +659,12 @@ end</LUACode>
 		window.TotalGastado.setValue(window.TotalGastado.getValue()+1);
 	end
 	return true;
-end</LUACode>
+end
+
+function onWheel(notches)
+    if getValue()&lt;0 then setValue(0); end
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -706,7 +726,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"116"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"73"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

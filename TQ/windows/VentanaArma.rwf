@@ -1222,7 +1222,7 @@ end</LUACode>
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
       {"Name":"TextUnderlined"},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Número de turnos necesarios para recargar el arma (\"Retraso\" indica que se recarga a la vez que se dispara)."}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Marcar en aquellas armas cuerpo a cuerpo que se puedan usar como armas arrojadizas."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},

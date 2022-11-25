@@ -708,7 +708,9 @@
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"47"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	if getValue()&gt;window.PtosFortunaMaximos.getValue() then setValue(window.PtosFortunaMaximos.getValue()); end
+	if getValue()&gt;window.PtosFortunaMaximos.getValue() then setValue(window.PtosFortunaMaximos.getValue());
+	elseif getValue()&lt;0 then setValue(0);
+	end
 	if getValue()&lt;=1 then
 		window.DosPuntosFortuna.setReadOnly(true);
 		window.DosPuntosFortuna.setValue(0);
@@ -725,7 +727,10 @@ function onInit()
 		window.DosPuntosFortuna.setReadOnly(false);
 	end
 end
-</LUACode>
+
+function onWheel(notches)
+    onValueChanged();
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -799,7 +804,10 @@ function onDoubleClick(x, y)
 	end
 	return true;
 end
-</LUACode>
+
+function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

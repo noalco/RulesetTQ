@@ -1442,7 +1442,10 @@ function onValueChanged()
 		window.BotonIncapacitado.setReadOnly(false);
 	end
 end
-</LUACode>
+
+function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1515,7 +1518,10 @@ end
 function onValueChanged()
 	Principal.ActualizarRangosHeridas(window);
 end
-</LUACode>
+
+function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

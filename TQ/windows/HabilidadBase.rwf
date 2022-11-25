@@ -855,8 +855,8 @@ end</LUACode>
 	super.onInit();
 end
 
-function AniadirModificador()
-
+function onWheel(notches)
+    return false;
 end
 --
 --function onValueChanged()

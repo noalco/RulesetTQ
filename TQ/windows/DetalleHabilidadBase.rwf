@@ -894,7 +894,10 @@ end</LUACode>
 	end
 	super.onInit();
 end
-</LUACode>
+
+function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

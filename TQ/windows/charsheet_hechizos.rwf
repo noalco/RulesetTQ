@@ -600,6 +600,10 @@
 	addSourceWithOp(".Hechizos.PMP", "-");
 		
 	super.onInit();
+end
+
+function onWheel(notches)
+    return false;
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -667,6 +671,10 @@ end</LUACode>
 	addSourceWithOp(".Hechizos.PuntosMagiaGastados", "-");
 	
 	super.onInit();
+end
+
+function onWheel(notches)
+    return false;
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />

@@ -1024,6 +1024,10 @@ end</LUACode>
 	addSourceWithOp(".Protecciones.TotalYelmo", "+");
 	
 	super.onInit();
+end
+
+function onWheel(notches)
+    return false;
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />

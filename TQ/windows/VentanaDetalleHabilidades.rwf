@@ -2618,7 +2618,9 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"918"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"29"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -2680,7 +2682,9 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"767"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"29"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
