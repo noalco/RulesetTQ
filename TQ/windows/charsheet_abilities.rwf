@@ -1306,7 +1306,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"2"}},
-      {"Name":"WindowListChildDefinition","Value":{"@xsi:type":"ArrayOfChildDefinition"}},
+      {"Name":"WindowListChildDefinition","Value":{"@xsi:type":"ArrayOfChildDefinition","ChildDefinition":[{"BackgroundColor":null,"sBackgroundColor":"0;0;0;0"},{"BackgroundColor":null,"sBackgroundColor":"34;0;105;132"}]}},
       {"Name":"WindowListClassName","Value":{"@xsi:type":"xsd:string","#text":"HabilidadBase"}},
       {"Name":"WindowListFilterBy","Value":{"@xsi:type":"FilterByDefinition","FilterSourceType":"Control","FilterOnSourceType":"Control"}},
       {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition","SortByDefinition":{"Descending":"false","SourceType":"Control","SourceName":"ClaveHabilidad"}}},
