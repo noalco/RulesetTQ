@@ -52,10 +52,7 @@
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"159"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"55"}}
 ]}}</Definition>
-    <LUACode>function onButtonPress()
-	
-end
-</LUACode>
+    <LUACode />
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

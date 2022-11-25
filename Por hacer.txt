@@ -28,7 +28,7 @@ Personalidad:
 
 
 Combate:
-	- replicar Armas con más de 1 de cantidad
+	- Ventana de ayuda del uso de armas
 	- Información
 	- Dividir pestaña combate
 		- Modificadores al ataque

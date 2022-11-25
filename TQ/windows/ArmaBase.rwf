@@ -696,11 +696,34 @@ end
 			else
 				DB.setValue(window.getDatabaseNode(), "TipoArma", "string", string.sub(sValor, 1, 1));
 			end
+--			setReadOnly(false);
+		else
+--			setReadOnly(true);
 		end
 	else
 		DB.setValue(window.getDatabaseNode(), "TipoArmaCombCCArrojadiza", "string", DB.getValue(window.IDinventorylist.getValue()..".TipoArmaCombCCArrojadiza", ""));
+--		setReadOnly(true);
 	end
-end</LUACode>
+end
+
+function onInit()
+	super.onInit();
+	onValueChanged();
+end
+
+function onValueChanged()
+	if window.EsCombCCArrojadiza.getValue()==0 then
+		local sValor=DB.getValue(window.IDinventorylist.getValue()..".TipoArma", "");
+		if sValor~="" and string.len(sValor)==2 then
+			setReadOnly(false);
+		else
+			setReadOnly(true);
+		end
+	else
+		setReadOnly(true);
+	end
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -754,19 +777,15 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onClickRelease(button, x, y)
 	local nCuenta=DB.getValue(window.IDinventorylist.getValue()..".count", "");
-	if nCuenta&gt;1 then
-		if DB.getValue(window.IDinventorylist.getValue()..".UsoArma", "")==Inventario.CteUnaDosManos then
-			if DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteUnaMano then
-				DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteDosManos);
-			elseif DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteDosManos then
-				DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteUnaMano);
-			end
-		elseif DB.getValue(window.IDinventorylist.getValue()..".UsoArma", "")==Inventario.CteUnaManoArrojadiza then
-			if DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteUnaMano then
-				DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteArrojadiza);
-			elseif DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteArrojadiza then
-				DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteUnaMano);
-			end
+	local sRuta=window.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)");
+	local sRutaMadoDerecha=DB.getValue(sRuta..".ListaArmaDerechavalue", "");
+	local sRutaMadoIzquierda=DB.getValue(sRuta..".ListaArmaIzquierdavalue", "");
+
+	if nCuenta&gt;1 and sRutaMadoDerecha~="" and sRutaMadoDerecha==sRutaMadoIzquierda and DB.getValue(window.IDinventorylist.getValue()..".UsoArma", "")==Inventario.CteUnaDosManos then
+		if DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteUnaMano then
+			DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteDosManos);
+		elseif DB.getValue(window.getDatabaseNode(), "UsoArma", "")==Inventario.CteDosManos then
+			DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteUnaMano);
 		end
 	end
 end
