@@ -267,7 +267,7 @@ function CrearArma(window)
 		DB.setValue(nodoNuevaArma, "BonoGeneralArmas", "number", nModArmas);
 
 		local nFuerzaArma=DB.getValue(window.getDatabaseNode(), "FuerzaMinima", 0);
-		local nFuerza=DB.getValue(sRutaGeneral..".Caracteristicas.Fuerza", 0);
+		local nFuerza=DB.getValue(sRutaGeneral..".Caracteristicas.Fuerza", 0);		
 		if nFuerza-nFuerzaArma&lt;0 then nPenFuerza=nFuerzaArma-nFuerza;
 		else nPenFuerza=0;
 		end
@@ -298,7 +298,7 @@ function CrearArma(window)
 --			DB.setValue(window.getDatabaseNode(), "Habilidad", "string", DB.getValue(window.getDatabaseNode(), "HabilidadCombCCArrojadiza", ""));
 			DB.setValue(nodoNuevaArma, "TipoArma", "string", DB.getValue(window.getDatabaseNode(), "TipoArmaCombCCArrojadiza", ""));
 
-			nBonoHabilidad=Combate.ObtenerBonoHabilidad(DB.getValue(window.getDatabaseNode(), "HabilidadCombCCArrojadiza", ""), sRutaGeneral, Inventario.CteArrojadiza);
+--			nBonoHabilidad=Combate.ObtenerBonoHabilidad(DB.getValue(window.getDatabaseNode(), "HabilidadCombCCArrojadiza", ""), sRutaGeneral, Inventario.CteArrojadiza);
 			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "BonoHabilidad", "number", nBonoHabilidad);
 			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "BonoArma", "number", DB.getValue(window.getDatabaseNode(), "BonoAtaqueArma", 0));
 			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "BonoGeneralArmas", "number", DB.getValue(sRutaGeneral..".ModArmasAr", 0));
@@ -309,7 +309,8 @@ function CrearArma(window)
 		else
 			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "EsCombCCArrojadiza", "number", 0);
 		end
-	end;
+		Combate.CalcularBonoSegundaMano(window.getDatabaseNode().getPath());
+	end
 end
 
 function ModificarArma(window)
@@ -360,12 +361,19 @@ function ModificarArma(window)
 			DB.setValue(nodoArmaAModificar, "TipoArma", "string", DB.getValue(window.getDatabaseNode(), "TipoArma", ""));
 		end
 
-		local nFuerzaArma=DB.getValue(window.getDatabaseNode(), "FuerzaMinima", 0);
+--		local bEquipadaEnMI=DB.getValue(nodoArmaAModificar, "ManoDerecha", 0)==1
+--		local bEquipadaEnMD=DB.getValue(nodoArmaAModificar, "ManoIzquierda", 0)==1
+--		local nMultFuerzaNecesaria=1;
+--		if bEquipadaEnMI~=bEquipadaEnMD and (sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteRango or sUsoArma==Inventario.ArrojadizaDosManos) then
+--			nMultFuerzaNecesaria=2;
+--		end;
+		local nFuerzaArma=DB.getValue(window.getDatabaseNode(), "FuerzaMinima", 0)
 		local nFuerza=DB.getValue(sRutaGeneral..".Caracteristicas.Fuerza", 0);
 		if nFuerza-nFuerzaArma&lt;0 then nPenFuerza=nFuerzaArma-nFuerza;
 		else nPenFuerza=0;
 		end
 		DB.setValue(nodoArmaAModificar, "PenalizadorFuerza", "number", nPenFuerza);
+		
 		DB.setValue(nodoArmaAModificar, "BonoLanzar", "number", nBonoLanzar);
 
 		local bEsCC=sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos;
@@ -389,11 +397,11 @@ function ModificarArma(window)
 			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "ManoDerecha", "number", DB.getValue(nodoArmaAModificar, "ManoDerecha", 0));
 			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "ManoIzquierda", "number", DB.getValue(nodoArmaAModificar, "ManoIzquierda", 0));
 
-			nBonoHabilidad=Combate.ObtenerBonoHabilidad(DB.getValue(window.getDatabaseNode(), "HabilidadCombCCArrojadiza", ""), sRutaGeneral, Inventario.CteArrojadiza);
+--			nBonoHabilidad=Combate.ObtenerBonoHabilidad(DB.getValue(window.getDatabaseNode(), "HabilidadCombCCArrojadiza", ""), sRutaGeneral, Inventario.CteArrojadiza);
 			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "BonoHabilidad", "number", nBonoHabilidad);
 			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "BonoArma", "number", DB.getValue(window.getDatabaseNode(), "BonoAtaqueArma", 0));
 			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "BonoGeneralArmas", "number", DB.getValue(sRutaGeneral..".ModArmasAr", 0));
-			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "PenalizadorFuerza", "number", nPenFuerza);
+--			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "PenalizadorFuerza", "number", nPenFuerza);
 			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "BonoLanzar", "number", nBonoLanzar);
 			nModArmas=DB.getValue(sRutaGeneral..".Habilidades.ModArmasAr", 0);
 			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "BonoGeneralArmas", "number", nModArmas);
@@ -409,12 +417,11 @@ function ModificarArma(window)
 			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "ManoDerecha", "number", DB.getValue(nodoArmaAModificar, "ManoDerecha", 0));
 			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "ManoIzquierda", "number", DB.getValue(nodoArmaAModificar, "ManoIzquierda", 0));
 
-			nBonoHabilidad=Combate.ObtenerBonoHabilidad(DB.getValue(window.getDatabaseNode(), "HabilidadCombCCArrojadiza", ""), sRutaGeneral, Inventario.CteArrojadiza);
-			Debug.chat(DB.getValue(window.getDatabaseNode(), "HabilidadCombCCArrojadiza", ""), sRutaGeneral, Inventario.CteArrojadiza);
+--			nBonoHabilidad=Combate.ObtenerBonoHabilidad(DB.getValue(window.getDatabaseNode(), "HabilidadCombCCArrojadiza", ""), sRutaGeneral, Inventario.CteArrojadiza);
 			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "BonoHabilidad", "number", nBonoHabilidad);
 			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "BonoArma", "number", DB.getValue(window.getDatabaseNode(), "BonoAtaqueArma", 0));
 			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "BonoGeneralArmas", "number", DB.getValue(sRutaGeneral..".ModArmasAr", 0));
-			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "PenalizadorFuerza", "number", nPenFuerza);
+--			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "PenalizadorFuerza", "number", nPenFuerza);
 			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "BonoLanzar", "number", nBonoLanzar);
 			nModArmas=DB.getValue(sRutaGeneral..".Habilidades.ModArmasAr", 0);
 			DB.setValue(nodoArmaAModificarCombCCArrojadiza, "BonoGeneralArmas", "number", nModArmas);
@@ -423,6 +430,7 @@ function ModificarArma(window)
 			if DB.getValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "")~="" then DB.deleteNode(DB.getValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "")); end
 			DB.setValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "string", "");
 		end
+		Combate.CalcularBonoSegundaMano(window.getDatabaseNode().getPath());
 	end
 end
 -- ****************************** FIN *****************************
@@ -433,27 +441,6 @@ function EliminarArma(window)
 	if DB.getValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "")~="" then DB.deleteNode(DB.getValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "")); end
 	DB.setValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "string", "");
 end
-
---function ActualizarBonoArmas(nodoArmas)
---	local nBonoHabilidad=0; local sHabilidad; local sUsoArma; local sRuta;
---	for _,nodoArma in pairs(nodoArmas.getChildren()) do
---		sHabilidad=DB.getValue(nodoArma, "Habilidad", "");
---		for k,v in pairs(nodoArma.getChildren()) do Debug.chat(k, v) end
---		Debug.chat("\n\n")
---		sUsoArma = DB.getValue(nodoArma, "UsoArma", "");
---		nBonoHabilidad=BonoHabilidadAtaque(nodoArmas, sHabilidad, sUsoArma);
---		sRuta=DB.getValue(nodoArma, "IDListaArmas", "");
---		if sRuta~="" then DB.setValue(sRuta..".BonoArma", "number", nBonoHabilidad); end;
---		--Debug.chat(nodoArma, sHabilidad, sUsoArma, nBonoHabilidad, sRuta)
---		
---		sRuta=DB.getValue(nodoArma, "IDListaArmasCombCCArrojadiza", "");
---		if sRuta~="" then
---			sHabilidad=DB.getValue(sRuta..".HabilidadCombCCArrojadiza", "");
---			nBonoHabilidad=BonoHabilidadAtaque(nodoArmas, sHabilidad, CteArrojadiza);
---			DB.setValue(sRuta..".BonoArma", "number", nBonoHabilidad);
---		end
---	end
---end
 </Script>
     <RegisterScript>true</RegisterScript>
     <Encoding>UTF-8</Encoding>

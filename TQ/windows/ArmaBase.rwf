@@ -46,7 +46,7 @@
       {"Name":"Tooltip"},
       {"Name":"TooltipField"},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"WindowMargins","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"WindowMargins","Value":{"@xsi:type":"xsd:string","#text":"0,0,0,3"}},
       {"Name":"WindowTitle"},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
@@ -165,6 +165,7 @@
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"39"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
+	Combate.CalcularBonoSegundaMano(window.getDatabaseNode().getPath());
 	window.BonoArmaTotal.Actualizar()
 end
 </LUACode>
@@ -230,7 +231,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
     <LUACode>function Actualizar()
-	setValue(window.BonoHabilidad.getValue()+window.BonoArma.getValue()+window.BonoGeneralArmas.getValue()-window.PenalizadorFuerza.getValue());
+	setValue(window.BonoHabilidad.getValue()+window.BonoArma.getValue()+window.BonoGeneralArmas.getValue()-window.PenalizadorFuerzaEquipada.getValue());
 	window.BonoAtaque.Actualizar();
 end
 
@@ -302,30 +303,26 @@ end
     <LUACode>function Actualizar()
 	local nTotal=window.BonoArmaTotal.getValue();
 	local nAtaqueLimitado=0;
-	local nAtaqueLimitadoFUE=0;
 	local sAtaqueLimitado="";
 	local sUsoArma=DB.getValue(window.getDatabaseNode(), "UsoArma", Inventario.CteUnaMano);
+	local nPenalizadorFuerza=window.PenalizadorFuerzaEquipada.getValue();
 
-	if window.PenalizadorFuerza.getValue()&gt;0 then
-		nAtaqueLimitadoFUE=1;
---		sAtaqueLimitado="Ataque penalizado por Fuerza insuficiente.";
+	if nPenalizadorFuerza&gt;0 then
+		window.PenalizacionFuerza.setValue(1);
 	end
 	if window.BonoHabilidad.getValue()&gt;window.BonoLanzar.getValue() and (sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos) then
-		nTotal=window.BonoLanzar.getValue()+window.BonoArma.getValue()+window.BonoGeneralArmas.getValue()-window.PenalizadorFuerza.getValue();
+		nTotal=window.BonoLanzar.getValue()+window.BonoArma.getValue()+window.BonoGeneralArmas.getValue()-nPenalizadorFuerza;
 		nAtaqueLimitado=1;
---		nAtaqueLimitadoFUE=0;
 		sAtaqueLimitado="Ataque limitado por la habilidad de Lanzar.";
 	end
-	if nTotal&gt;window.BonoSegundaMano.getValue() then
-		nTotal=window.BonoSegundaMano.getValue();
+--	if nTotal&gt;window.BonoSegundaMano.getValue() then
+	if window.BonoHabilidad.getValue()+window.BonoArma.getValue()-nPenalizadorFuerza&gt;window.BonoSegundaMano.getValue() then
+		nTotal=window.BonoSegundaMano.getValue()+window.BonoGeneralArmas.getValue();
 		nAtaqueLimitado=1;
-		nAtaqueLimitadoFUE=0;
 		sAtaqueLimitado="Ataque limitado por usar dos armas.";
 	end
 
 	window.AtaqueLimitado.setValue(nAtaqueLimitado);
-	window.PenalizacionFuerza.setValue(nAtaqueLimitadoFUE);
---	window.AtaqueLimitado.
 	setTooltipText(sAtaqueLimitado);
 	setValue(nTotal);	
 end
@@ -350,11 +347,11 @@ function ObtenerMensajeAtaque()
 	if window.AtaqueLimitado.getValue()==0 then
 		local sRutaInv=window.IDinventorylist.getValue();
 		local sHabilidad;
-		if window.EsCombCCArrojadiza.getValue()==0 then
+--		if window.EsCombCCArrojadiza.getValue()==0 then
 			sHabilidad=DB.getValue(sRutaInv..".Habilidad", "");
-		else
-			sHabilidad=DB.getValue(sRutaInv..".HabilidadCombCCArrojadiza", "");
-		end
+--		else
+--			sHabilidad=DB.getValue(sRutaInv..".HabilidadCombCCArrojadiza", "");
+--		end
 		if window.BonoHabilidad.getValue()~=0 then
 			if sHabilidad~="" then sMensaje=sMensaje.." ["..sHabilidad..": "..window.BonoHabilidad.getValue().."]";
 			else sMensaje=sMensaje.." ["..window.BonoHabilidad.getValue().."]";
@@ -370,7 +367,7 @@ function ObtenerMensajeAtaque()
 			end
 		end
 		if window.BonoArma.getValue()~=0 then sMensaje=sMensaje.." [Bono Arma: "..window.BonoArma.getValue().."]"; end
-		if window.PenalizadorFuerza.getValue()~=0 then sMensaje=sMensaje.." [Penalización por FUE: "..-1*window.PenalizadorFuerza.getValue().."]"; end
+		if window.PenalizadorFuerzaEquipada.getValue()~=0 then sMensaje=sMensaje.." [Penalización por FUE: "..-1*window.PenalizadorFuerzaEquipada.getValue().."]"; end
 	else
 		if window.BonoHabilidad.getValue()&gt;window.BonoLanzar.getValue() and (sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos) then
 			sMensaje=sMensaje.." [Lanzar: "..window.BonoLanzar.getValue().."]";
@@ -384,8 +381,18 @@ function ObtenerMensajeAtaque()
 				end
 			end
 			if window.BonoArma.getValue()~=0 then sMensaje=sMensaje.." [Bono Arma: "..window.BonoArma.getValue().."]"; end
-			if window.PenalizadorFuerza.getValue()~=0 then sMensaje=sMensaje.." [Penalización por FUE: "..-1*window.PenalizadorFuerza.getValue().."]"; end
-		elseif getValue()==window.BonoSegundaMano.getValue() then sMensaje=sMensaje.." [Bono segunda arma: "..window.BonoSegundaMano.getValue().."]";
+			if window.PenalizadorFuerzaEquipada.getValue()~=0 then sMensaje=sMensaje.." [Penalización por FUE: "..-1*window.PenalizadorFuerzaEquipada.getValue().."]"; end
+		else--if getValue()-window.BonoGeneralArmas.getValue==window.BonoSegundaMano.getValue() then
+			sMensaje=sMensaje.." [Bono segunda arma: "..window.BonoSegundaMano.getValue().."]";
+			if window.BonoGeneralArmas.getValue()~=0 then
+				if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteUnaDosManos or sUsoArma==Inventario.CteDosManos then
+					sMensaje=sMensaje.." [Mod. Armas CC: "..window.BonoGeneralArmas.getValue().."]";
+				elseif sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
+					sMensaje=sMensaje.." [Mod. Armas Ar: "..window.BonoGeneralArmas.getValue().."]";
+				else
+					sMensaje=sMensaje.." [Mod. Armas Pr: "..window.BonoGeneralArmas.getValue().."]";
+				end
+			end
 		end
 	end
 	return sMensaje;
@@ -452,6 +459,7 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"39"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
+	Combate.CalcularBonoSegundaMano(window.getDatabaseNode().getPath());
 	window.BonoArmaTotal.Actualizar()
 end
 </LUACode>
@@ -517,6 +525,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"39"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
+	Combate.CalcularBonoSegundaMano(window.getDatabaseNode().getPath());
 	window.BonoArmaTotal.Actualizar()
 end
 </LUACode>
@@ -621,7 +630,7 @@ end
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"MaxValue"},
@@ -650,190 +659,6 @@ end
 	window.BonoAtaque.Actualizar()
 end
 </LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>ArmaBase</WindowName>
-    <ControlName>BotonAtaque</ControlName>
-    <ZIndex>7</ZIndex>
-    <ControlClass>FGButton</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"ButtonField"},
-      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonAtaque"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DefaultValue"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerAtaque()}","DiceRollDescription":"{@Combate.sMensajeAtaque}","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
-      {"Name":"Disabled"},
-      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
-      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
-      {"Name":"HoverCursor"},
-      {"Name":"HoverIconName"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"Merge","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"NextTabTarget"},
-      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_action_attack"}},
-      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_action_attack_down"}},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly"},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"StackVertWith"},
-      {"Name":"Tooltip"},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"645"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
-]}}</Definition>
-    <LUACode>function ObtenerAtaque()
-	if window.ManoDerecha.getValue()==1 then
-		return Combate.ObtenerAtaque("Derecha", window.getDatabaseNode().getPath());
-	elseif window.ManoIzquierda.getValue()==1 then
-		return Combate.ObtenerAtaque("Izquierda", window.getDatabaseNode().getPath());
-	end
-end
-</LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>ArmaBase</WindowName>
-    <ControlName>BotonDanio</ControlName>
-    <ZIndex>8</ZIndex>
-    <ControlClass>FGButton</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"ButtonField"},
-      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonDanio"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DefaultValue"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerDanio()}","DiceRollDescription":"{@Combate.sMensajeDanio}","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
-      {"Name":"Disabled"},
-      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
-      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
-      {"Name":"HoverCursor"},
-      {"Name":"HoverIconName"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"NextTabTarget"},
-      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_action_damage"}},
-      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_action_damage_down"}},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly"},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"StackVertWith"},
-      {"Name":"Tooltip"},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"668"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
-]}}</Definition>
-    <LUACode>function ObtenerDanio()
-	if window.ManoDerecha.getValue()==1 then
-		return Combate.ObtenerDanio("Derecha", window.getDatabaseNode().getPath());
-	elseif window.ManoIzquierda.getValue()==1 then
-		return Combate.ObtenerDanio("Izquierda", window.getDatabaseNode().getPath());
-	end
-end</LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>ArmaBase</WindowName>
-    <ControlName>BotonEfecto</ControlName>
-    <ZIndex>9</ZIndex>
-    <ControlClass>FGButton</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"ButtonField"},
-      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonEfecto"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DefaultValue"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
-      {"Name":"Disabled"},
-      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
-      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
-      {"Name":"HoverCursor"},
-      {"Name":"HoverIconName"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"NextTabTarget"},
-      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_action_effect"}},
-      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_action_effect_down"}},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly"},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"StackVertWith"},
-      {"Name":"Tooltip"},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"691"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
-]}}</Definition>
-    <LUACode />
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1175,9 +1000,7 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"1"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.BotonAtaque.setVisible(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
-	window.BotonDanio.setVisible(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
-	window.BotonEfecto.setVisible(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
+	window.BonoAtaque.setEnabled(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
 end
 
 function onInit()
@@ -1235,9 +1058,7 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"1"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.BotonAtaque.setVisible(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
-	window.BotonDanio.setVisible(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
-	window.BotonEfecto.setVisible(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
+	window.BonoAtaque.setEnabled(window.ManoDerecha.getValue()==1 or window.ManoIzquierda.getValue()==1);
 end
 
 function onInit()
@@ -1437,7 +1258,72 @@ end
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"DisplaySign"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HideOnValue"},
+      {"Name":"HideRollWidget"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"MaxValue"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MinValue"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoDrag"},
+      {"Name":"NoDrop"},
+      {"Name":"NoKeyEdit"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"108"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"68"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	window.BonoArmaTotal.Actualizar();
+	window.PenalizadorFuerzaEquipada.Actualizar();
+end</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>ArmaBase</WindowName>
+    <ControlName>PenalizadorFuerzaEquipada</ControlName>
+    <ZIndex>25</ZIndex>
+    <ControlClass>FGNumberField</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"PenalizadorFuerzaEquipada"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DelayKeyUpdate"},
+      {"Name":"DescriptionText"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -1477,10 +1363,34 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"170"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"68"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"66"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.BonoArmaTotal.Actualizar()
+	window.BonoArmaTotal.Actualizar();
+end
+
+function Actualizar()
+	local bEnDerecha=window.ManoDerecha.getValue()==1;
+	local bEnIzquierda=window.ManoIzquierda.getValue()==1;
+	if bEnIzquierda~=bEnDerecha and (bEnDerecha or bEnIzquierda) then
+		-- Arma equipada en una sola mano
+		local sUsoArma=DB.getValue(window.getDatabaseNode(), "UsoArma", "aaa");
+		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteRangoUnaMano then
+			-- Arma a una mano: Penalizador normal
+			setValue(window.PenalizadorFuerza.getValue());
+		else
+			-- Arma a dos manos equipada a una mano: Penalizador usando doble fuerza
+			local sRuta=window.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)");
+			local nFuerza=DB.getValue(sRuta..".Caracteristicas.Fuerza");
+			local nFuerzaArma=DB.getValue(window.IDinventorylist.getValue()..".FuerzaMinima", 0);
+			if nFuerza&lt;nFuerzaArma*2 then setValue(nFuerzaArma*2-nFuerza);
+			else setValue(0);
+			end
+		end
+	elseif bEnIzquierda==bEnDerecha then
+		-- Arma equipada en las dos manos o no equipada: Penalizador normal
+		setValue(window.PenalizadorFuerza.getValue());
+	end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -1636,6 +1546,10 @@ end
 			DB.setValue(window.getDatabaseNode(), "UsoArma", "string", Inventario.CteUnaMano);
 		end
 	end
+end
+
+function onValueChanged()
+	window.PenalizadorFuerzaEquipada.Actualizar();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

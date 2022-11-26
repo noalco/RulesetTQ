@@ -87,12 +87,13 @@ function ObtenerBonoArma(sMano, sRuta, bEsAtacante, bEsCombCCArrojadiza)
 
 		local sHabilidad="";
 		if bEsAtacante and bEsCombCCArrojadiza then
-			sHabilidad=DB.getValue(sRutaArma..".HabilidadCombCCArrojadiza", "");
+--			sHabilidad=DB.getValue(sRutaArma..".HabilidadCombCCArrojadiza", "");
 			sUsoArma=Inventario.CteArrojadiza;
 		else
-			sHabilidad=DB.getValue(sRutaArma..".Habilidad", "");
+--			sHabilidad=DB.getValue(sRutaArma..".Habilidad", "");
 			sUsoArma=DB.getValue(sRutaArmaCombate..".UsoArma", "");
 		end
+		sHabilidad=DB.getValue(sRutaArma..".Habilidad", "");
 		if sHabilidad=="" then
 			if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
 				sHabilidad="Agilidad";
@@ -263,14 +264,13 @@ function ObtenerDanio(sMano, sRuta)
 end
 
 function GestionarDobleArma(sSelectedValue, sSelectedValueOtraMano, window, sOtraMano)
-	if sSelectedValue and sSelectedValueOtraMano and sOtraMano and window then --and sRuta:match("(charsheet%.id%-%d*)") then
---		sRuta=sRuta:match("(charsheet%.id%-%d*)");
+	-- Controla que se puedan elegir las dos armas
+	if sSelectedValue and sSelectedValueOtraMano and sOtraMano and window then
 		local sUsoArma=DB.getValue(sSelectedValue..".UsoArma", "");
 		if sSelectedValue==sSelectedValueOtraMano then
 			local nCantidad=DB.getValue(sSelectedValue..".count", 1);
 			if (sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.RangoUnaMano) and nCantidad==1 then
 				window["ListaArma"..sOtraMano].setListValue("");
-				--DB.setValue(sRuta..".ListaArma"..sOtraMano.."value", "string", "");
 			elseif sUsoArma==Inventario.CteUnaDosManos then
 				local sPathArmaCombate=DB.getValue(sSelectedValue..".IDListaArmas", "");
 				DB.setValue(sPathArmaCombate..".UsoArma", "string", Inventario.CteDosManos);
@@ -310,8 +310,8 @@ function ActualizarBonosHabilidades(sRutaGeneral)
 			if sRuta~="" then DB.setValue(sRuta..".BonoHabilidad", "number", nBono); end
 			sRuta=DB.getValue(nodoArma, "IDListaArmasCombCCArrojadiza", "");
 			if sRuta~="" then
-				sHabilidad=DB.getValue(nodoArma, "HabilidadCombCCArrojadiza", "");
-				nBono=ObtenerBonoHabilidad(sHabilidad, sRutaGeneral, Inventario.CteArrojadiza);
+--				sHabilidad=DB.getValue(nodoArma, "HabilidadCombCCArrojadiza", "");
+--				nBono=ObtenerBonoHabilidad(sHabilidad, sRutaGeneral, Inventario.CteArrojadiza);
 				DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
 			end
 		end
@@ -325,12 +325,16 @@ function ActualizarBonoHabilidad(sRutaGeneral, sHabilidad, nBono)
 		for _,nodoArma in pairs(DB.getChildren(sRutaGeneral..".inventorylist")) do
 			sRuta=DB.getValue(nodoArma, "IDListaArmas", "");
 			if sRuta~="" and DB.getValue(nodoArma, "Habilidad", "")==sHabilidad then
-				DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
+					DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
+				sRuta=DB.getValue(nodoArma, "IDListaArmasCombCCArrojadiza", "");
+				if sRuta~="" then
+					DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
+				end
 			end
-			sRuta=DB.getValue(nodoArma, "IDListaArmasCombCCArrojadiza", "");
-			if sRuta~="" and DB.getValue(nodoArma, "HabilidadCombCCArrojadiza", "")==sHabilidad then
-				DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
-			end
+--			sRuta=DB.getValue(nodoArma, "IDListaArmasCombCCArrojadiza", "");
+--			if sRuta~="" and DB.getValue(nodoArma, "HabilidadCombCCArrojadiza", "")==sHabilidad then
+--				DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
+--			end
 		end
 	end
 end
@@ -352,6 +356,34 @@ function ActualizarBonoGeneralArma(sRutaGeneral, nBono, nTipo)
 --			Debug.chat(tTipo, DV.getValue(nodoArma, "UsoArma", Inventario.CteUnaMano), tTipo[DV.getValue(nodoArma, "UsoArma", Inventario.CteUnaMano)]);
 			if tTipo[DB.getValue(nodoArma, "UsoArma", Inventario.CteUnaMano)]==nTipo then
 				DB.setValue(nodoArma, "BonoGeneralArmas", "number", nBono);
+			end
+		end
+	end
+end
+
+function CalcularBonoSegundaMano(sRutaGeneral)
+	if sRutaGeneral and sRutaGeneral:match("(charsheet%.id%-%d*)") then
+		sRutaGeneral=sRutaGeneral:match("(charsheet%.id%-%d*)");
+		local sSelectedValue1=DB.getValue(sRutaGeneral..".ListaArmaDerechavalue", "");
+		local sSelectedValue2=DB.getValue(sRutaGeneral..".ListaArmaIzquierdavalue", "");
+		if sSelectedValue1~="" and sSelectedValue2~="" and sSelectedValue2~=sSelectedValue1 then
+			local sRuta1=DB.getValue(sSelectedValue1..".IDListaArmas", "");
+			local sRuta2=DB.getValue(sSelectedValue2..".IDListaArmas", "");
+			if sRuta1~="" and sRuta2~="" then
+				DB.setValue(sRuta1..".BonoSegundaMano", "number", 10000);
+				DB.setValue(sRuta2..".BonoSegundaMano", "number", 10000);
+				local nBono1=DB.getValue(sRuta1..".BonoAtaque", 0)-DB.getValue(sRuta1..".BonoGeneralArmas", 0);
+				local nBono2=DB.getValue(sRuta2..".BonoAtaque", 0)-DB.getValue(sRuta2..".BonoGeneralArmas", 0);
+				DB.setValue(sRuta1..".BonoSegundaMano", "number", math.min(nBono1, nBono2));
+				DB.setValue(sRuta2..".BonoSegundaMano", "number", math.min(nBono1, nBono2));
+				sRuta1=DB.getValue(sSelectedValue1..".IDListaArmasCombCCArrojadiza", "");
+				if sRuta1~="" then
+					DB.setValue(sRuta1..".BonoSegundaMano", "number", math.min(nBono1, nBono2));
+				end
+				sRuta1=DB.getValue(sSelectedValue2..".IDListaArmasCombCCArrojadiza", "");
+				if sRuta1~="" then
+					DB.setValue(sRuta1..".BonoSegundaMano", "number", math.min(nBono1, nBono2));
+				end
 			end
 		end
 	end
