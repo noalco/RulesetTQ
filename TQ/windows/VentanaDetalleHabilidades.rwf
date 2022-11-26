@@ -2308,7 +2308,10 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"605"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"61"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	Combate.ActualizarBonoGeneralArma(window.getDatabaseNode().getPath(), getValue(), 2);
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -2370,7 +2373,10 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"297"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"61"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	Combate.ActualizarBonoGeneralArma(window.getDatabaseNode().getPath(), getValue(), 1);
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -2432,7 +2438,10 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"451"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"61"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	Combate.ActualizarBonoGeneralArma(window.getDatabaseNode().getPath(), getValue(), 3);
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

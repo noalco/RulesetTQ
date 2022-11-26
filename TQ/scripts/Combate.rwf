@@ -46,18 +46,28 @@ sMensajeHabilidad="";
 
 function ObtenerBonoHabilidad(sHabilidad, sRutaRaiz, sUsoArma)
 	local sNombre;
-	for _,nodoHabilidad in pairs(DB.getChildren(sRutaRaiz..".Habilidades.ListaHabilidades")) do
-		sNombre=DB.getValue(nodoHabilidad, "Nombre", "");
-		if sHabilidad==DB.getValue(nodoHabilidad, "HabilidadCC", "") or sHabilidad==DB.getValue(nodoHabilidad, "HabilidadPr", "") or sNombre~="" and sHabilidad==sNombre:sub(4, sNombre:len()-4) then
-			return DB.getValue(nodoHabilidad, "Total", 0);
+	if sHabilidad and sRutaRaiz and sUsoArma and sHabilidad~="" and sRutaRaiz~="" and sUsoArma~="" then
+		for _,nodoHabilidad in pairs(DB.getChildren(sRutaRaiz..".Habilidades.ListaHabilidades")) do
+			sNombre=DB.getValue(nodoHabilidad, "Nombre", "");
+			if sHabilidad==DB.getValue(nodoHabilidad, "HabilidadCC", "") or sHabilidad==DB.getValue(nodoHabilidad, "HabilidadPr", "") or sNombre~="" and sHabilidad==sNombre:sub(4, sNombre:len()-4) then
+				return DB.getValue(nodoHabilidad, "Total", 0);
+			end
 		end
-	end
-	if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteUnaDosManos or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
-	-- Arma CC sin habilidad --&gt; Agilidad
-		return DB.getValue(sRutaRaiz..".BaseHabilidades.Agilidad");
-	else
-	-- Arma Pr sin habilidad --&gt; Técnica
-		return DB.getValue(sRutaRaiz..".BaseHabilidades.Tecnica");
+		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteUnaDosManos or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
+		-- Arma CC sin habilidad --&gt; Agilidad
+			return DB.getValue(sRutaRaiz..".BaseHabilidades.Agilidad");
+		else
+		-- Arma Pr sin habilidad --&gt; Técnica
+			return DB.getValue(sRutaRaiz..".BaseHabilidades.Tecnica");
+		end
+	elseif sUsoArma and sUsoArma~="" then
+		if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteUnaDosManos or sUsoArma==Inventario.CteDosManos or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteArrojadizaDosManos then
+		-- Arma CC sin habilidad --&gt; Agilidad
+			return DB.getValue(sRutaRaiz..".BaseHabilidades.Agilidad");
+		else
+		-- Arma Pr sin habilidad --&gt; Técnica
+			return DB.getValue(sRutaRaiz..".BaseHabilidades.Tecnica");
+		end
 	end
 	return 0;
 end
@@ -275,6 +285,74 @@ function GestionarDobleArma(sSelectedValue, sSelectedValueOtraMano, window, sOtr
 		if sUsoArmaOtraMano==Inventario.CteUnaDosManos then
 			local sPathArmaCombate=DB.getValue(sSelectedValueOtraMano..".IDListaArmas", "");
 			DB.setValue(sPathArmaCombate..".UsoArma", "string", Inventario.CteUnaMano);
+		end
+	end
+end
+
+
+
+
+
+
+
+function ActualizarBonosHabilidades(sRutaGeneral)
+	if sRutaGeneral and sRutaGeneral:match("(charsheet%.id%-%d*)") then
+		sRutaGeneral=sRutaGeneral:match("(charsheet%.id%-%d*)");
+		local sHabilidad;
+		local sUsoArma;
+		local nBono;
+		local sRuta;
+		for _,nodoArma in pairs(DB.getChildren(sRutaGeneral..".inventorylist")) do
+			sHabilidad=DB.getValue(nodoArma, "Habilidad", "");
+			sUsoArma=DB.getValue(nodoArma, "UsoArma", "");
+			nBono=ObtenerBonoHabilidad(sHabilidad, sRutaGeneral, sUsoArma);
+			sRuta=DB.getValue(nodoArma, "IDListaArmas", "");
+			if sRuta~="" then DB.setValue(sRuta..".BonoHabilidad", "number", nBono); end
+			sRuta=DB.getValue(nodoArma, "IDListaArmasCombCCArrojadiza", "");
+			if sRuta~="" then
+				sHabilidad=DB.getValue(nodoArma, "HabilidadCombCCArrojadiza", "");
+				nBono=ObtenerBonoHabilidad(sHabilidad, sRutaGeneral, Inventario.CteArrojadiza);
+				DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
+			end
+		end
+	end
+end
+
+function ActualizarBonoHabilidad(sRutaGeneral, sHabilidad, nBono)
+	if sRutaGeneral and sRutaGeneral:match("(charsheet%.id%-%d*)") then
+		sRutaGeneral=sRutaGeneral:match("(charsheet%.id%-%d*)");
+		local sRuta;
+		for _,nodoArma in pairs(DB.getChildren(sRutaGeneral..".inventorylist")) do
+			sRuta=DB.getValue(nodoArma, "IDListaArmas", "");
+			if sRuta~="" and DB.getValue(nodoArma, "Habilidad", "")==sHabilidad then
+				DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
+			end
+			sRuta=DB.getValue(nodoArma, "IDListaArmasCombCCArrojadiza", "");
+			if sRuta~="" and DB.getValue(nodoArma, "HabilidadCombCCArrojadiza", "")==sHabilidad then
+				DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
+			end
+		end
+	end
+end
+
+function ActualizarLanzar(sRutaGeneral, nBonoLanzar)
+	if sRutaGeneral and sRutaGeneral:match("(charsheet%.id%-%d*)") then
+		sRutaGeneral=sRutaGeneral:match("(charsheet%.id%-%d*)");
+		for _,nodoArma in pairs(DB.getChildren(sRutaGeneral..".Inventario.Armas")) do
+			DB.setValue(nodoArma, "BonoLanzar", "number", nBonoLanzar);
+		end
+	end
+end
+
+function ActualizarBonoGeneralArma(sRutaGeneral, nBono, nTipo)
+	if sRutaGeneral and sRutaGeneral:match("(charsheet%.id%-%d*)") then
+		sRutaGeneral=sRutaGeneral:match("(charsheet%.id%-%d*)");
+		local tTipo={[Inventario.CteUnaMano]=1, [Inventario.CteDosManos]=1, [Inventario.CteArrojadiza]=2, [Inventario.CteArrojadizaDosManos]=2, [Inventario.CteRango]=3, [Inventario.CteRangoUnaMano]=3}
+		for _,nodoArma in pairs(DB.getChildren(sRutaGeneral..".Inventario.Armas")) do
+--			Debug.chat(tTipo, DV.getValue(nodoArma, "UsoArma", Inventario.CteUnaMano), tTipo[DV.getValue(nodoArma, "UsoArma", Inventario.CteUnaMano)]);
+			if tTipo[DB.getValue(nodoArma, "UsoArma", Inventario.CteUnaMano)]==nTipo then
+				DB.setValue(nodoArma, "BonoGeneralArmas", "number", nBono);
+			end
 		end
 	end
 end</Script>

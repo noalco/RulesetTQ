@@ -66,9 +66,9 @@
 end
 
 function onValueChanged()
-	if window.getDatabaseNode().getChild("Inventario") and window.getDatabaseNode().getChild("Inventario").getChild("Armas") then
-		Inventario.ActualizarBonoArmas(window.getDatabaseNode().getChild("Inventario").getChild("Armas"));
-	end
+	-- ****************************** INI *****************************
+	Combate.ActualizarBonosHabilidades(window.getDatabaseNode().getPath());
+-- ****************************** FIN *****************************
 end
 
 function onWheel(notches)
@@ -1672,10 +1672,10 @@ end</LUACode>
 end
 
 function onValueChanged()
-	if window.getDatabaseNode().getChild("Inventario") and window.getDatabaseNode().getChild("Inventario").getChild("Armas") then
-		Inventario.ActualizarBonoArmas(window.getDatabaseNode().getChild("Inventario").getChild("Armas"));
-	end
-end;
+	-- ****************************** INI *****************************
+	Combate.ActualizarBonosHabilidades(window.getDatabaseNode().getPath());
+-- ****************************** FIN *****************************
+end
 
 function onWheel(notches)
     return false;

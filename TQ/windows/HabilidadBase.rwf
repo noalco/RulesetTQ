@@ -584,7 +584,10 @@ end
 
 function onValueChanged()
 	window.Secundario.setValue(getStringValue());
-	Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
+	-- ****************************** INI *****************************
+	--Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
+--	Combate.ActualizarBonosHabilidades(window.getDatabaseNode().getPath());
+	-- ****************************** FIN *****************************
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -777,7 +780,10 @@ end
 
 function onValueChanged()
 	window.Secundario.setValue(getStringValue());
-	Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
+	-- ****************************** INI ***************************** las dos habilidades
+	--Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
+--	Combate.ActualizarBonosHabilidades(window.getDatabaseNode().getPath());
+	-- ****************************** FIN *****************************
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -859,13 +865,14 @@ function onWheel(notches)
     return false;
 end
 --
---function onValueChanged()
+function onValueChanged()
 --	if window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario") and window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas") then
---		if window.ClaveHabilidad.getValue()=="Arma CC" or window.ClaveHabilidad.getValue()=="Arma Pr" then
+		if window.ClaveHabilidad.getValue()=="Arma CC" or window.ClaveHabilidad.getValue()=="Arma Pr" or window.ClaveHabilidad.getValue()=="Lanzar" then
 --			Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
---		end
+			Combate.ActualizarBonoHabilidad(window.getDatabaseNode().getPath(), window.Secundario.getValue(), getValue());
+		end
 --	end
---end
+end
 
 function GenerarMensaje()
 	if window.Secundario.getValue()=="" then
@@ -1183,7 +1190,9 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"109"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"53"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	Combate.ActualizarBonosHabilidades(window.getDatabaseNode().getPath());
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

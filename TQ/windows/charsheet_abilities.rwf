@@ -1706,9 +1706,13 @@ end
 end
 
 function onValueChanged()
-	if window.getDatabaseNode().getChild("Inventario") and window.getDatabaseNode().getChild("Inventario").getChild("Armas") then
-		Inventario.ActualizarBonoArmas(window.getDatabaseNode().getChild("Inventario").getChild("Armas"));
-	end
+-- ****************************** INI *****************************
+--	if window.getDatabaseNode().getChild("Inventario") and window.getDatabaseNode().getChild("Inventario").getChild("Armas") then
+--		Inventario.ActualizarBonoArmas(window.getDatabaseNode().getChild("Inventario").getChild("Armas"));
+--	end
+	Combate.ActualizarBonosHabilidades(window.getDatabaseNode().getPath(), "Lanzar", getValue());
+	Combate.ActualizarLanzar(window.getDatabaseNode().getPath(), getValue());
+-- ****************************** FIN *****************************
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1780,9 +1784,12 @@ end
 end
 
 function onValueChanged()
-	if window.getDatabaseNode().getChild("Inventario") and window.getDatabaseNode().getChild("Inventario").getChild("Armas") then
-		Inventario.ActualizarBonoArmas(window.getDatabaseNode().getChild("Inventario").getChild("Armas"));
-	end
+-- ****************************** INI *****************************
+--	if window.getDatabaseNode().getChild("Inventario") and window.getDatabaseNode().getChild("Inventario").getChild("Armas") then
+--		Inventario.ActualizarBonoArmas(window.getDatabaseNode().getChild("Inventario").getChild("Armas"));
+--	end
+	Combate.ActualizarBonoHabilidad(window.getDatabaseNode().getPath(), "Pelea", getValue());
+-- ****************************** FIN *****************************
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />

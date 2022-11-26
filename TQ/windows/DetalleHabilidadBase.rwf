@@ -751,7 +751,6 @@ end
 
 function onValueChanged()
 	window.Secundario.setValue(getStringValue());
-	Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -814,7 +813,6 @@ end
 
 function onValueChanged()
 	window.Secundario.setValue(getStringValue());
-	Inventario.ActualizarBonoArmas(window.getDatabaseNode().getParent().getParent().getParent().getChild("Inventario").getChild("Armas"));
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -880,7 +878,6 @@ end</LUACode>
     <LUACode>function onInit()
 	addSourceWithOp("PtosGratis", "+");
 	addSourceWithOp("BonoEtnia", "+");
---	addSourceWithOp("BonoEspecialidad", "+");
 	addSourceWithOp("BonoCulto", "+");
 	addSourceWithOp("BonoBaseHabilidad", "+");
 	addSourceWithOp("BonoVentDesvent", "+");
@@ -1140,11 +1137,7 @@ end
 function ActualizarToolTip()
 	if window.ClaveHabilidad and window.ClaveHabilidad.getValue()~="" then
 		setTooltipText(Habilidades.DatosHabilidades[window.ClaveHabilidad.getValue()].tooltip)
-	end
---	sToolTip="";
---	if window.PtosGratis.getValue()&gt;0 then sToolTip=window.PtosGratis.getValue().."+"; end
---	sToolTip=sToolTip..window.BaseHabilidad.getValue();
-	
+	end	
 end
 
 function onVisibilityChanged()

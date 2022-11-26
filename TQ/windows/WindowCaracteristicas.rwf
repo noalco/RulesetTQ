@@ -316,7 +316,6 @@ end;</LUACode>
 	local nFuerza=getValue();
 	if nFuerza==0 then
 		DB.setValue(window.getDatabaseNode(), ".Inventario.Estorbo", "number",  nCarga);
-		--window.Estorbo.setValue(nCarga);
 	else
 		DB.setValue(window.getDatabaseNode(), ".Inventario.Estorbo", "number",  math.floor(nCarga/nFuerza));
 	end

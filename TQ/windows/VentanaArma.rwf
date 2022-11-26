@@ -736,8 +736,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"281"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"184"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"294"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"220"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -795,7 +795,9 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Habilidad.setValue(getValue());
---	Inventario.ModificarArma(window);
+	-- ****************************** INI ***************************** en las tres habilidades
+	Inventario.ModificarArma(window);
+	-- ****************************** FIN *****************************
 end
 
 function onInit()
@@ -863,7 +865,9 @@ end</LUACode>
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Habilidad.setValue(getValue());
---	Inventario.ModificarArma(window);
+	-- ****************************** INI *****************************
+	Inventario.ModificarArma(window);
+	-- ****************************** FIN *****************************
 end
 
 function onInit()
@@ -934,6 +938,12 @@ end
 	setVisible(window.CombCCArrojadiza.getValue()==1);
 	super.onInit();
 end
+
+-- ****************************** INI *****************************
+function onValueChanged()
+	Inventario.ModificarArma(window);
+end
+-- ****************************** FIN *****************************
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -990,7 +1000,9 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Habilidad.setValue(getValue());
---	Inventario.ModificarArma(window);
+	-- ****************************** INI *****************************
+	Inventario.ModificarArma(window);
+	-- ****************************** FIN *****************************
 end
 
 function onInit()
@@ -1060,8 +1072,8 @@ end</LUACode>
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"339"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"226"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"377"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"132"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
