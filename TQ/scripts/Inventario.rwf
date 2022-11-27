@@ -299,6 +299,7 @@ function CrearArma(window)
 --			DB.setValue(nodoNuevaArmaCombCCArrojadiza, "EsCombCCArrojadiza", "number", 0);
 --		end
 		Combate.CalcularBonoSegundaMano(window.getDatabaseNode().getPath());
+		DB.setValue(nodoNuevaArma, "ActualizarDanio", "number", 1);
 	end
 end
 
@@ -312,11 +313,11 @@ function ModificarArma(window)
 		DB.setValue(nodoArmaAModificar, "carried", "number", DB.getValue(window.getDatabaseNode(), "carried", CteCargado));
 
 		local sUsoArma = DB.getValue(window.getDatabaseNode(), "UsoArma", "");
-		if sUsoArma==CteUnaDosManos then
-			DB.setValue(nodoArmaAModificar, "UsoArma", "string", CteUnaMano);
-		else
-			DB.setValue(nodoArmaAModificar, "UsoArma", "string", sUsoArma);
-		end
+--		if sUsoArma==CteUnaDosManos then
+--			DB.setValue(nodoArmaAModificar, "UsoArma", "string", CteUnaMano);
+--		else
+--			DB.setValue(nodoArmaAModificar, "UsoArma", "string", sUsoArma);
+--		end
 
 		local sHabilidad="";
 		local nModArmas=0;
@@ -336,6 +337,14 @@ function ModificarArma(window)
 			sHabilidad="Escudo";
 		end
 		DB.setValue(window.getDatabaseNode(), "Habilidad", "string", sHabilidad);
+		local sUsoArmaCombate=DB.getValue(nodoArmaAModificar, "UsoArma", CteUnaMano);
+		if sUsoArmaCombate==CteUnaMano or sUsoArmaCombate==CteDosManos or sUsoArmaCombate==CteUnaDosManos then
+			nModArmas=DB.getValue(sRutaGeneral..".Habilidades.ModArmasCC", 0);
+		elseif sUsoArmaCombate==CteArrojadiza or sUsoArmaCombate==CteArrojadizaDosManos then
+			nModArmas=DB.getValue(sRutaGeneral..".Habilidades.ModArmasAr", 0);
+		elseif sUsoArmaCombate==CteRango or sUsoArmaCombate==CteRangoUnaMano then
+			nModArmas=DB.getValue(sRutaGeneral..".Habilidades.ModArmasPr", 0);
+		end
 		local nBonoHabilidad=Combate.ObtenerBonoHabilidad(sHabilidad, sRutaGeneral, sUsoArma);
 		DB.setValue(nodoArmaAModificar, "BonoHabilidad", "number", nBonoHabilidad);
 		DB.setValue(nodoArmaAModificar, "BonoArma", "number", DB.getValue(window.getDatabaseNode(), "BonoAtaqueArma", 0));
@@ -414,6 +423,7 @@ function ModificarArma(window)
 --			DB.setValue(window.getDatabaseNode(), "IDListaArmasCombCCArrojadiza", "string", "");
 --		end
 		Combate.CalcularBonoSegundaMano(window.getDatabaseNode().getPath());
+		DB.setValue(nodoArmaAModificar, "ActualizarDanio", "number", 1);
 	end
 end
 -- ****************************** FIN *****************************

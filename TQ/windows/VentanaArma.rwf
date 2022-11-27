@@ -177,9 +177,9 @@
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"98"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"30"}}
 ]}}</Definition>
-    <LUACode>--function onValueChanged()
---	Inventario.ModificarArma(window);
---end</LUACode>
+    <LUACode>function onValueChanged()
+	Inventario.ModificarArma(window);
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -244,7 +244,10 @@
     <LUACode>function onInit()
 	setVisible(window.CombCCArrojadiza.getValue()==1);
 end
-</LUACode>
+
+function onValueChanged()
+	Inventario.ModificarArma(window);
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -308,9 +311,6 @@ end
 	
 	window.LabelLongitudCombCCArrojadiza.setVisible(bMostrar and getValue()==1);
 	window.LongitudCombCCArrojadiza.setVisible(bMostrar and getValue()==1);
-	
---	window.LabelHabilidadCombCCArrojadiza.setVisible(bMostrar and getValue()==1);
---	window.HabilidadCombCCArrojadiza.setVisible(bMostrar and getValue()==1);
 end
 
 function onValueChanged()
@@ -372,7 +372,9 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"166"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"30"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	Inventario.ModificarArma(window);
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -426,7 +428,10 @@ end</LUACode>
     <LUACode>function onInit()
 	setVisible(window.CombCCArrojadiza.getValue()==1);
 end
-</LUACode>
+
+function onValueChanged()
+	Inventario.ModificarArma(window);
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -2326,8 +2331,13 @@ end</LUACode>
 		window.CombCCArrojadiza.setVisible(false);
 		window.CombCCArrojadiza.MostrarCamposCombCCArrojadiza(false);
 	end
-
+	
 	Inventario.ModificarArma(window);
+	if sUsoArma==Inventario.CteUnaDosManos then
+		DB.setValue(window.IDListaArmas.getValue()..".UsoArma", "string", Inventario.CteUnaMano);
+	else
+		DB.setValue(window.IDListaArmas.getValue()..".UsoArma", "string", sUsoArma);
+	end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

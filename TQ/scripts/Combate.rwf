@@ -308,12 +308,12 @@ function ActualizarBonosHabilidades(sRutaGeneral)
 			nBono=ObtenerBonoHabilidad(sHabilidad, sRutaGeneral, sUsoArma);
 			sRuta=DB.getValue(nodoArma, "IDListaArmas", "");
 			if sRuta~="" then DB.setValue(sRuta..".BonoHabilidad", "number", nBono); end
-			sRuta=DB.getValue(nodoArma, "IDListaArmasCombCCArrojadiza", "");
-			if sRuta~="" then
---				sHabilidad=DB.getValue(nodoArma, "HabilidadCombCCArrojadiza", "");
---				nBono=ObtenerBonoHabilidad(sHabilidad, sRutaGeneral, Inventario.CteArrojadiza);
-				DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
-			end
+--			sRuta=DB.getValue(nodoArma, "IDListaArmasCombCCArrojadiza", "");
+--			if sRuta~="" then
+----				sHabilidad=DB.getValue(nodoArma, "HabilidadCombCCArrojadiza", "");
+----				nBono=ObtenerBonoHabilidad(sHabilidad, sRutaGeneral, Inventario.CteArrojadiza);
+--				DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
+--			end
 		end
 	end
 end
@@ -326,10 +326,10 @@ function ActualizarBonoHabilidad(sRutaGeneral, sHabilidad, nBono)
 			sRuta=DB.getValue(nodoArma, "IDListaArmas", "");
 			if sRuta~="" and DB.getValue(nodoArma, "Habilidad", "")==sHabilidad then
 					DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
-				sRuta=DB.getValue(nodoArma, "IDListaArmasCombCCArrojadiza", "");
-				if sRuta~="" then
-					DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
-				end
+--				sRuta=DB.getValue(nodoArma, "IDListaArmasCombCCArrojadiza", "");
+--				if sRuta~="" then
+--					DB.setValue(sRuta..".BonoHabilidad", "number", nBono);
+--				end
 			end
 --			sRuta=DB.getValue(nodoArma, "IDListaArmasCombCCArrojadiza", "");
 --			if sRuta~="" and DB.getValue(nodoArma, "HabilidadCombCCArrojadiza", "")==sHabilidad then

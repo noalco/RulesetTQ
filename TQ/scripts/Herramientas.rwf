@@ -73,6 +73,27 @@ function ObtenerDados(sRuta)
 	else
 		return "1d10!";
 	end
+end
+
+function Dice2String(dDados)
+	local sDados="";
+	local tDados={["d2"]=0, ["d3"]=0, ["d4"]=0, ["d6"]=0, ["d8"]=0, ["d10"]=0, ["d12"]=0, ["d20"]=0, ["d100"]=0, ["dF"]=0};
+	if dDados and dDados~="" then
+		for _,v in pairs(dDados) do
+			tDados[v]=tDados[v]+1;
+		end
+		
+		for k,v in pairs(tDados) do
+			if v&gt;0 then
+				if sDados=="" then
+					sDados=v..k;
+				else
+					sDados=sDados.."+"..v..k;
+				end
+			end
+		end
+	end
+	return sDados;
 end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding>UTF-8</Encoding>
