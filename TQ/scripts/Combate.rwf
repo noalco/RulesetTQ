@@ -372,8 +372,8 @@ function CalcularBonoSegundaMano(sRutaGeneral)
 			if sRuta1~="" and sRuta2~="" then
 				DB.setValue(sRuta1..".BonoSegundaMano", "number", 10000);
 				DB.setValue(sRuta2..".BonoSegundaMano", "number", 10000);
-				local nBono1=DB.getValue(sRuta1..".BonoAtaque", 0)-DB.getValue(sRuta1..".BonoGeneralArmas", 0);
-				local nBono2=DB.getValue(sRuta2..".BonoAtaque", 0)-DB.getValue(sRuta2..".BonoGeneralArmas", 0);
+				local nBono1=DB.getValue(sRuta1..".BonoAtaque", 0)-- -DB.getValue(sRuta1..".BonoGeneralArmas", 0);
+				local nBono2=DB.getValue(sRuta2..".BonoAtaque", 0)-- -DB.getValue(sRuta2..".BonoGeneralArmas", 0);
 				DB.setValue(sRuta1..".BonoSegundaMano", "number", math.min(nBono1, nBono2));
 				DB.setValue(sRuta2..".BonoSegundaMano", "number", math.min(nBono1, nBono2));
 				sRuta1=DB.getValue(sSelectedValue1..".IDListaArmasCombCCArrojadiza", "");
