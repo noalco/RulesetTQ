@@ -28,13 +28,7 @@ Personalidad:
 
 
 Combate:
-	- Dividir pestaña combate
-		- Modificadores al ataque
-			- Apuntar (a distancia): 1 turno -> +2; 2 turnos -> +3
-			- 
-		- Modificadores al daño
-		
-		- Críticos
+
 
 Hechizos:
 
