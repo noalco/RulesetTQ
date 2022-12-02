@@ -7,6 +7,7 @@
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
       {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string","#text":"button_char_inv_carried"}},
+      {"Name":"AllowDoubleClick"},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"ButtonField"},
@@ -46,6 +47,7 @@
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -76,12 +78,12 @@ function onClickRelease(button, x, y)
 			local sRuta=window.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)")
 			if DB.getValue(sRutaArmaCombate..".ManoDerecha", 0)==1 then
 				DB.setValue(sRuta..".Inventario.ListaArmaDerecha", "string", "");
-				DB.setValue(sRuta..".ListaArmaDerechavalue", "string", "");
+				DB.setValue(sRuta..".Inventario.ListaArmaDerechavalue", "string", "");
 				DB.setValue(sRutaArmaCombate..".ManoDerecha", "number", 0);
 			end
 			if DB.getValue(sRutaArmaCombate..".ManoIzquierda", 0)==1 then
 				DB.setValue(sRuta..".Inventario.ListaArmaIzquierda", "string", "");
-				DB.setValue(sRuta..".ListaArmaIzquierdavalue", "string", "");
+				DB.setValue(sRuta..".Inventario.ListaArmaIzquierdavalue", "string", "");
 				DB.setValue(sRutaArmaCombate..".ManoIzquierda", "number", 0);
 			end
 		elseif getValue()==Inventario.CteCargado then
@@ -232,6 +234,7 @@ end</LUACode>
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -244,12 +247,12 @@ end</LUACode>
 	if nTipoObjeto==Inventario.CteArma or nTipoObjeto==Inventario.CteEscudo then
 		if getValue()==1 then
 			local sRuta=window.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)");
-			local sRutaMadoDerecha=DB.getValue(sRuta..".ListaArmaDerechavalue", "");
-			local sRutaMadoIzquierda=DB.getValue(sRuta..".ListaArmaIzquierdavalue", "");
+			local sRutaMadoDerecha=DB.getValue(sRuta..".Inventario.ListaArmaDerechavalue", "");
+			local sRutaMadoIzquierda=DB.getValue(sRuta..".Inventario.ListaArmaIzquierdavalue", "");
 			local sUsoArma=DB.getValue(window.getDatabaseNode(), "UsoArma", Inventario.CteUnaMano);
 			if sRutaMadoDerecha==sRutaMadoIzquierda and sRutaMadoIzquierda==window.getDatabaseNode().getPath() then
 				if sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteArrojadiza or sUsoArma==Inventario.CteRangoUnaMano then
-					DB.setValue(sRuta..".ListaArmaIzquierdavalue", "string", "");
+					DB.setValue(sRuta..".Inventario.ListaArmaIzquierdavalue", "string", "");
 					DB.setValue(sRuta..".Inventario.ListaArmaIzquierda", "string", "");
 				elseif sUsoArma==Inventario.CteUnaDosManos then
 					local sPathArmaCombate=DB.getValue(sRutaMadoDerecha..".IDListaArmas", "");
@@ -258,18 +261,27 @@ end</LUACode>
 			end
 		elseif getValue()==0 then
 			local sRuta=window.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)");
-			local sRutaMadoDerecha=DB.getValue(sRuta..".ListaArmaDerechavalue", "");
-			local sRutaMadoIzquierda=DB.getValue(sRuta..".ListaArmaIzquierdavalue", "");
+			local sRutaMadoDerecha=DB.getValue(sRuta..".Inventario.ListaArmaDerechavalue", "");
+			local sRutaMadoIzquierda=DB.getValue(sRuta..".Inventario.ListaArmaIzquierdavalue", "");
 			if sRutaMadoIzquierda==window.getDatabaseNode().getPath() then
-				DB.setValue(sRuta..".ListaArmaIzquierdavalue", "string", "");
+				DB.setValue(sRuta..".Inventario.ListaArmaIzquierdavalue", "string", "");
 				DB.setValue(sRuta..".Inventario.ListaArmaIzquierda", "string", "");
 			end
 			if sRutaMadoDerecha==window.getDatabaseNode().getPath() then
-				DB.setValue(sRuta..".ListaArmaDerechavalue", "string", "");
+				DB.setValue(sRuta..".Inventario.ListaArmaDerechavalue", "string", "");
 				DB.setValue(sRuta..".Inventario.ListaArmaDerecha", "string", "");
 			end
 		end
 		Combate.CrearListas(getDatabaseNode().getPath());
+		if nTipoObjeto==Inventario.CteArma then
+			local sRutaCombate=DB.getValue(window.getDatabaseNode(), "IDListaArmas", "");
+			if sRutaCombate~="" then
+				local sUsoArmaCombate=DB.getValue(sRutaCombate..".UsoArma", Inventario.CteUnaMano);
+				if sUsoArmaCombate==Inventario.CteArrojadiza or sUsoArmaCombate==Inventario.CteArrojadizaDosManos then
+					DB.setValue(sRutaCombate..".MaxMunicion", "number", getValue());
+				end
+			end
+		end
 	end
 end
 </LUACode>
@@ -327,6 +339,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -362,7 +375,7 @@ end
       {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string","#text":"number_charinv"}},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"weight"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"size","Offset":{"@xsi:nil":"true"},"Height":"20","Width":"30"},{"EdgeAnchor":"top","Offset":"2","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"right","Parent":"rightanchor","AnchorTo":"left","Offset":"-10","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"}]}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition","AnchorDefinition":[{"EdgeAnchor":"size","Offset":null,"Height":"20","Width":"30"},{"EdgeAnchor":"top","Offset":"2","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"}},{"EdgeAnchor":"right","Parent":"rightanchor","AnchorTo":"left","Offset":"-10","Height":{"@xsi:nil":"true"},"Width":{"@xsi:nil":"true"},"Relation":"relative"}]}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultValue"},
       {"Name":"DelayKeyUpdate"},
@@ -404,6 +417,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},

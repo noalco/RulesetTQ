@@ -14,7 +14,7 @@ end
 
 function CrearLista(sMano, ListaArma, sText, sPathArma)
 	if sMano and (sMano=="Derecha" or sMano=="Izquierda") and ListaArma then
-		local sSelectedValue=DB.getValue(ListaArma.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)")..".ListaArma"..sMano.."value", "");
+		local sSelectedValue=DB.getValue(ListaArma.getDatabaseNode().getPath():match("(charsheet%.id%-%d*)")..".Inventario.ListaArma"..sMano.."value", "");
 		local aEspacios={ };
 		ListaArma.clear();
 		ListaArma.add("", "");
@@ -74,10 +74,10 @@ end
 
 function ObtenerBonoArma(sMano, sRuta, bEsAtacante, bEsCombCCArrojadiza)
 	if sMano and sRuta and (sMano=="Derecha" or sMano=="Izquierda") and sRuta:match("(charsheet%.id%-%d*)") then
-		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
+		local sRutaArma=DB.getValue(sRuta..".Inventario.ListaArma"..sMano.."value", "");
 		if sRutaArma=="" then return 10000; end;
 		local sOtraMano=""; if sMano=="Derecha" then sOtraMano="Izquierda"; else sOtraMano="Derecha"; end;
-		local sRutaArmaOtraMano=DB.getValue(sRuta..".ListaArma"..sOtraMano.."value", "");
+		local sRutaArmaOtraMano=DB.getValue(sRuta..".Inventario.ListaArma"..sOtraMano.."value", "");
 	
 		local sRutaArmaCombate=DB.getValue(sRutaArma..".IDListaArmas", "");
 		if bEsAtacante then sMensajeAtaque=""; end
@@ -151,7 +151,7 @@ function ObtenerAtaque(sMano, sRuta)
 	if sMano and sRuta and (sMano=="Derecha" or sMano=="Izquierda") and sRuta:match("(charsheet%.id%-%d*)") then
 		local bEsCombCCArrojadiza=DB.getValue(sRuta..".EsCombCCArrojadiza", 0)==1;
 		sRuta=sRuta:match("(charsheet%.id%-%d*)");
-		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
+		local sRutaArma=DB.getValue(sRuta..".Inventario.ListaArma"..sMano.."value", "");
 		
 --		local sCadena="1d"..DB.getValue(sRuta..".LabelDado", 10).."!";
 		local sCadena=Herramientas.ObtenerDados(sRuta);
@@ -184,7 +184,7 @@ function ObtenerDanio(sMano, sRuta)
 	if sMano and sRuta and (sMano=="Derecha" or sMano=="Izquierda") and sRuta:match("(charsheet%.id%-%d*)") then
 		local bEsCombCCArrojadiza=DB.getValue(sRuta..".EsCombCCArrojadiza", 0)==1;
 		sRuta=sRuta:match("(charsheet%.id%-%d*)");
-		local sRutaArma=DB.getValue(sRuta..".ListaArma"..sMano.."value", "");
+		local sRutaArma=DB.getValue(sRuta..".Inventario.ListaArma"..sMano.."value", "");
 		local sRutaArmaCombate=DB.getValue(sRutaArma..".IDListaArmas", "");
 		local TipoDanio={[1]="Cortante", [2]="Penetrante", [3]="Contundente", [4]="Desgarradora", [5]="Atrapa"}
 		local sCombCCArrojadiza=""; local sUsoArma; local sRutaArmaCombate;
@@ -364,8 +364,8 @@ end
 function CalcularBonoSegundaMano(sRutaGeneral)
 	if sRutaGeneral and sRutaGeneral:match("(charsheet%.id%-%d*)") then
 		sRutaGeneral=sRutaGeneral:match("(charsheet%.id%-%d*)");
-		local sSelectedValue1=DB.getValue(sRutaGeneral..".ListaArmaDerechavalue", "");
-		local sSelectedValue2=DB.getValue(sRutaGeneral..".ListaArmaIzquierdavalue", "");
+		local sSelectedValue1=DB.getValue(sRutaGeneral..".Inventario.ListaArmaDerechavalue", "");
+		local sSelectedValue2=DB.getValue(sRutaGeneral..".Inventario.ListaArmaIzquierdavalue", "");
 		if sSelectedValue1~="" and sSelectedValue2~="" and sSelectedValue2~=sSelectedValue1 then
 			local sRuta1=DB.getValue(sSelectedValue1..".IDListaArmas", "");
 			local sRuta2=DB.getValue(sSelectedValue2..".IDListaArmas", "");

@@ -12,7 +12,7 @@
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"HeridaBase"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DataSource"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"27"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"230"}},
       {"Name":"Disabled"},
       {"Name":"Dynamic"},
@@ -108,7 +108,7 @@
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"202"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"2"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -160,7 +160,7 @@
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"19"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"2"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -173,7 +173,7 @@
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
+      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string","#text":"numero_foco"}},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"PDHerida"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
@@ -181,7 +181,7 @@
       {"Name":"DefaultValue"},
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"25"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
@@ -290,7 +290,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"2"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -352,7 +352,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"146"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"2"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -414,7 +414,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"39"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"3"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>

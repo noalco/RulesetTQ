@@ -38,6 +38,7 @@
       {"Name":"ScriptFile"},
       {"Name":"Source","Value":{"@xsi:type":"xsd:string","#text":"DescripcionVentDesvent"}},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"2"}},
@@ -51,7 +52,7 @@
   <WindowControls>
     <WindowName>VentanaVentDesventSidebar_main</WindowName>
     <ControlName>divisor2</ControlName>
-    <ZIndex>5</ZIndex>
+    <ZIndex>3</ZIndex>
     <ControlClass>FGCustomControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"bottom","Parent":"DescripcionVentDesventHost"}}},
@@ -89,6 +90,7 @@
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -102,7 +104,7 @@
   <WindowControls>
     <WindowName>VentanaVentDesventSidebar_main</WindowName>
     <ControlName>divisor3</ControlName>
-    <ZIndex>7</ZIndex>
+    <ZIndex>5</ZIndex>
     <ControlClass>FGCustomControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"bottom","Parent":"LabelEstadisticas"}}},
@@ -140,6 +142,7 @@
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -153,7 +156,7 @@
   <WindowControls>
     <WindowName>VentanaVentDesventSidebar_main</WindowName>
     <ControlName>LabelEstadisticas</ControlName>
-    <ZIndex>6</ZIndex>
+    <ZIndex>4</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"bottom","Parent":"divisor2"}}},
@@ -191,6 +194,7 @@
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -205,7 +209,7 @@
   <WindowControls>
     <WindowName>VentanaVentDesventSidebar_main</WindowName>
     <ControlName>LabelModificadoresBases</ControlName>
-    <ZIndex>8</ZIndex>
+    <ZIndex>6</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"bottom","Parent":"divisor3"}}},
@@ -243,6 +247,7 @@
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"El formato para aplicar las automatizaciones es \"BaseHabilidad +/-X\". Esto se puede repetir tantas veces como se desee separando las diferentes Bases de Habilidad mediante comas."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -257,7 +262,7 @@
   <WindowControls>
     <WindowName>VentanaVentDesventSidebar_main</WindowName>
     <ControlName>LabelModificadoresHabilidades</ControlName>
-    <ZIndex>10</ZIndex>
+    <ZIndex>8</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"bottom","Parent":"ModificadoresBasesHabilidades"}}},
@@ -295,6 +300,7 @@
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"El formato para aplicar las automatizaciones es \"Habilidad +/-X\". Esto se puede repetir tantas veces como se desee separando las diferentes Habilidades mediante comas. Para las Habilidades que tienen un subtipo específico (armas, idiomas, y artesanías), se pueden usar los siguientes nombres para aplicar el modificador a todo el grupo de Habilidades: \"Armas CC\", \"Armas Pr\", \"Artesanías\" e \"Idiomas\". También se puede usar \"Magia\" para aplicar un modificador a todas las tiradas de habilidades mágicas. Para un subtipo específico, se usa el formato \"Nombre de Habilidad: Subtipo\" (por ejemplo, \"Arma CC: Espada\" o \"Idioma: Merení\")."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -309,7 +315,7 @@
   <WindowControls>
     <WindowName>VentanaVentDesventSidebar_main</WindowName>
     <ControlName>ModificadoresBasesHabilidades</ControlName>
-    <ZIndex>9</ZIndex>
+    <ZIndex>7</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"bottom","Parent":"LabelModificadoresBases"}}},
@@ -357,6 +363,7 @@
       {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -370,7 +377,7 @@
   <WindowControls>
     <WindowName>VentanaVentDesventSidebar_main</WindowName>
     <ControlName>ModificadoresHabilidades</ControlName>
-    <ZIndex>11</ZIndex>
+    <ZIndex>9</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"bottom","Parent":"LabelModificadoresHabilidades"}}},
@@ -418,6 +425,7 @@
       {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -469,6 +477,7 @@
       {"Name":"ScrollButtonMinimumHeight","Value":{"@xsi:type":"xsd:int","#text":"40"}},
       {"Name":"ScrollTarget","Value":{"@xsi:type":"xsd:string","#text":"DescripcionVentDesventHost"}},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"2"}},

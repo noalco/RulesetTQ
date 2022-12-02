@@ -41,6 +41,7 @@
       {"Name":"Source"},
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Corto (15 m)","Value":"Corto (15 m)"},{"Label":"Medio (30 m)","Value":"Medio (30 m)"},{"Label":"Largo (100 m)","Value":"Largo (100 m)"},{"Label":"Muy Largo (200 m)","Value":"Muy Largo (200 m)"}]}},
       {"Name":"Tooltip"},
@@ -60,7 +61,7 @@
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
+      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string","#text":"numero_foco"}},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BonoAtaqueArma"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
@@ -105,6 +106,7 @@
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -122,7 +124,7 @@
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
+      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string","#text":"numero_foco"}},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BonoDanio"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
@@ -167,6 +169,7 @@
       {"Name":"ScriptFile"},
       {"Name":"Source","Value":{"@xsi:type":"xsd:string","#text":"BonoDanio"}},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -184,11 +187,11 @@ end
   <WindowControls>
     <WindowName>VentanaArmaSidebar</WindowName>
     <ControlName>BonoDanioCombCCArrojadiza</ControlName>
-    <ZIndex>35</ZIndex>
+    <ZIndex>33</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
+      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string","#text":"numero_foco"}},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BonoDanioCombCCArrojadiza"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
@@ -233,6 +236,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -287,6 +291,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -363,6 +368,7 @@ end</LUACode>
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -376,7 +382,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaArmaSidebar</WindowName>
     <ControlName>DanioDadosCombCCArrojadiza</ControlName>
-    <ZIndex>36</ZIndex>
+    <ZIndex>34</ZIndex>
     <ControlClass>FGDieField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -414,6 +420,7 @@ end</LUACode>
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -478,6 +485,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -491,7 +499,7 @@ end
   <WindowControls>
     <WindowName>VentanaArmaSidebar</WindowName>
     <ControlName>EfectoDanioCombCCArrojadiza</ControlName>
-    <ZIndex>32</ZIndex>
+    <ZIndex>31</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -539,6 +547,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -559,7 +568,7 @@ end
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
+      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string","#text":"numero_foco"}},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"FuerzaMinima"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
@@ -604,6 +613,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"Source"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -656,6 +666,7 @@ end
       {"Name":"Source"},
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Lanzar","Value":"Lanzar"},{"Label":"Puñal","Value":"Puñal"},{"Label":"Red","Value":"Red"}]}},
       {"Name":"Tooltip"},
@@ -714,6 +725,7 @@ end</LUACode>
       {"Name":"Source"},
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arma de asta","Value":"Arma de asta"},{"Label":"Espada","Value":"Espada"},{"Label":"Hacha","Value":"Hacha"},{"Label":"Látigo","Value":"Látigo"},{"Label":"Mayal","Value":"Mayal"},{"Label":"Maza","Value":"Maza"},{"Label":"Pelea","Value":"Pelea"},{"Label":"Puñal","Value":"Puñal"},{"Label":"Red","Value":"Red"}]}},
       {"Name":"Tooltip"},
@@ -778,6 +790,7 @@ end
       {"Name":"Source"},
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Arco","Value":"Arco"},{"Label":"Ballesta","Value":"Ballesta"},{"Label":"Cañón de mano","Value":"Cañón de mano"},{"Label":"Honda","Value":"Honda"}]}},
       {"Name":"Tooltip"},
@@ -839,6 +852,7 @@ end</LUACode>
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Bono que se aplicará a las tiradas de ataque del arma."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -891,6 +905,7 @@ end</LUACode>
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Marcar en aquellas armas cuerpo a cuerpo que se puedan usar como armas arrojadizas."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -946,6 +961,7 @@ end</LUACode>
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Daño del arma. Puede indicarse tanto un valor numérico como un efecto de daño"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -960,7 +976,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaArmaSidebar</WindowName>
     <ControlName>LabelDanioCombCCArrojadiza</ControlName>
-    <ZIndex>34</ZIndex>
+    <ZIndex>32</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -998,6 +1014,7 @@ end</LUACode>
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Daño del arma. Puede indicarse tanto un valor numérico como un efecto de daño"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -1053,6 +1070,7 @@ end
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Daño del arma. Puede indicarse tanto un valor numérico como un efecto de daño"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -1067,7 +1085,7 @@ end
   <WindowControls>
     <WindowName>VentanaArmaSidebar</WindowName>
     <ControlName>LabelEspecialCombCCArrojadiza</ControlName>
-    <ZIndex>31</ZIndex>
+    <ZIndex>30</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1105,6 +1123,7 @@ end
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Daño del arma. Puede indicarse tanto un valor numérico como un efecto de daño"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -1160,6 +1179,7 @@ end
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fuerza mínima necesaria para blandir el arma sin penalizador (el penalizador será igual a la diferencia entre la Fuerza Mínima y la Fuerza del personaje)"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -1212,6 +1232,7 @@ end
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Habilidad con la que se utitiliza el arma."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -1264,6 +1285,7 @@ end
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -1316,6 +1338,7 @@ end
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -1371,6 +1394,7 @@ end
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Número de turnos necesarios para recargar el arma (\"Retraso\" indica que se recarga a la vez que se dispara)."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -1425,6 +1449,7 @@ end</LUACode>
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Tipo de daño que hace el arma. En caso de dos tipos de daño, se puede elegir qué tipo se aplica en el momento del ataque."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -1439,7 +1464,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaArmaSidebar</WindowName>
     <ControlName>LabelTipoArmaCombCCArrojadiza</ControlName>
-    <ZIndex>29</ZIndex>
+    <ZIndex>28</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1477,6 +1502,7 @@ end</LUACode>
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Tipo de daño que hace el arma. En caso de dos tipos de daño, se puede elegir qué tipo se aplica en el momento del ataque."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -1532,6 +1558,7 @@ end
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Forma de empuñar el arma y manos con las que se usa el arma. \"1/2 Manos\" indica que el arma puede ser blandida con una o con dos manos, según lo estime su portador."}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -1584,6 +1611,7 @@ end
       {"Name":"ScriptFile"},
       {"Name":"Source","Value":{"@xsi:type":"xsd:string","#text":"locked"}},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
@@ -1710,6 +1738,7 @@ end</LUACode>
       {"Name":"Source"},
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Corta","Value":"Corta"},{"Label":"Media","Value":"Media"},{"Label":"Media/Larga","Value":"Media/Larga"},{"Label":"Larga","Value":"Larga"}]}},
       {"Name":"Tooltip"},
@@ -1764,6 +1793,7 @@ end</LUACode>
       {"Name":"Source"},
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Corto (15 m)","Value":"Corto (15 m)"},{"Label":"Medio (30 m)","Value":"Medio (30 m)"},{"Label":"Largo (100 m)","Value":"Largo (100 m)"},{"Label":"Muy Largo (200 m)","Value":"Muy Largo (200 m)"}]}},
       {"Name":"Tooltip"},
@@ -1822,6 +1852,7 @@ end
       {"Name":"Source"},
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Retraso","Value":"Retraso"},{"Label":"1 turno","Value":"1 turno"},{"Label":"2 turnos","Value":"2 turnos"},{"Label":"12 turnos","Value":"12 turnos"},{"Label":"24 turnos","Value":"24 turnos"}]}},
       {"Name":"Tooltip"},
@@ -1880,6 +1911,7 @@ end</LUACode>
       {"Name":"Source"},
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Cortante","Value":"1"},{"Label":"Penetrante","Value":"2"},{"Label":"Contundente","Value":"3"},{"Label":"Desgarradora","Value":"4"},{"Label":"Cortante/Penetrante","Value":"12"},{"Label":"Desgarradora/Penetrante","Value":"42"},{"Label":"Contundente/Penetrante","Value":"32"},{"Label":"Contundente/Desgarradora","Value":"34"},{"Label":"Atrapa","Value":"5"}]}},
       {"Name":"Tooltip"},
@@ -1895,7 +1927,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>VentanaArmaSidebar</WindowName>
     <ControlName>TipoArmaCombCCArrojadiza</ControlName>
-    <ZIndex>30</ZIndex>
+    <ZIndex>29</ZIndex>
     <ControlClass>FGStringCycler</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1934,6 +1966,7 @@ end</LUACode>
       {"Name":"Source"},
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"StringCyclerAlign","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"StringCyclerItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"Cortante","Value":"1"},{"Label":"Penetrante","Value":"2"},{"Label":"Contundente","Value":"3"},{"Label":"Desgarradora","Value":"4"},{"Label":"Atrapa","Value":"5"}]}},
       {"Name":"Tooltip"},
@@ -1992,6 +2025,7 @@ end
       {"Name":"Source"},
       {"Name":"Sourceless"},
       {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},

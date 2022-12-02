@@ -325,13 +325,13 @@ function ModificarArma(window)
 		if DB.getValue(window.getDatabaseNode(), "TipoObjeto", 0)==CteArma then
 			if sUsoArma==CteUnaMano or sUsoArma==CteDosManos or sUsoArma==CteUnaDosManos then
 				sHabilidad=DB.getValue(window.getDatabaseNode(), "HabilidadCC", "");
-				nModArmas=DB.getValue(sRutaGeneral..".Habilidades.ModArmasCC", 0);
+--				nModArmas=DB.getValue(sRutaGeneral..".Habilidades.ModArmasCC", 0);
 			elseif sUsoArma==CteArrojadiza or sUsoArma==CteArrojadizaDosManos then
 				sHabilidad=DB.getValue(window.getDatabaseNode(), "HabilidadAr", "");
-				nModArmas=DB.getValue(sRutaGeneral..".Habilidades.ModArmasAr", 0);
+--				nModArmas=DB.getValue(sRutaGeneral..".Habilidades.ModArmasAr", 0);
 			elseif sUsoArma==CteRango or sUsoArma==CteRangoUnaMano then
 				sHabilidad=DB.getValue(window.getDatabaseNode(), "HabilidadPr", "");
-				nModArmas=DB.getValue(sRutaGeneral..".Habilidades.ModArmasPr", 0);
+--				nModArmas=DB.getValue(sRutaGeneral..".Habilidades.ModArmasPr", 0);
 			end
 		else
 			sHabilidad="Escudo";
@@ -350,13 +350,19 @@ function ModificarArma(window)
 		DB.setValue(nodoArmaAModificar, "BonoArma", "number", DB.getValue(window.getDatabaseNode(), "BonoAtaqueArma", 0));
 		DB.setValue(nodoArmaAModificar, "BonoGeneralArmas", "number", nModArmas);
 
-		local sValor=DB.getValue(window.getDatabaseNode(), "TipoArma", "");
-		if string.len(sValor)==2 then
-			if DB.getValue(nodoArmaAModificar, "TipoArma", "")~=string.sub(sValor, 1, 1) and DB.getValue(nodoArmaAModificar, "TipoArma", "")~=string.sub(sValor, 2, 2) then
-				DB.setValue(nodoArmaAModificar, "TipoArma", "string", string.sub(sValor, 1, 1));
-			end
+		if (sUsoArmaCombate==CteArrojadiza or sUsoArmaCombate==CteArrojadizaDosManos) and DB.getValue(window.getDatabaseNode(), "CombCCArrojadiza", 0)==1 then
+			-- Arrojadiza por combo CC/Arrojadiza
+			DB.setValue(nodoArmaAModificar, "TipoArma", "string", DB.getValue(window.getDatabaseNode(), "TipoArmaCombCCArrojadiza", ""));
 		else
-			DB.setValue(nodoArmaAModificar, "TipoArma", "string", DB.getValue(window.getDatabaseNode(), "TipoArma", ""));
+			-- Resto
+			local sValor=DB.getValue(window.getDatabaseNode(), "TipoArma", "");
+			if string.len(sValor)==2 then
+				if DB.getValue(nodoArmaAModificar, "TipoArma", "")~=string.sub(sValor, 1, 1) and DB.getValue(nodoArmaAModificar, "TipoArma", "")~=string.sub(sValor, 2, 2) then
+					DB.setValue(nodoArmaAModificar, "TipoArma", "string", string.sub(sValor, 1, 1));
+				end
+			else
+				DB.setValue(nodoArmaAModificar, "TipoArma", "string", sValor);
+			end
 		end
 
 		local nFuerzaArma=DB.getValue(window.getDatabaseNode(), "FuerzaMinima", 0)
