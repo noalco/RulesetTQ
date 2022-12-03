@@ -600,10 +600,10 @@ end
 	window.Fase.setValue(1);
 end
 
-function onInit()
-	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-	setVisible(not ActorManager.isPC(rActor));
-end
+--function onInit()
+--	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+--	setVisible(not ActorManager.isPC(rActor));
+--end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -667,11 +667,11 @@ end
 	window.Fase.setValue(2);
 end
 
-function onInit()
-	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-	setVisible(not ActorManager.isPC(rActor));
-end
-</LUACode>
+--function onInit()
+--	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+--	setVisible(not ActorManager.isPC(rActor));
+--end
+--</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -734,11 +734,11 @@ end
 	window.Fase.setValue(3);
 end
 
-function onInit()
-	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-	setVisible(not ActorManager.isPC(rActor));
-end
-</LUACode>
+--function onInit()
+--	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+--	setVisible(not ActorManager.isPC(rActor));
+--end
+--</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -801,11 +801,11 @@ end
 	window.Fase.setValue(4);
 end
 
-function onInit()
-	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-	setVisible(not ActorManager.isPC(rActor));
-end
-</LUACode>
+--function onInit()
+--	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+--	setVisible(not ActorManager.isPC(rActor));
+--end
+--</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
