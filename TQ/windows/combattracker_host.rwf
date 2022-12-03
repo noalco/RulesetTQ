@@ -692,7 +692,7 @@ end
       {"Name":"MergeWindow","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"MinimizedIcon"},
       {"Name":"MinimumHeight","Value":{"@xsi:type":"xsd:int","#text":"400"}},
-      {"Name":"MinimumWidth","Value":{"@xsi:type":"xsd:int","#text":"420"}},
+      {"Name":"MinimumWidth","Value":{"@xsi:type":"xsd:int","#text":"440"}},
       {"Name":"NoClose"},
       {"Name":"NoDelete"},
       {"Name":"NoMove"},

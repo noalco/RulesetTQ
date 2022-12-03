@@ -1002,7 +1002,13 @@ function linkPCFields()
 		sub_defense.subwindow.TipoArmadura.setLink(nodeChar.createChild("Protecciones.TipoArmadura", "string"), true);
 		sub_defense.subwindow.Escudo.setLink(nodeChar.createChild("Protecciones.BonoEscudo", "number"), true);
 		sub_defense.subwindow.Yelmo.setLink(nodeChar.createChild("Protecciones.TotalYelmo", "number"), true);
-		sub_defense.subwindow.TotalProteccion.setLink(nodeChar.createChild("Protecciones.TotalArmadura", "number"), true);
+--		sub_defense.subwindow.TotalProteccion.setLink(nodeChar.createChild("Protecciones.TotalArmadura", "number"), true);
+		
+		sub_defense.subwindow.Armadura.setReadOnly(true);
+		sub_defense.subwindow.TipoArmadura.setReadOnly(true);
+		sub_defense.subwindow.Escudo.setReadOnly(true);
+		sub_defense.subwindow.Yelmo.setReadOnly(true);
+--		sub_defense.subwindow.TotalProteccion.setReadOnly(true);
 	end
 end
 

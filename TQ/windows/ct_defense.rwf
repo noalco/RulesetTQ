@@ -2,7 +2,7 @@
   <WindowControls>
     <WindowName>ct_defense</WindowName>
     <ControlName>Armadura</ControlName>
-    <ZIndex>6</ZIndex>
+    <ZIndex>4</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -24,7 +24,7 @@
       {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
+      {"Name":"GMEditOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"GMVisibleOnly"},
       {"Name":"HideOnValue"},
       {"Name":"HideRollWidget"},
@@ -45,7 +45,7 @@
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
       {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ReadOnly"},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
@@ -76,7 +76,7 @@
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DataSource"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"58"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"558"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"445"}},
       {"Name":"Disabled"},
       {"Name":"Dynamic"},
       {"Name":"FrameName"},
@@ -121,7 +121,7 @@
   <WindowControls>
     <WindowName>ct_defense</WindowName>
     <ControlName>Escudo</ControlName>
-    <ZIndex>12</ZIndex>
+    <ZIndex>9</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -143,7 +143,7 @@
       {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
+      {"Name":"GMEditOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"GMVisibleOnly"},
       {"Name":"HideOnValue"},
       {"Name":"HideRollWidget"},
@@ -164,7 +164,7 @@
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
       {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ReadOnly"},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
@@ -184,7 +184,7 @@
   <WindowControls>
     <WindowName>ct_defense</WindowName>
     <ControlName>Label1</ControlName>
-    <ZIndex>5</ZIndex>
+    <ZIndex>3</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -237,7 +237,7 @@
   <WindowControls>
     <WindowName>ct_defense</WindowName>
     <ControlName>Label3</ControlName>
-    <ZIndex>11</ZIndex>
+    <ZIndex>8</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -290,7 +290,7 @@
   <WindowControls>
     <WindowName>ct_defense</WindowName>
     <ControlName>LabelArmadura</ControlName>
-    <ZIndex>2</ZIndex>
+    <ZIndex>1</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -343,7 +343,7 @@
   <WindowControls>
     <WindowName>ct_defense</WindowName>
     <ControlName>LabelCascoYelmo</ControlName>
-    <ZIndex>9</ZIndex>
+    <ZIndex>6</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -395,8 +395,161 @@
   </WindowControls>
   <WindowControls>
     <WindowName>ct_defense</WindowName>
+    <ControlName>Proteccion</ControlName>
+    <ZIndex>10</ZIndex>
+    <ControlClass>FGStringField</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"Center"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"Proteccion"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultText","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"107"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"EmptyText"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"LineOffset","Value":{"@xsi:type":"xsd:int","#text":"17"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"NoDragselect","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"NoDrop","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"261"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	local bArmadura=false;
+	local Armaduras={
+		["ropa normal"]={Prot=0, Tipo="Blanda"},
+		["ropa"]={Prot=0, Tipo="Blanda"},
+		["ropa de abrigo"]={Prot=1, Tipo="Blanda"},
+		["cuero blando"]={Prot=2, Tipo="Blanda"},
+		["cuero"]={Prot=2, Tipo="Blanda"},
+		["cuero duro"]={Prot=3, Tipo="Dura"},
+		["cuero reforzado"]={Prot=4, Tipo="Blanda"},
+		["cota de anillas"]={Prot=5, Tipo="Blanda"},
+		["semiplacas"]={Prot=5, Tipo="Dura"},
+		["láminas"]={Prot=6, Tipo="Dura"},
+		["cota de malla"]={Prot=7, Tipo="Blanda"},
+		["placas"]={Prot=8, Tipo="Dura"},
+		["piel"]={Prot=1, Tipo="Blanda"},
+		["piel 1"]={Prot=1, Tipo="Blanda"},
+	}
+	local Escudos={
+		["escudo pequeño"]=1,
+		["dos escudos pequeños"]=2,
+		["escudo medio"]=2,
+		["dos escudos medios"]=4,
+		["escudo"]=2,
+		["dos escudos"]=4,
+		["escudo grande"]=3,
+		["dos escudos grandes"]=6,
+		["torre"]=4,
+		["escudo torre"]=4,
+		["escudo de torre"]=4,
+		["dos torres"]=8,
+		["dos escudos torre"]=8,
+		["dos escudos de torre"]=8,
+	}
+	
+--	formatos:
+--	7, cuero reforzado (blanda), casco y escudo.	eliminar \n
+--	12, placas, yelmo y escudo medio.				total	armadura	yelmo	escudo
+--	7, piel 1 (blanda) y dos escudos grandes		total	piel valor (tipo)	
+--	3, piel (1, blanda) y escudo medio (2)			total	piel (valor, tipo)
+--	6, semiplacas (dura) y casco.					total	armadura	(tipo)	yelmo
+--	1 (blanda).										total	(tipo)
+--	0.												0
+--	4, cuero reforzado (blanda).					total	armadura	(tipo)
+--	2 (cuero, blanda).								total	(armadura, tipo)
+
+	local sValor=getValue();
+	window.Armadura.setValue(0);
+	window.TipoArmadura.setValue("");
+	window.Escudo.setValue(0);
+	window.Yelmo.setValue(0);
+	
+	if sValor and sValor~="" then
+--		eliminar \n
+		sValor=sValor:gsub("\\n", " ");
+		sValor=sValor:gsub("\n", " ");
+		sValor=sValor:gsub("\r", " ");
+		sValor=sValor:gsub("  ", " ");
+		sValor=sValor:gsub(" y ", "&amp;");
+		sValor=sValor:lower();
+		local aClauses,_ = StringManager.split(sValor, ",%.&amp;%(%)", true);
+		if aClauses and #aClauses&gt;0 then
+			for i=1,#aClauses do
+				if aClauses[i]:sub(-1)==" " then aClauses[i]=aClauses[i]:sub(1, -2); end
+				if Armaduras[aClauses[i]] then
+					window.Armadura.setValue(Armaduras[aClauses[i]].Prot);
+					window.TipoArmadura.setValue(Armaduras[aClauses[i]].Tipo);
+					bArmadura=true;
+				elseif Escudos[aClauses[i]] then
+					window.Escudo.setValue(Escudos[aClauses[i]]);
+				elseif aClauses[i]=="yelmo" then
+					window.Yelmo.setValue(2);
+				elseif aClauses[i]=="casco" then
+					window.Yelmo.setValue(1);
+				end
+			end
+			if not bArmadura then
+				window.Armadura.setValue(tonumber(aClauses[1]));
+				if #aClauses&gt;=2 then
+					if aClauses[2]=="blanda" then window.TipoArmadura.setValue("Blanda");
+					elseif aClauses[2]=="dura" then window.TipoArmadura.setValue("Dura");
+					end
+				end
+			end
+		end
+	end
+end
+
+function onInit()
+	onValueChanged();
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>ct_defense</WindowName>
     <ControlName>TipoArmadura</ControlName>
-    <ZIndex>8</ZIndex>
+    <ZIndex>5</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -419,7 +572,7 @@
       {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"FrameName"},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
+      {"Name":"GMEditOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"GMVisibleOnly"},
       {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"HoverCursor"},
@@ -438,7 +591,7 @@
       {"Name":"NoDragselect","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"TipoArmadura"}},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ReadOnly"},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
@@ -458,11 +611,11 @@
   <WindowControls>
     <WindowName>ct_defense</WindowName>
     <ControlName>TotalProteccion</ControlName>
-    <ZIndex>4</ZIndex>
+    <ZIndex>2</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string","#text":"number_ct_crosslink"}},
+      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string","#text":"number_modifier"}},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"TotalProteccion"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
@@ -480,7 +633,7 @@
       {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
+      {"Name":"GMEditOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"GMVisibleOnly"},
       {"Name":"HideOnValue"},
       {"Name":"HideRollWidget"},
@@ -501,7 +654,7 @@
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
       {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ReadOnly"},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
@@ -514,14 +667,21 @@
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"202"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"24"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onInit()
+	addSourceWithOp("Armadura", "+");
+	addSourceWithOp(".Yelmo", "+");
+	addSourceWithOp("Escudo", "+");
+	
+	super.onInit();
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
   <WindowControls>
     <WindowName>ct_defense</WindowName>
     <ControlName>Yelmo</ControlName>
-    <ZIndex>10</ZIndex>
+    <ZIndex>7</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -543,7 +703,7 @@
       {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
+      {"Name":"GMEditOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"GMVisibleOnly"},
       {"Name":"HideOnValue"},
       {"Name":"HideRollWidget"},
@@ -564,7 +724,7 @@
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
       {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ReadOnly"},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
