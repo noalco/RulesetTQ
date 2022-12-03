@@ -1464,9 +1464,11 @@ end
 end
 function onValueChanged()
 	if window.VidaActual.getValue()&lt;=0 then
+		if window.BotonIncapacitado.getValue()==0 then
+			Herramientas.Mensaje(DB.getValue(window.getDatabaseNode(), "name", "") .. " queda incapacitado por sus heridas", "msgfont", "action_damage");
+		end
 		window.BotonIncapacitado.setValue(1);
 		window.BotonIncapacitado.setReadOnly(true);
-		Herramientas.Mensaje(DB.getValue(window.getDatabaseNode(), "name", "") .. " queda incapacitado por sus heridas", "msgfont", "action_damage");
 	else
 		window.BotonIncapacitado.setReadOnly(false);
 	end
