@@ -535,7 +535,7 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"34"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"267"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"268"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -597,7 +597,13 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"31"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	window.Fase.setValue(1);
+	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+	if ActorManager.isPC(rActor) then
+		local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "link");
+		DB.setValue(sRuta..".FaseCT", "number", 1);
+	else
+		window.Fase.setValue(1);
+	end
 end
 
 --function onInit()
@@ -664,7 +670,13 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"31"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	window.Fase.setValue(2);
+	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+	if ActorManager.isPC(rActor) then
+		local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "link");
+		DB.setValue(sRuta..".FaseCT", "number", 2);
+	else
+		window.Fase.setValue(2);
+	end
 end
 
 --function onInit()
@@ -731,7 +743,13 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"31"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	window.Fase.setValue(3);
+	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+	if ActorManager.isPC(rActor) then
+		local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "link");
+		DB.setValue(sRuta..".FaseCT", "number", 3);
+	else
+		window.Fase.setValue(3);
+	end
 end
 
 --function onInit()
@@ -798,7 +816,13 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"31"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	window.Fase.setValue(4);
+	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+	if ActorManager.isPC(rActor) then
+		local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "link");
+		DB.setValue(sRuta..".FaseCT", "number", 4);
+	else
+		window.Fase.setValue(4);
+	end
 end
 
 --function onInit()
@@ -1320,10 +1344,15 @@ end
     window.windowlist.applySort();
 	window.Mente.setVisible(getValue()==0)
 	window.Agilidad.setVisible(getValue()~=0)
+	
 end
 
 function onInit()
 	update();
+end
+
+function onValueChanged()
+	if getValue()&gt;0 then Herramientas.Mensaje(window.name.getValue().." actúa en Fase "..getValue()); end
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

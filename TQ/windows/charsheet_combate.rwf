@@ -247,7 +247,7 @@ end
   <WindowControls>
     <WindowName>charsheet_combate</WindowName>
     <ControlName>Button5</ControlName>
-    <ZIndex>19</ZIndex>
+    <ZIndex>18</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -468,7 +468,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"486"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"504"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"550"}}
 ]}}</Definition>
     <LUACode />
