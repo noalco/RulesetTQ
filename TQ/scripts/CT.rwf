@@ -1,0 +1,59 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>CT</ScriptName>
+    <FolderID>33</FolderID>
+    <Script>function Comparar(nodo1, nodo2)
+	local nMente1=DB.getValue(nodo1, "Mente", 3);
+	local nMente2=DB.getValue(nodo2, "Mente", 3);
+	local nAgilidad1=DB.getValue(nodo1, "Agilidad", 0);
+	local nAgilidad2=DB.getValue(nodo2, "Agilidad", 0);
+	local nFase1=DB.getValue(nodo1, "Fase", 0);
+	local nFase2=DB.getValue(nodo2, "Fase", 0);
+	if nFase1==nFase2 and nFase1==0 then
+		if nMente1~=nMente2 then
+			return nMente1&gt;nMente2;
+		else
+			local rActor1 = ActorManager.resolveActor(nodo1);
+			local rActor2 = ActorManager.resolveActor(nodo2);
+			if ActorManager.isPC(rActor1) and not ActorManager.isPC(rActor2) then
+				return true;
+			elseif ActorManager.isPC(rActor2) and not ActorManager.isPC(rActor1) then
+				return false;
+			else
+				return nodo1.getPath() &gt; nodo2.getPath();
+			end
+		end
+	elseif nFase1==nFase2 and nFase1~=0 then
+		if nAgilidad1~=nAgilidad2 then
+			return nAgilidad1&gt;nAgilidad2;
+		else
+			local rActor1 = ActorManager.resolveActor(nodo1);
+			local rActor2 = ActorManager.resolveActor(nodo2);
+			if ActorManager.isPC(rActor1) and not ActorManager.isPC(rActor2) then
+				return true;
+			elseif ActorManager.isPC(rActor2) and not ActorManager.isPC(rActor1) then
+				return false;
+			else
+				return nodo1.getPath() &gt; nodo2.getPath();
+			end
+		end
+	else
+		return nFase1&lt;nFase2;
+	end
+end
+
+function NuevoTurno(window)
+	for _,w in pairs (window.list.getWindows()) do
+		local sTipo, sRuta=DB.getValue(w.getDatabaseNode(), "link");
+		if sTipo=="charsheet" then
+			DB.setValue(sRuta..".FaseCT", "number", 0);
+		else
+			w.Fase.setValue(0);
+		end
+		w.active.setValue(0);
+	end
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>

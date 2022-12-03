@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Herramientas</ScriptName>
-    <FolderID>33</FolderID>
+    <FolderID>34</FolderID>
     <Script>function Redondeo(nValor)
 	return nValor % 1 &gt; 0.5 and math.ceil(nValor) or math.floor(nValor);
 end

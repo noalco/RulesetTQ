@@ -40,3 +40,4 @@ Sidebars:
 
 	
 Wizard:
+	Añadir botones que enlacen con las librerías
