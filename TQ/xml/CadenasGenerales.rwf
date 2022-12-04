@@ -75,6 +75,11 @@
 	&lt;string name="library_recordtype_empty_hechizos"&gt;&amp;#171; Nombre &amp;#187;&lt;/string&gt;
 	
 	&lt;string name="gmid_default"&gt;DJ&lt;/string&gt;
+	
+	&lt;string name="option_label_MVPNJ"&gt;Combate: Mostrar vida de PNJs a los jugadores&lt;/string&gt;
+	&lt;string name="option_label_MMEF"&gt;Chat: Mostrar mensajes de elección de Fase&lt;/string&gt;
+	&lt;string name="option_val_detailed"&gt;Detallado&lt;/string&gt;
+	&lt;string name="option_val_status"&gt;Estado&lt;/string&gt;
 
 &lt;/root&gt;</XML>
   </XMLFiles>

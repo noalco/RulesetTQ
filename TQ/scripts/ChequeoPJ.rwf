@@ -6,7 +6,7 @@
 	["Estadísticas"] = {
 		["ErrorEtnia"] = true,
 		["ErrorRepartoIncompleto"] = true,
-		["ErrorRepartoExcesivo"] = true,
+		["ErrorRepartoExcesivo"] = false,
 		["ErrorArtesaniaEtnia"] = false,
 		["ErrorHabilidadCulturaEtnia"] = false,
 		["ErrorIdiomaEtnia"] = false,
@@ -45,7 +45,7 @@ function ResetearCheck()
 		["Estadísticas"] = {
 			["ErrorEtnia"] = true,
 			["ErrorRepartoIncompleto"] = true,
-			["ErrorRepartoExcesivo"] = true,
+			["ErrorRepartoExcesivo"] = false,
 			["ErrorArtesaniaEtnia"] = false,
 			["ErrorHabilidadCulturaEtnia"] = false,
 			["ErrorIdiomaEtnia"] = false,
