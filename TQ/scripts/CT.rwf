@@ -11,7 +11,7 @@
 	local nFase2=DB.getValue(nodo2, "Fase", 0);
 	if nFase1==nFase2 and nFase1==0 then
 		if nMente1~=nMente2 then
-			return nMente1&gt;nMente2;
+			return nMente1&lt;nMente2;
 		else
 			local rActor1 = ActorManager.resolveActor(nodo1);
 			local rActor2 = ActorManager.resolveActor(nodo2);
