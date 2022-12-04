@@ -11,7 +11,7 @@
 	aRecordOverrides = {
 		["hechizos"] = {
 			bExport=true,
-			aDataMap = {"referencia.hechizos"},
+			aDataMap = {"hechizos", "referencia.hechizos"},
 			sListDisplayClass = "HechizoSidebarBase",
 			sRecordDisplayClass ="VentanaHechizoSidebar",
 			aCustomFilters = {
@@ -22,7 +22,7 @@
 			sSidebarCategory = "personaje",
 		},
 		["item"] = {
-			aDataMap = {"referencia.objetos"},
+			aDataMap = {"item", "referencia.objetos"},
 			sRecordDisplayClass="itemSidebar",
 			sListDisplayClass = "ItemSidebarBase",
 			aCustomFilters = {
@@ -32,14 +32,14 @@
 			sSidebarCategory = "personaje",
 		},
 		["npc"] = {
-			aDataMap = {"referencia.pnjs"},
+			aDataMap = {"npc", "referencia.pnjs"},
 			aCustomFilters = {
 				["Tipo de Criatura"] = { sField = "TipoCriatura" },
 			},
 		},
 		["etnias"] = {
 			bExport=true,
-			aDataMap = {"referencia.etnias"},
+			aDataMap = {"etnias", "referencia.etnias"},
 			sListDisplayClass = "EtniaSidebarBase",
 			sRecordDisplayClass="VentanaEtniaSidebar",
 			aCustomFilters = {
@@ -50,7 +50,7 @@
 		},
 		["profesiones"] = {
 			bExport=true,
-			aDataMap = {"referencia.profesiones"},
+			aDataMap = {"profesiones", "referencia.profesiones"},
 			sListDisplayClass = "ProfesionSidebarBase",
 			sRecordDisplayClass="VentanaProfesionSidebar",
 			aCustomFilters = {
@@ -61,7 +61,7 @@
 		},
 		["encantamientos"] = {
 			bExport=true,
-			aDataMap = {"referencia.encantamientos"},
+			aDataMap = {"encantamientos", "referencia.encantamientos"},
 			sListDisplayClass = "EncantamientoSidebarBase",
 			sRecordDisplayClass="VentanaEncantamientoSidebar",
 			aCustomFilters = {
@@ -73,7 +73,7 @@
 
 		["ventdesvent"] = {
 			bExport=true,
-			aDataMap = {"referencia.ventdesvent"},
+			aDataMap = {"ventdesvent", "referencia.ventdesvent"},
 			sListDisplayClass = "VentDesventSidebarBase",
 			sRecordDisplayClass="VentanaVentDesventSidebar",
 			aCustomFilters = {
@@ -86,7 +86,7 @@
 
 		["bendiciones"] = {
 			bExport=true,
-			aDataMap = {"referencia.bendiciones"},
+			aDataMap = {"bendiciones", "referencia.bendiciones"},
 			sListDisplayClass = "BendicionSidebarBase",
 			sRecordDisplayClass="VentanaBendicionSidebar",
 			aCustomFilters = {
