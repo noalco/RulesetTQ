@@ -984,7 +984,7 @@ end
   <WindowControls>
     <WindowName>combattracker_host</WindowName>
     <ControlName>Label4</ControlName>
-    <ZIndex>47</ZIndex>
+    <ZIndex>24</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1090,7 +1090,7 @@ end
   <WindowControls>
     <WindowName>combattracker_host</WindowName>
     <ControlName>LabelPD</ControlName>
-    <ZIndex>46</ZIndex>
+    <ZIndex>23</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1143,7 +1143,7 @@ end
   <WindowControls>
     <WindowName>combattracker_host</WindowName>
     <ControlName>LabelPV</ControlName>
-    <ZIndex>45</ZIndex>
+    <ZIndex>22</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},

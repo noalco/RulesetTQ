@@ -689,6 +689,8 @@ end
 	DB.addHandler(DB.getPath(node, "*.name"), "onUpdate", onNameUpdated);
 	DB.addHandler(DB.getPath(node, "*.nonid_name"), "onUpdate", onNameUpdated);
 	DB.addHandler(DB.getPath(node, "*.isidentified"), "onUpdate", onNameUpdated);
+	
+	CombatManager.setCustomSort(CT.Comparar)
 end
 
 function onClose()
