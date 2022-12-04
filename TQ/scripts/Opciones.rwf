@@ -1,0 +1,20 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>Opciones</ScriptName>
+    <FolderID>34</FolderID>
+    <Script>function onInit()
+	registerOptions();
+end
+
+function registerOptions()
+	-- MVPNJ -&gt; Mostrar Vida PNJ
+	OptionsManager.registerOption2("MVPNJ", false, "option_header_combat", "option_label_MVPNJ", "option_entry_cycler", 
+			{ labels = "option_val_detailed|option_val_status", values = "detailed|status", baselabel = "option_val_off", baseval = "off", default = "status" });
+	-- MMEF -&gt; Mostrar Mensajes de Elección de Fase
+	OptionsManager.registerOption2("MMEF", false, "option_header_combat", "option_label_MMEF", "option_entry_cycler", 
+			{ labels = "option_val_on", values = "on", baselabel = "option_val_off", baseval = "off", default = "off" });
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding>UTF-8</Encoding>
+  </Scripts>
+</DocumentElement>
