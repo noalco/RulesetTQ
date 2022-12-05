@@ -923,6 +923,8 @@ end
 ]}}</Definition>
     <LUACode>function update()
     window.windowlist.applySort();
+	window.Mente.setVisible(getValue()==0)
+	window.Agilidad.setVisible(getValue()~=0)
 end
 
 function onInit()
@@ -932,8 +934,7 @@ end
 
 function onValueChanged()
 --	if getValue()&gt;0 then Herramientas.Mensaje(window.name.getValue().." actúa en Fase "..getValue()); end
-	window.Mente.setVisible(getValue()==0)
-	window.Agilidad.setVisible(getValue()~=0)
+	update();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

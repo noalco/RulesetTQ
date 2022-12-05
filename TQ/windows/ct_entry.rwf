@@ -1437,6 +1437,7 @@ function onValueChanged()
 	if getValue()&gt;0 and OptionsManager.getOption("MMEF")=="on" then
 		Herramientas.Mensaje(window.name.getValue().." actúa en Fase "..getValue());
 	end
+	update();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
