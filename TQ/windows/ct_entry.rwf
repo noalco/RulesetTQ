@@ -506,9 +506,9 @@ end
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultValue"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"9"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"12"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"19"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"26"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -568,9 +568,9 @@ end
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultValue"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"9"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"12"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"19"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"26"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -603,7 +603,7 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 2"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"138"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"146"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"35"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
@@ -631,9 +631,9 @@ end
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultValue"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"9"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"12"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"19"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"26"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -666,7 +666,7 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 3"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"159"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"175"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"35"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
@@ -694,9 +694,9 @@ end
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultValue"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"9"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"12"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"19"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"26"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -729,7 +729,7 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 4"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"180"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"204"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"35"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
