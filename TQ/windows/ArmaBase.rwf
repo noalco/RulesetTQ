@@ -322,7 +322,7 @@ end
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"50"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerTirada()}","DiceRollDescription":"{@self.ObtenerMensajeAtaque()}","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerTirada()}","DiceRollDescription":"{@self.ObtenerMensajeAtaque()}","DiceRollType":"AtaqueRollAction","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","Targeting":"each","ResultHandlerFunction":"ResolucionCombate.Ataque","TargetingHandlerFunction":null,"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"DisplaySign"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -394,7 +394,7 @@ function ObtenerTirada()
 	window.ContMunicion.setValue(window.ContMunicion.getValue()+1)
 
 	sDado=Herramientas.ObtenerDados(window.getDatabaseNode().getPath())
-	nValor=getValue()
+	nValor=getValue()-DB.getValue(window.getDatabaseNode(), "...PenMeleMultiEnemigos", 0);
 	if nValor&gt;0 then return sDado.."+"..nValor;
 	elseif nValor&lt;0 then return sDado..nValor;
 	else return sDado;
@@ -455,6 +455,9 @@ function ObtenerMensajeAtaque()
 				end
 			end
 		end
+	end
+	if DB.getValue(window.getDatabaseNode(), "...PenMeleMultiEnemigos", 0)&gt;0 then
+		sMensaje=sMensaje.." [Pen. Múltiples objetivos: "..DB.getValue(window.getDatabaseNode(), "...PenMeleMultiEnemigos", 0).."]"
 	end
 	return sMensaje;
 end</LUACode>
@@ -750,7 +753,7 @@ end
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"70"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{self}","DiceRollDescription":"{@self.sMensaje}","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{self}","DiceRollDescription":"{@self.sMensaje}","DiceRollType":"DanioRollAction","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","Targeting":"each","AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"EmptyText"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},

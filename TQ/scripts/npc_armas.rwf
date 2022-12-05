@@ -232,12 +232,12 @@ function action(dragInfo)
 		if bEsAtaque then
 			DiceRollString = sDado.."!+"..nDragMod;
 			DiceRollDescription = "[Ataque] " .. sDragLabel;
-			GameSystem.actions["AtaqueRollAction"] = { bUseModStack = "true" }
+--			GameSystem.actions["AtaqueRollAction"] = { bUseModStack = "true" }
 			sTipoAccion="AtaqueRollAction";
 		elseif bEsDanio then
 			DiceRollString = ""..nDragMod;
 			DiceRollDescription = "[Daño] " .. sDragLabel;
-			GameSystem.actions["DanioRollAction"] = { bUseModStack = "true" }
+--			GameSystem.actions["DanioRollAction"] = { bUseModStack = "true" }
 			sTipoAccion="DanioRollAction";
 		elseif bEsEfecto then
 			DiceRollString = "";
@@ -263,12 +263,13 @@ function onDoubleClick(x, y)
 end
 
 function onDragStart(button, x, y, draginfo)
-	action(draginfo);
-
-	bDragging = true;
-	setCursorPosition(0);
-	
-	return true;
+	return action(draginfo);
+--	action(draginfo);
+--
+--	bDragging = true;
+--	setCursorPosition(0);
+--	
+--	return true;
 end
 
 function onDragEnd(draginfo)

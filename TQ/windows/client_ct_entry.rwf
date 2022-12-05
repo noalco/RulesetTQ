@@ -251,7 +251,7 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 1"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"186"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"104"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"35"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
@@ -320,7 +320,7 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 2"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"207"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"125"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"35"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
@@ -388,7 +388,7 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 3"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"228"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"146"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"35"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
@@ -456,7 +456,7 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 4"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"249"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"167"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"35"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()

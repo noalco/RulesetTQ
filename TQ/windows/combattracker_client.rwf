@@ -986,7 +986,13 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"354"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
+    local aEntries = CombatManager.getSortedCombatantList();
+	local nodeActive = CombatManager.getActiveCT();
+	local bEsUltimo=nodeActive==aEntries[#aEntries];
+
     CombatManager.notifyEndTurn();
+    
+	if bEsUltimo then CT.NuevoTurno(window); end
 end
 
 function onDragStart(button, x, y, draginfo)

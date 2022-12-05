@@ -1,0 +1,104 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>ResolucionCombate</ScriptName>
+    <FolderID>33</FolderID>
+    <Script>tMeles={}
+tContadores={}
+
+function onInit()
+	CrearMeles();
+end
+
+function Ataque(rSource, rTarget, rRoll)
+    local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
+--{ s'sType' = s'charsheet', s'sCreatureNode' = s'charsheet.id-00001', s'sCTNode' = s'combattracker.list.id-00010', s'sName' = s'PJ' }
+--{ s'sType' = s'npc', s'sCreatureNode' = s'combattracker.list.id-00003', s'sCTNode' = s'combattracker.list.id-00003', s'sName' = s'Asesino profesional 1' }
+--{ s'nBonuses' = s'9', s'aDice' = { #1 = { s'value' = #8, s'type' = s'd10', s'result' = #8, s'mode' = s'e!' }, s'expr' = s'1d10!+9', s'total' = #17 }, s'nMod' = #0, s'sType' = s'AtaqueRollAction', s'nTotal' = #17, s'bSecret' = bFALSE, s'sDesc' = s'[Ataque] Arco 11 [Arco: 14] [Penalización por FUE: -5]' }
+
+	Comm.deliverChatMessage(rMessage);
+
+	if DB.getValue(rSource["sCTNode"]..".IDMele", 0)&gt;0 then
+		AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele", 0), rRoll.aDice.total);
+	end
+end
+
+function CrearMeles()
+	tMeles={}
+	tContadores={}
+	for _,nodoCT in pairs(DB.getChildren("combattracker.list")) do
+		local nMele=DB.getValue(nodoCT, "IDMele", 0);
+		DB.setValue(nodoCT, "PenMeleMultiEnemigos", "number", 0);
+		if nMele~=0 then
+			if not tMeles[nMele] then
+				tMeles[nMele]={};
+				tContadores[nMele]={nAtaques=0, nAliados=0, nEnemigos=0};
+			end
+			if DB.getValue(nodoCT, "friendfoe", "")=="foe" then
+				table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=false});
+				tContadores[nMele].nEnemigos=tContadores[nMele].nEnemigos+1;
+			else
+				table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=true});
+				tContadores[nMele].nAliados=tContadores[nMele].nAliados+1;
+			end
+		end
+	end
+	for nMele=1,#tMeles do
+		for i=1,#tMeles[nMele] do
+			if tMeles[nMele][i].bEsAliado then DB.setValue(tMeles[nMele][i].PathNodo..".PenMeleMultiEnemigos", "number", (tContadores[nMele].nEnemigos-1)*2);
+			else DB.setValue(tMeles[nMele][i].PathNodo..".PenMeleMultiEnemigos", "number", (tContadores[nMele].nAliados-1)*2);
+			end
+		end
+	end
+end
+
+function AniadirAtaqueAMele(nodoCT, nMele, nTotal)
+	if tMeles and tMeles[nMele] then
+		for i=1,#tMeles[nMele] do
+			if tMeles[nMele][i].PathNodo==nodoCT then
+				tMeles[nMele][i].nTirada=nTotal;
+				if not tMeles[nMele][i].bTirada then
+					tContadores[nMele].nAtaques=tContadores[nMele].nAtaques+1;
+					tMeles[nMele][i].bTirada=true;
+				end
+				break;
+			end
+		end
+	end
+	if tContadores[nMele].nAtaques==#tMeles[nMele] then ProcesarMele(nMele); end
+end
+
+function ProcesarMele(nMele)
+	local tAliados={}
+	local tEnemigos={}
+	for i=1,#tMeles[nMele] do
+		if tMeles[nMele][i].bEsAliado then table.insert(tAliados,tMeles[nMele][i]);
+		else table.insert(tEnemigos,tMeles[nMele][i]);
+		end
+	end
+	local sNombreEnemigo="";
+	local nResultado=0;
+--	if #tAliados==1 then
+	for i=1,#tAliados do
+		for j=1,#tEnemigos do
+			if DB.getValue(tEnemigos[j].PathNodo..".isidentified", 0)==1 then sNombreEnemigo=DB.getValue(tEnemigos[j].PathNodo..".name", "");
+			else sNombreEnemigo=DB.getValue(tEnemigos[j].PathNodo..".nonid_name", "");
+			end
+			nResultado=tAliados[i].nTirada-tEnemigos[j].nTirada;
+			if nResultado&gt;0 then
+				Debug.chat(DB.getValue(tAliados[i].PathNodo..".name", "").." golpea a "..sNombreEnemigo.." con "..nResultado.." éxitos");
+			elseif nResultado&lt;0 then
+				Debug.chat(sNombreEnemigo.." golpea a "..DB.getValue(tAliados[i].PathNodo..".name", "").." con "..(-1*nResultado).." éxitos");
+			else
+				Debug.chat(DB.getValue(tAliados[i].PathNodo..".name", "").." empata con "..sNombreEnemigo);
+			end
+			DB.setValue(tEnemigos[j].PathNodo..".IDMele", "number", 0);
+		end
+		DB.setValue(tAliados[i].PathNodo..".IDMele", "number", 0);
+	end
+	table.remove(tMeles, nMele);
+	Debug.chat(tMeles);
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding>UTF-8</Encoding>
+  </Scripts>
+</DocumentElement>
