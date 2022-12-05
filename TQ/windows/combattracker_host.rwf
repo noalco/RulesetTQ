@@ -715,7 +715,25 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>
+function onInit()
+
+	CrearSeccionFase(0);
+	CrearSeccionFase(1);
+	CrearSeccionFase(2);
+	CrearSeccionFase(3);
+	CrearSeccionFase(4);
+
+end
+
+function CrearSeccionFase(numFase)
+	local nodeWin = getDatabaseNode();
+	local Encabezado = DB.createChild(nodeWin, "fase" .. numFase);
+	local nFase = DB.createChild(Encabezado, "Fase", "number");
+	nFase.setValue(numFase -0.5);
+	win = list.createWindowWithClass("EncabezadoFase", Encabezado);
+	win.txtFase.setValue('Fase ' .. numFase);
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
