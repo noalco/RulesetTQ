@@ -541,23 +541,12 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 1"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"200"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"36"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"117"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"35"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-	if ActorManager.isPC(rActor) then
-		local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "link");
-		DB.setValue(sRuta..".FaseCT", "number", 1);
-	else
-		window.Fase.setValue(1);
-	end
+	window.setFase(1);
 end
-
---function onInit()
---	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
---	setVisible(not ActorManager.isPC(rActor));
---end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -614,24 +603,14 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 2"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"221"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"36"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"138"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"35"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-	if ActorManager.isPC(rActor) then
-		local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "link");
-		DB.setValue(sRuta..".FaseCT", "number", 2);
-	else
-		window.Fase.setValue(2);
-	end
+	window.setFase(2);
 end
 
---function onInit()
---	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
---	setVisible(not ActorManager.isPC(rActor));
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -687,24 +666,14 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 3"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"242"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"36"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"159"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"35"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-	if ActorManager.isPC(rActor) then
-		local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "link");
-		DB.setValue(sRuta..".FaseCT", "number", 3);
-	else
-		window.Fase.setValue(3);
-	end
+	window.setFase(3);
 end
 
---function onInit()
---	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
---	setVisible(not ActorManager.isPC(rActor));
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -760,24 +729,13 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 4"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"263"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"36"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"180"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"35"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
-	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-	if ActorManager.isPC(rActor) then
-		local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "link");
-		DB.setValue(sRuta..".FaseCT", "number", 4);
-	else
-		window.Fase.setValue(4);
-	end
+	window.setFase(4);
 end
-
---function onInit()
---	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
---	setVisible(not ActorManager.isPC(rActor));
---end
---</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1128,7 +1086,17 @@ function setDefenseVisible()
 	defenseicon.setVisible(v);
 	sub_defense.setVisible(v);
 end
-</LUACode>
+
+function setFase(fase)
+	local rActor = ActorManager.resolveActor(getDatabaseNode());
+	if ActorManager.isPC(rActor) then
+		local sTipo, sRuta=DB.getValue(getDatabaseNode(), "link");
+		DB.setValue(sRuta..".FaseCT", "number", fase);
+	else
+		Fase.setValue(fase);
+	end
+	IDFase.setValue(fase);
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1426,7 +1394,7 @@ end
     window.windowlist.applySort();
 	window.Mente.setVisible(getValue()==0)
 	window.Agilidad.setVisible(getValue()~=0)
-	
+	window.IDFase.setValue(window.Fase.getValue());
 end
 
 function onInit()
@@ -1568,6 +1536,65 @@ end
 	window.current.Actualizar()
 end
 </LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>ct_entry</WindowName>
+    <ControlName>IDFase</ControlName>
+    <ZIndex>42</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"AllowDoubleClick"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition","ButtonStateDefinition":[{"Tooltip":"Sin Fase","Icon":"CTFrameFase0"},{"Tooltip":"Fase 1","Icon":"CTFrameFase1"},{"Tooltip":"Fase 2","Icon":"CTFrameFase2"},{"Tooltip":"Fase 3","Icon":"CTFrameFase3"},{"Tooltip":"Fase 4","Icon":"CTFrameFase4"}]}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"IDFase"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"26"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"12"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"CTFrameFase0"}},
+      {"Name":"PressedIconName"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"12"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"33"}}
+]}}</Definition>
+    <LUACode />
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
