@@ -1381,14 +1381,16 @@ function onEntrySectionToggle()
 	local anyEffects = 0;
 
 	for _,v in pairs(getWindows()) do
-		if v.activatetargeting.getValue() == 1 then
-			anyTargeting = 1;
-		end
-		if v.activatespacing.getValue() == 1 then
-			anySpacing = 1;
-		end
-		if v.activateeffects.getValue() == 1 then
-			anyEffects = 1;
+		if v.activatetargeting then 
+			if v.activatetargeting.getValue() == 1 then
+				anyTargeting = 1;
+			end
+			if v.activatespacing.getValue() == 1 then
+				anySpacing = 1;
+			end
+			if v.activateeffects.getValue() == 1 then
+				anyEffects = 1;
+			end
 		end
 	end
 end
