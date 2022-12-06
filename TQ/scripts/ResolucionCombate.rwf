@@ -4,6 +4,7 @@
     <FolderID>33</FolderID>
     <Script>tMeles={}
 tContadores={}
+tResultados={}
 
 function onInit()
 	CrearMeles();
@@ -18,7 +19,7 @@ function Ataque(rSource, rTarget, rRoll)
 	Comm.deliverChatMessage(rMessage);
 
 	if rSource and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&gt;0 then
-		AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele", 0), rRoll.aDice.total);
+		AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele", 0), rRoll.nTotal+rRoll.nMod);
 	end
 end
 
@@ -104,77 +105,6 @@ function ModificarMele(nodoCT, nMele, nMeleAnt)
 		CalcularPenalizadores();
 		if tContadores[nMeleAnt] and tMeles[nMeleAnt] and tContadores[nMeleAnt].nAtaques==#tMeles[nMeleAnt] then ProcesarMele(nMeleAnt); end
 		if tContadores[nMele].nAtaques==#tMeles[nMele] then ProcesarMele(nMele); end
-	
-		
---		local nIndex=0;
---		for i,_ in pairs(tMeles[nMeleAnt]) do
---			if tMeles[nMeleAnt][i].PathNodo==nodoCT then
---				nIndex=i;
---				break;
---			end
---		end
---		if nIndex&gt;0 then
---			local tNodoMele=table.remove(tMeles[nMeleAnt], nIndex);
---			if not tMeles[nMele] then
---				tMeles[nMele]={};
---				tContadores[nMele]={nAtaques=0, nAliados=0, nEnemigos=0};
---			end
---			if tNodoMele.bTirada then
---				tContadores[nMeleAnt].nAtaques=tContadores[nMeleAnt].nAtaques-1;
---				tContadores[nMele].nAtaques=tContadores[nMele].nAtaques+1;
---			end
---			-- Recalculamos los modificacores aplicados en las tiradas por múltiples enemigos tanto en la melé actual como en la anterior
---			if tNodoMele.bEsAliado then
---				if tNodoMele.bTirada then
---					tNodoMele.nTirada=tNodoMele.nTirada+(tContadores[nMeleAnt].nEnemigos-1)*2;
---					tNodoMele.nTirada=tNodoMele.nTirada-(tContadores[nMele].nEnemigos-1)*2;
---				end
---				-- Enemigos de la melé anterior incrementan su tirada al irse un aliado
---				for i,_ in pairs(tMeles[nMeleAnt]) do
---					if not tMeles[nMeleAnt][i].bEsAliado and tMeles[nMeleAnt][i].bTirada then
---						tMeles[nMeleAnt][i].nTirada=tMeles[nMeleAnt][i].nTirada+2;
---					end
---				end
---				-- Enemigos de la nueva melé sufren un penalizador a añadirse un nuevo aliado
---				for i,_ in pairs(tMeles[nMele]) do
---					if not tMeles[nMele][i].bEsAliado and tMeles[nMele][i].bTirada then
---						tMeles[nMele][i].nTirada=tMeles[nMele][i].nTirada-2;
---					end
---				end
---			else
---				if tNodoMele.bTirada then
---					tNodoMele.nTirada=tNodoMele.nTirada+(tContadores[nMeleAnt].nAliados-1)*2;
---					tNodoMele.nTirada=tNodoMele.nTirada-(tContadores[nMele].nAliados-1)*2;
---				end
---				-- Aliados de la melé anterior incrementan su tirada al irse un enemigo
---				for i,_ in pairs(tMeles[nMeleAnt]) do
---					if tMeles[nMeleAnt][i].bEsAliado and tMeles[nMeleAnt][i].bTirada then
---						tMeles[nMeleAnt][i].nTirada=tMeles[nMeleAnt][i].nTirada+2;
---					end
---				end
---				-- Aliados de la nueva melé sufren un penalizador a añadirse un nuevo enemigo
---				for i,_ in pairs(tMeles[nMele]) do
---					if tMeles[nMele][i].bEsAliado and tMeles[nMele][i].bTirada then
---						tMeles[nMele][i].nTirada=tMeles[nMele][i].nTirada-2;
---					end
---				end
---			end
---			if not tNodoMele.bEsAliado then
---				tContadores[nMeleAnt].nEnemigos=tContadores[nMeleAnt].nEnemigos-1;
---				tContadores[nMele].nEnemigos=tContadores[nMele].nEnemigos+1;
---			else
---				tContadores[nMeleAnt].nAliados=tContadores[nMeleAnt].nAliados-1;
---				tContadores[nMele].nAliados=tContadores[nMele].nAliados+1;
---			end
---			if not tMeles[nMele] then
---				tMeles[nMele]={};
---				tContadores[nMele]={nAtaques=0, nAliados=0, nEnemigos=0};
---			end
---			table.insert(tMeles[nMele], tNodoMele)
---			CalcularPenalizadores();
---			if tContadores[nMeleAnt] and tMeles[nMeleAnt] and tContadores[nMeleAnt].nAtaques==#tMeles[nMeleAnt] then ProcesarMele(nMeleAnt); end
---			if tContadores[nMele].nAtaques==#tMeles[nMele] then ProcesarMele(nMele); end
---		end
 	else
 		-- nodoCT no está en una melé
 		if not tMeles[nMele] then
@@ -282,8 +212,10 @@ function ProcesarMele(nMele)
 					nResultado=tAliados[i].nTirada-tEnemigos[j].nTirada;
 					if nResultado&gt;0 then
 						Debug.chat(DB.getValue(tAliados[i].PathNodo..".name", "").." golpea a "..sNombreEnemigo.." con "..nResultado.." éxitos");
+						AniadirResultadoAtaque(tAliados[i].PathNodo, tEnemigos[j].PathNodo, nResultado);
 					elseif nResultado&lt;0 then
 						Debug.chat(sNombreEnemigo.." golpea a "..DB.getValue(tAliados[i].PathNodo..".name", "").." con "..(-1*nResultado).." éxitos");
+						AniadirResultadoAtaque(tEnemigos[j].PathNodo, tAliados[i].PathNodo, -1*nResultado);
 					else
 						Debug.chat(DB.getValue(tAliados[i].PathNodo..".name", "").." empata con "..sNombreEnemigo);
 					end
@@ -292,20 +224,75 @@ function ProcesarMele(nMele)
 			for i=1,#tAliados do
 				for j=1,#tEnemigos do
 					DB.setValue(tEnemigos[j].PathNodo..".SelectorMele", "string", "No");
+					DB.setValue(tEnemigos[j].PathNodo..".PenMeleMultiEnemigos", "number", 0);
 				end
 				DB.setValue(tAliados[i].PathNodo..".SelectorMele", "string", "No");
+				DB.setValue(tAliados[i].PathNodo..".PenMeleMultiEnemigos", "number", 0);
 			end
 			table.remove(tMeles, nMele);
 			table.remove(tContadores, nMele);
+			--MostrarResultadosAtaques();
 		else
 			Debug.chat("No puede haber más de un individuo en ambos bandos de una melé");
 		end
 	end
 end
 
+function MostrarResultadosAtaques()
+	for NotoCTAtacante,_ in pairs(tResultados) do
+		for NodoCTDefensor,_ in pairs(tResultados[NotoCTAtacante]) do
+			Debug.chat(DB.getValue(NotoCTAtacante..".name", ""), DB.getValue(NodoCTDefensor..".name", ""), tResultados[NotoCTAtacante][NodoCTDefensor])
+		end
+	end
+end
+
+function AniadirResultadoAtaque(NotoCTAtacante, NodoCTDefensor, nExitos)
+	if not tResultados[NotoCTAtacante] then tResultados[NotoCTAtacante]={} end;
+	tResultados[NotoCTAtacante][NodoCTDefensor]=nExitos;
+end
+
 function LimpiarMeles()
 	tMeles={}
 	tContadores={}
+	tResultados={}
+end
+
+function PreDanio(rSource, aTargeting, rRolls)
+
+	local iRoll = 0;
+	if aTargeting then
+		for _,vTargetGroup in ipairs(aTargeting) do
+			for _,vTarget in ipairs(vTargetGroup) do
+				iRoll = iRoll + 1;
+				if tResultados[rSource.sCTNode] and tResultados[rSource.sCTNode][vTarget.sCTNode] and tResultados[rSource.sCTNode][vTarget.sCTNode]&gt;0 then
+--					if rSource.sType=="charsheet" then
+--						DB.setValue(rSource.sCreatureNode..".Inventario.BonoDanioExitos", "number", tResultados[rSource.sCTNode][vTarget.sCTNode]);
+--					end
+					rRolls[iRoll] = {nBonuses = rRolls[iRoll].nBonuses , 
+									aDice = rRolls[iRoll].aDice,
+									nMod = rRolls[iRoll].nMod+math.min(tResultados[rSource.sCTNode][vTarget.sCTNode], 10), 
+									sType = rRolls[iRoll].sType, 
+									sDesc = rRolls[iRoll].sDesc.." [Éxitos ataque: "..tResultados[rSource.sCTNode][vTarget.sCTNode].." ]"
+					};
+					tResultados[rSource.sCTNode][vTarget.sCTNode]=0;
+				end
+			end
+		end
+	end
+end
+
+function Danio(rSource, rTarget, rRoll)
+--	Debug.chat("Danio", rSource)
+--	Debug.chat("Danio", rTarget)
+--	Debug.chat("Danio", rRoll)
+--	if rTarget then
+		local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
+--{ s'sType' = s'charsheet', s'sCreatureNode' = s'charsheet.id-00001', s'sCTNode' = s'combattracker.list.id-00010', s'sName' = s'PJ' }
+--{ s'sType' = s'npc', s'sCreatureNode' = s'combattracker.list.id-00003', s'sCTNode' = s'combattracker.list.id-00003', s'sName' = s'Asesino profesional 1' }
+--{ s'nBonuses' = s'9', s'aDice' = { #1 = { s'value' = #8, s'type' = s'd10', s'result' = #8, s'mode' = s'e!' }, s'expr' = s'1d10!+9', s'total' = #17 }, s'nMod' = #0, s'sType' = s'AtaqueRollAction', s'nTotal' = #17, s'bSecret' = bFALSE, s'sDesc' = s'[Ataque] Arco 11 [Arco: 14] [Penalización por FUE: -5]' }
+
+		Comm.deliverChatMessage(rMessage);
+--	end
 end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding>UTF-8</Encoding>
