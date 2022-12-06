@@ -11,15 +11,19 @@ function onInit()
 end
 
 function Ataque(rSource, rTarget, rRoll)
-    local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
 --{ s'sType' = s'charsheet', s'sCreatureNode' = s'charsheet.id-00001', s'sCTNode' = s'combattracker.list.id-00010', s'sName' = s'PJ' }
 --{ s'sType' = s'npc', s'sCreatureNode' = s'combattracker.list.id-00003', s'sCTNode' = s'combattracker.list.id-00003', s'sName' = s'Asesino profesional 1' }
 --{ s'nBonuses' = s'9', s'aDice' = { #1 = { s'value' = #8, s'type' = s'd10', s'result' = #8, s'mode' = s'e!' }, s'expr' = s'1d10!+9', s'total' = #17 }, s'nMod' = #0, s'sType' = s'AtaqueRollAction', s'nTotal' = #17, s'bSecret' = bFALSE, s'sDesc' = s'[Ataque] Arco 11 [Arco: 14] [Penalización por FUE: -5]' }
-
-	Comm.deliverChatMessage(rMessage);
-
+	local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
+	
+--	rMessage.icon = "roll_attack";
 	if rSource and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&gt;0 then
-		AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele", 0), rRoll.nTotal+rRoll.nMod);
+		rMessage.text = "[TIRADA ENFRENTADA EN MELÉ "..DB.getValue(rSource["sCTNode"]..".IDMele", 0).."]\n"..rMessage.text;
+		Comm.deliverChatMessage(rMessage);
+		AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele", 0), ActionsManager.total(rRoll));
+	else
+--		rMessage.icon = "roll_attack";
+		Comm.deliverChatMessage(rMessage);	
 	end
 end
 
@@ -202,6 +206,7 @@ function ProcesarMele(nMele)
 	end
 	local sNombreEnemigo="";
 	local nResultado=0;
+	local rMessage = ChatManager.createBaseMessage();
 	if #tAliados&gt;0 and #tEnemigos&gt;0 then
 		if #tAliados==1 or #tEnemigos==1 then
 			for i=1,#tAliados do
@@ -211,14 +216,29 @@ function ProcesarMele(nMele)
 					end
 					nResultado=tAliados[i].nTirada-tEnemigos[j].nTirada;
 					if nResultado&gt;0 then
-						Debug.chat(DB.getValue(tAliados[i].PathNodo..".name", "").." golpea a "..sNombreEnemigo.." con "..nResultado.." éxitos");
+						--Debug.chat(DB.getValue(tAliados[i].PathNodo..".name", "").." golpea a "..sNombreEnemigo.." con "..nResultado.." éxitos");
 						AniadirResultadoAtaque(tAliados[i].PathNodo, tEnemigos[j].PathNodo, nResultado);
+						rMessage.text = DB.getValue(tAliados[i].PathNodo..".name", "").." golpea a "..sNombreEnemigo.." con "..nResultado.." éxitos";
+						if nResultado&gt;=10 then
+							rMessage.icon = "roll_attack_crit";
+						else
+							rMessage.icon = "roll_attack_hit";
+						end
 					elseif nResultado&lt;0 then
-						Debug.chat(sNombreEnemigo.." golpea a "..DB.getValue(tAliados[i].PathNodo..".name", "").." con "..(-1*nResultado).." éxitos");
+						--Debug.chat(sNombreEnemigo.." golpea a "..DB.getValue(tAliados[i].PathNodo..".name", "").." con "..(-1*nResultado).." éxitos");
 						AniadirResultadoAtaque(tEnemigos[j].PathNodo, tAliados[i].PathNodo, -1*nResultado);
+						rMessage.text = sNombreEnemigo.." golpea a "..DB.getValue(tAliados[i].PathNodo..".name", "").." con "..(-1*nResultado).." éxitos";
+						if nResultado&lt;=-10 then
+							rMessage.icon = "roll_attack_crit";
+						else
+							rMessage.icon = "roll_attack_hit";
+						end
 					else
-						Debug.chat(DB.getValue(tAliados[i].PathNodo..".name", "").." empata con "..sNombreEnemigo);
+						--Debug.chat(DB.getValue(tAliados[i].PathNodo..".name", "").." empata con "..sNombreEnemigo);
+						rMessage.text = DB.getValue(tAliados[i].PathNodo..".name", "").." empata con "..sNombreEnemigo;
+						rMessage.icon = "roll_attack_miss";
 					end
+					Comm.deliverChatMessage(rMessage);
 				end
 			end
 			for i=1,#tAliados do
@@ -258,7 +278,6 @@ function LimpiarMeles()
 end
 
 function PreDanio(rSource, aTargeting, rRolls)
-
 	local iRoll = 0;
 	if aTargeting then
 		for _,vTargetGroup in ipairs(aTargeting) do
@@ -283,14 +302,19 @@ end
 
 function Danio(rSource, rTarget, rRoll)
 --	Debug.chat("Danio", rSource)
---	Debug.chat("Danio", rTarget)
+	Debug.chat("Danio", rTarget)
 --	Debug.chat("Danio", rRoll)
---	if rTarget then
 		local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
 --{ s'sType' = s'charsheet', s'sCreatureNode' = s'charsheet.id-00001', s'sCTNode' = s'combattracker.list.id-00010', s'sName' = s'PJ' }
 --{ s'sType' = s'npc', s'sCreatureNode' = s'combattracker.list.id-00003', s'sCTNode' = s'combattracker.list.id-00003', s'sName' = s'Asesino profesional 1' }
 --{ s'nBonuses' = s'9', s'aDice' = { #1 = { s'value' = #8, s'type' = s'd10', s'result' = #8, s'mode' = s'e!' }, s'expr' = s'1d10!+9', s'total' = #17 }, s'nMod' = #0, s'sType' = s'AtaqueRollAction', s'nTotal' = #17, s'bSecret' = bFALSE, s'sDesc' = s'[Ataque] Arco 11 [Arco: 14] [Penalización por FUE: -5]' }
 
+		Comm.deliverChatMessage(rMessage);
+		
+--	if rTarget then
+		rMessage = ChatManager.createBaseMessage();
+		rMessage.text = "Daño ["..ActionsManager.total(rRoll).."] -&gt; [a "..DB.getValue(rSource.sCTNode..".name", "").."]";
+		rMessage.icon = "roll_damage";
 		Comm.deliverChatMessage(rMessage);
 --	end
 end</Script>

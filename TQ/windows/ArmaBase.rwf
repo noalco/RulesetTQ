@@ -388,6 +388,7 @@ end
 	setTooltipText(sPenFuerza..sAtaqueLimitado);
 	setValue(nTotal);
 	window.AtaqueLimitado.setValue(nAtaqueLimitado);
+	GameSystem.actions["DanioRollAction"].sIcon="action_damage";
 end
 
 function ObtenerTirada()
