@@ -279,14 +279,11 @@ end
 
 function PreDanio(rSource, aTargeting, rRolls)
 	local iRoll = 0;
-	if aTargeting then
+	if aTargeting and rSource then
 		for _,vTargetGroup in ipairs(aTargeting) do
 			for _,vTarget in ipairs(vTargetGroup) do
 				iRoll = iRoll + 1;
 				if tResultados[rSource.sCTNode] and tResultados[rSource.sCTNode][vTarget.sCTNode] and tResultados[rSource.sCTNode][vTarget.sCTNode]&gt;0 then
---					if rSource.sType=="charsheet" then
---						DB.setValue(rSource.sCreatureNode..".Inventario.BonoDanioExitos", "number", tResultados[rSource.sCTNode][vTarget.sCTNode]);
---					end
 					rRolls[iRoll] = {nBonuses = rRolls[iRoll].nBonuses , 
 									aDice = rRolls[iRoll].aDice,
 									nMod = rRolls[iRoll].nMod+math.min(tResultados[rSource.sCTNode][vTarget.sCTNode], 10), 
@@ -298,25 +295,22 @@ function PreDanio(rSource, aTargeting, rRolls)
 			end
 		end
 	end
+	return aTargeting;
 end
 
 function Danio(rSource, rTarget, rRoll)
---	Debug.chat("Danio", rSource)
-	Debug.chat("Danio", rTarget)
---	Debug.chat("Danio", rRoll)
+	if rSource then
 		local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
---{ s'sType' = s'charsheet', s'sCreatureNode' = s'charsheet.id-00001', s'sCTNode' = s'combattracker.list.id-00010', s'sName' = s'PJ' }
---{ s'sType' = s'npc', s'sCreatureNode' = s'combattracker.list.id-00003', s'sCTNode' = s'combattracker.list.id-00003', s'sName' = s'Asesino profesional 1' }
---{ s'nBonuses' = s'9', s'aDice' = { #1 = { s'value' = #8, s'type' = s'd10', s'result' = #8, s'mode' = s'e!' }, s'expr' = s'1d10!+9', s'total' = #17 }, s'nMod' = #0, s'sType' = s'AtaqueRollAction', s'nTotal' = #17, s'bSecret' = bFALSE, s'sDesc' = s'[Ataque] Arco 11 [Arco: 14] [Penalización por FUE: -5]' }
-
+		rMessage.type="DanioRollAction";
 		Comm.deliverChatMessage(rMessage);
+	end
 		
---	if rTarget then
+	if rTarget then
 		rMessage = ChatManager.createBaseMessage();
-		rMessage.text = "Daño ["..ActionsManager.total(rRoll).."] -&gt; [a "..DB.getValue(rSource.sCTNode..".name", "").."]";
+		rMessage.text = "Daño ["..ActionsManager.total(rRoll).."] -&gt; [a "..DB.getValue(rTarget.sCTNode..".name", "").."]";
 		rMessage.icon = "roll_damage";
 		Comm.deliverChatMessage(rMessage);
---	end
+	end
 end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding>UTF-8</Encoding>

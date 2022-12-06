@@ -250,12 +250,13 @@ function action(dragInfo)
 				end
 				DiceRollDescription = "[Ataque] " .. sDragLabel;
 			end
---			GameSystem.actions["AtaqueRollAction"] = { bUseModStack = "true" }
 			sTipoAccion="AtaqueRollAction";
 		elseif bEsDanio then
 			DiceRollString = ""..nDragMod;
 			DiceRollDescription = "[Daño] " .. sDragLabel;
---			GameSystem.actions["DanioRollAction"] = { bUseModStack = "true" }
+			GameSystem.actions["DanioRollAction"] = { bUseModStack = "true", sTargeting = "each" }
+			ActionsManager.registerResultHandler("DanioRollAction", ResolucionCombate.Danio);
+			ActionsManager.registerTargetingHandler("DanioRollAction", ResolucionCombate.PreDanio);
 			sTipoAccion="DanioRollAction";
 		elseif bEsEfecto then
 			DiceRollString = "";
