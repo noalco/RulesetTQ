@@ -1602,11 +1602,11 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"621"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"35"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
-	ResolucionCombate.CrearMeles();
-    --window.windowlist.applySort();
-end
-</LUACode>
+    <LUACode>--function onValueChanged()
+--	ResolucionCombate.CrearMeles();
+--    window.windowlist.applySort();
+--end
+--</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -2106,13 +2106,16 @@ end
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"284"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"28"}}
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"32"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if getStringValue()~="No" then
-		window.IDMele.setValue(tonumber(getStringValue()));
 --		window.windowlist.applySort();
-	else window.IDMele.setValue(0);
+		ResolucionCombate.ModificarMele(window.getDatabaseNode().getPath(), tonumber(getStringValue()), window.IDMele.getValue())
+		window.IDMele.setValue(tonumber(getStringValue()));
+	else
+		ResolucionCombate.EliminarDeMele(window.getDatabaseNode().getPath(), window.IDMele.getValue())
+		window.IDMele.setValue(0);
 	end
 end
 </LUACode>

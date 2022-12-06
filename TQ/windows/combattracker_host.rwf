@@ -329,7 +329,10 @@
 
     CombatManager.nextActor();
     
-	if bEsUltimo then CT.NuevoTurno(window); end
+	if bEsUltimo then
+		CT.NuevoTurno(window);
+		ResolucionCombate.LimpiarMeles();
+	end
 end
 
 function onDragStart(button, x, y, draginfo)
@@ -400,7 +403,8 @@ end
     <LUACode>function onButtonPress()
 	super.onButtonPress()
 	
-	CT.NuevoTurno(window)
+	CT.NuevoTurno(window);
+	ResolucionCombate.LimpiarMeles();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

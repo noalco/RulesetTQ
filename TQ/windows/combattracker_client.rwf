@@ -992,7 +992,10 @@ end
 
     CombatManager.notifyEndTurn();
     
-	if bEsUltimo then CT.NuevoTurno(window); end
+	if bEsUltimo then
+		CT.NuevoTurno(window);
+		ResolucionCombate.LimpiarMeles();
+	end
 end
 
 function onDragStart(button, x, y, draginfo)
