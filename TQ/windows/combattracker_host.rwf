@@ -1300,19 +1300,21 @@ end
 
 function onNameOrTokenUpdated()
 	for _,w in pairs(getWindows()) do
-		w.target_summary.onTargetsChanged();
-		
-		if w.sub_targeting.subwindow then
-			for _,wTarget in pairs(w.sub_targeting.subwindow.targets.getWindows()) do
-				wTarget.onRefChanged();
+		if w.target_summary then
+			w.target_summary.onTargetsChanged();
+			
+			if w.sub_targeting.subwindow then
+				for _,wTarget in pairs(w.sub_targeting.subwindow.targets.getWindows()) do
+					wTarget.onRefChanged();
+				end
+			end
+			
+			if w.sub_effects.subwindow then
+				for _,wEffect in pairs(w.sub_effects.subwindow.effects.getWindows()) do
+					wEffect.target_summary.onTargetsChanged();
+				end
 			end
 		end
-		
-		if w.sub_effects.subwindow then
-            for _,wEffect in pairs(w.sub_effects.subwindow.effects.getWindows()) do
-                wEffect.target_summary.onTargetsChanged();
-            end
-        end
 	end
 end
 
@@ -1331,9 +1333,8 @@ function onMenuSelection(selection)
 end
 
 function onSortCompare(w1, w2)
-	return not CT. Comparar(w1.getDatabaseNode(), w2.getDatabaseNode());
+	return not CT.Comparar(w1.getDatabaseNode(), w2.getDatabaseNode());
 
---	return CombatManager.onSortCompare(w1.getDatabaseNode(), w2.getDatabaseNode());
 end
 
 function onHotkey(draginfo)

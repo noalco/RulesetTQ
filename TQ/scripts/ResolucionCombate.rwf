@@ -77,7 +77,6 @@ function ProcesarMele(nMele)
 	end
 	local sNombreEnemigo="";
 	local nResultado=0;
---	if #tAliados==1 then
 	for i=1,#tAliados do
 		for j=1,#tEnemigos do
 			if DB.getValue(tEnemigos[j].PathNodo..".isidentified", 0)==1 then sNombreEnemigo=DB.getValue(tEnemigos[j].PathNodo..".name", "");
@@ -91,12 +90,11 @@ function ProcesarMele(nMele)
 			else
 				Debug.chat(DB.getValue(tAliados[i].PathNodo..".name", "").." empata con "..sNombreEnemigo);
 			end
-			DB.setValue(tEnemigos[j].PathNodo..".IDMele", "number", 0);
+			DB.setValue(tEnemigos[j].PathNodo..".SelectorMele", "string", "No");
 		end
-		DB.setValue(tAliados[i].PathNodo..".IDMele", "number", 0);
+		DB.setValue(tAliados[i].PathNodo..".SelectorMele", "string", "No");
 	end
 	table.remove(tMeles, nMele);
-	Debug.chat(tMeles);
 end</Script>
     <RegisterScript>true</RegisterScript>
     <Encoding>UTF-8</Encoding>

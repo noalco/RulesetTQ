@@ -457,7 +457,7 @@ function ObtenerMensajeAtaque()
 		end
 	end
 	if DB.getValue(window.getDatabaseNode(), "...PenMeleMultiEnemigos", 0)&gt;0 then
-		sMensaje=sMensaje.." [Pen. Múltiples objetivos: "..DB.getValue(window.getDatabaseNode(), "...PenMeleMultiEnemigos", 0).."]"
+		sMensaje=sMensaje.." [Pen. Múltiples objetivos: -"..DB.getValue(window.getDatabaseNode(), "...PenMeleMultiEnemigos", 0).."]"
 	end
 	return sMensaje;
 end</LUACode>

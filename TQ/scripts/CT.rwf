@@ -7,6 +7,8 @@
 	local nMente2=DB.getValue(nodo2, "Mente", 3);
 	local nAgilidad1=DB.getValue(nodo1, "Agilidad", 0);
 	local nAgilidad2=DB.getValue(nodo2, "Agilidad", 0);
+	local nIDMele1=DB.getValue(nodo1, "IDMele", 0);
+	local nIDMele2=DB.getValue(nodo2, "IDMele", 0);
 	local nFase1=DB.getValue(nodo1, "Fase", 0);
 	local nFase2=DB.getValue(nodo2, "Fase", 0);
 	if nFase1==nFase2 and nFase1==0 then
@@ -24,17 +26,21 @@
 			end
 		end
 	elseif nFase1==nFase2 and nFase1~=0 then
-		if nAgilidad1~=nAgilidad2 then
-			return nAgilidad1&gt;nAgilidad2;
+		if nIDMele1~=nIDMele2 then
+			return nIDMele1&lt;nIDMele2
 		else
-			local rActor1 = ActorManager.resolveActor(nodo1);
-			local rActor2 = ActorManager.resolveActor(nodo2);
-			if ActorManager.isPC(rActor1) and not ActorManager.isPC(rActor2) then
-				return true;
-			elseif ActorManager.isPC(rActor2) and not ActorManager.isPC(rActor1) then
-				return false;
+			if nAgilidad1~=nAgilidad2 then
+				return nAgilidad1&gt;nAgilidad2;
 			else
-				return nodo1.getPath() &gt; nodo2.getPath();
+				local rActor1 = ActorManager.resolveActor(nodo1);
+				local rActor2 = ActorManager.resolveActor(nodo2);
+				if ActorManager.isPC(rActor1) and not ActorManager.isPC(rActor2) then
+					return true;
+				elseif ActorManager.isPC(rActor2) and not ActorManager.isPC(rActor1) then
+					return false;
+				else
+					return nodo1.getPath() &gt; nodo2.getPath();
+				end
 			end
 		end
 	else
