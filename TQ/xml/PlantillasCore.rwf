@@ -1,0 +1,26 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>PlantillasCore</XmlName>
+    <FolderID>45</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;root&gt;
+
+	&lt;template name="string_record_name"&gt;
+		&lt;stringfield&gt;
+			&lt;anchored mergerule="replace"&gt;
+				&lt;top offset="5" /&gt;
+				&lt;left offset="40" /&gt;
+				&lt;right parent="rightanchor" anchor="left" relation="relative" offset="-15" /&gt;
+			&lt;/anchored&gt;
+			&lt;frame name="groupbox2" offset="15,10,15,10" /&gt;
+			&lt;font&gt;sheettext&lt;/font&gt;
+			&lt;multilinespacing&gt;20&lt;/multilinespacing&gt;
+			&lt;nodrag /&gt;
+			&lt;delaykeyupdate /&gt;
+		&lt;/stringfield&gt;
+	&lt;/template&gt;
+        
+&lt;/root&gt;      
+    </XML>
+  </XMLFiles>
+</DocumentElement>

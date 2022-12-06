@@ -1545,7 +1545,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>IDMele</ControlName>
-    <ZIndex>43</ZIndex>
+    <ZIndex>42</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1922,7 +1922,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>PenMeleMultiEnemigos</ControlName>
-    <ZIndex>42</ZIndex>
+    <ZIndex>41</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
