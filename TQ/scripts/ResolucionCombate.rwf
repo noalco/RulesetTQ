@@ -17,7 +17,7 @@ function Ataque(rSource, rTarget, rRoll)
 
 	Comm.deliverChatMessage(rMessage);
 
-	if DB.getValue(rSource["sCTNode"]..".IDMele", 0)&gt;0 then
+	if rSource and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&gt;0 then
 		AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele", 0), rRoll.aDice.total);
 	end
 end

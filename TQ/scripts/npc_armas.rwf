@@ -230,8 +230,26 @@ function action(dragInfo)
 	local sTipoAccion="";
 	if sDragLabel then
 		if bEsAtaque then
-			DiceRollString = sDado.."!+"..nDragMod;
-			DiceRollDescription = "[Ataque] " .. sDragLabel;
+			local nPenMeleMultiEnemigos=DB.getValue(self.window.getDatabaseNode(), "PenMeleMultiEnemigos", 0)
+			if nPenMeleMultiEnemigos~=0 then
+				if nDragMod-nPenMeleMultiEnemigos&gt;0 then
+					DiceRollString = sDado.."!+"..nDragMod-nPenMeleMultiEnemigos;
+				elseif nDragMod-nPenMeleMultiEnemigos&lt;0 then
+					DiceRollString = sDado.."!"..nDragMod-nPenMeleMultiEnemigos;
+				else
+					DiceRollString = sDado;
+				end
+				DiceRollDescription = "[Ataque] " .. sDragLabel.." [Pen. Múltiples objetivos: -"..nPenMeleMultiEnemigos.."]";
+			else
+				if nDragMod&gt;0 then
+					DiceRollString = sDado.."!+"..nDragMod;
+				elseif nDragMod&lt;0 then
+					DiceRollString = sDado.."!"..nDragMod;
+				else
+					DiceRollString = sDado.."!";
+				end
+				DiceRollDescription = "[Ataque] " .. sDragLabel;
+			end
 --			GameSystem.actions["AtaqueRollAction"] = { bUseModStack = "true" }
 			sTipoAccion="AtaqueRollAction";
 		elseif bEsDanio then
