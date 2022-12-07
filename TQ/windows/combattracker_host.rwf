@@ -735,6 +735,8 @@ function CrearSeccionFase(numFase)
 	local Encabezado = DB.createChild(nodeWin, "fase" .. numFase);
 	local nFase = DB.createChild(Encabezado, "Fase", "number");
 	nFase.setValue(numFase -0.5);
+--	local faction = DB.createChild(Encabezado, "friendfoe", "string");
+--	faction.setValue('neutral');
 	win = list.createWindowWithClass("EncabezadoFase", Encabezado);
 	win.txtFase.setValue('Fase ' .. numFase);
 end</LUACode>
