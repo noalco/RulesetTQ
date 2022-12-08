@@ -146,7 +146,7 @@
       {"Name":"MergeWindow","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"MinimizedIcon"},
       {"Name":"MinimumHeight","Value":{"@xsi:type":"xsd:int","#text":"400"}},
-      {"Name":"MinimumWidth","Value":{"@xsi:type":"xsd:int","#text":"400"}},
+      {"Name":"MinimumWidth","Value":{"@xsi:type":"xsd:int","#text":"450"}},
       {"Name":"NoClose"},
       {"Name":"NoDelete"},
       {"Name":"NoMove"},
@@ -211,7 +211,10 @@ function CrearSeccionFase(numFase)
 --	local faction = DB.createChild(Encabezado, "friendfoe", "string");
 --	faction.setValue('neutral');
 	win = list.createWindowWithClass("EncabezadoFase", Encabezado);
-	win.txtFase.setValue('Fase ' .. numFase);
+	if numFase == 0 then
+        win.txtFase.setValue('Declaración de intenciones');
+        else  win.txtFase.setValue('Fase ' .. numFase);
+    end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -244,7 +247,7 @@ end</LUACode>
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Round"}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Turno"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -262,8 +265,8 @@ end</LUACode>
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"406"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"358"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"385"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"361"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -418,7 +421,7 @@ end</LUACode>
       {"Name":"StackVertWith"},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Mente en la ronda de declaración de intenciones y Agilidad en el las fases de combate"}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Mente en Declaración de Intenciones / Agilidad en Fases de Combate"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"319"}},
@@ -847,7 +850,7 @@ end
       {"Name":"DefaultValue"},
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"25"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"50"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
@@ -855,7 +858,7 @@ end
       {"Name":"DisplaySign"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"ct_groupbox"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string","#text":"fielddark"}},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string","#text":"3,3,3,3"}},
       {"Name":"GMEditOnly"},
       {"Name":"GMVisibleOnly"},
@@ -888,8 +891,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"449"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"355"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"425"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"357"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -996,11 +999,11 @@ end
       {"Name":"ScriptFile"},
       {"Name":"StackVertWith"},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"End Turn"}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Terminar Turno"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"29"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"354"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"54"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"359"}}
 ]}}</Definition>
     <LUACode>function onButtonPress()
     local aEntries = CombatManager.getSortedCombatantList();
