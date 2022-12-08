@@ -162,7 +162,10 @@
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"19"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	DB.setValue(window.getDatabaseNode(), "...ListaHeridasModificada", "number", DB.getValue(window.getDatabaseNode(), "...ListaHeridasModificada", 0)+1);
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -179,7 +182,7 @@
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultValue"},
-      {"Name":"DelayKeyUpdate"},
+      {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
@@ -239,6 +242,8 @@
 	elseif getValue()&gt;=nLeveIni then window.Tipo.setValue("L");
 	else window.Tipo.setValue("R");
 	end
+
+	DB.setValue(window.getDatabaseNode(), "...ListaHeridasModificada", "number", DB.getValue(window.getDatabaseNode(), "...ListaHeridasModificada", 0)+1);
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -292,7 +297,10 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	DB.setValue(window.getDatabaseNode(), "...ListaHeridasModificada", "number", DB.getValue(window.getDatabaseNode(), "...ListaHeridasModificada", 0)+1);
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -373,7 +381,7 @@ end
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultText","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
@@ -416,7 +424,10 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"39"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	DB.setValue(window.getDatabaseNode(), "...ListaHeridasModificada", "number", DB.getValue(window.getDatabaseNode(), "...ListaHeridasModificada", 0)+1);
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

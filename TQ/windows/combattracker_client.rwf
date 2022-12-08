@@ -722,13 +722,13 @@ end
 
 function onNameUpdated(vNode)
 	for _,w in pairs(getWindows()) do
-		w.target_summary.onTargetsChanged();
+		if w.target_summary then w.target_summary.onTargetsChanged(); end
 	end
 end
 
 function onOptionCTSIChanged()
 	for _,v in pairs(getWindows()) do
-		v.updateDisplay();
+		if v.updateDisplay then v.updateDisplay(); end
 	end
 	applySort();
 end

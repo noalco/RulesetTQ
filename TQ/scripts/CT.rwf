@@ -9,6 +9,8 @@
 	local nAgilidad2=DB.getValue(nodo2, "Agilidad", 0);
 	local nIDMele1=DB.getValue(nodo1, "IDMele", 0);
 	local nIDMele2=DB.getValue(nodo2, "IDMele", 0);
+	local nIDMele3_1=DB.getValue(nodo1, "IDMele3", 0);
+	local nIDMele3_2=DB.getValue(nodo2, "IDMele3", 0);
 	local nFase1=DB.getValue(nodo1, "Fase", 0);
 	local nFase2=DB.getValue(nodo2, "Fase", 0);
 	if nFase1==nFase2 and nFase1==0 then
@@ -26,8 +28,10 @@
 			end
 		end
 	elseif nFase1==nFase2 and nFase1~=0 then
-		if nIDMele1~=nIDMele2 then
-			return nIDMele1&lt;nIDMele2
+		if nFase1==2 and nIDMele1~=nIDMele2 then
+			return nIDMele1&lt;nIDMele2;
+		elseif nFase1==3 and nIDMele3_1~=nIDMele3_2 then
+			return nIDMele3_1&lt;nIDMele3_2;
 		else
 			if nAgilidad1~=nAgilidad2 then
 				return nAgilidad1&gt;nAgilidad2;

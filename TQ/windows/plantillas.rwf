@@ -55,8 +55,8 @@
       {"Name":"WindowListClassName"},
       {"Name":"WindowListFilterBy","Value":{"@xsi:type":"FilterByDefinition","FilterSourceType":"Control","FilterOnSourceType":"Control"}},
       {"Name":"WindowListSortBy","Value":{"@xsi:type":"ArrayOfSortByDefinition"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"104"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"87"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"88"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"30"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -118,8 +118,8 @@
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string","#text":"numero_foco"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"404"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"133"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"367"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"42"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
