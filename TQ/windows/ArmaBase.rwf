@@ -70,7 +70,7 @@ end
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"ArmaBase"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DataSource"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"214"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"120"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"430"}},
       {"Name":"Disabled"},
       {"Name":"Dynamic"},
@@ -322,7 +322,7 @@ end
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"50"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerTirada()}","DiceRollDescription":"{@self.ObtenerMensajeAtaque()}","DiceRollType":"AtaqueRollAction","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","Targeting":"each","ResultHandlerFunction":"ResolucionCombate.Ataque","TargetingHandlerFunction":null,"AdditionalInfo":null}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerTirada()}","DiceRollDescription":"{@self.ObtenerMensajeAtaque()}","DiceRollType":"AtaqueRollAction","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"DragIcon":"action_attack","AllowDragDrop":"true","Targeting":"each","ResultHandlerFunction":"ResolucionCombate.Ataque","TargetingHandlerFunction":null,"AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"DisplaySign"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -388,7 +388,7 @@ end
 	setTooltipText(sPenFuerza..sAtaqueLimitado);
 	setValue(nTotal);
 	window.AtaqueLimitado.setValue(nAtaqueLimitado);
-	GameSystem.actions["DanioRollAction"].sIcon="action_damage";
+--	GameSystem.actions["DanioRollAction"].sIcon="action_damage";
 end
 
 function ObtenerTirada()
@@ -461,6 +461,10 @@ function ObtenerMensajeAtaque()
 		sMensaje=sMensaje.." [Pen. Múltiples objetivos: -"..DB.getValue(window.getDatabaseNode(), "...PenMeleMultiEnemigos", 0).."]"
 	end
 	return sMensaje;
+end
+
+function onBeforeDiceRoll(dragInfo)
+--	GameSystem.actions["AtaqueRollAction"].sIcon="action_attack";
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
@@ -754,7 +758,7 @@ end
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"70"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerTirada()}","DiceRollDescription":"{@self.ObtenerMensaje()}","DiceRollType":"DanioRollAction","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","Targeting":"each","ResultHandlerFunction":"ResolucionCombate.Danio","TargetingHandlerFunction":"ResolucionCombate.PreDanio","AdditionalInfo":null}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":"{@self.ObtenerTirada()}","DiceRollDescription":"{@self.ObtenerMensaje()}","DiceRollType":"DanioRollAction","UseModStack":"true","ResetModStack":"true","SecretRoll":{"@xsi:nil":"true"},"DragIcon":"action_damage","AllowDragDrop":"true","Targeting":"each","ResultHandlerFunction":"ResolucionCombate.Danio","TargetingHandlerFunction":"ResolucionCombate.PreDanio","AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"EmptyText"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -866,7 +870,9 @@ function ObtenerMensaje()
 	return sMensaje;
 end
 
-
+function onBeforeDiceRoll(dragInfo)
+--	GameSystem.actions["DanioRollAction"].sIcon="action_damage";
+end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />

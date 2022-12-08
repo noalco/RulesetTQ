@@ -17,23 +17,40 @@ function Ataque(rSource, rTarget, rRoll)
 	local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
 	
 --	rMessage.icon = "roll_attack";
-	if rSource and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&gt;0 then
-		rMessage.text = "[TIRADA ENFRENTADA EN MELÉ "..DB.getValue(rSource["sCTNode"]..".IDMele", 0).."]\n"..rMessage.text;
+	if rSource and DB.getValue("combattracker.AtaqueMele", 0)==1 and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&gt;0 and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&lt;7 and DB.getValue(rSource["sCTNode"]..".Fase", 0)==2 then
+		rMessage.text = "[TIRADA ENFRENTADA EN MELÉ "..DB.getValue(rSource["sCTNode"]..".IDMele", 0).." DE LA FASE 2]\n"..rMessage.text;
 		Comm.deliverChatMessage(rMessage);
 		AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele", 0), ActionsManager.total(rRoll));
+	elseif rSource and DB.getValue("combattracker.AtaqueMele", 0)==1 and DB.getValue(rSource["sCTNode"]..".IDMele3", 0)&gt;6 and DB.getValue(rSource["sCTNode"]..".IDMele3", 0)&lt;13 and DB.getValue(rSource["sCTNode"]..".Fase", 0)==3 then
+		rMessage.text = "[TIRADA ENFRENTADA EN MELÉ "..DB.getValue(rSource["sCTNode"]..".IDMele3", 0).." DE LA FASE 3]\n"..rMessage.text;
+		Comm.deliverChatMessage(rMessage);
+		AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele3", 0), ActionsManager.total(rRoll));
 	else
 --		rMessage.icon = "roll_attack";
-		Comm.deliverChatMessage(rMessage);	
+		Comm.deliverChatMessage(rMessage);
 	end
 end
 
 function CrearMeles()
-	Debug.chat("creandi")
 	tMeles={}
 	tContadores={}
 	for _,nodoCT in pairs(DB.getChildren("combattracker.list")) do
 		local nMele=DB.getValue(nodoCT, "IDMele", 0);
 		DB.setValue(nodoCT, "PenMeleMultiEnemigos", "number", 0);
+		if nMele~=0 then
+			if not tMeles[nMele] then
+				tMeles[nMele]={};
+				tContadores[nMele]={nAtaques=0, nAliados=0, nEnemigos=0};
+			end
+			if DB.getValue(nodoCT, "friendfoe", "")=="foe" then
+				table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=false});
+				tContadores[nMele].nEnemigos=tContadores[nMele].nEnemigos+1;
+			else
+				table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=true});
+				tContadores[nMele].nAliados=tContadores[nMele].nAliados+1;
+			end
+		end
+		nMele=DB.getValue(nodoCT, "IDMele3", 0);
 		if nMele~=0 then
 			if not tMeles[nMele] then
 				tMeles[nMele]={};
@@ -73,7 +90,7 @@ function MostrarMeles()
 end
 
 function ModificarMele(nodoCT, nMele, nMeleAnt)
-	if nMeleAnt&gt;0 then
+	if nodoCT and nMeleAnt and nMele and nMele&gt;0 and nMeleAnt&gt;0 then
 		-- nodoCT está en una melé
 		-- Eliminamos el nodo de la melé anterior. Esto modifica todos los datos de la melé anterior
 		local tNodoMele=EliminarDeMele(nodoCT, nMeleAnt);
@@ -83,7 +100,7 @@ function ModificarMele(nodoCT, nMele, nMeleAnt)
 			tContadores[nMele]={nAtaques=0, nAliados=0, nEnemigos=0};
 		end
 
-		if tNodoMele.bTirada then
+		if tNodoMele and tNodoMele.bTirada then
 			-- Si tiene tirada, se aplica el penalizador en función de los nuevos oponentes y se actualizan los contadores de la melé
 			tContadores[nMele].nAtaques=tContadores[nMele].nAtaques+1
 			if tNodoMele.bEsAliado then
@@ -109,7 +126,7 @@ function ModificarMele(nodoCT, nMele, nMeleAnt)
 		CalcularPenalizadores();
 		if tContadores[nMeleAnt] and tMeles[nMeleAnt] and tContadores[nMeleAnt].nAtaques==#tMeles[nMeleAnt] then ProcesarMele(nMeleAnt); end
 		if tContadores[nMele].nAtaques==#tMeles[nMele] then ProcesarMele(nMele); end
-	else
+	elseif nodoCT and nMele and nMele&gt;0 then
 		-- nodoCT no está en una melé
 		if not tMeles[nMele] then
 			tMeles[nMele]={};
@@ -193,6 +210,7 @@ function AniadirAtaqueAMele(nodoCT, nMele, nTotal)
 			end
 		end
 	end
+--	MostrarMeles();
 	if tContadores[nMele].nAtaques==#tMeles[nMele] then ProcesarMele(nMele); end
 end
 
@@ -243,15 +261,15 @@ function ProcesarMele(nMele)
 			end
 			for i=1,#tAliados do
 				for j=1,#tEnemigos do
-					DB.setValue(tEnemigos[j].PathNodo..".SelectorMele", "string", "No");
+--					DB.setValue(tEnemigos[j].PathNodo..".SelectorMele", "string", "No");
 					DB.setValue(tEnemigos[j].PathNodo..".PenMeleMultiEnemigos", "number", 0);
 				end
-				DB.setValue(tAliados[i].PathNodo..".SelectorMele", "string", "No");
+--				DB.setValue(tAliados[i].PathNodo..".SelectorMele", "string", "No");
 				DB.setValue(tAliados[i].PathNodo..".PenMeleMultiEnemigos", "number", 0);
 			end
 			table.remove(tMeles, nMele);
 			table.remove(tContadores, nMele);
-			--MostrarResultadosAtaques();
+			MostrarResultadosAtaques();
 		else
 			Debug.chat("No puede haber más de un individuo en ambos bandos de una melé");
 		end
@@ -269,12 +287,18 @@ end
 function AniadirResultadoAtaque(NotoCTAtacante, NodoCTDefensor, nExitos)
 	if not tResultados[NotoCTAtacante] then tResultados[NotoCTAtacante]={} end;
 	tResultados[NotoCTAtacante][NodoCTDefensor]=nExitos;
+--	MostrarResultadosAtaques();
 end
 
 function LimpiarMeles()
 	tMeles={}
 	tContadores={}
 	tResultados={}
+	for _,nodoCT in pairs(DB.getChildren("combattracker.list")) do
+		DB.setValue(nodoCT, "SelectorMele", "string", "No");
+		DB.setValue(nodoCT, "SelectorMele3", "string", "No");
+	end
+--	MostrarMeles();
 end
 
 function PreDanio(rSource, aTargeting, rRolls)
@@ -284,10 +308,10 @@ function PreDanio(rSource, aTargeting, rRolls)
 			for _,vTarget in ipairs(vTargetGroup) do
 				iRoll = iRoll + 1;
 				if tResultados[rSource.sCTNode] and tResultados[rSource.sCTNode][vTarget.sCTNode] and tResultados[rSource.sCTNode][vTarget.sCTNode]&gt;0 then
-					rRolls[iRoll] = {nBonuses = rRolls[iRoll].nBonuses , 
+					rRolls[iRoll] = {nBonuses = rRolls[iRoll].nBonuses,
 									aDice = rRolls[iRoll].aDice,
-									nMod = rRolls[iRoll].nMod+math.min(tResultados[rSource.sCTNode][vTarget.sCTNode], 10), 
-									sType = rRolls[iRoll].sType, 
+									nMod = rRolls[iRoll].nMod+math.min(tResultados[rSource.sCTNode][vTarget.sCTNode], 10),
+									sType = rRolls[iRoll].sType,
 									sDesc = rRolls[iRoll].sDesc.." [Éxitos ataque: "..tResultados[rSource.sCTNode][vTarget.sCTNode].." ]"
 					};
 					tResultados[rSource.sCTNode][vTarget.sCTNode]=0;
@@ -299,17 +323,18 @@ function PreDanio(rSource, aTargeting, rRolls)
 end
 
 function Danio(rSource, rTarget, rRoll)
+--	local rMessage;
 	if rSource then
-		local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
-		rMessage.type="DanioRollAction";
-		Comm.deliverChatMessage(rMessage);
+		local rMessage1 = ActionsManager.createActionMessage(rSource, rRoll);
+		rMessage1.type="DanioRollAction";
+		Comm.deliverChatMessage(rMessage1);
 	end
-		
+
 	if rTarget then
-		rMessage = ChatManager.createBaseMessage();
-		rMessage.text = "Daño ["..ActionsManager.total(rRoll).."] -&gt; [a "..DB.getValue(rTarget.sCTNode..".name", "").."]";
-		rMessage.icon = "roll_damage";
-		Comm.deliverChatMessage(rMessage);
+		local rMessage2 = ChatManager.createBaseMessage();
+		rMessage2.text = "Daño ["..ActionsManager.total(rRoll).."] -&gt; [a "..DB.getValue(rTarget.sCTNode..".name", "").."]";
+		rMessage2.icon = "roll_damage";
+		Comm.deliverChatMessage(rMessage2);
 	end
 end</Script>
     <RegisterScript>true</RegisterScript>
