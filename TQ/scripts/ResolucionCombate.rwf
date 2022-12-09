@@ -34,7 +34,11 @@ function AtaqueCC(rSource, rTarget, rRoll)
 end
 
 function EstaDevilitado(rTarget)
-	return false;
+	if rTarget.sType=="charsheet" then
+		return DB.getValue(rTarget.sCreatureNode..".PuntosDeVida.Debilitado", 0)==1;
+	else
+		return DB.getValue(rTarget.sCreatureNode..".Debilitado", 0)==1;
+	end
 end
 
 function ObtenerEsquivar(rTarget)
@@ -66,33 +70,38 @@ function ObtenerNombre(rRegistro)
 end
 
 function ProcesarGolpeAislado(rSource, rTarget, rRoll)
-	local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
-	local rMessageResultado = ChatManager.createBaseMessage();
+	if rSource and rTarget and rRoll then
+		local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
+		local rMessageResultado = ChatManager.createBaseMessage();
 
-	Debug.chat(ActionsManager.total(rRoll),ObtenerEsquivar(rTarget))
-	local nResultado=ActionsManager.total(rRoll)-ObtenerEsquivar(rTarget);
-	local sNombreAtacante=ObtenerNombre(rSource);
-	local sNombreDefensor=ObtenerNombre(rTarget);
-	
-	
-	if nResultado&gt;0 then
-		AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado);
-		if nResultado&gt;=10 then
-			rMessageResultado.text = sNombreAtacante.." golpea críticamente a "..sNombreDefensor.." con "..nResultado.." éxitos";
-			rMessageResultado.icon = "roll_attack_crit";
+		Debug.chat(ActionsManager.total(rRoll),ObtenerEsquivar(rTarget))
+		local nResultado=ActionsManager.total(rRoll)-ObtenerEsquivar(rTarget);
+		local sNombreAtacante=ObtenerNombre(rSource);
+		local sNombreDefensor=ObtenerNombre(rTarget);
+		
+		
+		if nResultado&gt;0 then
+			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado);
+			if nResultado&gt;=10 then
+				rMessageResultado.text = sNombreAtacante.." golpea críticamente a "..sNombreDefensor.." con "..nResultado.." éxitos";
+				rMessageResultado.icon = "roll_attack_crit";
+			else
+				rMessageResultado.text = sNombreAtacante.." golpea a "..sNombreDefensor.." con "..nResultado.." éxitos";
+				rMessageResultado.icon = "roll_attack_hit";
+			end
+		elseif nResultado&lt;0 and nResultado&gt;-5 then
+			rMessageResultado.text = sNombreAtacante.." falla al atacar a"..sNombreDefensor;
+			rMessageResultado.icon = "roll_attack_miss";
 		else
-			rMessageResultado.text = sNombreAtacante.." golpea a "..sNombreDefensor.." con "..nResultado.." éxitos";
-			rMessageResultado.icon = "roll_attack_hit";
+			rMessageResultado.text = sNombreAtacante.." pifia al atacar a"..sNombreDefensor;
+			rMessageResultado.icon = "roll_attack_crit_miss";
 		end
-	elseif nResultado&lt;0 and nResultado&gt;-5 then
-		rMessageResultado.text = sNombreAtacante.." falla al atacar a"..sNombreDefensor;
-		rMessageResultado.icon = "roll_attack_miss";
-	else
-		rMessageResultado.text = sNombreAtacante.." pifia al atacar a"..sNombreDefensor;
-		rMessageResultado.icon = "roll_attack_crit_miss";
+		Comm.deliverChatMessage(rMessageAtaque);
+		Comm.deliverChatMessage(rMessageResultado);
+	elseif rRoll then
+		local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
+		Comm.deliverChatMessage(rMessageAtaque);
 	end
-	Comm.deliverChatMessage(rMessageAtaque);
-	Comm.deliverChatMessage(rMessageResultado);
 end
 
 function AtaqueDistancia(rSource, rTarget, rRoll)
