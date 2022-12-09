@@ -33,7 +33,12 @@ function AtaqueCC(rSource, rTarget, rRoll)
 	else
 		-- Golpe aislado
 		Comm.deliverChatMessage(rMessage);
+		ProcesarGolpeAislado(rSource, rTarget, rRoll)
 	end
+end
+
+function ProcesarGolpeAislado(rSource, rTarget, rRoll)
+	
 end
 
 function AtaqueDistancia(rSource, rTarget, rRoll)
