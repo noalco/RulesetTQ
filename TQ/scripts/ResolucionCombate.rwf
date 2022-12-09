@@ -396,17 +396,18 @@ function Danio(rSource, rTarget, rRoll)
 		rMessage2.text = "Daño ["..ActionsManager.total(rRoll).."] -&gt; [a "..DB.getValue(rTarget.sCTNode..".name", "").."]";
 		rMessage2.icon = "roll_damage";
 		Comm.deliverChatMessage(rMessage2);
-		AniadirHerida(rTarget, ActionsManager.total(rRoll), "Herida")
+		AniadirHerida(rTarget, ActionsManager.total(rRoll))
 	end
 end
 
-function AniadirHerida(rTarget, nDanio, sTipoHerida)
+function AniadirHerida(rTarget, nDanio)
 --{ s'sType' = s'npc', s'sCreatureNode' = s'combattracker.list.id-00003', s'sCTNode' = s'combattracker.list.id-00003', s'sName' = s'Asesino profesional 1' }
 		if rTarget then
 			if rTarget.sType=="npc" then
 				local NuevaHerida;
 				NuevaHerida=DB.createChild(DB.getChild(rTarget.sCreatureNode..".ListaHeridas"));
-				DB.setValue(NuevaHerida, "Herida", "string", sTipoHerida);
+				DB.setValue(NuevaHerida, "Herida", "string", "Herida "..DB.getValue(rTarget.sCreatureNode..".ContHeridas", 0));
+				DB.setValue(rTarget.sCreatureNode..".ContHeridas", "number", DB.getValue(rTarget.sCreatureNode..".ContHeridas", 0)+1)
 				DB.setValue(NuevaHerida, "PD", "number", nDanio);
 			end
 		end

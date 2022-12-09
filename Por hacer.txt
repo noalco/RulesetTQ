@@ -14,6 +14,7 @@ General:
 
 Principal:
 	- Borrar heridas cuando tienen 0 PD
+	- Recalcular el tipo de herida al cambiar la vida máxima (también en PNJs)
 	
 Habilidades:
 	- Cordelería
@@ -45,12 +46,11 @@ Wizard:
 
 
 CT:
-	- Gestionar los cambios de facción cuando el individuo está en una melé
-	- Daños
-	- Borrar heridas cuando tienen 0 PD
+			- Gestionar los cambios de facción cuando el individuo está en una melé
+	- Recalcular el tipo de herida al cambiar la vida máxima (también en PJs)
+	- Daños en PJs
 	- Efectos
 	- Armas a distancia
 	- Golpes aislados
-	- Los PNJs no tiran d6 cuando están debilitados (en la ficha del PNJ sí)
 	- Añadir debilitado/incapacitado a los efectos
 	- Añadir puntos de infortunio
