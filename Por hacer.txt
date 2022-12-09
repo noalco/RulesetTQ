@@ -13,7 +13,7 @@ General:
 	- Fuentes de luz en metros
 
 Principal:
-
+	- Borrar heridas cuando tienen 0 PD
 	
 Habilidades:
 	- Cordelería
@@ -33,11 +33,22 @@ Combate:
 Hechizos:
 
 
-NPCs
+NPCs:
 
 	
 Sidebars:
 
 	
 Wizard:
-	Añadir botones que enlacen con las librerías
+
+
+CT:
+	- Gestionar los cambios de facción cuando el individuo está en una melé
+	- Daños
+	- Borrar heridas cuando tienen 0 PD
+	- Efectos
+	- Armas a distancia
+	- Golpes aislados
+	- Los PNJs no tiran d6 cuando están debilitados (en la ficha del PNJ sí)
+	- Añadir debilitado/incapacitado a los efectos
+	- Añadir puntos de infortunio

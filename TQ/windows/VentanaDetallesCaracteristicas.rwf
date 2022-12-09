@@ -66,7 +66,10 @@
 	
 	super.onInit();
 end
-</LUACode>
+
+function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -483,7 +486,7 @@ end
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"9"}},
+      {"Name":"MaxValue"},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
@@ -514,7 +517,10 @@ end
 	
 	super.onInit();
 end
-</LUACode>
+
+function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -554,7 +560,7 @@ end
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"10"}},
+      {"Name":"MaxValue"},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
@@ -585,7 +591,10 @@ end
 	
 	super.onInit();
 end
-</LUACode>
+
+function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -707,7 +716,10 @@ end
 	
 	super.onInit();
 end
-</LUACode>
+
+function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1433,7 +1445,7 @@ end
       {"Name":"Invisible"},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
-      {"Name":"MaxValue","Value":{"@xsi:type":"xsd:decimal","#text":"10"}},
+      {"Name":"MaxValue"},
       {"Name":"Merge"},
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
@@ -1464,7 +1476,10 @@ end
 	
 	super.onInit();
 end
-</LUACode>
+
+function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -2669,7 +2684,10 @@ end
 	
 	super.onInit();
 end
-</LUACode>
+
+function onWheel(notches)
+    return false;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

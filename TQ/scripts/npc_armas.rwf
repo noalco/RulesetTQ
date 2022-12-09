@@ -14,7 +14,6 @@ local aComponents = {};
 local sDragLabel = nil;
 local nDragMod = nil;
 local bDragging = false;
-local sDado="1d10";
 local bEsDanio=false;
 local bEsEfecto=false;
 local bEsAtaque=false;
@@ -227,6 +226,7 @@ end
 
 
 function action(dragInfo)
+	local sDado=ObtenerDado();
 	local sTipoAccion="";
 	if sDragLabel then
 		if bEsAtaque then
@@ -320,9 +320,11 @@ function performRoll(draginfo, rActor, sSkillName, nSkillMod)
 	ActionsManager.performAction(draginfo, rActor, rRoll);
 end
 
-function Debilitado(bDebilitado)
-	if bDebilitado then sDado="1d6";
-	else sDado="1d10";
+function ObtenerDado()
+	if DB.getValue(self.window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return "1d10";
+	else
+		return "1d6";
 	end
 end</Script>
     <RegisterScript>true</RegisterScript>

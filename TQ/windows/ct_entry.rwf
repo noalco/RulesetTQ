@@ -2346,8 +2346,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"560"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"33"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"594"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"118"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	local rActor = ActorManager.resolveActor(window.getDatabaseNode());

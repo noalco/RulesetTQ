@@ -433,7 +433,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.Habilidades.Debilitado(getValue()==1);
-	window.Armas.Debilitado(getValue()==1);
+--	window.Armas.Debilitado(getValue()==1);
 end
 
 function onInit()
