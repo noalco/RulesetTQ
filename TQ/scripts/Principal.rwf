@@ -45,20 +45,12 @@ end
 function ActualizarRangosHeridas(window)
 	local nGraveIni="-"; local nGraveFin="-"; local nLeveIni="-"; local nLeveFin="-"; local nRasgunioIni="-"; local nRasgunioFin="-";
 	nGraveIni, nGraveFin, nLeveIni, nLeveFin, nRasgunioIni, nRasgunioFin=ObtenerRangos(window.VidaMaxima.getValue());
---	if window.VidaMaxima.getValue()&gt;1 then
---		nGraveIni=math.floor(window.VidaMaxima.getValue()/2);
---		nGraveFin=window.VidaMaxima.getValue()-1;
---		if nGraveIni&gt;1 then
---			nLeveIni=math.floor(nGraveIni/2);
---			nLeveFin=nGraveIni-1;
---			if nLeveIni&gt;1 then
---				nRasgunioIni=1;
---				nRasgunioFin=nLeveIni-1;
---			end
---		end
---	end
 	local sValue="\t\t\t\t&lt;table&gt;\n\t\t\t\t\t&lt;tr&gt;\n\t\t\t\t\t\t&lt;td colspan=\"2\"&gt;Rasgu&amp;#241;o&lt;/td&gt;\n\t\t\t\t\t\t&lt;td&gt;"..nRasgunioIni.."&lt;/td&gt;\n\t\t\t\t\t\t&lt;td&gt;"..nRasgunioFin.."&lt;/td&gt;\n\t\t\t\t\t&lt;/tr&gt;\n\t\t\t\t\t&lt;tr&gt;\n\t\t\t\t\t\t&lt;td colspan=\"2\"&gt;Leve&lt;/td&gt;\n\t\t\t\t\t\t&lt;td&gt;"..nLeveIni.."&lt;/td&gt;\n\t\t\t\t\t\t&lt;td&gt;"..nLeveFin.."&lt;/td&gt;\n\t\t\t\t\t&lt;/tr&gt;\n\t\t\t\t\t&lt;tr&gt;\n\t\t\t\t\t\t&lt;td colspan=\"2\"&gt;Grave&lt;/td&gt;\n\t\t\t\t\t\t&lt;td&gt;"..nGraveIni.."&lt;/td&gt;\n\t\t\t\t\t\t&lt;td&gt;"..nGraveFin.."&lt;/td&gt;\n\t\t\t\t\t&lt;/tr&gt;\n\t\t\t\t&lt;/table&gt;"
 	DB.setValue(window.getDatabaseNode(), ".PuntosDeVida.RangosHeridas", "formattedtext", sValue);
+	
+	for _,NodoHerida in pairs(window.ListaHeridas.getWindows()) do
+		NodoHerida.PDHerida.ActualizarTipo();
+	end
 end;
 
 function ActualizarBonosDanio(nodoOrigen)

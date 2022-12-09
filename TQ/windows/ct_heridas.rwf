@@ -201,13 +201,21 @@ function CalcularHeridas()
 	end
 end
 
+function CalcularTipos()
+	local sTipo, sRuta=DB.getValue(window.parentcontrol.window.getDatabaseNode(), "link");
+	if sTipo=="npc" then
+		for _,NodoHerida in pairs(getWindows()) do
+			NodoHerida.Tipo.CalcularTipo();
+		end
+	end
+end
+
 function onListChanged()
 	CalcularHeridas();
 end
 
 function onInit()
 	CalcularHeridas();
-	local sTipo, sRuta=DB.getValue(window.parentcontrol.window.getDatabaseNode(), "link");
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>

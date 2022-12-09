@@ -234,24 +234,10 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
-	window.windowlist.CalcularHeridas();
-	CalcularTipo();
---	if getValue()&gt;0 then
---		CalcularTipo();
---	else
---		local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "...link");
---		if sTipo=="npc" then DB.deleteNode(window.getDatabaseNode()); end
---	end
---	local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "...link");
---	window.idelete.setVisible(getValue()&lt;=0 and sTipo=="npc")
-end
-
-function CalcularTipo()
-	local nGraveIni, nGraveFin, nLeveIni, nLeveFin, nRasgunioIni, nRasgunioFin=Principal.ObtenerRangos(DB.getValue(window.getDatabaseNode(), "...hp", 0));
-	if getValue()&gt;nGraveFin then window.Tipo.setValue("M");
-	elseif getValue()&gt;=nGraveIni then window.Tipo.setValue("G");
-	elseif getValue()&gt;=nLeveIni then window.Tipo.setValue("L");
-	else window.Tipo.setValue("R");
+	local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "...link");
+	if sTipo=="npc" then
+		window.windowlist.CalcularHeridas();
+		window.Tipo.CalcularTipo();
 	end
 end
 
@@ -378,7 +364,15 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"272"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function CalcularTipo()
+	local PDHerida=window.PDHerida.getValue();
+	local nGraveIni, nGraveFin, nLeveIni, nLeveFin, nRasgunioIni, nRasgunioFin=Principal.ObtenerRangos(DB.getValue(window.getDatabaseNode(), "...hp", 0));
+	if nGraveFin~="-" and PDHerida&gt;nGraveFin then setValue("M");
+	elseif nGraveIni~="-" and PDHerida&gt;=nGraveIni then setValue("G");
+	elseif nLeveIni~="-" and PDHerida&gt;=nLeveIni then setValue("L");
+	else setValue("R");
+	end
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

@@ -1670,6 +1670,7 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.current.Actualizar()
+	window.sub_heridas.subwindow.ListaHeridas.CalcularTipos();
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
