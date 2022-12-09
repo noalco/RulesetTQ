@@ -2151,8 +2151,8 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"545"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"299"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"541"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"230"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	window.sub_heridas.subwindow.ListaHeridas.Actualizar()

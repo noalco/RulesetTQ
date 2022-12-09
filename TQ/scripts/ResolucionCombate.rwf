@@ -5,9 +5,11 @@
     <Script>tMeles={}
 tContadores={}
 tResultados={}
+--local nContHeridas=0;
 
 function onInit()
 	CrearMeles();
+--	nContHeridas=0;
 end
 
 function AtaqueCC(rSource, rTarget, rRoll)
@@ -402,15 +404,29 @@ end
 
 function AniadirHerida(rTarget, nDanio)
 --{ s'sType' = s'npc', s'sCreatureNode' = s'combattracker.list.id-00003', s'sCTNode' = s'combattracker.list.id-00003', s'sName' = s'Asesino profesional 1' }
-		if rTarget then
-			if rTarget.sType=="npc" then
-				local NuevaHerida;
-				NuevaHerida=DB.createChild(DB.getChild(rTarget.sCreatureNode..".ListaHeridas"));
-				DB.setValue(NuevaHerida, "Herida", "string", "Herida "..DB.getValue(rTarget.sCreatureNode..".ContHeridas", 0));
-				DB.setValue(rTarget.sCreatureNode..".ContHeridas", "number", DB.getValue(rTarget.sCreatureNode..".ContHeridas", 0)+1)
-				DB.setValue(NuevaHerida, "PD", "number", nDanio);
-			end
+	if rTarget then
+--		nContHeridas=nContHeridas+1;
+		local NuevaHerida;
+		if rTarget.sType=="npc" then
+--			local NuevaHerida;
+			NuevaHerida=DB.createChild(DB.getChild(rTarget.sCreatureNode..".ListaHeridas"));
+			--..DB.getValue(rTarget.sCreatureNode..".ContHeridas", 0));
+--			DB.setValue(rTarget.sCreatureNode..".ContHeridas", "number", DB.getValue(rTarget.sCreatureNode..".ContHeridas", 0)+1)
+--			DB.setValue(NuevaHerida, "Herida", "string", "Herida "..nContHeridas);
+--			DB.setValue(NuevaHerida, "PD", "number", nDanio);
+		else
+--			local NuevaHerida;
+			NuevaHerida=DB.createChild(DB.getChild(rTarget.sCreatureNode..".PuntosDeVida.ListaHeridas"));
+--			nContHeridas=nContHeridas+1;
+--			DB.setValue(NuevaHerida, "Herida", "string", "Herida "..nContHeridas);
+--			DB.setValue(NuevaHerida, "PD", "number", nDanio);			
 		end
+		DB.setValue(NuevaHerida, "Herida", "string", "Herida");
+		DB.setValue(NuevaHerida, "PD", "number", nDanio);
+		if rTarget.sType=="charsheet" then
+			DB.setValue(rTarget.sCreatureNode..".PuntosDeVida.ListaHeridasModificada", "number", DB.getValue(rTarget.sCreatureNode..".PuntosDeVida.ListaHeridasModificada",0)+1);
+		end
+	end
 end
 
 
