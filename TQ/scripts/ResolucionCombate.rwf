@@ -11,9 +11,8 @@ function onInit()
 end
 
 function AtaqueCC(rSource, rTarget, rRoll)
-	local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
-	
 	if DB.getValue("combattracker.AtaqueMele", 0)==0 then
+		local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
 		if rSource and rSource["sCTNode"] and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&gt;0 and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&lt;7 and DB.getValue(rSource["sCTNode"]..".Fase", 0)==2 then
 			-- Ataque en melé de fase 2
 			rMessage.text = "[TIRADA ENFRENTADA EN MELÉ "..DB.getValue(rSource["sCTNode"]..".IDMele", 0).." DE LA FASE 2]\n"..rMessage.text;
@@ -30,16 +29,15 @@ function AtaqueCC(rSource, rTarget, rRoll)
 		end
 	else
 		-- Golpe aislado
-		Comm.deliverChatMessage(rMessage);
-		ProcesarGolpeAislado(rSource, rTarget, rRoll)
+		ProcesarGolpeAislado(rSource, rTarget, rRoll, rMessage)
 	end
 end
 
-function EstaDevilitado()
+function EstaDevilitado(rTarget)
 	return false;
 end
 
-function BuscarEsquivar(rTarget)
+function ObtenerEsquivar(rTarget)
 	if rTarget.sType=="charsheet" then
 		for _,NodoHabilidad in pairs(DB.getChildren(rTarget.sCreatureNode..".Habilidades.ListaHabilidades")) do
 			if DB.getValue(NodoHabilidad, "Clave", "")=="Esquivar" then
@@ -49,7 +47,7 @@ function BuscarEsquivar(rTarget)
 	else
 		local sHabilidades=DB.getValue(rTarget.sCTNode..".Habilidades", "");
 		if sHabilidades~="" then
-			local nEsquivar=sHabilidades:lower():match("esquivar %d*");
+			local nEsquivar=sHabilidades:lower():match("esquivar (%d*)");
 			if nEsquivar then return nEsquivar; end
 		end
 		-- O no hay habilidades o esquivar no está presente -&gt; 1+AGI-Est.
@@ -68,31 +66,33 @@ function ObtenerNombre(rRegistro)
 end
 
 function ProcesarGolpeAislado(rSource, rTarget, rRoll)
-	local nBonoDebilitado=0;
-	if EstaDevilitado() then nBonoDebilitado=3; end
-	local nEsquivarDC=BuscarEsquivar(rTarget);
-	local nResultado=ActionsManager.total(rRoll)-nEsquivarDC;
+	local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
+	local rMessageResultado = ChatManager.createBaseMessage();
+
+	Debug.chat(ActionsManager.total(rRoll),ObtenerEsquivar(rTarget))
+	local nResultado=ActionsManager.total(rRoll)-ObtenerEsquivar(rTarget);
 	local sNombreAtacante=ObtenerNombre(rSource);
 	local sNombreDefensor=ObtenerNombre(rTarget);
 	
-	local rMessage = ChatManager.createBaseMessage();
+	
 	if nResultado&gt;0 then
 		AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado);
 		if nResultado&gt;=10 then
-			rMessage.text = sNombreAtacante.." golpea críticamente a "..sNombreDefensor.." con "..nResultado.." éxitos";
-			rMessage.icon = "roll_attack_crit";
+			rMessageResultado.text = sNombreAtacante.." golpea críticamente a "..sNombreDefensor.." con "..nResultado.." éxitos";
+			rMessageResultado.icon = "roll_attack_crit";
 		else
-			rMessage.text = sNombreAtacante.." golpea a "..sNombreDefensor.." con "..nResultado.." éxitos";
-			rMessage.icon = "roll_attack_hit";
+			rMessageResultado.text = sNombreAtacante.." golpea a "..sNombreDefensor.." con "..nResultado.." éxitos";
+			rMessageResultado.icon = "roll_attack_hit";
 		end
 	elseif nResultado&lt;0 and nResultado&gt;-5 then
-		rMessage.text = sNombreAtacante.." falla al atacar a"..sNombreDefensor;
-		rMessage.icon = "roll_attack_miss";
+		rMessageResultado.text = sNombreAtacante.." falla al atacar a"..sNombreDefensor;
+		rMessageResultado.icon = "roll_attack_miss";
 	else
-		rMessage.text = sNombreAtacante.." pifia al atacar a"..sNombreDefensor;
-		rMessage.icon = "roll_attack_crit_miss";
+		rMessageResultado.text = sNombreAtacante.." pifia al atacar a"..sNombreDefensor;
+		rMessageResultado.icon = "roll_attack_crit_miss";
 	end
-	Comm.deliverChatMessage(rMessage);
+	Comm.deliverChatMessage(rMessageAtaque);
+	Comm.deliverChatMessage(rMessageResultado);
 end
 
 function AtaqueDistancia(rSource, rTarget, rRoll)
@@ -424,6 +424,30 @@ function LimpiarMeles()
 	end
 --	MostrarMeles();
 end
+
+function PreAtaque(rSource, aTargeting, rRolls)
+	if DB.getValue("combattracker.AtaqueMele", 0)==1 then
+		-- Golpe aislado: si defensor debilitado -&gt; ataque +3
+		local iRoll = 0;
+		if aTargeting and rSource then
+			for _,vTargetGroup in ipairs(aTargeting) do
+				for _,vTarget in ipairs(vTargetGroup) do
+					iRoll = iRoll + 1;
+					if EstaDevilitado(vTarget) then
+						rRolls[iRoll] = {nBonuses = rRolls[iRoll].nBonuses,
+										aDice = rRolls[iRoll].aDice,
+										nMod = rRolls[iRoll].nMod+3,
+										sType = rRolls[iRoll].sType,
+										sDesc = rRolls[iRoll].sDesc.." [Debilitado: +3]"
+						};
+					end
+				end
+			end
+		end
+	end
+	return aTargeting;
+end
+
 
 function PreDanio(rSource, aTargeting, rRolls)
 	local iRoll = 0;

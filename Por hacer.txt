@@ -47,6 +47,5 @@ CT:
 			- Gestionar los cambios de facción cuando el individuo está en una melé
 	- Efectos
 	- Armas a distancia
-	- Golpes aislados
 	- Añadir debilitado/incapacitado a los efectos
 	- Añadir puntos de infortunio
