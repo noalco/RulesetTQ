@@ -5,11 +5,9 @@
     <Script>tMeles={}
 tContadores={}
 tResultados={}
---local nContHeridas=0;
 
 function onInit()
 	CrearMeles();
---	nContHeridas=0;
 end
 
 function AtaqueCC(rSource, rTarget, rRoll)
@@ -37,8 +35,64 @@ function AtaqueCC(rSource, rTarget, rRoll)
 	end
 end
 
+function EstaDevilitado()
+	return false;
+end
+
+function BuscarEsquivar(rTarget)
+	if rTarget.sType=="charsheet" then
+		for _,NodoHabilidad in pairs(DB.getChildren(rTarget.sCreatureNode..".Habilidades.ListaHabilidades")) do
+			if DB.getValue(NodoHabilidad, "Clave", "")=="Esquivar" then
+				return DB.getValue(NodoHabilidad, "Total", 0);
+			end
+		end
+	else
+		local sHabilidades=DB.getValue(rTarget.sCTNode..".Habilidades", "");
+		if sHabilidades~="" then
+			local nEsquivar=sHabilidades:lower():match("esquivar %d*");
+			if nEsquivar then return nEsquivar; end
+		end
+		-- O no hay habilidades o esquivar no está presente -&gt; 1+AGI-Est.
+		return 1+DB.getValue(rTarget.sCTNode..".Agilidad", 0)-DB.getValue(rTarget.sCTNode..".Estorbo", "");
+	end
+end
+
+function ObtenerNombre(rRegistro)
+	if rRegistro.sType=="npc" then
+		if DB.getValue(rRegistro.sCTNode..".isidentified", 0)==1 then return DB.getValue(rRegistro.sCTNode..".name", "");
+		else return DB.getValue(rRegistro.sCTNode..".nonid_name", "");
+		end
+	else
+		return DB.getValue(rRegistro.sCreatureNode..".name", "");
+	end
+end
+
 function ProcesarGolpeAislado(rSource, rTarget, rRoll)
+	local nBonoDebilitado=0;
+	if EstaDevilitado() then nBonoDebilitado=3; end
+	local nEsquivarDC=BuscarEsquivar(rTarget);
+	local nResultado=ActionsManager.total(rRoll)-nEsquivarDC;
+	local sNombreAtacante=ObtenerNombre(rSource);
+	local sNombreDefensor=ObtenerNombre(rTarget);
 	
+	local rMessage = ChatManager.createBaseMessage();
+	if nResultado&gt;0 then
+		AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado);
+		if nResultado&gt;=10 then
+			rMessage.text = sNombreAtacante.." golpea críticamente a "..sNombreDefensor.." con "..nResultado.." éxitos";
+			rMessage.icon = "roll_attack_crit";
+		else
+			rMessage.text = sNombreAtacante.." golpea a "..sNombreDefensor.." con "..nResultado.." éxitos";
+			rMessage.icon = "roll_attack_hit";
+		end
+	elseif nResultado&lt;0 and nResultado&gt;-5 then
+		rMessage.text = sNombreAtacante.." falla al atacar a"..sNombreDefensor;
+		rMessage.icon = "roll_attack_miss";
+	else
+		rMessage.text = sNombreAtacante.." pifia al atacar a"..sNombreDefensor;
+		rMessage.icon = "roll_attack_crit_miss";
+	end
+	Comm.deliverChatMessage(rMessage);
 end
 
 function AtaqueDistancia(rSource, rTarget, rRoll)
@@ -288,6 +342,8 @@ function ProcesarMele(nMele)
 					if DB.getValue(tEnemigos[j].PathNodo..".isidentified", 0)==1 then sNombreEnemigo=DB.getValue(tEnemigos[j].PathNodo..".name", "");
 					else sNombreEnemigo=DB.getValue(tEnemigos[j].PathNodo..".nonid_name", "");
 					end
+--					local sNombreAliado=ObtenerNombre(rRegistro)
+--					local sNombreEnemigo=ObtenerNombre(rRegistro)
 					nResultado=tAliados[i].nTirada-tEnemigos[j].nTirada;
 					if nResultado&gt;0 then
 						--Debug.chat(DB.getValue(tAliados[i].PathNodo..".name", "").." golpea a "..sNombreEnemigo.." con "..nResultado.." éxitos");
