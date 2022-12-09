@@ -402,7 +402,7 @@ function Danio(rSource, rTarget, rRoll)
 		local nProteccion=DB.getValue(rTarget.sCTNode..".TotalProteccion");
 		local rMessage2 = ChatManager.createBaseMessage();
 		rMessage2.text = "Daño ["..math.max(0, ActionsManager.total(rRoll)-nProteccion).."] -&gt; [a "..DB.getValue(rTarget.sCTNode..".name", "").."]";
-		if nProteccion&gt;0 then rMessage2.text=rMessage2.text.." [Absorvido "..math.min(nProteccion, ActionsManager.total(rRoll)).."]"; end
+		if nProteccion&gt;0 then rMessage2.text=rMessage2.text.." [Absorbido "..math.min(nProteccion, ActionsManager.total(rRoll)).."]"; end
 		rMessage2.icon = "roll_damage";
 		Comm.deliverChatMessage(rMessage2);
 		AniadirHerida(rTarget, math.max(0, ActionsManager.total(rRoll)-nProteccion))
