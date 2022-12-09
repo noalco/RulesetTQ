@@ -58,7 +58,7 @@
   <WindowControls>
     <WindowName>ct_heridas</WindowName>
     <ControlName>ListaHeridas</ControlName>
-    <ZIndex>2</ZIndex>
+    <ZIndex>1</ZIndex>
     <ControlClass>FGWindowList</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AcceptDrop","Value":{"@xsi:type":"ArrayOfPropertyAcceptDrop"}},
@@ -116,7 +116,7 @@
 ]}}</Definition>
     <LUACode>function Actualizar()
 	local sTipo, sRuta=DB.getValue(window.parentcontrol.window.getDatabaseNode(), "link");
-	if sTipo=="charsheet" then--ActorManager.isPC(rActor) then
+	if sTipo=="charsheet" then
 		setEnabled(false);
 		DB.deleteChildren(getDatabaseNode())
 		local NuevaHerida;
@@ -124,6 +124,17 @@
 			NuevaHerida=DB.createChild(getDatabaseNode());
 			DB.copyNode(v, NuevaHerida);
 		end
+	end
+end
+
+function CalcularHeridas()
+	local sTipo, sRuta=DB.getValue(window.parentcontrol.window.getDatabaseNode(), "link");
+	if sTipo~="charsheet" then
+		local nTotal=0;
+		for _,NodoHerida in pairs(getWindows()) do
+			nTotal=nTotal+NodoHerida.PDHerida.getValue();
+		end
+		window.parentcontrol.window.wounds.setValue(nTotal);
 	end
 end</LUACode>
     <GroupIndex>0</GroupIndex>

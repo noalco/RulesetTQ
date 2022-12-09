@@ -18,6 +18,8 @@ Principal:
 Habilidades:
 	- Cordelería
 	- Habilidades custom
+	- ¿Tiradas ocultas para las habilidades que así lo requieran?
+	- ¿Informar de las tiradas de habilidades de cultura y técnica sin entrenamiento?
 	
 Inventario
 	- Botón identificar en los objetos
