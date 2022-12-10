@@ -230,11 +230,20 @@ end
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	local nPD=0;
-	for _,nodoHeridas in pairs(window.getDatabaseNode().getParent().getChildren()) do
-		nPD=nPD+DB.getValue(nodoHeridas, "PD", 0);
-	end
-	DB.setValue(window.getDatabaseNode().getParent().getParent(), "PD", "number", nPD);
+--	for _,nodoHeridas in pairs(window.getDatabaseNode().getParent().getChildren()) do
+--		nPD=nPD+DB.getValue(nodoHeridas, "PD", 0);
+--	end
+	local nContLeves=0;
+	local bHayGrave=false;
 	ActualizarTipo();
+	for _,nodoHeridas in pairs(window.windowlist.getWindows()) do
+		nPD=nPD+nodoHeridas.PDHerida.getValue();
+		if nodoHeridas.Tipo.getValue()=="L" then nContLeves=nContLeves+1;
+		elseif nodoHeridas.Tipo.getValue()=="G" then bHayGrave=true;
+		end
+	end
+	if nContLeves&gt;1 or bHayGrave then DB.setValue(window.getDatabaseNode(), "...Debilitado", "number", 1); end
+	DB.setValue(window.getDatabaseNode().getParent().getParent(), "PD", "number", nPD);
 	DB.setValue(window.getDatabaseNode(), "...ListaHeridasModificada", "number", DB.getValue(window.getDatabaseNode(), "...ListaHeridasModificada", 0)+1);
 end
 

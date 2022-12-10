@@ -43,7 +43,12 @@ Wizard:
 CT:
 			- Gestionar los cambios de facción cuando el individuo está en una melé
 	- Efectos
-	- Armas a distancia
 	- Añadir debilitado/incapacitado a los efectos
 	- Añadir puntos de infortunio
 	- Añadir efectos debidos a heridas
+	- Armas arrojadizas en PNJs (CC/a distancia)
+	- Mostrar tipo de daño
+	- Tipo de daño vs tipo de armadura
+	
+Exportar:
+	- Permitir exportar elementos individuales

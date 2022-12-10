@@ -1057,6 +1057,8 @@ function linkPCFields()
 		wounds.setLink(nodeChar.createChild("PuntosDeVida.PD", "number"), true);
 		current.setLink(nodeChar.createChild("PuntosDeVida.VidaActual", "number"), true);
 		ListaHeridasModificada.setLink(nodeChar.createChild("PuntosDeVida.ListaHeridasModificada", "number"), true);
+		sub_effects.subwindow.Debilitado.setLink(nodeChar.createChild("PuntosDeVida.Debilitado", "number"), false);
+		sub_effects.subwindow.Incapacitado.setLink(nodeChar.createChild("PuntosDeVida.Incapacitado", "number"), false);
 		hp.setReadOnly(true);
 		wounds.setReadOnly(true);
 --		current.setReadOnly(true);
