@@ -4,8 +4,6 @@ Sugerencias Psico y Eldarc:
 	- Cambiar la duración de los conjuros a desplegable o ciclo y, si se mostrara otra duración, q muestre el campo numérico
 	
 - Bugs:
-	- No se calculan bien los bonos de las instancias
-
 
 General:
 	- Tooltips
@@ -17,7 +15,6 @@ Principal:
 Habilidades:
 	- Cordelería
 	- Habilidades custom
-	- ¿Tiradas ocultas para las habilidades que así lo requieran?
 	- ¿Informar de las tiradas de habilidades de cultura y técnica sin entrenamiento?
 	
 Inventario
