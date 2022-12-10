@@ -151,7 +151,12 @@ function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad)
 		if nResultado&gt;0 then
 			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado);
 			if nResultado&gt;=10 then
-				rMessageResultado.text = sNombreAtacante.." golpea críticamente a "..sNombreDefensor.." con "..nResultado.." éxitos";
+				local nNumGolpesEpicos=math.floor((nResultado-5)/5);
+				local sGolpeEpico;
+				if nNumGolpesEpicos==1 then sGolpeEpico=" (1 Golpe Épico)";
+				else sGolpeEpico=" ("..nNumGolpesEpicos.." Golpes Épicos)";
+				end
+				rMessageResultado.text = sNombreAtacante.." golpea críticamente a "..sNombreDefensor.." con "..nResultado.." éxitos"..sGolpeEpico;
 				rMessageResultado.icon = "roll_attack_crit";
 			else
 				rMessageResultado.text = sNombreAtacante.." golpea a "..sNombreDefensor.." con "..nResultado.." éxitos";
@@ -564,13 +569,43 @@ function Danio(rSource, rTarget, rRoll)
 	end
 
 	if rTarget then
-		local nProteccion=DB.getValue(rTarget.sCTNode..".TotalProteccion");
+		local nProteccion=DB.getValue(rTarget.sCTNode..".TotalProteccion", 0);
 		local rMessage2 = ChatManager.createBaseMessage();
-		rMessage2.text = "Daño ["..math.max(0, ActionsManager.total(rRoll)-nProteccion).."] -&gt; [a "..DB.getValue(rTarget.sCTNode..".name", "").."]";
+		local sNombreDefensor=ObtenerNombre(rTarget);
+		rMessage2.text = "Daño ["..math.max(0, ActionsManager.total(rRoll)-nProteccion).."] -&gt; [a "..sNombreDefensor.."]";
 		if nProteccion&gt;0 then rMessage2.text=rMessage2.text.." [Absorbido "..math.min(nProteccion, ActionsManager.total(rRoll)).."]"; end
 		rMessage2.icon = "roll_damage";
-		Comm.deliverChatMessage(rMessage2);
-		AniadirHerida(rTarget, math.max(0, ActionsManager.total(rRoll)-nProteccion))
+		local PDHerida=ActionsManager.total(rRoll)-nProteccion;
+		AniadirHerida(rTarget, math.max(0, PDHerida))
+
+		local nGraveIni, nGraveFin, nLeveIni, nLeveFin, nRasgunioIni, nRasgunioFin=Principal.ObtenerRangos(DB.getValue(rTarget.sCTNode..".hp", 0));
+		local TipoHerida="";
+		local bHeridaMortal=false;
+		local bHeridaGrabe=false;
+		local bHeridaLeve=false;
+		if nGraveFin~="-" and PDHerida&gt;nGraveFin then TipoHerida=" [Herida Mortal] [Muerto]"; bHeridaMortal=true;
+		elseif nGraveIni~="-" and PDHerida&gt;=nGraveIni then TipoHerida=" [Herida Grave]"; bHeridaGrabe=true;
+		elseif nLeveIni~="-" and PDHerida&gt;=nLeveIni then TipoHerida=" [Herida Leve]"; bHeridaLeve=true;
+		else TipoHerida=" [Rasguño]";
+		end
+		
+		rMessage2.text=rMessage2.text..TipoHerida;
+		if not bHeridaMortal then
+			if DB.getValue(rTarget.sCTNode..".current", 1)&lt;=0 then
+				rMessage2.text=rMessage2.text.." [Incapacitado]";
+				if bHeridaGrabe then rMessage2.text=rMessage2.text.." [1 PD/minuto]"; end
+			else
+				if bHeridaGrabe then rMessage2.text=rMessage2.text.." [Debilitado]"; end
+				if bHeridaLeve then
+					local nContLeves=0;
+					for _,NodoHerida in pairs(DB.getChildren(rTarget.sCTNode..".ListaHeridas")) do
+						if DB.getValue(NodoHerida, "Tipo", "")=="L" then nContLeves=nContLeves+1; end
+					end
+					if nContLeves==2 then rMessage2.text=rMessage2.text.." [Debilitado]"; end
+				end
+			end
+		end
+		Comm.deliverChatMessage(rMessage2);	
 	end
 end
 

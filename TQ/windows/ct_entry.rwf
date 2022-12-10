@@ -931,6 +931,8 @@ end
 	-- Register the deletion menu item for the host
 	registerMenuItem(Interface.getString("list_menu_deleteitem"), "delete", 6);
 	registerMenuItem(Interface.getString("list_menu_deleteconfirm"), "delete", 6, 7);
+	
+
 end
 
 function onMenuSelection(selection, subselection)
@@ -1069,9 +1071,6 @@ function linkPCFields()
 		sub_defense.subwindow.TipoArmadura.setReadOnly(true);
 		sub_defense.subwindow.Escudo.setReadOnly(true);
 		sub_defense.subwindow.Yelmo.setReadOnly(true);
-		
-		
-		
 	end
 end
 

@@ -233,18 +233,21 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"294"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
+    <LUACode>function Actualizar()
 	local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "...link");
-	if sTipo=="npc" then
-		window.windowlist.CalcularHeridas();
+	window.windowlist.CalcularHeridas();
+--	if sTipo=="npc" then
+--		window.windowlist.CalcularHeridas();
 		window.Tipo.CalcularTipo();
-	end
+--	end
 end
 
 function onInit()
 	local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "...link");
 	setReadOnly(sTipo=="charsheet");
-	onValueChanged();
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", Actualizar);
+	Actualizar();
+	
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
