@@ -81,6 +81,524 @@
 	&lt;string name="option_val_detailed"&gt;Detallado&lt;/string&gt;
 	&lt;string name="option_val_status"&gt;Estado&lt;/string&gt;
 
+
+	&lt;!-- Traídos desde strings_campaign.xml del CoreRPG --&gt;
+	&lt;string name="color_edit"&gt;Haz clic para editar color&lt;/string&gt;
+	&lt;string name="ft_empty"&gt;Haz clic para escribir&lt;/string&gt;
+	&lt;string name="menu_revert"&gt;Revertir Cambios&lt;/string&gt;
+	&lt;string name="tooltip_public"&gt;Público&lt;/string&gt;
+	&lt;string name="tooltip_shared"&gt;Compartido:&lt;/string&gt;
+	&lt;string name="button_add"&gt;Añadir elemento&lt;/string&gt;
+	&lt;string name="button_editon"&gt;Editar Lista&lt;/string&gt;
+	&lt;string name="button_editoff"&gt;Para de Editar Lista&lt;/string&gt;
+	&lt;string name="button_delete"&gt;Eliminar Elemento&lt;/string&gt;
+	&lt;string name="button_deleteconfirm"&gt;Confirma Eliminar Elemento&lt;/string&gt;
+	&lt;string name="button_import_text"&gt;Importar Texto&lt;/string&gt;
+	&lt;string name="tooltip_readonly"&gt;Solo Lectura&lt;/string&gt;
+	&lt;string name="tooltip_modified"&gt;Modificado&lt;/string&gt;
+	&lt;string name="tooltip_lock"&gt;Bloqueado&lt;/string&gt;
+	&lt;string name="tooltip_unlock"&gt;Desbloqueado&lt;/string&gt;
+	&lt;string name="tooltip_id"&gt;Elemento Identificado&lt;/string&gt;
+	&lt;string name="tooltip_nonid"&gt;Elemento No Identificado&lt;/string&gt;
+	&lt;string name="tooltip_expand"&gt;Expandir Todo&lt;/string&gt;
+	&lt;string name="tooltip_collapse"&gt;Contraer Todo&lt;/string&gt;
+	&lt;string name="tooltip_toolbar"&gt;Mostrar/Ocultar Barra de Herramientas&lt;/string&gt;
+	&lt;string name="tooltip_resetpos"&gt;Reiniciar Posición&lt;/string&gt;
+	
+	&lt;!-- Import --&gt;
+	&lt;string name="button_import"&gt;Importar&lt;/string&gt;
+	&lt;string name="import_label_mode"&gt;Modo de Importación&lt;/string&gt;
+	
+	&lt;!-- Characters --&gt;
+	&lt;string name="charselect_window_title"&gt;Selección de Personaje&lt;/string&gt;
+	&lt;string name="charselect_import_window_title"&gt;Importar Personaje&lt;/string&gt;
+	&lt;string name="charselect_tooltip_pregen"&gt;Añade Personaje Pregenerado&lt;/string&gt;
+	&lt;string name="charselect_tooltip_import"&gt;Importar Personaje&lt;/string&gt;
+	&lt;string name="charselect_tooltip_importadd"&gt;Añadir Personaje&lt;/string&gt;
+	&lt;string name="charselect_tooltip_importfile"&gt;Importar Archivo de Personaje&lt;/string&gt;
+	&lt;string name="charselect_tooltip_export"&gt;Exportar Personaje&lt;/string&gt;
+	&lt;string name="charselect_tooltip_back"&gt;Volver a Selección de Personaje&lt;/string&gt;
+	&lt;string name="charselect_label_server"&gt;Servidor&lt;/string&gt;
+	&lt;string name="charselect_label_local"&gt;Local&lt;/string&gt;
+	&lt;string name="charselect_label_campaign"&gt;Campaña&lt;/string&gt;
+	&lt;string name="charselect_label_pregen"&gt;Pregenerado&lt;/string&gt;
+	&lt;string name="charselect_label_ownedby"&gt;Propiedad de:&lt;/string&gt;
+	&lt;string name="charselect_label_owned"&gt;Controlado&lt;/string&gt;
+	&lt;string name="char_label_name"&gt;NOMBRE&lt;/string&gt;
+	&lt;string name="char_label_race"&gt;RAZA&lt;/string&gt;
+	&lt;string name="char_label_gender"&gt;GÉNERO&lt;/string&gt;
+	&lt;string name="char_label_age"&gt;EDAD&lt;/string&gt;
+	&lt;string name="char_label_height"&gt;ALTURA&lt;/string&gt;
+	&lt;string name="char_label_weight"&gt;PESO&lt;/string&gt;
+	&lt;string name="char_label_senses"&gt;Sentidos&lt;/string&gt;
+	&lt;string name="char_tooltip_portrait"&gt;Retrato&lt;/string&gt;
+	&lt;string name="char_tooltip_token"&gt;Token&lt;/string&gt;
+	&lt;string name="char_tooltip_speak"&gt;Habla como PJ&lt;/string&gt;
+	&lt;string name="char_tooltip_activate"&gt;Establece PJ activo&lt;/string&gt;
+	&lt;string name="char_label_itemweight"&gt;Peso&lt;/string&gt;
+	&lt;string name="char_tooltip_itemweight"&gt;Peso&lt;/string&gt;
+	&lt;string name="char_tooltip_itemcarried"&gt;Cargado / Equipado&lt;/string&gt;
+	&lt;string name="char_tooltip_inv_none"&gt;No Cargado&lt;/string&gt;
+	&lt;string name="char_tooltip_inv_carried"&gt;Cargado&lt;/string&gt;
+	&lt;string name="char_tooltip_inv_equipped"&gt;Equipado&lt;/string&gt;
+	&lt;string name="char_label_attributes"&gt;Atributos / Habilidades&lt;/string&gt;
+	&lt;string name="char_label_abilities"&gt;Habilidades&lt;/string&gt;
+	&lt;string name="char_label_itemlocation"&gt;Localización&lt;/string&gt;
+	&lt;string name="char_label_itemname"&gt;Nombre&lt;/string&gt;
+	&lt;string name="char_label_totalweight"&gt;Peso total cargado&lt;/string&gt;
+	&lt;string name="char_label_money"&gt;Monedas&lt;/string&gt;
+	&lt;string name="char_label_appearance"&gt;Apariencia&lt;/string&gt;
+	&lt;string name="char_label_languages"&gt;Idiomas&lt;/string&gt;
+	&lt;string name="char_label_notes"&gt;Notas&lt;/string&gt;
+	&lt;string name="char_menu_delete"&gt;Eliminar Personaje&lt;/string&gt;
+	&lt;string name="char_menu_ownerclear"&gt;Limpiar propietario&lt;/string&gt;
+	&lt;string name="char_menu_ownergm"&gt;Tomar posesión(como %s)&lt;/string&gt;
+
+	&lt;!-- Pregenerated Characters --&gt;
+	&lt;string name="pregencharselect_window_title"&gt;Personajes Pregenerados&lt;/string&gt;
+	&lt;string name="pregenchar_tooltip_add"&gt;Añadir Personaje Pregenerado a la Campaña&lt;/string&gt;
+	&lt;string name="pregenchar_message_add"&gt;Personaje Pregenerado añadido a la campaña.&lt;/string&gt;
+
+	&lt;!-- Stories --&gt;
+	&lt;string name="story_button_templates"&gt;Plantillas&lt;/string&gt;
+	&lt;string name="story_button_generate"&gt;Generar&lt;/string&gt;
+	&lt;string name="story_ft_templatehelp"&gt;Entra texto formateado de forma habitual, usa etiquetas [TABLENAME] para especificar tiradas de tablas, y haz clic en Generar para crear una nueva entrada de historia.&lt;/string&gt;
+
+	&lt;!-- Images --&gt;
+	&lt;string name="image_emptylist"&gt;Suelta aquí archivos de imágenes para añadirlas en tu campaña.&lt;/string&gt;
+	&lt;string name="image_tooltip_listadd"&gt;Añade Dibujo&lt;/string&gt;
+	&lt;string name="image_message_nocopy"&gt;Los registros de imagen no se pueden copiar. Añadir nuevas imágenes en la lista de campaña usando el botón de la carpeta, o soltando un archivo en la lista.&lt;/string&gt;
+	&lt;string name="image_message_exists"&gt;Ya existe un registro de imagen con el mismo nombre.&lt;/string&gt;
+	&lt;string name="image_menu_size"&gt;Modificar tamaño&lt;/string&gt;
+	&lt;string name="image_menu_sizesmall"&gt;Tamaño Pequeño&lt;/string&gt;
+	&lt;string name="image_menu_sizeoriginal"&gt;Tamaño Original&lt;/string&gt;
+	&lt;string name="image_menu_sizevertical"&gt;Ajustar Verticalmente&lt;/string&gt;
+	&lt;string name="image_menu_sizehorizontal"&gt;Ajustar Horizontalmente&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbarzoomtofit"&gt;Zoom para Encajar&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbarmask"&gt;Modo Máscara&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbardraw"&gt;Modo Dibujo&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbarerase"&gt;Modo Borrar&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbargrid"&gt;Mostrar/Ocultar Barra de Cuadrícula&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbargridleft"&gt;Mover Cuadrícula a la Izquierda&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbargridup"&gt;Mover Cuadrícula Arriba&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbargridright"&gt;Mover Cuadrícula a la Derecha&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbargriddown"&gt;Mover Cuadrícula Abajo&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbargridplus"&gt;Hacer Mayor la Cuadrícula&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbargridminus"&gt;Hacer Menor la Cuadrícula&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbarselect"&gt;Modo Selección&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbartarget"&gt;Modo Objetivo&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbartargetclear"&gt;Limpiar Objetivos&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbartargetfriend"&gt;Seleccionar Unidades Amistosas&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbartargetfoe"&gt;Seleccionar Unidades Enemigas&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbarshortcut"&gt;Alternar Vista de Enlaces&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbartokenlock"&gt;Bloqueo/Desbloqueo de Movimiento de Tokens&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbarpreview"&gt;Modo Previsión Vista del Jugador&lt;/string&gt;
+	&lt;string name="image_tooltip_toolbarlock"&gt;Alternar Vista del Panel de Datos de Imagen&lt;/string&gt;
+	&lt;string name="image_label_unidentified"&gt;Nombre Sin Identificar&lt;/string&gt;
+	
+	&lt;!-- NPCs --&gt;
+	&lt;string name="npc_label_unidentified"&gt;Nombre Sin Identificar&lt;/string&gt;
+	&lt;string name="npc_label_size"&gt;Tamaño&lt;/string&gt;
+	&lt;string name="npc_label_reach"&gt;Alcance&lt;/string&gt;
+	&lt;string name="npc_label_senses"&gt;Sentidos&lt;/string&gt;
+	&lt;string name="npc_label_skills"&gt;Tiradas&lt;/string&gt;
+	&lt;string name="npc_label_items"&gt;Equipo&lt;/string&gt;
+	&lt;string name="npc_label_languages"&gt;Idiomas&lt;/string&gt;
+	&lt;string name="npc_button_import"&gt;Importar Archivo de PNJ&lt;/string&gt;
+	
+	&lt;!-- Encounters --&gt;
+	&lt;string name="battle_button_random"&gt;Aleatorio&lt;/string&gt;
+	&lt;string name="battle_button_generate"&gt;Generar&lt;/string&gt;
+	&lt;string name="battle_emptylist"&gt;Suelta aquí PNJs para añadirlos al encuentro.&lt;/string&gt;
+	&lt;string name="battle_label_token"&gt;Token&lt;/string&gt;
+	&lt;string name="battle_label_name"&gt;Nombre&lt;/string&gt;
+	&lt;string name="battle_label_placement"&gt;Ubicación:&lt;/string&gt;
+	&lt;string name="battle_tooltip_addct"&gt;Añade encuentro al Asistente de Combate&lt;/string&gt;
+	&lt;string name="battle_message_wrong_source"&gt;Solo se pueden añadir registros de la campaña a los encuentros.&lt;/string&gt;
+	
+	&lt;!-- Encounters - Random --&gt;
+	&lt;string name="battlerandom_empty_expr"&gt;&amp;#171; Ej: 1d6 &amp;#187;&lt;/string&gt;
+
+	&lt;!-- Items --&gt;
+	&lt;string name="item_button_template"&gt;Plantillas&lt;/string&gt;
+	&lt;string name="item_button_parcel"&gt;Botín&lt;/string&gt;
+	&lt;string name="item_label_unidentified"&gt;Nombre Sin Identificar&lt;/string&gt;
+	&lt;string name="item_label_unidentifiednotes"&gt;Notas&lt;/string&gt;
+	&lt;string name="item_label_cost"&gt;Coste&lt;/string&gt;
+	&lt;string name="item_label_weight"&gt;Peso&lt;/string&gt;
+	&lt;string name="item_label_subitems"&gt;Objetos Incluídos&lt;/string&gt;
+
+	&lt;!-- Parcels --&gt;
+	&lt;string name="parcel_emptylist"&gt;Drop item links here.&lt;/string&gt;
+	&lt;string name="parcel_label_money"&gt;Currency&lt;/string&gt;
+	&lt;string name="parcel_label_itemname"&gt;Item Name&lt;/string&gt;
+	&lt;string name="parcel_tooltip_id_all"&gt;Identify All Items&lt;/string&gt;
+
+	&lt;!-- Vehicles --&gt;
+	&lt;string name="vehicle_grouped_label_name"&gt;Name&lt;/string&gt;
+	&lt;string name="vehicle_grouped_label_cost"&gt;Coste&lt;/string&gt;
+	&lt;string name="vehicle_grouped_label_weight"&gt;Ps&lt;/string&gt;
+	&lt;string name="vehicle_grouped_tooltip_weight"&gt;Peso&lt;/string&gt;
+	&lt;string name="vehicle_grouped_label_speed"&gt;Vel.&lt;/string&gt;
+	&lt;string name="vehicle_grouped_tooltip_speed"&gt;Vel. Máxima&lt;/string&gt;
+	
+	&lt;string name="vehicle_label_unidentified"&gt;Nombre Sin Identificar&lt;/string&gt;
+	&lt;string name="vehicle_label_type"&gt;Tipo&lt;/string&gt;
+	&lt;string name="vehicle_label_size"&gt;Tamaño&lt;/string&gt;
+	&lt;string name="vehicle_label_reach"&gt;Alcance&lt;/string&gt;
+	&lt;string name="vehicle_label_cost"&gt;Coste&lt;/string&gt;
+	&lt;string name="vehicle_label_weight"&gt;Peso&lt;/string&gt;
+	&lt;string name="vehicle_label_speed"&gt;Velocidad&lt;/string&gt;
+
+	&lt;!-- Notes --&gt;
+	&lt;string name="note_label_owner"&gt;Propietario:&lt;/string&gt;
+	&lt;string name="note_label_public"&gt;¿Pública?&lt;/string&gt;
+
+	&lt;!-- Tables --&gt;
+	&lt;string name="table_window_title"&gt;Tablas&lt;/string&gt;
+	&lt;string name="table_button_add_guided"&gt;Añade Tabla por Tamaño&lt;/string&gt;
+	&lt;string name="table_emptylabel"&gt;&amp;#171; Etiqueta &amp;#187;&lt;/string&gt;
+	&lt;string name="table_emptydesc"&gt;&amp;#171; Descripción &amp;#187;&lt;/string&gt;
+	&lt;string name="table_menu_linkdelete"&gt;Limpiar Enlace&lt;/string&gt;
+	&lt;string name="table_menu_more"&gt;Más&lt;/string&gt;
+	&lt;string name="table_menu_rows2"&gt;2 Filas&lt;/string&gt;
+	&lt;string name="table_menu_rows4"&gt;4 Filas&lt;/string&gt;
+	&lt;string name="table_menu_rows6"&gt;6 Filas&lt;/string&gt;
+	&lt;string name="table_menu_rows8"&gt;8 Filas&lt;/string&gt;
+	&lt;string name="table_menu_rows10"&gt;10 Filas&lt;/string&gt;
+	&lt;string name="table_menu_rows20"&gt;20 Filas&lt;/string&gt;
+	&lt;string name="table_menu_rows100"&gt;100 Filas&lt;/string&gt;
+	&lt;string name="table_menu_step1"&gt;Paso 1&lt;/string&gt;
+	&lt;string name="table_menu_step2"&gt;Paso 2&lt;/string&gt;
+	&lt;string name="table_menu_step4"&gt;Paso 4&lt;/string&gt;
+	&lt;string name="table_menu_step5"&gt;Paso 5&lt;/string&gt;
+	&lt;string name="table_menu_step10"&gt;Paso 10&lt;/string&gt;
+	&lt;string name="table_menu_step20"&gt;Paso 20&lt;/string&gt;
+	&lt;string name="table_menu_step100"&gt;Paso 100&lt;/string&gt;
+	&lt;string name="table_tooltip_rowadd"&gt;Añadir Fila&lt;/string&gt;
+	&lt;string name="table_tooltip_coladd"&gt;Añadir Columna&lt;/string&gt;
+	&lt;string name="table_tooltip_coldelete"&gt;Eliminar Columna&lt;/string&gt;
+	&lt;string name="table_tooltip_rollshow"&gt;Mostrar los Resultados de la Tirada&lt;/string&gt;
+	&lt;string name="table_tooltip_rollhide"&gt;Ocultar los Resultados de la Tirada&lt;/string&gt;
+	&lt;string name="table_label_roll"&gt;Tirada&lt;/string&gt;
+	&lt;string name="table_label_showroll"&gt;Vis&lt;/string&gt;
+	&lt;string name="table_tooltip_showroll"&gt;Visibilidad de la Tirada&lt;/string&gt;
+	&lt;string name="table_label_customroll"&gt;Personalizado&lt;/string&gt;
+	&lt;string name="table_label_output"&gt;Salida&lt;/string&gt;
+	&lt;string name="table_label_output_chat"&gt;Chat&lt;/string&gt;
+	&lt;string name="table_label_output_story"&gt;Hist.&lt;/string&gt;
+	&lt;string name="table_label_output_parcel"&gt;Botín&lt;/string&gt;
+	&lt;string name="table_label_output_encounter"&gt;Enc.&lt;/string&gt;
+
+	&lt;string name="table_error_lookupfail"&gt;[ERROR] No se puede encontrar la tabla.&lt;/string&gt;
+	&lt;string name="table_error_tablematch"&gt;No se puede encontrar la tabla indicada&lt;/string&gt;
+	&lt;string name="table_error_columnmatch"&gt;No se puede encontrar resultado, fila o columna&lt;/string&gt;
+	&lt;string name="table_error_sequentialfail"&gt;El sistema de tiradas secuencial para tablas ha fallado&lt;/string&gt;
+	&lt;string name="table_tag"&gt;TABLA&lt;/string&gt;
+	&lt;string name="table_result_tag"&gt;RESULTADO&lt;/string&gt;
+
+	&lt;string name="tableimport_window_title"&gt;Importar Tabla&lt;/string&gt;
+	&lt;string name="tableimport_label_name"&gt;Nombre&lt;/string&gt;
+	&lt;string name="tableimport_empty_name"&gt;&amp;#171; Escribe el nombre de la tabla. &amp;#187;&lt;/string&gt;
+	&lt;string name="tableimport_empty_text"&gt;&amp;#171; Pega aquí los datos de la tabla. &amp;#187;&lt;/string&gt;
+	&lt;string name="tableimport_label_datatype_simple"&gt;Simple&lt;/string&gt;
+	&lt;string name="tableimport_label_datatype_delimited"&gt;Delimitada&lt;/string&gt;
+	&lt;string name="tableimport_label_datatype"&gt;Tipo de Datos&lt;/string&gt;
+	&lt;string name="tableimport_label_headerrow"&gt;¿Encabezado de columnas en la primera fila??&lt;/string&gt;
+	&lt;string name="tableimport_label_rangecol"&gt;¿Rango de tablas en la primera columna?&lt;/string&gt;
+	&lt;string name="tableimport_label_delimiter"&gt;Delimitador&lt;/string&gt;
+	&lt;string name="tableimport_label_delimiter_comma"&gt;Comma&lt;/string&gt;
+	&lt;string name="tableimport_label_delimiter_pipe"&gt;Tubería&lt;/string&gt;
+	&lt;string name="tableimport_label_delimiter_colon"&gt;Dos puntos&lt;/string&gt;
+	&lt;string name="tableimport_label_delimiter_semicolon"&gt;Punto y coma&lt;/string&gt;
+	&lt;string name="tableimport_label_import"&gt;Importar&lt;/string&gt;
+
+	&lt;!-- Reference --&gt;
+	&lt;string name="ref_window_title"&gt;Manual de Referencia&lt;/string&gt;
+	&lt;string name="ref_label_weightsuffix"&gt;lb.&lt;/string&gt;
+
+	&lt;string name="ref_button_index_chapter_new"&gt;Capítulo Nuevo&lt;/string&gt;
+	&lt;string name="ref_button_index_section_new"&gt;Subcapítulo Nuevo&lt;/string&gt;
+	&lt;string name="ref_button_index_page_new"&gt;Página Nueva&lt;/string&gt;
+	&lt;string name="ref_button_index_keywordgen"&gt;Generador de Palabras Clave&lt;/string&gt;
+	
+	&lt;string name="ref_empty_index_chapter_name"&gt;&amp;#171; Capítulo Nuevo &amp;#187;&lt;/string&gt;
+	&lt;string name="ref_empty_index_section_name"&gt;&amp;#171; Subcapítulo Nuevo &amp;#187;&lt;/string&gt;
+	&lt;string name="ref_empty_index_article_name"&gt;&amp;#171; Página Nueva &amp;#187;&lt;/string&gt;
+
+	&lt;string name="ref_empty_block_header"&gt;&amp;#171; Escribe Aquí &amp;#187;&lt;/string&gt;
+	&lt;string name="ref_empty_block_text"&gt;&amp;#171; Escribe Aquí &amp;#187;&lt;/string&gt;
+
+	&lt;string name="ref_tooltip_moveup"&gt;Mover Arriba&lt;/string&gt;
+	&lt;string name="ref_tooltip_movedown"&gt;Mover Abajo&lt;/string&gt;
+
+	&lt;string name="ref_tooltip_index_keywordgen"&gt;Generación de Palabra Clave\n(Puede tardar más para manuales extensos)&lt;/string&gt;
+
+	&lt;string name="ref_tooltip_block_frame"&gt;Selección de Marco&lt;/string&gt;
+	&lt;string name="ref_tooltip_block_image_linkclear"&gt;Limpiar Enlace de Imagen&lt;/string&gt;
+	&lt;string name="ref_tooltip_block_image_scaleup"&gt;Aumentar Imagen&lt;/string&gt;
+	&lt;string name="ref_tooltip_block_image_scaledown"&gt;Disminuir Imagen&lt;/string&gt;
+	&lt;string name="ref_tooltip_block_image_sizeclear"&gt;Reiniciar Tamaño de Imagen&lt;/string&gt;
+	&lt;string name="ref_tooltip_block_header"&gt;Bloque de Cabecera&lt;/string&gt;
+	&lt;string name="ref_tooltip_block_text"&gt;Bloque de Texto&lt;/string&gt;
+	&lt;string name="ref_tooltip_block_image"&gt;Bloque de Imagen&lt;/string&gt;
+	&lt;string name="ref_tooltip_block_dualtext"&gt;Bloque de Texto Dual&lt;/string&gt;
+	&lt;string name="ref_tooltip_block_textlimager"&gt;Bloque de Texto en Izquierda / Imagen en Derecha&lt;/string&gt;
+	&lt;string name="ref_tooltip_block_textrimagel"&gt;Bloque de Imagen en Izquierda / Texto en Derecha&lt;/string&gt;
+	
+	
+	
+	&lt;!-- Traídos desde strings_common.xml --&gt;
+	&lt;!-- Used by many rulesets --&gt;
+	&lt;string name="base"&gt;Base&lt;/string&gt;
+	&lt;string name="dash"&gt;-&lt;/string&gt;
+	&lt;string name="lvl"&gt;Nvl&lt;/string&gt;
+	&lt;string name="level"&gt;Nivel&lt;/string&gt;
+
+	&lt;!-- General --&gt;
+	&lt;string name="visibilityon"&gt;Visible para Todos&lt;/string&gt;
+	&lt;string name="visibilityoff"&gt;Visible para el DJ&lt;/string&gt;
+	&lt;string name="list_menu_createitem"&gt;Crear Elemento&lt;/string&gt;
+	&lt;string name="list_menu_deleteitem"&gt;Elementar Elemento&lt;/string&gt;
+	&lt;string name="list_menu_deleteconfirm"&gt;Confirma Eliminar&lt;/string&gt;
+
+	&lt;string name="label_page_info"&gt;Página %d de %d&lt;/string&gt;
+	&lt;string name="tooltip_page_top"&gt;Volver a Índice&lt;/string&gt;
+	&lt;string name="tooltip_page_start"&gt;Primera Página&lt;/string&gt;
+	&lt;string name="tooltip_page_prev"&gt;Página Anterior&lt;/string&gt;
+	&lt;string name="tooltip_page_next"&gt;Página Siguiente&lt;/string&gt;
+	&lt;string name="tooltip_page_end"&gt;Última Página&lt;/string&gt;
+	
+	&lt;!-- Common Lighting/Vision Settings --&gt;
+	&lt;string name="lighting_none"&gt;Ninguna&lt;/string&gt;
+	&lt;string name="lighting_candle"&gt;Vela&lt;/string&gt;
+	&lt;string name="lighting_lamp"&gt;Lámpara&lt;/string&gt;
+	&lt;string name="lighting_torch"&gt;Antorcha&lt;/string&gt;
+	&lt;string name="lighting_lantern"&gt;Linterna&lt;/string&gt;
+	&lt;string name="lighting_spell_darkness"&gt;Conjuro - Oscuridad&lt;/string&gt;
+	&lt;string name="lighting_spell_darkness_tag"&gt;oscuridad&lt;/string&gt;
+	&lt;string name="lighting_spell_light"&gt;Conjuro - Luz&lt;/string&gt;
+	&lt;string name="lighting_spell_light_tag"&gt;luz&lt;/string&gt;
+	&lt;string name="ambient_lighting_none"&gt;Ninguna&lt;/string&gt;
+	&lt;string name="ambient_lighting_dawn"&gt;Alba&lt;/string&gt;
+	&lt;string name="ambient_lighting_sunlight"&gt;Mediodía&lt;/string&gt;
+	&lt;string name="ambient_lighting_dusk"&gt;Ocaso&lt;/string&gt;
+	&lt;string name="ambient_lighting_moonlight"&gt;Luz de Luna&lt;/string&gt;
+	&lt;string name="vision_none"&gt;Ninguno&lt;/string&gt;
+	&lt;string name="vision_darkvision"&gt;Infravisión&lt;/string&gt;
+	&lt;string name="vision_blindsight"&gt;Vista Ciega&lt;/string&gt;
+	&lt;string name="vision_truesight"&gt;Vista Auténtica&lt;/string&gt;
+	
+	&lt;!-- Game System Specific Lighting/Vision Settings --&gt;
+	&lt;string name="lighting_sunrod"&gt;Vara Solar&lt;/string&gt;
+	&lt;string name="lighting_spell_daylight"&gt;Conjuro - Luz diaria&lt;/string&gt;
+	&lt;string name="lighting_spell_daylight_tag"&gt;luz diaria&lt;/string&gt;
+	&lt;string name="vision_infravision"&gt;Infravisión&lt;/string&gt;
+	&lt;string name="vision_nightvision"&gt;Visión Nocturna&lt;/string&gt;
+	&lt;string name="vision_devilsight"&gt;Vista de Diablo&lt;/string&gt;
+	&lt;string name="vision_devilsight_alt"&gt;Vista del Diablo&lt;/string&gt;
+	&lt;string name="vision_darkvision_greater"&gt;Gran Visión de Oscuridad&lt;/string&gt;
+	&lt;string name="vision_darkvision_greater_alt"&gt;Gran Visión de Oscuridad&lt;/string&gt;
+	&lt;string name="vision_darkvision_superior"&gt;Visión de Oscuridad Superior&lt;/string&gt;
+	&lt;string name="vision_lowlightvision"&gt;Visión de Baja Luz&lt;/string&gt;
+	&lt;string name="vision_lowlightvision_alt"&gt;Visión de Baja Luz&lt;/string&gt;
+
+	&lt;!-- Templates --&gt;
+	&lt;string name="counter_menu_clear"&gt;Limpiar&lt;/string&gt;
+	&lt;string name="listlink_menu_editon"&gt;Editar&lt;/string&gt;
+	&lt;string name="listlink_menu_editoff"&gt;Deja de Editar&lt;/string&gt;
+	
+	&lt;string name="button_folder"&gt;Carpeta&lt;/string&gt;
+	&lt;string name="button_refresh"&gt;Refrescar&lt;/string&gt;
+	&lt;string name="button_folder_refresh_tooltip"&gt;Refrescar Carpeta de Recursos&lt;/string&gt;
+	&lt;string name="button_import_image_files"&gt;Importar Archivos&lt;/string&gt;
+	&lt;string name="button_import_image_assets"&gt;Crear Desde Recursos de la Campaña&lt;/string&gt;
+	&lt;string name="button_store"&gt;Tienda&lt;/string&gt;
+	&lt;string name="button_store_tooltip"&gt;Las compras en la Tienda requieren actualizar y reiniciar Fantasy Grounds&lt;/string&gt;
+	&lt;string name="button_dialog_ok"&gt;OK&lt;/string&gt;
+	&lt;string name="button_dialog_roll"&gt;Tirada&lt;/string&gt;
+	&lt;string name="button_dialog_fauxroll"&gt;Tirada Trampa&lt;/string&gt;
+	&lt;string name="button_dialog_cancel"&gt;Cancelar&lt;/string&gt;
+
+	&lt;!-- Desktop --&gt;
+	&lt;string name="charlist_emptyname"&gt;- Sin Nombre -&lt;/string&gt;
+	&lt;string name="charlist_menu_ring"&gt;Campanita&lt;/string&gt;
+	&lt;string name="charlist_menu_kick"&gt;Expulsar&lt;/string&gt;
+	&lt;string name="charlist_menu_kickconfirm"&gt;Confirmar Expulsión&lt;/string&gt;
+	&lt;string name="charlist_menu_afk"&gt;Alternar AFK&lt;/string&gt;
+	&lt;string name="charlist_menu_release"&gt;Liberar&lt;/string&gt;
+	&lt;string name="charlist_menu_whisper"&gt;Susurrar&lt;/string&gt;
+	&lt;string name="charlist_message_afkon"&gt;El usuario está AFK.&lt;/string&gt;
+	&lt;string name="charlist_message_afkoff"&gt;El usuario ha vuelto.&lt;/string&gt;
+	&lt;string name="modstack_label_modifier"&gt;Modificador&lt;/string&gt;
+	&lt;string name="modstack_label_adjusting"&gt;Ajustar&lt;/string&gt;
+	&lt;string name="modstack_tooltip_targeting_on"&gt;Usar los objetivos actuales para las tiradas del chat&lt;/string&gt;
+	&lt;string name="modstack_tooltip_targeting_off"&gt;No usar los objetivos actuales para las tiradas del chat&lt;/string&gt;
+	&lt;string name="dicetower_tooltip"&gt;Torre de Dados&lt;/string&gt;
+	&lt;string name="dicetower_tag"&gt;TORRE&lt;/string&gt;
+	&lt;string name="dicetower_menu_whisper"&gt;Susurrar al DJ&lt;/string&gt;
+	
+	&lt;string name="sidebar_tooltip_ct"&gt;Asistente de Combate&lt;/string&gt;
+	&lt;string name="sidebar_tooltip_ps"&gt;Ficha de Grupo&lt;/string&gt;
+	&lt;string name="sidebar_tooltip_calendar"&gt;Calendario&lt;/string&gt;
+	&lt;string name="sidebar_tooltip_diceselect"&gt;Dados&lt;/string&gt;
+	&lt;string name="sidebar_tooltip_modifiers"&gt;Modificadores&lt;/string&gt;
+	&lt;string name="sidebar_tooltip_effectlist"&gt;Efectos&lt;/string&gt;
+	&lt;string name="sidebar_tooltip_options"&gt;Opciones&lt;/string&gt;
+	&lt;string name="sidebar_tooltip_manualroll"&gt;Tirada Manual de Dados&lt;/string&gt;
+	
+	&lt;string name="sidebar_tooltip_library"&gt;Módulos&lt;/string&gt;
+	&lt;string name="sidebar_tooltip_assets"&gt;Recursos&lt;/string&gt;
+
+	&lt;string name="help_library_masterindex"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_data_masterindex&lt;/string&gt;
+	&lt;string name="help_library_charselect"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_data_charselect&lt;/string&gt;
+	
+	&lt;string name="help_tool_ct"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_tool_ct&lt;/string&gt;
+	&lt;string name="help_tool_ps"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_tool_ps&lt;/string&gt;
+	&lt;string name="help_tool_calendar"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_tool_calendar&lt;/string&gt;
+	&lt;string name="help_tool_color"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_tool_color&lt;/string&gt;
+	&lt;string name="help_tool_dice"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_tool_dice&lt;/string&gt;
+	&lt;string name="help_tool_modifiers"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_tool_modifiers&lt;/string&gt;
+	&lt;string name="help_tool_effects"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_tool_effects&lt;/string&gt;
+	&lt;string name="help_tool_options"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_tool_options&lt;/string&gt;
+
+	&lt;string name="help_tool_library"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_data_library&lt;/string&gt;
+	&lt;string name="help_tool_moduleselection"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_data_moduleselection&lt;/string&gt;
+	&lt;string name="help_tool_tokens"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_data_assets&lt;/string&gt;
+
+	&lt;string name="help_record_image"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_record_image&lt;/string&gt;
+	
+	&lt;!-- Chat --&gt;
+	&lt;string name="message_slashcommands"&gt;COMANDOS DE BARRA [requerido] &amp;lt;opcional&amp;gt;&lt;/string&gt;
+	&lt;string name="message_slashREVLon"&gt;Revelando todas las tiradas&lt;/string&gt;
+	&lt;string name="message_slashREVLoff"&gt;Escondiendo todas las tiradas&lt;/string&gt;
+	&lt;string name="error_slashexportrecordmissing"&gt;No se puede encontrar el registro encontrado para exportar.&lt;/string&gt;
+	&lt;string name="error_slashreplytargetmissing"&gt;Destino de respuesta no disponible.&lt;/string&gt;
+	&lt;string name="error_slashwhispertargetmissing"&gt;No se encuentra el receptor del susurro.&lt;/string&gt;
+	&lt;string name="error_slashwhispermsgmissing"&gt;No se encuentra el mensaje susurrado.&lt;/string&gt;
+	&lt;string name="error_slashwhispersourcemissing"&gt;Selecciona una identidad para susurrar.&lt;/string&gt;
+	&lt;string name="message_slashimportsuccess"&gt;Registro(s) Importado(s) desde&lt;/string&gt;
+	&lt;string name="message_slashexportsuccess"&gt;Registro(s) Exportado(s) desde&lt;/string&gt;
+	&lt;string name="message_slashflushsuccess"&gt;Todos los accesos de clientes no propietarios a la base de datos se han reiniciado.&lt;/string&gt;
+	&lt;string name="error_oobunknown"&gt;[ERROR] Se ha recibido un tipo de mensaje especial desconocido.&lt;/string&gt;
+	&lt;string name="tag_warning"&gt;ATENCIÓN&lt;/string&gt;
+	&lt;string name="chat_tooltip_speaker"&gt;Identidad del emisor&lt;/string&gt;
+	&lt;string name="chat_tooltip_language"&gt;Selección de idioma&lt;/string&gt;
+	
+	&lt;!-- Languages --&gt;
+	&lt;string name="lang_val_speaksall"&gt;Habla todas&lt;/string&gt;
+	&lt;string name="lang_val_understandsall"&gt;Entiende todas&lt;/string&gt;
+	&lt;string name="lang_val_comprehendlanguages"&gt;Comprende idiomas&lt;/string&gt;
+	&lt;string name="lang_val_tongues"&gt;Lenguas&lt;/string&gt;
+	&lt;string name="message_chatsetlang_unavailable"&gt;El lenguaje de chat no está disponible para la identidad actual.&lt;/string&gt;
+	&lt;string name="error_chathandlelang_unavailable"&gt;[ERROR] Se ha recibido un idioma en el chat ajeno a la campaña [Language = %s, Message = %s]&lt;/string&gt;
+	&lt;string name="message_chathandlelang_understood"&gt;entendido por&lt;/string&gt;
+	&lt;string name="tag_chathandlelang_translation"&gt;[Traducción]&lt;/string&gt;
+	&lt;string name="tag_chathandlelang_partial"&gt;[Parcial]&lt;/string&gt;
+	&lt;string name="tag_chathandlelang_unknown"&gt;[Desconocido]&lt;/string&gt;
+	
+	&lt;!-- Calendar --&gt;
+	&lt;string name="message_calendartime"&gt;La hora es&lt;/string&gt;
+	&lt;string name="message_calendardate"&gt;La fecha es&lt;/string&gt;
+	
+	&lt;!-- Built-in FG menus - windowinstance --&gt;
+	&lt;string name="windowshare"&gt;Compartir Registro&lt;/string&gt;
+	&lt;string name="windowunshare"&gt;Dejar de Compartir Registro&lt;/string&gt;	
+	
+	
+	
+	
+	
+	
+	&lt;!-- Traídos desde strings_ct.xml --&gt;
+	&lt;string name="ct_window_title"&gt;Asistente de Combate&lt;/string&gt;
+	
+	&lt;string name="ct_emptylist"&gt;Suelta PJs, PNJs o encuentros para añadir sus entradas.&lt;/string&gt;
+	
+	&lt;string name="ct_label_name"&gt;Nombre&lt;/string&gt;
+	&lt;string name="ct_label_init"&gt;Inic&lt;/string&gt;
+	&lt;string name="ct_label_hptemp"&gt;Tmp&lt;/string&gt;
+	&lt;string name="ct_label_nonlethal"&gt;Sbd&lt;/string&gt;
+	&lt;string name="ct_label_wounds"&gt;Wnd&lt;/string&gt;
+	&lt;string name="ct_label_status"&gt;Estado&lt;/string&gt;
+	&lt;string name="ct_label_round"&gt;Ronda&lt;/string&gt;
+	&lt;string name="ct_label_targets"&gt;Objetivos:&lt;/string&gt;
+	&lt;string name="ct_label_effects"&gt;Efectos:&lt;/string&gt;
+	&lt;string name="ct_label_size"&gt;Tamaño&lt;/string&gt;
+	&lt;string name="ct_label_reach"&gt;Alcance&lt;/string&gt;
+	&lt;string name="ct_label_effectappliedby"&gt;Aplicado por:&lt;/string&gt;
+	&lt;string name="ct_label_effecttargets"&gt;Objetivos:&lt;/string&gt;
+	&lt;string name="ct_label_menu"&gt;Menú&lt;/string&gt;
+
+	&lt;string name="ct_tooltip_hptemp"&gt;Puntos de Golpe Temporales&lt;/string&gt;
+	&lt;string name="ct_tooltip_nonlethal"&gt;Heridas No Letales&lt;/string&gt;
+	&lt;string name="ct_tooltip_wounds"&gt;Heridas&lt;/string&gt;
+	&lt;string name="ct_tooltip_size"&gt;Tamaño&lt;/string&gt;
+	&lt;string name="ct_tooltip_reach"&gt;Alcance&lt;/string&gt;
+	&lt;string name="ct_tooltip_endturn"&gt;Turno Completado&lt;/string&gt;
+	&lt;string name="ct_tooltip_nextactor"&gt;Siguiente Actor&lt;/string&gt;
+	&lt;string name="ct_tooltip_nextround"&gt;Siguiente Turno&lt;/string&gt;
+	&lt;string name="ct_tooltip_factionempty"&gt;Facción: Ninguna&lt;/string&gt;
+	&lt;string name="ct_tooltip_factionfriend"&gt;Facción: Amistosa&lt;/string&gt;
+	&lt;string name="ct_tooltip_factionneutral"&gt;Facción: Neutral&lt;/string&gt;
+	&lt;string name="ct_tooltip_factionfoe"&gt;Facción: Hostil&lt;/string&gt;
+	&lt;string name="ct_tooltip_menu"&gt;Haz clic para el menú del AdC&lt;/string&gt;
+	&lt;string name="ct_tooltip_effectadd"&gt;Añadir Efecto&lt;/string&gt;
+	&lt;string name="ct_tooltip_effectdelete"&gt;Eliminar Efecto&lt;/string&gt;
+	&lt;string name="ct_tooltip_effectdragtarget"&gt;Arrastrar sobre el nuevo objetivo del efecto&lt;/string&gt;
+	&lt;string name="ct_tooltip_shownpcallon"&gt;Mostrar todos los PNJs&lt;/string&gt;
+	&lt;string name="ct_tooltip_shownpcalloff"&gt;Ocultar todos los PNJs&lt;/string&gt;
+	&lt;string name="ct_tooltip_shownpcon"&gt;Mostrar PNJ&lt;/string&gt;
+	&lt;string name="ct_tooltip_shownpcoff"&gt;Ocultar PNJ&lt;/string&gt;
+	&lt;string name="ct_tooltip_effects"&gt;Efectos&lt;/string&gt;
+	&lt;string name="ct_tooltip_offense"&gt;Ataques&lt;/string&gt;
+	&lt;string name="ct_tooltip_defense"&gt;Protección&lt;/string&gt;
+	&lt;string name="ct_tooltip_space"&gt;Espacio y Alcance&lt;/string&gt;
+	&lt;string name="ct_tooltip_targeting"&gt;Objetivos&lt;/string&gt;
+	&lt;string name="ct_tooltip_dragtarget"&gt;Arrastra sobre un nuevo objetivo&lt;/string&gt;
+	&lt;string name="ct_tooltip_effecton"&gt;Activo&lt;/string&gt;
+	&lt;string name="ct_tooltip_effectoff"&gt;Inactivo&lt;/string&gt;
+	&lt;string name="ct_tooltip_effectskip"&gt;Salta Un Uso&lt;/string&gt;
+	&lt;string name="ct_tooltip_cleartarget"&gt;Eliminar objetivos&lt;/string&gt;
+
+	&lt;string name="ct_menu_round5"&gt;Avanza 5&lt;/string&gt;
+	&lt;string name="ct_menu_round10"&gt;Avanza 10&lt;/string&gt;
+	&lt;string name="ct_menu_round15"&gt;Avanza 15&lt;/string&gt;
+	&lt;string name="ct_menu_round20"&gt;Avanza 20&lt;/string&gt;
+	&lt;string name="ct_menu_effectadd"&gt;Añadir Efecto&lt;/string&gt;
+	&lt;string name="ct_menu_effectdelete"&gt;Eliminar Efecto&lt;/string&gt;
+	&lt;string name="ct_menu_initmenu"&gt;Orden de Turnos&lt;/string&gt;
+	&lt;string name="ct_menu_initreset"&gt;Reinicia Orden de Turnos&lt;/string&gt;
+	&lt;string name="ct_menu_itemdelete"&gt;Eliminar del Asistente&lt;/string&gt;
+	&lt;string name="ct_menu_itemdeletenonfriendly"&gt;Elimina Todos los No-Amistosos&lt;/string&gt;
+	&lt;string name="ct_menu_itemdeletefoe"&gt;Elimina Solo Enemigos&lt;/string&gt;
+	&lt;string name="ct_menu_effectdeleteall"&gt;Limpia Todos los Efectos&lt;/string&gt;
+	&lt;string name="ct_menu_effectdeleteexpiring"&gt;Elimina los Efectos Expirables&lt;/string&gt;
+	&lt;string name="ct_menu_targeting"&gt;Seleccionar&lt;/string&gt;
+	&lt;string name="ct_menu_targetingfriend"&gt;Seleccionar todos los aliados&lt;/string&gt;
+	&lt;string name="ct_menu_targetingnonfriend"&gt;Seleccionar todos los no-aliados&lt;/string&gt;
+	
+	&lt;string name="ct_error_effectdroptargetnotinct"&gt;[ERROR] Efecto soltado en objetivo que no se lista en el asistente de combate.&lt;/string&gt;
+	&lt;string name="ct_error_effectdecodefail"&gt;[ERROR] No se puede decodificar los detalles del efecto.&lt;/string&gt;
+	&lt;string name="ct_error_addnpcfail"&gt;[ERROR] No se puede crear el registro de PNJ.&lt;/string&gt;
+	&lt;string name="ct_error_addnpcfail2"&gt;[ERROR] Falta el registro de información, comprueba tus módulos. No se puede añadir registro de PNJ.&lt;/string&gt;
+	&lt;string name="ct_error_effectapplyfail"&gt;[ERROR] No se puede resolver la aplicación del efecto del AdC en nodo.&lt;/string&gt;
+	&lt;string name="ct_error_effectremovefail"&gt;[ERROR] No se puede resolver la eliminación del efecto del AdC en nodo.&lt;/string&gt;
+	&lt;string name="ct_error_effectdeletefail"&gt;[ERROR] No se puede encontrar el efecto a eliminar.&lt;/string&gt;
+	&lt;string name="ct_error_effectmissingactor"&gt;[ERROR] No se puede encontrar el actor del que eliminar el efecto.&lt;/string&gt;
+	&lt;string name="ct_error_targetingunlinkedtoken"&gt;[ERROR] No se puede seleccionar el token no enlazado a la entrada del asistente de combate.&lt;/string&gt;
+	&lt;string name="ct_error_targetingpcmissingfromct"&gt;[ERROR] El PJ activo no se encuentra en el asistente de combate.&lt;/string&gt;
+	&lt;string name="ct_error_openpclinkedtokenwithoutaccess"&gt;[ERROR] No se puede abrir el registro del personaje enlazado, porque tu usuario no posee ese registro.&lt;/string&gt;
+	&lt;string name="ct_error_openotherlinkedtokenwithoutaccess"&gt;[ERROR] No se puede abrir el registro del actor enlazado, porque tu usuario no tiene acceso.&lt;/string&gt;
+	
+	&lt;string name="ct_tooltip_effectdur"&gt;Duración&lt;/string&gt;
+	&lt;string name="ct_tooltip_effectinit"&gt;Iniciativa a ajustar en&lt;/string&gt;
+
+	&lt;string name="combat_tag_round"&gt;RONDA&lt;/string&gt;
+	&lt;string name="combat_tag_turn"&gt;TURNO&lt;/string&gt;
+	&lt;string name="combat_tag_status"&gt;ESTADO&lt;/string&gt;
+	
+	
 &lt;/root&gt;</XML>
   </XMLFiles>
 </DocumentElement>
