@@ -5,6 +5,7 @@
     <Script>tMeles={}
 tContadores={}
 tResultados={}
+bCCPJ=true;
 
 function onInit()
 	CrearMeles();
@@ -59,6 +60,28 @@ function ObtenerEsquivar(rTarget)
 	end
 end
 
+function ObtenerDistancia(rSource, rTarget)
+	return nil;
+end
+
+function ObtenerDificultadDistancia(rSource, rTarget)
+	local bDesprevenido=DB.getValue("combattracker.AtaqueADistancia", 0)==1;
+	local CDDistancia=10;
+	local nDistancia=ObtenerDistancia(rSource, rTarget);
+	if nDistancia then
+		if nDistancia&gt;=0 and nDistancia&lt;=14 then CDDistancia=10;
+		elseif nDistancia&gt;=15 and nDistancia&lt;=49 then CDDistancia=15;
+		elseif nDistancia&gt;=50 and nDistancia&lt;=99 then CDDistancia=20;
+		else CDDistancia=25;
+		end
+	else
+		CDDistancia=tonumber(DB.getValue("combattracker.Distanciavalue", 0))
+	end
+	if bDesprevenido then return CDDistancia;
+	else return math.max(CDDistancia, ObtenerEsquivar(rTarget));
+	end
+end
+
 function ObtenerNombre(rRegistro)
 	if rRegistro.sType=="npc" then
 		if DB.getValue(rRegistro.sCTNode..".isidentified", 0)==1 then return DB.getValue(rRegistro.sCTNode..".name", "");
@@ -70,15 +93,60 @@ function ObtenerNombre(rRegistro)
 end
 
 function ProcesarGolpeAislado(rSource, rTarget, rRoll)
+--	if rSource and rTarget and rRoll then
+--		local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
+--		local rMessageResultado = ChatManager.createBaseMessage();
+--
+--		Debug.chat(ActionsManager.total(rRoll),ObtenerEsquivar(rTarget))
+--		local nResultado=ActionsManager.total(rRoll)-ObtenerEsquivar(rTarget);
+--		local sNombreAtacante=ObtenerNombre(rSource);
+--		local sNombreDefensor=ObtenerNombre(rTarget);
+--		
+--		
+--		if nResultado&gt;0 then
+--			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado);
+--			if nResultado&gt;=10 then
+--				rMessageResultado.text = sNombreAtacante.." golpea críticamente a "..sNombreDefensor.." con "..nResultado.." éxitos";
+--				rMessageResultado.icon = "roll_attack_crit";
+--			else
+--				rMessageResultado.text = sNombreAtacante.." golpea a "..sNombreDefensor.." con "..nResultado.." éxitos";
+--				rMessageResultado.icon = "roll_attack_hit";
+--			end
+--		elseif nResultado&lt;0 and nResultado&gt;-5 then
+--			rMessageResultado.text = sNombreAtacante.." falla al atacar a"..sNombreDefensor;
+--			rMessageResultado.icon = "roll_attack_miss";
+--		else
+--			rMessageResultado.text = sNombreAtacante.." pifia al atacar a"..sNombreDefensor;
+--			rMessageResultado.icon = "roll_attack_crit_miss";
+--		end
+--		Comm.deliverChatMessage(rMessageAtaque);
+--		Comm.deliverChatMessage(rMessageResultado);
+--	elseif rRoll then
+--		local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
+--		Comm.deliverChatMessage(rMessageAtaque);
+--	end
+	ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerEsquivar(rSource, rTarget));
+end
+
+function AtaqueDistancia(rSource, rTarget, rRoll)
+	ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerDificultadDistancia(rSource, rTarget));
+end
+
+function PosiblePifia(rRoll)
+	for i=1,#rRoll.aDice do
+		if rRoll.aDice[i].value~=1 then return false; end
+	end
+	return true
+end
+
+function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad)
 	if rSource and rTarget and rRoll then
 		local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
 		local rMessageResultado = ChatManager.createBaseMessage();
 
-		Debug.chat(ActionsManager.total(rRoll),ObtenerEsquivar(rTarget))
-		local nResultado=ActionsManager.total(rRoll)-ObtenerEsquivar(rTarget);
+		local nResultado=ActionsManager.total(rRoll)-nDificultad;
 		local sNombreAtacante=ObtenerNombre(rSource);
 		local sNombreDefensor=ObtenerNombre(rTarget);
-		
 		
 		if nResultado&gt;0 then
 			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado);
@@ -89,12 +157,12 @@ function ProcesarGolpeAislado(rSource, rTarget, rRoll)
 				rMessageResultado.text = sNombreAtacante.." golpea a "..sNombreDefensor.." con "..nResultado.." éxitos";
 				rMessageResultado.icon = "roll_attack_hit";
 			end
-		elseif nResultado&lt;0 and nResultado&gt;-5 then
-			rMessageResultado.text = sNombreAtacante.." falla al atacar a"..sNombreDefensor;
-			rMessageResultado.icon = "roll_attack_miss";
-		else
+		elseif nResultado&lt;=-5 and PosiblePifia(rRoll) then
 			rMessageResultado.text = sNombreAtacante.." pifia al atacar a"..sNombreDefensor;
 			rMessageResultado.icon = "roll_attack_crit_miss";
+		else
+			rMessageResultado.text = sNombreAtacante.." falla al atacar a"..sNombreDefensor;
+			rMessageResultado.icon = "roll_attack_miss";
 		end
 		Comm.deliverChatMessage(rMessageAtaque);
 		Comm.deliverChatMessage(rMessageResultado);
@@ -104,12 +172,21 @@ function ProcesarGolpeAislado(rSource, rTarget, rRoll)
 	end
 end
 
-function AtaqueDistancia(rSource, rTarget, rRoll)
-	Comm.deliverChatMessage(rMessage);
-end
-
 function EsAtaqueCC(rSource, rRoll)
-	return true
+	if rSource.sType=="npc" then
+		if rRoll.sDesc and rRoll.sDesc~="" then
+			if rRoll.sDesc:lower():match("arco") or rRoll.sDesc:lower():match("ballesta") or rRoll.sDesc:lower():match("cañón") or rRoll.sDesc:lower():match("honda") then
+				return false;
+			else
+				return true;
+			end;
+		else
+			return true;
+		end
+	else
+		return bCCPJ;
+	end
+--	return not (DB.getValue("combattracker.AtaqueMele", 0)==2);
 end
 
 function Ataque(rSource, rTarget, rRoll)
@@ -318,7 +395,7 @@ function AniadirAtaqueAMele(nodoCT, nMele, rRoll)
 			if tMeles[nMele][i].PathNodo==nodoCT then
 				tMeles[nMele][i].nTirada=ActionsManager.total(rRoll);
 				-- Posible pifia si sale un 1 en un dado o dos unos en dos dados
-				tMeles[nMele][i].bPosiblePifia=#rRoll.aDice==tMeles[nMele][i].nTirada-rRoll.nBonuses;
+				tMeles[nMele][i].bPosiblePifia=PosiblePifia(rRoll);--#rRoll.aDice==tMeles[nMele][i].nTirada-rRoll.nBonuses;
 				if not tMeles[nMele][i].bTirada then
 					tContadores[nMele].nAtaques=tContadores[nMele].nAtaques+1;
 					tMeles[nMele][i].bTirada=true;
@@ -456,7 +533,6 @@ function PreAtaque(rSource, aTargeting, rRolls)
 	end
 	return aTargeting;
 end
-
 
 function PreDanio(rSource, aTargeting, rRolls)
 	local iRoll = 0;

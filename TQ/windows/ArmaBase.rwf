@@ -393,6 +393,9 @@ end
 
 function ObtenerTirada()
 	window.ContMunicion.setValue(window.ContMunicion.getValue()+1)
+	local sUsoArma=DB.getValue(window.getDatabaseNode(), "UsoArma", Inventario.CteUnaMano);
+	
+	ResolucionCombate.bCCPJ=sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteDosManos;
 
 	sDado=Herramientas.ObtenerDados(window.getDatabaseNode().getPath())
 	nValor=getValue()-DB.getValue(window.getDatabaseNode(), "...PenMeleMultiEnemigos", 0);
@@ -462,10 +465,7 @@ function ObtenerMensajeAtaque()
 	end
 	return sMensaje;
 end
-
-function onBeforeDiceRoll(dragInfo)
---	GameSystem.actions["AtaqueRollAction"].sIcon="action_attack";
-end</LUACode>
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

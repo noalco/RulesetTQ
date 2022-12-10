@@ -46,3 +46,4 @@ CT:
 	- Armas a distancia
 	- Añadir debilitado/incapacitado a los efectos
 	- Añadir puntos de infortunio
+	- Indicar el número de golpes épicos, el tipo de herida y consecuencias (debilitado, incapacitado, muerto, ...)
