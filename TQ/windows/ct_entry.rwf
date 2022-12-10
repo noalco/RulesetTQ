@@ -2595,7 +2595,7 @@ end
       {"Name":"OnIconName","Value":{"@xsi:type":"xsd:string","#text":"meleeon"}},
       {"Name":"PrevTabTarget"},
       {"Name":"RadioListDefaultIndex","Value":{"@xsi:type":"xsd:int","#text":"7"}},
-      {"Name":"RadioListItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"1","Value":"7"},{"Label":"2","Value":"8"},{"Label":"3","Value":"9"},{"Label":"4","Value":"10"},{"Label":"5","Value":"11"},{"Label":"6","Value":"12"},{"Label":null,"Value":"No"}]}},
+      {"Name":"RadioListItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":"U","Value":"7"},{"Label":"V","Value":"8"},{"Label":"W","Value":"9"},{"Label":"X","Value":"10"},{"Label":"Y","Value":"11"},{"Label":"Z","Value":"12"},{"Label":null,"Value":"No"}]}},
       {"Name":"RadioListLayout","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"RadioListOptionHeight","Value":{"@xsi:type":"xsd:int","#text":"25"}},
       {"Name":"RadioListOptionMargin","Value":{"@xsi:type":"xsd:int","#text":"-16"}},
