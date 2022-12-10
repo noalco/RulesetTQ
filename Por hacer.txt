@@ -43,6 +43,25 @@ Wizard:
 CT:
 			- Gestionar los cambios de facción cuando el individuo está en una melé
 	- Efectos
-	- Armas a distancia
 	- Añadir debilitado/incapacitado a los efectos
 	- Añadir puntos de infortunio
+	- Añadir efectos debidos a heridas
+	- Armas arrojadizas en PNJs (CC/a distancia)
+	- Mostrar tipo de daño
+	- Tipo de daño vs tipo de armadura
+	
+Exportar:
+	- Permitir exportar elementos individuales
+
+
+
+
+
+
+Efectos:
+	- Bonos/malus fijos: [-4, +4]
+	- Daño persistente (PERS): x PD/y turnos; una herida que se va incrementando
+	- Tumbado: 
+	- Desangre: PERS; x=1; y=2
+	- Herida grave: PERS; x=1; y=10
+	- Dolor extremo: -3 a todo hasta el final del siguiente turno

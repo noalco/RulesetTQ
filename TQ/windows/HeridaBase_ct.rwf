@@ -51,7 +51,19 @@
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onInit()
+	local sTipo, sRuta=DB.getValue(getDatabaseNode(), "...link");
+	if sTipo=="npc" then
+		registerMenuItem("Borrar Herida", "deletepointer", 3);
+		registerMenuItem("Confirmar Borrado", "delete", 3, 3);
+	end
+end
+
+function onMenuSelection(selection, subselection)
+	if selection == 3 and subselection == 3 then
+		DB.deleteNode(getDatabaseNode());
+	end
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -215,11 +227,11 @@ end
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
       {"Name":"MinValue","Value":{"@xsi:type":"xsd:decimal","#text":"0"}},
-      {"Name":"NextTabTarget"},
+      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"TipoHerida"}},
       {"Name":"NoDrag"},
       {"Name":"NoDrop"},
       {"Name":"NoKeyEdit"},
-      {"Name":"PrevTabTarget"},
+      {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"TipoHerida"}},
       {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
@@ -233,18 +245,21 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"294"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
 ]}}</Definition>
-    <LUACode>function onValueChanged()
+    <LUACode>function Actualizar()
 	local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "...link");
-	if sTipo=="npc" then
-		window.windowlist.CalcularHeridas();
+	window.windowlist.CalcularHeridas();
+--	if sTipo=="npc" then
+--		window.windowlist.CalcularHeridas();
 		window.Tipo.CalcularTipo();
-	end
+--	end
 end
 
 function onInit()
 	local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "...link");
 	setReadOnly(sTipo=="charsheet");
-	onValueChanged();
+	DB.addHandler(getDatabaseNode().getPath(), "onUpdate", Actualizar);
+	Actualizar();
+	
 end
 </LUACode>
     <GroupIndex>0</GroupIndex>
@@ -372,7 +387,9 @@ end
 	elseif nLeveIni~="-" and PDHerida&gt;=nLeveIni then setValue("L");
 	else setValue("R");
 	end
-end</LUACode>
+end
+
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -416,11 +433,11 @@ end</LUACode>
       {"Name":"MinimumHeight"},
       {"Name":"MinimumWidth"},
       {"Name":"MultilineSpacing"},
-      {"Name":"NextTabTarget"},
+      {"Name":"NextTabTarget","Value":{"@xsi:type":"xsd:string","#text":"PDHerida"}},
       {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDragselect","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"NoDrop","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"PrevTabTarget"},
+      {"Name":"PrevTabTarget","Value":{"@xsi:type":"xsd:string","#text":"PDHerida"}},
       {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
