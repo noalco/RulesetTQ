@@ -586,7 +586,7 @@ function Danio(rSource, rTarget, rRoll)
 		if nGraveFin~="-" and PDHerida&gt;nGraveFin then TipoHerida=" [Herida Mortal] [Muerto]"; bHeridaMortal=true;
 		elseif nGraveIni~="-" and PDHerida&gt;=nGraveIni then TipoHerida=" [Herida Grave]"; bHeridaGrabe=true;
 		elseif nLeveIni~="-" and PDHerida&gt;=nLeveIni then TipoHerida=" [Herida Leve]"; bHeridaLeve=true;
-		else TipoHerida=" [Rasguño]";
+		elseif PDHerida&gt;0 then TipoHerida=" [Rasguño]";
 		end
 		
 		rMessage2.text=rMessage2.text..TipoHerida;
@@ -594,14 +594,24 @@ function Danio(rSource, rTarget, rRoll)
 			if DB.getValue(rTarget.sCTNode..".current", 1)&lt;=0 then
 				rMessage2.text=rMessage2.text.." [Incapacitado]";
 				if bHeridaGrabe then rMessage2.text=rMessage2.text.." [1 PD/minuto]"; end
-			else
-				if bHeridaGrabe then rMessage2.text=rMessage2.text.." [Debilitado]"; end
-				if bHeridaLeve then
-					local nContLeves=0;
-					for _,NodoHerida in pairs(DB.getChildren(rTarget.sCTNode..".ListaHeridas")) do
-						if DB.getValue(NodoHerida, "Tipo", "")=="L" then nContLeves=nContLeves+1; end
+			elseif bHeridaGrabe or bHeridaLeve then
+				local nContGraves=0;
+				local nContLeves=0;
+				for _,NodoHerida in pairs(DB.getChildren(rTarget.sCTNode..".ListaHeridas")) do
+					if DB.getValue(NodoHerida, "Tipo", "")=="G" then nContGraves=nContGraves+1;
+					elseif DB.getValue(NodoHerida, "Tipo", "")=="L" then nContLeves=nContLeves+1;
 					end
-					if nContLeves==2 then rMessage2.text=rMessage2.text.." [Debilitado]"; end
+				end
+
+				if bHeridaGrabe then
+					if nContGraves==1 and nContLeves&lt;2 then rMessage2.text=rMessage2.text.." [Debilitado]";
+					elseif nContGraves==2 or nContGraves==1 and (nContLeves==2 or nContLeves==3) then rMessage2.text=rMessage2.text.." [Incapacitado]";
+					end
+				end
+				if bHeridaLeve then
+					if nContLeves==2 and nContGraves==0 then rMessage2.text=rMessage2.text.." [Debilitado]";
+					elseif nContLeves==2 and nContGraves==1 or nContLeves==4 then rMessage2.text=rMessage2.text.." [Incapacitado]";
+					end
 				end
 			end
 		end

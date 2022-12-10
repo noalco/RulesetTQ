@@ -216,8 +216,25 @@ end
 
 function onInit()
 	CalcularHeridas();
+	local sTipo, sRuta=DB.getValue(window.parentcontrol.window.getDatabaseNode(), "link");
+	if sTipo=="npc" then
+		registerMenuItem("Añadir Herida", "pointer", 2);
+	end
 end
-</LUACode>
+
+function onMenuSelection(selection)
+	if selection == 2 then
+		addEntry(true);
+	end
+end
+
+function addEntry(bFocus)
+	local win = createWindow();
+	if bFocus and win then
+		win.TipoHerida.setFocus();
+	end
+	return win;
+end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
