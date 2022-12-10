@@ -90,7 +90,7 @@
 	&lt;string name="tooltip_shared"&gt;Compartido:&lt;/string&gt;
 	&lt;string name="button_add"&gt;Añadir elemento&lt;/string&gt;
 	&lt;string name="button_editon"&gt;Editar Lista&lt;/string&gt;
-	&lt;string name="button_editoff"&gt;Para de Editar Lista&lt;/string&gt;
+	&lt;string name="button_editoff"&gt;Deja de Editar Lista&lt;/string&gt;
 	&lt;string name="button_delete"&gt;Eliminar Elemento&lt;/string&gt;
 	&lt;string name="button_deleteconfirm"&gt;Confirma Eliminar Elemento&lt;/string&gt;
 	&lt;string name="button_import_text"&gt;Importar Texto&lt;/string&gt;
@@ -412,7 +412,7 @@
 	&lt;string name="button_refresh"&gt;Refrescar&lt;/string&gt;
 	&lt;string name="button_folder_refresh_tooltip"&gt;Refrescar Carpeta de Recursos&lt;/string&gt;
 	&lt;string name="button_import_image_files"&gt;Importar Archivos&lt;/string&gt;
-	&lt;string name="button_import_image_assets"&gt;Crear Desde Recursos de la Campaña&lt;/string&gt;
+	&lt;string name="button_import_image_assets"&gt;Crear desde Recursos de Campaña&lt;/string&gt;
 	&lt;string name="button_store"&gt;Tienda&lt;/string&gt;
 	&lt;string name="button_store_tooltip"&gt;Las compras en la Tienda requieren actualizar y reiniciar Fantasy Grounds&lt;/string&gt;
 	&lt;string name="button_dialog_ok"&gt;OK&lt;/string&gt;
@@ -598,6 +598,712 @@
 	&lt;string name="combat_tag_turn"&gt;TURNO&lt;/string&gt;
 	&lt;string name="combat_tag_status"&gt;ESTADO&lt;/string&gt;
 	
+	
+	
+	&lt;!-- Traido de strings_dice.xml --&gt;
+	&lt;string name="diceselect_window_title"&gt;Dados&lt;/string&gt;
+
+	&lt;string name="diceselect_header_desktop"&gt;Dados del Escritorio&lt;/string&gt;
+	&lt;string name="diceselect_tooltip_desktop_scaleup"&gt;Incrementar Tamaño de los Dados&lt;/string&gt;
+	&lt;string name="diceselect_tooltip_desktop_scaledown"&gt;Disminuir Tamaño de los Dados&lt;/string&gt;
+	
+	&lt;string name="diceselect_header_pointer"&gt;Color del Puntero&lt;/string&gt;
+	&lt;string name="diceselect_header_color"&gt;Color Dados&lt;/string&gt;
+	&lt;string name="diceselect_header_skin"&gt;Selección de la Estética de los Dados&lt;/string&gt;
+	&lt;string name="diceselect_label_color_body"&gt;Cuerpo&lt;/string&gt;
+	&lt;string name="diceselect_label_color_text"&gt;Texto&lt;/string&gt;
+
+	&lt;string name="diceselect_button_panel_togglelock"&gt;Bloq/Desbloq Panel&lt;/string&gt;
+	&lt;string name="diceselect_button_drc"&gt;Tiradas Personalizadas&lt;/string&gt;
+
+	&lt;string name="diceskin_group_DEFAULT"&gt;Por defecto&lt;/string&gt;
+	&lt;string name="diceskin_group_SWKELEMENTALBASICSDICE"&gt;Elementos Simples&lt;/string&gt;
+	&lt;string name="diceskin_group_SWKMETALDICE"&gt;Metal&lt;/string&gt;
+	&lt;string name="diceskin_group_SWKAURADICE"&gt;Aura&lt;/string&gt;
+	&lt;string name="diceskin_group_SWKMAGICALDICE"&gt;Mágicos&lt;/string&gt;
+	&lt;string name="diceskin_group_SWKRINGOFELEMENTSDICE"&gt;Anillo de Elementos&lt;/string&gt;
+	&lt;string name="diceskin_group_SWKMAGICALTRAILDICE"&gt;Estela Mágica&lt;/string&gt;
+	&lt;string name="diceskin_group_SWKFORCEFIELDDICE"&gt;Campo de Fuerza&lt;/string&gt;
+
+	&lt;string name="diceskin_unknown"&gt;Desconocido&lt;/string&gt;
+	&lt;string name="diceskin_0"&gt;Por defecto&lt;/string&gt;
+	&lt;string name="diceskin_1"&gt;Barra - Escarcha&lt;/string&gt;
+	&lt;string name="diceskin_1"&gt;Barra - Escarcha&lt;/string&gt;
+	&lt;string name="diceskin_2"&gt;Metal - Oro&lt;/string&gt;
+	&lt;string name="diceskin_3"&gt;Metal - Oro Oscuro&lt;/string&gt;
+	&lt;string name="diceskin_4"&gt;Metal - Acero&lt;/string&gt;
+	&lt;string name="diceskin_5"&gt;Metal - Picado&lt;/string&gt;
+	&lt;string name="diceskin_6"&gt;Metal - Pulido&lt;/string&gt;
+	&lt;string name="diceskin_7"&gt;Metal - Hierro Oxidado&lt;/string&gt;
+	&lt;string name="diceskin_8"&gt;Metal - Cobre Manchado&lt;/string&gt;
+	&lt;string name="diceskin_9"&gt;Metal - Pulido Extra&lt;/string&gt;
+	&lt;string name="diceskin_10"&gt;Aura Lanzamiento - Arcano&lt;/string&gt;
+	&lt;string name="diceskin_11"&gt;Aura Lanzamiento - Tierra&lt;/string&gt;
+	&lt;string name="diceskin_12"&gt;Aura Lanzamiento - Fuego&lt;/string&gt;
+	&lt;string name="diceskin_13"&gt;Aura Lanzamiento - Escarcha&lt;/string&gt;
+	&lt;string name="diceskin_14"&gt;Aura Lanzamiento - Vida&lt;/string&gt;
+	&lt;string name="diceskin_15"&gt;Aura Lanzamiento - Luz&lt;/string&gt;
+	&lt;string name="diceskin_16"&gt;Aura Lanzamiento - Relámpago&lt;/string&gt;
+	&lt;string name="diceskin_17"&gt;Aura Lanzamiento - Sombra&lt;/string&gt;
+	&lt;string name="diceskin_18"&gt;Aura Lanzamiento - Tormenta&lt;/string&gt;
+	&lt;string name="diceskin_19"&gt;Aura Lanzamiento - Agua&lt;/string&gt;
+	&lt;string name="diceskin_20"&gt;Aura Encantamiento- Arcano&lt;/string&gt;
+	&lt;string name="diceskin_21"&gt;Aura Encantamiento - Earth&lt;/string&gt;
+	&lt;string name="diceskin_22"&gt;Aura Encantamiento - Fuego&lt;/string&gt;
+	&lt;string name="diceskin_23"&gt;Aura Encantamiento - Escarcha&lt;/string&gt;
+	&lt;string name="diceskin_24"&gt;Aura Encantamiento - Vida&lt;/string&gt;
+	&lt;string name="diceskin_25"&gt;Aura Encantamiento - Luz&lt;/string&gt;
+	&lt;string name="diceskin_26"&gt;Aura Encantamiento - Relámpago&lt;/string&gt;
+	&lt;string name="diceskin_27"&gt;Aura Encantamiento - Sombra&lt;/string&gt;
+	&lt;string name="diceskin_28"&gt;Aura Encantamiento - Tormenta&lt;/string&gt;
+	&lt;string name="diceskin_29"&gt;Aura Encantamiento - Agua&lt;/string&gt;
+	&lt;string name="diceskin_30"&gt;Carga Mágica - Arcano&lt;/string&gt;
+	&lt;string name="diceskin_31"&gt;Carga Mágica - Tierra&lt;/string&gt;
+	&lt;string name="diceskin_32"&gt;Carga Mágica - Fuego&lt;/string&gt;
+	&lt;string name="diceskin_33"&gt;Carga Mágica - Escarcha&lt;/string&gt;
+	&lt;string name="diceskin_34"&gt;Carga Mágica - Vida&lt;/string&gt;
+	&lt;string name="diceskin_35"&gt;Carga Mágica - Luz&lt;/string&gt;
+	&lt;string name="diceskin_36"&gt;Carga Mágica - Relámpago&lt;/string&gt;
+	&lt;string name="diceskin_37"&gt;Carga Mágica - Sombra&lt;/string&gt;
+	&lt;string name="diceskin_38"&gt;Carga Mágica - Tormenta&lt;/string&gt;
+	&lt;string name="diceskin_39"&gt;Carga Mágica - Agua&lt;/string&gt;
+	&lt;string name="diceskin_40"&gt;Elementos Brillantes - Arcano&lt;/string&gt;
+	&lt;string name="diceskin_41"&gt;Elementos Brillantes - Tierra&lt;/string&gt;
+	&lt;string name="diceskin_42"&gt;Elementos Brillantes - Fuego&lt;/string&gt;
+	&lt;string name="diceskin_43"&gt;Elementos Brillantes - Escarcha&lt;/string&gt;
+	&lt;string name="diceskin_44"&gt;Elementos Brillantes - Vida&lt;/string&gt;
+	&lt;string name="diceskin_45"&gt;Elementos Brillantes - Luz&lt;/string&gt;
+	&lt;string name="diceskin_46"&gt;Elementos Brillantes - Relámpago&lt;/string&gt;
+	&lt;string name="diceskin_47"&gt;Elementos Brillantes - Sombra&lt;/string&gt;
+	&lt;string name="diceskin_48"&gt;Elementos Brillantes - Tormenta&lt;/string&gt;
+	&lt;string name="diceskin_49"&gt;Elementos Brillantes - Agua&lt;/string&gt;
+	&lt;string name="diceskin_50"&gt;Anillo de Elementos - Arcano&lt;/string&gt;
+	&lt;string name="diceskin_51"&gt;Anillo de Elementos - Tierra&lt;/string&gt;
+	&lt;string name="diceskin_52"&gt;Anillo de Elementos - Fuego&lt;/string&gt;
+	&lt;string name="diceskin_53"&gt;Anillo de Elementos - Escarcha&lt;/string&gt;
+	&lt;string name="diceskin_54"&gt;Anillo de Elementos - Vida&lt;/string&gt;
+	&lt;string name="diceskin_55"&gt;Anillo de Elementos - Luz&lt;/string&gt;
+	&lt;string name="diceskin_56"&gt;Anillo de Elementos - Relámpago&lt;/string&gt;
+	&lt;string name="diceskin_57"&gt;Anillo de Elementos - Sombra&lt;/string&gt;
+	&lt;string name="diceskin_58"&gt;Anillo de Elementos - Tormenta&lt;/string&gt;
+	&lt;string name="diceskin_59"&gt;Anillo de Elementos - Water&lt;/string&gt;
+	&lt;string name="diceskin_60"&gt;Llamas - Arcano&lt;/string&gt;
+	&lt;string name="diceskin_61"&gt;Llamas - Tierra&lt;/string&gt;
+	&lt;string name="diceskin_62"&gt;Llamas - Fuego&lt;/string&gt;
+	&lt;string name="diceskin_63"&gt;Llamas - Escarcha&lt;/string&gt;
+	&lt;string name="diceskin_64"&gt;Llamas - Vida&lt;/string&gt;
+	&lt;string name="diceskin_65"&gt;Llamas - Luz&lt;/string&gt;
+	&lt;string name="diceskin_66"&gt;Llamas - Relámpago&lt;/string&gt;
+	&lt;string name="diceskin_67"&gt;Llamas - Sombra&lt;/string&gt;
+	&lt;string name="diceskin_68"&gt;Llamas - Tormenta&lt;/string&gt;
+	&lt;string name="diceskin_69"&gt;Llamas - Agua&lt;/string&gt;
+	&lt;string name="diceskin_70"&gt;Estela Brillante - Arcano&lt;/string&gt;
+	&lt;string name="diceskin_71"&gt;Estela Brillante - Tierra&lt;/string&gt;
+	&lt;string name="diceskin_72"&gt;Estela Brillante - Fuego&lt;/string&gt;
+	&lt;string name="diceskin_73"&gt;Estela Brillante - Escarcha&lt;/string&gt;
+	&lt;string name="diceskin_74"&gt;Estela Brillante - Vida&lt;/string&gt;
+	&lt;string name="diceskin_75"&gt;Estela Brillante - Luz&lt;/string&gt;
+	&lt;string name="diceskin_76"&gt;Estela Brillante - Relámpago&lt;/string&gt;
+	&lt;string name="diceskin_77"&gt;Estela Brillante - Sombra&lt;/string&gt;
+	&lt;string name="diceskin_78"&gt;Estela Brillante - Tormenta&lt;/string&gt;
+	&lt;string name="diceskin_79"&gt;Estela Brillante - Agua&lt;/string&gt;
+	&lt;string name="diceskin_80"&gt;Campo de Fuerza - Arcano&lt;/string&gt;
+	&lt;string name="diceskin_81"&gt;Campo de Fuerza - Tierra&lt;/string&gt;
+	&lt;string name="diceskin_82"&gt;Campo de Fuerza - Fuego&lt;/string&gt;
+	&lt;string name="diceskin_83"&gt;Campo de Fuerza - Escarcha&lt;/string&gt;
+	&lt;string name="diceskin_84"&gt;Campo de Fuerza - Vida&lt;/string&gt;
+	&lt;string name="diceskin_85"&gt;Campo de Fuerza - Luz&lt;/string&gt;
+	&lt;string name="diceskin_86"&gt;Campo de Fuerza - Relámpago&lt;/string&gt;
+	&lt;string name="diceskin_87"&gt;Campo de Fuerza - Sombra&lt;/string&gt;
+	&lt;string name="diceskin_88"&gt;Campo de Fuerza - Tormenta&lt;/string&gt;
+	&lt;string name="diceskin_89"&gt;Campo de Fuerza - Water&lt;/string&gt;
+	&lt;string name="diceskin_90"&gt;Explosión - Tierra&lt;/string&gt;
+	&lt;string name="diceskin_91"&gt;Campo de Fuerza - Brillante&lt;/string&gt;
+	&lt;string name="diceskin_92"&gt;Metal - Oxidado&lt;/string&gt;
+	&lt;string name="diceskin_93"&gt;Metal - Manchado&lt;/string&gt;
+	&lt;string name="diceskin_94"&gt;Elemental Simple - Arcano&lt;/string&gt;
+	&lt;string name="diceskin_95"&gt;Elemental Simple - Tierra&lt;/string&gt;
+	&lt;string name="diceskin_96"&gt;Elemental Simple - Fuego&lt;/string&gt;
+	&lt;string name="diceskin_97"&gt;Elemental Simple - Escarcha&lt;/string&gt;
+	&lt;string name="diceskin_98"&gt;Elemental Simple - Vida&lt;/string&gt;
+	&lt;string name="diceskin_99"&gt;Elemental Simple - Luz&lt;/string&gt;
+	&lt;string name="diceskin_100"&gt;Elemental Simple - Relámpago&lt;/string&gt;
+	&lt;string name="diceskin_101"&gt;Elemental Simple - Sombra&lt;/string&gt;
+	&lt;string name="diceskin_102"&gt;Elemental Simple - Tormenta&lt;/string&gt;
+	&lt;string name="diceskin_103"&gt;Elemental Simple - Agua&lt;/string&gt;
+	
+	&lt;!-- Custom Dice Rolls --&gt;
+	&lt;string name="drc_window_title"&gt;Tiradas Personalizadas&lt;/string&gt;
+
+
+
+
+	&lt;!-- Traído de strings_ps.xml --&gt;
+	&lt;!-- Party Sheet - General --&gt;
+	&lt;string name="ps_window_title"&gt;Ficha de Grupo&lt;/string&gt;
+	
+	&lt;!-- Party Sheet - Inventory --&gt;
+	&lt;string name="ps_emptylistitems"&gt;Suelta aquí botines u objetos\npara asignar tesoro a los miembros del grupo.&lt;/string&gt;
+	&lt;string name="ps_emptylistpartyitems"&gt;Haz clic en el botón reconstruir para refrescar el inventario del grupo de los PJs.&lt;/string&gt;
+	&lt;string name="ps_emptylistclientitems"&gt;Los objetos del grupo a repartir se listan aquí.&lt;/string&gt;
+	&lt;string name="ps_emptylist"&gt;Suelta PJs aquí para añadir miembros del grupo.&lt;/string&gt;
+
+	&lt;string name="ps_label_desc"&gt;Descripción&lt;/string&gt;
+	&lt;string name="ps_label_invmoney"&gt;Monedas del Botín&lt;/string&gt;
+	&lt;string name="ps_label_invitems"&gt;Objetos del Botín&lt;/string&gt;
+	&lt;string name="ps_label_invassign"&gt;Asignación&lt;/string&gt;
+	&lt;string name="ps_label_partymoney"&gt;Monedas del Grupo&lt;/string&gt;
+	&lt;string name="ps_label_partycarried"&gt;Lo Lleva&lt;/string&gt;
+	&lt;string name="ps_label_partyitems"&gt;Inventario del Grupo&lt;/string&gt;
+	&lt;string name="ps_label_invname"&gt;Nombre&lt;/string&gt;
+	&lt;string name="ps_label_order"&gt;Orden de Guardia&lt;/string&gt;
+	&lt;string name="ps_label_formation"&gt;Marcha &amp;amp; Formación&lt;/string&gt;
+	
+	&lt;string name="ps_tooltip_rebuild"&gt;Reconstruir Inventario de Grupo&lt;/string&gt;
+	&lt;string name="ps_tooltip_distribute"&gt;Distribuir Asignaciones y Monedas&lt;/string&gt;
+	&lt;string name="ps_tooltip_sell"&gt;Vender Objetos&lt;/string&gt;
+	&lt;string name="ps_tooltip_id_all"&gt;Identificarlo Todo&lt;/string&gt;
+	
+	&lt;string name="ps_message_itemfailtoomanyassign"&gt;Más asignaciones de objetos que objetos disponibles.&lt;/string&gt;
+	&lt;string name="ps_message_itemfailcreate"&gt;No se puede transferir objeto al personaje.&lt;/string&gt;
+	&lt;string name="ps_message_itemdistributesuccess"&gt;Objetos asignados distribuidos al Grupo.&lt;/string&gt;
+	&lt;string name="ps_message_itemdistributeempty"&gt;No hay objetos asignados a distribuir en el Grupo.&lt;/string&gt;
+	&lt;string name="ps_message_coindistributesuccess"&gt;Distribuído en el Grupo.&lt;/string&gt;
+	&lt;string name="ps_message_itemsellcostmissing"&gt;No se puede determinar coste o coste cero.&lt;/string&gt;
+	&lt;string name="ps_message_itemsellcostlow"&gt;La venta total es inferior a una unidad de moneda.&lt;/string&gt;
+	&lt;string name="ps_message_itemsellsuccess"&gt;Vendiendo&lt;/string&gt;
+
+	&lt;!-- Party Sheet - Order and Formation --&gt;
+	&lt;string name="ps_label_formation"&gt;Formación&lt;/string&gt;
+	&lt;string name="ps_label_formation_slot_clear"&gt;Limpiar Hueco de Formación&lt;/string&gt;
+
+	&lt;string name="ps_tooltip_formation_clear"&gt;Limpiar formación&lt;/string&gt;
+	&lt;string name="ps_tooltip_formation_column1"&gt;Autorellenar formación - 1 columna&lt;/string&gt;
+	&lt;string name="ps_tooltip_formation_column2"&gt;Autorellenar formación - 2 columnas&lt;/string&gt;
+	&lt;string name="ps_tooltip_formation_column3"&gt;Autorellenar formación - 3 columnas&lt;/string&gt;
+	&lt;string name="ps_tooltip_formation_rotatecw"&gt;Rotar Formación a la Derecha&lt;/string&gt;
+	&lt;string name="ps_tooltip_formation_rotateccw"&gt;Rotar Formación a la Izquierda&lt;/string&gt;
+	&lt;string name="ps_tooltip_formation_drag"&gt;Arrastrar icono al mapa para añadir unidades de combate amistosas en formación&lt;/string&gt;	
+
+
+
+
+	&lt;!-- Traído de strings_utility.xml --&gt;
+	&lt;string name="gmid_default"&gt;DJ&lt;/string&gt;
+
+	&lt;!-- Setup Wizard --&gt;
+	&lt;string name="setup_window_title"&gt;Configuración de Campaña&lt;/string&gt;
+	&lt;string name="setup_button_next"&gt;Siguiente&lt;/string&gt;
+	&lt;string name="setup_button_prev"&gt;Anterior&lt;/string&gt;
+	&lt;string name="setup_button_finish"&gt;Fin&lt;/string&gt;
+	&lt;string name="setup_label_showonload"&gt;¿Ver en carga?&lt;/string&gt;
+	&lt;string name="setup_header_help"&gt;Manual de Usuario&lt;/string&gt;
+	&lt;string name="setup_text_help"&gt;Aprende sobre la interfaz de campaña de FG con estos enlaces.&lt;/string&gt;
+	&lt;string name="setup_button_manual"&gt;Guías de Usuario&lt;/string&gt;
+	&lt;string name="setup_button_forums"&gt;Foros&lt;/string&gt;
+	&lt;string name="setup_header_purchases"&gt;Accededer a Datos Comprados&lt;/string&gt;
+	&lt;string name="setup_text_purchases"&gt;Los datos de los DLCs comprados en FG se agrupan en módulos, que se pueden cargar o no en cada campaña. Haz clic en Siguiente para cargar módulos.&lt;/string&gt;
+	&lt;string name="setup_header_modules"&gt;Módulos de Datos&lt;/string&gt;
+	&lt;string name="setup_text_modules"&gt;Elige los módulos de datos a cargar para esta campaña.\nCárgalos individualmente usando el botón Módulos o elige un conjunto sugerido.\nGestiónalo en cualquier momento usando el botón Módulos bajo la sección Biblioteca en el menú de la barra lateral.&lt;/string&gt;
+	&lt;string name="setup_button_modules"&gt;Módulos&lt;/string&gt;
+	&lt;string name="setup_header_options"&gt;Opciones&lt;/string&gt;
+	&lt;string name="setup_text_options"&gt;Personaliza las opciones de esta campaña.\nGestiónalo en cualquier momento usando el el botón Opciones en el menú de la barra lateral.&lt;/string&gt;
+	&lt;string name="setup_button_options"&gt;Opciones&lt;/string&gt;
+
+	&lt;string name="setup_url_userguides"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=setup_link_userguide&lt;/string&gt;
+	&lt;string name="setup_url_forums"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=setup_link_forum&lt;/string&gt;
+	
+	&lt;!-- Deprecated - 2022-07-12 --&gt;
+	&lt;string name="setup_button_wiki"&gt;Wiki Guías de Usuario&lt;/string&gt;
+	&lt;string name="setup_url_manual"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=setup_link_userguide&lt;/string&gt;
+	&lt;string name="setup_url_modules"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_data_moduleselection&lt;/string&gt;
+	&lt;string name="setup_url_options"&gt;https://server.fantasygrounds.com/links_ruleset.php?link=help_tool_options&lt;/string&gt;
+	
+	&lt;!-- Module Set Load --&gt;
+	&lt;string name="modulesetload_window_title"&gt;Carga de Módulos&lt;/string&gt;
+	
+	&lt;!-- Calendar --&gt;
+	&lt;string name="calendar_window_title"&gt;Calendario&lt;/string&gt;
+	&lt;string name="calendar_msg_empty"&gt;No se ha seleccionado calendario para esta campaña.&lt;/string&gt;
+	&lt;string name="calendar_msg_activate"&gt;Activa el módulo de calendario para establecer un calendario para esta campaña.&lt;/string&gt;
+	&lt;string name="calendar_label_date"&gt;Fecha&lt;/string&gt;
+	&lt;string name="calendar_label_year"&gt;Año&lt;/string&gt;
+	&lt;string name="calendar_label_epoch"&gt;Era&lt;/string&gt;
+	&lt;string name="calendar_label_month"&gt;Mes&lt;/string&gt;
+	&lt;string name="calendar_button_modules"&gt;Módulos&lt;/string&gt;
+	&lt;string name="calendar_button_logview"&gt;Ver Registro de Entrada&lt;/string&gt;
+	&lt;string name="calendar_button_logadd"&gt;Añadir Registro de Entrada&lt;/string&gt;
+	&lt;string name="calendar_button_logviewall"&gt;Todos los Registros&lt;/string&gt;
+	&lt;string name="calendar_menu_reset"&gt;Reiniciar Calendario&lt;/string&gt;
+	&lt;string name="calendar_menu_resetconfirm"&gt;Confirmar Reinicio&lt;/string&gt;
+	&lt;string name="calendar_menu_eventdelete"&gt;Eliminar Evento&lt;/string&gt;
+	&lt;string name="calendar_menu_eventdeleteconfirm"&gt;Confirmar Eliminar&lt;/string&gt;
+	&lt;string name="calendar_tooltip_dateoutput"&gt;Imprimir Fecha En Chat&lt;/string&gt;
+	&lt;string name="calendar_tooltip_timeoutput"&gt;Imprimir Hora En Chat&lt;/string&gt;
+	&lt;string name="calendar_tooltip_dateset"&gt;Elige la Fecha Seleccionada como Fecha Actual&lt;/string&gt;
+
+	&lt;!-- Calendar log --&gt;
+	&lt;string name="calendar_loglist_title"&gt;Registros&lt;/string&gt;
+	&lt;string name="calendar_logentry_emptyname"&gt;&amp;#171; Nueva Entrada de Registro&amp;#187;&lt;/string&gt;
+	&lt;string name="calendar_logentry_gmheader"&gt;DJ&lt;/string&gt;
+	&lt;string name="calendar_logentry_pcheader"&gt;JUGADOR&lt;/string&gt;
+	
+	&lt;!-- Dialog - Select --&gt;
+	&lt;string name="dialog_select_title"&gt;Elige&lt;/string&gt;
+	
+	&lt;!-- Effects --&gt;
+	&lt;string name="effect_tag"&gt;EFECTO&lt;/string&gt;
+	&lt;string name="effects_tag"&gt;EFECTOS&lt;/string&gt;
+	&lt;string name="effects_def_tag"&gt;EFECTOS DEF&lt;/string&gt;
+	
+	&lt;string name="effect_label_presets"&gt;Preestablecido&lt;/string&gt;
+	&lt;string name="effect_label_custom"&gt;Personalizar&lt;/string&gt;
+	&lt;string name="effect_header_lights"&gt;Luces&lt;/string&gt;
+	&lt;string name="effect_header_conditions"&gt;Condiciones&lt;/string&gt;
+
+	&lt;string name="effect_label_durunitrnd"&gt;RND&lt;/string&gt;
+	&lt;string name="effect_label_durunitmin"&gt;MIN&lt;/string&gt;
+	&lt;string name="effect_label_durunithr"&gt;HR&lt;/string&gt;
+	&lt;string name="effect_label_durunitday"&gt;DÍA&lt;/string&gt;
+
+	&lt;string name="effect_tooltip_applyone"&gt;Una Acción&lt;/string&gt;
+	&lt;string name="effect_tooltip_applyroll"&gt;Una Tirada&lt;/string&gt;
+	&lt;string name="effect_tooltip_applysingle"&gt;Aplicar Cada Vez&lt;/string&gt;
+	&lt;string name="effect_tooltip_applyall"&gt;Todas las Tiradas&lt;/string&gt;
+
+	&lt;string name="effect_label"&gt;Efecto&lt;/string&gt;
+	&lt;string name="effect_status_singleused"&gt;MODO ÚNICO USADO&lt;/string&gt;
+	&lt;string name="effect_status_expired"&gt;EXPIRADO&lt;/string&gt;
+	&lt;string name="effect_status_disabled"&gt;DESHABILITADO&lt;/string&gt;
+	&lt;string name="effect_status_deactivated"&gt;DESACTIVADO&lt;/string&gt;
+	&lt;string name="effect_status_exists"&gt;YA EXISTE&lt;/string&gt;
+
+	&lt;string name="effect_status_updated"&gt;ACTUALIZADO&lt;/string&gt;
+	&lt;string name="effect_status_allowsave"&gt;PERMITE GUARDAR&lt;/string&gt;
+	&lt;string name="effect_status_replaceshorter"&gt;MÁS CORTO REUBICADO&lt;/string&gt;
+	&lt;string name="effect_status_replaceweaker"&gt;MÁS DÉBIL REUBICADO&lt;/string&gt;
+	&lt;string name="effect_status_strongerexists"&gt;YA EXISTE EFECTO MÁS FUERTE&lt;/string&gt;
+	&lt;string name="effect_status_targetimmune"&gt;OBJETIVO INMUNE&lt;/string&gt;
+	&lt;string name="effect_status_targetpartialimmune"&gt;OBJETIVO PARCIALMENTE INMUNE&lt;/string&gt;
+
+	&lt;!-- Modifiers --&gt;
+	&lt;string name="modifierwindow_label_presets"&gt;Preconfiguraciones&lt;/string&gt;
+	&lt;string name="modifierwindow_label_custom"&gt;Personalizar&lt;/string&gt;
+	&lt;string name="modifierkey_label_toggle"&gt;Alternar&lt;/string&gt;
+
+	&lt;!-- Export --&gt;
+	&lt;string name="export_window_title"&gt;Exportar Módulo&lt;/string&gt;
+	&lt;string name="export_label_file"&gt;Archivo&lt;/string&gt;
+	&lt;string name="export_empty_file"&gt;&amp;#171; Nombre de archivo del módulo[requerido] &amp;#187;&lt;/string&gt;
+	&lt;string name="export_tooltip_clear"&gt;Limpiar&lt;/string&gt;
+	&lt;string name="export_label_thumbnail"&gt;Imagen&lt;/string&gt;
+	&lt;string name="export_empty_thumbnail"&gt;&amp;#171; Archivo de imagen icono[opcional] &amp;#187;&lt;/string&gt;
+	&lt;string name="export_label_name"&gt;Nombre&lt;/string&gt;
+	&lt;string name="export_empty_name"&gt;&amp;#171; Nombre interno del módulo[requerido] &amp;#187;&lt;/string&gt;
+	&lt;string name="export_label_displayname"&gt;A mostrar&lt;/string&gt;
+	&lt;string name="export_empty_displayname"&gt;&amp;#171; Nombre mostrado del módulo[opcional] &amp;#187;&lt;/string&gt;
+	&lt;string name="export_label_category"&gt;Categoría&lt;/string&gt;
+	&lt;string name="export_empty_category"&gt;&amp;#171; Etiqueta de categoría &amp;#187;&lt;/string&gt;
+	&lt;string name="export_label_author"&gt;Autor&lt;/string&gt;
+	&lt;string name="export_empty_author"&gt;&amp;#171; Etiqueta de autor &amp;#187;&lt;/string&gt;
+	&lt;string name="export_label_readonly"&gt;¿Solo lectura?&lt;/string&gt;
+	&lt;string name="export_label_playervisible"&gt;¿Para Jugador?&lt;/string&gt;
+	&lt;string name="export_label_anyruleset"&gt;¿Todos Rulesets?&lt;/string&gt;
+	&lt;string name="export_label_recordtypes"&gt;Tipos de Registro Exportados&lt;/string&gt;
+	&lt;string name="export_label_recordtypes_bottom"&gt;Haz click en la casilla para exportar todos los registros de ese tipo.\nSuelta enlaces para exportar registros individuales.&lt;/string&gt;
+	&lt;string name="export_label_recordviews"&gt;Vistas de Registros Exportados&lt;/string&gt;
+	&lt;string name="export_label_assets"&gt;Recursos Exportados&lt;/string&gt;
+	&lt;string name="export_label_assets_bottom"&gt;Recursos en datos exportados incluidos automáticamente&lt;/string&gt;
+	&lt;string name="export_button_selectall"&gt;Todos&lt;/string&gt;
+	&lt;string name="export_button_deselectall"&gt;Ning.&lt;/string&gt;
+	&lt;string name="export_button"&gt;Exportar&lt;/string&gt;
+	&lt;string name="export_button_clear"&gt;Limpiar&lt;/string&gt;
+	&lt;string name="export_error_name"&gt;No se ha especificado nombre del módulo&lt;/string&gt;
+	&lt;string name="export_error_file_empty"&gt;Nombre del archivo del módulo no especificado&lt;/string&gt;
+	&lt;string name="export_error_file_invalid"&gt;El nombre del archivo del módulo contiene caracteres inválidos&lt;/string&gt;
+	&lt;string name="export_error_asset"&gt;Solo se pueden exportar recursos ajenos a módulos&lt;/string&gt;
+	&lt;string name="export_message_success"&gt;Se ha exportado el módulo con éxito&lt;/string&gt;
+	&lt;string name="export_message_failure"&gt;¡No se ha podido exportar el módulo!&lt;/string&gt;
+	&lt;string name="export_tooltip_file_empty"&gt;El nombre de archivo no puede estar vacío&lt;/string&gt;
+	&lt;string name="export_tooltip_file_invalid"&gt;El nombre de archivo contiene caracteres inválidos&lt;/string&gt;
+	&lt;string name="export_empty_recordtype_single"&gt;&amp;#171; Sin Nombre &amp;#187;&lt;/string&gt;
+	&lt;string name="export_missing_recordtype_single"&gt;&amp;#171; Falta Enlace &amp;#187;&lt;/string&gt;
+	
+	&lt;!-- Library --&gt;
+	&lt;string name="library_category_label_tool"&gt;Herramientas&lt;/string&gt;
+	&lt;string name="library_category_label_library"&gt;Biblioteca&lt;/string&gt;
+	&lt;string name="library_category_label_player"&gt;Jugador&lt;/string&gt;
+	&lt;string name="library_category_label_campaign"&gt;Campaña&lt;/string&gt;
+	&lt;string name="library_category_label_create"&gt;Personaje&lt;/string&gt;
+
+	&lt;string name="library_window_title"&gt;Módulos&lt;/string&gt;
+	&lt;string name="library_button_modules"&gt;Activación&lt;/string&gt;
+	&lt;string name="library_button_export"&gt;Exportar&lt;/string&gt;
+	&lt;string name="library_button_referencemanual"&gt;Constructor&lt;/string&gt;
+
+	&lt;string name="library_empty_types"&gt;No hay registrados tipos de datos de biblioteca. Algo ha ido mal, comprueba tus extensiones.&lt;/string&gt;
+	&lt;string name="library_empty_books"&gt;Haz clic en el botón Activación abajo para añadir módulos a tu campaña.&lt;/string&gt;
+	&lt;string name="library_empty_pages"&gt;No se han creado índices para este módulo. Comprueba los listados de registros de esta campaña. No indexes created for this module. Please check the individual campaign record listings.&lt;/string&gt;
+
+	&lt;!-- Fixed master index string resources --&gt;
+	&lt;string name="library_recordtype_filter_yes"&gt;Sí&lt;/string&gt;
+	&lt;string name="library_recordtype_filter_no"&gt;No&lt;/string&gt;
+	&lt;string name="library_recordtype_filter_empty"&gt;(Vacío)&lt;/string&gt;
+
+	&lt;!-- Common record type string resources --&gt;
+	&lt;string name="library_recordtype_label_effect"&gt;Efectos&lt;/string&gt;
+	&lt;string name="library_recordtype_label_modifier"&gt;Modificadores&lt;/string&gt;
+	&lt;string name="library_recordtype_label_referencemanualpage"&gt;Manual de Referencia&lt;/string&gt;
+	
+	&lt;string name="library_recordtype_label_charsheet"&gt;Personajes&lt;/string&gt;
+	&lt;string name="library_recordtype_label_story"&gt;Historia&lt;/string&gt;
+	&lt;string name="library_recordtype_label_storytemplate"&gt;Plantillas de Historia&lt;/string&gt;
+	&lt;string name="library_recordtype_label_quest"&gt;Misiones&lt;/string&gt;
+	&lt;string name="library_recordtype_label_image"&gt;Imágenes&lt;/string&gt;
+	&lt;string name="library_recordtype_label_npc"&gt;PNJs&lt;/string&gt;
+	&lt;string name="library_recordtype_label_battle"&gt;Encuentros&lt;/string&gt;
+	&lt;string name="library_recordtype_label_battlerandom"&gt;Encuentros(Aleatorios)&lt;/string&gt;
+	&lt;string name="library_recordtype_label_item"&gt;Objetos&lt;/string&gt;
+	&lt;string name="library_recordtype_label_treasureparcel"&gt;Botín&lt;/string&gt;
+	&lt;string name="library_recordtype_label_note"&gt;Notas&lt;/string&gt;
+	&lt;string name="library_recordtype_label_table"&gt;Tablas&lt;/string&gt;
+	&lt;string name="library_recordtype_label_vehicle"&gt;Vehículos&lt;/string&gt;
+	
+	&lt;string name="library_recordtype_single_effect"&gt;Efecto&lt;/string&gt;
+	&lt;string name="library_recordtype_single_modifier"&gt;Modificador&lt;/string&gt;
+	&lt;string name="library_recordtype_single_charsheet"&gt;Personaje&lt;/string&gt;
+	&lt;string name="library_recordtype_single_note"&gt;Nota&lt;/string&gt;
+	&lt;string name="library_recordtype_single_story"&gt;Historia&lt;/string&gt;
+	&lt;string name="library_recordtype_single_storytemplate"&gt;Plantilla de Historia&lt;/string&gt;
+	&lt;string name="library_recordtype_single_quest"&gt;Misión&lt;/string&gt;
+	&lt;string name="library_recordtype_single_image"&gt;Imagen&lt;/string&gt;
+	&lt;string name="library_recordtype_single_npc"&gt;PNJ&lt;/string&gt;
+	&lt;string name="library_recordtype_single_battle"&gt;Encuentro&lt;/string&gt;
+	&lt;string name="library_recordtype_single_battlerandom"&gt;Encuentro (Aleatorio)&lt;/string&gt;
+	&lt;string name="library_recordtype_single_item"&gt;Objeto&lt;/string&gt;
+	&lt;string name="library_recordtype_single_treasureparcel"&gt;Botín&lt;/string&gt;
+	&lt;string name="library_recordtype_single_table"&gt;Tabla&lt;/string&gt;
+	&lt;string name="library_recordtype_single_vehicle"&gt;Vehículo&lt;/string&gt;
+	
+	&lt;string name="library_recordtype_empty_charsheet"&gt;&amp;#171; Nombre &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_story"&gt;&amp;#171; Nueva Historia &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_storytemplate"&gt;&amp;#171; Plantilla de Historia Nueva &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_quest"&gt;&amp;#171; Nueva Misión &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_image"&gt;&amp;#171; Nueva Imagen &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_npc"&gt;&amp;#171; Nueva Personalidad &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_battle"&gt;&amp;#171; Nuevo Encuentro &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_battlerandom"&gt;&amp;#171; Nuevo Encuentro (Aleatorio) &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_item"&gt;&amp;#171; Nuevo Objeto &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_treasureparcel"&gt;&amp;#171; Nuevo Botín &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_note"&gt;&amp;#171; Nueva Nota &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_table"&gt;&amp;#171; Nueva Tabla &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_vehicle"&gt;&amp;#171; Nuevo Vehículo &amp;#187;&lt;/string&gt;
+	
+	&lt;string name="library_recordtype_empty_nonid_image"&gt;Mapa / Imagen No Identificado&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_nonid_item"&gt;Objeto No Identificado&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_nonid_npc"&gt;Criatura No Identificada&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_nonid_vehicle"&gt;Vehículo No Identificado&lt;/string&gt;
+	
+	&lt;string name="library_recordtype_export_charsheet"&gt;Personajes Pregenerados&lt;/string&gt;
+
+	&lt;string name="library_recordview_label_vehicle_bytype"&gt;Por Tipo&lt;/string&gt;
+
+	&lt;!-- Common derived record type string resources --&gt;
+	&lt;string name="library_recordtype_label_background"&gt;Trasfondos&lt;/string&gt;
+	&lt;string name="library_recordtype_label_class"&gt;Clases&lt;/string&gt;
+	&lt;string name="library_recordtype_label_class_specialization"&gt;Especialización de Clase&lt;/string&gt;
+	&lt;string name="library_recordtype_label_feat"&gt;Dotes&lt;/string&gt;
+	&lt;string name="library_recordtype_label_itemtemplate"&gt;Plantillas de Objeto&lt;/string&gt;
+	&lt;string name="library_recordtype_label_power"&gt;Poderes&lt;/string&gt;
+	&lt;string name="library_recordtype_label_race"&gt;Razas&lt;/string&gt;
+	&lt;string name="library_recordtype_label_race_subrace"&gt;Subrazas&lt;/string&gt;
+	&lt;string name="library_recordtype_label_skill"&gt;Habilidades&lt;/string&gt;
+	&lt;string name="library_recordtype_label_specialability"&gt;Capacidades Especiales&lt;/string&gt;
+	&lt;string name="library_recordtype_label_spell"&gt;Hechizos&lt;/string&gt;
+	&lt;string name="library_recordtype_label_talent"&gt;Talentos&lt;/string&gt;
+
+	&lt;string name="library_recordtype_single_background"&gt;Trasfondo&lt;/string&gt;
+	&lt;string name="library_recordtype_single_class"&gt;Clase&lt;/string&gt;
+	&lt;string name="library_recordtype_single_feat"&gt;Dote&lt;/string&gt;
+	&lt;string name="library_recordtype_single_itemtemplate"&gt;Plantilla de Objeto&lt;/string&gt;
+	&lt;string name="library_recordtype_single_power"&gt;Poder&lt;/string&gt;
+	&lt;string name="library_recordtype_single_race"&gt;Raza&lt;/string&gt;
+	&lt;string name="library_recordtype_single_skill"&gt;Habilidad&lt;/string&gt;
+	&lt;string name="library_recordtype_single_specialability"&gt;Capacidad Especial&lt;/string&gt;
+	&lt;string name="library_recordtype_single_spell"&gt;Hechizo&lt;/string&gt;
+	&lt;string name="library_recordtype_single_talent"&gt;Talento&lt;/string&gt;
+
+	&lt;string name="library_recordtype_empty_background"&gt;&amp;#171; Nuevo Trasfondo &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_class"&gt;&amp;#171; Nueva Clase &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_class_specialization"&gt;&amp;#171; Nueva Especialidad de Clase &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_feat"&gt;&amp;#171; Nueva Dote &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_itemtemplate"&gt;&amp;#171; Nueva Plantilla de Objeto &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_power"&gt;&amp;#171; Nuevo Poder &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_race"&gt;&amp;#171; Nueva Raza &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_race_subrace"&gt;&amp;#171; Nueva Subraza &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_skill"&gt;&amp;#171; Nueva Habilidad &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_specialability"&gt;&amp;#171; Nueva Capacidad Especial &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_spell"&gt;&amp;#171; Nuevo Hechizo &amp;#187;&lt;/string&gt;
+	&lt;string name="library_recordtype_empty_talent"&gt;&amp;#171; Nuevo Talento &amp;#187;&lt;/string&gt;
+
+	&lt;string name="library_recordview_label_feat_bytype"&gt;Por Tipo&lt;/string&gt;
+
+	&lt;string name="library_recordview_label_item_armor"&gt;Armadura&lt;/string&gt;
+	&lt;string name="library_recordview_label_item_equipment"&gt;Bienes y Servicios&lt;/string&gt;
+	&lt;string name="library_recordview_label_item_weapon"&gt;Armas&lt;/string&gt;
+
+	&lt;string name="library_recordview_label_npc_bycr"&gt;Por CR&lt;/string&gt;
+	&lt;string name="library_recordview_label_npc_byhd"&gt;Por DG&lt;/string&gt;
+	&lt;string name="library_recordview_label_npc_byletter"&gt;Por Letra&lt;/string&gt;
+	&lt;string name="library_recordview_label_npc_bylevel"&gt;Por Nivel&lt;/string&gt;
+	&lt;string name="library_recordview_label_npc_byrole"&gt;Por Función&lt;/string&gt;
+	&lt;string name="library_recordview_label_npc_bytype"&gt;Por Tipo&lt;/string&gt;
+
+	&lt;string name="library_recordview_label_spell_byclass"&gt;Por Clase&lt;/string&gt;
+	&lt;string name="library_recordview_label_spell_bylevel"&gt;Por Nivel&lt;/string&gt;
+	&lt;string name="library_recordview_label_spell_byschool"&gt;Por Escuela&lt;/string&gt;
+
+	&lt;string name="library_recordview_label_specialability_bytype"&gt;Por Tiepo&lt;/string&gt;
+	
+	&lt;!-- Master Index --&gt;
+	&lt;string name="masterindex_label_category"&gt;Grupo&lt;/string&gt;
+	&lt;string name="masterindex_label_category_all"&gt;(Todos)&lt;/string&gt;
+	&lt;string name="masterindex_label_category_empty"&gt;(Sin Categoría)&lt;/string&gt;
+	&lt;string name="masterindex_label_filter_sharedonly_all"&gt;Todos&lt;/string&gt;
+	&lt;string name="masterindex_label_filter_sharedonly_shared"&gt;Compartido&lt;/string&gt;
+	&lt;string name="masterindex_tooltip_filter_sharedonly"&gt;Filtrar por compartición&lt;/string&gt;
+	&lt;string name="masterindex_button_category_editon"&gt;Editar Grupos&lt;/string&gt;
+	&lt;string name="masterindex_button_category_editoff"&gt;Deja de Editar Grupos&lt;/string&gt;
+	&lt;string name="masterindex_button_category_add"&gt;Añadir Categoría&lt;/string&gt;
+	&lt;string name="masterindex_button_category_delete"&gt;Eliminar Categoría&lt;/string&gt;
+	&lt;string name="masterindex_suffix_duplicate"&gt;(Copia)&lt;/string&gt;
+	
+	&lt;!-- Modules --&gt;
+	&lt;string name="module_window_title"&gt;Activación de Módulos&lt;/string&gt;
+	&lt;string name="module_stateblocked"&gt;Permitir acceso a los Jugadores&lt;/string&gt;
+	&lt;string name="module_stateallowed"&gt;No Permitir acceso a los Jugadores&lt;/string&gt;
+	&lt;string name="module_block"&gt;No Permitir acceso a los Jugadores&lt;/string&gt;
+	&lt;string name="module_allow"&gt;Permitir acceso a los Jugadores&lt;/string&gt;
+	&lt;string name="module_menu_revert"&gt;Revertir Cambios&lt;/string&gt;
+	&lt;string name="module_load"&gt;Cargar&lt;/string&gt;
+	&lt;string name="module_unload"&gt;Liberar&lt;/string&gt;
+
+	&lt;string name="modulepermission_menu_allowall"&gt;Permitir Todos los Módulos&lt;/string&gt;
+	&lt;string name="modulepermission_menu_allowallconfirm"&gt;Confrirmar Permitirlos Todos&lt;/string&gt;
+	&lt;string name="modulepermission_menu_disallowall"&gt;Bloquear Todos los Módulos&lt;/string&gt;
+	&lt;string name="modulepermission_menu_disallowallconfirm"&gt;Confirmar Bloquearlos Todos&lt;/string&gt;
+
+	&lt;string name="module_dialog_missinglink_title"&gt;Carga de Módulos&lt;/string&gt;
+	&lt;string name="module_message_missinglink"&gt;Un módulo que intentas usar no está cargado.&amp;#0010;&amp;#0010;%s&amp;#0010;&amp;#0010;¿Activar el módulo e intentar abrir el enlace de nuevo?&lt;/string&gt;
+	&lt;string name="module_message_missinglink_wildcard"&gt;Attempt to open wildcard links(s) that do not match any loaded module data. Check your active Library modules.&lt;/string&gt;
+	&lt;string name="module_message_noinstall"&gt;Intento de abrir enlace(s) para módulos no instalados.&lt;/string&gt;
+	&lt;string name="module_message_failedload"&gt;No se puede cargar módulo.&lt;/string&gt;
+	
+	&lt;string name="module_empty_filter_name"&gt;(Buscar por Nombre)&lt;/string&gt;
+	&lt;string name="module_empty_filter_author"&gt;(Buscar por Autor)&lt;/string&gt;
+	&lt;string name="module_label_filter_loaded_any"&gt;Filtro de Carga&lt;/string&gt;
+	&lt;string name="module_label_filter_loaded_on"&gt;Cargado&lt;/string&gt;
+	&lt;string name="module_label_filter_loaded_off"&gt;No Cargado&lt;/string&gt;
+	&lt;string name="module_label_filter_shared_any"&gt;Filtro Compartido&lt;/string&gt;
+	&lt;string name="module_label_filter_shared_on"&gt;Compartido&lt;/string&gt;
+	&lt;string name="module_label_filter_shared_off"&gt;No Compartido&lt;/string&gt;
+	&lt;string name="module_label_filter_ruleset_any"&gt;Filtro de Rulesets&lt;/string&gt;
+	&lt;string name="module_label_filter_ruleset_specific"&gt;Ruleset&lt;/string&gt;
+	&lt;string name="module_label_filter_ruleset_generic"&gt;Genérico&lt;/string&gt;
+
+	&lt;!-- Options --&gt;
+	&lt;string name="option_window_title"&gt;Opciones&lt;/string&gt;
+	&lt;string name="option_empty"&gt;Opción Desconocida&lt;/string&gt;
+	&lt;string name="option_emptyset"&gt;&amp;#171; Set de Opciones &amp;#187;&lt;/string&gt;
+	&lt;string name="option_header_client"&gt;Por Usuario&lt;/string&gt;
+	&lt;string name="option_header_game"&gt;Juego&lt;/string&gt;
+	&lt;string name="option_header_combat"&gt;Combate&lt;/string&gt;
+	&lt;string name="option_header_token"&gt;Token&lt;/string&gt;
+	&lt;string name="option_header_houserule"&gt;Reglas Caseras&lt;/string&gt;
+	&lt;string name="option_label_MANUALROLL"&gt;Dados: Entrada manual&lt;/string&gt;
+	&lt;string name="option_label_CMAT"&gt;Turno: Auto-centrar mapa&lt;/string&gt;
+	&lt;string name="option_label_CWHR"&gt;Chat: Campanilla en susurro&lt;/string&gt;
+	&lt;string name="option_label_CTAV"&gt;Chat: Establece como voz del DJ el activo en AdC&lt;/string&gt;
+	&lt;string name="option_label_SHPW"&gt;Chat: Mostrar todos los susurros al DJ&lt;/string&gt;
+	&lt;string name="option_label_REVL"&gt;Chat: Mostrar las tiradas del DJ&lt;/string&gt;
+	&lt;string name="option_label_PSIN"&gt;Grupo: Mostrar inventario a los jugadores&lt;/string&gt;
+	&lt;string name="option_label_TBOX"&gt;Tabla: Torre de dados&lt;/string&gt;
+	&lt;string name="option_label_NNPC"&gt;Combate: Numeración de PNJs&lt;/string&gt;
+	&lt;string name="option_label_RING"&gt;Jugador: Suena campanilla en turno&lt;/string&gt;
+	&lt;string name="option_label_CTSI"&gt;Jugador: Mostrar orden de turnos&lt;/string&gt;
+	&lt;string name="option_label_RSHT"&gt;Turno: Mostrar novedades a los jugadores&lt;/string&gt;
+	&lt;string name="option_label_RSHE"&gt;Turno: Mostrar efectos en las novedades&lt;/string&gt;
+	&lt;string name="option_label_CTSD"&gt;Turno: Obviar no aliados muertos&lt;/string&gt;
+	&lt;string name="option_label_CTSH"&gt;Turno: Obviar actores ocultos&lt;/string&gt;
+	&lt;string name="option_label_RNDS"&gt;Turno: Detener al inicio de ronda&lt;/string&gt;
+	&lt;string name="option_label_TASG"&gt;Token: Autoesacalar a la cuadrícula&lt;/string&gt;
+	&lt;string name="option_label_TFAC"&gt;Token: Indicador de encaramiento&lt;/string&gt;
+	&lt;string name="option_label_TFOW"&gt;Token: Niebla de guerra&lt;/string&gt;
+	&lt;string name="option_label_TPTY"&gt;Token: Movimiento y visión de grupo&lt;/string&gt;
+	&lt;string name="option_label_TNAM"&gt;Token: Mostrar nombre&lt;/string&gt;
+	&lt;string name="option_label_CURR"&gt;Grupo: Usar peso de monedas&lt;/string&gt;
+	&lt;string name="option_label_HRDD"&gt;Mapa: Distancia diagonal&lt;/string&gt;
+
+	&lt;string name="option_val_on"&gt;Activado&lt;/string&gt;
+	&lt;string name="option_val_off"&gt;Desactivado&lt;/string&gt;
+	&lt;string name="option_val_all"&gt;Todos&lt;/string&gt;
+	&lt;string name="option_val_friendly"&gt;Amistosos&lt;/string&gt;
+	&lt;string name="option_val_variant"&gt;Variante&lt;/string&gt;
+	&lt;string name="option_val_roll"&gt;Tirada&lt;/string&gt;
+	&lt;string name="option_val_max"&gt;Máximo&lt;/string&gt;
+	&lt;string name="option_val_mod"&gt;Modificador&lt;/string&gt;
+	&lt;string name="option_val_always"&gt;Siempre&lt;/string&gt;
+	&lt;string name="option_val_ctrl"&gt;Ctrl&lt;/string&gt;
+	&lt;string name="option_val_append"&gt;Correlativo&lt;/string&gt;
+	&lt;string name="option_val_random"&gt;Aleatorio&lt;/string&gt;
+	&lt;string name="option_val_tooltip"&gt;Tooltip&lt;/string&gt;
+	&lt;string name="option_val_title"&gt;Título&lt;/string&gt;
+	&lt;string name="option_val_titlehover"&gt;Planear Título&lt;/string&gt;
+	&lt;string name="option_val_scale80"&gt;80% de Cuadr.&lt;/string&gt;
+	&lt;string name="option_val_scale100"&gt;100% de Cuadr.&lt;/string&gt;
+	&lt;string name="option_val_1"&gt;1&lt;/string&gt;
+	&lt;string name="option_val_2"&gt;2&lt;/string&gt;
+	&lt;string name="option_val_3"&gt;3&lt;/string&gt;
+	&lt;string name="option_val_4"&gt;4&lt;/string&gt;
+	&lt;string name="option_val_5"&gt;5&lt;/string&gt;
+
+	&lt;string name="option_val_default"&gt;Por defecto&lt;/string&gt;
+	&lt;string name="option_val_x1"&gt;1x&lt;/string&gt;
+	&lt;string name="option_val_x1_5"&gt;1.5x&lt;/string&gt;
+	&lt;string name="option_val_raw"&gt;Original&lt;/string&gt;
+	
+	&lt;!-- Options - Used in most rulesets, but not in base CoreRPG --&gt;
+	&lt;string name="option_label_INIT"&gt;Combate: Iniciativa Auto PNJ&lt;/string&gt;
+	&lt;string name="option_label_RMMT"&gt;Objetivo: Eliminar al fallar&lt;/string&gt;
+	&lt;string name="option_label_PSMN"&gt;Grupo: Mostrar personajes a los clientes&lt;/string&gt;
+	&lt;string name="option_label_SHRR"&gt;Chat: Mostrar resultados a los clientes&lt;/string&gt;
+
+	&lt;string name="option_val_group"&gt;Grupo&lt;/string&gt;
+	&lt;string name="option_val_multi"&gt;Multi&lt;/string&gt;
+	&lt;string name="option_val_pc"&gt;PJ&lt;/string&gt;
+	&lt;string name="option_val_npc"&gt;PNJ&lt;/string&gt;
+
+	&lt;string name="option_label_HRFC"&gt;Ataque: Tablas Pifia/Crítico&lt;/string&gt;
+	&lt;string name="option_label_HRIR"&gt;Combate: Tirar inicitiva cada ronda&lt;/string&gt;
+	&lt;string name="option_label_HRST"&gt;Combate: Tiradas automáticas de estabilizarJ&lt;/string&gt;
+
+	&lt;string name="option_val_fumbleandcrit"&gt;Pifia y Críticos&lt;/string&gt;
+	&lt;string name="option_val_fumble"&gt;Pifia&lt;/string&gt;
+	&lt;string name="option_val_crit"&gt;Crítico&lt;/string&gt;
+
+	&lt;string name="option_label_BARC"&gt;Token: Bar Colors&lt;/string&gt;
+	&lt;string name="option_label_TESZ"&gt;Token: Effect Icon Size&lt;/string&gt;
+	&lt;string name="option_label_SHPC"&gt;Combat: Ally health player display&lt;/string&gt;
+	&lt;string name="option_label_SHNPC"&gt;Combat: Enemy health player display&lt;/string&gt;
+	&lt;string name="option_label_WNDC"&gt;Combat: Wound Categories&lt;/string&gt;
+	&lt;string name="option_label_TGME"&gt;Token (GM): Show effects&lt;/string&gt;
+	&lt;string name="option_label_TGMH"&gt;Token (GM): Show health&lt;/string&gt;
+	&lt;string name="option_label_TNPCE"&gt;Token (Player): Show Enemy effects&lt;/string&gt;
+	&lt;string name="option_label_TNPCH"&gt;Token (Player): Show Enemy health&lt;/string&gt;
+	&lt;string name="option_label_TPCE"&gt;Token (Player): Show Ally effects&lt;/string&gt;
+	&lt;string name="option_label_TPCH"&gt;Token (Player): Show Ally health&lt;/string&gt;
+
+	&lt;string name="option_val_tiered"&gt;Estrato&lt;/string&gt;
+	&lt;string name="option_val_detailed"&gt;Detalle&lt;/string&gt;
+	&lt;string name="option_val_status"&gt;Estado&lt;/string&gt;
+	&lt;string name="option_val_standard"&gt;Normal&lt;/string&gt;
+	&lt;string name="option_val_small"&gt;Pequeño&lt;/string&gt;
+	&lt;string name="option_val_large"&gt;Grande&lt;/string&gt;
+	&lt;string name="option_val_simple"&gt;Simple&lt;/string&gt;
+	&lt;string name="option_val_icons"&gt;Iconos&lt;/string&gt;
+	&lt;string name="option_val_iconshover"&gt;Planear Iconos&lt;/string&gt;
+	&lt;string name="option_val_mark"&gt;Marca&lt;/string&gt;
+	&lt;string name="option_val_markhover"&gt;Planear Marca&lt;/string&gt;
+	&lt;string name="option_val_bar"&gt;Barra&lt;/string&gt;
+	&lt;string name="option_val_barhover"&gt;Planear Barra&lt;/string&gt;
+	&lt;string name="option_val_dot"&gt;Punto&lt;/string&gt;
+	&lt;string name="option_val_dothover"&gt;Planear Punto&lt;/string&gt;
+	
+	&lt;!-- Options - Misc --&gt;
+	&lt;string name="option_label_currencies"&gt;Monedas&lt;/string&gt;
+	&lt;string name="option_label_colorselect"&gt;Color de Usuario&lt;/string&gt;
+	&lt;string name="option_label_decalselect"&gt;Decal de Fondo&lt;/string&gt;
+	&lt;string name="option_label_languages"&gt;Idiomas&lt;/string&gt;
+	&lt;string name="option_label_motd"&gt;Mensaje del Día&lt;/string&gt;
+	&lt;string name="option_label_setup"&gt;Configurar&lt;/string&gt;
+	&lt;string name="option_label_tokenlights"&gt;Luces de Token&lt;/string&gt;
+	&lt;string name="option_tooltip_drag"&gt;Arrastrar a acceso directo para configurar este valor&lt;/string&gt;
+	&lt;string name="option_command_error_not_registered"&gt;Opción(%s) no reistrada&lt;/string&gt;
+	&lt;string name="option_command_result_set"&gt;Estableciendo opción (%s) = %s&lt;/string&gt;
+	&lt;string name="option_command_result_get"&gt;Opción (%s) = %s&lt;/string&gt;
+	
+	&lt;!-- Color --&gt;
+	&lt;string name="colorselect_window_title"&gt;Color de Usuario&lt;/string&gt;
+	
+	&lt;!-- Languages --&gt;
+	&lt;string name="language_window_title"&gt;Idiomas&lt;/string&gt;
+	
+	&lt;!-- Currencies --&gt;
+	&lt;string name="currency_window_title"&gt;Monedas&lt;/string&gt;
+	&lt;string name="currency_label_name"&gt;Moneda&lt;/string&gt;
+	&lt;string name="currency_label_weight"&gt;Ps&lt;/string&gt;
+	&lt;string name="currency_label_value"&gt;Valor&lt;/string&gt;
+	
+	&lt;!-- Token Lights --&gt;
+	&lt;string name="tokenlight_window_title"&gt;Luces de Token&lt;/string&gt;
+	&lt;string name="tokenlight_label_color"&gt;Color&lt;/string&gt;
+	&lt;string name="tokenlight_label_bright"&gt;Brillante&lt;/string&gt;
+	&lt;string name="tokenlight_label_dim"&gt;Ténue&lt;/string&gt;
+	&lt;string name="tokenlight_label_falloff"&gt;Caída&lt;/string&gt;
+	&lt;string name="tokenlight_label_animtype"&gt;Animación&lt;/string&gt;
+	&lt;string name="tokenlight_label_animtype_flash"&gt;Flash&lt;/string&gt;
+	&lt;string name="tokenlight_label_animtype_flicker"&gt;Tintineo&lt;/string&gt;
+	&lt;string name="tokenlight_label_animtype_pulse"&gt;Pulso&lt;/string&gt;
+	&lt;string name="tokenlight_label_animspeed"&gt;Velocidad&lt;/string&gt;
+	&lt;string name="tokenlight_header_effect"&gt;Efecto&lt;/string&gt;
+	&lt;string name="tokenlight_label_tag"&gt;Etiqueta&lt;/string&gt;
+	&lt;string name="tokenlight_label_duration"&gt;Duración&lt;/string&gt;
+
+	&lt;!-- MotD --&gt;
+	&lt;string name="motd_window_title"&gt;Mensaje del Día&lt;/string&gt;
+	&lt;string name="motd_empty"&gt;Haz clic para entrar texto\ro arrastra y suelta una entrada de Historia al icono de arriba a la derecha para reemplazarlo.&lt;/string&gt;
+	&lt;string name="motd_tooltip_replace"&gt;Suelta una entrada de Historia aquí para\nreemplazar el texto del Mensaje del Día&lt;/string&gt;
+	
+	&lt;!-- Tokens --&gt;
+	&lt;string name="assetview_window_title"&gt;Recursos&lt;/string&gt;
+	&lt;string name="asset_preview_window_title"&gt;Vista previa&lt;/string&gt;
+	&lt;string name="asset_preview_import"&gt;Crear Registro de Imagen&lt;/string&gt;
+	&lt;string name="asset_preview_decal"&gt;Establecer Decal&lt;/string&gt;
+	&lt;string name="tokenbag_window_title"&gt;Tokens&lt;/string&gt;
+	&lt;string name="tokenbag_zoomin"&gt;Amplía&lt;/string&gt;
+	&lt;string name="tokenbag_zoomout"&gt;Reduce&lt;/string&gt;
+	&lt;string name="tokenbag_button_host"&gt;DJ&lt;/string&gt;
+	&lt;string name="tokenbag_button_shared"&gt;Compartido&lt;/string&gt;
+	&lt;string name="tokenbag_button_modules"&gt;Módulos&lt;/string&gt;
+	&lt;string name="assetview_button_filter_token"&gt;Tokens&lt;/string&gt;
+	&lt;string name="assetview_button_filter_portrait"&gt;Retratos&lt;/string&gt;
+	&lt;string name="assetview_button_filter_image"&gt;Imágenes&lt;/string&gt;
+	&lt;string name="assetview_button_filter_all"&gt;Todo&lt;/string&gt;
+	&lt;string name="assetview_path_filter"&gt;Filtro&lt;/string&gt;
+	&lt;string name="assetview_switchview"&gt;Alterna Cuadrícula/Lista&lt;/string&gt;
+	&lt;string name="assetview_empty"&gt;No se encuentran recursos, \ro el filtro es demasiado corto (mínimo 3 letras).&lt;/string&gt;
+	
+	&lt;!-- Manual Roll --&gt;
+	&lt;string name="button_manualroll"&gt;Tiradas&lt;/string&gt;
+	&lt;string name="manualroll_window_title"&gt;Entrada de Dados Manual&lt;/string&gt;
+	&lt;string name="manualroll_label_resolve"&gt;Resolver&lt;/string&gt;
+	&lt;string name="manualroll_label_rolltype"&gt;Tipo de Tirada:&lt;/string&gt;
+	&lt;string name="manualroll_label_rollexpr"&gt;Expresión:&lt;/string&gt;
+	&lt;string name="manualroll_label_desc"&gt;Descripción:&lt;/string&gt;
+	&lt;string name="manualroll_label_source"&gt;Tirador:&lt;/string&gt;
+	&lt;string name="manualroll_label_targets"&gt;Objetivos:&lt;/string&gt;
+	&lt;string name="message_manualroll"&gt;TIRADA MANUAL&lt;/string&gt;
+
+	&lt;!-- Portrait Select --&gt;
+	&lt;string name="portraitselect_window_title"&gt;Elige Retrato&lt;/string&gt;
+	&lt;string name="portraitselect_empty"&gt;No se encuentran recursos de retratos.&lt;/string&gt;
+
+	&lt;!-- Decal Select --&gt;
+	&lt;string name="decalselect_window_title"&gt;Selecciona Decal&lt;/string&gt;
+	&lt;string name="decalselect_empty"&gt;No se encuentran recursos de Decal&lt;/string&gt;
+	&lt;string name="decalselect_button_clear"&gt;Limpiar&lt;/string&gt;
+
+
 	
 &lt;/root&gt;</XML>
   </XMLFiles>
