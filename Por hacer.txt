@@ -50,6 +50,7 @@ CT:
 	- Calcular la distancia entre tokesn en el mapa
 	- Mostrar tipo de daño
 	- Tipo de daño vs tipo de armadura
+	- Desmarcar objetivos de un grupo a los que se falla
 	
 Exportar:
 	- Permitir exportar elementos individuales
@@ -70,5 +71,13 @@ Efectos:
 		- pétrea: Todas las armas, excepto las contundentes, le causan la mitad daño. Las armas cortantes y penetrantes se rompen si se obtiene un 1 en la tirada de combate.
 		- leñosa: Las armas contundentes le causan la mitad daño. Las armas cortantes y penetrantes se quedan clavadas si se obtiene un 1 en la tirada de combate.
 		- gomosa: Las armas contundentes provocan al impactar solo la mitad de daño.
+	- Inmaterial: El ser no tiene Puntos de Vida y solo puede verse afectado por el fuego o por vientos suficientemente fuertes, así como por ataques mágicos que afecten a su Mente o sus Puntos de Magia.
+	- Invulnerabilidad: La criatura es inmune a las armas físicas, y ningún golpe, por fuerte que sea, conseguirá hacerle daño. Sí podrá ser derribado normalmente. El fuego y la magia, así como las armas de naturaleza sobrenatural, le afectan de forma convencional.
 	- Parcialmente inmaterial: Solamente puede acabar con su vida una herida mortal. Las demás heridas se cierran de inmediato sin ningún efecto aparente. El daño mágico o no físico le afecta con normalidad.
+	- Regenerar puntos de vida: Recupera de forma automática un Punto de Vida al final de cada turno, al coste de 1 PM.
+	- Sensible a la magia: El daño producido por un arma mágica sobre la criatura se dobla. Esto se aplica antes de comparar el daño con la armadura. Todos los poderes mágicos que se apliquen sobre la criatura duplican su efecto. Falla automáticamente cualquier tirada enfrentada de Espíritu para resistir un hechizo o poder.
+	- Punto débil: Se puede impactar en él con un malus de -3 a la habilidad de combate. El daño eludirá la armadura y se multiplicará por dos.
+	Consistencia frágil: El daño sufrido por armas contundentes o cortantes se duplica.
+	- Sangrante: Tras recibir una herida el ser pierde 1d3 PV extra, al ritmo de 1 PV por turno.
+	- Vulnerable al fuego: Sufre el doble de daño por fuego o calor.
 	

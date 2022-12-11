@@ -392,6 +392,7 @@ end
 end
 
 function ObtenerTirada()
+
 	window.ContMunicion.setValue(window.ContMunicion.getValue()+1)
 	local sUsoArma=DB.getValue(window.getDatabaseNode(), "UsoArma", Inventario.CteUnaMano);
 	

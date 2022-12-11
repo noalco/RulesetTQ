@@ -9,6 +9,8 @@ bCCPJ=true;
 
 function onInit()
 	CrearMeles();
+--	FuncionactionRoll=ActionsManager.actionRoll;
+	ActionsManager.actionRoll=actionRoll;
 end
 
 function AtaqueCC(rSource, rTarget, rRoll)
@@ -183,9 +185,11 @@ function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad, sAtaque)
 		elseif nResultado&lt;=-5 and PosiblePifia(rRoll) then
 			rMessageResultado.text = sNombreAtacante.." pifia al atacar a"..sNombreDefensor;
 			rMessageResultado.icon = "roll_attack_crit_miss";
+			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, 0);
 		else
 			rMessageResultado.text = sNombreAtacante.." falla al atacar a"..sNombreDefensor;
 			rMessageResultado.icon = "roll_attack_miss";
+			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, 0);
 		end
 		if rSource then Comm.deliverChatMessage(rMessageAtaque); end
 		Comm.deliverChatMessage(rMessageResultado);
@@ -228,6 +232,8 @@ function Ataque(rSource, rTarget, rRoll)
 	if EsAtaqueCC(rSource, rRoll) then AtaqueCC(rSource, rTarget, rRoll);
 	else AtaqueDistancia(rSource, rTarget, rRoll);
 	end
+--	ActionsManager.actionRoll=FuncionactionRoll;
+
 end
 
 function CrearMeles()
@@ -525,9 +531,9 @@ function MostrarResultadosAtaques()
 	end
 end
 
-function AniadirResultadoAtaque(NotoCTAtacante, NodoCTDefensor, nExitos)
-	if not tResultados[NotoCTAtacante] then tResultados[NotoCTAtacante]={} end;
-	tResultados[NotoCTAtacante][NodoCTDefensor]=nExitos;
+function AniadirResultadoAtaque(NodoCTAtacante, NodoCTDefensor, nExitos)
+	if not tResultados[NodoCTAtacante] then tResultados[NodoCTAtacante]={} end;
+	tResultados[NodoCTAtacante][NodoCTDefensor]=nExitos;
 --	MostrarResultadosAtaques();
 end
 
@@ -559,6 +565,13 @@ function PreAtaque(rSource, aTargeting, rRolls)
 										sType = rRoll.sType,
 										sDesc = rRoll.sDesc.." [Debilitado: +3]"
 						};
+					else
+						rRolls[iRoll] = {nBonuses = rRoll.nBonuses,
+										aDice = rRoll.aDice,
+										nMod = rRoll.nMod,
+										sType = rRoll.sType,
+										sDesc = rRoll.sDesc
+						};
 					end
 				end
 			end
@@ -574,7 +587,6 @@ function PreDanio(rSource, aTargeting, rRolls)
 		for _,vTargetGroup in ipairs(aTargeting) do
 			for _,vTarget in ipairs(vTargetGroup) do
 				iRoll = iRoll + 1;
-				Debug.chat(rRolls[iRoll])
 				if tResultados[rSource.sCTNode] and tResultados[rSource.sCTNode][vTarget.sCTNode] and tResultados[rSource.sCTNode][vTarget.sCTNode]&gt;0 then
 					rRolls[iRoll] = {nBonuses = rRoll.nBonuses,
 									aDice = rRoll.aDice,
@@ -582,6 +594,9 @@ function PreDanio(rSource, aTargeting, rRolls)
 									sType = rRoll.sType,
 									sDesc = rRoll.sDesc.." [Éxitos ataque: "..tResultados[rSource.sCTNode][vTarget.sCTNode].." ]"
 					};
+					tResultados[rSource.sCTNode][vTarget.sCTNode]=0;
+				else
+					rRolls[iRoll] = rRoll;
 					tResultados[rSource.sCTNode][vTarget.sCTNode]=0;
 				end
 			end
@@ -591,7 +606,6 @@ function PreDanio(rSource, aTargeting, rRolls)
 end
 
 function Danio(rSource, rTarget, rRoll)
-Debug.chat(rRoll)
 --	local rMessage;
 	if rSource then
 		local rMessage1 = ActionsManager.createActionMessage(rSource, rRoll);
@@ -695,6 +709,104 @@ function AniadirHerida(rTarget, nDanio)
 end
 
 
+-- NOTE: tTargetGroups parameter for this function assumes a list of targeting groups
+function actionRoll(rSource, tTargetGroups, rRolls)
+	local bModStackUsed = false;
+	ActionsManager.lockModifiers();
+
+	for i=1,#tTargetGroups do
+		if rRolls[i] then
+			if ActionsManager.applyModifiersAndRoll(rSource, tTargetGroups[i], true, rRolls[i]) then
+				bModStackUsed = true;
+			end			
+		end
+	end
+	
+	ActionsManager.unlockModifiers(bModStackUsed);
+end
+
+function ObtenerTipoDanio(rSource)
+	tArmas{
+		["garra"]="Desgarradora";
+		["mordisco"]="Desgarradora";
+		["cuerno"]="Penetrante";
+		["cola"]="Contundente";
+		["tentáculo"]="Contundente";
+		["pinza"]="Contundente";
+		["pinzas"]="Contundente";
+		["pinza_alt"]="Cortante";
+		["pinzas_alt"]="Cortante";
+		["pisoteo"]="Contundente";
+		["alabarda"]="Cortante";
+		["alabarda_alt"]="Penetrante";
+		["baston de combate"]="Contundente";
+		["baston"]="Contundente";
+		["bisarma"]="Cortante";
+		["bisarma_alt"]="Penetrante";
+		["cestus"]="Contundente";
+		["cestus_alt"]="Desgarradora";
+		["cuchillo"]="Penetrante";
+		["cuchillo_alt"]="Desgarradora";
+		["daga"]="Penetrante";
+		["daga_alt"]="Desgarradora";
+		["escudo"]="Contundente";
+		["escudo completo"]="Contundente";
+		["escudo medio"]="Contundente";
+		["escudo pequeño"]="Contundente";
+		["escudo torre"]="Contundente";
+		["escudo de torre"]="Contundente";
+		["espada corta"]="Penetrante";
+		["espada corta_alt"]="Cortante";
+		["espada media"]="Cortante";
+		["espada media_alt"]="Penetrante";
+		["espada larga"]="Cortante";
+		["espada larga_alt"]="Penetrante";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+		[""]="";
+	};
+end
 
 
 
