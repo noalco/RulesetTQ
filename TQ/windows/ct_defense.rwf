@@ -425,7 +425,7 @@
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
-      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"LineOffset","Value":{"@xsi:type":"xsd:int","#text":"17"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
@@ -448,8 +448,8 @@
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"496"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"3"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"178"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"37"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	local bArmadura=false;

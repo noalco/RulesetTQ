@@ -13,8 +13,8 @@ General:
 Principal:
 	
 Habilidades:
-	- Cordelería
 	- Habilidades custom
+		- Ventana para crear una nueva habilidad
 	- ¿Informar de las tiradas de habilidades de cultura y técnica sin entrenamiento?
 	
 Inventario
@@ -38,15 +38,16 @@ Sidebars:
 
 	
 Wizard:
+	- Si al parsear una habilidad la habilidad no existe, que cree una nueva (por ejemplo, montar (camello))
 
 
 CT:
 			- Gestionar los cambios de facción cuando el individuo está en una melé
 	- Efectos
-	- Añadir debilitado/incapacitado a los efectos
 	- Añadir puntos de infortunio
 	- Añadir efectos debidos a heridas
 	- Armas arrojadizas en PNJs (CC/a distancia)
+	- Calcular la distancia entre tokesn en el mapa
 	- Mostrar tipo de daño
 	- Tipo de daño vs tipo de armadura
 	
@@ -65,3 +66,9 @@ Efectos:
 	- Desangre: PERS; x=1; y=2
 	- Herida grave: PERS; x=1; y=10
 	- Dolor extremo: -3 a todo hasta el final del siguiente turno
+	- Consistencia
+		- pétrea: Todas las armas, excepto las contundentes, le causan la mitad daño. Las armas cortantes y penetrantes se rompen si se obtiene un 1 en la tirada de combate.
+		- leñosa: Las armas contundentes le causan la mitad daño. Las armas cortantes y penetrantes se quedan clavadas si se obtiene un 1 en la tirada de combate.
+		- gomosa: Las armas contundentes provocan al impactar solo la mitad de daño.
+	- Parcialmente inmaterial: Solamente puede acabar con su vida una herida mortal. Las demás heridas se cierran de inmediato sin ningún efecto aparente. El daño mágico o no físico le afecta con normalidad.
+	
