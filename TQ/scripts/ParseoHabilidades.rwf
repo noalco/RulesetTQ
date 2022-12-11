@@ -277,8 +277,8 @@ function ParsearHabilidades(sHabilidades)
 	local aClauses,_ = StringManager.split(sHabilidades, ",;\.\r\n", true);
 	
 	for i = 1, #aClauses do
-		local sHabilidad, sValor = string.match(aClauses[i], "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)([%+%-–]?%d*)");
-		if string.sub(sHabilidad, sHabilidad:len(), sHabilidad:len())==" " then sHabilidad=string.match(sHabilidad, "([%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
+		local sHabilidad, sValor = string.match(aClauses[i], "([%(%)%a%s:ñÑáÁéÉíÍóÓúÚ]+)([%+%-–]?%d*)");
+		if string.sub(sHabilidad, sHabilidad:len(), sHabilidad:len())==" " then sHabilidad=string.match(sHabilidad, "([%(%)%a%s:ñÑáÁéÉíÍóÓúÚ]+)[%s*]"); end
 
 		if sHabilidad and sValor then
 			table.insert(aHabilidades, {sHabilidad=sHabilidad, nValor=tonumber(sValor)});

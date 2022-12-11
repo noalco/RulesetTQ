@@ -14,6 +14,7 @@ end
 function AtaqueCC(rSource, rTarget, rRoll)
 	if DB.getValue("combattracker.AtaqueMele", 0)==0 then
 		local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
+		rMessage.text = rMessage.text:gsub("%[Ataque%]", "[Ataque CC]");
 		if rSource and rSource["sCTNode"] and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&gt;0 and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&lt;7 and DB.getValue(rSource["sCTNode"]..".Fase", 0)==2 then
 			-- Ataque en melé de fase 2
 			rMessage.text = "[TIRADA ENFRENTADA EN MELÉ "..DB.getValue(rSource["sCTNode"]..".IDMele", 0).." DE LA FASE 2]\n"..rMessage.text;
@@ -43,20 +44,24 @@ function EstaDevilitado(rTarget)
 end
 
 function ObtenerEsquivar(rTarget)
-	if rTarget.sType=="charsheet" then
-		for _,NodoHabilidad in pairs(DB.getChildren(rTarget.sCreatureNode..".Habilidades.ListaHabilidades")) do
-			if DB.getValue(NodoHabilidad, "Clave", "")=="Esquivar" then
-				return DB.getValue(NodoHabilidad, "Total", 0);
+	if rTarget then
+		if rTarget.sType=="charsheet" then
+			for _,NodoHabilidad in pairs(DB.getChildren(rTarget.sCreatureNode..".Habilidades.ListaHabilidades")) do
+				if DB.getValue(NodoHabilidad, "Clave", "")=="Esquivar" then
+					return DB.getValue(NodoHabilidad, "Total", 0);
+				end
 			end
+		else
+			local sHabilidades=DB.getValue(rTarget.sCTNode..".Habilidades", "");
+			if sHabilidades~="" then
+				local nEsquivar=sHabilidades:lower():match("esquivar (%d*)");
+				if nEsquivar then return nEsquivar; end
+			end
+			-- O no hay habilidades o esquivar no está presente -&gt; 1+AGI-Est.
+			return 1+DB.getValue(rTarget.sCTNode..".Agilidad", 0)-DB.getValue(rTarget.sCTNode..".Estorbo", "");
 		end
 	else
-		local sHabilidades=DB.getValue(rTarget.sCTNode..".Habilidades", "");
-		if sHabilidades~="" then
-			local nEsquivar=sHabilidades:lower():match("esquivar (%d*)");
-			if nEsquivar then return nEsquivar; end
-		end
-		-- O no hay habilidades o esquivar no está presente -&gt; 1+AGI-Est.
-		return 1+DB.getValue(rTarget.sCTNode..".Agilidad", 0)-DB.getValue(rTarget.sCTNode..".Estorbo", "");
+		return 0;
 	end
 end
 
@@ -125,11 +130,17 @@ function ProcesarGolpeAislado(rSource, rTarget, rRoll)
 --		local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
 --		Comm.deliverChatMessage(rMessageAtaque);
 --	end
-	ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerEsquivar(rSource, rTarget));
+	ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerEsquivar(rTarget), "[Ataque CC]");
 end
 
 function AtaqueDistancia(rSource, rTarget, rRoll)
-	ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerDificultadDistancia(rSource, rTarget));
+--	if rSource and rTarget then
+		ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerDificultadDistancia(rSource, rTarget), "[Ataque a Distancia]");
+--	else
+--		local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
+--		rMessage.text = rMessage.text:gsub("%[Ataque%]", "[Ataque a Distancia]");
+--		Comm.deliverChatMessage(rMessage);
+--	end
 end
 
 function PosiblePifia(rRoll)
@@ -139,17 +150,24 @@ function PosiblePifia(rRoll)
 	return true
 end
 
-function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad)
-	if rSource and rTarget and rRoll then
-		local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
+function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad, sAtaque)
+	if rTarget and rRoll then
+		local rMessageAtaque;
+		if rSource then
+			rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
+			if sAtaque then
+				rMessageAtaque.text = rMessageAtaque.text:gsub("%[Ataque%]", sAtaque);
+			end
+		end
 		local rMessageResultado = ChatManager.createBaseMessage();
 
 		local nResultado=ActionsManager.total(rRoll)-nDificultad;
-		local sNombreAtacante=ObtenerNombre(rSource);
+		local sNombreAtacante="";
+		if rSource then sNombreAtacante=ObtenerNombre(rSource); end
 		local sNombreDefensor=ObtenerNombre(rTarget);
 		
 		if nResultado&gt;0 then
-			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado);
+			if rSource then AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado); end
 			if nResultado&gt;=10 then
 				local nNumGolpesEpicos=math.floor((nResultado-5)/5);
 				local sGolpeEpico;
@@ -169,27 +187,36 @@ function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad)
 			rMessageResultado.text = sNombreAtacante.." falla al atacar a"..sNombreDefensor;
 			rMessageResultado.icon = "roll_attack_miss";
 		end
-		Comm.deliverChatMessage(rMessageAtaque);
+		if rSource then Comm.deliverChatMessage(rMessageAtaque); end
 		Comm.deliverChatMessage(rMessageResultado);
-	elseif rRoll then
+	elseif rRoll and rSource then
 		local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
+		if sAtaque then
+			rMessageAtaque.text = rMessageAtaque.text:gsub("%[Ataque%]", sAtaque);
+		end
 		Comm.deliverChatMessage(rMessageAtaque);
 	end
 end
 
 function EsAtaqueCC(rSource, rRoll)
-	if rSource.sType=="npc" then
-		if rRoll.sDesc and rRoll.sDesc~="" then
-			if rRoll.sDesc:lower():match("arco") or rRoll.sDesc:lower():match("ballesta") or rRoll.sDesc:lower():match("cañón") or rRoll.sDesc:lower():match("honda") then
-				return false;
+	if rSource and rRoll then
+		if rSource.sType=="npc" then
+			if rRoll.sDesc and rRoll.sDesc~="" then
+				if rRoll.sDesc:lower():match("arco") or rRoll.sDesc:lower():match("ballesta") or rRoll.sDesc:lower():match("cañón") or rRoll.sDesc:lower():match("honda") then
+					return false;
+				else
+					return true;
+				end;
 			else
 				return true;
-			end;
+			end
 		else
-			return true;
+			return bCCPJ;
 		end
-	else
-		return bCCPJ;
+	elseif rRoll and rRoll.sDesc then
+		if rRoll.sDesc:match("%[Ataque CC%]") then return true;
+		else return false;
+		end
 	end
 --	return not (DB.getValue("combattracker.AtaqueMele", 0)==2);
 end
@@ -518,6 +545,7 @@ end
 
 function PreAtaque(rSource, aTargeting, rRolls)
 	if DB.getValue("combattracker.AtaqueMele", 0)==1 then
+		local rRoll=rRolls[1];
 		-- Golpe aislado: si defensor debilitado -&gt; ataque +3
 		local iRoll = 0;
 		if aTargeting and rSource then
@@ -525,11 +553,11 @@ function PreAtaque(rSource, aTargeting, rRolls)
 				for _,vTarget in ipairs(vTargetGroup) do
 					iRoll = iRoll + 1;
 					if EstaDevilitado(vTarget) then
-						rRolls[iRoll] = {nBonuses = rRolls[iRoll].nBonuses,
-										aDice = rRolls[iRoll].aDice,
-										nMod = rRolls[iRoll].nMod+3,
-										sType = rRolls[iRoll].sType,
-										sDesc = rRolls[iRoll].sDesc.." [Debilitado: +3]"
+						rRolls[iRoll] = {nBonuses = rRoll.nBonuses,
+										aDice = rRoll.aDice,
+										nMod = rRoll.nMod+3,
+										sType = rRoll.sType,
+										sDesc = rRoll.sDesc.." [Debilitado: +3]"
 						};
 					end
 				end
@@ -541,16 +569,18 @@ end
 
 function PreDanio(rSource, aTargeting, rRolls)
 	local iRoll = 0;
+	local rRoll=rRolls[1];
 	if aTargeting and rSource then
 		for _,vTargetGroup in ipairs(aTargeting) do
 			for _,vTarget in ipairs(vTargetGroup) do
 				iRoll = iRoll + 1;
+				Debug.chat(rRolls[iRoll])
 				if tResultados[rSource.sCTNode] and tResultados[rSource.sCTNode][vTarget.sCTNode] and tResultados[rSource.sCTNode][vTarget.sCTNode]&gt;0 then
-					rRolls[iRoll] = {nBonuses = rRolls[iRoll].nBonuses,
-									aDice = rRolls[iRoll].aDice,
-									nMod = rRolls[iRoll].nMod+math.min(tResultados[rSource.sCTNode][vTarget.sCTNode], 10),
-									sType = rRolls[iRoll].sType,
-									sDesc = rRolls[iRoll].sDesc.." [Éxitos ataque: "..tResultados[rSource.sCTNode][vTarget.sCTNode].." ]"
+					rRolls[iRoll] = {nBonuses = rRoll.nBonuses,
+									aDice = rRoll.aDice,
+									nMod = rRoll.nMod+math.min(tResultados[rSource.sCTNode][vTarget.sCTNode], 10),
+									sType = rRoll.sType,
+									sDesc = rRoll.sDesc.." [Éxitos ataque: "..tResultados[rSource.sCTNode][vTarget.sCTNode].." ]"
 					};
 					tResultados[rSource.sCTNode][vTarget.sCTNode]=0;
 				end
@@ -561,6 +591,7 @@ function PreDanio(rSource, aTargeting, rRolls)
 end
 
 function Danio(rSource, rTarget, rRoll)
+Debug.chat(rRoll)
 --	local rMessage;
 	if rSource then
 		local rMessage1 = ActionsManager.createActionMessage(rSource, rRoll);
@@ -590,9 +621,12 @@ function Danio(rSource, rTarget, rRoll)
 		end
 		
 		rMessage2.text=rMessage2.text..TipoHerida;
+		local bDebilitado=false;
+		local bIncapacitado=false;
 		if not bHeridaMortal then
 			if DB.getValue(rTarget.sCTNode..".current", 1)&lt;=0 then
 				rMessage2.text=rMessage2.text.." [Incapacitado]";
+				bIncapacitado=true;
 				if bHeridaGrabe then rMessage2.text=rMessage2.text.." [1 PD/minuto]"; end
 			elseif bHeridaGrabe or bHeridaLeve then
 				local nContGraves=0;
@@ -604,18 +638,42 @@ function Danio(rSource, rTarget, rRoll)
 				end
 
 				if bHeridaGrabe then
-					if nContGraves==1 and nContLeves&lt;2 then rMessage2.text=rMessage2.text.." [Debilitado]";
-					elseif nContGraves==2 or nContGraves==1 and (nContLeves==2 or nContLeves==3) then rMessage2.text=rMessage2.text.." [Incapacitado]";
+					if nContGraves==1 and nContLeves&lt;2 then
+						rMessage2.text=rMessage2.text.." [Debilitado]";
+						bDebilitado=true;
+					elseif nContGraves==2 or nContGraves==1 and (nContLeves==2 or nContLeves==3) then
+						rMessage2.text=rMessage2.text.." [Incapacitado]";
+						bIncapacitado=true;
 					end
 				end
 				if bHeridaLeve then
-					if nContLeves==2 and nContGraves==0 then rMessage2.text=rMessage2.text.." [Debilitado]";
-					elseif nContLeves==2 and nContGraves==1 or nContLeves==4 then rMessage2.text=rMessage2.text.." [Incapacitado]";
+					if nContLeves==2 and nContGraves==0 then
+						rMessage2.text=rMessage2.text.." [Debilitado]";
+						bDebilitado=true;
+					elseif nContLeves==2 and nContGraves==1 or nContLeves==4 then
+						rMessage2.text=rMessage2.text.." [Incapacitado]";
+						bIncapacitado=true;
 					end
 				end
 			end
+		else
+			bIncapacitado=true;
 		end
-		Comm.deliverChatMessage(rMessage2);	
+		Comm.deliverChatMessage(rMessage2);
+		if bDebilitado then
+			if rTarget.sType=="charsheet" then
+				return DB.setValue(rTarget.sCreatureNode..".PuntosDeVida.Debilitado", "number", 1);
+			else
+				return DB.setValue(rTarget.sCreatureNode..".Debilitado", "number", 1);
+			end
+		end
+		if bIncapacitado then
+			if rTarget.sType=="charsheet" then
+				return DB.setValue(rTarget.sCreatureNode..".PuntosDeVida.Incapacitado", "number", 1);
+			else
+				return DB.setValue(rTarget.sCreatureNode..".Incapacitado", "number", 1);
+			end
+		end
 	end
 end
 
