@@ -6,11 +6,68 @@
 tContadores={}
 tResultados={}
 bCCPJ=true;
+nNumAtaques=0;
 
 function onInit()
 	CrearMeles();
 --	FuncionactionRoll=ActionsManager.actionRoll;
 	ActionsManager.actionRoll=actionRoll;
+end
+
+--	***********************************************************************
+--	******************************* Ataques *******************************
+--	***********************************************************************
+
+--function ProcesarGolpeAislado(rSource, rTarget, rRoll)
+--	ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerEsquivar(rTarget), "[Ataque CC]");
+--end
+
+--function AtaqueDistancia(rSource, rTarget, rRoll)
+--	ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerDificultadDistancia(rSource, rTarget), "[Ataque a Distancia]");
+--end
+
+function PreAtaque(rSource, aTargeting, rRolls)
+	if DB.getValue("combattracker.AtaqueMele", 0)==1 then
+		local rRoll=rRolls[1];
+		-- Golpe aislado: si defensor debilitado -&gt; ataque +3
+		local iRoll = 0;
+		if aTargeting and rSource then
+			for _,vTargetGroup in ipairs(aTargeting) do
+				for _,vTarget in ipairs(vTargetGroup) do
+					iRoll = iRoll + 1;
+					if EstaDevilitado(vTarget) then
+						rRolls[iRoll] = {nBonuses = rRoll.nBonuses,
+										aDice = rRoll.aDice,
+										nMod = rRoll.nMod+3,
+										sType = rRoll.sType,
+										sDesc = rRoll.sDesc.." [Debilitado: +3]"
+						};
+					else
+						rRolls[iRoll] = {nBonuses = rRoll.nBonuses,
+										aDice = rRoll.aDice,
+										nMod = rRoll.nMod,
+										sType = rRoll.sType,
+										sDesc = rRoll.sDesc
+						};
+					end
+				end
+			end
+		end
+	end
+	return aTargeting;
+end
+
+function Ataque(rSource, rTarget, rRoll)
+--{ s'sType' = s'charsheet', s'sCreatureNode' = s'charsheet.id-00001', s'sCTNode' = s'combattracker.list.id-00010', s'sName' = s'PJ' }
+--{ s'sType' = s'npc', s'sCreatureNode' = s'combattracker.list.id-00003', s'sCTNode' = s'combattracker.list.id-00003', s'sName' = s'Asesino profesional 1' }
+--{ s'nBonuses' = s'9', s'aDice' = { #1 = { s'value' = #8, s'type' = s'd10', s'result' = #8, s'mode' = s'e!' }, s'expr' = s'1d10!+9', s'total' = #17 }, s'nMod' = #0, s'sType' = s'AtaqueRollAction', s'nTotal' = #17, s'bSecret' = bFALSE, s'sDesc' = s'[Ataque] Arco 11 [Arco: 14] [Penalización por FUE: -5]' }
+	if EsAtaqueCC(rSource, rRoll) then
+		AtaqueCC(rSource, rTarget, rRoll);
+	else
+--		AtaqueDistancia(rSource, rTarget, rRoll);
+		ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerDificultadDistancia(rSource, rTarget), "[Ataque a Distancia]");
+		ProcesarMultipleTargeting(rSource, rTarget);
+	end
 end
 
 function AtaqueCC(rSource, rTarget, rRoll)
@@ -28,132 +85,21 @@ function AtaqueCC(rSource, rTarget, rRoll)
 			Comm.deliverChatMessage(rMessage);
 			AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele3", 0), rRoll);
 		else
-			-- No está en melé pero no marca para golpe aislado
-			Comm.deliverChatMessage(rMessage);
+			-- No está en melé -&gt; Golpe aislado
+			ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerEsquivar(rTarget), "[Ataque CC]");
+			ProcesarMultipleTargeting(rSource, rTarget);
 		end
 	else
 		-- Golpe aislado
-		ProcesarGolpeAislado(rSource, rTarget, rRoll, rMessage)
+--		ProcesarGolpeAislado(rSource, rTarget, rRoll, rMessage)
+		ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerEsquivar(rTarget), "[Ataque CC]");
+		ProcesarMultipleTargeting(rSource, rTarget);
 	end
-end
-
-function EstaDevilitado(rTarget)
-	if rTarget.sType=="charsheet" then
-		return DB.getValue(rTarget.sCreatureNode..".PuntosDeVida.Debilitado", 0)==1;
-	else
-		return DB.getValue(rTarget.sCreatureNode..".Debilitado", 0)==1;
-	end
-end
-
-function ObtenerEsquivar(rTarget)
-	if rTarget then
-		if rTarget.sType=="charsheet" then
-			for _,NodoHabilidad in pairs(DB.getChildren(rTarget.sCreatureNode..".Habilidades.ListaHabilidades")) do
-				if DB.getValue(NodoHabilidad, "Clave", "")=="Esquivar" then
-					return DB.getValue(NodoHabilidad, "Total", 0);
-				end
-			end
-		else
-			local sHabilidades=DB.getValue(rTarget.sCTNode..".Habilidades", "");
-			if sHabilidades~="" then
-				local nEsquivar=sHabilidades:lower():match("esquivar (%d*)");
-				if nEsquivar then return nEsquivar; end
-			end
-			-- O no hay habilidades o esquivar no está presente -&gt; 1+AGI-Est.
-			return 1+DB.getValue(rTarget.sCTNode..".Agilidad", 0)-DB.getValue(rTarget.sCTNode..".Estorbo", "");
-		end
-	else
-		return 0;
-	end
-end
-
-function ObtenerDistancia(rSource, rTarget)
-	return nil;
-end
-
-function ObtenerDificultadDistancia(rSource, rTarget)
-	local bDesprevenido=DB.getValue("combattracker.AtaqueADistancia", 0)==1;
-	local CDDistancia=10;
-	local nDistancia=ObtenerDistancia(rSource, rTarget);
-	if nDistancia then
-		if nDistancia&gt;=0 and nDistancia&lt;=14 then CDDistancia=10;
-		elseif nDistancia&gt;=15 and nDistancia&lt;=49 then CDDistancia=15;
-		elseif nDistancia&gt;=50 and nDistancia&lt;=99 then CDDistancia=20;
-		else CDDistancia=25;
-		end
-	else
-		CDDistancia=tonumber(DB.getValue("combattracker.Distanciavalue", 0))
-	end
-	if bDesprevenido then return CDDistancia;
-	else return math.max(CDDistancia, ObtenerEsquivar(rTarget));
-	end
-end
-
-function ObtenerNombre(rRegistro)
-	if rRegistro.sType=="npc" then
-		if DB.getValue(rRegistro.sCTNode..".isidentified", 0)==1 then return DB.getValue(rRegistro.sCTNode..".name", "");
-		else return DB.getValue(rRegistro.sCTNode..".nonid_name", "");
-		end
-	else
-		return DB.getValue(rRegistro.sCreatureNode..".name", "");
-	end
-end
-
-function ProcesarGolpeAislado(rSource, rTarget, rRoll)
---	if rSource and rTarget and rRoll then
---		local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
---		local rMessageResultado = ChatManager.createBaseMessage();
---
---		Debug.chat(ActionsManager.total(rRoll),ObtenerEsquivar(rTarget))
---		local nResultado=ActionsManager.total(rRoll)-ObtenerEsquivar(rTarget);
---		local sNombreAtacante=ObtenerNombre(rSource);
---		local sNombreDefensor=ObtenerNombre(rTarget);
---		
---		
---		if nResultado&gt;0 then
---			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado);
---			if nResultado&gt;=10 then
---				rMessageResultado.text = sNombreAtacante.." golpea críticamente a "..sNombreDefensor.." con "..nResultado.." éxitos";
---				rMessageResultado.icon = "roll_attack_crit";
---			else
---				rMessageResultado.text = sNombreAtacante.." golpea a "..sNombreDefensor.." con "..nResultado.." éxitos";
---				rMessageResultado.icon = "roll_attack_hit";
---			end
---		elseif nResultado&lt;0 and nResultado&gt;-5 then
---			rMessageResultado.text = sNombreAtacante.." falla al atacar a"..sNombreDefensor;
---			rMessageResultado.icon = "roll_attack_miss";
---		else
---			rMessageResultado.text = sNombreAtacante.." pifia al atacar a"..sNombreDefensor;
---			rMessageResultado.icon = "roll_attack_crit_miss";
---		end
---		Comm.deliverChatMessage(rMessageAtaque);
---		Comm.deliverChatMessage(rMessageResultado);
---	elseif rRoll then
---		local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
---		Comm.deliverChatMessage(rMessageAtaque);
---	end
-	ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerEsquivar(rTarget), "[Ataque CC]");
-end
-
-function AtaqueDistancia(rSource, rTarget, rRoll)
---	if rSource and rTarget then
-		ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerDificultadDistancia(rSource, rTarget), "[Ataque a Distancia]");
---	else
---		local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
---		rMessage.text = rMessage.text:gsub("%[Ataque%]", "[Ataque a Distancia]");
---		Comm.deliverChatMessage(rMessage);
---	end
-end
-
-function PosiblePifia(rRoll)
-	for i=1,#rRoll.aDice do
-		if rRoll.aDice[i].value~=1 then return false; end
-	end
-	return true
 end
 
 function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad, sAtaque)
 	if rTarget and rRoll then
+		nNumAtaques=nNumAtaques+1;
 		local rMessageAtaque;
 		if rSource then
 			rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
@@ -169,7 +115,10 @@ function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad, sAtaque)
 		local sNombreDefensor=ObtenerNombre(rTarget);
 		
 		if nResultado&gt;0 then
-			if rSource then AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado); end
+			Debug.chat(rSource and rSource.sCTNode, rSource and rSource.sCreatureNode)
+			if rSource and rSource.sCTNode then AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado);
+			elseif rSource and rSource.sCreatureNode then Debug.chat(rSource.sCreatureNode);AniadirResultadoAtaque(rSource.sCreatureNode, rTarget.sCTNode, nResultado);
+			end
 			if nResultado&gt;=10 then
 				local nNumGolpesEpicos=math.floor((nResultado-5)/5);
 				local sGolpeEpico;
@@ -185,11 +134,11 @@ function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad, sAtaque)
 		elseif nResultado&lt;=-5 and PosiblePifia(rRoll) then
 			rMessageResultado.text = sNombreAtacante.." pifia al atacar a"..sNombreDefensor;
 			rMessageResultado.icon = "roll_attack_crit_miss";
-			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, 0);
+			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, -10000);
 		else
 			rMessageResultado.text = sNombreAtacante.." falla al atacar a"..sNombreDefensor;
 			rMessageResultado.icon = "roll_attack_miss";
-			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, 0);
+			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, -10000);
 		end
 		if rSource then Comm.deliverChatMessage(rMessageAtaque); end
 		Comm.deliverChatMessage(rMessageResultado);
@@ -202,39 +151,26 @@ function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad, sAtaque)
 	end
 end
 
-function EsAtaqueCC(rSource, rRoll)
-	if rSource and rRoll then
-		if rSource.sType=="npc" then
-			if rRoll.sDesc and rRoll.sDesc~="" then
-				if rRoll.sDesc:lower():match("arco") or rRoll.sDesc:lower():match("ballesta") or rRoll.sDesc:lower():match("cañón") or rRoll.sDesc:lower():match("honda") then
-					return false;
-				else
-					return true;
-				end;
-			else
-				return true;
-			end
-		else
-			return bCCPJ;
-		end
-	elseif rRoll and rRoll.sDesc then
-		if rRoll.sDesc:match("%[Ataque CC%]") then return true;
-		else return false;
-		end
+function AniadirResultadoAtaque(NodoCTAtacante, NodoCTDefensor, nExitos)
+	if NodoCTAtacante and NodoCTDefensor then
+		if not tResultados[NodoCTAtacante] then tResultados[NodoCTAtacante]={} end;
+		tResultados[NodoCTAtacante][NodoCTDefensor]=nExitos;
 	end
---	return not (DB.getValue("combattracker.AtaqueMele", 0)==2);
+	Debug.chat(NodoCTAtacante, NodoCTDefensor, nExitos, tResultados[NodoCTAtacante][NodoCTDefensor])
+--	MostrarResultadosAtaques();
 end
 
-function Ataque(rSource, rTarget, rRoll)
---{ s'sType' = s'charsheet', s'sCreatureNode' = s'charsheet.id-00001', s'sCTNode' = s'combattracker.list.id-00010', s'sName' = s'PJ' }
---{ s'sType' = s'npc', s'sCreatureNode' = s'combattracker.list.id-00003', s'sCTNode' = s'combattracker.list.id-00003', s'sName' = s'Asesino profesional 1' }
---{ s'nBonuses' = s'9', s'aDice' = { #1 = { s'value' = #8, s'type' = s'd10', s'result' = #8, s'mode' = s'e!' }, s'expr' = s'1d10!+9', s'total' = #17 }, s'nMod' = #0, s'sType' = s'AtaqueRollAction', s'nTotal' = #17, s'bSecret' = bFALSE, s'sDesc' = s'[Ataque] Arco 11 [Arco: 14] [Penalización por FUE: -5]' }
-	if EsAtaqueCC(rSource, rRoll) then AtaqueCC(rSource, rTarget, rRoll);
-	else AtaqueDistancia(rSource, rTarget, rRoll);
+function MostrarResultadosAtaques()
+	for NotoCTAtacante,_ in pairs(tResultados) do
+		for NodoCTDefensor,_ in pairs(tResultados[NotoCTAtacante]) do
+			Debug.chat(DB.getValue(NotoCTAtacante..".name", ""), DB.getValue(NodoCTDefensor..".name", ""), tResultados[NotoCTAtacante][NodoCTDefensor])
+		end
 	end
---	ActionsManager.actionRoll=FuncionactionRoll;
-
 end
+
+--	***********************************************************************
+--	******************************** Melés ********************************
+--	***********************************************************************
 
 function CrearMeles()
 	tMeles={}
@@ -288,14 +224,27 @@ function CalcularPenalizadores()
 	end
 end
 
-function MostrarMeles()
-	for nMele,_ in pairs(tMeles) do
-		Debug.chat("********** Melé "..nMele.."**********");
-		Debug.chat("Contadores: ", tContadores[nMele])
-		for i,_ in pairs(tMeles[nMele]) do
-			Debug.chat(i, " ---- ", tMeles[nMele][i])
+function AniadirAtaqueAMele(nodoCT, nMele, rRoll)
+	if nMele&gt;0 then
+		if not tMeles[nMele] then
+			tMeles[nMele]={};
+			tContadores[nMele]={nAtaques=0, nAliados=0, nEnemigos=0};
 		end
+		for i,_ in pairs(tMeles[nMele]) do
+			if tMeles[nMele][i].PathNodo==nodoCT then
+				tMeles[nMele][i].nTirada=ActionsManager.total(rRoll);
+				-- Posible pifia si sale un 1 en un dado o dos unos en dos dados
+				tMeles[nMele][i].bPosiblePifia=PosiblePifia(rRoll);--#rRoll.aDice==tMeles[nMele][i].nTirada-rRoll.nBonuses;
+				if not tMeles[nMele][i].bTirada then
+					tContadores[nMele].nAtaques=tContadores[nMele].nAtaques+1;
+					tMeles[nMele][i].bTirada=true;
+				end
+				break;
+			end
+		end
+		if tContadores[nMele].nAtaques==#tMeles[nMele] then ProcesarMele(nMele); end
 	end
+--	MostrarMeles();
 end
 
 function ModificarMele(nodoCT, nMele, nMeleAnt)
@@ -423,29 +372,6 @@ function EliminarDeMele(nodoCT, nMele)
 	return tNodoMele;
 end
 
-function AniadirAtaqueAMele(nodoCT, nMele, rRoll)
-	if nMele&gt;0 then
-		if not tMeles[nMele] then
-			tMeles[nMele]={};
-			tContadores[nMele]={nAtaques=0, nAliados=0, nEnemigos=0};
-		end
-		for i,_ in pairs(tMeles[nMele]) do
-			if tMeles[nMele][i].PathNodo==nodoCT then
-				tMeles[nMele][i].nTirada=ActionsManager.total(rRoll);
-				-- Posible pifia si sale un 1 en un dado o dos unos en dos dados
-				tMeles[nMele][i].bPosiblePifia=PosiblePifia(rRoll);--#rRoll.aDice==tMeles[nMele][i].nTirada-rRoll.nBonuses;
-				if not tMeles[nMele][i].bTirada then
-					tContadores[nMele].nAtaques=tContadores[nMele].nAtaques+1;
-					tMeles[nMele][i].bTirada=true;
-				end
-				break;
-			end
-		end
-		if tContadores[nMele].nAtaques==#tMeles[nMele] then ProcesarMele(nMele); end
-	end
---	MostrarMeles();
-end
-
 function ProcesarMele(nMele)
 	local tAliados={}
 	local tEnemigos={}
@@ -523,18 +449,14 @@ function ProcesarMele(nMele)
 	end
 end
 
-function MostrarResultadosAtaques()
-	for NotoCTAtacante,_ in pairs(tResultados) do
-		for NodoCTDefensor,_ in pairs(tResultados[NotoCTAtacante]) do
-			Debug.chat(DB.getValue(NotoCTAtacante..".name", ""), DB.getValue(NodoCTDefensor..".name", ""), tResultados[NotoCTAtacante][NodoCTDefensor])
+function MostrarMeles()
+	for nMele,_ in pairs(tMeles) do
+		Debug.chat("********** Melé "..nMele.."**********");
+		Debug.chat("Contadores: ", tContadores[nMele])
+		for i,_ in pairs(tMeles[nMele]) do
+			Debug.chat(i, " ---- ", tMeles[nMele][i])
 		end
 	end
-end
-
-function AniadirResultadoAtaque(NodoCTAtacante, NodoCTDefensor, nExitos)
-	if not tResultados[NodoCTAtacante] then tResultados[NodoCTAtacante]={} end;
-	tResultados[NodoCTAtacante][NodoCTDefensor]=nExitos;
---	MostrarResultadosAtaques();
 end
 
 function LimpiarMeles()
@@ -549,41 +471,14 @@ function LimpiarMeles()
 --	MostrarMeles();
 end
 
-function PreAtaque(rSource, aTargeting, rRolls)
-	if DB.getValue("combattracker.AtaqueMele", 0)==1 then
-		local rRoll=rRolls[1];
-		-- Golpe aislado: si defensor debilitado -&gt; ataque +3
-		local iRoll = 0;
-		if aTargeting and rSource then
-			for _,vTargetGroup in ipairs(aTargeting) do
-				for _,vTarget in ipairs(vTargetGroup) do
-					iRoll = iRoll + 1;
-					if EstaDevilitado(vTarget) then
-						rRolls[iRoll] = {nBonuses = rRoll.nBonuses,
-										aDice = rRoll.aDice,
-										nMod = rRoll.nMod+3,
-										sType = rRoll.sType,
-										sDesc = rRoll.sDesc.." [Debilitado: +3]"
-						};
-					else
-						rRolls[iRoll] = {nBonuses = rRoll.nBonuses,
-										aDice = rRoll.aDice,
-										nMod = rRoll.nMod,
-										sType = rRoll.sType,
-										sDesc = rRoll.sDesc
-						};
-					end
-				end
-			end
-		end
-	end
-	return aTargeting;
-end
+--	***********************************************************************
+--	******************************** Daños ********************************
+--	***********************************************************************
 
 function PreDanio(rSource, aTargeting, rRolls)
 	local iRoll = 0;
 	local rRoll=rRolls[1];
-	if aTargeting and rSource then
+	if aTargeting and rSource and (rSource.sCTNode or rSource.sCreatureNode) then
 		for _,vTargetGroup in ipairs(aTargeting) do
 			for _,vTarget in ipairs(vTargetGroup) do
 				iRoll = iRoll + 1;
@@ -595,9 +490,18 @@ function PreDanio(rSource, aTargeting, rRolls)
 									sDesc = rRoll.sDesc.." [Éxitos ataque: "..tResultados[rSource.sCTNode][vTarget.sCTNode].." ]"
 					};
 					tResultados[rSource.sCTNode][vTarget.sCTNode]=0;
+				elseif tResultados[rSource.sCreatureNode] and tResultados[rSource.sCreatureNode][vTarget.sCTNode] and tResultados[rSource.sCreatureNode][vTarget.sCTNode]&gt;0 then
+					rRolls[iRoll] = {nBonuses = rRoll.nBonuses,
+									aDice = rRoll.aDice,
+									nMod = rRoll.nMod+math.min(tResultados[rSource.sCreatureNode][vTarget.sCTNode], 10),
+									sType = rRoll.sType,
+									sDesc = rRoll.sDesc.." [Éxitos ataque: "..tResultados[rSource.sCreatureNode][vTarget.sCTNode].." ]"
+					};
+					tResultados[rSource.sCreatureNode][vTarget.sCTNode]=0;
 				else
 					rRolls[iRoll] = rRoll;
-					tResultados[rSource.sCTNode][vTarget.sCTNode]=0;
+					if rSource.sCTNode and tResultados[rSource.sCTNode] then tResultados[rSource.sCTNode][vTarget.sCTNode]=0; end
+					if rSource.sCreatureNode and tResultados[rSource.sCreatureNode] then tResultados[rSource.sCTNode][vTarget.sCTNode]=0; end
 				end
 			end
 		end
@@ -708,6 +612,9 @@ function AniadirHerida(rTarget, nDanio)
 	end
 end
 
+--	***********************************************************************
+--	****************************** Utilidades******************************
+--	***********************************************************************
 
 -- NOTE: tTargetGroups parameter for this function assumes a list of targeting groups
 function actionRoll(rSource, tTargetGroups, rRolls)
@@ -723,6 +630,117 @@ function actionRoll(rSource, tTargetGroups, rRolls)
 	end
 	
 	ActionsManager.unlockModifiers(bModStackUsed);
+end
+
+function EstaDevilitado(rTarget)
+	if rTarget.sType=="charsheet" then
+		return DB.getValue(rTarget.sCreatureNode..".PuntosDeVida.Debilitado", 0)==1;
+	else
+		return DB.getValue(rTarget.sCreatureNode..".Debilitado", 0)==1;
+	end
+end
+
+function ObtenerEsquivar(rTarget)
+	if rTarget then
+		if rTarget.sType=="charsheet" then
+			for _,NodoHabilidad in pairs(DB.getChildren(rTarget.sCreatureNode..".Habilidades.ListaHabilidades")) do
+				if DB.getValue(NodoHabilidad, "Clave", "")=="Esquivar" then
+					return DB.getValue(NodoHabilidad, "Total", 0);
+				end
+			end
+		else
+			local sHabilidades=DB.getValue(rTarget.sCTNode..".Habilidades", "");
+			if sHabilidades~="" then
+				local nEsquivar=sHabilidades:lower():match("esquivar (%d*)");
+				if nEsquivar then return nEsquivar; end
+			end
+			-- O no hay habilidades o esquivar no está presente -&gt; 1+AGI-Est.
+			return 1+DB.getValue(rTarget.sCTNode..".Agilidad", 0)-DB.getValue(rTarget.sCTNode..".Estorbo", "");
+		end
+	else
+		return 0;
+	end
+end
+
+function ObtenerDistancia(rSource, rTarget)
+	return nil;
+end
+
+function ObtenerDificultadDistancia(rSource, rTarget)
+	local bDesprevenido=DB.getValue("combattracker.AtaqueADistancia", 0)==1;
+	local CDDistancia=10;
+	local nDistancia=ObtenerDistancia(rSource, rTarget);
+	if nDistancia then
+		if nDistancia&gt;=0 and nDistancia&lt;=14 then CDDistancia=10;
+		elseif nDistancia&gt;=15 and nDistancia&lt;=49 then CDDistancia=15;
+		elseif nDistancia&gt;=50 and nDistancia&lt;=99 then CDDistancia=20;
+		else CDDistancia=25;
+		end
+	else
+		CDDistancia=tonumber(DB.getValue("combattracker.Distanciavalue", 0))
+	end
+	if bDesprevenido then return CDDistancia;
+	else return math.max(CDDistancia, ObtenerEsquivar(rTarget));
+	end
+end
+
+function ObtenerNombre(rRegistro)
+	if rRegistro.sType=="npc" then
+		if DB.getValue(rRegistro.sCTNode..".isidentified", 0)==1 then return DB.getValue(rRegistro.sCTNode..".name", "");
+		else return DB.getValue(rRegistro.sCTNode..".nonid_name", "");
+		end
+	else
+		return DB.getValue(rRegistro.sCreatureNode..".name", "");
+	end
+end
+
+function PosiblePifia(rRoll)
+	for i=1,#rRoll.aDice do
+		if rRoll.aDice[i].value~=1 then return false; end
+	end
+	return true
+end
+
+function EsAtaqueCC(rSource, rRoll)
+	if rSource and rRoll then
+		if rSource.sType=="npc" then
+			if rRoll.sDesc and rRoll.sDesc~="" then
+				if rRoll.sDesc:lower():match("arco") or rRoll.sDesc:lower():match("ballesta") or rRoll.sDesc:lower():match("cañón") or rRoll.sDesc:lower():match("honda") then
+					return false;
+				else
+					return true;
+				end;
+			else
+				return true;
+			end
+		else
+			return bCCPJ;
+		end
+	elseif rRoll and rRoll.sDesc then
+		if rRoll.sDesc:match("%[Ataque CC%]") then return true;
+		else return false;
+		end
+	end
+end
+
+function ProcesarMultipleTargeting(rSource, rTarget)
+	if rSource and rTarget and rSource.sCTNode then
+		if (nNumAtaques==DB.getChildCount(rSource.sCTNode..".targets")) and nNumAtaques&gt;1 then
+			local ListaABorrar={};
+			local sTargetCTNode="";
+			nNumAtaques=0;
+			for _,NodoTarget in pairs(DB.getChildren(rSource.sCTNode..".targets")) do
+				sTargetCTNode=DB.getValue(NodoTarget, "noderef", "");
+				if tResultados[rSource.sCTNode] and tResultados[rSource.sCTNode][sTargetCTNode] and tResultados[rSource.sCTNode][sTargetCTNode]==-10000 then
+					tResultados[rSource.sCTNode][sTargetCTNode]=0;
+					table.insert(ListaABorrar, sTargetCTNode);
+				end
+			end
+			for _,sTargetCTNode in pairs(ListaABorrar) do
+				TargetingManager.removeTarget(rSource.sCTNode, sTargetCTNode);
+			end
+		end
+	end
 end
 
 function ObtenerTipoDanio(rSource)
@@ -807,6 +825,8 @@ function ObtenerTipoDanio(rSource)
 		[""]="";
 	};
 end
+
+
 
 
 
