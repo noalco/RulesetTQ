@@ -156,7 +156,6 @@ function AniadirResultadoAtaque(NodoCTAtacante, NodoCTDefensor, nExitos)
 		if not tResultados[NodoCTAtacante] then tResultados[NodoCTAtacante]={} end;
 		tResultados[NodoCTAtacante][NodoCTDefensor]=nExitos;
 	end
-	Debug.chat(NodoCTAtacante, NodoCTDefensor, nExitos, tResultados[NodoCTAtacante][NodoCTDefensor])
 --	MostrarResultadosAtaques();
 end
 
@@ -725,7 +724,7 @@ end
 
 function ProcesarMultipleTargeting(rSource, rTarget)
 	if rSource and rTarget and rSource.sCTNode then
-		if (nNumAtaques==DB.getChildCount(rSource.sCTNode..".targets")) and nNumAtaques&gt;1 then
+		if (nNumAtaques&gt;=DB.getChildCount(rSource.sCTNode..".targets")) and nNumAtaques&gt;1 then
 			local ListaABorrar={};
 			local sTargetCTNode="";
 			nNumAtaques=0;
@@ -739,6 +738,8 @@ function ProcesarMultipleTargeting(rSource, rTarget)
 			for _,sTargetCTNode in pairs(ListaABorrar) do
 				TargetingManager.removeTarget(rSource.sCTNode, sTargetCTNode);
 			end
+		elseif (nNumAtaques==DB.getChildCount(rSource.sCTNode..".targets")) and nNumAtaques==1 then
+			nNumAtaques=0;
 		end
 	end
 end

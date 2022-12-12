@@ -43,14 +43,13 @@ Wizard:
 
 CT:
 			- Gestionar los cambios de facción cuando el individuo está en una melé
-	- Efectos
+	- Añadir el penalizador por múltiples enemigos si el ataque es de una melé (ahora se aplica a todos los ataques)
 	- Añadir puntos de infortunio
 	- Añadir efectos debidos a heridas
 	- Armas arrojadizas en PNJs (CC/a distancia)
 	- Calcular la distancia entre tokesn en el mapa
-	- Mostrar tipo de daño
+	- Tipo de daño en PNJs
 	- Tipo de daño vs tipo de armadura
-	- Desmarcar objetivos de un grupo a los que se falla
 	
 Exportar:
 	- Permitir exportar elementos individuales

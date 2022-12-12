@@ -399,7 +399,11 @@ function ObtenerTirada()
 	ResolucionCombate.bCCPJ=sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteDosManos;
 
 	sDado=Herramientas.ObtenerDados(window.getDatabaseNode().getPath())
+	Debug.chat(sDado)
 	nValor=getValue()-DB.getValue(window.getDatabaseNode(), "...PenMeleMultiEnemigos", 0);
+	Debug.chat(getValue())
+	Debug.chat(DB.getValue(window.getDatabaseNode(), "...PenMeleMultiEnemigos", 0))
+	Debug.chat(nValor)
 	if nValor&gt;0 then return sDado.."+"..nValor;
 	elseif nValor&lt;0 then return sDado..nValor;
 	else return sDado;
