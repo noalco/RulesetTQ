@@ -2,7 +2,7 @@
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>activateattacks</ControlName>
-    <ZIndex>13</ZIndex>
+    <ZIndex>18</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -65,7 +65,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>activatedefense</ControlName>
-    <ZIndex>14</ZIndex>
+    <ZIndex>19</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -128,7 +128,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>activateeffects</ControlName>
-    <ZIndex>10</ZIndex>
+    <ZIndex>15</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -191,7 +191,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>activateheridas</ControlName>
-    <ZIndex>15</ZIndex>
+    <ZIndex>20</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -254,7 +254,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>activatespacing</ControlName>
-    <ZIndex>11</ZIndex>
+    <ZIndex>16</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -317,7 +317,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>activatetargeting</ControlName>
-    <ZIndex>12</ZIndex>
+    <ZIndex>17</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -439,7 +439,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>Agilidad</ControlName>
-    <ZIndex>43</ZIndex>
+    <ZIndex>44</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -505,7 +505,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>attacksicon</ControlName>
-    <ZIndex>34</ZIndex>
+    <ZIndex>35</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"top","Parent":"sub_attacks"}}},
@@ -554,264 +554,8 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>ct_entry</WindowName>
-    <ControlName>BotonFase1</ControlName>
-    <ZIndex>16</ZIndex>
-    <ControlClass>FGButton</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
-      {"Name":"AllowDoubleClick"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;0;105;133"}},
-      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"ButtonField"},
-      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonFase1"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DefaultValue"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"12"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"26"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
-      {"Name":"Disabled"},
-      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
-      {"Name":"FrameName"},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"HoverCursor"},
-      {"Name":"HoverIconName"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"NextTabTarget"},
-      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"Fase1"}},
-      {"Name":"PressedIconName"},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly"},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"StackVertWith"},
-      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 1"}},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"106"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"36"}}
-]}}</Definition>
-    <LUACode>function onButtonPress()
-	local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-	if ActorManager.isPC(rActor) then
-		local sTipo, sRuta=DB.getValue(window.getDatabaseNode(), "link");
-		DB.setValue(sRuta..".FaseCT", "number", 1);
-	else
-		window.Fase.setValue(1);
-	end
-end
-</LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>ct_entry</WindowName>
-    <ControlName>BotonFase2</ControlName>
-    <ZIndex>17</ZIndex>
-    <ControlClass>FGButton</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
-      {"Name":"AllowDoubleClick"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;0;105;133"}},
-      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"ButtonField"},
-      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonFase2"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DefaultValue"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"12"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"26"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
-      {"Name":"Disabled"},
-      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
-      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"HoverCursor"},
-      {"Name":"HoverIconName"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"NextTabTarget"},
-      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"Fase2"}},
-      {"Name":"PressedIconName"},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly"},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"StackVertWith"},
-      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 2"}},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"135"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"36"}}
-]}}</Definition>
-    <LUACode>function onButtonPress()
-	window.setFase(2);
-end
-
-</LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>ct_entry</WindowName>
-    <ControlName>BotonFase3</ControlName>
-    <ZIndex>18</ZIndex>
-    <ControlClass>FGButton</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
-      {"Name":"AllowDoubleClick"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;0;105;133"}},
-      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"ButtonField"},
-      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonFase3"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DefaultValue"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"12"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"26"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
-      {"Name":"Disabled"},
-      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
-      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"HoverCursor"},
-      {"Name":"HoverIconName"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"NextTabTarget"},
-      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"Fase3"}},
-      {"Name":"PressedIconName"},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly"},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"StackVertWith"},
-      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 3"}},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"164"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"36"}}
-]}}</Definition>
-    <LUACode>function onButtonPress()
-	window.setFase(3);
-end
-
-</LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>ct_entry</WindowName>
-    <ControlName>BotonFase4</ControlName>
-    <ZIndex>19</ZIndex>
-    <ControlClass>FGButton</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"AdvancedTemplate"},
-      {"Name":"AllowDoubleClick"},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"255;0;105;133"}},
-      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"ButtonField"},
-      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BotonFase4"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DefaultValue"},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"12"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"26"}},
-      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
-      {"Name":"Disabled"},
-      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
-      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"HoverCursor"},
-      {"Name":"HoverIconName"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"NextTabTarget"},
-      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"Fase4"}},
-      {"Name":"PressedIconName"},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly"},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"StackVertWith"},
-      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Fase 4"}},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"193"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"36"}}
-]}}</Definition>
-    <LUACode>function onButtonPress()
-	window.setFase(4);
-end
-</LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template />
-  </WindowControls>
-  <WindowControls>
-    <WindowName>ct_entry</WindowName>
     <ControlName>bottom_spacer</ControlName>
-    <ZIndex>41</ZIndex>
+    <ZIndex>42</ZIndex>
     <ControlClass>FGCustomControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -848,7 +592,7 @@ end
       {"Name":"RelativeStacking","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ScriptFile"},
       {"Name":"Source"},
-      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"BotonFase1"}},
+      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"labelFase"}},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
@@ -1184,7 +928,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>current</ControlName>
-    <ZIndex>22</ZIndex>
+    <ZIndex>23</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1264,7 +1008,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>defenseicon</ControlName>
-    <ZIndex>36</ZIndex>
+    <ZIndex>37</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"top","Parent":"sub_defense"}}},
@@ -1314,7 +1058,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>effect_summary</ControlName>
-    <ZIndex>40</ZIndex>
+    <ZIndex>41</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1351,7 +1095,7 @@ end
       {"Name":"RelativeMargin","Value":{"@xsi:type":"xsd:int","#text":"3"}},
       {"Name":"RelativeStacking","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string","#text":"ct/scripts/ct_effect_summary.lua"}},
-      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"BotonFase1"}},
+      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"labelFase"}},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip"},
@@ -1367,7 +1111,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>effecticon</ControlName>
-    <ZIndex>32</ZIndex>
+    <ZIndex>33</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"top","Parent":"sub_effects"}}},
@@ -1417,7 +1161,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>Fase</ControlName>
-    <ZIndex>42</ZIndex>
+    <ZIndex>43</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1499,7 +1243,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>friendfoe</ControlName>
-    <ZIndex>23</ZIndex>
+    <ZIndex>24</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1563,7 +1307,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>heridasicon</ControlName>
-    <ZIndex>38</ZIndex>
+    <ZIndex>39</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"top","Parent":"sub_heridas"}}},
@@ -1613,7 +1357,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>hp</ControlName>
-    <ZIndex>20</ZIndex>
+    <ZIndex>21</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1739,7 +1483,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>IDMele</ControlName>
-    <ZIndex>46</ZIndex>
+    <ZIndex>47</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1806,7 +1550,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>IDMele3</ControlName>
-    <ZIndex>49</ZIndex>
+    <ZIndex>50</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1936,7 +1680,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>labelFase</ControlName>
-    <ZIndex>51</ZIndex>
+    <ZIndex>14</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1948,7 +1692,7 @@ end</LUACode>
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -2100,7 +1844,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>ListaHeridasModificada</ControlName>
-    <ZIndex>50</ZIndex>
+    <ZIndex>51</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2166,7 +1910,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>Mente</ControlName>
-    <ZIndex>24</ZIndex>
+    <ZIndex>25</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2232,7 +1976,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>name</ControlName>
-    <ZIndex>25</ZIndex>
+    <ZIndex>26</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2294,7 +2038,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>nonid_name</ControlName>
-    <ZIndex>26</ZIndex>
+    <ZIndex>27</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2356,7 +2100,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>PenMeleMultiEnemigos</ControlName>
-    <ZIndex>45</ZIndex>
+    <ZIndex>46</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2426,7 +2170,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>Propietario</ControlName>
-    <ZIndex>44</ZIndex>
+    <ZIndex>45</ZIndex>
     <ControlClass>FGStringField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2487,8 +2231,76 @@ end
   </WindowControls>
   <WindowControls>
     <WindowName>ct_entry</WindowName>
+    <ControlName>SelectorFase</ControlName>
+    <ZIndex>53</ZIndex>
+    <ControlClass>FGRadioList</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"SelectorFase"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"125"}},
+      {"Name":"Disabled"},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"OffIconName","Value":{"@xsi:type":"xsd:string","#text":"faseoff"}},
+      {"Name":"OnIconName","Value":{"@xsi:type":"xsd:string","#text":"faseon"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"RadioListDefaultIndex","Value":{"@xsi:type":"xsd:int","#text":"1"}},
+      {"Name":"RadioListItems","Value":{"@xsi:type":"ArrayOfLabelValue","LabelValue":[{"Label":null,"Value":"0"},{"Label":"1","Value":"1"},{"Label":"2","Value":"2"},{"Label":"3","Value":"3"},{"Label":"4","Value":"4"}]}},
+      {"Name":"RadioListLayout","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"RadioListOptionHeight","Value":{"@xsi:type":"xsd:int","#text":"25"}},
+      {"Name":"RadioListOptionMargin","Value":{"@xsi:type":"xsd:int","#text":"-16"}},
+      {"Name":"RadioListOptionWidth","Value":{"@xsi:type":"xsd:int","#text":"25"}},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"Sourceless"},
+      {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Indica la melé en la que se va a ensarzar"}},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"104"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"32"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	window.setFase(tonumber(getStringValue()));
+end
+
+--function onInit()
+--	if window.Fase.getValue()~=3 then
+--		setStringValue("No");
+--	end
+--end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>ct_entry</WindowName>
     <ControlName>SelectorMele</ControlName>
-    <ZIndex>47</ZIndex>
+    <ZIndex>48</ZIndex>
     <ControlClass>FGRadioList</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2563,7 +2375,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>SelectorMele3</ControlName>
-    <ZIndex>48</ZIndex>
+    <ZIndex>49</ZIndex>
     <ControlClass>FGRadioList</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -2700,7 +2512,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>spacingicon</ControlName>
-    <ZIndex>30</ZIndex>
+    <ZIndex>31</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"top","Parent":"sub_spacing"}}},
@@ -2750,7 +2562,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>sub_attacks</ControlName>
-    <ZIndex>33</ZIndex>
+    <ZIndex>34</ZIndex>
     <ControlClass>FGSubWindow</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"Activate"},
@@ -2788,7 +2600,7 @@ end
       {"Name":"RelativeStacking","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ScriptFile"},
       {"Name":"Source"},
-      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"BotonFase1"}},
+      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"labelFase"}},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"SubWindowClassName","Value":{"@xsi:type":"xsd:string","#text":"ct_attacks"}},
       {"Name":"Tooltip"},
@@ -2804,7 +2616,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>sub_defense</ControlName>
-    <ZIndex>35</ZIndex>
+    <ZIndex>36</ZIndex>
     <ControlClass>FGSubWindow</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"Activate"},
@@ -2842,7 +2654,7 @@ end
       {"Name":"RelativeStacking","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ScriptFile"},
       {"Name":"Source"},
-      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"BotonFase1"}},
+      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"labelFase"}},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"SubWindowClassName","Value":{"@xsi:type":"xsd:string","#text":"ct_defense"}},
       {"Name":"Tooltip"},
@@ -2858,7 +2670,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>sub_effects</ControlName>
-    <ZIndex>31</ZIndex>
+    <ZIndex>32</ZIndex>
     <ControlClass>FGSubWindow</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"Activate"},
@@ -2896,7 +2708,7 @@ end
       {"Name":"RelativeStacking","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ScriptFile"},
       {"Name":"Source"},
-      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"BotonFase1"}},
+      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"labelFase"}},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"SubWindowClassName","Value":{"@xsi:type":"xsd:string","#text":"ct_effects"}},
       {"Name":"Tooltip"},
@@ -2912,7 +2724,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>sub_heridas</ControlName>
-    <ZIndex>37</ZIndex>
+    <ZIndex>38</ZIndex>
     <ControlClass>FGSubWindow</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"Activate"},
@@ -2950,7 +2762,7 @@ end
       {"Name":"RelativeStacking","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ScriptFile"},
       {"Name":"Source"},
-      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"BotonFase1"}},
+      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"labelFase"}},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"SubWindowClassName","Value":{"@xsi:type":"xsd:string","#text":"ct_heridas"}},
       {"Name":"Tooltip"},
@@ -2966,7 +2778,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>sub_spacing</ControlName>
-    <ZIndex>29</ZIndex>
+    <ZIndex>30</ZIndex>
     <ControlClass>FGSubWindow</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"Activate"},
@@ -3004,7 +2816,7 @@ end
       {"Name":"RelativeStacking","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ScriptFile"},
       {"Name":"Source"},
-      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"BotonFase1"}},
+      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"labelFase"}},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"SubWindowClassName","Value":{"@xsi:type":"xsd:string","#text":"ct_spacing"}},
       {"Name":"Tooltip"},
@@ -3020,7 +2832,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>sub_targeting</ControlName>
-    <ZIndex>27</ZIndex>
+    <ZIndex>28</ZIndex>
     <ControlClass>FGSubWindow</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"Activate"},
@@ -3058,7 +2870,7 @@ end
       {"Name":"RelativeStacking","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ScriptFile"},
       {"Name":"Source"},
-      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"BotonFase1"}},
+      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"labelFase"}},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"SubWindowClassName","Value":{"@xsi:type":"xsd:string","#text":"ct_targets"}},
       {"Name":"Tooltip"},
@@ -3074,7 +2886,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>target_summary</ControlName>
-    <ZIndex>39</ZIndex>
+    <ZIndex>40</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -3111,7 +2923,7 @@ end
       {"Name":"RelativeMargin","Value":{"@xsi:type":"xsd:int","#text":"3"}},
       {"Name":"RelativeStacking","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string","#text":"ct/scripts/ct_target_summary.lua"}},
-      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"BotonFase1"}},
+      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string","#text":"labelFase"}},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"TextUnderlined"},
       {"Name":"Tooltip"},
@@ -3127,7 +2939,7 @@ end
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>targetingicon</ControlName>
-    <ZIndex>28</ZIndex>
+    <ZIndex>29</ZIndex>
     <ControlClass>FGIconControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"top","Parent":"sub_targeting"}}},
@@ -3414,7 +3226,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>ct_entry</WindowName>
     <ControlName>wounds</ControlName>
-    <ZIndex>21</ZIndex>
+    <ZIndex>22</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
