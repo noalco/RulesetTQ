@@ -683,8 +683,9 @@ function ObtenerDificultadDistancia(rSource, rTarget)
 		local nEsquivar=ObtenerEsquivar(rTarget);
 		if nEsquivar and CDDistancia then return math.max(CDDistancia, nEsquivar);
 		elseif CDDistancia then return CDDistancia;
-		elseif nEsquivar return nEsquivar;
+		elseif nEsquivar then return nEsquivar;
 		else return 10;
+		end
 	end
 end
 
