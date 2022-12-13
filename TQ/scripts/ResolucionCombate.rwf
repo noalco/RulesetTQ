@@ -27,7 +27,7 @@ end
 --end
 
 function PreAtaque(rSource, aTargeting, rRolls)
-	if DB.getValue("combattracker.AtaqueMele", 0)==1 then
+	if not EsMele(rSource, rRoll) then
 		local rRoll=rRolls[1];
 		-- Golpe aislado: si defensor debilitado -&gt; ataque +3
 		local iRoll = 0;
@@ -723,6 +723,16 @@ function EsAtaqueCC(rSource, rRoll)
 		end
 	elseif rRoll and rRoll.sDesc then
 		if rRoll.sDesc:match("%[Ataque CC%]") then return true;
+		else return false;
+		end
+	end
+end
+
+function EsMele(rSource, rRoll)
+	if DB.getValue("combattracker.AtaqueMele", 0)==1 or EsAtaqueCC(rSource, rRoll) then return false;
+	else
+		if rSource.sCTNode then
+			return DB.getValue(rSource.sCTNode..".Fase", 0)==2 and DB.getValue(rSource.sCTNode..".SelectorMele", "No")~="No" or DB.getValue(rSource.sCTNode..".Fase", 0)==3 and DB.getValue(rSource.sCTNode..".SelectorMele3", "No")~="No";
 		else return false;
 		end
 	end

@@ -57,9 +57,12 @@ function NuevoTurno(window)
 		local sTipo, sRuta=DB.getValue(w.getDatabaseNode(), "link");
 		if sTipo=="charsheet" then
 			DB.setValue(sRuta..".FaseCT", "number", 0);
-		else
-			if w.Fase then w.Fase.setValue(0); end
+--		else
+--			if w.Fase then
+--				w.Fase.setValue(0);
+--			end
 		end
+		if w.SelectorFase then w.SelectorFase.setStringValue("0"); end
 		if w.active then w.active.setValue(0); end
 	end
 end
