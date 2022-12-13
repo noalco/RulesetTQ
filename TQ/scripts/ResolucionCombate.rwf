@@ -679,7 +679,12 @@ function ObtenerDificultadDistancia(rSource, rTarget)
 		CDDistancia=tonumber(DB.getValue("combattracker.Distanciavalue", 0))
 	end
 	if bDesprevenido then return CDDistancia;
-	else return math.max(CDDistancia, ObtenerEsquivar(rTarget));
+	else
+		local nEsquivar=ObtenerEsquivar(rTarget);
+		if nEsquivar and CDDistancia then return math.max(CDDistancia, nEsquivar);
+		elseif CDDistancia then return CDDistancia;
+		elseif nEsquivar return nEsquivar;
+		else return 10;
 	end
 end
 
