@@ -1,0 +1,70 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <Scripts>
+    <ScriptName>Modificadores</ScriptName>
+    <FolderID>34</FolderID>
+    <Script>
+_tModifierWindowPresets =
+{
+	{ 
+		sCategory = "general",
+		tPresets = 
+		{
+			"+1",
+			"-1",
+			"+2",
+			"-2",
+			"+3",
+			"-3",
+			"+4",
+			"-4",
+		},
+	},
+};
+
+_tModifierExclusionSets =
+{
+	{	"+1",
+		"+2",
+		"+3",
+		"+4",
+		"-1",
+		"-2",
+		"-3",
+		"-4"
+	 },
+};
+
+
+function onInit()
+
+	ModifierManager.addModWindowPresets(_tModifierWindowPresets);
+	ModifierManager.addKeyExclusionSets(_tModifierExclusionSets);
+
+end
+
+function getModifier()
+	if ModifierManager.getKey("+1") then
+		return "+1";
+	elseif ModifierManager.getKey("+2") then
+		return "+2";
+	elseif ModifierManager.getKey("+3") then
+		return "+3";
+	elseif ModifierManager.getKey("+4") then
+		return "+4";
+	elseif ModifierManager.getKey("-1") then
+		return "-1";
+	elseif ModifierManager.getKey("-2") then
+		return "-2";
+	elseif ModifierManager.getKey("-3") then
+		return "-3"
+	elseif ModifierManager.getKey("-4") then
+		return "-4";
+	else 
+		return "";
+	end
+	
+end</Script>
+    <RegisterScript>true</RegisterScript>
+    <Encoding />
+  </Scripts>
+</DocumentElement>
