@@ -1,6 +1,68 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <WindowControls>
     <WindowName>HeridaBase</WindowName>
+    <ControlName>HeridaAPD</ControlName>
+    <ZIndex>8</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"AllowDoubleClick"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition","ButtonStateDefinition":[{"Tooltip":"Esta Herida no se aplica a tus Puntos de Daño, pero sí cuenta para tus estados de Debilitado e Incapacitado","Icon":"PDoff"},{"Tooltip":"Esta Herida se aplica a tus Puntos de Daño","Icon":"PDon"}]}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"HeridaAPD"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue","Value":{"@xsi:type":"xsd:decimal","#text":"1"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"12"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"12"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string","#text":"button-white"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"PDon"}},
+      {"Name":"PressedIconName"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"35"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"0"}}
+]}}</Definition>
+    <LUACode>function onValueChanged()
+	window.PDHerida.onValueChanged()
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>HeridaBase</WindowName>
     <ControlName>HeridaBase</ControlName>
     <ZIndex>0</ZIndex>
     <ControlClass>FGWindow</ControlClass>
@@ -234,15 +296,20 @@ end
 --		nPD=nPD+DB.getValue(nodoHeridas, "PD", 0);
 --	end
 	local nContLeves=0;
+	local nContGraves=0;
 	local bHayGrave=false;
 	ActualizarTipo();
 	for _,nodoHeridas in pairs(window.windowlist.getWindows()) do
-		nPD=nPD+nodoHeridas.PDHerida.getValue();
+		if nodoHeridas.HeridaAPD.getValue()==1 then nPD=nPD+nodoHeridas.PDHerida.getValue(); end
 		if nodoHeridas.Tipo.getValue()=="L" then nContLeves=nContLeves+1;
-		elseif nodoHeridas.Tipo.getValue()=="G" then bHayGrave=true;
+		elseif nodoHeridas.Tipo.getValue()=="G" then nContGraves=nContGraves+1;
 		end
 	end
-	if nContLeves&gt;1 or bHayGrave then DB.setValue(window.getDatabaseNode(), "...Debilitado", "number", 1); end
+	if (nContLeves==2 or nContLeves==3) and nContGraves&lt;1 or nContLeves&lt;=1 and nContGraves==1 then
+		DB.setValue(window.getDatabaseNode(), "...Debilitado", "number", 1);
+	elseif (nContLeves==2 or nContLeves==3) and nContGraves==1 or nContLeves&gt;=4 or nContGraves&gt;=2 then
+		DB.setValue(window.getDatabaseNode(), "...Incapacitado", "number", 1);
+	end
 	DB.setValue(window.getDatabaseNode().getParent().getParent(), "PD", "number", nPD);
 	DB.setValue(window.getDatabaseNode(), "...ListaHeridasModificada", "number", DB.getValue(window.getDatabaseNode(), "...ListaHeridasModificada", 0)+1);
 end
@@ -431,7 +498,7 @@ end
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"39"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"46"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()

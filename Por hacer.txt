@@ -80,4 +80,25 @@ Efectos:
 	Consistencia frágil: El daño sufrido por armas contundentes o cortantes se duplica.
 	- Sangrante: Tras recibir una herida el ser pierde 1d3 PV extra, al ritmo de 1 PV por turno.
 	- Vulnerable al fuego: Sufre el doble de daño por fuego o calor.
-	
+	- Buscar punto débil:
+		- cambio de un penalizador de -2 a la tirada, podemos elegir entre dos opciones: reducir a la mitad el valor de Protección del adversario o ignorar la Protección otorgada por el escudo y la maniobra Subir la guardia.
+		- Aplicar un penalizador de -4 permite ignorar la Protección por completo.
+	- Carga o picado:
+		- Se suma el Tamaño al Modificador al daño. Si es 0 o negativo, se suma 1
+		- Si la carga es desde una montura, se usa el Tamaño de la montura
+	- Combo: mirar la versión de ID
+	- Destrozar armadura:
+		- En caso de golpear con éxito, se aplica el daño normalmente, y si este supera la Protección, esta se reduce en tantos puntos como la Carga del arma atacante.
+		- El adversario sufre solo la mitad del daño que rebase la Protección.
+		- No se puede dañar el escudo de esta manera.
+	- Jugársela:
+		- Golpe aislado con +2
+	- Plantar la lanza:
+		- En lugar del modificador del defensor se usa el del enemigo que realiza la carga (mod. + Tamaño)
+	- Recibir carga:
+		- puede elegir entre sumar ese turno un modificador de +2 a su tirada de combate en la melé o
+		- doblar la Protección ofrecida por el escudo contra ese contrincante.
+	- Red:
+		- Atrapado: -2 a todo
+	- Subir la guardia:
+		- Consiste en recibir un aumento en la Protección de +5 a cambio de infligir la mitad de daño en caso de que se impacte.

@@ -19,14 +19,24 @@ function onListChanged()
 	update();
 	local nPD=0;
 	local nContLeves=0;
+	local nContGraves=0;
 	local bHayGrave=false;
 	for _,nodoHeridas in pairs(window.getDatabaseNode().getChild("PuntosDeVida.ListaHeridas").getChildren()) do
-		nPD=nPD+DB.getValue(nodoHeridas, "PD", 0);
+		--nPD=nPD+DB.getValue(nodoHeridas, "PD", 0);
+		if DB.getValue(nodoHeridas, "HeridaAPD", 1)==1 then nPD=nPD+DB.getValue(nodoHeridas, "PD", 0); end
+--		if DB.getValue(nodoHeridas, "Tipo", "")=="L" then nContLeves=nContLeves+1;
+--		elseif DB.getValue(nodoHeridas, "Tipo", "")=="G" then bHayGrave=true;
+--		end
 		if DB.getValue(nodoHeridas, "Tipo", "")=="L" then nContLeves=nContLeves+1;
-		elseif DB.getValue(nodoHeridas, "Tipo", "")=="G" then bHayGrave=true;
+		elseif DB.getValue(nodoHeridas, "Tipo", "")=="G" then nContGraves=nContGraves+1;
 		end
 	end
-	if nContLeves&gt;1 or bHayGrave then DB.setValue(window.getDatabaseNode(), "PuntosDeVida.Debilitado", "number", 1); end
+--	if nContLeves&gt;1 or bHayGrave then DB.setValue(window.getDatabaseNode(), "PuntosDeVida.Debilitado", "number", 1); end
+	if (nContLeves==2 or nContLeves==3) and nContGraves&lt;1 or nContLeves&lt;=1 and nContGraves==1 then
+		DB.setValue(window.getDatabaseNode(), "PuntosDeVida.Debilitado", "number", 1);
+	elseif (nContLeves==2 or nContLeves==3) and nContGraves==1 or nContLeves&gt;=4 or nContGraves&gt;=2 then
+		DB.setValue(window.getDatabaseNode(), "PuntosDeVida.Incapacitado", "number", 1);
+	end
 	DB.setValue(window.getDatabaseNode(), "PuntosDeVida.PD", "number", nPD);
 	DB.setValue(window.getDatabaseNode(), "PuntosDeVida.ListaHeridasModificada", "number", DB.getValue(window.getDatabaseNode(), "PuntosDeVida.ListaHeridasModificada", 0)+1);
 
