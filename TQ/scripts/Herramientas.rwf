@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Herramientas</ScriptName>
-    <FolderID>34</FolderID>
+    <FolderID>35</FolderID>
     <Script>function Redondeo(nValor)
 	return nValor % 1 &gt; 0.5 and math.ceil(nValor) or math.floor(nValor);
 end
@@ -62,16 +62,17 @@ function ObtenerDados(sRuta)
 		sRuta=sRuta:match("(charsheet%.id%-%d*)");
 		local nTipoDado=DB.getValue(sRuta..".LabelDado", 10);
 		local bDobleDado=DB.getValue(sRuta..".FortunaModDanio.DosPuntosFortuna", 0)==1;
+		local ModBonus = Modificadores.getModifier();
 		if bDobleDado then
 			DB.setValue(sRuta..".FortunaModDanio.FortunaActual", "number", DB.getValue(sRuta..".FortunaModDanio.FortunaActual", 2)-2);
 			DB.setValue(sRuta..".FortunaModDanio.DosPuntosFortuna", "number", 0);
 			Mensaje(DB.getValue(sRuta..".name", "") .. " usa dos puntos de Fortuna", "msgfont", "diamond");
-			return "2d"..nTipoDado.."!";
+			return "2d"..nTipoDado.."!" ..ModBonus;
 		else
-			return "1d"..nTipoDado.."!";
+			return "1d"..nTipoDado.."!" ..ModBonus;
 		end
 	else
-		return "1d10!";
+		return "1d10!" ..ModBonus;
 	end
 end
 

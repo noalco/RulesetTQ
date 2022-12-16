@@ -1,0 +1,20 @@
+<DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
+  <XMLFiles>
+    <XmlName>Modificadores</XmlName>
+    <FolderID>34</FolderID>
+    <XML>&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;root&gt;
+	&lt;string name="modifier_category_general"&gt;General&lt;/string&gt;
+	&lt;string name="modifier_label_+1"&gt;+1&lt;/string&gt;
+	&lt;string name="modifier_label_+2"&gt;+2&lt;/string&gt;
+	&lt;string name="modifier_label_+3"&gt;+3&lt;/string&gt;
+	&lt;string name="modifier_label_+4"&gt;+4&lt;/string&gt;
+	&lt;string name="modifier_label_-1"&gt;-1&lt;/string&gt;
+	&lt;string name="modifier_label_-2"&gt;-2&lt;/string&gt;
+	&lt;string name="modifier_label_-3"&gt;-3&lt;/string&gt;
+	&lt;string name="modifier_label_-4"&gt;-4&lt;/string&gt;
+        
+&lt;/root&gt;      
+    </XML>
+  </XMLFiles>
+</DocumentElement>
