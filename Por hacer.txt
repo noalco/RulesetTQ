@@ -26,7 +26,8 @@ Personalidad:
 
 
 Combate:
-
+	- Ataques con pelea, lanzar y esquivar
+	- Checkbox para combate montado
 
 Hechizos:
 
@@ -47,7 +48,7 @@ CT:
 	- Añadir puntos de infortunio
 	- Añadir efectos debidos a heridas
 	- Armas arrojadizas en PNJs (CC/a distancia)
-	- Calcular la distancia entre tokesn en el mapa
+	- Calcular la distancia entre tokens en el mapa
 	- Tipo de daño en PNJs
 	- Tipo de daño vs tipo de armadura
 	

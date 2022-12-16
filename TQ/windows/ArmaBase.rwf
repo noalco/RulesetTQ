@@ -366,6 +366,7 @@ end
     <LUACode>function Actualizar()
 	local nTotal=window.BonoArmaTotal.getValue();
 	local sAtaqueLimitado="";
+	local nAtaqueLimitado=0;
 	local sPenFuerza="";
 	local sUsoArma=DB.getValue(window.getDatabaseNode(), "UsoArma", Inventario.CteUnaMano);
 	local nPenalizadorFuerza=-1*window.PenalizadorFuerzaEquipada.getValue();
@@ -399,11 +400,7 @@ function ObtenerTirada()
 	ResolucionCombate.bCCPJ=sUsoArma==Inventario.CteUnaMano or sUsoArma==Inventario.CteDosManos;
 
 	sDado=Herramientas.ObtenerDados(window.getDatabaseNode().getPath())
-	Debug.chat(sDado)
 	nValor=getValue()-DB.getValue(window.getDatabaseNode(), "...PenMeleMultiEnemigos", 0);
-	Debug.chat(getValue())
-	Debug.chat(DB.getValue(window.getDatabaseNode(), "...PenMeleMultiEnemigos", 0))
-	Debug.chat(nValor)
 	if nValor&gt;0 then return sDado.."+"..nValor;
 	elseif nValor&lt;0 then return sDado..nValor;
 	else return sDado;
@@ -688,7 +685,7 @@ end
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"BonoSegundaMano"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
-      {"Name":"DefaultValue","Value":{"@xsi:type":"xsd:decimal","#text":"100000"}},
+      {"Name":"DefaultValue","Value":{"@xsi:type":"xsd:decimal","#text":"10000"}},
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
