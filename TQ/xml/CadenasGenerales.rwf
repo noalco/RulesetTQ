@@ -430,7 +430,7 @@
 	&lt;string name="charlist_menu_whisper"&gt;Susurrar&lt;/string&gt;
 	&lt;string name="charlist_message_afkon"&gt;El usuario está AFK.&lt;/string&gt;
 	&lt;string name="charlist_message_afkoff"&gt;El usuario ha vuelto.&lt;/string&gt;
-	&lt;string name="modstack_label_modifier"&gt;Modificador&lt;/string&gt;
+	&lt;string name="modstack_label_modifier"&gt;Modif.&lt;/string&gt;
 	&lt;string name="modstack_label_adjusting"&gt;Ajustar&lt;/string&gt;
 	&lt;string name="modstack_tooltip_targeting_on"&gt;Usar los objetivos actuales para las tiradas del chat&lt;/string&gt;
 	&lt;string name="modstack_tooltip_targeting_off"&gt;No usar los objetivos actuales para las tiradas del chat&lt;/string&gt;
