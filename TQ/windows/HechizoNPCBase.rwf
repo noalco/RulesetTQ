@@ -367,8 +367,19 @@ end
 ]}}</Definition>
     <LUACode>function ObtenerTirada()
 	local sDado;
-	if DB.getValue(window.getDatabaseNode(), "...Debilitado", 0)==1 then sDado="1d6!";
-	else sDado="1d10!";
+--	if DB.getValue(window.getDatabaseNode(), "...Debilitado", 0)==1 then sDado="1d6!";
+--	else sDado="1d10!";
+--	end
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "...Debilitado", "0")==0 then
+		sDado=nNumDados.."d10";
+	else
+		sDado=nNumDados.."d6";
 	end
 	local nEspiritu=DB.getValue(window.getDatabaseNode(), "...Espiritu", 0);
 	if nEspiritu==0 then return sDado;
@@ -437,10 +448,23 @@ end</LUACode>
     <LUACode>sMensajeTirada="tirada";
 
 function ObtenerTirada()
-	local sDado;
-	if DB.getValue(window.getDatabaseNode(), "...Debilitado", 0)==1 then sDado="1d6!";
-	else sDado="1d10!";
+	local sDado="";
+--	if DB.getValue(window.getDatabaseNode(), "...Debilitado", 0)==1 then sDado="1d6!";
+--	else sDado="1d10!";
+--	end
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
 	end
+	if DB.getValue(window.getDatabaseNode(), "...Debilitado", "0")==0 then
+		sDado=nNumDados.."d10";
+	else
+		sDado=nNumDados.."d6";
+	end
+
+	
 	local sVerbo=DB.getValue(window.getDatabaseNode(), "Verbo", "");
 	local sYVerbo=DB.getValue(window.getDatabaseNode(), "YVerbo", "");
 	local sEsfera=DB.getValue(window.getDatabaseNode(), "Esfera", "");
