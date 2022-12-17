@@ -117,7 +117,8 @@ end
 
 function action(dragInfo)
 	if sDragLabel then
-		DiceRollString = sDado.."!+"..nDragMod;
+--		DiceRollString = sDado.."!+"..nDragMod;
+		DiceRollString = ObtenerDado().."!+"..nDragMod;		
 		DiceRollDescription = "[Habilidad] " .. sDragLabel;
 		GameSystem.actions["HabilidadRollAction"] = { bUseModStack = "true" }
 		DiceRollAdditionalInfo = {};
@@ -168,6 +169,20 @@ end
 function Debilitado(bDebilitado)
 	if bDebilitado then sDado="1d6";
 	else sDado="1d10";
+	end
+end
+
+function ObtenerDado()
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(self.window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
+	else
+		return nNumDados.."d6";
 	end
 end
 </Script>

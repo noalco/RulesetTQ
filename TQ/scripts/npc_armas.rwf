@@ -327,10 +327,16 @@ function performRoll(draginfo, rActor, sSkillName, nSkillMod)
 end
 
 function ObtenerDado()
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
 	if DB.getValue(self.window.getDatabaseNode(), "Debilitado", "0")==0 then
-		return "1d10";
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end</Script>
     <RegisterScript>true</RegisterScript>

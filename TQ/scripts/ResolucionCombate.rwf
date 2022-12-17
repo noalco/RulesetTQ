@@ -148,6 +148,12 @@ function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad, sAtaque)
 			rMessageAtaque.text = rMessageAtaque.text:gsub("%[Ataque%]", sAtaque);
 		end
 		Comm.deliverChatMessage(rMessageAtaque);
+	elseif rRoll then
+		local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
+		if sAtaque then
+			rMessageAtaque.text = rMessageAtaque.text:gsub("%[Ataque%]", sAtaque);
+		end
+		Comm.deliverChatMessage(rMessageAtaque);
 	end
 end
 
@@ -760,7 +766,7 @@ end
 function EsMele(rSource, rRoll)
 	if DB.getValue("combattracker.AtaqueMele", 0)==1 or EsAtaqueCC(rSource, rRoll) then return false;
 	else
-		if rSource.sCTNode then
+		if rSource and rSource.sCTNode then
 			return DB.getValue(rSource.sCTNode..".Fase", 0)==2 and DB.getValue(rSource.sCTNode..".SelectorMele", "No")~="No" or DB.getValue(rSource.sCTNode..".Fase", 0)==3 and DB.getValue(rSource.sCTNode..".SelectorMele3", "No")~="No";
 		else return false;
 		end
@@ -927,7 +933,6 @@ function ObtenerTipoDanio(sArma)
 	end
 	sArma=sArma:lower()
 
-	Debug.chat(sArma);
 	if sArma then
 		if tTiposDanioArmas[sArma] then return tTiposDanioArmas[sArma];
 		else

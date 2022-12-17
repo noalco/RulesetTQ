@@ -41,7 +41,7 @@
       {"Name":"Source","Value":{"@xsi:type":"xsd:string","#text":".FortunaModDanio.DosPuntosFortuna"}},
       {"Name":"StackVertWith"},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Marcar para lanzar dos dados en tu próxima tirada grastando dos puntos de Fortuna"}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Marca esta casilla para gastar dos Puntos de Fortuna y que tu próxima tirada use dos dados"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"167"}},
@@ -714,10 +714,10 @@
       {"Name":"Source","Value":{"@xsi:type":"xsd:string","#text":".FortunaModDanio.FortunaActual"}},
       {"Name":"StackVertWith"},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
-      {"Name":"Tooltip"},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"108"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"111"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"47"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
@@ -739,6 +739,7 @@ function onInit()
 	else
 		window.DosPuntosFortuna.setReadOnly(false);
 	end
+	super.onInit();
 end
 
 function onWheel(notches)
@@ -800,7 +801,7 @@ end</LUACode>
       {"Name":"Source","Value":{"@xsi:type":"xsd:string","#text":".FortunaModDanio.FortunaMaxima"}},
       {"Name":"StackVertWith"},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
-      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Hacer doble click para gastar un punto de Fortuna"}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Haz doble click para gastar un punto de Fortuna"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"147"}},
