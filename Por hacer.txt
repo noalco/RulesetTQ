@@ -46,7 +46,6 @@ CT:
 			- Gestionar los cambios de facción cuando el individuo está en una melé
 	- Añadir el penalizador por múltiples enemigos si el ataque es de una melé (ahora se aplica a todos los ataques)
 	- Añadir puntos de infortunio
-	- Añadir efectos debidos a heridas
 	- Armas arrojadizas en PNJs (CC/a distancia)
 	- Calcular la distancia entre tokens en el mapa
 	- Tipo de daño en PNJs

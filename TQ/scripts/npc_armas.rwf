@@ -17,6 +17,7 @@ local bDragging = false;
 local bEsDanio=false;
 local bEsEfecto=false;
 local bEsAtaque=false;
+local sArmaAtaque = "";
 
 function getCompletion(s)
 	-- Find a matching completion for the given string
@@ -184,10 +185,10 @@ function onHoverUpdate(x, y)
 				bEsDanio=false;
 				bEsEfecto=false;
 				bEsAtaque=true;
+				sArmaAtaque="";
 				return;
 			end
-		end
-		if aComponents[i].nAllowRoll == 2 then
+		elseif aComponents[i].nAllowRoll == 2 then
 			if aComponents[i].nStart &lt;= nMouseIndex and aComponents[i].nEnd &gt; nMouseIndex then
 				setCursorPosition(aComponents[i].nStart);
 				setSelectionPosition(aComponents[i].nEnd);
@@ -199,10 +200,10 @@ function onHoverUpdate(x, y)
 				bEsDanio=true;
 				bEsEfecto=false;
 				bEsAtaque=false;
+				sArmaAtaque=aComponents[i].sLabel;
 				return;
 			end
-		end
-		if aComponents[i].nAllowRoll == 3 then
+		elseif aComponents[i].nAllowRoll == 3 then
 			if aComponents[i].nStart &lt;= nMouseIndex and aComponents[i].nEnd &gt; nMouseIndex then
 				setCursorPosition(aComponents[i].nStart);
 				setSelectionPosition(aComponents[i].nEnd);
@@ -214,6 +215,7 @@ function onHoverUpdate(x, y)
 				bEsDanio=false;
 				bEsEfecto=true;
 				bEsAtaque=false;
+				sArmaAtaque="";
 				return;
 			end
 		end
@@ -254,7 +256,11 @@ function action(dragInfo)
 			sTipoAccion="AtaqueRollAction";
 		elseif bEsDanio then
 			DiceRollString = ""..nDragMod;
-			DiceRollDescription = "[Daño] " .. sDragLabel;
+			local sTipoDanio=ResolucionCombate.ObtenerTipoDanio(sArmaAtaque);
+			if sTipoDanio and sTipoDanio~="" then sTipoDanio="["..sTipoDanio.."]";
+			else sTipoDanio="";
+			end
+			DiceRollDescription = "[Daño] " .. sDragLabel..sTipoDanio;
 			GameSystem.actions["DanioRollAction"].sIcon="action_damage";
 			sTipoAccion="DanioRollAction";
 		elseif bEsEfecto then

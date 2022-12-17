@@ -1211,10 +1211,10 @@
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"MaximumHeight"},
+      {"Name":"MaximumHeight","Value":{"@xsi:type":"xsd:int","#text":"135"}},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
+      {"Name":"MinimumHeight","Value":{"@xsi:type":"xsd:int","#text":"80"}},
       {"Name":"MinimumWidth"},
       {"Name":"NextTabTarget"},
       {"Name":"NoScroll"},
@@ -2321,7 +2321,7 @@ end
     <ZIndex>38</ZIndex>
     <ControlClass>FGScrollBar</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":"bottom","Parent":"Mentira"}}},
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor","AdvancedAnchor":{"EdgeAnchor":"top","AnchorTo":null,"Parent":"ListaVentDesvent"}}},
       {"Name":"AdvancedTemplate"},
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"ScrollBar1"}},

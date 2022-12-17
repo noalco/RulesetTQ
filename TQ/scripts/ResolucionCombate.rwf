@@ -510,17 +510,23 @@ end
 
 function Danio(rSource, rTarget, rRoll)
 --	local rMessage;
+	local sTipoDanio="";
 	if rSource then
 		local rMessage1 = ActionsManager.createActionMessage(rSource, rRoll);
 		rMessage1.type="DanioRollAction";
 		Comm.deliverChatMessage(rMessage1);
+		sTipoDanio=ObtenerTipoDanioDeMensaje(rMessage1.text);
 	end
 
 	if rTarget then
 		local nProteccion=DB.getValue(rTarget.sCTNode..".TotalProteccion", 0);
 		local rMessage2 = ChatManager.createBaseMessage();
 		local sNombreDefensor=ObtenerNombre(rTarget);
-		rMessage2.text = "Daño ["..math.max(0, ActionsManager.total(rRoll)-nProteccion).."] -&gt; [a "..sNombreDefensor.."]";
+		if sTipoDanio and sTipoDanio~="" then
+			rMessage2.text = "Daño ["..math.max(0, ActionsManager.total(rRoll)-nProteccion).." "..sTipoDanio.."] -&gt; [a "..sNombreDefensor.."]";
+		else
+			rMessage2.text = "Daño ["..math.max(0, ActionsManager.total(rRoll)-nProteccion).."] -&gt; [a "..sNombreDefensor.."]";
+		end
 		if nProteccion&gt;0 then rMessage2.text=rMessage2.text.." [Absorbido "..math.min(nProteccion, ActionsManager.total(rRoll)).."]"; end
 		rMessage2.icon = "roll_damage";
 		local PDHerida=ActionsManager.total(rRoll)-nProteccion;
@@ -760,87 +766,156 @@ function ProcesarMultipleTargeting(rSource, rTarget)
 	end
 end
 
-function ObtenerTipoDanio(rSource)
-	tArmas{
-		["garra"]="Desgarradora";
-		["mordisco"]="Desgarradora";
-		["cuerno"]="Penetrante";
-		["cola"]="Contundente";
-		["tentáculo"]="Contundente";
-		["pinza"]="Contundente";
-		["pinzas"]="Contundente";
-		["pinza_alt"]="Cortante";
-		["pinzas_alt"]="Cortante";
-		["pisoteo"]="Contundente";
+function ObtenerTipoDanioDeMensaje(sMensaje)
+	sMensaje=sMensaje:lower();
+--	local sTipoDanio=sMensaje:match("%[Daño%].*%[(.*)%]")
+--	if sTipoDanio and (sTipoDanio:lower=="cortante" or sTipoDanio:lower=="penetrante") then return sTipoDanio;
+--	else return "";
+--	end
+	if sMensaje:match("cortante") then return "Cortante";
+	elseif sMensaje:match("penetrante") then return "Penetrante";
+	elseif sMensaje:match("contundente") then return "Contundente";
+	elseif sMensaje:match("desgarradora") then return "Desgarradora";
+	else return "";
+	end
+end
+
+function ObtenerTipoDanio(sArma)
+	local tTiposDanioArmas={
+		["alabarda alt"]="Penetrante";
 		["alabarda"]="Cortante";
-		["alabarda_alt"]="Penetrante";
+		["antorcha encendida"]="Contundente";
+		["antorcha"]="Contundente";
+		["arco compuesto"]="Penetrante";
+		["arco corto"]="Penetrante";
+		["arco de caza"]="Penetrante";
+		["arco largo"]="Penetrante";
+		["arco"]="Penetrante";
+		["asta"]="Contundente";
+		["ballesta ligera"]="Penetrante";
+		["ballesta pesada"]="Penetrante";
+		["ballesta"]="Penetrante";
 		["baston de combate"]="Contundente";
 		["baston"]="Contundente";
+		["bisarma alt"]="Penetrante";
 		["bisarma"]="Cortante";
-		["bisarma_alt"]="Penetrante";
+		["bomba de mano"]="Desgarradora";
+		["bomba"]="Desgarradora";
+		["cadena"]="Contundente";
+		["cañón de mano"]="Penetrante";
+		["cañón"]="Penetrante";
+		["cayado"]="Contundente";
+		["cestus alt"]="Desgarradora";
 		["cestus"]="Contundente";
-		["cestus_alt"]="Desgarradora";
+		["cola"]="Contundente";
+		["cuchillo alt"]="Desgarradora";
+		["cuchillo ar"]="Penetrante";
+		["cuchillo de cocina"]="Penetrante";
 		["cuchillo"]="Penetrante";
-		["cuchillo_alt"]="Desgarradora";
+		["cuerno"]="Penetrante";
+		["daga alt"]="Desgarradora";
+		["daga ar"]="Penetrante";
 		["daga"]="Penetrante";
-		["daga_alt"]="Desgarradora";
-		["escudo"]="Contundente";
+		["dardo"]="Penetrante";
+		["empuñadura"]="Contundente";
 		["escudo completo"]="Contundente";
+		["escudo de torre"]="Contundente";
 		["escudo medio"]="Contundente";
 		["escudo pequeño"]="Contundente";
 		["escudo torre"]="Contundente";
-		["escudo de torre"]="Contundente";
+		["escudo"]="Contundente";
+		["espada corta alt"]="Cortante";
 		["espada corta"]="Penetrante";
-		["espada corta_alt"]="Cortante";
-		["espada media"]="Cortante";
-		["espada media_alt"]="Penetrante";
+		["espada larga alt"]="Penetrante";
 		["espada larga"]="Cortante";
-		["espada larga_alt"]="Penetrante";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
-		[""]="";
+		["espada media alt"]="Penetrante";
+		["espada media"]="Cortante";
+		["espada alt"]="Penetrante";
+		["espada"]="Cortante";
+		["espadón alt"]="Penetrante";
+		["espadón"]="Cortante";
+		["estaca"]="Penetrante";
+		["garfio"]="Desgarradora";
+		["garra de hierro"]="Desgarradora";
+		["garra"]="Desgarradora";
+		["garrote grande"]="Contundente";
+		["garrote pequeño"]="Contundente";
+		["garrote"]="Contundente";
+		["golpe corporal"]="Contundente";
+		["gran hacha"]="Cortante";
+		["gran martillo alt"]="Penetrante";
+		["gran martillo"]="Contundente";
+		["guadaña"]="Cortante";
+		["hacha de batalla"]="Cortante";
+		["hacha de leñador"]="Cortante";
+		["hacha de mano ar"]="Cortante";
+		["hacha de mano"]="Cortante";
+		["hacha larga"]="Cortante";
+		["hacha"]="Cortante";
+		["honda"]="Contundente";
+		["horca"]="Penetrante";
+		["hoz"]="Cortante";
+		["jabalina ar"]="Penetrante";
+		["jabalina"]="Penetrante";
+		["lanza corta ar"]="Penetrante";
+		["lanza corta"]="Penetrante";
+		["lanza larga"]="Penetrante";
+		["lanza"]="Penetrante";
+		["látigo"]="Desgarradora";
+		["mangual alt"]="Contundente";
+		["mangual triple alt"]="Contundente";
+		["mangual triple"]="Desgarradora";
+		["mangual"]="Desgarradora";
+		["martillo alt"]="Penetrante";
+		["martillo de guerra alt"]="Penetrante";
+		["martillo de guerra"]="Contundente";
+		["martillo"]="Contundente";
+		["mayal corto"]="Contundente";
+		["mayal largo"]="Contundente";
+		["mayal militar alt"]="Contundente";
+		["mayal militar"]="Desgarradora";
+		["mayal"]="Contundente";
+		["maza ligera alt"]="Contundente";
+		["maza ligera"]="Desgarradora";
+		["maza pesada alt"]="Contundente";
+		["maza pesada"]="Desgarradora";
+		["maza"]="Desgarradora";
+		["mazo de trabajo"]="Contundente";
+		["mazo"]="Contundente";
+		["mordisco"]="Desgarradora";
+		["pica"]="Penetrante";
+		["piedra"]="Contundente";
+		["pincho en mango"]="Penetrante";
+		["pincho"]="Penetrante";
+		["pinza alt"]="Cortante";
+		["pinza"]="Contundente";
+		["pinzas alt"]="Cortante";
+		["pinzas"]="Contundente";
+		["pisoteo"]="Contundente";
+		["porra"]="Contundente";
+		["red ar"]="Atrapa";
+		["red"]="Atrapa";
+		["roca"]="Contundente";
+		["tentáculo"]="Contundente";
+		["tridente"]="Penetrante";
 	};
+	while sArma:sub(-1)==" " do 
+		sArma=sArma:sub(1, -2);
+	end
+	sArma=sArma:lower()
+
+	Debug.chat(sArma);
+	if sArma then
+		if tTiposDanioArmas[sArma] then return tTiposDanioArmas[sArma];
+		else
+			local aPalabras = StringManager.split(sArma, "%s", true);
+			Debug.chat(aPalabras)
+			if #aPalabras&gt;1 and tTiposDanioArmas[aPalabras[1]] then return tTiposDanioArmas[aPalabras[1]];
+			else return "";
+			end
+		end
+	else return "";
+	end
 end
 
 
