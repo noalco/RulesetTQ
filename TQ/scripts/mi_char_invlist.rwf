@@ -62,6 +62,7 @@ function onListChanged()
 	update();
 	updateContainers();
 	Combate.CrearListas(getDatabaseNode().getPath());
+	Inventario.CalcularPesoTotal(self.window.inventorylist.getWindows()[1]);
 end
 
 function update()

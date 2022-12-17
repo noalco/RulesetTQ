@@ -595,7 +595,7 @@ end
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
-      {"Name":"Source","Value":{"@xsi:type":"xsd:string","#text":".Protecciones.TipoArmadura"}},
+      {"Name":"Source","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"StackVertWith"},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},

@@ -47,7 +47,6 @@ function onDrop(x, y, draginfo)
 		local nodoHechizo=w.getDatabaseNode();
 		--w.Nombre.setValue(DB.getValue(sPathHechizo.."name"));
 		for sCamp,dValor in pairs (DB.getChildren(sPathHechizo)) do
-			Debug.chat(sCamp,dValor.getType(),dValor.getValue())
 			if sCamp~="link" then DB.setValue(nodoHechizo, sCamp, dValor.getType(), dValor.getValue()); end
 		end
 		Hechizos.CalcularBonoHechizoYSintaxis(w);

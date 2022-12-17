@@ -508,6 +508,22 @@ function PreDanio(rSource, aTargeting, rRolls)
 	return aTargeting;
 end
 
+function AplicarDanio(rSource, rTarget, rRoll, sTipoDanio)
+		local nArmadura=DB.getValue(rTarget.sCTNode..".Armadura", 0);
+		local sTipoArmadura=DB.getValue(rTarget.sCTNode..".TipoArmadura", "");
+		if sTipoArmadura then sTipoArmadura=sTipoArmadura:lower(); end
+		local nEscudo=DB.getValue(rTarget.sCTNode..".Escudo", 0);
+		local nYelmo=DB.getValue(rTarget.sCTNode..".Yelmo", 0);
+		
+		if sTipoDanio=="Contundente" and sTipoArmadura=="blanda" then nArmadura=Herramientas.Redondeo(nArmadura/2); end
+		local nProteccion=nArmadura+nEscudo+nYelmo;
+
+		local DanioRecibido=math.max(0, ActionsManager.total(rRoll)-nProteccion);
+		local DanioAbsorvido=math.min(ActionsManager.total(rRoll), nProteccion)
+		
+		return DanioRecibido, DanioAbsorvido;
+end
+
 function Danio(rSource, rTarget, rRoll)
 --	local rMessage;
 	local sTipoDanio="";
@@ -519,28 +535,35 @@ function Danio(rSource, rTarget, rRoll)
 	end
 
 	if rTarget then
-		local nProteccion=DB.getValue(rTarget.sCTNode..".TotalProteccion", 0);
+--		local nProteccion=DB.getValue(rTarget.sCTNode..".TotalProteccion", 0);
 		local rMessage2 = ChatManager.createBaseMessage();
 		local sNombreDefensor=ObtenerNombre(rTarget);
+--		if sTipoDanio and sTipoDanio~="" then
+--			rMessage2.text = "Daño ["..math.max(0, ActionsManager.total(rRoll)-nProteccion).." "..sTipoDanio.."] -&gt; [a "..sNombreDefensor.."]";
+--		else
+--			rMessage2.text = "Daño ["..math.max(0, ActionsManager.total(rRoll)-nProteccion).."] -&gt; [a "..sNombreDefensor.."]";
+--		end
+--		if nProteccion&gt;0 then rMessage2.text=rMessage2.text.." [Absorbido "..math.min(nProteccion, ActionsManager.total(rRoll)).."]"; end
+		local DanioRecibido, DanioAbsorvido = AplicarDanio(rSource, rTarget, rRoll, sTipoDanio);
 		if sTipoDanio and sTipoDanio~="" then
-			rMessage2.text = "Daño ["..math.max(0, ActionsManager.total(rRoll)-nProteccion).." "..sTipoDanio.."] -&gt; [a "..sNombreDefensor.."]";
+			rMessage2.text = "Daño ["..DanioRecibido.." "..sTipoDanio.."] -&gt; [a "..sNombreDefensor.."]";
 		else
-			rMessage2.text = "Daño ["..math.max(0, ActionsManager.total(rRoll)-nProteccion).."] -&gt; [a "..sNombreDefensor.."]";
+			rMessage2.text = "Daño ["..DanioRecibido.."] -&gt; [a "..sNombreDefensor.."]";
 		end
-		if nProteccion&gt;0 then rMessage2.text=rMessage2.text.." [Absorbido "..math.min(nProteccion, ActionsManager.total(rRoll)).."]"; end
+		if DanioAbsorvido&gt;0 then rMessage2.text=rMessage2.text.." [Absorbido "..DanioAbsorvido.."]"; end
 		rMessage2.icon = "roll_damage";
-		local PDHerida=ActionsManager.total(rRoll)-nProteccion;
-		AniadirHerida(rTarget, math.max(0, PDHerida))
+--		local PDHerida=ActionsManager.total(rRoll)-nProteccion;
+		AniadirHerida(rTarget, math.max(0, DanioRecibido))
 
 		local nGraveIni, nGraveFin, nLeveIni, nLeveFin, nRasgunioIni, nRasgunioFin=Principal.ObtenerRangos(DB.getValue(rTarget.sCTNode..".hp", 0));
 		local TipoHerida="";
 		local bHeridaMortal=false;
 		local bHeridaGrabe=false;
 		local bHeridaLeve=false;
-		if nGraveFin~="-" and PDHerida&gt;nGraveFin then TipoHerida=" [Herida Mortal] [Muerto]"; bHeridaMortal=true;
-		elseif nGraveIni~="-" and PDHerida&gt;=nGraveIni then TipoHerida=" [Herida Grave]"; bHeridaGrabe=true;
-		elseif nLeveIni~="-" and PDHerida&gt;=nLeveIni then TipoHerida=" [Herida Leve]"; bHeridaLeve=true;
-		elseif PDHerida&gt;0 then TipoHerida=" [Rasguño]";
+		if nGraveFin~="-" and DanioRecibido&gt;nGraveFin then TipoHerida=" [Herida Mortal] [Muerto]"; bHeridaMortal=true;
+		elseif nGraveIni~="-" and DanioRecibido&gt;=nGraveIni then TipoHerida=" [Herida Grave]"; bHeridaGrabe=true;
+		elseif nLeveIni~="-" and DanioRecibido&gt;=nLeveIni then TipoHerida=" [Herida Leve]"; bHeridaLeve=true;
+		elseif DanioRecibido&gt;0 then TipoHerida=" [Rasguño]";
 		end
 		
 		rMessage2.text=rMessage2.text..TipoHerida;
@@ -795,8 +818,8 @@ function ObtenerTipoDanio(sArma)
 		["ballesta ligera"]="Penetrante";
 		["ballesta pesada"]="Penetrante";
 		["ballesta"]="Penetrante";
-		["baston de combate"]="Contundente";
-		["baston"]="Contundente";
+		["bastón de combate"]="Contundente";
+		["bastón"]="Contundente";
 		["bisarma alt"]="Penetrante";
 		["bisarma"]="Cortante";
 		["bomba de mano"]="Desgarradora";
