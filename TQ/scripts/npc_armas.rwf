@@ -41,6 +41,7 @@ function ComprobarTipoDanio(sTipoDanio)
 		elseif sTipoDanio=="perforante" then return "Perforante";
 		elseif sTipoDanio=="cortante" then return "Cortante";
 		elseif sTipoDanio=="desgarradora" then return "Desgarradora";
+		elseif sTipoDanio=="atrapa" then return "Atrapa";		
 		else return "";
 		end
 	else return "";
