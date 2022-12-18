@@ -308,7 +308,7 @@ end
 	local nPD=0;
 	for _,nodoHeridas in pairs(window.ListaHeridas.getWindows()) do--(window.getDatabaseNode().getChild("PuntosDeVida.ListaHeridas").getChildren()) do
 		--nPD=nPD+DB.getValue(nodoHeridas, "PD", 0);
-		if nodoHeridas.HeridaAPD.getValue()==1 then nPD=nPD+nodoHeridas.PDHerida.getValue(); end
+		nPD=nPD+nodoHeridas.PDHerida.getValue();
 	end
 	setValue(nPD);
 end

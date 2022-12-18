@@ -23,7 +23,7 @@ function onListChanged()
 	local bHayGrave=false;
 	for _,nodoHeridas in pairs(window.getDatabaseNode().getChild("PuntosDeVida.ListaHeridas").getChildren()) do
 		--nPD=nPD+DB.getValue(nodoHeridas, "PD", 0);
-		if DB.getValue(nodoHeridas, "HeridaAPD", 1)==1 then nPD=nPD+DB.getValue(nodoHeridas, "PD", 0); end
+		nPD=nPD+DB.getValue(nodoHeridas, "PD", 0);
 --		if DB.getValue(nodoHeridas, "Tipo", "")=="L" then nContLeves=nContLeves+1;
 --		elseif DB.getValue(nodoHeridas, "Tipo", "")=="G" then bHayGrave=true;
 --		end

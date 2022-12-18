@@ -48,6 +48,39 @@ function ComprobarTipoDanio(sTipoDanio)
 	end
 end
 
+function EsArrojadiza(sArma)
+	local tArmasArrojadizas={
+		-- 1: solo Ar
+		-- 2: tanto CC como Ar
+		["bomba de mano"]=1,
+		["cuchillo"]=2,
+		["dardo"]=2,
+		["daga"]=2,
+		["hacha de mano"]=2,
+		["jabalina"]=2,
+		["lanza corta"]=2,
+		["piedra"]=1,
+		["red"]=2,
+		["roca"]=1,
+	}
+	if sArma and sArma~="" then
+		sArma=sArma:lower();
+		if tArmasArrojadizas[sArma] then
+			if tArmasArrojadizas[sArma]==1 then
+				return true;
+			elseif tArmasArrojadizas[sArma]==2 and DB.getValue(self.window.getDatabaseNode(), "Arrojadiza", 0)==1 then
+				return true;
+			else
+				return false;
+			end				
+		else
+			return false;
+		end
+	else
+		return false;
+	end
+end
+
 function ObtenerCampos(startpos, aPartes, aPartesStats)
 	-- Formatos de ataque posibles (en orden de procesado):
 	-- Mordisco 15. Daño 3+4. Puede agarrar. --&gt; Arma Bono. Daño Fijo[+/-Mod]. Efecto.

@@ -566,7 +566,7 @@ function Danio(rSource, rTarget, rRoll)
 		local bHeridaMortal=false;
 		local bHeridaGrabe=false;
 		local bHeridaLeve=false;
-		if nGraveFin~="-" and DanioRecibido&gt;nGraveFin then TipoHerida=" [Herida Mortal] [Muerto]"; bHeridaMortal=true;
+		if nGraveFin~="-" and DanioRecibido&gt;nGraveFin then TipoHerida=" [Herida Letal] [ESTADO: Muerto]"; bHeridaMortal=true;
 		elseif nGraveIni~="-" and DanioRecibido&gt;=nGraveIni then TipoHerida=" [Herida Grave]"; bHeridaGrabe=true;
 		elseif nLeveIni~="-" and DanioRecibido&gt;=nLeveIni then TipoHerida=" [Herida Leve]"; bHeridaLeve=true;
 		elseif DanioRecibido&gt;0 then TipoHerida=" [Rasguño]";
@@ -577,7 +577,7 @@ function Danio(rSource, rTarget, rRoll)
 		local bIncapacitado=false;
 		if not bHeridaMortal then
 			if DB.getValue(rTarget.sCTNode..".current", 1)&lt;=0 then
-				rMessage2.text=rMessage2.text.." [Incapacitado]";
+				rMessage2.text=rMessage2.text.." [ESTADO: Incapacitado]";
 				bIncapacitado=true;
 				if bHeridaGrabe then rMessage2.text=rMessage2.text.." [1 PD/minuto]"; end
 			elseif bHeridaGrabe or bHeridaLeve then
@@ -591,19 +591,19 @@ function Danio(rSource, rTarget, rRoll)
 
 				if bHeridaGrabe then
 					if nContGraves==1 and nContLeves&lt;2 then
-						rMessage2.text=rMessage2.text.." [Debilitado]";
+						rMessage2.text=rMessage2.text.." [ESTADO: Debilitado]";
 						bDebilitado=true;
 					elseif nContGraves==2 or nContGraves==1 and (nContLeves==2 or nContLeves==3) then
-						rMessage2.text=rMessage2.text.." [Incapacitado]";
+						rMessage2.text=rMessage2.text.." [ESTADO: Incapacitado]";
 						bIncapacitado=true;
 					end
 				end
 				if bHeridaLeve then
 					if nContLeves==2 and nContGraves==0 then
-						rMessage2.text=rMessage2.text.." [Debilitado]";
+						rMessage2.text=rMessage2.text.." [ESTADO: Debilitado]";
 						bDebilitado=true;
 					elseif nContLeves==2 and nContGraves==1 or nContLeves==4 then
-						rMessage2.text=rMessage2.text.." [Incapacitado]";
+						rMessage2.text=rMessage2.text.." [ESTADO: Incapacitado]";
 						bIncapacitado=true;
 					end
 				end
@@ -741,11 +741,50 @@ function PosiblePifia(rRoll)
 	return true
 end
 
+function EsArrojadiza(rSource, sDesc)
+	local tArmasArrojadizas={
+		-- 1: solo Ar
+		-- 2: tanto CC como Ar
+		["bomba de mano"]=1,
+		["cuchillo"]=2,
+		["dardo"]=2,
+		["daga"]=2,
+		["hacha de mano"]=2,
+		["jabalina"]=2,
+		["lanza corta"]=2,
+		["piedra"]=1,
+		["red"]=2,
+		["roca"]=1,
+	}
+	if sDesc then
+		local sArma=sDesc:lower():match("%]%s*([%a%sñÑáÁéÉíÍóÓúÚ]*)")
+		while sArma:sub(-1)==" " do sArma=sArma:sub(1, -2); end
+		Debug.chat(sDesc, sArma);
+		if sArma and sArma~="" then
+			if tArmasArrojadizas[sArma] then
+				if tArmasArrojadizas[sArma]==1 then
+					return true;
+				elseif rSource and tArmasArrojadizas[sArma]==2 and DB.getValue(rSource.sCTNode..".Arrojadiza", 0)==1 then
+					return true;
+				else
+					return false;
+				end				
+			else
+				return false;
+			end
+		else
+			return false;
+		end
+	else
+		return false;
+	end
+end
+
 function EsAtaqueCC(rSource, rRoll)
 	if rSource and rRoll then
 		if rSource.sType=="npc" then
 			if rRoll.sDesc and rRoll.sDesc~="" then
-				if rRoll.sDesc:lower():match("arco") or rRoll.sDesc:lower():match("ballesta") or rRoll.sDesc:lower():match("cañón") or rRoll.sDesc:lower():match("honda") then
+				if rRoll.sDesc:lower():match("arco") or rRoll.sDesc:lower():match("ballesta") or rRoll.sDesc:lower():match("cañón") or rRoll.sDesc:lower():match("honda") or EsArrojadiza(rSource, rRoll.sDesc) then
 					return false;
 				else
 					return true;
