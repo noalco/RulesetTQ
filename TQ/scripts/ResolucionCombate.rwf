@@ -797,10 +797,6 @@ end
 
 function ObtenerTipoDanioDeMensaje(sMensaje)
 	sMensaje=sMensaje:lower();
---	local sTipoDanio=sMensaje:match("%[Daño%].*%[(.*)%]")
---	if sTipoDanio and (sTipoDanio:lower=="cortante" or sTipoDanio:lower=="penetrante") then return sTipoDanio;
---	else return "";
---	end
 	if sMensaje:match("cortante") then return "Cortante";
 	elseif sMensaje:match("penetrante") then return "Penetrante";
 	elseif sMensaje:match("contundente") then return "Contundente";
@@ -809,7 +805,7 @@ function ObtenerTipoDanioDeMensaje(sMensaje)
 	end
 end
 
-function ObtenerTipoDanio(sArma)
+function ObtenerTipoDanio(sArma, bAlt, bAr)
 	local tTiposDanioArmas={
 		["alabarda alt"]="Penetrante";
 		["alabarda"]="Cortante";
@@ -934,7 +930,9 @@ function ObtenerTipoDanio(sArma)
 	sArma=sArma:lower()
 
 	if sArma then
-		if tTiposDanioArmas[sArma] then return tTiposDanioArmas[sArma];
+		if bAlt and tTiposDanioArmas[sArma.." alt"] then return tTiposDanioArmas[sArma.." alt"];
+		elseif bAr and tTiposDanioArmas[sArma.." ar"] then return tTiposDanioArmas[sArma.." ar"];
+		elseif tTiposDanioArmas[sArma] then return tTiposDanioArmas[sArma];
 		else
 			local aPalabras = StringManager.split(sArma, "%s", true);
 			Debug.chat(aPalabras)

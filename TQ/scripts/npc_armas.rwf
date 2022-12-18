@@ -18,6 +18,8 @@ local bEsDanio=false;
 local bEsEfecto=false;
 local bEsAtaque=false;
 local sArmaAtaque = "";
+local sTDanio="";
+local sTDanioAlt="";
 
 function getCompletion(s)
 	-- Find a matching completion for the given string
@@ -31,6 +33,19 @@ function getCompletion(s)
 end
 
 local nCaracteresDobles=0;
+
+function ComprobarTipoDanio(sTipoDanio)
+	if sTipoDanio and sTipoDanio~="" then
+		sTipoDanio=sTipoDanio:lower();
+		if sTipoDanio=="contundente" then return "Contundente";
+		elseif sTipoDanio=="perforante" then return "Perforante";
+		elseif sTipoDanio=="cortante" then return "Cortante";
+		elseif sTipoDanio=="desgarradora" then return "Desgarradora";
+		else return "";
+		end
+	else return "";
+	end
+end
 
 function ObtenerCampos(startpos, aPartes, aPartesStats)
 	-- Formatos de ataque posibles (en orden de procesado):
@@ -56,6 +71,8 @@ function ObtenerCampos(startpos, aPartes, aPartesStats)
 	local sEfecto="";
 	local nAllowRoll = 0;
 	local nMod = 0;
+	local sTipoDanio="";
+	local sTipoDanioAlt="";
 	
 	-- Obtenemos el arma y el ataque
 	sArma, sAtaque = string.match(aPartes[1], "([%a%sñÑáÁéÉíÍóÓúÚ]+)%s*([%+%-–]?%d*)")
@@ -64,16 +81,16 @@ function ObtenerCampos(startpos, aPartes, aPartesStats)
 		nAtaqueFin=startpos+aPartesStats[1].endpos-nCaracteresDobles;
 		local _,count = string.gsub(aPartes[1], "[ñÑáÁéÉíÍóÓúÚ]", "");
 		nCaracteresDobles=nCaracteresDobles+count/2;
-		-- Obtenemos el daño en formato "daño x+mod"
-		sDanio, sModDanio=string.match(aPartes[2], "Daño%s*([%+%-–]?%d*)([%+%-–]?%d*)");
+		-- Obtenemos el daño en formato "daño x+mod". Se pueden añadir un tipo de daño seguido al daño y un tipo de daño alternatico separado del otro con /
+		sDanio, sModDanio, sTipoDanio=string.match(aPartes[2], "Daño%s*([%+%-–]?%d*)([%+%-–]?%d*)[%s]*([%a%sñÑáÁéÉíÍóÓúÚ/]*)");
+		--Debug.chat(sDanio, sModDanio, TipoDanio)
 		if sDanio and sModDanio and sDanio~="" and sModDanio~="" and sModDanio~="\r\n" then
 			nDanioInicio=startpos+aPartesStats[2].startpos-1-nCaracteresDobles;
 			nDanioFin=startpos+aPartesStats[2].endpos-nCaracteresDobles;
 			nCaracteresDobles=nCaracteresDobles+1;
-			
 		else
 			-- Obtenemos el daño en formato "daño x"
-			sDanio=string.match(aPartes[2], "Daño%s*(%d*)");
+			sDanio, sTipoDanio=string.match(aPartes[2], "Daño%s*(%d*)[%s]*([%a%sñÑáÁéÉíÍóÓúÚ/]*)");
 			if sDanio and sDanio~="" and sDanio~="\r\n" then
 				nDanioInicio=startpos+aPartesStats[2].startpos-1-nCaracteresDobles;
 				nDanioFin=startpos+aPartesStats[2].endpos-nCaracteresDobles;
@@ -104,7 +121,7 @@ function ObtenerCampos(startpos, aPartes, aPartesStats)
 			nAllowRoll = 1;
 			nAtaque = tonumber(sAtaque) or 0;
 		end
-		table.insert(aComponents, {nStart = nAtaqueInicio, nLabelEnd = nAtaqueInicio + nAtaqueFin - startpos, nEnd = nAtaqueFin, sLabel = sArma, nMod = nAtaque, nAllowRoll = nAllowRoll, sEfecto="" });
+		table.insert(aComponents, {nStart = nAtaqueInicio, nLabelEnd = nAtaqueInicio + nAtaqueFin - startpos, nEnd = nAtaqueFin, sLabel = sArma, nMod = nAtaque, sTipoDanio=sTipoDanio, sTipoDanioAlt=sTipoDanioAlt, nAllowRoll = nAllowRoll, sEfecto="" });
 
 		if sDanio and sDanio ~= "" then
 			nAllowRoll = 2;
@@ -112,10 +129,13 @@ function ObtenerCampos(startpos, aPartes, aPartesStats)
 			if sModDanio and sModDanio~="" and sModDanio~="\r\n" then
 				nDanio = nDanio + (tonumber(sModDanio) or 0);
 			end
-			table.insert(aComponents, {nStart = nDanioInicio, nLabelEnd = nDanioInicio + nDanioFin - startpos, nEnd = nDanioFin, sLabel = sArma, nMod = nDanio, nAllowRoll = nAllowRoll , sEfecto=sEfecto});
+			if sTipoDanio:match("/") then sTipoDanio, sTipoDanioAlt=sTipoDanio:match("([%a%sñÑáÁéÉíÍóÓúÚ]+)/([%a%sñÑáÁéÉíÍóÓúÚ]+)"); end
+			sTipoDanio=ComprobarTipoDanio(sTipoDanio);
+			sTipoDanioAlt=ComprobarTipoDanio(sTipoDanioAlt);
+			table.insert(aComponents, {nStart = nDanioInicio, nLabelEnd = nDanioInicio + nDanioFin - startpos, nEnd = nDanioFin, sLabel = sArma, nMod = nDanio, sTipoDanio=sTipoDanio, sTipoDanioAlt=sTipoDanioAlt, nAllowRoll = nAllowRoll , sEfecto=sEfecto});
 		elseif sEfecto and sEfecto~="" and sEfecto~= "\r\n" and string.lower(sEfecto)~= "especial" then
 			nAllowRoll = 3;
-			table.insert(aComponents, {nStart = nEfectoInicio, nLabelEnd = nEfectoInicio + nEfectoFin - startpos, nEnd = nEfectoFin, sLabel = sArma, nMod = nDanio, nAllowRoll = nAllowRoll , sEfecto=sEfecto});
+			table.insert(aComponents, {nStart = nEfectoInicio, nLabelEnd = nEfectoInicio + nEfectoFin - startpos, nEnd = nEfectoFin, sLabel = sArma, nMod = nDanio, sTipoDanio=sTipoDanio, sTipoDanioAlt=sTipoDanioAlt, nAllowRoll = nAllowRoll , sEfecto=sEfecto});
 		end
 
 --		if #aPartes==3 then
@@ -196,6 +216,8 @@ function onHoverUpdate(x, y)
 				sDragLabel = aComponents[i].sLabel;
 				nDragMod = aComponents[i].nMod;
 				setHoverCursor("hand");
+				sTDanio=aComponents[i].sTipoDanio;
+				sTDanioAlt=aComponents[i].sTipoDanioAlt;
 				
 				bEsDanio=true;
 				bEsEfecto=false;
@@ -256,7 +278,13 @@ function action(dragInfo)
 			sTipoAccion="AtaqueRollAction";
 		elseif bEsDanio then
 			DiceRollString = ""..nDragMod;
-			local sTipoDanio=ResolucionCombate.ObtenerTipoDanio(sArmaAtaque);
+			local bTipoDanioAlt=DB.getValue(self.window.getDatabaseNode(), "TipoDanioAlt", 0)==1;
+			local sTipoDanio="";
+			
+			if sTDanio~="" and not bTipoDanioAlt then sTipoDanio=sTDanio;
+			elseif sTDanioAlt~="" and bTipoDanioAlt then sTipoDanio=sTDanioAlt;
+			else sTipoDanio=ResolucionCombate.ObtenerTipoDanio(sArmaAtaque, bTipoDanioAlt, false);
+			end
 			if sTipoDanio and sTipoDanio~="" then sTipoDanio="["..sTipoDanio.."]";
 			else sTipoDanio="";
 			end

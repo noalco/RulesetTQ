@@ -46,6 +46,7 @@ CT:
 			- Gestionar los cambios de facción cuando el individuo está en una melé
 	- Añadir el penalizador por múltiples enemigos si el ataque es de una melé (ahora se aplica a todos los ataques)
 	- Armas arrojadizas en PNJs (CC/a distancia)
+	- Daños alternativos
 	- Calcular la distancia entre tokens en el mapa
 	
 Exportar:
