@@ -1506,6 +1506,7 @@ function addEntry(bFocus)
 	local w = createWindow();
 	if bFocus and w then
 		w.name.setFocus();
+		Interface.openWindow("npc", w.getDatabaseNode());
 	end
 	return w;
 end

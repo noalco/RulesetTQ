@@ -27,11 +27,55 @@ function getCompletion(s)
 	return "";
 end
 
+function ActualizarEsquivar(sKills)
+	if sKills and sKills~="" then
+		sKills=sKills:lower();
+		local nValorEsquivar=sKills:match("esquivar ([%+%-]*%d+)");
+		if not nValorEsquivar then
+			nValorEsquivar=1+window.Agilidad.getValue()-window.Estorbo.getValue();
+		end
+		DB.setValue(self.window.getDatabaseNode(), "AtaqueEsquivar", "string", "Esquivar "..nValorEsquivar);
+	else
+		DB.setValue(self.window.getDatabaseNode(), "AtaqueEsquivar", "string", "Esquivar "..1+window.Agilidad.getValue()-window.Estorbo.getValue());
+	end
+end
+
+function ActualizarEsquivar(sKills)
+	if sKills and sKills~="" then
+		sKills=sKills:lower();
+		local nValorEsquivar=sKills:match("esquivar ([%+%-]*%d+)");
+		if not nValorEsquivar then
+			nValorEsquivar=1+window.Agilidad.getValue()-window.Estorbo.getValue();
+		end
+		DB.setValue(self.window.getDatabaseNode(), "AtaqueEsquivar", "string", "Esquivar "..nValorEsquivar);
+	else
+		DB.setValue(self.window.getDatabaseNode(), "AtaqueEsquivar", "string", "Esquivar "..1+window.Agilidad.getValue()-window.Estorbo.getValue());
+	end
+end
+
+function ActualizarLanzarPelea(sKills, sSkill)
+	if sKills and sKills~="" then
+		sKills=sKills:lower();
+		local nValorSkill=sKills:match(sSkill:lower().." ([%+%-]*%d+)");
+		if not nValorSkill then
+			nValorSkill=2+window.Agilidad.getValue();
+		end
+		DB.setValue(self.window.getDatabaseNode(), "Ataque"..sSkill, "string", sSkill.." "..nValorSkill);
+	else
+		DB.setValue(self.window.getDatabaseNode(), "Ataque"..sSkill, "string", sSkill.." "..2+window.Agilidad.getValue());
+	end
+end
+
+function onInit()
+	onValueChanged();
+end
+
 function onValueChanged()
-	
 	-- Parse the value string
 	parseComponents();
-
+	ActualizarEsquivar(getValue());
+	ActualizarLanzarPelea(getValue(), "Lanzar");
+	ActualizarLanzarPelea(getValue(), "Pelea");
 end
 
 function parseComponents()
@@ -61,7 +105,6 @@ function parseComponents()
 					nMod = 0 - nMod;
 				end
 			end
-
 			-- Insert the possible skill into the skill list
 			table.insert(aComponents, {nStart = aClauseStats[i].startpos - nCaracteresDobles, nLabelEnd = aClauseStats[i].startpos + nEnds - nCaracteresDobles, nEnd = aClauseStats[i].endpos - nCaracteresDobles, sLabel = sLabel, nMod = nMod, nAllowRoll = nAllowRoll});
 		end

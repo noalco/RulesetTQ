@@ -32,29 +32,9 @@ function update()
 	for i,v in pairs(self.getControls()) do
 		if string.find(v.getName(), "Label") == nil then
 			v.setReadOnly(bReadOnly);
---		else
---			v.setReadOnly(true);
 		end
 	end
---	local bID = LibraryData.getIDState("npc", nodeRecord);
---
---	local bSection1 = false;
---	if Session.IsHost then
---		if updateControl("nonid_name", bReadOnly) then bSection1 = true; end;
---	else
---		updateControl("nonid_name", bReadOnly, true);
---	end
---	divider.setVisible(bSection1);
---	
---	space.setReadOnly(bReadOnly);
---	reach.setReadOnly(bReadOnly);
---	senses.setReadOnly(bReadOnly);
---	
---	local bSection2 = false;
---	if updateControl("skills", bReadOnly) then bSection2 = true; end;
---	if updateControl("items", bReadOnly) then bSection2 = true; end;
---	if updateControl("languages", bReadOnly) then bSection = true; end;
---	divider2.setVisible(bSection2);
+
 end</Script>
     <RegisterScript>false</RegisterScript>
     <Encoding />
