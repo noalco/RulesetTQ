@@ -584,8 +584,8 @@ function Danio(rSource, rTarget, rRoll)
 				local nContGraves=0;
 				local nContLeves=0;
 				for _,NodoHerida in pairs(DB.getChildren(rTarget.sCTNode..".ListaHeridas")) do
-					if DB.getValue(NodoHerida, "Tipo", "")=="G" then nContGraves=nContGraves+1;
-					elseif DB.getValue(NodoHerida, "Tipo", "")=="L" then nContLeves=nContLeves+1;
+					if DB.getValue(NodoHerida, "Tipo", "")=="Grave" then nContGraves=nContGraves+1;
+					elseif DB.getValue(NodoHerida, "Tipo", "")=="Leve" then nContLeves=nContLeves+1;
 					end
 				end
 
