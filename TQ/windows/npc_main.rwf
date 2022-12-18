@@ -68,12 +68,23 @@ function onInit()
 end
 
 function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
-	else
-		return "1d6";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
 	end
-end</LUACode>
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
+	else
+		return nNumDados.."d6";
+	end
+end
+
+function onValueChanged()
+	window.Habilidades.onValueChanged();
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -204,6 +215,193 @@ end</LUACode>
   </WindowControls>
   <WindowControls>
     <WindowName>npc_main</WindowName>
+    <ControlName>AtaqueEsquivar</ControlName>
+    <ZIndex>65</ZIndex>
+    <ControlClass>FGStringField</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Center"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"AtaqueEsquivar"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultText","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"EmptyText"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"LineOffset","Value":{"@xsi:type":"xsd:int","#text":"2"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing","Value":{"@xsi:type":"xsd:int","#text":"17"}},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"NoDragselect","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"NoDrop","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string","#text":"8_Sidebars/scripts/npc_armas.lua"}},
+      {"Name":"Source"},
+      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"363"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"396"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>npc_main</WindowName>
+    <ControlName>AtaqueLanzar</ControlName>
+    <ZIndex>67</ZIndex>
+    <ControlClass>FGStringField</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Center"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"AtaqueLanzar"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultText","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"EmptyText"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"LineOffset","Value":{"@xsi:type":"xsd:int","#text":"2"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing","Value":{"@xsi:type":"xsd:int","#text":"17"}},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"NoDragselect","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"NoDrop","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string","#text":"8_Sidebars/scripts/npc_armas.lua"}},
+      {"Name":"Source"},
+      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"481"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"395"}}
+]}}</Definition>
+    <LUACode xml:space="preserve">
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>npc_main</WindowName>
+    <ControlName>AtaquePelea</ControlName>
+    <ZIndex>66</ZIndex>
+    <ControlClass>FGStringField</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"Center"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"AtaquePelea"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultText","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"100"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"EmptyText"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"LineOffset","Value":{"@xsi:type":"xsd:int","#text":"2"}},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"MultilineSpacing","Value":{"@xsi:type":"xsd:int","#text":"17"}},
+      {"Name":"NextTabTarget"},
+      {"Name":"NoDrag","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"NoDragselect","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"NoDrop","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile","Value":{"@xsi:type":"xsd:string","#text":"8_Sidebars/scripts/npc_armas.lua"}},
+      {"Name":"Source"},
+      {"Name":"StackVertWith","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"600"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"395"}}
+]}}</Definition>
+    <LUACode />
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>npc_main</WindowName>
     <ControlName>Atractivo</ControlName>
     <ZIndex>16</ZIndex>
     <ControlClass>FGNumberField</ControlClass>
@@ -262,10 +460,16 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"117"}}
 ]}}</Definition>
     <LUACode>function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
@@ -403,10 +607,16 @@ function onInit()
 end
 
 function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
@@ -472,10 +682,16 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"117"}}
 ]}}</Definition>
     <LUACode>function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end
 
@@ -557,10 +773,16 @@ function onInit()
 end
 
 function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
@@ -757,10 +979,16 @@ function onInit()
 end
 
 function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
@@ -982,10 +1210,16 @@ end</LUACode>
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"117"}}
 ]}}</Definition>
     <LUACode>function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end
 
@@ -1057,7 +1291,10 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"100"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"260"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onValueChanged()
+	window.Habilidades.onValueChanged();
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>
@@ -1121,10 +1358,16 @@ end
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"117"}}
 ]}}</Definition>
     <LUACode>function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
@@ -1145,7 +1388,7 @@ end</LUACode>
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DefaultText","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DelayKeyUpdate","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"337"}},
@@ -1262,10 +1505,16 @@ function onInit()
 end
 
 function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
@@ -3030,10 +3279,16 @@ end</LUACode>
 end
 
 function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end
 
@@ -3428,10 +3683,16 @@ function onInit()
 end
 
 function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
@@ -3692,10 +3953,16 @@ end
 end
 
 function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end
 
@@ -3779,10 +4046,16 @@ function onInit()
 end
 
 function ObtenerDado()
-	if window.Debilitado.getValue()==0 then
-		return "1d10";
+	local nNumDados=1;
+	if DB.getValue("combattracker.DosPuntosInfortunio", 0)==1 then
+		DB.setValue("combattracker.DosPuntosInfortunio", "number", 0);
+		DB.setValue("combattracker.PtosInfortunio", "number", DB.getValue("combattracker.PtosInfortunio", 2)-2);
+		nNumDados=2;
+	end
+	if DB.getValue(window.getDatabaseNode(), "Debilitado", "0")==0 then
+		return nNumDados.."d10";
 	else
-		return "1d6";
+		return nNumDados.."d6";
 	end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
