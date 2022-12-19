@@ -866,6 +866,128 @@ end</LUACode>
   </WindowControls>
   <WindowControls>
     <WindowName>combattracker_host</WindowName>
+    <ControlName>DetallesMeles</ControlName>
+    <ZIndex>29</ZIndex>
+    <ControlClass>FGCustomControl</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"DetallesMeles"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomClassName","Value":{"@xsi:type":"xsd:string","#text":"boton_nueva_ventana"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty","CustomProperty":{"PropertyName":"class","PropertyValue":"VentanaDetallesMeles","PropertyAttributes":null}}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"20"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Detalles de las melés en curso"}},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"355"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"42"}}
+]}}</Definition>
+    <LUACode>function onClickRelease(button, x, y)
+    local tMeles=ResolucionCombate.tMeles;
+    local sTablaMele="A continuación se muestran las melés en curso. En las filas/columnas se muestran los integrantes de cada Bando (entre paréntesis el valor de la tirada hecha en caso de haberla realizado ya) y en cada celda se muestra el resultado del enfrentamiento (los valores positivos son a favor del individuo del Bando 1 mientras que los valores negativos son a favor del individuo Bando 2.";
+    local nContAliados=0;
+    local nContEnemigos=0;
+    local sTab4="\n\t\t\t\t";
+    local sTab5="\n\t\t\t\t\t";
+    local sTab6="\n\t\t\t\t\t\t";
+    local tAliados={}
+    local tEnemigos={}
+    local i;
+    local j;
+    --table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=true, bPosiblePifia=false});
+    for i,tMele in pairs(tMeles) do
+--		Debug.chat(tMele, "\n");
+		sTablaMele=sTablaMele..sTab4.."&lt;h&gt;Melé "..i.."&lt;/h&gt;"..sTab4.."&lt;table&gt;";
+		tAliados={}
+		tEnemigos={}
+		for _,Integrante in pairs(tMele) do
+			if Integrante.bEsAliado then
+				table.insert(tAliados, Integrante)
+			else
+				table.insert(tEnemigos, Integrante)
+			end
+		end
+		
+		-- Cabecera de la tabla con los enemigos
+		if #tEnemigos &gt; 0 then
+			sTablaMele=sTablaMele..sTab5.."&lt;tr&gt;";
+			
+			if #tAliados&gt;0 then sTablaMele=sTablaMele..sTab6.."&lt;td /&gt;"; end
+			
+			sTablaMele=sTablaMele..sTab6.."&lt;td colspan=\""..#tEnemigos.."\"&gt;Bando 2&lt;/td&gt;"..sTab5.."&lt;/tr&gt;"..sTab5.."&lt;tr&gt;";
+			
+			if #tAliados&gt;0 then sTablaMele=sTablaMele..sTab6.."&lt;td&gt;Bando 1&lt;/td&gt;"; end
+			
+			for i=1,#tEnemigos do
+				sTablaMele=sTablaMele..sTab6.."&lt;td&gt;"..DB.getValue(tEnemigos[i].PathNodo..".name", "");
+				if tEnemigos[i].bTirada then sTablaMele=sTablaMele.." ("..tEnemigos[i].nTirada..")"; end
+				sTablaMele=sTablaMele.."&lt;/td&gt;";
+			end
+			sTablaMele=sTablaMele..sTab5.."&lt;/tr&gt;"
+		end
+		
+		if #tAliados&gt;0 then
+			for i=1,#tAliados do
+				sTablaMele=sTablaMele..sTab5.."&lt;tr&gt;"..sTab6.."&lt;td&gt;"..DB.getValue(tAliados[i].PathNodo..".name", "");
+				if tAliados[i].bTirada then sTablaMele=sTablaMele.." ("..tAliados[i].nTirada..")"; end
+				sTablaMele=sTablaMele.."&lt;/td&gt;";
+				if #tEnemigos&gt;0 then
+					for j=1,#tEnemigos do
+						if ResolucionCombate.tResultados and (ResolucionCombate.tResultados[tAliados[i].PathNodo] and ResolucionCombate.tResultados[tAliados[i].PathNodo][tEnemigos[j].PathNodo]) then
+							sTablaMele=sTablaMele..sTab6.."&lt;td&gt;"..ResolucionCombate.tResultados[tAliados[i].PathNodo][tEnemigos[j].PathNodo].."&lt;/td&gt;";
+						elseif ResolucionCombate.tResultados and (ResolucionCombate.tResultados[tEnemigos[j].PathNodo] and ResolucionCombate.tResultados[tEnemigos[j].PathNodo][tAliados[i].PathNodo]) then
+							sTablaMele=sTablaMele..sTab6.."&lt;td&gt;-"..ResolucionCombate.tResultados[tEnemigos[j].PathNodo][tAliados[i].PathNodo].."&lt;/td&gt;";
+						else
+							sTablaMele=sTablaMele..sTab6.."&lt;td /&gt;";
+						end
+					end
+				end
+				sTablaMele=sTablaMele..sTab5.."&lt;/tr&gt;"
+			end
+		end
+		
+		sTablaMele=sTablaMele..sTab4.."&lt;/table&gt;\n";
+--		Debug.chat(sTablaMele)
+    end
+    
+    DB.setValue("combattracker.Meles", "formattedtext", sTablaMele);
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>combattracker_host</WindowName>
     <ControlName>Distancia</ControlName>
     <ZIndex>25</ZIndex>
     <ControlClass>FGComboBox</ControlClass>

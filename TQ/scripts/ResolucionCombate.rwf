@@ -389,7 +389,7 @@ function ProcesarMele(nMele)
 				if tMeles[nMele][i].bEsAliado then table.insert(tAliados,tMeles[nMele][i]);
 				else table.insert(tEnemigos,tMeles[nMele][i]);
 				end
-				tMeles[nMele][i].bTirada=false;
+--				tMeles[nMele][i].bTirada=false;
 			end
 			tContadores[nMele].nAtaques=0;
 			for i=1,#tAliados do
@@ -438,14 +438,14 @@ function ProcesarMele(nMele)
 					Comm.deliverChatMessage(rMessage);
 				end
 			end
-			for i=1,#tAliados do
-				for j=1,#tEnemigos do
+--			for i=1,#tAliados do
+--				for j=1,#tEnemigos do
 --					DB.setValue(tEnemigos[j].PathNodo..".SelectorMele", "string", "No");
 --					DB.setValue(tEnemigos[j].PathNodo..".PenMeleMultiEnemigos", "number", 0);
-				end
+--				end
 --				DB.setValue(tAliados[i].PathNodo..".SelectorMele", "string", "No");
 --				DB.setValue(tAliados[i].PathNodo..".PenMeleMultiEnemigos", "number", 0);
-			end
+--			end
 --			table.remove(tMeles, nMele);
 --			table.remove(tContadores, nMele);
 		else
