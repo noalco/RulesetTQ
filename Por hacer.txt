@@ -47,6 +47,7 @@ CT:
 	- Añadir el penalizador por múltiples enemigos si el ataque es de una melé (ahora se aplica a todos los ataques)
 	- Limitar armas CC como arrojadizas por lanzar cuando se usan a distancia
 	- Calcular la distancia entre tokens en el mapa
+	- Hacer que el botón de confirmación de eliminar herida se reseteara a su posición original al apretar el botón de la cruz roja
 	
 Exportar:
 	- Permitir exportar elementos individuales

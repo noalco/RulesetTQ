@@ -160,7 +160,183 @@ end
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"19"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"44"}}
 ]}}</Definition>
-    <LUACode />
+    <LUACode>function onInit()
+    local tMeles=ResolucionCombate.tMeles;
+    local sTablaMele="A continuación se muestran las melés en curso. Cada integrante de una melé mostrará su tirada (de haberla hecho ya) y el penalizador por múltiples enemigos (en caso de que haya más de un integrante en el otro bando). También se mostrarán el número de tiradas realizadas por los integrantes de cada melé. Una vez que se resuelva la melé, desaparecerán las tiradas y el contador volverá a cero.";
+    local nContAliados=0;
+    local nContEnemigos=0;
+    local sTab4="\n\t\t\t\t";
+    local sTab5="\n\t\t\t\t\t";
+    local sTab6="\n\t\t\t\t\t\t";
+    local tAliados={}
+    local tEnemigos={}
+    local i;
+    local j;
+    --table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=true, bPosiblePifia=false});
+--    tContadores[nMele]={nAtaques=0, nAliados=0, nEnemigos=0};
+    for i,tMele in pairs(tMeles) do
+--		Debug.chat(tMele, "\n");
+--		sTablaMele=sTablaMele..sTab4.."&lt;h&gt;Melé "..i.."&lt;/h&gt;"..sTab4.."&lt;table&gt;";
+--		tAliados={}
+--		tEnemigos={}
+--		for _,Integrante in pairs(tMele) do
+--			if Integrante.bEsAliado then
+--				table.insert(tAliados, Integrante)
+--			else
+--				table.insert(tEnemigos, Integrante)
+--			end
+--		end
+--		
+--		-- Cabecera de la tabla con los enemigos
+--		if #tEnemigos &gt; 0 then
+--			sTablaMele=sTablaMele..sTab5.."&lt;tr&gt;";
+--			
+--			if #tAliados&gt;0 then sTablaMele=sTablaMele..sTab6.."&lt;td /&gt;"; end
+--			
+--			sTablaMele=sTablaMele..sTab6.."&lt;td colspan=\""..#tEnemigos.."\"&gt;Bando 2&lt;/td&gt;"..sTab5.."&lt;/tr&gt;"..sTab5.."&lt;tr&gt;";
+--			
+--			if #tAliados&gt;0 then sTablaMele=sTablaMele..sTab6.."&lt;td&gt;Bando 1&lt;/td&gt;"; end
+--			
+--			for i=1,#tEnemigos do
+--				sTablaMele=sTablaMele..sTab6.."&lt;td&gt;"..DB.getValue(tEnemigos[i].PathNodo..".name", "");
+--				if tEnemigos[i].bTirada then sTablaMele=sTablaMele.." ("..tEnemigos[i].nTirada..")"; end
+--				sTablaMele=sTablaMele.."&lt;/td&gt;";
+--			end
+--			sTablaMele=sTablaMele..sTab5.."&lt;/tr&gt;"
+--		end
+--		
+--		if #tAliados&gt;0 then
+--			for i=1,#tAliados do
+--				sTablaMele=sTablaMele..sTab5.."&lt;tr&gt;"..sTab6.."&lt;td&gt;"..DB.getValue(tAliados[i].PathNodo..".name", "");
+--				if tAliados[i].bTirada then sTablaMele=sTablaMele.." ("..tAliados[i].nTirada..")"; end
+--				sTablaMele=sTablaMele.."&lt;/td&gt;";
+--				if #tEnemigos&gt;0 then
+--					for j=1,#tEnemigos do
+--						if ResolucionCombate.tResultados and (ResolucionCombate.tResultados[tAliados[i].PathNodo] and ResolucionCombate.tResultados[tAliados[i].PathNodo][tEnemigos[j].PathNodo]) then
+--							sTablaMele=sTablaMele..sTab6.."&lt;td&gt;"..ResolucionCombate.tResultados[tAliados[i].PathNodo][tEnemigos[j].PathNodo].."&lt;/td&gt;";
+--						elseif ResolucionCombate.tResultados and (ResolucionCombate.tResultados[tEnemigos[j].PathNodo] and ResolucionCombate.tResultados[tEnemigos[j].PathNodo][tAliados[i].PathNodo]) then
+--							sTablaMele=sTablaMele..sTab6.."&lt;td&gt;-"..ResolucionCombate.tResultados[tEnemigos[j].PathNodo][tAliados[i].PathNodo].."&lt;/td&gt;";
+--						else
+--							sTablaMele=sTablaMele..sTab6.."&lt;td /&gt;";
+--						end
+--					end
+--				end
+--				sTablaMele=sTablaMele..sTab5.."&lt;/tr&gt;"
+--			end
+--		end
+--		sTablaMele=sTablaMele..sTab4.."&lt;/table&gt;\n";
+		if ResolucionCombate.tContadores[i].nAliados&gt;0 or ResolucionCombate.tContadores[i].nEnemigos&gt;0 then
+			tAliados={}
+			tEnemigos={}
+			for _,Integrante in pairs(tMele) do
+				if Integrante.bEsAliado then
+					table.insert(tAliados, Integrante)
+				else
+					table.insert(tEnemigos, Integrante)
+				end
+			end
+			sTablaMele=sTablaMele..sTab4.."&lt;h&gt;Melé "..i.."&lt;/h&gt;";
+			if #tAliados&gt;0 then
+				sTablaMele=sTablaMele..sTab4.."&lt;p&gt;&lt;b&gt;Bando 1:&lt;/b&gt;&lt;/p&gt;"..sTab4.."&lt;list&gt;";
+				for i=1,#tAliados do
+					sTablaMele=sTablaMele..sTab5.."&lt;li&gt;"..DB.getValue(tAliados[i].PathNodo..".name", "");
+					if tAliados[i].bTirada then sTablaMele=sTablaMele.." - Resultado de su tirada: "..tAliados[i].nTirada; end
+					if #tEnemigos&gt;1 then
+						sTablaMele=sTablaMele.." - Penalizador por múltiples enemigos: -"..DB.getValue(tAliados[i].PathNodo..".PenMeleMultiEnemigos", "");
+					end
+					sTablaMele=sTablaMele..sTab5.."&lt;/li&gt;"
+				end
+				sTablaMele=sTablaMele..sTab4.."&lt;/list&gt;";
+			end
+			if #tEnemigos&gt;0 then
+				sTablaMele=sTablaMele..sTab4.."&lt;p&gt;&lt;b&gt;Bando 2:&lt;/b&gt;&lt;/p&gt;"..sTab4.."&lt;list&gt;";
+				for i=1,#tEnemigos do
+					sTablaMele=sTablaMele..sTab5.."&lt;li&gt;"..DB.getValue(tEnemigos[i].PathNodo..".name", "");
+					if tEnemigos[i].bTirada then sTablaMele=sTablaMele.." - Resultado de su tirada: "..tEnemigos[i].nTirada; end
+					if #tAliados&gt;1 then
+						sTablaMele=sTablaMele.." - Penalizador por múltiples enemigos: -"..DB.getValue(tEnemigos[i].PathNodo..".PenMeleMultiEnemigos", "");
+					end
+					sTablaMele=sTablaMele..sTab5.."&lt;/li&gt;"
+				end
+				sTablaMele=sTablaMele..sTab4.."&lt;/list&gt;";
+			end
+			
+			sTablaMele=sTablaMele..sTab4.."&lt;p&gt;Tiradas realizadas por los integrantes de la melé: "..ResolucionCombate.tContadores[i].nAtaques.."&lt;/p&gt;";
+			
+			if ResolucionCombate.tContadores[i].nAliados&gt;1 and ResolucionCombate.tContadores[i].nEnemigos&gt;1 then
+				sTablaMele=sTablaMele..sTab4.."&lt;p&gt;El número de integrantes de la melé no es válida. Reasigna algunos integrantes en otra melé.&lt;/p&gt;";
+			end
+			
+	--		Debug.chat(sTablaMele)
+		end
+	end
+    
+--    DB.setValue("combattracker.Meles", "formattedtext", sTablaMele);
+	setValue(sTablaMele);
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template />
+  </WindowControls>
+  <WindowControls>
+    <WindowName>VentanaDetallesMeles</WindowName>
+    <ControlName>RecargarMeles</ControlName>
+    <ZIndex>6</ZIndex>
+    <ControlClass>FGButton</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"AdvancedTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"AllowDoubleClick"},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"ButtonField"},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition"}},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"RecargarMeles"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
+      {"Name":"DefaultValue"},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"26"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"33"}},
+      {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":{"@xsi:nil":"true"},"AdditionalInfo":null}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
+      {"Name":"HoverCursor"},
+      {"Name":"HoverIconName"},
+      {"Name":"InheritSizePosition"},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"NormalIconName","Value":{"@xsi:type":"xsd:string","#text":"button_ctnextround"}},
+      {"Name":"PressedIconName","Value":{"@xsi:type":"xsd:string","#text":"button_ctnextround_down"}},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
+      {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Recargar melés"}},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"314"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"18"}}
+]}}</Definition>
+    <LUACode>function onButtonPress()
+	window.Meles.onInit();
+end
+</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
   </WindowControls>

@@ -912,76 +912,112 @@ end</LUACode>
       {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"355"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"42"}}
 ]}}</Definition>
-    <LUACode>function onClickRelease(button, x, y)
-    local tMeles=ResolucionCombate.tMeles;
-    local sTablaMele="A continuación se muestran las melés en curso. En las filas/columnas se muestran los integrantes de cada Bando (entre paréntesis el valor de la tirada hecha en caso de haberla realizado ya) y en cada celda se muestra el resultado del enfrentamiento (los valores positivos son a favor del individuo del Bando 1 mientras que los valores negativos son a favor del individuo Bando 2.";
-    local nContAliados=0;
-    local nContEnemigos=0;
-    local sTab4="\n\t\t\t\t";
-    local sTab5="\n\t\t\t\t\t";
-    local sTab6="\n\t\t\t\t\t\t";
-    local tAliados={}
-    local tEnemigos={}
-    local i;
-    local j;
-    --table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=true, bPosiblePifia=false});
-    for i,tMele in pairs(tMeles) do
---		Debug.chat(tMele, "\n");
-		sTablaMele=sTablaMele..sTab4.."&lt;h&gt;Melé "..i.."&lt;/h&gt;"..sTab4.."&lt;table&gt;";
-		tAliados={}
-		tEnemigos={}
-		for _,Integrante in pairs(tMele) do
-			if Integrante.bEsAliado then
-				table.insert(tAliados, Integrante)
-			else
-				table.insert(tEnemigos, Integrante)
-			end
-		end
-		
-		-- Cabecera de la tabla con los enemigos
-		if #tEnemigos &gt; 0 then
-			sTablaMele=sTablaMele..sTab5.."&lt;tr&gt;";
-			
-			if #tAliados&gt;0 then sTablaMele=sTablaMele..sTab6.."&lt;td /&gt;"; end
-			
-			sTablaMele=sTablaMele..sTab6.."&lt;td colspan=\""..#tEnemigos.."\"&gt;Bando 2&lt;/td&gt;"..sTab5.."&lt;/tr&gt;"..sTab5.."&lt;tr&gt;";
-			
-			if #tAliados&gt;0 then sTablaMele=sTablaMele..sTab6.."&lt;td&gt;Bando 1&lt;/td&gt;"; end
-			
-			for i=1,#tEnemigos do
-				sTablaMele=sTablaMele..sTab6.."&lt;td&gt;"..DB.getValue(tEnemigos[i].PathNodo..".name", "");
-				if tEnemigos[i].bTirada then sTablaMele=sTablaMele.." ("..tEnemigos[i].nTirada..")"; end
-				sTablaMele=sTablaMele.."&lt;/td&gt;";
-			end
-			sTablaMele=sTablaMele..sTab5.."&lt;/tr&gt;"
-		end
-		
-		if #tAliados&gt;0 then
-			for i=1,#tAliados do
-				sTablaMele=sTablaMele..sTab5.."&lt;tr&gt;"..sTab6.."&lt;td&gt;"..DB.getValue(tAliados[i].PathNodo..".name", "");
-				if tAliados[i].bTirada then sTablaMele=sTablaMele.." ("..tAliados[i].nTirada..")"; end
-				sTablaMele=sTablaMele.."&lt;/td&gt;";
-				if #tEnemigos&gt;0 then
-					for j=1,#tEnemigos do
-						if ResolucionCombate.tResultados and (ResolucionCombate.tResultados[tAliados[i].PathNodo] and ResolucionCombate.tResultados[tAliados[i].PathNodo][tEnemigos[j].PathNodo]) then
-							sTablaMele=sTablaMele..sTab6.."&lt;td&gt;"..ResolucionCombate.tResultados[tAliados[i].PathNodo][tEnemigos[j].PathNodo].."&lt;/td&gt;";
-						elseif ResolucionCombate.tResultados and (ResolucionCombate.tResultados[tEnemigos[j].PathNodo] and ResolucionCombate.tResultados[tEnemigos[j].PathNodo][tAliados[i].PathNodo]) then
-							sTablaMele=sTablaMele..sTab6.."&lt;td&gt;-"..ResolucionCombate.tResultados[tEnemigos[j].PathNodo][tAliados[i].PathNodo].."&lt;/td&gt;";
-						else
-							sTablaMele=sTablaMele..sTab6.."&lt;td /&gt;";
-						end
-					end
-				end
-				sTablaMele=sTablaMele..sTab5.."&lt;/tr&gt;"
-			end
-		end
-		
-		sTablaMele=sTablaMele..sTab4.."&lt;/table&gt;\n";
---		Debug.chat(sTablaMele)
-    end
-    
-    DB.setValue("combattracker.Meles", "formattedtext", sTablaMele);
-end
+    <LUACode>--function onClickRelease(button, x, y)
+--    local tMeles=ResolucionCombate.tMeles;
+--    local sTablaMele="A continuación se muestran las melés en curso. En las filas/columnas se muestran los integrantes de cada Bando (entre paréntesis el valor de la tirada hecha en caso de haberla realizado ya) y en cada celda se muestra el resultado del enfrentamiento (los valores positivos son a favor del individuo del Bando 1 mientras que los valores negativos son a favor del individuo Bando 2.";
+--    local nContAliados=0;
+--    local nContEnemigos=0;
+--    local sTab4="\n\t\t\t\t";
+--    local sTab5="\n\t\t\t\t\t";
+--    local sTab6="\n\t\t\t\t\t\t";
+--    local tAliados={}
+--    local tEnemigos={}
+--    local i;
+--    local j;
+--    --table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=true, bPosiblePifia=false});
+----    tContadores[nMele]={nAtaques=0, nAliados=0, nEnemigos=0};
+--    for i,tMele in pairs(tMeles) do
+----		Debug.chat(tMele, "\n");
+----		sTablaMele=sTablaMele..sTab4.."&lt;h&gt;Melé "..i.."&lt;/h&gt;"..sTab4.."&lt;table&gt;";
+----		tAliados={}
+----		tEnemigos={}
+----		for _,Integrante in pairs(tMele) do
+----			if Integrante.bEsAliado then
+----				table.insert(tAliados, Integrante)
+----			else
+----				table.insert(tEnemigos, Integrante)
+----			end
+----		end
+----		
+----		-- Cabecera de la tabla con los enemigos
+----		if #tEnemigos &gt; 0 then
+----			sTablaMele=sTablaMele..sTab5.."&lt;tr&gt;";
+----			
+----			if #tAliados&gt;0 then sTablaMele=sTablaMele..sTab6.."&lt;td /&gt;"; end
+----			
+----			sTablaMele=sTablaMele..sTab6.."&lt;td colspan=\""..#tEnemigos.."\"&gt;Bando 2&lt;/td&gt;"..sTab5.."&lt;/tr&gt;"..sTab5.."&lt;tr&gt;";
+----			
+----			if #tAliados&gt;0 then sTablaMele=sTablaMele..sTab6.."&lt;td&gt;Bando 1&lt;/td&gt;"; end
+----			
+----			for i=1,#tEnemigos do
+----				sTablaMele=sTablaMele..sTab6.."&lt;td&gt;"..DB.getValue(tEnemigos[i].PathNodo..".name", "");
+----				if tEnemigos[i].bTirada then sTablaMele=sTablaMele.." ("..tEnemigos[i].nTirada..")"; end
+----				sTablaMele=sTablaMele.."&lt;/td&gt;";
+----			end
+----			sTablaMele=sTablaMele..sTab5.."&lt;/tr&gt;"
+----		end
+----		
+----		if #tAliados&gt;0 then
+----			for i=1,#tAliados do
+----				sTablaMele=sTablaMele..sTab5.."&lt;tr&gt;"..sTab6.."&lt;td&gt;"..DB.getValue(tAliados[i].PathNodo..".name", "");
+----				if tAliados[i].bTirada then sTablaMele=sTablaMele.." ("..tAliados[i].nTirada..")"; end
+----				sTablaMele=sTablaMele.."&lt;/td&gt;";
+----				if #tEnemigos&gt;0 then
+----					for j=1,#tEnemigos do
+----						if ResolucionCombate.tResultados and (ResolucionCombate.tResultados[tAliados[i].PathNodo] and ResolucionCombate.tResultados[tAliados[i].PathNodo][tEnemigos[j].PathNodo]) then
+----							sTablaMele=sTablaMele..sTab6.."&lt;td&gt;"..ResolucionCombate.tResultados[tAliados[i].PathNodo][tEnemigos[j].PathNodo].."&lt;/td&gt;";
+----						elseif ResolucionCombate.tResultados and (ResolucionCombate.tResultados[tEnemigos[j].PathNodo] and ResolucionCombate.tResultados[tEnemigos[j].PathNodo][tAliados[i].PathNodo]) then
+----							sTablaMele=sTablaMele..sTab6.."&lt;td&gt;-"..ResolucionCombate.tResultados[tEnemigos[j].PathNodo][tAliados[i].PathNodo].."&lt;/td&gt;";
+----						else
+----							sTablaMele=sTablaMele..sTab6.."&lt;td /&gt;";
+----						end
+----					end
+----				end
+----				sTablaMele=sTablaMele..sTab5.."&lt;/tr&gt;"
+----			end
+----		end
+----		sTablaMele=sTablaMele..sTab4.."&lt;/table&gt;\n";
+--
+--		tAliados={}
+--		tEnemigos={}
+--		for _,Integrante in pairs(tMele) do
+--			if Integrante.bEsAliado then
+--				table.insert(tAliados, Integrante)
+--			else
+--				table.insert(tEnemigos, Integrante)
+--			end
+--		end
+--		sTablaMele=sTablaMele..sTab4.."&lt;h&gt;Melé "..i.."&lt;/h&gt;";
+--		if #tAliados&gt;0 then
+--			sTablaMele=sTablaMele..sTab4.."&lt;p&gt;&lt;b&gt;Bando 1:&lt;/b&gt;&lt;/p&gt;"..sTab4.."&lt;list&gt;";
+--			for i=1,#tAliados do
+--				sTablaMele=sTablaMele..sTab5.."&lt;li&gt;"..DB.getValue(tAliados[i].PathNodo..".name", "");
+--				if tAliados[i].bTirada then sTablaMele=sTablaMele.." - Resultado de su tirada: "..tAliados[i].nTirada; end
+--				sTablaMele=sTablaMele..sTab5.."&lt;/li&gt;"
+--			end
+--			sTablaMele=sTablaMele..sTab4.."&lt;/list&gt;";
+--		end
+--		if #tEnemigos&gt;0 then
+--			sTablaMele=sTablaMele..sTab4.."&lt;p&gt;&lt;b&gt;Bando 2:&lt;/b&gt;&lt;/p&gt;"..sTab4.."&lt;list&gt;";
+--			for i=1,#tEnemigos do
+--				sTablaMele=sTablaMele..sTab5.."&lt;li&gt;"..DB.getValue(tEnemigos[i].PathNodo..".name", "");
+--				if tEnemigos[i].bTirada then sTablaMele=sTablaMele.." - Resultado de su tirada: "..tEnemigos[i].nTirada; end
+--				sTablaMele=sTablaMele..sTab5.."&lt;/li&gt;"
+--			end
+--			sTablaMele=sTablaMele..sTab4.."&lt;/list&gt;";
+--		end
+--		
+--		sTablaMele=sTablaMele..sTab4.."&lt;p&gt;Tiradas realizadas por los integrantes de la melé:"..ResolucionCombate.tContadores[i].nAtaques.."&lt;/p&gt;";
+--		
+--		if ResolucionCombate.tContadores[i].nAliados&gt;1 and ResolucionCombate.tContadores[i].nEnemigos&gt;1 then
+--			sTablaMele=sTablaMele..sTab4.."&lt;p&gt;El número de integrantes de la melé no es válida. Reasigna algunos integrantes en otra melé.&lt;/p&gt;";
+--		end
+--		
+----		Debug.chat(sTablaMele)
+--    end
+--    
+--    DB.setValue("combattracker.Meles", "formattedtext", sTablaMele);
+--end
 </LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />
