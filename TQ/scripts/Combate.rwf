@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Combate</ScriptName>
-    <FolderID>17</FolderID>
+    <FolderID>10</FolderID>
     <Script>function CrearListas(sPath, sText)
 	local w=Herramientas.ObtenerSubVentanaPpal(sPath, "combate");
 	if w then

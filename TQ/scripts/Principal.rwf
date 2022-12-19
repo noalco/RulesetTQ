@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Principal</ScriptName>
-    <FolderID>9</FolderID>
+    <FolderID>2</FolderID>
     <Script>function CalcularBaseHabilidades(nodoOrigen)
 	local nEspiritu=DB.getValue(nodoOrigen, ".Caracteristicas.Espiritu", 0);
 	local nMente=DB.getValue(nodoOrigen, ".Caracteristicas.Mente", 0);

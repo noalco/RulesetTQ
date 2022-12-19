@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Religion</ScriptName>
-    <FolderID>21</FolderID>
+    <FolderID>14</FolderID>
     <Script>CultosYDioses={
 	["LEY"]={"El Artista", "Baaler", "El Comerciante", "La Destructora", "El Escriba", "El Guerrero", "El Juez", "El Labrador", "La Madre", "El Navegante", "El Sabio", "El Sanador"},
 	["CAOS"]={"Ainiria", "Ayrok", "Íkor", "Mashak", "Meibel", "Melk", "Nariaj", "Shador", "Shonbark", "Slodar", "Tesh-Chan", "Vesh-Anh", "Yaroi"},

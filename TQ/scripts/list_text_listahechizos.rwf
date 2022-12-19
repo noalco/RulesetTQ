@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>list_text_listahechizos</ScriptName>
-    <FolderID>19</FolderID>
+    <FolderID>12</FolderID>
     <Script>-- 
 -- Please see the license.html file included with this distribution for 
 -- attribution and copyright information.

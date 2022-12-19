@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Modificadores</ScriptName>
-    <FolderID>34</FolderID>
+    <FolderID>27</FolderID>
     <Script>
 _tModifierWindowPresets =
 {

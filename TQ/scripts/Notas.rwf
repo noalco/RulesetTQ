@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Notas</ScriptName>
-    <FolderID>15</FolderID>
+    <FolderID>8</FolderID>
     <Script>--function ModificarNumMentiras1(window, nSelf)
 --	local nNumMentiras=window.NumMentiras.getValue();
 --	Debug.chat(nSelf);

@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>mi_char_invlist</ScriptName>
-    <FolderID>13</FolderID>
+    <FolderID>6</FolderID>
     <Script>-- 
 -- Please see the license.html file included with this distribution for 
 -- attribution and copyright information.

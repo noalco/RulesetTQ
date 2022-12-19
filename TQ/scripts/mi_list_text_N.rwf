@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>mi_list_text_N</ScriptName>
-    <FolderID>15</FolderID>
+    <FolderID>8</FolderID>
     <Script>-- 
 -- Please see the license.html file included with this distribution for 
 -- attribution and copyright information.

@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Habilidades</ScriptName>
-    <FolderID>11</FolderID>
+    <FolderID>4</FolderID>
     <Script>DatosHabilidades = {
 	["Arma CC"]={nombre="Arma CC", tooltip="AGI", repetible=true, secundario=true, gratuito=0, base="AGI", estorbo=false, multEstorbo=0},
 	["Arma Pr"]={nombre="Arma Pr", tooltip="TEC", repetible=true, secundario=true, gratuito=0, base="TEC", estorbo=false, multEstorbo=0},

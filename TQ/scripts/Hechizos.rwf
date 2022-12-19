@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Hechizos</ScriptName>
-    <FolderID>19</FolderID>
+    <FolderID>12</FolderID>
     <Script>function InizializarPM(window)
 	local nMin=DB.getValue(window.getDatabaseNode(), "MinPuntosMagia", 0);
 	local nMax=DB.getValue(window.getDatabaseNode(), "MaxPuntosMagia", 0);

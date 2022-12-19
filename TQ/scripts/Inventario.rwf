@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Inventario</ScriptName>
-    <FolderID>13</FolderID>
+    <FolderID>6</FolderID>
     <Script>CteObjeto = 1;
 CteLibro = 2;
 CtePocionVeneno = 3;

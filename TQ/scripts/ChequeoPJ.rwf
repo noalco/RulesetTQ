@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>ChequeoPJ</ScriptName>
-    <FolderID>21</FolderID>
+    <FolderID>14</FolderID>
     <Script>PartesCompletadas = {
 	["Estadísticas"] = {
 		["ErrorEtnia"] = true,
