@@ -34,21 +34,23 @@ CteArrojadizaDosManos="7";
 CteUnaManoArrojadiza="8";
 
 function CalcularPesoTotal(window)
-	nPesoTotal=0; local nCount; local nCarried; local nWeight; local nMult;
-	for _,nodoItem in pairs(DB.getChildren(window.getDatabaseNode().getParent())) do
-		nCount=DB.getValue(nodoItem, "count", 0);
-		nCarried=DB.getValue(nodoItem, "carried", 0);
-		nWeight=DB.getValue(nodoItem, "weight", 0);
-		-- Las armaduras pesan el doble si no van equipadas
-		if DB.getValue(nodoItem, "TipoObjeto", "") == CteArmadura and nCarried==1 then nMult=2;
-		else nMult=1;
+	if window and window.getDatabaseNode then
+		nPesoTotal=0; local nCount; local nCarried; local nWeight; local nMult;
+		for _,nodoItem in pairs(DB.getChildren(window.getDatabaseNode().getParent())) do
+			nCount=DB.getValue(nodoItem, "count", 0);
+			nCarried=DB.getValue(nodoItem, "carried", 0);
+			nWeight=DB.getValue(nodoItem, "weight", 0);
+			-- Las armaduras pesan el doble si no van equipadas
+			if DB.getValue(nodoItem, "TipoObjeto", "") == CteArmadura and nCarried==1 then nMult=2;
+			else nMult=1;
+			end
+			if nCarried&gt;0 and nWeight&gt;=0.3 then
+				nPesoTotal=nPesoTotal+nCount*nWeight*nMult;
+			end
 		end
-		if nCarried&gt;0 and nWeight&gt;=0.3 then
-			nPesoTotal=nPesoTotal+nCount*nWeight*nMult;
-		end
-	end;
-	DB.setValue(window.getDatabaseNode(), "...encumbranceload", "number", nPesoTotal);
-end;
+		DB.setValue(window.getDatabaseNode(), "...encumbranceload", "number", nPesoTotal);
+	end
+end
 
 function AniadirArmadura(window)
 	if DB.getValue(window.getDatabaseNode(), "TipoObjeto", "")==CteArmadura then
