@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>ResolucionCombate</ScriptName>
-    <FolderID>33</FolderID>
+    <FolderID>26</FolderID>
     <Script>tMeles={}
 tContadores={}
 tResultados={}

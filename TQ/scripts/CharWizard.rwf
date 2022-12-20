@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>CharWizard</ScriptName>
-    <FolderID>21</FolderID>
+    <FolderID>14</FolderID>
     <Script>local Ventana;
 
 bQuitarRestricciones=false;

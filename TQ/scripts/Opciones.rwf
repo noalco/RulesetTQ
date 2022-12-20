@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Opciones</ScriptName>
-    <FolderID>35</FolderID>
+    <FolderID>28</FolderID>
     <Script>function onInit()
 	registerOptions();
 end

@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>DataCommon</ScriptName>
-    <FolderID>30</FolderID>
+    <FolderID>23</FolderID>
     <Script>skilldata = {
 	-- Armas CC
 	"Armas CC",

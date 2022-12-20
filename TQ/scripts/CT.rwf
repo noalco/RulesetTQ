@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>CT</ScriptName>
-    <FolderID>33</FolderID>
+    <FolderID>26</FolderID>
     <Script>function Comparar(nodo1, nodo2)
 	local nMente1=DB.getValue(nodo1, "Mente", 3);
 	local nMente2=DB.getValue(nodo2, "Mente", 3);

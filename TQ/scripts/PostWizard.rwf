@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>PostWizard</ScriptName>
-    <FolderID>21</FolderID>
+    <FolderID>14</FolderID>
     <Script>function BuscarVentDesv(wWizard, sVentDesv)
 	if wWizard and sVentDesv then
 		return wWizard.SubventanaWizardPP.subwindow.NombreVentDesv1.getValue():lower():match(sVentDesv:lower())~=nil or

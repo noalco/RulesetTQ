@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>Utilidades</ScriptName>
-    <FolderID>21</FolderID>
+    <FolderID>14</FolderID>
     <Script>function LeerValorRegistro(sRecord, sCampo)
 	local sPathName="";
 	if string.find(sRecord, "@") then

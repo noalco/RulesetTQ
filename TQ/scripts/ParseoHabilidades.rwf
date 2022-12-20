@@ -1,7 +1,7 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <Scripts>
     <ScriptName>ParseoHabilidades</ScriptName>
-    <FolderID>21</FolderID>
+    <FolderID>14</FolderID>
     <Script>Habilidad2Clave = {
 	["arma cc"]="Arma CC",
 	["arma pr"]="Arma Pr",
