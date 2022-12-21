@@ -878,7 +878,7 @@ end</LUACode>
       {"Name":"CustomClassName","Value":{"@xsi:type":"xsd:string","#text":"boton_nueva_ventana"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty","CustomProperty":{"PropertyName":"class","PropertyValue":"VentanaDetallesMeles","PropertyAttributes":null}}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
@@ -909,8 +909,8 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Detalles de las melés en curso"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"355"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"42"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"28"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"72"}}
 ]}}</Definition>
     <LUACode>--function onClickRelease(button, x, y)
 --    local tMeles=ResolucionCombate.tMeles;
@@ -1101,7 +1101,7 @@ end</LUACode>
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"GMEditOnly"},
       {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
@@ -1125,8 +1125,8 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Marca esta casilla para gastar dos Puntos de Infortunio y que tu próxima tirada use dos dados"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"469"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"43"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"372"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"45"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1357,19 +1357,19 @@ end</LUACode>
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"20"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"29"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"66"}},
       {"Name":"Disabled"},
       {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"FrameName"},
       {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
       {"Name":"Invisible"},
-      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"P. I."}},
+      {"Name":"LabelCaption","Value":{"@xsi:type":"xsd:string","#text":"Infortunio"}},
       {"Name":"MaximumHeight"},
       {"Name":"MaximumWidth"},
       {"Name":"Merge"},
@@ -1387,8 +1387,8 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Puntos de Infortunio"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"389"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"43"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"391"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"45"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
@@ -1774,7 +1774,7 @@ end
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"60"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"30"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":null,"UseModStack":{"@xsi:nil":"true"},"ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
       {"Name":"DisplaySign"},
@@ -1786,7 +1786,7 @@ end
       {"Name":"GMVisibleOnly"},
       {"Name":"HideOnValue"},
       {"Name":"HideRollWidget"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"1"}},
       {"Name":"HoverCursor"},
       {"Name":"InheritSizePosition"},
       {"Name":"InsertBefore"},
@@ -1813,8 +1813,8 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Haz doble click para gastar un punto de Infortunio"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"413"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"39"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"455"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"40"}}
 ]}}</Definition>
     <LUACode>function onValueChanged()
 	if getValue()&lt;=1 then
