@@ -1092,7 +1092,7 @@ end</LUACode>
       {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
       {"Name":"ButtonCaption","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"ButtonField","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
-      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition","ButtonStateDefinition":[{"Text":"x2","Tooltip":"Marca esta casilla para lanzar dos dados en la próxima tirada y gastar 2 Puntos de Infortunio","Frame":"buttonup"},{"Text":"x2","Tooltip":"Lanza dos dados en la próxima tirada y gasta 2 Puntos de Infortunio","Frame":"buttondown"}]}},
+      {"Name":"ButtonStateList","Value":{"@xsi:type":"ArrayOfButtonStateDefinition","ButtonStateDefinition":[{"Text":"x2","Tooltip":"Pulsa para lanzar dos dados en la próxima tirada y gastar 2 Puntos de Infortunio","Frame":"buttonup"},{"Text":"x2","Tooltip":"Lanzará dos dados en la próxima tirada y gastará 2 Puntos de Infortunio","Frame":"buttondown"}]}},
       {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"DosPuntosInfortunio"}},
       {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
       {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty"}},
