@@ -1,87 +1,6 @@
 <DocumentElement xmlns="http://tempuri.org/Ruleset.xsd">
   <WindowControls>
     <WindowName>plantillas</WindowName>
-    <ControlName>CustomControl1</ControlName>
-    <ZIndex>4</ZIndex>
-    <ControlClass>FGCustomControl</ControlClass>
-    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
-      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
-      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"CanGrowVert"},
-      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"CustomControl1"}},
-      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
-      {"Name":"CustomClassName","Value":{"@xsi:type":"xsd:string","#text":"numberfield"}},
-      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty","CustomProperty":{"PropertyName":"noreset","PropertyValue":null,"PropertyAttributes":null}}},
-      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"40"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
-      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
-      {"Name":"Disabled"},
-      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
-      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"FrameName"},
-      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
-      {"Name":"GMEditOnly"},
-      {"Name":"GMVisibleOnly"},
-      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"HoverCursor"},
-      {"Name":"InheritSizePosition"},
-      {"Name":"InsertBefore"},
-      {"Name":"Invisible"},
-      {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
-      {"Name":"Merge"},
-      {"Name":"MinimumHeight"},
-      {"Name":"MinimumWidth"},
-      {"Name":"NextTabTarget"},
-      {"Name":"PrevTabTarget"},
-      {"Name":"ReadOnly"},
-      {"Name":"RelativeMargin"},
-      {"Name":"RelativeStacking"},
-      {"Name":"ScriptFile"},
-      {"Name":"Source"},
-      {"Name":"StackVertWith"},
-      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
-      {"Name":"Tooltip"},
-      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string","#text":"number"}},
-      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"487"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"48"}}
-]}}</Definition>
-    <LUACode>function onInit()
-	if rollable or (gmrollable and Session.IsHost) then
-		addBitmapWidget({ icon = "field_rollable", position="bottomleft", x = 5, y = -8 });
-		setHoverCursor("hand");
-	end
-end
-
-function onDrop(x, y, draginfo)
-	if draginfo.getType() ~= "number" then
-		return false;
-	end
-end
-
-function onWheel(n)
-	if isReadOnly() then
-		return false;
-	end
-	
-	if not Input.isControlPressed() then
-		return false;
-	end
-	
-	local mult = 1;
-	if wheel then
-		mult = tonumber(wheel[1]) or 1;
-	end
-	setValue(getValue() + (n * mult));
-	return true;
-end
-</LUACode>
-    <GroupIndex>0</GroupIndex>
-    <Template>number</Template>
-  </WindowControls>
-  <WindowControls>
-    <WindowName>plantillas</WindowName>
     <ControlName>lista_base</ControlName>
     <ZIndex>1</ZIndex>
     <ControlClass>FGWindowList</ControlClass>
@@ -205,6 +124,87 @@ end
     <LUACode />
     <GroupIndex>0</GroupIndex>
     <Template>numero_foco</Template>
+  </WindowControls>
+  <WindowControls>
+    <WindowName>plantillas</WindowName>
+    <ControlName>plantilla_number</ControlName>
+    <ZIndex>3</ZIndex>
+    <ControlClass>FGCustomControl</ControlClass>
+    <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
+      {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
+      {"Name":"BackgroundColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"CanGrowVert"},
+      {"Name":"ControlName","Value":{"@xsi:type":"xsd:string","#text":"plantilla_number"}},
+      {"Name":"CustomAnchoring","Value":{"@xsi:type":"ArrayOfAnchorDefinition"}},
+      {"Name":"CustomClassName","Value":{"@xsi:type":"xsd:string","#text":"numberfield"}},
+      {"Name":"CustomProperties","Value":{"@xsi:type":"ArrayOfCustomProperty","CustomProperty":{"PropertyName":"noreset","PropertyValue":null,"PropertyAttributes":null}}},
+      {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"40"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
+      {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
+      {"Name":"Disabled"},
+      {"Name":"FontColor","Value":{"@xsi:type":"xsd:string","#text":"0;0;0;0"}},
+      {"Name":"FontName","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"FrameName"},
+      {"Name":"FrameOffset","Value":{"@xsi:type":"xsd:string"}},
+      {"Name":"GMEditOnly"},
+      {"Name":"GMVisibleOnly"},
+      {"Name":"HorizontalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"HoverCursor"},
+      {"Name":"InheritSizePosition","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"InsertBefore"},
+      {"Name":"Invisible"},
+      {"Name":"MaximumHeight"},
+      {"Name":"MaximumWidth"},
+      {"Name":"Merge"},
+      {"Name":"MinimumHeight"},
+      {"Name":"MinimumWidth"},
+      {"Name":"NextTabTarget"},
+      {"Name":"PrevTabTarget"},
+      {"Name":"ReadOnly"},
+      {"Name":"RelativeMargin"},
+      {"Name":"RelativeStacking"},
+      {"Name":"ScriptFile"},
+      {"Name":"Source"},
+      {"Name":"StackVertWith"},
+      {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
+      {"Name":"Tooltip"},
+      {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string","#text":"number"}},
+      {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"487"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"48"}}
+]}}</Definition>
+    <LUACode>function onInit()
+	if rollable or (gmrollable and Session.IsHost) then
+		addBitmapWidget({ icon = "field_rollable", position="bottomleft", x = 5, y = -8 });
+		setHoverCursor("hand");
+	end
+end
+
+function onDrop(x, y, draginfo)
+	if draginfo.getType() ~= "number" then
+		return false;
+	end
+end
+
+function onWheel(n)
+	if isReadOnly() then
+		return false;
+	end
+	
+	if not Input.isControlPressed() then
+		return false;
+	end
+	
+	local mult = 1;
+	if wheel then
+		mult = tonumber(wheel[1]) or 1;
+	end
+	setValue(getValue() + (n * mult));
+	return true;
+end
+</LUACode>
+    <GroupIndex>0</GroupIndex>
+    <Template>number</Template>
   </WindowControls>
   <WindowControls>
     <WindowName>plantillas</WindowName>
