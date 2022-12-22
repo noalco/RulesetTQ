@@ -75,16 +75,19 @@ function AtaqueCC(rSource, rTarget, rRoll)
 	if DB.getValue("combattracker.AtaqueMele", 0)==0 then
 		local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
 		rMessage.text = rMessage.text:gsub("%[Ataque%]", "[Ataque CC]");
+		local sArma=rMessage.text:match("%]%s*([%a%sñÑáÁéÉíÍóÓúÚ]*)")
+		while sArma:sub(-1)==" " do sArma=sArma:sub(1, -2); end
+
 		if rSource and rSource["sCTNode"] and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&gt;0 and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&lt;7 and DB.getValue(rSource["sCTNode"]..".Fase", 0)==2 then
 			-- Ataque en melé de fase 2
 			rMessage.text = "[TIRADA ENFRENTADA EN MELÉ "..DB.getValue(rSource["sCTNode"]..".IDMele", 0).." DE LA FASE 2]\n"..rMessage.text;
 			Comm.deliverChatMessage(rMessage);
-			AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele", 0), rRoll);
+			AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele", 0), rRoll, sArma);
 		elseif rSource and rSource["sCTNode"] and DB.getValue(rSource["sCTNode"]..".IDMele3", 0)&gt;6 and DB.getValue(rSource["sCTNode"]..".IDMele3", 0)&lt;13 and DB.getValue(rSource["sCTNode"]..".Fase", 0)==3 then
 			-- Ataque en melé de fase 3
-			rMessage.text = "[TIRADA ENFRENTADA EN MELÉ "..DB.getValue(rSource["sCTNode"]..".IDMele3", 0).." DE LA FASE 3]\n"..rMessage.text;
+			rMessage.text = "[TIRADA ENFRENTADA EN MELÉ "..(DB.getValue(rSource["sCTNode"]..".IDMele3", 0)-5).." DE LA FASE 3]\n"..rMessage.text;
 			Comm.deliverChatMessage(rMessage);
-			AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele3", 0), rRoll);
+			AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele3", 0), rRoll, sArma);
 		else
 			-- No está en melé -&gt; Golpe aislado
 			ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerEsquivar(rTarget), "Esquivar", "[Ataque CC]");
@@ -116,9 +119,8 @@ function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad, sHabilidad, s
 		local sNombreDefensor=ObtenerNombre(rTarget);
 		
 		if nResultado&gt;0 then
-			Debug.chat(rSource and rSource.sCTNode, rSource and rSource.sCreatureNode)
 			if rSource and rSource.sCTNode then AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, nResultado);
-			elseif rSource and rSource.sCreatureNode then Debug.chat(rSource.sCreatureNode);AniadirResultadoAtaque(rSource.sCreatureNode, rTarget.sCTNode, nResultado);
+			elseif rSource and rSource.sCreatureNode then AniadirResultadoAtaque(rSource.sCreatureNode, rTarget.sCTNode, nResultado);
 			end
 			if nResultado&gt;=10 then
 				local nNumGolpesEpicos=math.floor((nResultado-5)/5);
@@ -193,10 +195,10 @@ function CrearMeles()
 				tContadores[nMele]={nAtaques=0, nAliados=0, nEnemigos=0};
 			end
 			if DB.getValue(nodoCT, "friendfoe", "")=="foe" then
-				table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=false, bPosiblePifia=false});
+				table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=false, bPosiblePifia=false, sArma=""});
 				tContadores[nMele].nEnemigos=tContadores[nMele].nEnemigos+1;
 			else
-				table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=true, bPosiblePifia=false});
+				table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=true, bPosiblePifia=false, sArma=""});
 				tContadores[nMele].nAliados=tContadores[nMele].nAliados+1;
 			end
 		end
@@ -207,10 +209,10 @@ function CrearMeles()
 				tContadores[nMele]={nAtaques=0, nAliados=0, nEnemigos=0};
 			end
 			if DB.getValue(nodoCT, "friendfoe", "")=="foe" then
-				table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=false, bPosiblePifia=false});
+				table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=false, bPosiblePifia=false, sArma=""});
 				tContadores[nMele].nEnemigos=tContadores[nMele].nEnemigos+1;
 			else
-				table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=true, bPosiblePifia=false});
+				table.insert(tMeles[nMele], {PathNodo=nodoCT.getPath(), nTirada=0, bTirada=false, bEsAliado=true, bPosiblePifia=false, sArma=""});
 				tContadores[nMele].nAliados=tContadores[nMele].nAliados+1;
 			end
 		end
@@ -233,7 +235,7 @@ function CalcularPenalizadores()
 	end
 end
 
-function AniadirAtaqueAMele(nodoCT, nMele, rRoll)
+function AniadirAtaqueAMele(nodoCT, nMele, rRoll, sArma)
 	if nMele&gt;0 then
 		if not tMeles[nMele] then
 			tMeles[nMele]={};
@@ -242,6 +244,7 @@ function AniadirAtaqueAMele(nodoCT, nMele, rRoll)
 		for i,_ in pairs(tMeles[nMele]) do
 			if tMeles[nMele][i].PathNodo==nodoCT then
 				tMeles[nMele][i].nTirada=ActionsManager.total(rRoll);
+				tMeles[nMele][i].sArma=sArma;
 				-- Posible pifia si sale un 1 en un dado o dos unos en dos dados
 				tMeles[nMele][i].bPosiblePifia=PosiblePifia(rRoll);--#rRoll.aDice==tMeles[nMele][i].nTirada-rRoll.nBonuses;
 				if not tMeles[nMele][i].bTirada then
@@ -407,7 +410,7 @@ function ProcesarMele(nMele)
 					if nResultado&gt;0 then
 						--Debug.chat(DB.getValue(tAliados[i].PathNodo..".name", "").." golpea a "..sNombreEnemigo.." con "..nResultado.." éxitos");
 						AniadirResultadoAtaque(tAliados[i].PathNodo, tEnemigos[j].PathNodo, nResultado);
-						rMessage.text = DB.getValue(tAliados[i].PathNodo..".name", "").." golpea a "..sNombreEnemigo.." con "..nResultado.." éxitos";
+						rMessage.text = DB.getValue(tAliados[i].PathNodo..".name", "").." golpea a "..sNombreEnemigo.." con "..tAliados[i].sArma.." consiguiendo "..nResultado.." éxitos";
 						if nResultado&gt;=10 then
 							rMessage.icon = "roll_attack_crit";
 						else
@@ -422,7 +425,7 @@ function ProcesarMele(nMele)
 					elseif nResultado&lt;0 then
 						--Debug.chat(sNombreEnemigo.." golpea a "..DB.getValue(tAliados[i].PathNodo..".name", "").." con "..(-1*nResultado).." éxitos");
 						AniadirResultadoAtaque(tEnemigos[j].PathNodo, tAliados[i].PathNodo, -1*nResultado);
-						rMessage.text = sNombreEnemigo.." golpea a "..DB.getValue(tAliados[i].PathNodo..".name", "").." con "..(-1*nResultado).." éxitos";
+						rMessage.text = sNombreEnemigo.." golpea a "..DB.getValue(tAliados[i].PathNodo..".name", "").." con "..tEnemigos[j].sArma.." consiguiendo "..(-1*nResultado).." éxitos";
 						if nResultado&lt;=-10 then
 							rMessage.icon = "roll_attack_crit";
 						else
@@ -711,7 +714,6 @@ function ObtenerDificultadDistancia(rSource, rTarget)
 	if bDesprevenido then return CDDistancia, "Rando de distancia";
 	else
 		local nEsquivar=ObtenerEsquivar(rTarget);
-		Debug.chat(CDDistancia, nEsquivar)
 		if nEsquivar and CDDistancia then
 			if CDDistancia&gt;nEsquivar then return CDDistancia, "Rando de distancia";
 			else return nEsquivar, "Esquivar";
@@ -758,7 +760,6 @@ function EsArrojadiza(rSource, sDesc)
 	if sDesc then
 		local sArma=sDesc:lower():match("%]%s*([%a%sñÑáÁéÉíÍóÓúÚ]*)")
 		while sArma:sub(-1)==" " do sArma=sArma:sub(1, -2); end
-		Debug.chat(sDesc, sArma);
 		if sArma and sArma~="" then
 			if tArmasArrojadizas[sArma] then
 				if tArmasArrojadizas[sArma]==1 then
@@ -973,7 +974,6 @@ function ObtenerTipoDanio(sArma, bAlt, bAr)
 		elseif tTiposDanioArmas[sArma] then return tTiposDanioArmas[sArma];
 		else
 			local aPalabras = StringManager.split(sArma, "%s", true);
-			Debug.chat(aPalabras)
 			if #aPalabras&gt;1 and tTiposDanioArmas[aPalabras[1]] then return tTiposDanioArmas[aPalabras[1]];
 			else return "";
 			end
