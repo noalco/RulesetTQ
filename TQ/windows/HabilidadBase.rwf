@@ -244,6 +244,7 @@ end
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
+      {"Name":"Source"},
       {"Name":"StackVertWith"},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string","#text":"Transforma puntos de experiencia en puntos de habilidad."}},
@@ -888,10 +889,14 @@ function onValueChanged()
 end
 
 function GenerarMensaje()
+	local sSinEntrenar="";
+	if DB.getValue(window.getDatabaseNode(), "PtosGratis", 0)==0 and DB.getValue(window.getDatabaseNode(), "Bono", 0)==0 and (window.BaseHabilidad.getValue()=="CUL" or window.BaseHabilidad.getValue()=="TEC") then
+		sSinEntrenar=" [Sin entrenar]";
+	end
 	if window.Secundario.getValue()=="" then
-		return "["..Habilidades.DatosHabilidades[window.ClaveHabilidad.getValue()].nombre.."]";
+		return "["..Habilidades.DatosHabilidades[window.ClaveHabilidad.getValue()].nombre.."]"..sSinEntrenar;
 	else
-		return "["..Habilidades.DatosHabilidades[window.ClaveHabilidad.getValue()].nombre..": "..window.Secundario.getValue().."]";
+		return "["..Habilidades.DatosHabilidades[window.ClaveHabilidad.getValue()].nombre..": "..window.Secundario.getValue().."]"..sSinEntrenar;
 	end
 end</LUACode>
     <GroupIndex>0</GroupIndex>
@@ -944,6 +949,7 @@ end</LUACode>
       {"Name":"RelativeMargin"},
       {"Name":"RelativeStacking"},
       {"Name":"ScriptFile"},
+      {"Name":"Source"},
       {"Name":"StackVertWith"},
       {"Name":"StateFrames","Value":{"@xsi:type":"ArrayOfStateFrame"}},
       {"Name":"Tooltip"},

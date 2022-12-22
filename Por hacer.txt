@@ -13,7 +13,6 @@ Principal:
 Habilidades:
 	- Habilidades custom
 		- Ventana para crear una nueva habilidad
-	- ¿Informar de las tiradas de habilidades de cultura y técnica sin entrenamiento?
 	
 Inventario
 	- Botón identificar en los objetos
