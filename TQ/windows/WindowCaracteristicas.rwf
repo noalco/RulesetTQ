@@ -328,6 +328,7 @@ end;
 
 function onInit()
 	onValueChanged();
+	super.onInit()
 end</LUACode>
     <GroupIndex>0</GroupIndex>
     <Template />

@@ -1,7 +1,5 @@
 Sugerencias Psico y Eldarc:
-	- Buscar ruleset de la forja del rey demonio para el CT
 	- Iconos de objetos
-	- Cambiar la duración de los conjuros a desplegable o ciclo y, si se mostrara otra duración, q muestre el campo numérico
 	
 - Bugs:
 
@@ -47,9 +45,7 @@ CT:
 	- Añadir el penalizador por múltiples enemigos si el ataque es de una melé (ahora se aplica a todos los ataques)
 	- Limitar armas CC como arrojadizas por lanzar cuando se usan a distancia
 	- Calcular la distancia entre tokens en el mapa
-	- En las melés, poner en el mensaje el arma utilizada
-	- En los ataques con CD, mostrar la dificultad
-	- Cliente
+	- CT Cliente
 	
 Exportar:
 	- Permitir exportar elementos individuales
