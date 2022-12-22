@@ -65,7 +65,8 @@ function Ataque(rSource, rTarget, rRoll)
 		AtaqueCC(rSource, rTarget, rRoll);
 	else
 --		AtaqueDistancia(rSource, rTarget, rRoll);
-		ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerDificultadDistancia(rSource, rTarget), "[Ataque a Distancia]");
+		local nDificultad, sHabilidad=ObtenerDificultadDistancia(rSource, rTarget)
+		ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad, sHabilidad, "[Ataque a Distancia]");
 		ProcesarMultipleTargeting(rSource, rTarget);
 	end
 end
@@ -86,18 +87,18 @@ function AtaqueCC(rSource, rTarget, rRoll)
 			AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele3", 0), rRoll);
 		else
 			-- No está en melé -&gt; Golpe aislado
-			ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerEsquivar(rTarget), "[Ataque CC]");
+			ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerEsquivar(rTarget), "Esquivar", "[Ataque CC]");
 			ProcesarMultipleTargeting(rSource, rTarget);
 		end
 	else
 		-- Golpe aislado
 --		ProcesarGolpeAislado(rSource, rTarget, rRoll, rMessage)
-		ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerEsquivar(rTarget), "[Ataque CC]");
+		ProcesarAtaqueConCD(rSource, rTarget, rRoll, ObtenerEsquivar(rTarget), "Esquivar", "[Ataque CC]");
 		ProcesarMultipleTargeting(rSource, rTarget);
 	end
 end
 
-function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad, sAtaque)
+function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad, sHabilidad, sAtaque)
 	if rTarget and rRoll then
 		nNumAtaques=nNumAtaques+1;
 		local rMessageAtaque;
@@ -141,6 +142,9 @@ function ProcesarAtaqueConCD(rSource, rTarget, rRoll, nDificultad, sAtaque)
 			AniadirResultadoAtaque(rSource.sCTNode, rTarget.sCTNode, -10000);
 		end
 		if rSource then Comm.deliverChatMessage(rMessageAtaque); end
+		if sHabilidad and sHabilidad~="" then
+			rMessageResultado.text = rMessageResultado.text.." ["..ActionsManager.total(rRoll).." vs "..nDificultad.." ("..sHabilidad..")]";
+		end
 		Comm.deliverChatMessage(rMessageResultado);
 	elseif rRoll and rSource then
 		local rMessageAtaque = ActionsManager.createActionMessage(rSource, rRoll);
@@ -676,7 +680,7 @@ function ObtenerEsquivar(rTarget)
 			local sHabilidades=DB.getValue(rTarget.sCTNode..".Habilidades", "");
 			if sHabilidades~="" then
 				local nEsquivar=sHabilidades:lower():match("esquivar (%d*)");
-				if nEsquivar then return nEsquivar; end
+				if nEsquivar then return tonumber(nEsquivar); end
 			end
 			-- O no hay habilidades o esquivar no está presente -&gt; 1+AGI-Est.
 			return 1+DB.getValue(rTarget.sCTNode..".Agilidad", 0)-DB.getValue(rTarget.sCTNode..".Estorbo", "");
@@ -703,13 +707,18 @@ function ObtenerDificultadDistancia(rSource, rTarget)
 	else
 		CDDistancia=tonumber(DB.getValue("combattracker.Distanciavalue", 0))
 	end
-	if bDesprevenido then return CDDistancia;
+	
+	if bDesprevenido then return CDDistancia, "Rando de distancia";
 	else
 		local nEsquivar=ObtenerEsquivar(rTarget);
-		if nEsquivar and CDDistancia then return math.max(CDDistancia, nEsquivar);
-		elseif CDDistancia then return CDDistancia;
-		elseif nEsquivar then return nEsquivar;
-		else return 10;
+		Debug.chat(CDDistancia, nEsquivar)
+		if nEsquivar and CDDistancia then
+			if CDDistancia&gt;nEsquivar then return CDDistancia, "Rando de distancia";
+			else return nEsquivar, "Esquivar";
+			end
+		elseif CDDistancia then return CDDistancia, "Rando de distancia";
+		elseif nEsquivar then return nEsquivar, "Esquivar";
+		else return 10, "";
 		end
 	end
 end
