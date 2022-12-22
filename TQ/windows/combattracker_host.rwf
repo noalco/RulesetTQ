@@ -877,7 +877,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>combattracker_host</WindowName>
     <ControlName>DetallesMeles</ControlName>
-    <ZIndex>29</ZIndex>
+    <ZIndex>28</ZIndex>
     <ControlClass>FGCustomControl</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1093,7 +1093,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>combattracker_host</WindowName>
     <ControlName>DosPuntosInfortunio</ControlName>
-    <ZIndex>30</ZIndex>
+    <ZIndex>29</ZIndex>
     <ControlClass>FGButton</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
@@ -1362,7 +1362,7 @@ end</LUACode>
   <WindowControls>
     <WindowName>combattracker_host</WindowName>
     <ControlName>Label2</ControlName>
-    <ZIndex>28</ZIndex>
+    <ZIndex>27</ZIndex>
     <ControlClass>FGLabel</ControlClass>
     <Definition>{"ArrayOfFGControlPropertyInfo":{"@xmlns:xsd":"http://www.w3.org/2001/XMLSchema","@xmlns:xsi":"http://www.w3.org/2001/XMLSchema-instance","FGControlPropertyInfo":[
       {"Name":"AdvancedAnchoring","Value":{"@xsi:type":"ArrayOfAdvancedAnchor"}},
