@@ -865,6 +865,8 @@ end</LUACode>
 	addSourceWithOp("BonoEtnia", "+");
 	addSourceWithOp("BonoCulto", "+");
 	addSourceWithOp("BonoBaseHabilidad", "+");
+	addSourceWithOp("BonoVentDesvent", "+");
+	addSourceWithOp("BonoMisc", "+");
 	addSourceWithOp("EstorboTotal", "-");
 	addSourceWithOp("Bono", "+");
 	if window.ClaveHabilidad.getValue()=="Artesania" then
@@ -890,7 +892,8 @@ end
 
 function GenerarMensaje()
 	local sSinEntrenar="";
-	if DB.getValue(window.getDatabaseNode(), "PtosGratis", 0)==0 and DB.getValue(window.getDatabaseNode(), "Bono", 0)==0 and (window.BaseHabilidad.getValue()=="CUL" or window.BaseHabilidad.getValue()=="TEC") then
+	if DB.getValue(window.getDatabaseNode(), "PtosGratis", 0)==0 and DB.getValue(window.getDatabaseNode(), "Bono", 0)==0 
+	DB.getValue(window.getDatabaseNode(), "BonoEtnia", 0)==0 and DB.getValue(window.getDatabaseNode(), "BonoCulto", 0)==0 and DB.getValue(window.getDatabaseNode(), "BonoVentDesvent", 0)==0 and DB.getValue(window.getDatabaseNode(), "BonoMisc", 0)==0 and (window.BaseHabilidad.getValue()=="CUL" or window.BaseHabilidad.getValue()=="TEC") then
 		sSinEntrenar=" [Sin entrenar]";
 	end
 	if window.Secundario.getValue()=="" then

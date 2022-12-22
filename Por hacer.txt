@@ -45,6 +45,7 @@ CT:
 	- Limitar armas CC como arrojadizas por lanzar cuando se usan a distancia
 	- Calcular la distancia entre tokens en el mapa
 	- CT Cliente
+	- Checkbox para combate montado
 	
 Exportar:
 	- Permitir exportar elementos individuales
