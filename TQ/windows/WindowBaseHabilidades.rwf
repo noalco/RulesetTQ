@@ -55,7 +55,7 @@
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"134"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"136"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"30"}}
 ]}}</Definition>
     <LUACode>function onInit()
@@ -94,7 +94,7 @@ end</LUACode>
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"29"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":null,"DiceRollDescription":null,"UseModStack":"true","ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -134,7 +134,7 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"95"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"97"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"30"}}
 ]}}</Definition>
     <LUACode />
@@ -157,7 +157,7 @@ end</LUACode>
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"29"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":null,"DiceRollDescription":null,"UseModStack":"true","ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -197,7 +197,7 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"95"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"97"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"55"}}
 ]}}</Definition>
     <LUACode>--function onValueChanged()
@@ -223,7 +223,7 @@ end</LUACode>
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"29"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":null,"DiceRollDescription":null,"UseModStack":"true","ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -263,7 +263,7 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"95"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"97"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"80"}}
 ]}}</Definition>
     <LUACode />
@@ -286,7 +286,7 @@ end</LUACode>
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"29"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":null,"DiceRollDescription":null,"UseModStack":"true","ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -326,7 +326,7 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"95"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"97"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"105"}}
 ]}}</Definition>
     <LUACode>--function onValueChanged()
@@ -352,7 +352,7 @@ end</LUACode>
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"29"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":null,"DiceRollDescription":null,"UseModStack":"true","ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -392,7 +392,7 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"95"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"97"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"130"}}
 ]}}</Definition>
     <LUACode>--function onValueChanged()
@@ -418,7 +418,7 @@ end</LUACode>
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"29"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":null,"DiceRollDescription":null,"UseModStack":"true","ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -458,7 +458,7 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"95"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"97"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"156"}}
 ]}}</Definition>
     <LUACode>--function onValueChanged()
@@ -484,7 +484,7 @@ end</LUACode>
       {"Name":"DelayKeyUpdate"},
       {"Name":"DescriptionText"},
       {"Name":"DesignerHeight","Value":{"@xsi:type":"xsd:int","#text":"29"}},
-      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
+      {"Name":"DesignerLocked","Value":{"@xsi:type":"xsd:boolean","#text":"false"}},
       {"Name":"DesignerWidth","Value":{"@xsi:type":"xsd:int","#text":"40"}},
       {"Name":"DiceRoll","Value":{"@xsi:type":"PropertyDiceRoll","DiceRollString":null,"DiceRollDescription":null,"UseModStack":"true","ResetModStack":{"@xsi:nil":"true"},"SecretRoll":{"@xsi:nil":"true"},"AllowDragDrop":"true","AdditionalInfo":null}},
       {"Name":"Disabled"},
@@ -524,7 +524,7 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"95"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"97"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"181"}}
 ]}}</Definition>
     <LUACode>--function onValueChanged()
@@ -590,7 +590,7 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"134"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"136"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"55"}}
 ]}}</Definition>
     <LUACode>function onInit()
@@ -663,7 +663,7 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"134"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"136"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"80"}}
 ]}}</Definition>
     <LUACode>function onInit()
@@ -735,7 +735,7 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"134"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"136"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"105"}}
 ]}}</Definition>
     <LUACode>function onInit()
@@ -808,7 +808,7 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"134"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"136"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"130"}}
 ]}}</Definition>
     <LUACode>function onInit()
@@ -1616,7 +1616,7 @@ end
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"134"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"136"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"154"}}
 ]}}</Definition>
     <LUACode>function onInit()
@@ -1688,7 +1688,7 @@ end</LUACode>
       {"Name":"Tooltip","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"134"}},
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"136"}},
       {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"180"}}
 ]}}</Definition>
     <LUACode>function onInit()
