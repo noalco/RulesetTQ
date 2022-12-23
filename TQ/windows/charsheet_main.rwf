@@ -24,10 +24,10 @@
       {"Name":"Invisible","Value":{"@xsi:type":"xsd:boolean","#text":"true"}},
       {"Name":"Locked"},
       {"Name":"MaximumHeight"},
-      {"Name":"MaximumWidth"},
+      {"Name":"MaximumWidth","Value":{"@xsi:type":"xsd:int","#text":"583"}},
       {"Name":"MergeWindow"},
       {"Name":"MinimizedIcon"},
-      {"Name":"MinimumHeight","Value":{"@xsi:type":"xsd:int","#text":"590"}},
+      {"Name":"MinimumHeight","Value":{"@xsi:type":"xsd:int","#text":"583"}},
       {"Name":"MinimumWidth","Value":{"@xsi:type":"xsd:int","#text":"529"}},
       {"Name":"NoClose"},
       {"Name":"NoDelete"},
@@ -161,8 +161,8 @@
       {"Name":"Tooltip"},
       {"Name":"UseAsTemplate","Value":{"@xsi:type":"xsd:string"}},
       {"Name":"VerticalAnchor","Value":{"@xsi:type":"xsd:int","#text":"0"}},
-      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"226"}},
-      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"3"}}
+      {"Name":"XPos","Value":{"@xsi:type":"xsd:int","#text":"217"}},
+      {"Name":"YPos","Value":{"@xsi:type":"xsd:int","#text":"5"}}
 ]}}</Definition>
     <LUACode />
     <GroupIndex>0</GroupIndex>
