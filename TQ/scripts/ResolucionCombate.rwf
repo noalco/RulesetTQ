@@ -80,12 +80,12 @@ function AtaqueCC(rSource, rTarget, rRoll)
 
 		if rSource and rSource["sCTNode"] and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&gt;0 and DB.getValue(rSource["sCTNode"]..".IDMele", 0)&lt;7 and DB.getValue(rSource["sCTNode"]..".Fase", 0)==2 then
 			-- Ataque en melé de fase 2
-			rMessage.text = "[TIRADA ENFRENTADA EN MELÉ "..DB.getValue(rSource["sCTNode"]..".IDMele", 0).." DE LA FASE 2]\n"..rMessage.text;
+			rMessage.text = "[TIRADA ENFRENTADA - FASE 2 - MELÉ "..DB.getValue(rSource["sCTNode"]..".IDMele", 0).."]\n"..rMessage.text;
 			Comm.deliverChatMessage(rMessage);
 			AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele", 0), rRoll, sArma);
 		elseif rSource and rSource["sCTNode"] and DB.getValue(rSource["sCTNode"]..".IDMele3", 0)&gt;6 and DB.getValue(rSource["sCTNode"]..".IDMele3", 0)&lt;13 and DB.getValue(rSource["sCTNode"]..".Fase", 0)==3 then
 			-- Ataque en melé de fase 3
-			rMessage.text = "[TIRADA ENFRENTADA EN MELÉ "..(DB.getValue(rSource["sCTNode"]..".IDMele3", 0)-5).." DE LA FASE 3]\n"..rMessage.text;
+			rMessage.text = "[TIRADA ENFRENTADA - FASE 3 - MELÉ "..(DB.getValue(rSource["sCTNode"]..".IDMele3", 0)-5).."]\n"..rMessage.text;
 			Comm.deliverChatMessage(rMessage);
 			AniadirAtaqueAMele(rSource["sCTNode"], DB.getValue(rSource["sCTNode"]..".IDMele3", 0), rRoll, sArma);
 		else
