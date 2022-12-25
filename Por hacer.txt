@@ -46,6 +46,7 @@ CT:
 	- Calcular la distancia entre tokens en el mapa
 	- CT Cliente
 	- Checkbox para combate montado
+	- Hechizos
 	
 Exportar:
 	- Permitir exportar elementos individuales
