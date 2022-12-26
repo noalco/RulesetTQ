@@ -20,6 +20,17 @@
 		&lt;/stringfield&gt;
 	&lt;/template&gt;
         
+	&lt;panel name="dicepanel"&gt;
+		&lt;class&gt;dicepanel&lt;/class&gt;
+		&lt;anchored width="50" height="50"&gt;
+			&lt;top anchor="bottom" offset="-105" /&gt;
+			&lt;left offset="215" /&gt;
+		&lt;/anchored&gt;
+		&lt;dynamic /&gt;
+		&lt;locked /&gt;
+	&lt;/panel&gt;
+
+        
 &lt;/root&gt;      
     </XML>
   </XMLFiles>
