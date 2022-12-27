@@ -2,7 +2,10 @@
   <Scripts>
     <ScriptName>ResolucionCombate</ScriptName>
     <FolderID>26</FolderID>
-    <Script>tMeles={}
+    <Script>
+OOB_ATAQUE = "OOB_ATAQUE";
+
+tMeles={}
 tContadores={}
 tResultados={}
 bCCPJ=true;
@@ -12,6 +15,7 @@ function onInit()
 	CrearMeles();
 --	FuncionactionRoll=ActionsManager.actionRoll;
 	ActionsManager.actionRoll=actionRoll;
+	OOBManager.registerOOBMsgHandler(OOB_ATAQUE, AtaqueOOB);
 end
 
 --	***********************************************************************
@@ -58,9 +62,42 @@ function PreAtaque(rSource, aTargeting, rRolls)
 end
 
 function Ataque(rSource, rTarget, rRoll)
+
+	Debug.chat(rRoll);
+	--Debug.chat(rRoll.aDice[1]);
+
+	local msgOOB = {};
+	msgOOB.type = OOB_ATAQUE;
+	msgOOB.rSource = Utility.encodeJSON(rSource);
+	msgOOB.rTarget = Utility.encodeJSON(rTarget);
+	msgOOB.rRoll = Utility.encodeJSON(rRoll);
+	msgOOB.aDice = Utility.encodeJSON(rRoll.aDice);
+	Comm.deliverOOBMessage(msgOOB);
+
+end
+
+function AtaqueOOB(msgOOB)
 --{ s'sType' = s'charsheet', s'sCreatureNode' = s'charsheet.id-00001', s'sCTNode' = s'combattracker.list.id-00010', s'sName' = s'PJ' }
 --{ s'sType' = s'npc', s'sCreatureNode' = s'combattracker.list.id-00003', s'sCTNode' = s'combattracker.list.id-00003', s'sName' = s'Asesino profesional 1' }
 --{ s'nBonuses' = s'9', s'aDice' = { #1 = { s'value' = #8, s'type' = s'd10', s'result' = #8, s'mode' = s'e!' }, s'expr' = s'1d10!+9', s'total' = #17 }, s'nMod' = #0, s'sType' = s'AtaqueRollAction', s'nTotal' = #17, s'bSecret' = bFALSE, s'sDesc' = s'[Ataque] Arco 11 [Arco: 14] [Penalización por FUE: -5]' }
+
+	if not Session.IsHost then
+		return;
+	end;
+
+	local rSource = Utility.decodeJSON(msgOOB.rSource);
+	local rTarget = Utility.decodeJSON(msgOOB.rTarget);
+	local rRoll = Utility.decodeJSON(msgOOB.rRoll);
+	local aDice = Utility.decodeJSON(msgOOB.aDice);
+	--rRoll.aDice = {};
+	local i = 1;
+	while aDice[''..i] do
+		table.insert(rRoll.aDice, aDice[''..i]);
+		i = i + 1;
+	end
+
+	Debug.chat(rRoll);
+
 	if EsAtaqueCC(rSource, rRoll) then
 		AtaqueCC(rSource, rTarget, rRoll);
 	else
