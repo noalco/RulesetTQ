@@ -62,16 +62,14 @@ function PreAtaque(rSource, aTargeting, rRolls)
 end
 
 function Ataque(rSource, rTarget, rRoll)
-
-	Debug.chat(rRoll);
-	--Debug.chat(rRoll.aDice[1]);
-
 	local msgOOB = {};
 	msgOOB.type = OOB_ATAQUE;
-	msgOOB.rSource = Utility.encodeJSON(rSource);
-	msgOOB.rTarget = Utility.encodeJSON(rTarget);
-	msgOOB.rRoll = Utility.encodeJSON(rRoll);
-	msgOOB.aDice = Utility.encodeJSON(rRoll.aDice);
+	if rSource then msgOOB.rSource = Utility.encodeJSON(rSource); end
+	if rTarget then msgOOB.rTarget = Utility.encodeJSON(rTarget); end
+	if rRoll then
+		msgOOB.rRoll = Utility.encodeJSON(rRoll);
+		msgOOB.aDice = Utility.encodeJSON(rRoll.aDice);
+	end
 	Comm.deliverOOBMessage(msgOOB);
 
 end
@@ -85,18 +83,19 @@ function AtaqueOOB(msgOOB)
 		return;
 	end;
 
-	local rSource = Utility.decodeJSON(msgOOB.rSource);
-	local rTarget = Utility.decodeJSON(msgOOB.rTarget);
-	local rRoll = Utility.decodeJSON(msgOOB.rRoll);
-	local aDice = Utility.decodeJSON(msgOOB.aDice);
-	--rRoll.aDice = {};
-	local i = 1;
-	while aDice[''..i] do
-		table.insert(rRoll.aDice, aDice[''..i]);
-		i = i + 1;
+	local rSource; local rTarget; local rRoll; local aDice;
+	
+	if msgOOB.rSource then rSource = Utility.decodeJSON(msgOOB.rSource); end
+	if msgOOB.rTarget then rTarget = Utility.decodeJSON(msgOOB.rTarget); end
+	if msgOOB.rRoll then rRoll = Utility.decodeJSON(msgOOB.rRoll); end
+	if msgOOB.aDice then 
+		aDice = Utility.decodeJSON(msgOOB.aDice);
+		local i = 1;
+		while aDice[''..i] do
+			table.insert(rRoll.aDice, aDice[''..i]);
+			i = i + 1;
+		end
 	end
-
-	Debug.chat(rRoll);
 
 	if EsAtaqueCC(rSource, rRoll) then
 		AtaqueCC(rSource, rTarget, rRoll);
